@@ -1,5 +1,3 @@
-collapse_toc: true
-
 <h1><i class="fas fa-asterisk" style="color:#ff1c3f"></i> Textile <small>learn</small></h1>
 
 Our mission at Textile is to help developers built better technology. The Textile tools, apps, and developer libraries put the user back in control of their digital data, provide end-to-end encryption, and enable encrypted backups of user information. Below are some of the core technology concepts that make Textile work and will help you use our developer libraries, desktop install, and command-line tool. 

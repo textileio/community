@@ -1,4 +1,4 @@
-# Introduction
+<h1><i class="fas fa-asterisk" style="color:#ff1c3f"></i> Textile <small>command-line</small></h1>
 
 Before you jump into using and playing with Textile, you'll need to have a working Textile binary. If you're interested in developing with Textile, you can [[follow these steps|Development-Setup]] to get your development environment setup, otherwise, you can download the latest [binary release](https://github.com/textileio/textile-go/releases):
 
@@ -13,13 +13,17 @@ Where `{release}` and `{os}` are the release (e.g., `v1.0.0`) and operating syst
 
 # Initial Setup
 
-We only really need to do this once, but what we're doing is creating a new Textile _Wallet_, initializing a new _Peer_ with the default Wallet account, and then firing up the Textile _`daemon`_ which will allow us to query and interact with our Peer. You can read more about what exactly these steps are doing throughout this wiki, but for the purposes of this 'getting started' guide, just think of these as one-time initialization steps.
+Create a new Textile _Wallet_, initializing a new _Peer_ with the default Wallet account, and then fire up the Textile _`daemon`_ which will allow us to query and interact with our Peer.
+
+### Create new wallet
 
 ```
 textile wallet init
 ```
 
 Copy the output to a safe/secure place (we recommend something like [1Password](https://1password.com/) or your OS's keychain/keyring system). You’ll need `SECRET SEED` to initialize a new wallet ID:
+
+### Init new peer
 
 ```
 textile init --seed=blahblahblah
@@ -33,6 +37,8 @@ If you want to tail the logs during development so you can see what's going on, 
 tail -f ~/.textile/repo/logs/textile.log
 ```
 
+### Start daemon
+
 Now, we just fire up the `daemon` and you're ready to go:
 
 ```
@@ -41,11 +47,21 @@ textile daemon
 
 If you ever get 'stuck' along the way, or want to learn more about a command or tool that Textile provides you can always call `textile --help`, and any of the textile sub-commands also have their own help entry. For example, to learn more about the `init` command, try `textile init --help`.
 
-# Config
+### Daemon details
 
-The Textile config file is similar in structure and usage to the [IPFS config](https://github.com/ipfs/go-ipfs/blob/master/docs/config.md) file. It is a JSON document located at `<repo-dir>/textile`. It is read once at node instantiation, either for an offline command, or when starting the daemon. Commands that execute on a running daemon _do not_ read the config file at runtime. The various settings control different aspects of a Textile node, from public account information, to API access and functionality, to activity logging and everything in between. Here, we cover each config section in detail, though users are encouraged to explore the Textile commandline tools for further details and information (try `textile config --help` to get started).
+The Textile daemon is a program that runs as a 'background' process (without a terminal or user interface), waiting for Textile events to occur and offering services. It can be accessed via a client (e.g., command-line client), and exposes a number of commands and APIs for interacting with the Textile network and its associated data. Among other services, it provides access to the local Textile datastore and the underlying [IPFS](https://ipfs.io/) peer. In desktop/server environments, Textile provides access to daemon functionality via its local [[REST API|REST-API]] (which in turn is accessible via a [Command-Line](/install) interface). In mobile environments, the daemon is not run, opting instead for direct access to Textile code via a [[Mobile Framework|Mobile-Framework]].
 
-## Account
+Before starting a Textile daemon, the Textile repo must be initialized (see [[Initialization|Getting-Started#Initialization]]). Once initialized, there are multiple options available for customizing how the daemon is configured, accessed, and run (see also `textile daemon --help` for details). By default, a Textile repo is initialized at a user's default home directory (`~/.textile`). Once initialized, all that is required to start the daemon is `textile daemon`. If your repository was initialized in an alternative location, you may use the `--repo-dir` flag to specify where to find the repo. If you initialized your repo with a pin code for datastore encryption, you an specify this when starting your daemon with the `--pin-code` flag. Finally, if you would like to enable debug mode while running your daemon, all textile sub-systems can be set to output debug logs by specifying the `--debug` flag. All log settings may be additionally configured using the `textile logs` sub-command (see [[Command-Line Logs|Command-Line#logs]] for details).
+
+Note that most additional daemon settings are managed by the Textile config file. This includes whether the local Textile API and Gateway are enabled, where logs are output, etc. See [Config-file](/run/Command-Line#config-file) for a comprehensive coverage of config options.
+
+### Config file
+
+The Textile config file is similar in structure and usage to the [IPFS config](https://github.com/ipfs/go-ipfs/blob/master/docs/config.md) file. It is a JSON document located at `<repo-dir>/textile`. It is read once at node instantiation, either for an offline command, or when starting the daemon. Commands that execute on a running daemon _do not_ read the config file at runtime. 
+
+The config file controls different aspects of a Textile node, from public account information, to API access and functionality, to activity logging and everything in between. Here, we cover each config section in detail, though users are encouraged to explore the Textile commandline tools for further details and information (try `textile config --help` to get started).
+
+#### Account
 
 Stores public account information. These values are populated upon repository initialization, and are not currently configurable. <Further explanation needed here.>
 * `Address` is the public key, whose seed is stored in the _possibly_ encrypted datastore.
@@ -53,14 +69,14 @@ Stores public account information. These values are populated upon repository in
 
 **Default**:
 
-```
+```json
 "Account": {
     "Address": "",
     "Thread": ""
 }
 ```
 
-## `Addresses`
+#### Addresses
 
 Stores the bind addresses for the various node HTTP APIs.
 
@@ -86,7 +102,7 @@ The `Addresses` config settings can be specified at node initialization via the 
 }
 ```
 
-## `API`
+#### API
 
 Stores settings specific to the local node REST API.
 
@@ -122,7 +138,7 @@ These settings can be modified via the `config` subcommand. For example, to allo
 }
 ```
 
-## `Logs`
+#### Logs
 
 Stores settings relevant to logging node activities and services.
 
@@ -138,7 +154,7 @@ The `LogToDisk` config entry controls how a node handles subsystem logging. By d
 }
 ```
 
-## `Threads`
+#### Threads
 
 Stores settings controlling defaults for threads.
 
@@ -156,7 +172,7 @@ A node can have a default thread ID that is used when a thread ID is not supplie
 }
 ```
 
-## `Cafe`
+#### Cafe
 
 Stores settings controlling whether a node is running in *cafe* mode, and how it should be accessed by clients.
 
@@ -191,7 +207,7 @@ Clients normally register with one or more cafes. The `Client` will then remote 
 }
 ```
 
-## Additional Settings
+#### Additional Settings
 
 Stores settings specific to *how* a local node is set up; for example, for running on a mobile device, or as a server with a public IP address. 
 
@@ -206,14 +222,6 @@ These settings are only modified when initializing a new nod. For example, when 
 "IsMobile": false,
 "IsServer": false
 ```
-
-# Daemon
-
-The Textile daemon is a program that runs as a 'background' process (without a terminal or user interface), waiting for Textile events to occur and offering services. It can be accessed via a client (e.g., command-line client), and exposes a number of commands and APIs for interacting with the Textile network and its associated data. Among other services, it provides access to the local Textile datastore (see [[Datastore|Datastore]]) and the underlying [IPFS](https://ipfs.io/) peer. In desktop/server environments, Textile provides access to daemon functionality via its local [[REST API|REST-API]] (which in turn is accessible via a [[Command-Line|Command-Line]] interface). In mobile environments, the daemon is not run, opting instead for direct access to Textile code via a [[Mobile Framework|Mobile-Framework]].
-
-Before starting a Textile daemon, the Textile repo must be initialized (see [[Initialization|Getting-Started#Initialization]]). Once initialized, there are multiple options available for customizing how the daemon is configured, accessed, and run (see also `textile daemon --help` for details). By default, a Textile repo is initialized at a user's default home directory (`~/.textile`). Once initialized, all that is required to start the daemon is `textile daemon`. If your repository was initialized in an alternative location, you may use the `--repo-dir` flag to specify where to find the repo. If you initialized your repo with a pin code for datastore encryption, you an specify this when starting your daemon with the `--pin-code` flag. Finally, if you would like to enable debug mode while running your daemon, all textile sub-systems can be set to output debug logs by specifying the `--debug` flag. All log settings may be additionally configured using the `textile logs` sub-command (see [[Command-Line Logs|Command-Line#logs]] for details).
-
-Note that most additional daemon settings are managed by the Textile config file. This includes whether the local Textile API and Gateway are enabled, where logs are output, etc. See [[Config File|Config-File]] for a comprehensive coverage of config options.
 
 # REST API
 

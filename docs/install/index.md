@@ -12,9 +12,11 @@ First, download the Textile command-line tool from GitHub. Textile bundles multi
 
 `go-textile_<version-number>_<platform>.tar.gz`
 
-So for the **{{go_textile.version}}** release for Mac OS X, you will download,
+So for the **{{go_textile.version}}** you will download,
 
-`go-textile_{{go_textile.version}}_darwin-amd64.tar.gz`
+- For Mac OS X: `go-textile_{{go_textile.version}}_darwin-amd64.tar.gz`
+- For Linux (arm, arm64, 386): `go-textile_{{go_textile.version}}_linux-<arch>.tar.gz`
+- For Windows: `go-txtile_{{go_textile.version}}_windows-amd64.tar.gz`
 
 View all the [latest release builds on GitHub](https://github.com/textileio/go-textile/releases).
 
@@ -55,9 +57,11 @@ First, download the Textile desktop app from GitHub. Textile bundles multiple pr
 
 `Textile_<version-number>_<platform>.tar.gz`
 
-So for the **{{go_textile.version}}** release for Mac OS X, you will download,
+So for the **{{go_textile.version}}** you will download,
 
-`Textile_{{go_textile.version}}_darwin-amd64.tar.gz`
+- For Mac OS X: `Textile_{{go_textile.version}}_darwin-amd64.tar.gz`
+- For Linux (arm, arm64, 386): `Textile_{{go_textile.version}}_linux-<arch>.tar.gz`
+- For Windows: `Textile_{{go_textile.version}}_windows-amd64.tar.gz`
 
 View all the [latest release builds on GitHub](https://github.com/textileio/go-textile/releases).
 

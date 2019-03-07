@@ -46,7 +46,7 @@ _A web-based `javascript-textile` library. Expected release: Q4 2019._
 
 # API
 
-_TODO - Define all common APIs_
+_TODO - Add API documentation_
 
 ## Schemas
 
