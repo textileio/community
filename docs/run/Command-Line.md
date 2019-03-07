@@ -70,7 +70,7 @@ Stores the bind addresses for the various node HTTP APIs.
 
 The `API` address is the address that the daemon will serve the HTTP API from. This API is used to control the daemon through the command line (or via curl or some other client). Unlike the Gateway address, you should ensure that the `API` address is _not_ dialable from outside of your machine, or potentially malicious parties may be able to send commands to your Textile daemon. Having said that, see the [`API`] config entry for details on further controlling the API HTTP server.
 
-The `CafeAPI` address is the address that the Textile peer will serve the cafe REST API. This API is used to enable other peers on the network to request pinning, backup, and inbox services. Normally, a only a designated *cafe* peer would enable this API, though any peer may operate as a cafe if they want. See [[Cafes|Cafes]] wiki page for details.
+The `CafeAPI` address is the address that the Textile peer will serve the cafe REST API. This API is used to enable other peers on the network to request pinning, backup, and inbox services. Normally, a only a designated *cafe* peer would enable this API, though any peer may operate as a cafe if they want. See [Cafes](/learn#cafes) wiki page for details.
 
 The `Gateway` address is the address that the daemon will serve the gateway interface from. The gateway may be used to view files through Textile, and serve static content. This port may or may not be dialable from outside you machine, that's entirely up to you. The `Gateway` address is on by default, but if you leave it blank, the gateway server will not start.
 
@@ -168,7 +168,7 @@ Stores settings controlling whether a node is running in *cafe* mode, and how it
     * `Mobile` is a JSON object where...
         * `P2PWireLimit` is an integer cutoff/limit for determining how a message will be transmitted to peers.
 
-The `Cafe` config entry is broken up into two sections, one for controlling how a cafe `Host` behaves, and one for controlling how a `Client` interacts with a host peer. Currently, only a `Mobile` client entry is  used. Cafes can be controlled to some degree via the Textile `cafes` subcommand (see `textile cafes --help` for details), and via the `config` subcommand (see `textile config --help` for details). See also the [[Cafes|Cafes]] wiki page.
+The `Cafe` config entry is broken up into two sections, one for controlling how a cafe `Host` behaves, and one for controlling how a `Client` interacts with a host peer. Currently, only a `Mobile` client entry is  used. Cafes can be controlled to some degree via the Textile `cafes` subcommand (see `textile cafes --help` for details), and via the `config` subcommand (see `textile config --help` for details). See also the [Cafes](/learn#cafes) wiki page.
 
 For the `Host` config entries, `Open` is used to control if a Textile node is running in *cafe mode* or not. If not, then the `Addresses.CafeAPI` settings are not used, and the node will only operate as a *potential* client node. If a node *is* running in *cafe mode*, then the `PublicIP` config entry can be used to specify the public IP address of a cafe node in instances where IPFS' NAT traversal is unable to discover the public IP. This may, for example, happen when running a cafe on an Amazon EC2 instance or similar. Both of these settings can be modified via the `config` subcommand (e.g., `textile config Cafe.Host.Open true`), though they will require the `daemon` to be restarted before taking effect.
 

@@ -23,6 +23,7 @@ serve:
 install:
 	pip install mkdocs
 	pip install mkdocs-cinder
+	pip install mkdocs-markdownextradata-plugin
 
 .PHONY: build clean sync cssmin dist serve install
 

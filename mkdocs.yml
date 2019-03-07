@@ -15,5 +15,11 @@ nav:
   - Build Things: /textileio/
 markdown_extensions:
   - admonition
+plugins:
+  - search
+  - markdownextradata
 extra:
+  go_textile:
+    version: "v1.0.0-rc50"
+    releases_url: "https://github.com/textileio/go-textile/releases"
   slack_url: "https://slack.textile.io/"
