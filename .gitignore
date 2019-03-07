@@ -10,6 +10,7 @@ npm-debug.log
 yarn-error.log
 # external docs
 docs/textileio/go-textile/
+docs/textileio/react-native-sdk/
 docs/textileio/js-http-client/
 docs/textileio/android-textile/
 docs/textileio/ios-textile/
