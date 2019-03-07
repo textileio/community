@@ -17,12 +17,6 @@ cssmin: template/css/base.css template/css/bootstrap-custom.css template/css/cin
 	uglifycss template/css/cinder.css > template/css/cinder.min.css
 	uglifycss template/css/highlight.css > template/css/highlight.min.css
 
-dist:
-	python3 setup.py sdist bdist_wheel
-
-push:
-	twine upload dist/*.tar.gz dist/*.whl
-
 serve:
 	mkdocs serve
 

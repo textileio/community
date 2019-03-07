@@ -6,9 +6,7 @@
   "scripts": {
     "clean": "make clean",
     "sync": "make sync",
-    "dist": "make dist",
-    "push": "make push",
-    "build": "make clean; make install; make sync; make build",
+    "build": "make clean; make install; make sync; make cssmin & make build",
     "install": "make install",
     "serve": "concurrently \"make sync & make cssmin & make serve\" \"wait-on tcp:8000 && open http://127.0.0.1:8000\""
   },

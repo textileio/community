@@ -9,14 +9,41 @@ Join us on our [public Slack channel](https://slack.textile.io/) for news, discu
 
 ## Table of Contents
 
-- [Background](#background)
+- [Getting Started](#getting-started)
 - [Maintainer](#maintainer)
 - [Contribute](#contribute)
 - [License](#license)
 
-## Background
+## Getting Started
 
-[Textile](https://www.textile.io) provides encrypted, recoverable, schema-based, and cross-application data storage built on [IPFS](https://github.com/ipfs) and [libp2p](https://github.com/libp2p). We like to think of it as a decentralized data wallet with built-in protocols for sharing and recovery, or more simply, **an open and programmable iCloud**.
+### Requirements
+
+- python >= 3.6.0
+- pip >= 19.0
+- wget >= 1.0
+- uglifycss >= 0.0.29
+
+### Commands
+
+#### Build docs
+
+Cleans, installs dependencies, syncs remote doc files, minifies css, builds static files
+
+```yarn build```
+
+#### Serve docs
+
+Syncs remote doc files, minifies css, starts doc server, launches landing page
+
+```yarn serve```
+
+#### Other
+
+```yarn install```
+
+```yarn clean```
+
+```yarn sync```
 
 ## Maintainer
 
