@@ -10,7 +10,7 @@
     "push": "make push",
     "build": "make clean; make install; make sync; make build",
     "install": "make install",
-    "serve": "concurrently \"make sync & make cssmin & make serve\" \"wait-on tcp:8000 && open http://127.0.0.1:8000\"",
+    "serve": "concurrently \"make sync & make cssmin & make serve\" \"wait-on tcp:8000 && open http://127.0.0.1:8000\""
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,6 @@
   ],
   "author": "textile.io",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "concurrently": "^4.1.0",
     "markdownlint-cli": "^0.14.0",
