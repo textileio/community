@@ -5,6 +5,11 @@ clean:
 	rm dist/*.whl dist/*.tar.gz
 
 sync:
+	mkdir -p docs/textileio/go-textile
+	mkdir -p docs/textileio/react-native-sdk
+	mkdir -p docs/textileio/js-http-client
+	mkdir -p docs/textileio/android-textile
+	mkdir -p docs/textileio/ios-textile
 	wget https://raw.githubusercontent.com/textileio/go-textile/master/README.md -O docs/textileio/go-textile/index.md
 	wget https://raw.githubusercontent.com/textileio/react-native-sdk/master/README.md -O docs/textileio/react-native-sdk/index.md
 	wget https://raw.githubusercontent.com/textileio/js-http-client/master/README.md -O docs/textileio/js-http-client/index.md

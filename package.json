@@ -2,7 +2,7 @@
   "name": "@textileio/docs",
   "version": "0.0.1",
   "description": "Official Textile Documentation",
-  "main": "index.js",
+  "main": "docs/index.md",
   "scripts": {
     "clean": "make clean",
     "sync": "make sync",
