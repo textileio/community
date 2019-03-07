@@ -1,0 +1,16 @@
+*.pyc
+dist/
+*.egg-info/**/*
+site/
+# macOS
+.DS_Store
+# npm
+node_modules/
+npm-debug.log
+yarn-error.log
+# external docs
+docs/textileio/go-textile/index.md
+docs/textileio/react-native-sdk/index.md
+docs/textileio/js-http-client/index.md
+docs/textileio/android-textile/index.md
+docs/textileio/ios-textile/index.md
