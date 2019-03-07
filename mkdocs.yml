@@ -1,0 +1,19 @@
+site_name: Textile
+theme:
+  name: null
+  custom_dir: 'template'
+site_description: "Textile Documentation"
+repo_url: "https://github.com/textileio/docs"
+nav:
+  - Home: index.md
+  - Learn: /learn/
+  - Install: /install/
+  - Run:
+    - 'Command-Line': '/run/Command-Line'
+    - 'Desktop App': '/run/Desktop-App'
+    - 'Cafe Server': '/run/Cafe-Server'
+  - Build Things: /textileio/
+markdown_extensions:
+  - admonition
+extra:
+  slack_url: "https://slack.textile.io/"

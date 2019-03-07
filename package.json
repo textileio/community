@@ -1,0 +1,40 @@
+{
+  "name": "@textileio/docs",
+  "version": "0.0.1",
+  "description": "Official Textile Documentation",
+  "main": "index.js",
+  "scripts": {
+    "clean": "make clean",
+    "sync": "make sync",
+    "dist": "make dist",
+    "push": "make push",
+    "build": "make clean; make install; make sync; make build",
+    "install": "make install",
+    "serve": "concurrently \"make sync & make cssmin & make serve\" \"wait-on tcp:8000 && open http://127.0.0.1:8000\"",
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/textileio/docs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/textileio/docs/issues"
+  },
+  "keywords": [
+    "textile",
+    "photos",
+    "client",
+    "javascript",
+    "golang",
+    "typescript",
+    "IPFS",
+    "p2p"
+  ],
+  "author": "textile.io",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "markdownlint-cli": "^0.14.0",
+    "wait-on": "^3.2.0"
+  }
+}
