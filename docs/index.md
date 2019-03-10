@@ -2,31 +2,47 @@
 
 [Textile](https://www.textile.io) provides encrypted, recoverable, schema-based, and cross-application data storage built on [IPFS](https://github.com/ipfs) and [libp2p](https://github.com/libp2p). We like to think of it as a decentralized data wallet with built-in protocols for sharing and recovery, or more simply, **an open and programmable iCloud**.
 
-## Why use Textile?
+# Developer
 
-### For Developers
+## Why use Textile
 
-- Give users control of the data they create.
-- Enable end-to-end encrypted communication easily.
-- Tap into decentralized storage protocols to make your app more resistant to censorship.
-- Easily leverage decentralized protocols from mobile, desktop, and web apps.
+Textile was built for developers who believe in a better future for our technology. Textile tools standardize use of decentralized protocols, secure communications, and user data sovereignty.
 
-### For Users
+- Build decentralized applications that run in mobile applications, on the web, or on desktop.
+- Give users greater control over their data by making it easily available for their own storage or use in future applications.
+- Leverage IPFS on any device.
+- Access simple APIs for encryption throughout an application.
 
-- Tap into Textile apps to securely store photos, videos, documents, and other personal data
-- Privately share and chat with friends and family
-- User technology that doesn't manipulate your or sell hyour data.
-- Access your data, messages, and contacts from any app and across multiple devices... it's yours.
+## What can you build with Textile
 
-#### Advanced Users
+Build apps and service that treat users and their data the same.
 
-- Add any level of replication to your personal data (photos, music, notes).
-- Create your own backup nodes (Cafes) and share them with small groups of people.
+- Build decentralized storage and sharing applications. See [Textile Photos](https://github.com/textileio/textile-mobile).
+- Build better ways for users to manage their private information. See [AirSecure](https://github.com/airsecure/airsecure).
+- Build chat apps, website publishing services, health apps, family tools, and more. Got an idea, [get in touch](https://slack.textile.io/).
 
-## How does it work?
+## Get Started
 
-At the core of Textile is the user account [Wallet](learn#wallets), which is backed by a mnemonic phrase for recovery. Each wallet can create any number of [Accounts](learn#accounts), which are used to enter the network and sync your data between devices/apps.
+Jump right into our [Build section](./textileio/) where you can Textile libraries for multiple supported programming languages and platforms (Mobile, Desktop & Server).
 
-At a high level, a user account is a collection of operation-based [CRDTs](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) called [Threads](learn#threads). Threads are updated with messages called [Blocks](/learn#blocks). These Blocks are hash-linked together, forming a traversable tree. Practically speaking, a Thread represents a set of [Files](/learn#files) and/or [Messages](/learn#messages) potentially shared between users. You can create Threads that only accept certain types of files (photos, videos, etc.) This is achieved by building or using a built-in file [Schemas](/learn#schemas). Schemas provide a really powerful way to structure, encode, and encrypt your data and are fulfilled via Schema [Mills](/learn#mills).
+# Not a Developer
 
-Account recovery is handled by a network of federated Textile nodes called [Cafes](/learn#cafes), which offer backup and offline inboxing services to other peers. Read more about Threads, Blocks, Files and Schemas, as well as Sharing, Cafes, and more via the sidebar links to the right 👉.
+You can still benefit from Textile right away. Try out one of the existing apps on our network or install our Desktop app to securely plug-in & store your data.
+
+### Mobile Apps
+
+- [Textile Photos](https://textile.photos/)
+- [Textile Notes](https://github.com/textileio/notes)
+- [AirSecure](https://github.com/airsecure/airsecure)
+
+### Desktop
+
+- [Install App](./install/)
+- Connect your [Facebook data]() or [Flickr data]()
+
+# Other Resources
+
+##### [Slack](https://slack.textile.io/)
+##### [GitHub](https://github.com/textileio/)
+##### [Twitter](https://twitter.com/textile01)
+##### [Blog](https://medium.com/textileio)
