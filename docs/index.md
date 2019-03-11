@@ -23,7 +23,37 @@ Build apps and service that treat users and their data the same.
 
 ## Get Started
 
-Jump right into our [Build section](./textileio/) where you can Textile libraries for multiple supported programming languages and platforms (Mobile, Desktop & Server).
+You can build an app or service using Textile in one of a few different ways. Pick a section below to get you started in the right direction.
+
+### Build a Mobile App
+
+The only thing you need to build a mobile library with Textile is a mobile app built that supports one of our three libraries, [React Native](./textileio/react-native-sdk), [Android](./textileio/go-android), or [iOS](./textileio/go-ios). 
+
+The mobile libraries will help you leverage Textile & IPFS directly on the mobile devices of your users, allowing them to benefit from data encryption, p2p communication, and censorship resistent content.
+
+### Build a Desktop App
+
+To build a Desktop App we recommend you base your app of the [Textile Desktop App](./install) which creates a local API for applications to build on top of. Any React app or web-app can leverage a that local API, with permission of the user, to leverage the full Textile & IPFS functionality.
+
+If building a React app this way, you can use the [js-http-client library](./textileio/js-http-client) to make it easy.
+
+### Build an Electron App
+
+The above method will work with any Electron app. 
+
+### Build a Web App
+
+Textile's web support is being released in two phases. The first phase is in beta currently and requires that your users run a desktop Textile node. Your web app will then use the [js-http-client library](./textileio/js-http-client) to access a localhost-only API to interact with Textile.
+
+The second phase will bring a fully JavaScript implementation of the Textile Node, allowing apps to run without a desktop peer. This library will be started in Q3 2019.
+
+### Build with Go
+
+You can use the [go-textile library](./textileio/go-textile) to leverage Textile in any Go project. 
+
+### Learn More
+
+If you want to read more about the building blocks within Textile, start in the [learn section](./learn).
 
 # Not a Developer
 
