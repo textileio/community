@@ -1071,7 +1071,7 @@ Process input JSON data
 
 ##### Description:
 
-Takes an input JSON document, validates it according to its schema.org definition,
+Takes an input JSON document, validates it according to its json-schema.org definition,
 optionally encrypts the output before adding to IPFS, and returns a file object
 
 ##### Parameters
