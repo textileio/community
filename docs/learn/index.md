@@ -194,7 +194,7 @@ Currently, Textile supports five Mill 'endpoints' or methods:
 * `blob`: Takes a binary data blob, and optionally encrypts it, before adding to IPFS,
 and returns a file object
 * `schema`: Takes a JSON-based Schema, validates it, adds it to IPFS, and returns a file object
-* `json`: Takes an input JSON document, validates it according to its schema.org definition,
+* `json`: Takes an input JSON document, validates it according to its json-schema.org definition,
 optionally encrypts the output before adding to IPFS, and returns a file object
 * `image/resize`: Takes an input image, and resizes/resamples it (optionally encrypting output),
 before adding to IPFS, and returns a file object
