@@ -1,78 +1,56 @@
-<h1> Textile <small>documentation</small></h1>
+# What is Textile?
 
 [Textile](https://www.textile.io) provides encrypted, recoverable, schema-based, and cross-application data storage built on [IPFS](https://github.com/ipfs) and [libp2p](https://github.com/libp2p). We like to think of it as a decentralized data wallet with built-in protocols for sharing and recovery, or more simply, **an open and programmable iCloud**.
 
-# Developer
+We believe that future technology can be built around a new model of data ownership where individuals have total agency over the information they create.
 
-## Why use Textile
+Textile aims to standardize the use of _secure, cross-application user-owed data storage and sharing_ by providing a set of easy-to-use developer tools and UX primitives. Let's build applications that can be loved while not worrying about censorship and privacy.
 
-Textile was built for developers who believe in a better future for our technology. Textile tools standardize use of decentralized protocols, secure communications, and user data sovereignty.
+With Textile, you can use or build applications...
 
-- Build decentralized applications that run in mobile applications, on the web, or on desktop.
-- Give users greater control over their data by making it easily available for their own storage or use in future applications.
-- Leverage IPFS on any device.
-- Access simple APIs for encryption throughout an application.
+* where users are able to utilize their data across applications and devices.
+* where users are able to leverage their own storage backend.
+* that run on mobile, web, and desktop.
+* that can traverse the IPFS network on any device.
+* by designing data structures (schemas) for user and app data, which can control encoding and encryption, and are also understandable by other applications (programmability).
 
-## What can you build with Textile
+## What can you do with it?
 
-Build apps and service that treat users and their data the same.
+### Developers
 
-- Build decentralized storage and sharing applications. See [Textile Photos](https://github.com/textileio/textile-mobile).
-- Build better ways for users to manage their private information. See [AirSecure](https://github.com/airsecure/airsecure).
-- Build chat apps, website publishing services, health apps, family tools, and more. Got an idea, [get in touch](https://slack.textile.io/).
+* Build decentralized storage and sharing applications. See [Textile Photos](https://github.com/textileio/textile-mobile).
+* Build better ways for users to manage their private information. See [AirSecure](https://github.com/airsecure/airsecure).
+* Build chat apps, website publishing services, health apps, family tools, and more. Got an idea, [get in touch](https://slack.textile.io/).
 
-## Get Started
+### Everyone
 
-You can build an app or service using Textile in one of a few different ways. Pick a section below to get you started in the right direction.
+* Choose or federate your own backup and service nodes ([cafes](learn/cafes)), while still partaking in the whole network.
 
-### Build a Mobile App
+!!! note ""
+    Ready to [get started](start.md)?
 
-The only thing you need to build a mobile library with Textile is a mobile app built that supports one of our three libraries, [React Native](./textileio/react-native-sdk), [Android](./textileio/go-android), or [iOS](./textileio/go-ios).
+## Textile libraries and apps
 
-The mobile libraries will help you leverage Textile & IPFS directly on the mobile devices of your users, allowing them to benefit from data encryption, p2p communication, and censorship resistent content.
+The underlying Textile libraries and tools are already being used in production. SDKs, APIs, and apps are available for most major platforms (e.g., Android, iOS, Mac, Linux, Windows, etc), with more being developed on a regular basis. Feel free to poke around the various projects below to get a feel for what Textile is working on. Interested in building on top of the Textile platform? [Get in touch](https://slack.textile.io/)!
 
-### Build a Desktop App
+### Platform
 
-To build a Desktop App we recommend you base your app of the [Textile Desktop App](./install) which creates a local API for applications to build on top of. Any React app or web-app can leverage a that local API, with permission of the user, to leverage the full Textile & IPFS functionality.
+* Core lib: https://github.com/textileio/go-textile
+* iOS SDK: https://github.com/textileio/ios-textile
+* Android SDK: https://github.com/textileio/android-textile
+* React Native SDK: https://github.com/textileio/react-native-sdk
+* JS HTTP Client: https://github.com/textileio/js-http-client/
+* The Tray: (desktop textile app installer) https://github.com/textileio/go-textile/tree/master/tray
 
-If building a React app this way, you can use the [js-http-client library](./textileio/js-http-client) to make it easy.
+### Apps
 
-### Build an Electron App
+* Textile Photos: https://github.com/textileio/textile-mobile/
+* Textile Photos Desktop: https://github.com/textileio/photos-desktop
+* Textile Notes: https://github.com/textileio/notes
 
-The above method will work with any Electron app.
+## Other Resources
 
-### Build a Web App
-
-Textile's web support is being released in two phases. The first phase is in beta currently and requires that your users run a desktop Textile node. Your web app will then use the [js-http-client library](./textileio/js-http-client) to access a localhost-only API to interact with Textile.
-
-The second phase will bring a fully JavaScript implementation of the Textile Node, allowing apps to run without a desktop peer. This library will be started in Q3 2019.
-
-### Build with Go
-
-You can use the [go-textile library](./textileio/go-textile) to leverage Textile in any Go project.
-
-### Learn More
-
-If you want to read more about the building blocks within Textile, start in the [learn section](./learn).
-
-# Not a Developer
-
-You can still benefit from Textile right away. Try out one of the existing apps on our network or install our Desktop app to securely plug-in & store your data.
-
-### Mobile Apps
-
-- [Textile Photos](https://textile.photos/)
-- [Textile Notes](https://github.com/textileio/notes)
-- [AirSecure](https://github.com/airsecure/airsecure)
-
-### Desktop
-
-- [Install App](./install/)
-- Connect your [Facebook data]() or [Flickr data]()
-
-# Other Resources
-
-##### [Slack](https://slack.textile.io/)
-##### [GitHub](https://github.com/textileio/)
-##### [Twitter](https://twitter.com/textile01)
-##### [Blog](https://medium.com/textileio)
+* [Slack](https://slack.textile.io/)
+* [GitHub](https://github.com/textileio/)
+* [Twitter](https://twitter.com/textile01)
+* [Blog](https://medium.com/textileio)

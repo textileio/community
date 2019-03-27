@@ -16,7 +16,7 @@ theme:
   name: 'material'
   language: en
   feature:
-    tabs: true
+    tabs: false
   palette:
     primary: white
     accent: blue
@@ -55,7 +55,7 @@ extra:
 markdown_extensions:
   - markdown.extensions.admonition
   - markdown.extensions.codehilite:
-      guess_lang: false
+      guess_lang: true
   - markdown.extensions.def_list
   - markdown.extensions.footnotes
   - markdown.extensions.meta
@@ -73,8 +73,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.magiclink:
       repo_url_shorthand: true
-      user: squidfunk
-      repo: mkdocs-material
+      user: textileio
+      repo: docs
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
@@ -85,10 +85,25 @@ markdown_extensions:
 # Page tree
 nav:
   - Home: index.md
-  - Learn: /learn/
-  - Install: /install/
+  - Get started: start.md
+  - How it works: how.md
+  - Install: install.md
+  - Learn:
+    - Wallet: learn/wallet.md
+    - Network: learn/network.md
+    - Cafes: learn/cafes.md
+    - Contacts: learn/contacts.md
+    - Threads:
+      - Blocks: learn/threads/blocks.md
+      - Files:
+        - Schemas: learn/threads/files/schemas.md
   - Run:
-    - Command-Line: '/run/Command-Line'
-    - Desktop App: '/run/Desktop-App'
-    - Cafe Server: '/run/Cafe-Server'
-  - Build Things: /textileio/
+    - Daemon: run/daemon.md
+    - Desktop: run/desktop.md
+    - Cafe: run/cafe.md
+  - Clients:
+    - Command-line: clients/cmd.md
+    - iOS: clients/ios.md
+    - Android: clients/android.md
+    - JavaScript: clients/js.md
+  - REST API: http-rest.md

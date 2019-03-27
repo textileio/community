@@ -16,20 +16,12 @@ sync:
 	wget https://raw.githubusercontent.com/textileio/android-textile/master/README.md -O docs/textileio/android-textile/index.md
 	wget https://raw.githubusercontent.com/textileio/ios-textile/master/README.md -O docs/textileio/ios-textile/index.md
 
-cssmin: template/css/base.css template/css/bootstrap-custom.css template/css/cinder.css template/css/highlight.css
-	uglifycss template/css/base.css > template/css/base.min.css
-	uglifycss template/css/bootstrap-custom.css > template/css/bootstrap-custom.min.css
-	uglifycss template/css/cinder.css > template/css/cinder.min.css
-	uglifycss template/css/highlight.css > template/css/highlight.min.css
-
 serve:
 	mkdocs serve
 
 install:
 	pip install mkdocs
-	pip install mkdocs-cinder
+	pip install mkdocs-material
 	pip install mkdocs-markdownextradata-plugin
 
-.PHONY: build clean sync cssmin dist serve install
-
-
+.PHONY: build clean sync serve install
