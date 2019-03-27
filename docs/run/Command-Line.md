@@ -1,4 +1,4 @@
-<h1><i class="fas fa-asterisk" style="color:#ff1c3f"></i> Textile <small>command-line</small></h1>
+<h1>Textile <small>command-line</small></h1>
 
 # Initial Setup
 
@@ -46,7 +46,7 @@ Note that most additional daemon settings are managed by the Textile config file
 
 ### Config file
 
-The Textile config file is similar in structure and usage to the [IPFS config](https://github.com/ipfs/go-ipfs/blob/master/docs/config.md) file. It is a JSON document located at `<repo-dir>/textile`. It is read once at node instantiation, either for an offline command, or when starting the daemon. Commands that execute on a running daemon _do not_ read the config file at runtime. 
+The Textile config file is similar in structure and usage to the [IPFS config](https://github.com/ipfs/go-ipfs/blob/master/docs/config.md) file. It is a JSON document located at `<repo-dir>/textile`. It is read once at node instantiation, either for an offline command, or when starting the daemon. Commands that execute on a running daemon _do not_ read the config file at runtime.
 
 The config file controls different aspects of a Textile node, from public account information, to API access and functionality, to activity logging and everything in between. Here, we cover each config section in detail, though users are encouraged to explore the Textile commandline tools for further details and information (try `textile config --help` to get started).
 
@@ -188,7 +188,7 @@ Clients normally register with one or more cafes. The `Client` will then remote 
 
 #### Additional Settings
 
-Stores settings specific to *how* a local node is set up; for example, for running on a mobile device, or as a server with a public IP address. 
+Stores settings specific to *how* a local node is set up; for example, for running on a mobile device, or as a server with a public IP address.
 
 * `IsMobile` is a boolean indicating whether the local node is setup for mobile.
 * `IsServer` is a boolean indicating whether the local node is setup as a server with a public IP.
@@ -271,4 +271,3 @@ $ textile threads add --type 'open' --sharing 'shared' --media "My Open+Shared+M
 ```
 
 ## [Gateway REST API](../Gateway)
-

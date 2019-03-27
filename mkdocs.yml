@@ -1,25 +1,94 @@
-site_name: Textile
+# Project information
+site_name: 'Textile Docs'
+site_description: 'Documentation for Textile: Encrypted, recoverable, schema-based, cross-application data storage built on IPFS and LibP2P.'
+site_author: textile.io
+site_url: https://docs.textile.io/
+
+# Repository
+repo_name: textileio/docs
+repo_url: https://github.com/textileio/docs
+
+# Copyright
+copyright: '&copy; Textile'
+
+# Configuration
 theme:
-  name: null
-  custom_dir: 'template'
-site_description: "Textile Documentation"
-repo_url: "https://github.com/textileio/docs"
+  name: 'material'
+  language: en
+  feature:
+    tabs: true
+  palette:
+    primary: white
+    accent: blue
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: images/favicon.ico
+  logo: images/logo.svg
+
+# Plugins
+plugins:
+  - search
+  - markdownextradata
+
+# Customization
+extra:
+  social:
+    - type: globe
+      link: https://textile.io
+    - type: github-alt
+      link: https://github.com/textileio
+    - type: twitter
+      link: https://twitter.com/Textile01
+    - type: medium
+      link: https://medium.com/textileio
+    - type: slack
+      link: https://slack.textile.io
+
+  go_textile:
+    version: v0.1.10
+    releases_url: https://github.com/textileio/go-textile/releases
+
+  slack_url: https://slack.textile.io/
+
+# Extensions
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
 nav:
   - Home: index.md
   - Learn: /learn/
   - Install: /install/
   - Run:
-    - 'Command-Line': '/run/Command-Line'
-    - 'Desktop App': '/run/Desktop-App'
-    - 'Cafe Server': '/run/Cafe-Server'
+    - Command-Line: '/run/Command-Line'
+    - Desktop App: '/run/Desktop-App'
+    - Cafe Server: '/run/Cafe-Server'
   - Build Things: /textileio/
-markdown_extensions:
-  - admonition
-plugins:
-  - search
-  - markdownextradata
-extra:
-  go_textile:
-    version: "v1.0.0-rc50"
-    releases_url: "https://github.com/textileio/go-textile/releases"
-  slack_url: "https://slack.textile.io/"

@@ -1,4 +1,4 @@
-<h1><i class="fas fa-asterisk" style="color:#ff1c3f"></i> Textile <small>documentation</small></h1>
+<h1> Textile <small>documentation</small></h1>
 
 [Textile](https://www.textile.io) provides encrypted, recoverable, schema-based, and cross-application data storage built on [IPFS](https://github.com/ipfs) and [libp2p](https://github.com/libp2p). We like to think of it as a decentralized data wallet with built-in protocols for sharing and recovery, or more simply, **an open and programmable iCloud**.
 
@@ -27,7 +27,7 @@ You can build an app or service using Textile in one of a few different ways. Pi
 
 ### Build a Mobile App
 
-The only thing you need to build a mobile library with Textile is a mobile app built that supports one of our three libraries, [React Native](./textileio/react-native-sdk), [Android](./textileio/go-android), or [iOS](./textileio/go-ios). 
+The only thing you need to build a mobile library with Textile is a mobile app built that supports one of our three libraries, [React Native](./textileio/react-native-sdk), [Android](./textileio/go-android), or [iOS](./textileio/go-ios).
 
 The mobile libraries will help you leverage Textile & IPFS directly on the mobile devices of your users, allowing them to benefit from data encryption, p2p communication, and censorship resistent content.
 
@@ -39,7 +39,7 @@ If building a React app this way, you can use the [js-http-client library](./tex
 
 ### Build an Electron App
 
-The above method will work with any Electron app. 
+The above method will work with any Electron app.
 
 ### Build a Web App
 
@@ -49,7 +49,7 @@ The second phase will bring a fully JavaScript implementation of the Textile Nod
 
 ### Build with Go
 
-You can use the [go-textile library](./textileio/go-textile) to leverage Textile in any Go project. 
+You can use the [go-textile library](./textileio/go-textile) to leverage Textile in any Go project.
 
 ### Learn More
 
