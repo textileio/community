@@ -1,8 +1,4 @@
----
-id: License
-title: License
-sidebar_label: License
----
+# License
 
 Unless otherwise explicitly stated, all Textile code and software products are licensed under the following license:
 

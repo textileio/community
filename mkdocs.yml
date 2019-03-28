@@ -91,12 +91,17 @@ nav:
   - Learn:
     - Wallet: learn/wallet.md
     - Network: learn/network.md
-    - Cafes: learn/cafes.md
     - Contacts: learn/contacts.md
     - Threads:
+      - Overview: learn/threads/index.md
       - Blocks: learn/threads/blocks.md
+      - Messages: learn/threads/messages.md
       - Files:
+        - Overview: learn/threads/files/index.md
         - Schemas: learn/threads/files/schemas.md
+        - Mills: learn/threads/files/mills.md
+    - Cafes: learn/cafes.md
+    - Config: learn/config.md
   - Run:
     - Daemon: run/daemon.md
     - Desktop: run/desktop.md
@@ -107,3 +112,8 @@ nav:
     - Android: clients/android.md
     - JavaScript: clients/js.md
   - REST API: http-rest.md
+  - Policies:
+    - Code of conduct: policies/conduct.md
+    - Privacy policy: policies/privacy.md
+    - Terms of service: policies/tos.md
+    - License: policies/license.md

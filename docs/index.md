@@ -4,7 +4,7 @@
 
 We believe that future technology can be built around a new model of data ownership where individuals have total agency over the information they create.
 
-Textile aims to standardize the use of _secure, cross-application user-owed data storage and sharing_ by providing a set of easy-to-use developer tools and UX primitives. Let's build applications that can be loved while not worrying about censorship and privacy.
+Textile aims to standardize the use of _secure, cross-application user-owed data storage and sharing_ by providing a set of easy-to-use developer tools and UX primitives. Let's build technology that can be loved while not worrying about censorship and privacy.
 
 With Textile, you can use or build applications...
 
@@ -24,10 +24,10 @@ With Textile, you can use or build applications...
 
 ### Everyone
 
-* Choose or federate your own backup and service nodes ([cafes](learn/cafes)), while still partaking in the whole network.
+* Choose or federate your own backup and service nodes ([cafes](/learn/cafes)), while still partaking in the whole network.
 
-!!! note ""
-    Ready to [get started](start.md)?
+!!! hint
+    ##### Head over to [Get Started](/start) when you're ready!
 
 ## Textile libraries and apps
 

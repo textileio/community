@@ -1,4 +1,6 @@
-# How does it work?
+# How it works
+
+TODO: Expand / better connect the homogeneous network of nodes + cafes, portable wallets
 
 ## Data Wallet
 

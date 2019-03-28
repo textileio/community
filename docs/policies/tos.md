@@ -1,8 +1,4 @@
----
-id: TermsOfService
-title: Terms of Service
-sidebar_label: Terms of Service
----
+# Terms of Service
 
 _Last updated: 09/12/18_
 
@@ -14,7 +10,7 @@ Welcome to Textile. Please read these terms of service (these “**Terms**”) c
 
 ## 1. ABOUT THE SERVICE
 
-The Service offers verification and authentication services and encryption services for users of photos and other personally collected data. The Service provides a private data storage system ("**Storage**") for users to maintain remote copies of their privately encrypted data. Storage is managed on IPFS (https://www.ipfs.io/) nodes running on a user's personal device. The Service allows users to sync encrypted copies of their data privately with other devices. The service also allows users to create groups of multiple people who all use a shared encryption key to post, comment, and interact with encrypted photos and other data shared by group members ("**Sharing**" and "**Threads**"). Copies of data will be cached, on voluntary IPFS peers on the network including peers hosted by Textile, whenever a user shares data in a group Thread. Cached copies of shared data will be encrypted with keys only available to Thread members and so not readable by anyone else on the network. 
+The Service offers verification and authentication services and encryption services for users of photos and other personally collected data. The Service provides a private data storage system ("**Storage**") for users to maintain remote copies of their privately encrypted data. Storage is managed on IPFS (https://www.ipfs.io/) nodes running on a user's personal device. The Service allows users to sync encrypted copies of their data privately with other devices. The service also allows users to create groups of multiple people who all use a shared encryption key to post, comment, and interact with encrypted photos and other data shared by group members ("**Sharing**" and "**Threads**"). Copies of data will be cached, on voluntary IPFS peers on the network including peers hosted by Textile, whenever a user shares data in a group Thread. Cached copies of shared data will be encrypted with keys only available to Thread members and so not readable by anyone else on the network.
 
 ## 2. CHANGES TO THESE TERMS
 
@@ -118,11 +114,11 @@ TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT WILL TEXTILE, ITS AFFILIATES
 
 ## 17. ARBITRATION; CLASS ACTION WAIVER
 
-### 17.1 
+### 17.1
 
 Introduction. This Section 17 includes an arbitration agreement and an agreement that all claims will be brought only in an individual capacity (and not as a class action or other representative proceeding). Please read it carefully. You may opt out of the arbitration agreement by following the opt out procedure described below.
 
-### 17.2 
+### 17.2
 
 Informal Process First You agree that in the event of any dispute between you and Textile, you will first contact Textile and make a good faith sustained effort to resolve the dispute before resorting to more formal means of resolution, including without limitation any court action.
 
@@ -156,23 +152,23 @@ We may send you, in electronic form, information about the Service, additional i
 
 19.1. Severability; Entire Agreement These Terms apply to the maximum extent permitted by relevant law. If a court holds that we cannot enforce a part of these Terms as written, you and we will replace those terms with similar terms to the extent enforceable under the relevant law, but the rest of these Terms will remain in effect. This is the entire contract between you and us regarding the Service. It supersedes any prior contract or oral or written statements regarding your use of the Service.
 
-### 19.2. 
+### 19.2.
 
 Assignment and transfer We may assign, transfer, or otherwise dispose our rights and obligations under these Terms, in whole or in part, at any time without notice. You may not assign these Terms or transfer any rights to use the Service.
 
-### 19.3. 
+### 19.3.
 
 Independent Contractors; No third-party beneficiaries Textile and you are not legal partners or agents; instead, our relationship is that of independent contractors. These Terms are solely for your and our benefit. It is not for the benefit of any other person, except for permitted successors.
 
-### 19.4. 
+### 19.4.
 
 Claims You must bring any claim related to these Terms or the Service within one year of the date you could first bring the claim, unless your local law requires a longer time to file claims. If it isn’t filed in time, the claim is permanently barred.
 
-### 19.5. 
+### 19.5.
 
 Waiver The failure of you or Textile to insist upon or enforce strict performance of any of the provisions of these Terms or to exercise any rights or remedies under these Terms will not be construed as a waiver or relinquishment to any extent of your right or Textile’s right to assert or rely upon any such provision, right or remedy in that or any other instance; rather, the same will remain in full force and effect.
 
-### 19.6. 
+### 19.6.
 
 Government Use If you are a U.S. government entity, you acknowledge that any Software and User Guides that are provided are “Commercial Items” as defined at 48 C.F.R. 2.101, and are being provided as commercial computer software subject to the restricted rights described in 48 C.F.R. 2.101 and 12.212.
 
