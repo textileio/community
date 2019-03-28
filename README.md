@@ -50,16 +50,16 @@ Join us on our [public Slack channel](https://slack.textile.io/) for news, discu
 
 ## Contributing
 
-**Contribute to the [Textile WIKI](https://github.com/textileio/textile-go/wiki)** with any additions or questions you have about Textile and its various impmenentations. A good example would be asking, "What is a thread?". If you don't know a term, odds are someone else doesn't either. Eventually, we should have a good understanding of where we need to improve communications and teaching together to make Textile even better.
+**Contribute to the [Textile Docs](https://github.com/textileio/docs)** with any additions or questions you have about Textile and its various projects. A good example would be asking, "What is a thread?". If you don't know a term, odds are someone else doesn't either. Eventually, we should have a good understanding of where we need to improve communications and teaching together to make Textile even better.
 
 Before you get started, be sure to read our [contributors guide](CONTRIBUTING.md) and our [contributor covenant code of conduct](CODE_OF_CONDUCT.md).
 
 ### Contributors
 
-Carson Farmer <carson@textile.io>
-Sander Pick <sander@textile.io>
-Andrew Hill <andrew@textile.io>
-Aaron Sutula <aaron@textile.io>
+* Carson Farmer <carson@textile.io>
+* Sander Pick <sander@textile.io>
+* Andrew Hill <andrew@textile.io>
+* Aaron Sutula <aaron@textile.io>
 
 ## License
 
