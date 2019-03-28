@@ -24,10 +24,10 @@ With Textile, you can use or build applications...
 
 ### Everyone
 
-* Choose or federate your own backup and service nodes ([cafes](/learn/cafes)), while still partaking in the whole network.
+* Choose or federate your own backup and service nodes ([cafes](/learn/cafes)) and still participate in the whole network.
 
 !!! hint
-    ##### Head over to [Get Started](/start) when you're ready!
+    Head over to [Get Started](/start) when you're ready!
 
 ## Textile libraries and apps
 

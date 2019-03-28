@@ -1,6 +1,6 @@
 # Project information
 site_name: 'Textile Docs'
-site_description: 'Documentation for Textile: Encrypted, recoverable, schema-based, cross-application data storage built on IPFS and LibP2P.'
+site_description: 'Encrypted, recoverable, schema-based, cross-application data storage built on IPFS and LibP2P.'
 site_author: textile.io
 site_url: https://docs.textile.io/
 
@@ -13,18 +13,19 @@ copyright: '&copy; Textile'
 
 # Configuration
 theme:
-  name: 'material'
+  name: null
+  custom_dir: material
   language: en
   feature:
     tabs: false
   palette:
-    primary: white
-    accent: blue
+    primary: default
+    accent: default
   font:
     text: Roboto
     code: Roboto Mono
   favicon: images/favicon.ico
-  logo: images/logo.svg
+  logo: images/logo_pink.svg
 
 # Plugins
 plugins:
@@ -111,7 +112,7 @@ nav:
     - iOS: clients/ios.md
     - Android: clients/android.md
     - JavaScript: clients/js.md
-  - REST API: http-rest.md
+  - REST API: rest-api.md
   - Policies:
     - Code of conduct: policies/conduct.md
     - Privacy policy: policies/privacy.md
