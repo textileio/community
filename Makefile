@@ -1,8 +1,7 @@
-build:
-	mkdocs build
-
-clean:
-	rm dist/*.whl dist/*.tar.gz
+setup:
+	pip install mkdocs
+	pip install mkdocs-material
+	pip install mkdocs-markdownextradata-plugin
 
 sync:
 	mkdir -p docs/textileio/go-textile
@@ -19,9 +18,10 @@ sync:
 serve:
 	mkdocs serve
 
-install:
-	pip install mkdocs
-	pip install mkdocs-material
-	pip install mkdocs-markdownextradata-plugin
+build:
+	mkdocs build
 
-.PHONY: build clean sync serve install
+deploy:
+	mkdocs gh-deploy
+
+.PHONY: setup sync serve build deploy

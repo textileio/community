@@ -21,29 +21,28 @@ Join us on our [public Slack channel](https://slack.textile.io/) for news, discu
 - python >= 3.6.0
 - pip >= 19.0
 - wget >= 1.0
-- uglifycss >= 0.0.29
 
 ### Commands
 
+#### Install dependencies:
+
+    $ make setup
+
 #### Build docs
 
-Cleans, installs dependencies, syncs remote doc files, minifies css, builds static files
+    $ make build
 
-```yarn build```
+#### Serve locally
 
-#### Serve docs
+    $ make serve
 
-Syncs remote doc files, minifies css, starts doc server, launches landing page
+#### Pull latest downstream docs
 
-```yarn serve```
+    $ make sync
 
-#### Other
+#### Deploy to docs.textile.io
 
-```yarn install```
-
-```yarn clean```
-
-```yarn sync```
+    $ make deploy
 
 ## Maintainer
 
@@ -52,12 +51,15 @@ Syncs remote doc files, minifies css, starts doc server, launches landing page
 ## Contributing
 
 **Contribute to the [Textile WIKI](https://github.com/textileio/textile-go/wiki)** with any additions or questions you have about Textile and its various impmenentations. A good example would be asking, "What is a thread?". If you don't know a term, odds are someone else doesn't either. Eventually, we should have a good understanding of where we need to improve communications and teaching together to make Textile even better.
-  
+
 Before you get started, be sure to read our [contributors guide](CONTRIBUTING.md) and our [contributor covenant code of conduct](CODE_OF_CONDUCT.md).
 
 ### Contributors
 
-Carson Farmer <carson@textile.io>  
+Carson Farmer <carson@textile.io>
+Sander Pick <sander@textile.io>
+Andrew Hill <andrew@textile.io>
+Aaron Sutula <aaron@textile.io>
 
 ## License
 
