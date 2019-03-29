@@ -87,9 +87,8 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Get started: start.md
-  - How it works: how.md
-  - Install: install.md
   - Learn:
+    - Overview: learn/index.md
     - Wallet: learn/wallet.md
     - Network: learn/network.md
     - Contacts: learn/contacts.md
