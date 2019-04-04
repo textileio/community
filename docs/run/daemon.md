@@ -16,8 +16,8 @@ First, download the Textile from GitHub. Textile bundles multiple pre-built bina
 So for **{{go_textile.version}}** you will download,
 
 - For Mac OSX: [go-textile_{{go_textile.version}}_darwin-amd64.tar.gz]({{go_textile.releases_url}}/download/{{go_textile.version}}/go-textile_{{go_textile.version}}_darwin-amd64.tar.gz)
-- For Windows: [go-textile_{{go_textile.version}}_windows-amd64.tar.gz]({{go_textile.releases_url}}/download/{{go_textile.version}}/go-textile_{{go_textile.version}}_windows-amd64.tar.gz)
-- For Linux, be sure to choose your correct architecture: [go-textile_{{go_textile.version}}_linux-<arch>.tar.gz]({{go_textile.releases_url}}/tag/v0.1.11)
+- For Windows: [go-textile_{{go_textile.version}}_windows-amd64.zip]({{go_textile.releases_url}}/download/{{go_textile.version}}/go-textile_{{go_textile.version}}_windows-amd64.zip)
+- For Linux, be sure to choose your correct architecture: [go-textile_{{go_textile.version}}_linux-<arch\>.tar.gz]({{go_textile.releases_url}}/tag/v0.1.11)
 
 View all the [latest release builds on GitHub]({{go_textile.releases_url}}).
 
