@@ -12,7 +12,7 @@ So for the **{{go_textile.version}}** you will download,
 - For Windows: [Textile_{{go_textile.version}}_windows-amd64.tar.gz]({{go_textile.releases_url}}/download/{{go_textile.version}}/Textile_{{go_textile.version}}_windows-amd64.tar.gz)
 - For Linux, be sure to choose your correct architecture: [Textile_{{go_textile.version}}_linux-<arch>.tar.gz]({{go_textile.releases_url}}/tag/v0.1.11)
 
-View all the [latest release builds on GitHub]({{go_textile.version}}).
+View all the [latest release builds on GitHub]({{go_textile.releases_url}}).
 
 #### Install on Mac OS X & Linux
 

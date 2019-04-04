@@ -3,7 +3,7 @@
 You can run a Textile node on any device by launching the daemon. The daemon will give you the ability to run the CLI against a local node, access the Textile gateway, and manage the embedded IPFS peer.
 
 !!! info
-    The Textile daemon is a program that runs as a 'background' process (without a terminal or user interface), waiting for Textile events to occur and offering services. It can be accessed via a client (e.g., command-line client), and exposes a number of commands and APIs for interacting with the Textile network and its associated data. Among other services, it provides access to the local Textile datastore and the underlying [IPFS](https://ipfs.io/) peer. In desktop/server environments, Textile provides access to daemon functionality via its local REST_API (which in turn is accessible via a command-line interface). In mobile environments, the daemon is not run, opting instead for direct access to Textile code via teh mobile framework.
+    The Textile daemon is a program that runs as a 'background' process (without a terminal or user interface), waiting for Textile events to occur and offering services. It can be accessed via a client (e.g., command-line client), and exposes a number of commands and APIs for interacting with the Textile network and its associated data. Among other services, it provides access to the local Textile datastore and the underlying [IPFS](https://ipfs.io/) peer. In desktop/server environments, Textile provides access to daemon functionality via its local REST_API (which in turn is accessible via a command-line interface). In mobile environments, the daemon is not run, opting instead for direct access to Textile code via the mobile framework.
 
 ## Setup
 
