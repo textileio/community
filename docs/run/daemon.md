@@ -4,11 +4,7 @@ You can run a Textile node on any device by launching the daemon. The daemon wil
 
 ## Overview
 
-The Textile daemon is a program that runs as a 'background' process (without a terminal or user interface), waiting for Textile events to occur and offering services. It can be accessed via a client (e.g., command-line client), and exposes a number of commands and APIs for interacting with the Textile network and its associated data. Among other services, it provides access to the local Textile datastore and the underlying [IPFS](https://ipfs.io/) peer. In desktop/server environments, Textile provides access to daemon functionality via its local REST_API (which in turn is accessible via a command-line interface). In mobile environments, the daemon is not run, opting instead for direct access to Textile code via a [[Mobile Framework|Mobile-Framework]].
-
-Before starting a Textile daemon, the Textile repo must be initialized (see [[Initialization|Getting-Started#Initialization]]). Once initialized, there are multiple options available for customizing how the daemon is configured, accessed, and run (see also `textile daemon --help` for details). By default, a Textile repo is initialized at a user's default home directory (`~/.textile`). Once initialized, all that is required to start the daemon is `textile daemon`. If your repository was initialized in an alternative location, you may use the `--repo-dir` flag to specify where to find the repo. If you initialized your repo with a pin code for datastore encryption, you an specify this when starting your daemon with the `--pin-code` flag. Finally, if you would like to enable debug mode while running your daemon, all textile sub-systems can be set to output debug logs by specifying the `--debug` flag. All log settings may be additionally configured using the `textile logs` sub-command (see [[Command-Line Logs|Command-Line#logs]] for details).
-
-Note that most additional daemon settings are managed by the Textile config file. This includes whether the local Textile API and Gateway are enabled, where logs are output, etc. See [config](/learn/config) for a comprehensive coverage of config options.
+The Textile daemon is a program that runs as a 'background' process (without a terminal or user interface), waiting for Textile events to occur and offering services. It can be accessed via a client (e.g., command-line client), and exposes a number of commands and APIs for interacting with the Textile network and its associated data. Among other services, it provides access to the local Textile datastore and the underlying [IPFS](https://ipfs.io/) peer. In desktop/server environments, Textile provides access to daemon functionality via its local REST_API (which in turn is accessible via a command-line interface). In mobile environments, the daemon is not run, opting instead for direct access to Textile code via teh mobile framework.
 
 ## Setup
 
@@ -78,6 +74,8 @@ If you want to tail the logs during development so you can see what's going on, 
 ```
 tail -f ~/.textile/repo/logs/textile.log
 ```
+!!! more info
+Before starting a Textile daemon, the Textile repo must be initialized. Once initialized, there are multiple options available for customizing how the daemon is configured, accessed, and run (see also `textile daemon --help` for details). By default, a Textile repo is initialized at a user's default home directory (`~/.textile`). Once initialized, all that is required to start the daemon is `textile daemon`. If your repository was initialized in an alternative location, you may use the `--repo-dir` flag to specify where to find the repo. If you initialized your repo with a pin code for datastore encryption, you an specify this when starting your daemon with the `--pin-code` flag. Finally, if you would like to enable debug mode while running your daemon, all textile sub-systems can be set to output debug logs by specifying the `--debug` flag. All log settings may be additionally configured using the `textile logs` sub-command.
 
 #### Start daemon
 
@@ -88,3 +86,5 @@ textile daemon
 ```
 
 If you ever get 'stuck' along the way, or want to learn more about a command or tool that Textile provides you can always call `textile --help`, and any of the textile sub-commands also have their own help entry. For example, to learn more about the `init` command, try `textile init --help`.
+
+Note that most additional daemon settings are managed by the Textile config file. This includes whether the local Textile API and Gateway are enabled, where logs are output, etc. See [config](/learn/config) for a comprehensive coverage of config options.
