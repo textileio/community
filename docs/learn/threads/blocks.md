@@ -1,5 +1,3 @@
-# Blocks
-
 TODO: Break out types into link-able sections, expand
 
 Blocks are the literal building blocks of Textile's [[Threads|Threads]] infrastructure. They are the basic components for all interactions between Textile peers, from messaging, to sharing photos, to commenting and 'likeing' content—each update to a Thread is backed by a Block, and each Block is hash-linked to its parent, forming a traversable tree or chain of block updates—a blockchain if you will.

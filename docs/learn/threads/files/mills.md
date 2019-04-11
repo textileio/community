@@ -1,5 +1,3 @@
-# Mills
-
 TODO: Make endpoints link-able sections, expand, cleanup
 
 In order to fulfill a Textile Schema, input data will likely have to be processed by a _Mill_. A Textile Mill is simply an interface that provides a unique endpoint id, whether it supports encryption (most do/should), whether it will 'pin' its outputs by default, and the type of 'media' that it supports. For things like image processing mills (resize, extract EXIF) this would be `"image/*"` mime-types, whereas for a generic 'blob' type Mill, this might be `nil` (accepts anything). Additionally, a Mill will have a specific set of options that it supports, and of course, implement the actual function that performs the 'milling' or processing. This should take in 'raw' bytes, and return a `Result` object, which is simply a wrapper around a file byte array and its metadata (see below).
@@ -19,7 +17,7 @@ type Mill interface {
 }
 ```
 
-# Results Object
+## Results Object
 
 ```
 type Result struct {
@@ -28,7 +26,7 @@ type Result struct {
 }
 ```
 
-# Endpoints
+## Endpoints
 
 Currently, Textile supports five Mill 'endpoints' or methods:
 * `blob`: Takes a binary data blob, and optionally encrypts it, before adding to IPFS,

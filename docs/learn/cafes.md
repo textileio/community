@@ -1,5 +1,3 @@
-# Cafes
-
 _A cafe is a Textile peer that offers additional services to the peer network_
 
 Access to cafe services is granted via JWT-based sessions, and initial registration with a cafe requires an access token. Any peer can operate as a cafe, though they work best for always-on peers. cafes run an 'extra' network API that handles client and host requests over libp2p or HTTP.

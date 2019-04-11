@@ -1,7 +1,3 @@
-# Run the Desktop
-
-#### Download
-
 First, download the Textile desktop app from GitHub. Textile bundles multiple pre-built binaries with each release, for the desktop app you will be looking for the release named,
 
 `Textile_<version-number>_<platform>.tar.gz`

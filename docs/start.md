@@ -1,5 +1,3 @@
-# Get Started
-
 ## Learn more
 
 [Start here](/learn/) to learn more about the concepts and design behind Textile.

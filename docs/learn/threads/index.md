@@ -1,5 +1,3 @@
-# Threads
-
 TODO: Replace diagrams with xmind to match files diagrams, add top-level design constraints, roadmap
 
 Threads are built into the fabric of Textile as a way to allow group members to keep a record of who shared what data, and when. This simple concept is actually quite powerful — and on the surface, you can think of a Thread like a decentralized database, shared between specific participants. Threads are defined by schemas and contain blocks of information (or updates). They are specifically designed to work well in mobile, offline-first scenarios, where peers are constantly making updates, coming online, and going offline. This means avoiding state conflicts is a central focus of their operation. This issue comes up frequently when working collaboratively on documents, updating shared databases, etc.

@@ -1,5 +1,3 @@
-# Run the Daemon
-
 You can run a Textile node on any device by launching the daemon. The daemon will give you the ability to run the CLI against a local node, access the Textile gateway, and manage the embedded IPFS peer.
 
 !!! info

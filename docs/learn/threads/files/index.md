@@ -1,5 +1,3 @@
-# Files
-
 In addition to [messages](/learn/messages) and the various [thread](/learn/threads) annotation [blocks](/learn/blocks), Textile supports adding arbitrary files/data to threads via the `Files` block. Additionally, input data can be transformed (or [_milled_](/learn/threads/mills) in Textile speak) and validated in order to provide programmable structure to your thread data. Currently, the following input types are available: Raw data blobs, images, exif data, and JSON documents.
 
 Thread data is built into an [IPLD](https://ipld.io/) merkle DAG structure (similar to a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)) and stored separately from the block on IPFS. A `Files` block points to it's "data DAG"'s top-level hash.
