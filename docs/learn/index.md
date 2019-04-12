@@ -20,3 +20,9 @@ _Cafe peers_ (or just cafes) are _anonymous_ and _disposable_ infrastructure. Th
 Unlike account peers, cafes need to be always online in order to properly function. For this reason, they typically run in a server environment. They are easy to deploy & manage (single executable, Docker).
 
 An account peer may be registered with more than one cafe, and each peer for a given account need to be registered to the same cafe.
+
+## Applications
+
+Finally, applications run alongside or include an account peer and can create and/or access their data. Textile maintains a few reference apps like [Textile Photos](https://www.textile.photos) for desktop and mobile. Check out the [client SDKs](/clients) for information on how to leverage an account peer in your application.
+
+<br>
