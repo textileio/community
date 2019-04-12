@@ -1,8 +1,9 @@
 _Cafe peers_ (or just cafes) are _anonymous_ and _disposable_ infrastructure. They provide services on behalf of users and applications.
 
-Access to cafe services is granted via JWT-based sessions, and initial registration with a cafe requires an access token. Any peer can operate as a cafe, though they work best for always-on peers. cafes run an 'extra' network API that handles client and host requests over libp2p or HTTP.
+Access to cafe services is granted via JWT-based sessions, and initial registration with a cafe requires an access token. Any peer can operate as a cafe, though they work best for always-on peers. Cafes run an 'extra' network API that handles client and host requests over libp2p or HTTP.
 
-An account peer may be registered with more than one cafe, and each peer for a given account need to be registered to the same cafe.
+!!! tip
+    An account peer may be registered with more than one cafe, and account peers do not need to be registered to the same cafe.
 
 ## Services
 
@@ -20,6 +21,6 @@ Textile provides tooling for certain types of network-wide queries, like user ac
 
 ## Deploying
 
-Cafes are easy to deploy & manage (single executable, Docker). Start [here](run/cafe) to run your own.
+Cafes are easy to deploy & manage (single executable, Docker). Start [here](/run/cafe) to run your own.
 
 <br>
