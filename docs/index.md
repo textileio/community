@@ -39,18 +39,18 @@ The underlying Textile libraries and tools are already being used in production.
 * iOS SDK: https://github.com/textileio/ios-textile
 * Android SDK: https://github.com/textileio/android-textile
 * React Native SDK: https://github.com/textileio/react-native-sdk
-* JS HTTP Client: https://github.com/textileio/js-http-client/
+* JS HTTP Client: https://github.com/textileio/js-http-client
 * The Tray: (desktop textile app installer) https://github.com/textileio/go-textile/tree/master/tray
 
 ### Apps
 
-* Textile Photos: https://github.com/textileio/textile-mobile/
+* Textile Photos: https://github.com/textileio/textile-mobile
 * Textile Photos Desktop: https://github.com/textileio/photos-desktop
 * Textile Notes: https://github.com/textileio/notes
 
 ## Other Resources
 
-* [Slack](https://slack.textile.io/)
-* [GitHub](https://github.com/textileio/)
+* [Slack](https://slack.textile.io)
+* [GitHub](https://github.com/textileio)
 * [Twitter](https://twitter.com/textile01)
 * [Blog](https://medium.com/textileio)
