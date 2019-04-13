@@ -27,6 +27,9 @@ theme:
   favicon: images/favicon.ico
   logo: images/logo_pink.svg
 
+extra_javascript:
+  - js/sidebar.js
+
 # Plugins
 plugins:
   - search
@@ -86,7 +89,6 @@ markdown_extensions:
 # Page tree
 nav:
   - Home: index.md
-  - Get started: start.md
   - Learn:
     - Overview: learn/index.md
     - Wallet: learn/wallet.md

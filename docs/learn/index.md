@@ -1,29 +1,54 @@
-# How it works
+Textile is a set of tools and decentralized infrastructure for applications that run on the [IPFS](https://github.com/ipfs) peer-to-peer network. While data is interoperable with the whole network, Textile-flavored peers represent an additional layer or sub-network of users, applications, and services.
 
-Textile is a set of tools and decentralized infrastructure for applications that run on the IPFS peer-to-peer network. While data is interoperable with the whole network, Textile-flavored peers represent an additional layer or sub-network of users, applications, and services.
+![The Network](/images/net.png)
 
-![The Network](https://s3.amazonaws.com/textile.public/net4.png)
+## How it works
 
-## Account Peers
+Textile peers use p2p messaging patterns to orchestrate shared datasets, or more specifically your chats, contacts, albums, etc. With iCloud or another major cloud provider, you expect these datasets to be synced across your iOS devices. Additionally, if you've shared a dataset like a playlist or photo album with other users, you would expect changes to be synced with their devices as well. You can expect the same with Textile, but without the centralized control of a single organization or government.
 
-User _account peers_ share access to a single account from a [_data wallet_](/learn/wallet). You can think of the data wallet as a collection of keys to shared datasets called [_threads_](/learn/threads). Account peers typically run on desktops, laptops, and mobile devices and expose APIs for encrypting, storing, and sharing files/data/messages, among other functions.
+A traditional cloud provider will store your datasets in one, maybe a few, central location(s). This means that you _must_ trust the provider won't decide to drop your access, and in some cases, to _not_ view or expose the contents of your datasets.
 
-## Cafe Peers
+In Textile, these types of datasets are called _threads_. At the core of every thread is a secret. Only peers that possess the secret are able to decrypt thread content or follow linkages.
 
-_Cafe peers_ (or just cafes) are _anonymous_ and _disposable_ infrastructure. They provide services on behalf of users and applications. For example, once an account peer is registered with a cafe,
+!!! hint
+    Unlike a blockchain, threads are not based around the idea of consensus. Rather, they follow an agent-centric approach similar to [holochain](https://holochain.org/). Each peer has authority over thread access-control and storage.
 
-- All of its local data is automatically synced (pinned).
-- Encrypted thread snapshots (HEAD) are automatically synced for new device sign-in and recovery.
-- It will have an always-online message inbox for receiving thread updates from other peers when it's offline.
-- Its contact info will be indexed and made available for search on the network.
+Because threads are simply a hash-chain of update messages, or [blocks](/learn/threads/blocks), they can represent any type of dataset. Some blocks point to off-chain data stored on IPFS. For example, a set of photos, a PDF, or even an entire website. Application developers are able add structure to threads and make them interoperable with other applications with [schemas](/learn/threads/schemas).
 
-Unlike account peers, cafes need to be always online in order to properly function. For this reason, they typically run in a server environment. They are easy to deploy & manage (single executable, Docker).
+Threads are auto-magically synced with other account peers. For example, you may have one peer on your phone, and another on your laptop, both with access to the same account seed (more about accounts [here](/learn/wallet#accounts)). Threads can also be shared with other non-account peers (other users). In any case, each peer maintains a copy of its threads. A p2p messaging protocol keeps all the copies in sync.
 
-!!! tip
+The special hash-chain or graph structure of a thread allows them to be easily shared with other peers and backed-up to cafes. Given one message, you can find all the others.
+
+Let's look a little closer at the different actors on the network.
+
+### Account Peers
+
+User _account peers_ share access to a single account from a [data wallet](/learn/wallet). You can think of the data wallet as a collection of thread secrets. Account peers typically run on desktops, laptops, and mobile devices and expose APIs for encrypting, storing, and sharing files/data/messages, among other functions.
+
+### Cafe Peers
+
+_Cafe peers_ (or just cafes) are _anonymous_ and _disposable_ infrastructure. They provide services on behalf of users and applications _without requiring trust_. For example, once an account peer is registered with a cafe,
+
+- all of its local (default encrypted) data is automatically synced (pinned).
+- encrypted thread snapshots (HEAD) are automatically synced for new device sign-in and recovery.
+- it will have an always-online message inbox for receiving thread updates from other peers when offline.
+- its contact info will be indexed and made available for search on the network.
+
+Unlike account peers, cafes need to be online at all times in order to properly function. For this reason, they typically run in a server environment. They are easy to deploy & manage (single executable, Docker).
+
+!!! hint
     An account peer may be registered with more than one cafe, and account peers do not need to be registered to the same cafe.
 
-## Applications
+### Applications
 
 Finally, applications run alongside or include an account peer and can create and/or access their data. Textile maintains a few reference apps like [Textile Photos](https://www.textile.photos) for desktop and mobile. Check out the [client SDKs](/clients) for information on how to leverage an account peer in your application.
+
+## Why IPFS
+
+IPFS is the perfect file system for Textile for a few reasons:
+    
+1. IPFS uses [**content-addressed data**](https://en.wikipedia.org/wiki/Content-addressable_storage), meaning that content can be requested from the network as a whole by an _immutable address_, rather than from a single host with an arbitrary URL. This stands in the way of censorship and opens the door to Textile's decentralized, recoverable, and cross-application data storage.
+2. IPFS ships with a [libp2p](https://github.com/libp2p) host, which is the **best-in-class peer-to-peer networking** library.
+3. Textile believes that IPFS is the distributed web of the future. Core to our mission is the idea that Textile accounts, applications, and data are **interoperable with the larger IPFS network**.
 
 <br>

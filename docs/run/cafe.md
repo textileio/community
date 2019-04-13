@@ -1,4 +1,6 @@
-Anyone can run a Textile peer as a _cafe_ and start issuing backup and messaging services to the network. You do not need to rely on Textile's cafe network, or anyone else's network for that matter.
+Anyone can run a _cafe peer_ and offer services to the network. You _do not_ need to rely on Textile's cafe network, or anyone else's network for that matter.
+
+A
 
 To run your node in cafe mode you need to edit the config found at `.textile/repo/textile`, or use the built-in `config` (see [Config](/learn/config)) commands, or specify custom cafe options on node init (see `textile init --help` and/or the [daemon](/run/daemon) wiki entry). If you've already installed `go-textile` and used the default settings, your config file will be in your `HOME` directory. You'll need to edit the `Cafe` entry (see also the [`Cafe` section of the [config](/learn/config#Cafe)). You'll just change the field `"Open": false` to `"Open": true`, restart your daemon and you are off to the races!
 

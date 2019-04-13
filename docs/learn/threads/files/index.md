@@ -32,7 +32,7 @@ File indexes are what most applications will interact with. They are the objects
 
 At this point, it should be clear that adding data to a thread results in a DAG defined by a schema. But how exactly is the data stored so as to be programmatically accessible to thread consumers? Let's take a closer look at the DAG produced by the builtin media schema...
 
-![A files DAG](https://s3.amazonaws.com/textile.public/files3.png)
+![A files DAG](/images/files.png)
 
 Note that a files target is by default a directory of indexes (`0`, `1`, etc.). This mean that you can add an entire folder of images (or whatever your data is) with a single update.
 
