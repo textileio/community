@@ -48,6 +48,8 @@ extra:
       link: https://medium.com/textileio
     - type: slack
       link: https://slack.textile.io
+  go_textile:
+    - version: v0.1.11
 
 # Extensions
 markdown_extensions:
