@@ -103,7 +103,7 @@ nav:
     - Cafe: run/cafe.md
   - Clients:
     - Overview: clients/index.md
-    - Command-line: clients/cmd.md
+    - Command-line: clients/command-line.md
     - iOS: clients/ios.md
     - Android: clients/android.md
     - JavaScript: clients/js.md
