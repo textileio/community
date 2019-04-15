@@ -49,12 +49,6 @@ extra:
     - type: slack
       link: https://slack.textile.io
 
-  go_textile:
-    version: v0.1.11
-    releases_url: https://github.com/textileio/go-textile/releases
-
-  slack_url: https://slack.textile.io/
-
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition

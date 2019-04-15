@@ -36,8 +36,8 @@ _Cafe peers_ (or just cafes) are _anonymous_ and _disposable_ infrastructure. Th
 
 Unlike account peers, cafes need to be online at all times in order to properly function. For this reason, they typically run in a server environment. They are easy to deploy & manage (single executable, Docker).
 
-!!! hint
-    An account peer may be registered with more than one cafe, and account peers do not need to be registered to the same cafe.
+!!! tip
+    An account peer may be registered with more than one cafe, and account peers do not need to be registered to the same cafe(s). Additionally, peers can easily migrate from one cafe to another, simply be deregistering from one and registering with another.
 
 ### Applications
 
