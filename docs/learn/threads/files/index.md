@@ -1,10 +1,8 @@
-# Files
-
 In addition to [messages](/learn/messages) and the various [thread](/learn/threads) annotation [blocks](/learn/blocks), Textile supports adding arbitrary files/data to threads via the `Files` block. Additionally, input data can be transformed (or [_milled_](/learn/threads/mills) in Textile speak) and validated in order to provide programmable structure to your thread data. Currently, the following input types are available: Raw data blobs, images, exif data, and JSON documents.
 
 Thread data is built into an [IPLD](https://ipld.io/) merkle DAG structure (similar to a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)) and stored separately from the block on IPFS. A `Files` block points to it's "data DAG"'s top-level hash.
 
-The structure of the data DAG is determined by, and validated against, a DAG [[schema|Schemas]]. **A thread can have only one schema**. It has two main functions:
+The structure of the data DAG is determined by, and validated against, a DAG [schema](/learn/threads/files/schemas). **A thread can have only one schema**. It has two main functions:
 
 1. Define a Thread's data DAG structure
 2. Define the order of _mills_ (transforms) needed to produce this structure from the input
@@ -34,7 +32,7 @@ File indexes are what most applications will interact with. They are the objects
 
 At this point, it should be clear that adding data to a thread results in a DAG defined by a schema. But how exactly is the data stored so as to be programmatically accessible to thread consumers? Let's take a closer look at the DAG produced by the builtin media schema...
 
-![A files DAG](https://s3.amazonaws.com/textile.public/files3.png)
+![A files DAG](/images/files.png)
 
 Note that a files target is by default a directory of indexes (`0`, `1`, etc.). This mean that you can add an entire folder of images (or whatever your data is) with a single update.
 
@@ -105,3 +103,5 @@ Below is a JSON representation of file indexes from a single image corresponding
     }
 }
 ```
+
+<br>

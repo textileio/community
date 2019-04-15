@@ -1,8 +1,6 @@
-# License
-
 Unless otherwise explicitly stated, all Textile code and software products are licensed under the following license:
 
-# MIT License
+## MIT License
 
 Copyright (c) 2018, 2019 Textile
 

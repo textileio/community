@@ -27,6 +27,9 @@ theme:
   favicon: images/favicon.ico
   logo: images/logo_pink.svg
 
+extra_javascript:
+  - js/sidebar.js
+
 # Plugins
 plugins:
   - search
@@ -45,12 +48,6 @@ extra:
       link: https://medium.com/textileio
     - type: slack
       link: https://slack.textile.io
-
-  go_textile:
-    version: v0.1.11
-    releases_url: https://github.com/textileio/go-textile/releases
-
-  slack_url: https://slack.textile.io/
 
 # Extensions
 markdown_extensions:
@@ -86,11 +83,9 @@ markdown_extensions:
 # Page tree
 nav:
   - Home: index.md
-  - Get started: start.md
   - Learn:
     - Overview: learn/index.md
     - Wallet: learn/wallet.md
-    - Network: learn/network.md
     - Contacts: learn/contacts.md
     - Threads:
       - Overview: learn/threads/index.md
@@ -107,7 +102,8 @@ nav:
     - Desktop: run/desktop.md
     - Cafe: run/cafe.md
   - Clients:
-    - Command-line: clients/cmd.md
+    - Overview: clients/index.md
+    - Command-line: clients/command-line.md
     - iOS: clients/ios.md
     - Android: clients/android.md
     - JavaScript: clients/js.md

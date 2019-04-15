@@ -1,5 +1,3 @@
-# Messages
-
 TODO: Expand, cleanup
 
 In addition to [[Files|Files]] and the various [[Thread|Threads]] annotation [[Blocks|Blocks]], Textile supports adding arbitrary textual messages to Threads. These Messages are a specify type of Block update, and are _not_ required to meet [[Schema|Schemas]] requirements. This means it is possible to mix content types in a Textile Thread, thereby facilitating complex 'conversations' between interacting peers. With this mix of thread Block Types, it is possible to post a Photo, comment and like a photo, _and_ have an unstructured conversation related to the photo topic. This could facilitate new forms of Thread-based interactions, a prospect Textile is currently exploring.

@@ -1,5 +1,3 @@
-# Schemas
-
 TODO: Expand, cleanup
 
 Another more component of the Textile system is the concept of Schemas. Schemas are used to define how data is processed and its storage structure. You can think of Textile Schemas as something akin to [Transloadit Robots](https://transloadit.com/docs/transcoding/). Essentially, Textile uses these well-defined Schemas to describe what the Textile Peer should do with incoming Files. For example, the [[default Schema|Default-Schemas]] used in Textile Photos defines how images should be transformed and shared over IPFS. When developing with Textile, developers can define or reuse any number of custom schemas.

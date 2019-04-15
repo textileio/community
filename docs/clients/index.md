@@ -1,9 +1,3 @@
-
-## Learn more
-
-
-
-
 There are various ways to get started with Textile, from running your own Textile node at home, to building a full-blown application.
 
 ## Run a node
