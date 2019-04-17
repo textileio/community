@@ -2,127 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://docs.textile.io/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/learn/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/learn/wallet/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/learn/contacts/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/learn/threads/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/learn/threads/blocks/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/learn/threads/messages/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/learn/threads/files/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/learn/threads/files/schemas/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/learn/threads/files/mills/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/learn/cafes/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/learn/config/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/run/daemon/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/run/desktop/</loc>
-     <lastmod>2019-04-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://docs.textile.io/run/cafe/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/clients/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/clients/command-line/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/clients/ios/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/clients/android/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/clients/js/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/rest-api/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/policies/conduct/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/policies/privacy/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/policies/tos/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://docs.textile.io/policies/license/</loc>
-     <lastmod>2019-04-15</lastmod>
+     <lastmod>2019-04-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

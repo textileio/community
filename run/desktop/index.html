@@ -69,6 +69,8 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
+      <link rel="stylesheet" href="../../css/textile.css">
+    
     
       
     
@@ -108,7 +110,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#install-on-mac-os-x-linux" tabindex="1" class="md-skip">
+      <a href="#install" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -515,15 +517,35 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-on-mac-os-x-linux" title="Install on Mac OS X &amp; Linux" class="md-nav__link">
-    Install on Mac OS X &amp; Linux
+  <a href="#install" title="Install" class="md-nav__link">
+    Install
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos-and-linux" title="macOS and Linux:" class="md-nav__link">
+    macOS and Linux:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" title="Windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-on-windows" title="Install on Windows" class="md-nav__link">
-    Install on Windows
+  <a href="#run" title="Run" class="md-nav__link">
+    Run
   </a>
   
 </li>
@@ -536,18 +558,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cafe/" title="Cafe" class="md-nav__link">
-      Cafe
-    </a>
   </li>
 
         
@@ -743,15 +753,35 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-on-mac-os-x-linux" title="Install on Mac OS X &amp; Linux" class="md-nav__link">
-    Install on Mac OS X &amp; Linux
+  <a href="#install" title="Install" class="md-nav__link">
+    Install
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos-and-linux" title="macOS and Linux:" class="md-nav__link">
+    macOS and Linux:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" title="Windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-on-windows" title="Install on Windows" class="md-nav__link">
-    Install on Windows
+  <a href="#run" title="Run" class="md-nav__link">
+    Run
   </a>
   
 </li>
@@ -777,27 +807,43 @@
                 
                   <h1>Desktop</h1>
                 
-                <p>First, download the Textile desktop app from GitHub. Textile bundles multiple pre-built binaries with each release, for the desktop app you will be looking for the release named,</p>
-<p><code class="codehilite">Textile_&lt;version-number&gt;_&lt;platform&gt;.tar.gz</code></p>
-<p>So for the **** you will download,</p>
-<ul>
-<li>For Mac OSX: <a href="/download//Textile__darwin-amd64.tar.gz">Textile__darwin-amd64.tar.gz</a></li>
-<li>For Windows: <a href="/download//Textile__windows-amd64.zip">Textile__windows-amd64.zip</a></li>
-<li>For Linux, be sure to choose your correct architecture: <a href="/tag/v0.1.11">Textile__linux-&lt;arch>.tar.gz</a></li>
-</ul>
-<p>View all the <a href="">latest release builds on GitHub</a>.</p>
-<h4 id="install-on-mac-os-x-linux">Install on Mac OS X &amp; Linux<a class="headerlink" href="#install-on-mac-os-x-linux" title="Permanent link">&para;</a></h4>
-<p>Untar the archive or double-click the download.</p>
-<div class="codehilite"><pre><span></span>tar xvfz Textile__darwin-amd64.tar.gz
+                <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The desktop tray is very new and should be considered unstable until further notice.</p>
+</div>
+<p>Textile provides a "tray" (or taskbar) application, which can manage one or more account peers for your laptop or desktop. Using a <a href="/clients">client library</a>, other desktop or web applications can be quickly built on top of the running peer's localhost HTTP API.</p>
+<p>The tray will soon ship with <a href="https://github.com/textileio/photos-desktop">Photos Desktop</a> pre-installed, as the first "app". Please <a href="mailto:contact@textile.io">contact us</a> if you'd like to learn more about developing against Textile Desktop.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The tray can be paired with your other account peers running on your other devices. After the initial pairing, your threads will auto-magically stay in sync.</p>
+</div>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>Download and extract the <a href="https://github.com/textileio/desktop/releases/latest">latest release</a> for your OS and architecture.</p>
+<h3 id="macos-and-linux">macOS and Linux:<a class="headerlink" href="#macos-and-linux" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>tar xvfz Textile_$VERSION_$OS-$ARCH.tar.gz
 </pre></div>
 
-<p>This will unpack the Textile desktop as an app. You can move this file <code class="codehilite">Textile</code> to your applications folder.</p>
-<h4 id="install-on-windows">Install on Windows<a class="headerlink" href="#install-on-windows" title="Permanent link">&para;</a></h4>
-<p>Untar the archive or double-click the download.</p>
-<div class="codehilite"><pre><span></span>tar xvfz Textile__windows-amd64.tar.gz
-</pre></div>
-
-<p>Move the <strong>Textile.exe</strong> file to your applications folder.</p>
+<p>Move <code class="codehilite">Textile</code> into your application folder.</p>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<p>Extract the zip file and move <code class="codehilite">Textile.exe</code> into your applications folder.</p>
+<h2 id="run">Run<a class="headerlink" href="#run" title="Permanent link">&para;</a></h2>
+<p>Double-click the application. After a few moments, you should see the Textile icon in your taskbar. Click it to reveal the tray's UI.</p>
+<p><img alt="Tray Welcome" class="center" src="/images/tray_welcome.png" /></p>
+<p>Existing accounts will appear in the dropdown menu. Click "New" to initialize a new account.</p>
+<p>Textile uses a hierarchical deterministic (HD) wallet to derive account keys from a set of unique words, called a <a href="https://en.bitcoin.it/wiki/Seed_phrase">mnemonic phrase</a>. Read more about the wallet <a href="/learn/wallet">here</a>.</p>
+<p>Every key "inside" an HD wallet can be derived from this mnemonic phrase. Effectively, the wallet <em>is</em> the mnemonic phrase. So, by clicking "Create" on this screen, you are creating an entirely new and unique wallet. By default, the tray app will use the first account key in the wallet to initialize an account peer. However, a wallet can derive an infinite number of account keys.</p>
+<p>You can optionally add a password that will be required along with your mnemonic phrase when accessing the wallet's account keys. If supplied, this same password will be used to encrypt the account peer's datastore <em>at rest</em>. The datastore <em>will not</em> be encrypted if the password field is left blank.</p>
+<p>The "Refresh" button simply re-generates the wallet. You can do this as many times as you like.</p>
+<p><img alt="Tray Welcome" class="center" src="/images/tray_account.png" /></p>
+<p>Once you're signed into an account, set a global avatar and display name for your peer, You can click "Threads" to preview the datasets accessible by your peer. The "Sync" button searches for and syncs with other peers that share your account key.</p>
+<p>Lastly, registering your peer with an always-online cafe peer is highly recommended. See <a href="/clients/cafe-registration">cafe registration</a> for details.</p>
+<p><img alt="Tray Welcome" class="center" src="/images/tray_cafes.png" /></p>
+<p>Click "Messages" to manually query your cafe(s) for new messages that may have been received from others when your peer was offline or otherwise unreachable. This is also automatically done on an interval.</p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>You're up and running with the desktop tray!</p>
+</div>
+<p><br></p>
                 
                   
                 
@@ -833,13 +879,13 @@
           </a>
         
         
-          <a href="../cafe/" title="Cafe" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../clients/" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Cafe
+                Overview
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
