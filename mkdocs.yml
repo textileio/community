@@ -106,7 +106,6 @@ nav:
   - Run:
     - Daemon: run/daemon.md
     - Desktop: run/desktop.md
-    - Cafe: run/cafe.md
   - Clients:
     - Overview: clients/index.md
     - Command-line: clients/command-line.md

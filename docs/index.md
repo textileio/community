@@ -38,15 +38,15 @@ With Textile, you can use or build applications...
 
 You can create an account and run a peer in no time.
 
-- Get the [desktop](/run/desktop) tray app
 - Run the command-line [daemon](/run/daemon)
+- Get the [desktop](/run/desktop) tray app
 - Install a [mobile app](/#apps) that contains a client SDK
 
 ### Run a cafe peer
 
 Cafes are easy to deploy & manage (single executable, Docker).
 
-- Setup your own cafe [here](/run/cafe)
+- Setup your own cafe [here](/run/daemon/#initialize-a-cafe-peer)
 
 ## Build with a client SDK
 

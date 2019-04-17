@@ -21,6 +21,6 @@ Textile provides tooling for certain types of network-wide queries, like user ac
 
 ## Deploying
 
-Cafes are easy to deploy & manage (single executable, Docker). Start [here](/run/cafe) to run your own.
+Cafes are easy to deploy & manage (single executable, Docker). Start [here](/run/daemon/#run-a-cafe-peer) to run your own.
 
 <br>

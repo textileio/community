@@ -32,9 +32,9 @@ Double-click the application. After a few moments, you should see the Textile ic
 
 Existing accounts will appear in the dropdown menu. Click "New" to initialize a new account.
 
-Textile uses a hierarchical deterministic (HD) wallet to derive account keys from a set of unique words, called a mnemonic phrase. Read more about the wallet [here](/learn/wallet).
+Textile uses a hierarchical deterministic (HD) wallet to derive account keys from a set of unique words, called a [mnemonic phrase](https://en.bitcoin.it/wiki/Seed_phrase). Read more about the wallet [here](/learn/wallet).
 
-Everything inside an HD wallet can be derived from this mnemonic phrase. Effectively, the wallet _is_ the mnemonic phrase. So, by clicking "Create" on this screen, you are creating an entirely new and unique wallet. By default, the tray app will use the first account key in the wallet to initialize an account peer. However, a wallet can derive an infinite number of account keys.
+Every key "inside" an HD wallet can be derived from this mnemonic phrase. Effectively, the wallet _is_ the mnemonic phrase. So, by clicking "Create" on this screen, you are creating an entirely new and unique wallet. By default, the tray app will use the first account key in the wallet to initialize an account peer. However, a wallet can derive an infinite number of account keys.
 
 You can optionally add a password that will be required along with your mnemonic phrase when accessing the wallet's account keys. If supplied, this same password will be used to encrypt the account peer's datastore _at rest_. The datastore _will not_ be encrypted if the password field is left blank.
 
