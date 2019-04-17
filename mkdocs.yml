@@ -30,6 +30,9 @@ theme:
 extra_javascript:
   - js/sidebar.js
 
+extra_css:
+  - css/textile.css
+
 # Plugins
 plugins:
   - search
@@ -59,6 +62,7 @@ markdown_extensions:
   - markdown.extensions.def_list
   - markdown.extensions.footnotes
   - markdown.extensions.meta
+  - markdown.extensions.attr_list
   - markdown.extensions.toc:
       permalink: true
   - pymdownx.arithmatex

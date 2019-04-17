@@ -1,4 +1,4 @@
-The command-line client ships alongside the daemon. If you have not yet installed `textile`, 
+The command-line client ships alongside the daemon. If you have not yet installed the `textile` binary, head over to [running the daemon](/run/daemon) before diving into this section.
 
 
 ## Initialize a new wallet
