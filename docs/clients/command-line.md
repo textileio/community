@@ -9,9 +9,9 @@ This will generate a mnemonic phrase for accessing/recovering derived accounts. 
 
 ## Initialize a peer with an account
 
-Next, use a private account seed from your wallet to initialize a new peer. First time users should just use the first account’s (Account 0) private seed, which is printed out by the `wallet init` sub-command. The private seed begins with “S”. The public address begins with “P”. Use the `accounts` sub-command to access deeper derived wallet accounts.
+Next, use an account private seed from your wallet to initialize a new peer. First time users should just use the first account’s (Account 0) private seed, which is printed out by the `wallet init` sub-command. The private seed begins with “S”. The public address begins with “P”. Use the `accounts` sub-command to access deeper derived wallet accounts.
 
-    textile init -s <account_seed>
+    textile init -s <account_private_seed>
 
 ## Start the daemon
 
