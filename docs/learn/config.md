@@ -3,6 +3,7 @@ The Textile config file is similar in structure and usage to the [IPFS config](h
 ## Account
 
 Stores public account information. These values are populated upon repository initialization, and are not currently configurable. <Further explanation needed here.>
+
 * `Address` is the public key, whose seed is stored in the _possibly_ encrypted datastore.
 * `Thread` is the thread id of the default account thread used for syncing information between account peers.
 
