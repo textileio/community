@@ -29,6 +29,7 @@ type Result struct {
 ## Endpoints
 
 Currently, Textile supports five Mill 'endpoints' or methods:
+
 * `blob`: Takes a binary data blob, and optionally encrypts it, before adding to IPFS,
 and returns a file object
 * `schema`: Takes a JSON-based Schema, validates it, adds it to IPFS, and returns a file object
