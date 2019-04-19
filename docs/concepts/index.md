@@ -13,9 +13,9 @@ In Textile, these types of datasets are called _threads_. At the core of every t
 !!! hint
     Unlike a blockchain, threads are not based around the idea of consensus. Rather, they follow an agent-centric approach similar to [holochain](https://holochain.org/). Each peer has authority over thread access-control and storage.
 
-Because threads are simply a hash-chain of update messages, or [blocks](/learn/threads/blocks), they can represent any type of dataset. Some blocks point to off-chain data stored on IPFS. For example, a set of photos, a PDF, or even an entire website. Application developers are able add structure to threads and make them interoperable with other applications with [schemas](/learn/threads/schemas).
+Because threads are simply a hash-chain of update messages, or [blocks](/concepts/threads/blocks), they can represent any type of dataset. Some blocks point to off-chain data stored on IPFS. For example, a set of photos, a PDF, or even an entire website. Application developers are able add structure to threads and make them interoperable with other applications with [schemas](/concepts/threads/schemas).
 
-Threads are auto-magically synced with other account peers. For example, you may have one peer on your phone, and another on your laptop, both with access to the same account seed (more about accounts [here](/learn/wallet#accounts)). Threads can also be shared with other non-account peers (other users). In any case, each peer maintains a copy of its threads. A p2p messaging protocol keeps all the copies in sync.
+Threads are auto-magically synced with other account peers. For example, you may have one peer on your phone, and another on your laptop, both with access to the same account seed (more about accounts [here](/concepts/the-wallet#accounts)). Threads can also be shared with other non-account peers (other users). In any case, each peer maintains a copy of its threads. A p2p messaging protocol keeps all the copies in sync.
 
 The special hash-chain or graph structure of a thread allows them to be easily shared with other peers and backed-up to cafes. Given one message, you can find all the others.
 
@@ -23,7 +23,7 @@ Let's look a little closer at the different actors on the network.
 
 ### Account Peers
 
-User _account peers_ share access to a single account from a [data wallet](/learn/wallet). You can think of the data wallet as a collection of thread secrets. Account peers typically run on desktops, laptops, and mobile devices and expose APIs for encrypting, storing, and sharing files/data/messages, among other functions.
+User _account peers_ share access to a single account from a [data wallet](/concepts/the-wallet). You can think of the data wallet as a collection of thread secrets. Account peers typically run on desktops, laptops, and mobile devices and expose APIs for encrypting, storing, and sharing files/data/messages, among other functions.
 
 ### Cafe Peers
 
@@ -43,10 +43,10 @@ Unlike account peers, cafes need to be online at all times in order to properly 
 
 Finally, applications run alongside or include an account peer and can create and/or access their data. Textile maintains a few reference apps like [Textile Photos](https://www.textile.photos) for desktop and mobile. Check out the [client SDKs](/clients) for information on how to leverage an account peer in your application.
 
-## Why IPFS
+## Why IPFS?
 
 IPFS is the perfect file system for Textile for a few reasons:
-    
+
 1. IPFS uses [**content-addressed data**](https://en.wikipedia.org/wiki/Content-addressable_storage), meaning that content can be requested from the network as a whole by an _immutable address_, rather than from a single host with an arbitrary URL. This stands in the way of censorship and opens the door to Textile's decentralized, recoverable, and cross-application data storage.
 2. IPFS ships with a [libp2p](https://github.com/libp2p) host, which is the **best-in-class peer-to-peer networking** library.
 3. Textile believes that IPFS is the distributed web of the future. Core to our mission is the idea that Textile accounts, applications, and data are **interoperable with the larger IPFS network**.

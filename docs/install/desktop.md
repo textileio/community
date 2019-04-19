@@ -32,7 +32,7 @@ Double-click the application. After a few moments, you should see the Textile ic
 
 Existing accounts will appear in the dropdown menu. Click "New" to initialize a new account.
 
-Textile uses a hierarchical deterministic (HD) wallet to derive account keys from a set of unique words, called a [mnemonic phrase](https://en.bitcoin.it/wiki/Seed_phrase). Read more about the wallet [here](/learn/wallet).
+Textile uses a hierarchical deterministic (HD) wallet to derive account keys from a set of unique words, called a [mnemonic phrase](https://en.bitcoin.it/wiki/Seed_phrase). Read more about the wallet [here](/concepts/the-wallet).
 
 Every key "inside" an HD wallet can be derived from this mnemonic phrase. Effectively, the wallet _is_ the mnemonic phrase. So, by clicking "Create" on this screen, you are creating an entirely new and unique wallet. By default, the tray app will use the first account key in the wallet to initialize an account peer. However, a wallet can derive an infinite number of account keys.
 
@@ -44,13 +44,13 @@ The "Refresh" button simply re-generates the wallet. You can do this as many tim
 
 Once you're signed into an account, set a global avatar and display name for your peer. You can click "Threads" to preview the datasets accessible by your peer. The "Sync" button searches for and syncs with other peers that share your account key.
 
-Lastly, registering your peer with an always-online cafe peer is highly recommended. See [cafe registration](/clients/cafe-registration) for details.
+Lastly, registering your peer with an always-online cafe is highly recommended. See [this section](/a-tour-of-textile#register-with-a-cafe) of the tour for details.
 
 ![Tray Welcome](/images/tray_cafes.png){: .center}
 
 Click "Messages" to manually query your cafe(s) for new messages that may have been received from others when your peer was offline or otherwise unreachable. This is also automatically done on an interval.
 
 !!! success
-    You're up and running with the desktop tray!
+    You're up and running with the desktop tray! Now you're ready to start the [tour](/a-tour-of-textile)!
 
 <br>

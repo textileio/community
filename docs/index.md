@@ -1,5 +1,3 @@
-# What is Textile?
-
 [Textile](https://github.com/textileio) provides encrypted, recoverable, schema-based, and cross-application data storage built on [IPFS](https://github.com/ipfs) and [libp2p](https://github.com/libp2p). We like to think of it as a decentralized data wallet with built-in protocols for sharing and recovery, or more simply, **an open and programmable iCloud**.
 
 ![The Network](/images/home.png)
@@ -26,50 +24,37 @@ With Textile, you can use or build applications...
 
 ### Everyone
 
-* Choose or federate your own backup and service peer ([cafes](/learn/cafes)) and still participate in the whole network.
+* Choose or federate your own backup and service peer ([cafes](/concepts/cafes)) and still participate in the whole network.
+
+## Take the tour
+
+Whatever your use-case may be, the [tour of Textile](/a-tour-of-textile) is great place to start.
+
+## Install Textile apps
+
+* Photos: https://github.com/textileio/Photos
+* Photos Desktop: https://github.com/textileio/photos-desktop
+* Notes: https://github.com/textileio/notes
+* AirSecure: https://github.com/airsecure/airsecure
+
+## Integrate into your apps
+
+Client SDKs or HTTP clients available for integrating Textile into your mobile, desktop, and web applications:
+
+* Core lib: https://github.com/textileio/go-textile
+* JS HTTP Client: https://github.com/textileio/js-http-client
+* React Native SDK: https://github.com/textileio/react-native-sdk
+* iOS SDK: https://github.com/textileio/ios-textile
+* Android SDK: https://github.com/textileio/android-textile
+* Desktop: (tray/taskbar app installer) https://github.com/textileio/desktop
+
+## Run a cafe peer
+
+Cafes are easy to deploy & manage (single executable, Docker). Setup your own cafe [here](/install/the-daemon/#initialize-a-cafe-peer).
 
 ## Learn more
 
-[Start here](/learn/) to learn more about the concepts and design behind Textile.
-
-## Try it!
-
-### Run an account peer
-
-You can create an account and run a peer in no time.
-
-- Run the command-line [daemon](/run/daemon)
-- Get the [desktop](/run/desktop) tray app
-- Install a [mobile app](/#apps) that contains a client SDK
-
-### Run a cafe peer
-
-Cafes are easy to deploy & manage (single executable, Docker).
-
-- Setup your own cafe [here](/run/daemon/#initialize-a-cafe-peer)
-
-## Build with a client SDK
-
-- Check out the [client SDKs](/clients)
-
-## Textile libraries and apps
-
-The underlying Textile libraries and tools are already being used in production. SDKs, APIs, and apps are available for most major platforms (e.g., Android, iOS, Mac, Linux, Windows, etc), with more being developed on a regular basis. Feel free to poke around the various projects below to get a feel for what Textile is working on. Interested in building on top of the Textile platform? [Get in touch](https://slack.textile.io/)!
-
-### Platform
-
-* Core lib: https://github.com/textileio/go-textile
-* iOS SDK: https://github.com/textileio/ios-textile
-* Android SDK: https://github.com/textileio/android-textile
-* React Native SDK: https://github.com/textileio/react-native-sdk
-* JS HTTP Client: https://github.com/textileio/js-http-client
-* The Tray: (desktop textile app installer) https://github.com/textileio/go-textile/tree/master/tray
-
-### Apps
-
-* Textile Photos: https://github.com/textileio/textile-mobile
-* Textile Photos Desktop: https://github.com/textileio/photos-desktop
-* Textile Notes: https://github.com/textileio/notes
+[Start here](/concepts/) to learn more about the concepts and design behind Textile.
 
 ## Other Resources
 

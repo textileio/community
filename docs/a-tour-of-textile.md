@@ -1,32 +1,76 @@
-This section assumes you have a daemon running locally. If you don't, head over to [running the daemon](/run/daemon) before diving in here.
+Welcome to Textile! This tour is intended for...
 
+- Developers interested in using Textile's decentralized tooling in their mobile, desktop, or web applications.
+- Anyone interested in running a Textile peer, because you'd like...
+    - a single, recoverable, sync-able, "account" on the IPFS network.
+    - to use this account to add structured and encrypted data to IPFS.
+    - to use this account to send encrypted messages and files to your friends.
+    - to use this account's data with Textile-based apps or other IPFS tooling.
 
-```Bash tab=
-textile threads add "dafvfdv"
+!!! Info
+    Peer-to-peer (p2p) slang is notoriously confusing! Throughout these docs, we often use the words "peer" and "node". Generally speaking, they are interchangeable. However, a network _node_ refers to the actual connection point that sends and receives data. On a p2p network like IPFS, all nodes are also _peers_. The network is like a "homogeneous solution" of particles (nodes). Mother Nature gets it!
+
+## Concepts
+
+- [Introduction](/concepts/)
+- [The wallet](/concepts/the-wallet) and [accounts](/concepts/the-wallet#accounts)
+- [Contacts](/concepts/contacts) and [peers](/concepts/contacts#peers)
+- [Threads](/concepts/threads) and [blocks](/concepts/threads#blocks)
+- [Files](/concepts/threads/files), [schemas](/concepts/threads/files#schemas), and [mills](/concepts/threads/files#mills)
+- [Cafes](/concepts/cafes)
+
+OK! Let's get into it.
+
+## Usage
+
+If you're using the command-line or JavaScript HTTP client, make sure your local [daemon](/install/the-daemon) is running.
+
+### Peer profile
+
+First off, let's take a look at our peer's _profile_:
+
+```Bash tab="Command-line"
+textile profile get
 ```
 
-```JavaScript tab=
+```JavaScript tab="JS HTTP"
+// todo
+```
+
+```JavaScript tab="React Native"
+// todo
+```
+
+```Swift tab="iOS"
+// todo
+```
+
+```Java tab="Android"
+// todo
+```
+
+```JSON
+{
+    "id": "12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay",
+    "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
+    "created": "2019-04-19T21:44:46.310082Z",
+    "updated": "2019-04-19T21:44:46.310082Z"
+}
+```
+
+#### Set a display name
+
+#### Set an avatar image
+
+Now, let's take another look at our peer profile and see what happened.
 
 ```
 
-```Objective-C tab=
-
 ```
 
-```Swift tab=
-
-```
-
-```Java tab=
-
-```
+Indeed, our profile was updated. If we had had any threads, an _announce_ block would have been added, which informs other participants of the change.
 
 
-Profile
-- View your profile
-- Set a display name
-- Set an avatar image
-- View profile again
 
 Account
 - seed, address
@@ -66,7 +110,7 @@ Cafes
 - client
     - register
     - list
-    - remove 
+    - remove
 - host
     - link to run
     - create token
@@ -184,38 +228,3 @@ At this point, both of you can add and receive files via this thread. You can al
 This will start an interactive chat session with other thread peers.
 
 <br>
-
-
-
-
-
-
-
-## Build apps
-
-Mobile applications can use one of the SDKs below, which contain the Textile node _and_ a client. Desktop applications should utilize [Textile Desktop](./install), which provides an HTTP REST API for other applications to interact with on `localhost`.
-
-JavaScript/Typescript developers can use the [JS HTTP Client](./textileio/js-http-client). Let us know if you need or would like to help with a client in another language.
-
-### Mobile
-
-Choose your preferred SDK:
-
-* [React Native SDK](./textileio/react-native-sdk)
-* [Android SDK](./textileio/android-textile)
-* [iOS SDK](./textileio/ios-textile)
-
-### Electron
-
-* [Textile Desktop](./install) + [JS HTTP Client](./textileio/js-http-client)
-
-### Web
-
-* [Textile Desktop](./install) + [JS HTTP Client](./textileio/js-http-client)
-
-We plan to write a full JavaScript implementation of the Textile node, allowing apps to run without a desktop peer. This library will be started in Q3 2019.
-
-### Go
-
-You can use the [Core Library](./textileio/go-textile) to leverage Textile in any Go project.
-

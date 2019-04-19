@@ -1,13 +1,13 @@
-In addition to [messages](/learn/messages) and the various [thread](/learn/threads) annotation [blocks](/learn/blocks), Textile supports adding arbitrary files/data to threads via the `Files` block. Additionally, input data can be transformed (or [_milled_](/learn/threads/mills) in Textile speak) and validated in order to provide programmable structure to your thread data. Currently, the following input types are available: Raw data blobs, images, exif data, and JSON documents.
+In addition to [messages](/concepts/messages) and the various [thread](/concepts/threads) annotation [blocks](/concepts/blocks), Textile supports adding arbitrary files/data to threads via the `Files` block. Additionally, input data can be transformed (or [_milled_](/concepts/threads/mills) in Textile speak) and validated in order to provide programmable structure to your thread data. Currently, the following input types are available: Raw data blobs, images, exif data, and JSON documents.
 
 Thread data is built into an [IPLD](https://ipld.io/) merkle DAG structure (similar to a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)) and stored separately from the block on IPFS. A `Files` block points to it's "data DAG"'s top-level hash.
 
-The structure of the data DAG is determined by, and validated against, a DAG [schema](/learn/threads/files/schemas). **A thread can have only one schema**. It has two main functions:
+The structure of the data DAG is determined by, and validated against, a DAG [schema](/concepts/threads/files/schemas). **A thread can have only one schema**. It has two main functions:
 
 1. Define a Thread's data DAG structure
 2. Define the order of _mills_ (transforms) needed to produce this structure from the input
 
-To illustrate these functions, take a look at the builtin [_media_](/learn/threads/schemas#media) schema. Each link (`large`, `small`, `thumb`) produces a resized and encrypted image by leveraging the [image/resize](/learn/threads/mills#image/resize) mill. Notice that the `thumb` link uses the `large` as input. This means that `large` will need to milled before `thumb`. Once you understand how schemas and mills work, you can design complex workflows and structures for your applications.
+To illustrate these functions, take a look at the builtin [_media_](/concepts/threads/schemas#media) schema. Each link (`large`, `small`, `thumb`) produces a resized and encrypted image by leveraging the [image/resize](/concepts/threads/mills#image/resize) mill. Notice that the `thumb` link uses the `large` as input. This means that `large` will need to milled before `thumb`. Once you understand how schemas and mills work, you can design complex workflows and structures for your applications.
 
 In addition to the transformed bytes, a mill will produce a file _index_ object for every input:
 

@@ -88,33 +88,29 @@ markdown_extensions:
 
 # Page tree
 nav:
-  - Home: index.md
-  - Learn:
-    - Overview: learn/index.md
-    - Wallet: learn/wallet.md
-    - Contacts: learn/contacts.md
+  - Welcome!: index.md
+  - A Tour of Textile: a-tour-of-textile.md
+  - Concepts:
+    - Introduction: concepts/index.md
+    - The Wallet: concepts/the-wallet.md
+    - Contacts: concepts/contacts.md
     - Threads:
-      - Overview: learn/threads/index.md
-      - Blocks: learn/threads/blocks.md
-      - Messages: learn/threads/messages.md
-      - Files:
-        - Overview: learn/threads/files/index.md
-        - Schemas: learn/threads/files/schemas.md
-        - Mills: learn/threads/files/mills.md
-    - Cafes: learn/cafes.md
-    - Config: learn/config.md
-  - Run:
-    - Daemon: run/daemon.md
-    - Desktop: run/desktop.md
-  - HTTP API: api/http-api.md
+      - Introduction: concepts/threads/index.md
+      - Files: concepts/threads/files.md
+    - Cafes: concepts/cafes.md
+  - Install:
+    - The Daemon: install/the-daemon.md
+    - Desktop: install/desktop.md
+  - The HTTP API: the-http-api.md
   - Clients:
-    - Overview: clients/index.md
     - Command-line: clients/command-line.md
     - JavaScript HTTP: clients/js-http.md
+    - React Native: clients/react-native.md
     - iOS: clients/ios.md
     - Android: clients/android.md
+  - The Config File: the-config-file.md
   - Policies:
-    - Code of conduct: policies/conduct.md
-    - Privacy policy: policies/privacy.md
-    - Terms of service: policies/tos.md
+    - Code of Conduct: policies/code-of-conduct.md
+    - Privacy Policy: policies/privacy-policy.md
+    - Terms of Service: policies/terms-of-service.md
     - License: policies/license.md
