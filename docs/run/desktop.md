@@ -42,7 +42,7 @@ The "Refresh" button simply re-generates the wallet. You can do this as many tim
 
 ![Tray Welcome](/images/tray_account.png){: .center}
 
-Once you're signed into an account, set a global avatar and display name for your peer, You can click "Threads" to preview the datasets accessible by your peer. The "Sync" button searches for and syncs with other peers that share your account key.
+Once you're signed into an account, set a global avatar and display name for your peer. You can click "Threads" to preview the datasets accessible by your peer. The "Sync" button searches for and syncs with other peers that share your account key.
 
 Lastly, registering your peer with an always-online cafe peer is highly recommended. See [cafe registration](/clients/cafe-registration) for details.
 

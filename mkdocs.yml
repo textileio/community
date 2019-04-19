@@ -58,7 +58,7 @@ extra:
 markdown_extensions:
   - markdown.extensions.admonition
   - markdown.extensions.codehilite:
-      guess_lang: true
+      guess_lang: false
   - markdown.extensions.def_list
   - markdown.extensions.footnotes
   - markdown.extensions.meta
@@ -106,13 +106,13 @@ nav:
   - Run:
     - Daemon: run/daemon.md
     - Desktop: run/desktop.md
+  - HTTP API: api/http-api.md
   - Clients:
     - Overview: clients/index.md
     - Command-line: clients/command-line.md
+    - JavaScript HTTP: clients/js-http.md
     - iOS: clients/ios.md
     - Android: clients/android.md
-    - JavaScript: clients/js.md
-  - REST API: rest-api.md
   - Policies:
     - Code of conduct: policies/conduct.md
     - Privacy policy: policies/privacy.md
