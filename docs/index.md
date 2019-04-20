@@ -4,7 +4,7 @@
 
 We believe that future technology can be built around a new model of data ownership where individuals have total agency over the information they create.
 
-Textile aims to standardize the use of _secure, cross-application user-owed data storage and communication_ by providing a set of easy-to-use developer tools and UX primitives. Let's build technology that can be loved while not worrying about censorship and privacy.
+Textile aims to standardize the use of _secure, cross-application user-owed data storage and sharing_ by providing a set of easy-to-use developer tools and UX primitives. Let's build technology that can be loved while not worrying about censorship and privacy.
 
 With Textile, you can use or build applications...
 
@@ -12,7 +12,7 @@ With Textile, you can use or build applications...
 * where users are able to leverage their own storage backend.
 * that run on mobile, web, and desktop.
 * that can traverse the IPFS network on any device.
-* by designing data structures (schemas) for user and app data, which can control encoding and encryption, and are also understandable by other applications (programmability).
+* by designing data structures (schemas) for user and app data, which can control encoding and encryption, and can also be parsed by other applications (programmability).
 
 ## What can you do with it?
 
