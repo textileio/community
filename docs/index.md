@@ -1,6 +1,6 @@
 [Textile](https://github.com/textileio) provides encrypted, recoverable, schema-based, and cross-application data storage built on [IPFS](https://github.com/ipfs) and [libp2p](https://github.com/libp2p). We like to think of it as a decentralized data wallet with built-in protocols for sharing and recovery, or more simply, **an open and programmable iCloud**.
 
-![The Network](/images/home.png)
+![The network](/images/home.png)
 
 We believe that future technology can be built around a new model of data ownership where individuals have total agency over the information they create.
 

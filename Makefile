@@ -2,6 +2,7 @@ setup:
 	pip install mkdocs
 	pip install mkdocs-material
 	pip install mkdocs-markdownextradata-plugin
+  pip install markdown-captions
 
 sync:
 	mkdir -p docs/textileio/go-textile

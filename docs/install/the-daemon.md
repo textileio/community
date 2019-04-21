@@ -2,14 +2,14 @@ All desktop and server peers run as a daemon, which contains an embedded IPFS no
 
 The daemon can be used to run an [account peer](/concepts/#account-peers) or a [cafe peer](/concepts/#cafe-peers).
 
-![Daemon](/images/daemon.png)
+![](/images/daemon.png)
 
 !!! info
     A _daemon_ is a program that operates as a long-running 'background' process (without a terminal or user interface). In most cases, the daemon exposes a network API (usually HTTP / TCP) that allows other programs to interact with it while it's running. Most daemons ship with a command-line client for this API.
 
 ## Install
 
-Download and extract the [latest release](https://github.com/textileio/go-textile/releases/latest) for your OS and architecture or jump to [Docker](https://github.com/textileio/go-textile#docker). 
+Download and extract the [latest release](https://github.com/textileio/go-textile/releases/latest) for your OS and architecture or jump to [Docker](https://github.com/textileio/go-textile#docker).
 
 ### macOS and Linux:
 
@@ -125,7 +125,7 @@ There are a dozen or so additional options that are available when initializing.
         Log Options:
           -n, --no-log-files       Write logs to stdout instead of rolling files.
           -d, --debug              Set the logging level to debug.
-    
+
 Anyone familiar with IPFS will recognize the similarities with these step. Much like `ipfs init`, `textile init` creates an IPFS node repository on disk.
 
 ### Initialize a cafe peer
@@ -135,7 +135,7 @@ Anyone can run a cafe peer and offer services to the network. You do not need to
 [Cafe peers](/concepts/cafes) are initialized by adding some additional flags to `textile init`:
 
 **`--cafe-open`:** This flag "opens" the cafe, meaning that it will expose an additional "service" API over libp2p and HTTP.
-    
+
 **`--cafe-url`:** This is the full public URL of the cafe service HTTP API.
 
 By default, `--cafe-url` is `http://<SWARM_PUBLIC_IP>:40601`. If your peer is behind a DNS-based load balancer and/or requires HTTPS, you may want to override this value. For example, [Textile's federated cafes](https://github.com/textileio/textile-opts#network) run behind EC2 load balancers with HTTPS listeners, which route traffic to the cafe API port (`--cafe-bind-addr`).

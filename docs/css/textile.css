@@ -44,3 +44,10 @@
 .superfences-tabs input:nth-child(n+1):checked + label + .superfences-content {
     display: block;
 }
+
+figcaption {
+  text-align: center;
+  font-size: 80%;
+  color: #666;
+  margin-bottom: 2em;
+}

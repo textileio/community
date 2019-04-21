@@ -28,7 +28,7 @@ Extract the zip file and move `Textile.exe` into your applications folder.
 
 Double-click the application. After a few moments, you should see the Textile icon in your taskbar. Click it to reveal the tray's UI.
 
-![Tray Welcome](/images/tray_welcome.png){: .center}
+![](/images/tray_welcome.png){: .center}
 
 Existing accounts will appear in the dropdown menu. Click "New" to initialize a new account.
 
@@ -40,13 +40,13 @@ You can optionally add a password that will be required along with your mnemonic
 
 The "Refresh" button simply re-generates the wallet. You can do this as many times as you like.
 
-![Tray Welcome](/images/tray_account.png){: .center}
+![](/images/tray_account.png){: .center}
 
 Once you're signed into an account, set a global avatar and display name for your peer. You can click "Threads" to preview the datasets accessible by your peer. The "Sync" button searches for and syncs with other peers that share your account key.
 
 Lastly, registering your peer with an always-online cafe is highly recommended. See [this section](/a-tour-of-textile#register-with-a-cafe) of the tour for details.
 
-![Tray Welcome](/images/tray_cafes.png){: .center}
+![](/images/tray_cafes.png){: .center}
 
 Click "Messages" to manually query your cafe(s) for new messages that may have been received from others when your peer was offline or otherwise unreachable. This is also automatically done on an interval.
 
