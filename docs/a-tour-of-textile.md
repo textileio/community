@@ -27,7 +27,7 @@ If you're using the command-line or JavaScript HTTP client, make sure your local
 
 ### Peer profile
 
-First off, let's take a look at our peer's profile:
+First off, take a look at your peer profile:
 
 ```tab="cmd"
 textile profile get
@@ -42,7 +42,17 @@ textile profile get
 }
 ```
 
+- `id`: Your embedded IPFS node's peer ID, which is unique on the network
+- `address`: Your wallet account's address (public key), which can be shared with other account peers
+
+Addresses always start with a "P" for "public". Account _seeds_ (private keys) always start with an "S" for "secret", which should help you remember which one to keep secret.
+
+!!! info
+    Textile uses an [ed25519](https://ed25519.cr.yp.to/) [HD wallet](https://en.bitcoinwiki.org/wiki/Deterministic_wallet) and IPFS peer IDs because they provide fast key generation, signing, and verification. These properties become important on less powerful devices like phones.
+
 #### Set a display name
+
+You can set a display name for your peer. Interacting with other users is a lot easier with display names. However, they are _not_ unique on the network.
 
 ```tab="cmd"
 textile profile set name "Clyde"
@@ -52,13 +62,17 @@ textile profile set name "Clyde"
 
 #### Set an avatar image
 
+Similarly, you can assign your peer a publicly visible avatar image.
+
 ```tab="cmd"
 textile profile set avatar "path/to/an/image"
 ```
 
     ok
 
-Now, let's take another look at our peer profile and see what happened.
+Now, your avatar will be tracked internally by the special private _account thread_, keyed with your account seed. This means that when your avatar (or display name) is updated, your other account peers (if you have any) will also pick up the change.
+
+Take another look at your peer profile and see what happened.
 
 ```tab="cmd"
 textile profile get
@@ -75,11 +89,17 @@ textile profile get
 }
 ```
 
-Our peer profile was updated. If we had any threads, an _announce_ block would be added to each, informing other members of the change. Remember, our _account's_ contact info contains references to all of its known peers, i.e, a phone, laptop, etc.
+Huzzah! If we had any threads, these updates would have been announced to them so that other members could pick up the changes.
 
 ### Account
 
+Generally speaking, peers can be thought of as ephemeral. You may lose or upgrade your phone or laptop and need to access your account on a new device.
+
+As mentioned above, all peers have a special private _account_ thread. In addition to avatars, this thread keeps track of your account peers.
+
 #### View account
+
+Take a look at your account.
 
 ```tab="cmd"
 textile account get
@@ -103,7 +123,15 @@ textile account get
 }
 ```
 
+Yep, just one peer so far.
+
+This object is actually a "contact". We'll look more closely at contacts later. For now, just note that your peer has a contact for _itself_, much like iOS or other contact systems.
+
+A contact displays the name and avatar from its most recently updated peer.
+
 #### View account seed
+
+Of course, your account seed (private key) is not included in the public-facing contact object, but we can access it with the `seed` command.
 
 ```tab="cmd"
 textile account seed
@@ -113,13 +141,18 @@ textile account seed
 
 #### Account sync
 
+Periodically, your peer will search the network for other peers backed by the same account (account peers). Technically, it will search for thread _snapshots_ created with your account address. If it finds any, they are decrypted and traversed like normal thread updates, keeping your peers in sync.
+
+!!! hint
+    A thread _snapshot_ is an encrypted object containing metadata and a reference to the latest update block, from which all others can be found. A snapshot may be stored at rest on a cafe peer or constructed dynamically for an account peer.
+
 ```tab="cmd"
 textile account sync
 ```
 
     No snapshots were found
 
-Well, that's what we'd expect at this point. We don't have any threads _and_ we haven't yet registered with a cafe that can backup our peer. We'll come back to this later in the tour.
+Well, that's what we'd expect at this point. You don't have any threads yet. We'll come back to this later in the tour.
 
 ### Contacts
 
@@ -358,19 +391,65 @@ echo "mmm, bytes..." | textile files add --thread="12D3KooWSYT6SUL9fx15pwjHSVUsu
     File target: QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5
     Added 1 file in 613.175326ms
 
-What just happened? The peer created a new DAG node for the input as defined by the schema.
+What just happened? The peer created a new DAG node for the input as defined by the schema. Every schema step adds a child node with two links:
+
+- `meta`: A JSON object containing metadata about the input and how it was processed. Some of the values are used for de-duplicating encrypted data. Here's the value of `meta` in the node we just created:
+
+```JSON
+{
+    "mill": "/blob",
+    "checksum": "EPBRa7eDzgoXyvDXqRYuXLkRoZqMizZ4R8QkZyF8n9DP",
+    "source": "EPBRa7eDzgoXyvDXqRYuXLkRoZqMizZ4R8QkZyF8n9DP",
+    "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
+    "hash": "QmTwQWfkR343HHxhdhTX7er6eHnYkgej7GNNsmbS6eZCyQ",
+    "key": "QQ3QUdkJ2LCH4ycDjEMHQVHkhnMRiZhkncMCN1i4pbYSXD1heeq2DuNrdm3F",
+    "media": "text/plain; charset=utf-8",
+    "name": "stdin",
+    "size": "14",
+    "added": "2019-04-20T22:46:19.976891Z",
+    "meta": {}
+}
+```
+
+- `data`: The output data of the schema step. Again, for our current example, this is just a passthrough (output is input).
 
 ![The `target` shown in the output is the root hash of the DAG.](/images/blob.png)
 
-Try adding the same data again.
+The [_files_](/concepts/threads/files) guide covers these concepts in more detail.
+
+Unless a schema step specifies `"plaintext": true`, the value of `meta` and `data` are both encrypted with the [Advanced Encryption Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) (AES) using their very own symmetric key. We can view the keys for each node in the DAG using the `keys` command.
+
+```tab="cmd"
+textile files keys "QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5"
+```
+
+```JSON
+{
+    "files": {
+        "/0/": "QQ3QUdkJ2LCH4ycDjEMHQVHkhnMRiZhkncMCN1i4pbYSXD1heeq2DuNrdm3F"
+    }
+}
+```
+
+The output gives us the key for the node at index `0`. There's only one key because this target node only contains one file.
+
+To add an actual file or directory, just specify a path, e.g, `textile files add "path/to/something" --thread="..."`.
+
+By default, files in a directory get added individually. Meaning that more than one target hash is created (one for each thread block). The `--group` option will write all files in a directory under a single DAG node. We'll get to a practical example of this in the next section.
+
+First, let's try adding the _same_ data again.
 
 ```tab="cmd"
 echo "mmm, bytes..." | textile files add --thread="12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"
 ```
 
-You can also specify a file or directory to add data to a thread, e.g, `textile files add "path/to/something" ...`.
+    File target: QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5
+    Added 1 file in 138.218899ms
 
-By default, files in a directory get added individually. Meaning that more than one target hash is created (one for each thread block). Use the `--group` option to write all files in a directory under a single DAG node. We'll get to a practical example of this in the next section.
+Notice that the file target **did not change**. The peer was able to reuse the node from the prior add because it detected the same data being added via the same schema. This means that the input was _not_ duplicated on the peer, even though it was encrypted non-deterministically.
+
+!!! info
+    Good encryption is always non-deterministic, which means that re-encrypting the same input will always result in a _different_ output.
 
 #### Make a photo album
 
