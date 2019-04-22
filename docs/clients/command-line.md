@@ -54,24 +54,24 @@ Help Options:
 
 Available commands:
   address  Show wallet account address
-  contact  Show own contact
+  get      Show account contact
   seed     Show wallet account seed
   sync     Sync account with all network snapshots
 
 ```
 
-#### `address`
+#### `get`
 
 ```
 Usage:
-  textile [OPTIONS] account address 
+  textile [OPTIONS] account get 
 
-Shows the local wallet account address.
+Shows the local peer's account info as a contact.
 
 Help Options:
   -h, --help             Show this help message
 
-[address command options]
+[get command options]
 
     Client Options:
           --api=         API address to use (default: http://127.0.0.1:40600)
@@ -85,7 +85,7 @@ Help Options:
 Usage:
   textile [OPTIONS] account seed 
 
-Shows the local wallet account seed.
+Shows the local peer's account seed.
 
 Help Options:
   -h, --help             Show this help message
@@ -98,18 +98,18 @@ Help Options:
 
 ```
 
-#### `contact`
+#### `address`
 
 ```
 Usage:
-  textile [OPTIONS] account contact 
+  textile [OPTIONS] account address 
 
-Shows own contact.
+Shows the local peer's account address.
 
 Help Options:
   -h, --help             Show this help message
 
-[contact command options]
+[address command options]
 
     Client Options:
           --api=         API address to use (default: http://127.0.0.1:40600)
@@ -123,7 +123,7 @@ Help Options:
 Usage:
   textile [OPTIONS] account sync 
 
-Syncs the local wallet account with all thread snapshots found on the network.
+Syncs the local account peer with other peers found on the network.
 
 Help Options:
   -h, --help             Show this help message
@@ -545,13 +545,13 @@ Available commands:
 Usage:
   textile [OPTIONS] contacts add 
 
-Adds a contact by username or account address to known contacts.
+Adds a contact by display name or account address to known contacts.
 
 Help Options:
   -h, --help             Show this help message
 
 [add command options]
-      -u, --username=    Add by username.
+      -n, --name=        Add by display name.
       -a, --address=     Add by account address.
           --wait=        Stops searching after 'wait' seconds have elapsed (max
                          30s). (default: 2)
@@ -631,7 +631,7 @@ Help Options:
   -h, --help             Show this help message
 
 [search command options]
-      -u, --username=    Search by username.
+      -n, --name=        Search by display name.
       -a, --address=     Search by account address.
           --only-local   Only search local contacts.
           --only-remote  Only search remote contacts.
@@ -1417,10 +1417,8 @@ Help Options:
 Usage:
   textile [OPTIONS] profile <get | set>
 
-Every peer has a public profile.
-Use this command to get and set profile username and avatar.
-A Textile Account will have different profiles for each of its peers,
-i.e., mobile, desktop, etc.
+Use this command to view and update the peer profile. A Textile account will
+show a profile for each of its peers, e.g., mobile, desktop, etc.
 
 
 Help Options:
@@ -1428,7 +1426,7 @@ Help Options:
 
 Available commands:
   get  Get profile
-  set  Set profile fields
+  set  Set profile name and avatar
 
 ```
 
@@ -1438,7 +1436,7 @@ Available commands:
 Usage:
   textile [OPTIONS] profile get 
 
-Gets the local peer's public profile.
+Gets the local peer profile.
 
 Help Options:
   -h, --help             Show this help message
@@ -1457,14 +1455,14 @@ Help Options:
 Usage:
   textile [OPTIONS] profile set 
 
-Sets public profile username and avatar. <avatar | username>
+Sets the peer display name and avatar. <avatar | name>
 
 Help Options:
   -h, --help      Show this help message
 
 Available commands:
-  avatar    Set avatar
-  username  Set username
+  avatar  Set avatar
+  name    Set display name
 
 ```
 
@@ -1531,22 +1529,31 @@ Help Options:
 Usage:
   textile [OPTIONS] threads <command>
 
-Threads are distributed sets of encrypted files between peers,
-governed by build-in or custom Schemas.
-Use this command to add, list, get, join, invite, and remove threads.
+Threads are distributed sets of encrypted files, often shared between peers,
+governed by schemas.
+Use this command to add, list, get, and remove threads. See below for
+additional commands.
+
+Control over thread access and sharing is handled by a combination of the
+--type and --sharing flags.
+An immutable member address "whitelist" gives the initiator fine-grained
+control.
+The table below outlines access patterns for the thread initiator and the
+whitelist members.
+An empty whitelist is taken to be "everyone", which is the default.
 
 Thread type controls read (R), annotate (A), and write (W) access:
 
-private   --> initiator: RAW, members:
-read_only --> initiator: RAW, members: R
-public    --> initiator: RAW, members: RA
-open      --> initiator: RAW, members: RAW
+private   --> initiator: RAW, whitelist:
+read_only --> initiator: RAW, whitelist: R
+public    --> initiator: RAW, whitelist: RA
+open      --> initiator: RAW, whitelist: RAW
 
 Thread sharing style controls if (Y/N) a thread can be shared:
 
-not_shared  --> initiator: N, members: N
-invite_only --> initiator: Y, members: N
-shared      --> initiator: Y, members: Y
+not_shared  --> initiator: N, whitelist: N
+invite_only --> initiator: Y, whitelist: N
+shared      --> initiator: Y, whitelist: Y
 
 Help Options:
   -h, --help      Show this help message
@@ -1581,15 +1588,16 @@ Help Options:
                          'public', or 'open'. (default: private)
       -s, --sharing=     Set the thread sharing style to one of 'not_shared',
                          'invite_only', or 'shared'. (default: not_shared)
-      -m, --member=      A contact address. When supplied, the thread will not
+      -w, --whitelist=   A contact address. When supplied, the thread will not
                          allow additional peers, useful for 1-1 chat/file
                          sharing. Can be used multiple times to include
                          multiple contacts.'
           --schema=      Thread schema ID. Supersedes schema filename.
           --schema-file= Thread schema filename. Supersedes the built-in schema
                          flags.
-          --camera-roll  Use the built-in camera roll Schema.
-          --media        Use the built-in media Schema.
+          --blob         Use the built-in blob schema for generic data.
+          --camera-roll  Use the built-in camera roll schema.
+          --media        Use the built-in media schema.
 
     Client Options:
           --api=         API address to use (default: http://127.0.0.1:40600)
@@ -1876,7 +1884,6 @@ Usage:
 
 Initializes a new account wallet backed by a mnemonic recovery phrase.
 
-
 Help Options:
   -h, --help            Show this help message
 
@@ -1894,7 +1901,6 @@ Usage:
   textile [OPTIONS] wallet accounts 
 
 Shows the derived accounts (address/seed pairs) in a wallet.
-
 
 Help Options:
   -h, --help          Show this help message
