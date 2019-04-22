@@ -1,15 +1,15 @@
 All desktop and server peers run as a daemon, which contains an embedded IPFS node. Much like the IPFS daemon, the program (`textile`) ships with a command-line client.
 
-The daemon can be used to run an [account peer](/learn/#account-peers) or a [cafe peer](/learn/#cafe-peers).
+The daemon can be used to run an [account peer](/concepts/#account-peers) or a [cafe peer](/concepts/#cafe-peers).
 
-![Daemon](/images/daemon.png)
+![](/images/daemon.png)
 
 !!! info
     A _daemon_ is a program that operates as a long-running 'background' process (without a terminal or user interface). In most cases, the daemon exposes a network API (usually HTTP / TCP) that allows other programs to interact with it while it's running. Most daemons ship with a command-line client for this API.
 
 ## Install
 
-Download and extract the [latest release](https://github.com/textileio/go-textile/releases/latest) for your OS and architecture or jump to [Docker](https://github.com/textileio/go-textile#docker). 
+Download and extract the [latest release](https://github.com/textileio/go-textile/releases/latest) for your OS and architecture or jump to [Docker](https://github.com/textileio/go-textile#docker).
 
 ### macOS and Linux:
 
@@ -34,14 +34,13 @@ See available tags [here](https://hub.docker.com/r/textile/go-textile/tags).
 
 ## Run
 
-Once you have `textile` available on your system, you can run your own peer. The first step is to create a new [here](/learn/wallet).
-
-Textile uses a hierarchical deterministic (HD) wallet to derive account keys from a set of unique words, called a [mnemonic phrase](https://en.bitcoin.it/wiki/Seed_phrase). Read more about the wallet [here](/learn/wallet).
-
-!!! info
-    Every key "inside" an HD wallet can be derived from this mnemonic phrase. Effectively, the wallet _is_ the mnemonic phrase.
+Once you have `textile` available on your system, you can run your own peer.
 
 ### Create a new wallet
+
+The first step is to create a new [wallet](/concepts/the-wallet).
+
+Textile uses a hierarchical deterministic (HD) wallet to derive account keys from a set of unique words, called a [mnemonic phrase](https://en.bitcoin.it/wiki/Seed_phrase).
 
     textile wallet init
 
@@ -61,6 +60,9 @@ This will output something like,
     SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
 
 You may optionally specify a word count and password that will be required along with your mnemonic phrase when accessing the wallet's account keys (run with `--help` for usage).
+
+!!! info
+    Every key "inside" an HD wallet can be derived from this mnemonic phrase. Effectively, the wallet _is_ the mnemonic phrase.
 
 The output contains information about the wallet's first account, or the keys at _index 0_. _Account seeds_ (private keys) always starts with an "S" for "secret" and _account addresses_ (public keys) always start with a "P" for "public".
 
@@ -123,22 +125,20 @@ There are a dozen or so additional options that are available when initializing.
         Log Options:
           -n, --no-log-files       Write logs to stdout instead of rolling files.
           -d, --debug              Set the logging level to debug.
-    
+
 Anyone familiar with IPFS will recognize the similarities with these step. Much like `ipfs init`, `textile init` creates an IPFS node repository on disk.
 
 ### Initialize a cafe peer
 
-Anyone can run a cafe peer and offer services to the network. You do not need to rely on Textile's cafe network, or anyone else's network for that matter.
+Anyone can run a cafe peer and offer services to the network. You do not need to rely on Textile's cafe network, or anyone else's network for that matter!
 
-[Cafe peers](/learn/cafes) are initialized by adding some additional flags to `textile init`.
+[Cafe peers](/concepts/cafes) are initialized by adding some additional flags to `textile init`:
 
-#### `--cafe-open`
+**`--cafe-open`:** This flag "opens" the cafe, meaning that it will expose an additional "service" API over libp2p and HTTP.
 
-This flag "opens" the cafe, meaning that it will expose an additional "service" API over libp2p and HTTP.
-    
-#### `--cafe-url`
+**`--cafe-url`:** This is the full public URL of the cafe service HTTP API.
 
-The full public URL of the cafe service HTTP API. By default, this is `http://<SWARM_PUBLIC_IP>:40601`. However, if you've placed your peer behind a DNS-based load balancer and/or require HTTPS, you may specify the full URL. For example, [Textile's federated cafes](https://github.com/textileio/textile-opts#network) run behind EC2 load balancers with HTTPS listeners, which route traffic to the cafe API port. This is `40601` by default and configurable with the `--cafe-bind-addr` option.
+By default, `--cafe-url` is `http://<SWARM_PUBLIC_IP>:40601`. If your peer is behind a DNS-based load balancer and/or requires HTTPS, you may want to override this value. For example, [Textile's federated cafes](https://github.com/textileio/textile-opts#network) run behind EC2 load balancers with HTTPS listeners, which route traffic to the cafe API port (`--cafe-bind-addr`).
 
 !!! info
     Cafe service clients are issued JWT sessions used for authentication. These sessions contain the public URL of the cafe peer's service API so that it can be leveraged over HTTP.
@@ -158,7 +158,7 @@ Later, when the peer is started, it's service info will be visible at the cafe U
         ]
     }
 
-You can modify the `init` settings anytime but editing the config file and restarting the peer. Read more about the cafe host config settings [here](/learn/config/#cafe).
+You can modify the `init` settings anytime but editing the config file and restarting the peer. Read more about the cafe host config settings [here](/the-config-file#cafe).
 
 ### Run the daemon
 
@@ -166,7 +166,9 @@ Now that you have initialized as either an account peer or a cafe peer, you can 
 
     textile daemon
 
-See `textile daemon --help` for more.
+See `textile daemon --help` for more options.
+
+### Run the daemon with Docker
 
 The docker images have internal logic that will fist initialize a peer if needed before starting the daemon, enabling a single run command:
 
@@ -184,6 +186,6 @@ The docker images have internal logic that will fist initialize a peer if needed
       textile/go-textile:latest-cafe
 
 !!! success
-    At last, your Textile peer is online. Head over to the [command-line client section](/clients/command-line) to learn about account sync, finding contacts, adding threads and files, chatting, and more.
+    At last, your Textile peer is online. Now you're ready to start the [tour](/a-tour-of-textile)!
 
 <br>
