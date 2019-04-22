@@ -93,7 +93,7 @@ Huzzah! If we had any threads, these updates would have been announced to them s
 
 ### Account
 
-Generally speaking, peers can be thought of as ephemeral. You may lose or upgrade your phone or laptop and need to access your account on a new device.
+Generally speaking, peers can be thought of as ephemeral. You may lose your device and/or need to access your account on a new one.
 
 As mentioned above, all peers have a special private _account_ thread. In addition to avatars, this thread keeps track of your account peers.
 
@@ -123,11 +123,7 @@ textile account get
 }
 ```
 
-Yep, just one peer so far.
-
-This object is actually a "contact". We'll look more closely at contacts later. For now, just note that your peer has a contact for _itself_, much like iOS or other contact systems.
-
-A contact displays the name and avatar from its most recently updated peer.
+Yep, just one peer so far. This object is actually a [contact](/concepts/contacts). We'll come back to contacts later.
 
 #### View account seed
 
@@ -156,7 +152,16 @@ Well, that's what we'd expect at this point. You don't have any threads yet. We'
 
 ### Contacts
 
+As we saw above in the accounts section, your peer has a [contact](/concepts/contacts) for _itself_, much like iOS or other contact systems. A contact displays the name and avatar from its most recently updated peer. A contact is essentially a collection of peers that share the same account.
+
 #### Search for contacts
+
+In addition to your "self" contact, you can search for and add contacts to your local "address book".
+
+!!! info
+    Search is handled by a publish-subscribe mechanism, where participants across the entire network stream results directly to the requester. In many cases, the search responders are cafe peers, serving indexes for their clients, but normal account peers can also participate in search.
+
+Try searching for "Andrew".
 
 ```tab="cmd"
 textile contacts search --name="Andrew"
@@ -192,7 +197,7 @@ textile contacts search --name="Andrew"
 ...
 ```
 
-You can also search for a single account by its address.
+With any luck, you should see a bunch of results. You can also search for a single account by its address.
 
 ```tab="cmd"
 textile contacts search --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"
@@ -215,6 +220,10 @@ textile contacts search --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE
 ```
 
 #### Add a contact
+
+We can add contacts by name or address. This will actually perform a search as above, and then present you with a prompt to confirm the addition. When you search by name, there may be more than one result.
+
+Try adding one of the contacts from above by address.
 
 ```tab="cmd"
 textile contacts add --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"
@@ -248,6 +257,8 @@ textile contacts ls
 
 #### Delete a contact
 
+Removing contacts is done by address.
+
 ```tab="cmd"
 textile contacts rm "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"
 ```
@@ -255,6 +266,8 @@ textile contacts rm "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"
     ok
 
 ### Ping another peer
+
+Pinging another peer is a useful way to check connectivity. If you want to ping a mobile or desktop peer (a peer without a public IP address), you may need to connect to it first with `textile ipfs connect /p2p-circuit/ipfs/<peerID>`. See [this section](/a-tour-of-textile/#ipfs) for more info about the IPFS sub-commands.
 
 Let's ping one of Textile's federated cafes.
 
@@ -264,9 +277,11 @@ textile ping 12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d
 
     online
 
-`ping` is a useful utility to check connectively between peers. If you want to ping a mobile or desktop peer (a peer without a public IP address), you may need to connect to it first with `textile ipfs connect /p2p-circuit/ipfs/<peerID>`. See [this section](/a-tour-of-textile/#ipfs) for more info about the IPFS sub-commands.
+Looking good.
 
 ### Threads
+
+[Threads](/concepts/threads) are distributed datasets of encrypted messages and files, often shared between peers, and governed by schemas.
 
 #### Create a basic thread
 
