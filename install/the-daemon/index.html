@@ -1,0 +1,1168 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Encrypted, recoverable, schema-based, cross-application data storage built on IPFS and LibP2P.">
+      
+      
+        <link rel="canonical" href="https://docs.textile.io/install/the-daemon/">
+      
+      
+        <meta name="author" content="textile.io">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>The Daemon - Textile Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.86c34351.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/textile.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="default" data-md-color-accent="default">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#install" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://docs.textile.io/" title="Textile Docs" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/logo_pink.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Textile Docs
+            </span>
+            <span class="md-header-nav__topic">
+              The Daemon
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/textileio/docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    textileio/docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://docs.textile.io/" title="Textile Docs" class="md-nav__button md-logo">
+      
+        <img src="../../images/logo_pink.svg" width="48" height="48">
+      
+    </a>
+    Textile Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/textileio/docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    textileio/docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Welcome!" class="md-nav__link">
+      Welcome!
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../a-tour-of-textile/" title="A Tour of Textile" class="md-nav__link">
+      A Tour of Textile
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Concepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Concepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/the-wallet/" title="The Wallet" class="md-nav__link">
+      The Wallet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/contacts/" title="Contacts" class="md-nav__link">
+      Contacts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Threads
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Threads
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/threads/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/threads/files/" title="Files" class="md-nav__link">
+      Files
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../concepts/cafes/" title="Cafes" class="md-nav__link">
+      Cafes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Install
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Install
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        The Daemon
+      </label>
+    
+    <a href="./" title="The Daemon" class="md-nav__link md-nav__link--active">
+      The Daemon
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" title="Install" class="md-nav__link">
+    Install
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos-and-linux" title="macOS and Linux:" class="md-nav__link">
+    macOS and Linux:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" title="Windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" title="Docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run" title="Run" class="md-nav__link">
+    Run
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-wallet" title="Create a new wallet" class="md-nav__link">
+    Create a new wallet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-wallet-accounts" title="Access wallet accounts" class="md-nav__link">
+    Access wallet accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialize-an-account-peer" title="Initialize an account peer" class="md-nav__link">
+    Initialize an account peer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialize-a-cafe-peer" title="Initialize a cafe peer" class="md-nav__link">
+    Initialize a cafe peer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-daemon" title="Run the daemon" class="md-nav__link">
+    Run the daemon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-daemon-with-docker" title="Run the daemon with Docker" class="md-nav__link">
+    Run the daemon with Docker
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-an-account-peer-with-docker" title="Run an account peer with docker" class="md-nav__link">
+    Run an account peer with docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-a-cafe-peer-with-docker" title="Run a cafe peer with docker" class="md-nav__link">
+    Run a cafe peer with docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../desktop/" title="Desktop" class="md-nav__link">
+      Desktop
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../the-http-api/" title="The HTTP API" class="md-nav__link">
+      The HTTP API
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Clients
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Clients
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../clients/command-line/" title="Command-line" class="md-nav__link">
+      Command-line
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../clients/js-http/" title="JavaScript HTTP" class="md-nav__link">
+      JavaScript HTTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../clients/react-native/" title="React Native" class="md-nav__link">
+      React Native
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../clients/ios/" title="iOS" class="md-nav__link">
+      iOS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../clients/android/" title="Android" class="md-nav__link">
+      Android
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../the-config-file/" title="The Config File" class="md-nav__link">
+      The Config File
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Policies
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Policies
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policies/code-of-conduct/" title="Code of Conduct" class="md-nav__link">
+      Code of Conduct
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policies/privacy-policy/" title="Privacy Policy" class="md-nav__link">
+      Privacy Policy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policies/terms-of-service/" title="Terms of Service" class="md-nav__link">
+      Terms of Service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../policies/license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" title="Install" class="md-nav__link">
+    Install
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos-and-linux" title="macOS and Linux:" class="md-nav__link">
+    macOS and Linux:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" title="Windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" title="Docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run" title="Run" class="md-nav__link">
+    Run
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-wallet" title="Create a new wallet" class="md-nav__link">
+    Create a new wallet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-wallet-accounts" title="Access wallet accounts" class="md-nav__link">
+    Access wallet accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialize-an-account-peer" title="Initialize an account peer" class="md-nav__link">
+    Initialize an account peer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialize-a-cafe-peer" title="Initialize a cafe peer" class="md-nav__link">
+    Initialize a cafe peer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-daemon" title="Run the daemon" class="md-nav__link">
+    Run the daemon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-daemon-with-docker" title="Run the daemon with Docker" class="md-nav__link">
+    Run the daemon with Docker
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-an-account-peer-with-docker" title="Run an account peer with docker" class="md-nav__link">
+    Run an account peer with docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-a-cafe-peer-with-docker" title="Run a cafe peer with docker" class="md-nav__link">
+    Run a cafe peer with docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/textileio/docs/edit/master/docs/install/the-daemon.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>The Daemon</h1>
+                
+                <p>All desktop and server peers run as a daemon, which contains an embedded IPFS node. Much like the IPFS daemon, the program (<code>textile</code>) ships with a command-line client.</p>
+<p>The daemon can be used to run an <a href="/concepts/#account-peers">account peer</a> or a <a href="/concepts/#cafe-peers">cafe peer</a>.</p>
+<p><img alt="" src="/images/daemon.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A <em>daemon</em> is a program that operates as a long-running 'background' process (without a terminal or user interface). In most cases, the daemon exposes a network API (usually HTTP / TCP) that allows other programs to interact with it while it's running. Most daemons ship with a command-line client for this API.</p>
+</div>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>Download and extract the <a href="https://github.com/textileio/go-textile/releases/latest">latest release</a> for your OS and architecture or jump to <a href="https://github.com/textileio/go-textile#docker">Docker</a>.</p>
+<h3 id="macos-and-linux">macOS and Linux:<a class="headerlink" href="#macos-and-linux" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>tar xvfz go-textile_$VERSION_$OS-$ARCH.tar.gz
+</pre></div>
+
+<p>Move <code>textile</code> anyplace in your <code>PATH</code> or run the install script, which puts it in <code>/usr/local/bin</code>:</p>
+<div class="codehilite"><pre><span></span>./install.sh
+</pre></div>
+
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<p>Extract the zip file and move <code>textile.exe</code> anyplace in your <code>PATH</code>.</p>
+<h3 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
+<p>See available tags <a href="https://hub.docker.com/r/textile/go-textile/tags">here</a>.</p>
+<h2 id="run">Run<a class="headerlink" href="#run" title="Permanent link">&para;</a></h2>
+<p>Once you have <code>textile</code> available on your system, you can run your own peer.</p>
+<h3 id="create-a-new-wallet">Create a new wallet<a class="headerlink" href="#create-a-new-wallet" title="Permanent link">&para;</a></h3>
+<p>The first step is to create a new <a href="/concepts/the-wallet">wallet</a>.</p>
+<p>Textile uses a hierarchical deterministic (HD) wallet to derive account keys from a set of unique words, called a <a href="https://en.bitcoin.it/wiki/Seed_phrase">mnemonic phrase</a>.</p>
+<div class="codehilite"><pre><span></span>textile wallet init
+</pre></div>
+
+
+<p>This will output something like,</p>
+<div class="codehilite"><pre><span></span>--------------------------------------------------------------------------------
+| field speak key various picture captain laugh produce word cage estate space |
+--------------------------------------------------------------------------------
+WARNING! Store these words above in a safe place!
+WARNING! If you lose your words, you will lose access to data in all derived accounts!
+WARNING! Anyone who has access to these words can access your wallet accounts!
+
+Use: `wallet accounts` command to inspect more accounts.
+
+--- ACCOUNT 0 ---
+P8sRrQuvwTCisEg3jndAWtNTbkqnrisHbxEutSm1AvC5qJA1
+SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
+</pre></div>
+
+
+<p>You may optionally specify a word count and password that will be required along with your mnemonic phrase when accessing the wallet's account keys (run with <code>--help</code> for usage).</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Every key "inside" an HD wallet can be derived from this mnemonic phrase. Effectively, the wallet <em>is</em> the mnemonic phrase.</p>
+</div>
+<p>The output contains information about the wallet's first account, or the keys at <em>index 0</em>. <em>Account seeds</em> (private keys) always starts with an "S" for "secret" and <em>account addresses</em> (public keys) always start with a "P" for "public".</p>
+<h3 id="access-wallet-accounts">Access wallet accounts<a class="headerlink" href="#access-wallet-accounts" title="Permanent link">&para;</a></h3>
+<p>Most users will only be interested in the first account keys, but you can access deeper indexes with the <code>accounts</code> sub-command:</p>
+<div class="codehilite"><pre><span></span>textile wallet accounts &quot;field speak key various picture captain laugh produce word cage estate space&quot; --depth 3
+--- ACCOUNT 0 ---
+P8sRrQuvwTCisEg3jndAWtNTbkqnrisHbxEutSm1AvC5qJA1
+SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
+--- ACCOUNT 1 ---
+P5rVWTKLKQFq42Ht7mdab9P3fSmyZyh2zWGHzLE8aipgoyRU
+SXw4tZNxnajX2PuurVBde8wCzfX9DfskC47QQB4hJgBKGAPq
+--- ACCOUNT 2 ---
+P7d43jRarv7k5e5WHmpDWuLevambQVu1YhrJ5CoRRfExLEwc
+SYEv4DMBd9RHHKzUZxC5fpieWJAiSCMNnMCKWSYUFaVHKQkt
+</pre></div>
+
+
+<p>See <code>textile wallet accounts --help</code> for more.</p>
+<h3 id="initialize-an-account-peer">Initialize an account peer<a class="headerlink" href="#initialize-an-account-peer" title="Permanent link">&para;</a></h3>
+<p>Next, use an account seed from your wallet to initialize a new account peer. Here, we just grab the account seed from the first account above:</p>
+<div class="codehilite"><pre><span></span>textile init -s SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
+</pre></div>
+
+
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Use your own seed. Never share it or your wallet mnemonic phrase with anyone!</p>
+</div>
+<p>There are a dozen or so additional options that are available when initializing. <code>textile init --help</code>:</p>
+<div class="codehilite"><pre><span></span>Usage:
+  textile [OPTIONS] init [init-OPTIONS]
+
+Initialize the node repository and exit.
+
+Help Options:
+  -h, --help                   Show this help message
+
+[init command options]
+      -s, --seed=              Account seed (run &#39;wallet&#39; command to generate new seeds).
+      -p, --pin-code=          Specify a pin code for datastore encryption.
+      -r, --repo-dir=          Specify a custom repository path.
+
+    Address Options:
+      -a, --api-bind-addr=     Set the local API address. (default: 127.0.0.1:40600)
+      -c, --cafe-bind-addr=    Set the cafe REST API address. (default: 127.0.0.1:40601)
+      -g, --gateway-bind-addr= Set the IPFS gateway address. (default: 127.0.0.1:5050)
+
+    Cafe Options:
+          --cafe-open          Open the p2p Cafe Service for other peers.
+          --cafe-public-ip=    Required with --cafe-open on a server with a public IP address.
+          --cafe-url=          Specify the URL of this cafe, e.g., https://mycafe.com
+          --cafe-neighbor-url= Specify the URL of a secondary cafe. Must return cafe info, e.g., via a Gateway: https://my-gateway.yolo.com/cafe, or a Cafe API: https://my-cafe.yolo.com
+
+    IPFS Options:
+          --server             Apply IPFS server profile.
+          --swarm-ports=       Set the swarm ports (TCP,WS). Random ports are chosen by default.
+
+    Log Options:
+      -n, --no-log-files       Write logs to stdout instead of rolling files.
+      -d, --debug              Set the logging level to debug.
+</pre></div>
+
+
+<p>Anyone familiar with IPFS will recognize the similarities with these step. Much like <code>ipfs init</code>, <code>textile init</code> creates an IPFS node repository on disk.</p>
+<h3 id="initialize-a-cafe-peer">Initialize a cafe peer<a class="headerlink" href="#initialize-a-cafe-peer" title="Permanent link">&para;</a></h3>
+<p>Anyone can run a cafe peer and offer services to the network. You do not need to rely on Textile's cafe network, or anyone else's network for that matter!</p>
+<p><a href="/concepts/cafes">Cafe peers</a> are initialized by adding some additional flags to <code>textile init</code>:</p>
+<p><strong><code>--cafe-open</code>:</strong> This flag "opens" the cafe, meaning that it will expose an additional "service" API over libp2p and HTTP.</p>
+<p><strong><code>--cafe-url</code>:</strong> This is the full public URL of the cafe service HTTP API.</p>
+<p>By default, <code>--cafe-url</code> is <code>http://&lt;SWARM_PUBLIC_IP&gt;:40601</code>. If your peer is behind a DNS-based load balancer and/or requires HTTPS, you may want to override this value. For example, <a href="https://github.com/textileio/textile-opts#network">Textile's federated cafes</a> run behind EC2 load balancers with HTTPS listeners, which route traffic to the cafe API port (<code>--cafe-bind-addr</code>).</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Cafe service clients are issued JWT sessions used for authentication. These sessions contain the public URL of the cafe peer's service API so that it can be leveraged over HTTP.</p>
+</div>
+<p>Later, when the peer is started, it's service info will be visible at the cafe URL, e.g., <a href="https://us-west-1c.textile.cafe">https://us-west-1c.textile.cafe</a>.</p>
+<div class="codehilite"><pre><span></span>{
+    &quot;peer&quot;: &quot;12D3KooWQue2dSRqnZTVvikoxorZQ5Qyyug3hV65rYnWYpYsNMRE&quot;,
+    &quot;address&quot;: &quot;P6th8SM6V3uSVQWgQz8AkFos3rwYzky2K7Bt6vx4h1jZGZne&quot;,
+    &quot;api&quot;: &quot;v0&quot;,
+    &quot;protocol&quot;: &quot;/textile/cafe/1.0.0&quot;,
+    &quot;node&quot;: &quot;0.1.11&quot;,
+    &quot;url&quot;: &quot;https://us-west-1c.textile.cafe&quot;,
+    &quot;swarm&quot;: [
+        &quot;/ip4/13.57.23.210/tcp/4001&quot;,
+        &quot;/ip6/2600:1f1c:522:b00:2725:b0b3:f39d:c401/tcp/4001&quot;
+    ]
+}
+</pre></div>
+
+
+<p>You can modify the <code>init</code> settings anytime but editing the config file and restarting the peer. Read more about the cafe host config settings <a href="/the-config-file#cafe">here</a>.</p>
+<h3 id="run-the-daemon">Run the daemon<a class="headerlink" href="#run-the-daemon" title="Permanent link">&para;</a></h3>
+<p>Now that you have initialized as either an account peer or a cafe peer, you can finally start the daemon:</p>
+<div class="codehilite"><pre><span></span>textile daemon
+</pre></div>
+
+
+<p>See <code>textile daemon --help</code> for more options.</p>
+<h3 id="run-the-daemon-with-docker">Run the daemon with Docker<a class="headerlink" href="#run-the-daemon-with-docker" title="Permanent link">&para;</a></h3>
+<p>The docker images have internal logic that will fist initialize a peer if needed before starting the daemon, enabling a single run command:</p>
+<h4 id="run-an-account-peer-with-docker">Run an account peer with docker<a class="headerlink" href="#run-an-account-peer-with-docker" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>$ docker run -it --name textile-node \
+  -p 4001:4001 -p 8081:8081 -p 5050:5050 -p 127.0.0.1:40600:40600 \
+  textile/go-textile:latest
+</pre></div>
+
+
+<h4 id="run-a-cafe-peer-with-docker">Run a cafe peer with docker<a class="headerlink" href="#run-a-cafe-peer-with-docker" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>$ docker run -it --name textile-cafe-node \
+  -p 4001:4001 -p 8081:8081 -p 5050:5050 -p 127.0.0.1:40600:40600 -p 40601:40601 \
+  -e CAFE_HOST_URL=&lt;public_URL&gt; -e CAFE_HOST_PUBLIC_IP=&lt;public_IP&gt; \
+  textile/go-textile:latest-cafe
+</pre></div>
+
+
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>At last, your Textile peer is online. Now you're ready to start the <a href="/a-tour-of-textile">tour</a>!</p>
+</div>
+<p><br></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../concepts/cafes/" title="Cafes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Cafes
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../desktop/" title="Desktop" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Desktop
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; Textile
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://textile.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/textileio" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/Textile01" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://medium.com/textileio" class="md-footer-social__link fa fa-medium"></a>
+    
+      <a href="https://slack.textile.io" class="md-footer-social__link fa fa-slack"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.12aa63bf.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../js/sidebar.js"></script>
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>
