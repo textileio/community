@@ -7,6 +7,24 @@ Below is the swagger-based documentation for the API.
 
 ## Version: 0
 
+### /account
+
+#### GET
+##### Summary:
+
+Show account contact
+
+##### Description:
+
+Shows the local peer's account info as a contact
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | contact | [pb.Contact](#pb.contact) |
+| 400 | Bad Request | string |
+
 ### /account/address
 
 #### GET
@@ -16,31 +34,13 @@ Show account address
 
 ##### Description:
 
-Shows the local node's account address
+Shows the local peer's account address
 
 ##### Responses
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
 | 200 | address | string |
-
-### /account/contact
-
-#### GET
-##### Summary:
-
-Show own contact
-
-##### Description:
-
-Shows own contact
-
-##### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | contact | [pb.Contact](#pb.contact) |
-| 400 | Bad Request | string |
 
 ### /account/seed
 
@@ -51,7 +51,7 @@ Show account seed
 
 ##### Description:
 
-Shows the local node's account seed
+Shows the local peer's account seed
 
 ##### Responses
 
@@ -767,7 +767,7 @@ Ignores a direct peer-to-peer invite to a thread
 | 200 | ok | string |
 | 400 | Bad Request | string |
 
-### /ipfs/cat/{cid}
+### /ipfs/cat/{path}
 
 #### GET
 ##### Summary:
@@ -776,13 +776,13 @@ Cat IPFS data
 
 ##### Description:
 
-Displays the data behind an IPFS CID (hash)
+Displays the data behind an IPFS CID (hash) or Path
 
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| cid | path | ipfs/ipns cid | Yes | string |
+| path | path | ipfs/ipns cid | Yes | string |
 | X-Textile-Opts | header | key: Key to decrypt data on-the-fly | No | string |
 
 ##### Responses
@@ -1205,22 +1205,22 @@ Sets public profile avatar by specifying an existing image file hash
 | 400 | Bad Request | string |
 | 500 | Internal Server Error | string |
 
-### /profile/username
+### /profile/name
 
 #### POST
 ##### Summary:
 
-Set username
+Set display name
 
 ##### Description:
 
-Sets public profile username to given string
+Sets public profile display name to given string
 
 ##### Parameters
 
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
-| X-Textile-Args | header | username | Yes | string |
+| X-Textile-Args | header | name | Yes | string |
 
 ##### Responses
 
@@ -1274,7 +1274,7 @@ Searches the network for thread snapshots
 | 400 | Bad Request | string |
 | 500 | Internal Server Error | string |
 
-### /sub/{id}
+### /subscribe/{id}
 
 #### GET
 ##### Summary:
@@ -1340,7 +1340,7 @@ Adds and joins a new thread
 
 ##### Description:
 
-Adds a new Thread with given name, type, and sharing and members options, returning
+Adds a new Thread with given name, type, and sharing and whitelist options, returning
 a Thread object
 
 ##### Parameters
@@ -1348,7 +1348,7 @@ a Thread object
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | X-Textile-Args | header | name | Yes | string |
-| X-Textile-Opts | header | key: A locally unique key used by an app to identify this thread on recovery, schema: Existing Thread Schema IPFS CID, type: Set the thread type to one of 'private', 'read_only', 'public', or 'open', sharing: Set the thread sharing style to one of 'not_shared','invite_only', or 'shared', members: An array of contact addresses. When supplied, the thread will not allow additional peers beyond those in array, useful for 1-1 chat/file sharing | No | string |
+| X-Textile-Opts | header | key: A locally unique key used by an app to identify this thread on recovery, schema: Existing Thread Schema IPFS CID, type: Set the thread type to one of 'private', 'read_only', 'public', or 'open', sharing: Set the thread sharing style to one of 'not_shared','invite_only', or 'shared', whitelist: An array of contact addresses. When supplied, the thread will not allow additional peers beyond those in array, useful for 1-1 chat/file sharing | No | string |
 
 ##### Responses
 
@@ -1956,7 +1956,6 @@ Check validity of existing cafe access token
 | id | string |  | No |
 | initiator | string |  | No |
 | key | string |  | No |
-| members | [ string ] |  | No |
 | name | string |  | No |
 | peer_count | integer |  | No |
 | schema | string |  | No |
@@ -1965,6 +1964,7 @@ Check validity of existing cafe access token
 | sk | [ integer ] |  | No |
 | state | integer |  | No |
 | type | integer |  | No |
+| whitelist | [ string ] |  | No |
 
 #### pb.ThreadList
 
