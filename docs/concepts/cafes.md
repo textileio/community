@@ -59,7 +59,7 @@ Here, we request an image that is fully encrypted on IPFS but we are comfortable
 - cid: same as above, either the IPFS hash or the block target including the path to the file you wish to decrypt.
 - key: the key to decrypt the file at path. A client can get access to a file's key at the time of block creation or by looking up an old block on any device with permission via a thread containing the block.
 
-Here's a real example of an encrypted image being embedded via a the decrypting endpoint.
+Here's a real example of an encrypted image being embedded through the decrypting endpoint.
 
 ![Photo secrets revealed](https://cafe.us-east-1.textile.io/ipfs/QmY7ezUccNt3i7qnyhJWN8xKL6cDe7RkEQEViPd33TFfxj/photo?key=17q9mTWHjSOIjWiAoZxYy3cYTN917q9mUBhOu0mxr6YM)
 
