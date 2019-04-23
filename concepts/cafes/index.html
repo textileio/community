@@ -425,6 +425,47 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#web-endpoints" title="Web endpoints" class="md-nav__link">
+    Web endpoints
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-thread-blocks" title="Request thread blocks" class="md-nav__link">
+    Request thread blocks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decryption-service" title="Decryption service" class="md-nav__link">
+    Decryption service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latest-thread-share" title="Latest thread share" class="md-nav__link">
+    Latest thread share
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cafe-functions" title="Cafe functions" class="md-nav__link">
+    Cafe functions
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -728,6 +769,47 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#web-endpoints" title="Web endpoints" class="md-nav__link">
+    Web endpoints
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-thread-blocks" title="Request thread blocks" class="md-nav__link">
+    Request thread blocks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decryption-service" title="Decryption service" class="md-nav__link">
+    Decryption service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latest-thread-share" title="Latest thread share" class="md-nav__link">
+    Latest thread share
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cafe-functions" title="Cafe functions" class="md-nav__link">
+    Cafe functions
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -774,6 +856,38 @@
 <p>Very often, a peer is not online or is otherwise unreachable and therefore unable to receive a message (usually a <a href="/concepts/threads">thread</a> update message, or <a href="/concepts/threads#blocks">block</a>). In this failed state, the sender can send the message to the recipient's always-online cafe(s), ensuring the message is delivered when the recipient returns online. In practice, this means that, when available, cafe "inbox" addresses are attached to <a href="/concepts/contacts">contacts</a>, which get published to the network. This is sort of like your phone's voicemail service, but here you're in control of where the message is actually delivered. Most importantly, because the update messages are encrypted, you <em>do not</em> need to trust the cafe hosting the inbox.</p>
 <h3 id="user-account-indexing">User account indexing<a class="headerlink" href="#user-account-indexing" title="Permanent link">&para;</a></h3>
 <p>Textile provides tooling for certain types of network-wide queries, like user account search. Changes to a peer's public-facing <a href="/concepts/contacts">contact</a> is indexed and made query-able by its cafes. So, while you do not need to be registered with a cafe in order to leverage these queries, doing so may increase your chances of being discovered by others, assuming you local peer is periodically offline.</p>
+<h3 id="web-endpoints">Web endpoints<a class="headerlink" href="#web-endpoints" title="Permanent link">&para;</a></h3>
+<p>Every cafe also hosts an IPFS gateway. This is useful for building light-clients where they want to be able to request client generated content through the cafe where it is pinned. Here, we can embed the Textile logo via one of Textile's cafes.</p>
+<p><code>https://gateway.textile.cafe/ipfs/&lt;cid&gt;</code></p>
+<ul>
+<li>cid: you can find a CID from any <code>ipfs add</code> command using the IPFS daemon. Alternatively, you can pull the <code>hash</code> parameter out of any block you create using a Textile thread. Blocks are encrypted by default, but you can read more about <a href="threads">/concepts/threads</a> to learn how to use <code>plaintext</code> for creating unencrypted thread files. </li>
+</ul>
+<p>Here is an example of an unencrypted thread file being shared over the Textile gateway.</p>
+<p><a href="https://gateway.textile.cafe/ipfs/QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d"><img alt="" src="https://gateway.textile.cafe/ipfs/QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d" /></a></p>
+<h4 id="request-thread-blocks">Request thread blocks<a class="headerlink" href="#request-thread-blocks" title="Permanent link">&para;</a></h4>
+<p>Gateways can also be used to request raw metadata or file content from a thread's blocks. You'll need to know a little bit about the <a href="/concepts/threads">block ID and schema</a>. Specifically, you'll need to pull the <code>target</code> out of a block, as the target refers to directory on IPFS created by the block. </p>
+<p>Here is how you request a block's contents over the gateway.</p>
+<p><code>https://gateway.textile.cafe/ipfs/&lt;target_id&gt;</code></p>
+<ul>
+<li>target_id: comes from any block in a Textile thread. </li>
+</ul>
+<p>Here is a real example over the gateway. </p>
+<p>[<a href="https://gateway.textile.cafe/ipfs/QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6">https://gateway.textile.cafe/ipfs/QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6</a>]</p>
+<p>You can see that the contents are in a directory, the directory sturcture is decided by the thread schema. If your thread is encrypted (the default), the content of any file inside the directory will be unviewable over the normal IPFS gateway. See next.</p>
+<h4 id="decryption-service">Decryption service<a class="headerlink" href="#decryption-service" title="Permanent link">&para;</a></h4>
+<p>Gateways are primarily useful for sharing decrypted data or in cases where the client can efficiently decrypt data locally. However, in many cases the work of decrypting a file on IPFS can passed up to the cafe vie the decrypting endpoint. </p>
+<p>Here, we request an image that is fully encrypted on IPFS but we are comfortable passing the key to a trusted cafe for remote decryption and file-deliver. A request to the decrypting enpoint looks like,</p>
+<p><code>https://gateway.textile.cafe/ipfs/&lt;cid&gt;?key=&lt;key&gt;</code></p>
+<ul>
+<li>cid: same as above, either the IPFS hash or the block target including the path to the file you wish to decrypt.</li>
+<li>key: the key to decrypt the file at path. A client can get access to a file's key at the time of block creation or by looking up an old block on any device with permission via a thread containing the block.</li>
+</ul>
+<p>Here's a real example of an encrypted image being embedded through the decrypting endpoint.</p>
+<p><figure alt="Photo secrets revealed"><img src="https://cafe.us-east-1.textile.io/ipfs/QmY7ezUccNt3i7qnyhJWN8xKL6cDe7RkEQEViPd33TFfxj/photo?key=17q9mTWHjSOIjWiAoZxYy3cYTN917q9mUBhOu0mxr6YM" /><figcaption>Photo secrets revealed</figcaption></figure></p>
+<h4 id="latest-thread-share">Latest thread share<a class="headerlink" href="#latest-thread-share" title="Permanent link">&para;</a></h4>
+<p><em>Status Pending. We plan to support the ability to publish threads over Textile that can be tracked and exposed over cafes without needing full Textile clients. <a href="https://github.com/textileio/go-textile/issues/697">Follow on GitHub</a>.</em></p>
+<h3 id="cafe-functions">Cafe functions<a class="headerlink" href="#cafe-functions" title="Permanent link">&para;</a></h3>
+<p><em>Status Exploring. We are looking into the concept of offering serverless function support directly inside a cafe. Examples of serverless function uses include: publishing a webhook, updating an RSS feed, or triggering a push notification.</em></p>
 <h2 id="deploying">Deploying<a class="headerlink" href="#deploying" title="Permanent link">&para;</a></h2>
 <p>Cafes are easy to deploy &amp; manage (single executable, Docker). Start <a href="/install/the-daemon/#run-a-cafe-peer">here</a> to run your own.</p>
 <p><br></p>
