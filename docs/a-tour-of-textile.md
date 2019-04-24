@@ -1114,19 +1114,257 @@ textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv" --a
 
 ![Clyde having a chat with a friend](/images/chat.png){: .center}
 
-#### List files
+Chat away!
 
+#### The files API
 
+Applications will often want to paginate files and associated annotations in a thread. The files API lists update blocks that point to DAG nodes containing files. A JSON representation of the (decrypted) DAG node is attached to the response along with nested comments and likes.
 
-```tab="cmd"
-textile files ls --thread=""
-```
-
-#### The Feed API
+Try listing the files in your "My runs" thread.
 
 ```tab="cmd"
-textile feed
+textile files ls --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
 ```
+
+??? success
+    ```
+    {
+        "items": [
+            {
+                "block": "QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84",
+                "target": "QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk",
+                "date": "2019-04-23T20:08:51.686544Z",
+                "user": {
+                    "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
+                    "name": "Clyde",
+                    "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5"
+                },
+                "files": [
+                    {
+                        "file": {
+                            "mill": "/json",
+                            "checksum": "HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S",
+                            "source": "8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ",
+                            "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
+                            "hash": "QmQHYPJDQAU8ZaGG8e4iW9bj65mr2T1cwygyfWb6AUaNio",
+                            "key": "AYCbcQf4YDBHr4NE2SnBgZYPfTD5riZgerujv3xFZgZ4RhDP3yZjcMnHSqXp",
+                            "media": "application/json",
+                            "size": "43",
+                            "added": "2019-04-23T20:08:51.294649Z",
+                            "meta": {
+                                },
+                            "targets": [
+                                "QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk"
+                            ]
+                        }
+                    }
+                ],
+                "comments": [
+                    {
+                        "id": "QmNx9j82vWLF6tEeMYWdFMBDJo89yBbMmScseJR4jVtML3",
+                        "date": "2019-04-23T22:21:04.253734Z",
+                        "user": {
+                            "address": "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs",
+                            "name": "P7X3gZu"
+                        },
+                        "body": "Is this an outlier?"
+                    }
+                ],
+                "likes": [
+                ],
+                "threads": [
+                    "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+                ]
+            }
+        ]
+    }
+    ```
+
+You can also list files across all threads by omitting the `--thread` flag.
+
+#### The feed API
+
+The feed API provides a few different modes to drive feed-based UIs. Take a look at the usage text from the command-line tool (`textile feed --help`):
+
+```
+Usage:
+  textile [OPTIONS] feed [feed-OPTIONS]
+
+Paginates post (join|leave|files|message) and annotation (comment|like) block types as a consumable feed.
+The --mode option dictates how the feed is displayed:
+
+-  "chrono": All feed block types are shown. Annotations always nest their target post, i.e., the post a comment is about.
+-  "annotated": Annotations are nested under post targets, but are not shown in the top-level feed.
+-  "stacks": Related blocks are chronologically grouped into "stacks". A new stack is started if an unrelated block
+breaks continuity. This mode is used by Textile Photos. Stacks may include:
+
+*  The initial post with some nested annotations. Newer annotations may have already been listed.
+*  One or more annotations about a post. The newest annotation assumes the "top" position in the stack. Additional
+annotations are nested under the target. Newer annotations may have already been listed in the case as well.
+
+Omit the --thread option to paginate all files.
+```
+
+Give the default `chrono` (for chronological) mode a try.
+
+```tab="cmd"
+textile feed --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+```
+
+??? success
+    ```JSON
+    {
+        "items": [
+            {
+                "block": "QmW5BY11hTLJJpZ6eSPnTpGPLRAcXzmBEPpeU4foq8BcNh",
+                "thread": "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw",
+                "payload": {
+                    "@type": "/Like",
+                    "id": "QmW5BY11hTLJJpZ6eSPnTpGPLRAcXzmBEPpeU4foq8BcNh",
+                    "date": "2019-04-23T22:25:06.850779Z",
+                    "user": {
+                        "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
+                        "name": "Clyde",
+                        "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5"
+                    },
+                    "target": {
+                        "block": "QmVoKpKsg5MkW11bK3LVmd3xMMaxTutVime32sV6EZWeLk",
+                        "thread": "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw",
+                        "payload": {
+                            "@type": "/Join",
+                            "block": "QmVoKpKsg5MkW11bK3LVmd3xMMaxTutVime32sV6EZWeLk",
+                            "date": "2019-04-23T21:32:22.486183Z",
+                            "user": {
+                                "address": "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs",
+                                "name": "P7X3gZu"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "block": "QmNx9j82vWLF6tEeMYWdFMBDJo89yBbMmScseJR4jVtML3",
+                "thread": "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw",
+                "payload": {
+                    "@type": "/Comment",
+                    "id": "QmNx9j82vWLF6tEeMYWdFMBDJo89yBbMmScseJR4jVtML3",
+                    "date": "2019-04-23T22:21:04.253734Z",
+                    "user": {
+                        "address": "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs",
+                        "name": "P7X3gZu"
+                    },
+                    "body": "Is this an outlier?",
+                    "target": {
+                        "block": "QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84",
+                        "thread": "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw",
+                        "payload": {
+                            "@type": "/Files",
+                            "block": "QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84",
+                            "target": "QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk",
+                            "date": "2019-04-23T20:08:51.686544Z",
+                            "user": {
+                                "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
+                                "name": "Clyde",
+                                "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5"
+                            },
+                            "files": [
+                                {
+                                    "file": {
+                                        "mill": "/json",
+                                        "checksum": "HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S",
+                                        "source": "8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ",
+                                        "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
+                                        "hash": "QmQHYPJDQAU8ZaGG8e4iW9bj65mr2T1cwygyfWb6AUaNio",
+                                        "key": "AYCbcQf4YDBHr4NE2SnBgZYPfTD5riZgerujv3xFZgZ4RhDP3yZjcMnHSqXp",
+                                        "media": "application/json",
+                                        "size": "43",
+                                        "added": "2019-04-23T20:08:51.294649Z",
+                                        "meta": {
+                                            },
+                                        "targets": [
+                                            "QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk"
+                                        ]
+                                    }
+                                }
+                            ],
+                            "threads": [
+                                "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "block": "QmVoKpKsg5MkW11bK3LVmd3xMMaxTutVime32sV6EZWeLk",
+                "thread": "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw",
+                "payload": {
+                    "@type": "/Join",
+                    "block": "QmVoKpKsg5MkW11bK3LVmd3xMMaxTutVime32sV6EZWeLk",
+                    "date": "2019-04-23T21:32:22.486183Z",
+                    "user": {
+                        "address": "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs",
+                        "name": "P7X3gZu"
+                    }
+                }
+            },
+            {
+                "block": "QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84",
+                "thread": "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw",
+                "payload": {
+                    "@type": "/Files",
+                    "block": "QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84",
+                    "target": "QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk",
+                    "date": "2019-04-23T20:08:51.686544Z",
+                    "user": {
+                        "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
+                        "name": "Clyde",
+                        "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5"
+                    },
+                    "files": [
+                        {
+                            "file": {
+                                "mill": "/json",
+                                "checksum": "HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S",
+                                "source": "8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ",
+                                "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
+                                "hash": "QmQHYPJDQAU8ZaGG8e4iW9bj65mr2T1cwygyfWb6AUaNio",
+                                "key": "AYCbcQf4YDBHr4NE2SnBgZYPfTD5riZgerujv3xFZgZ4RhDP3yZjcMnHSqXp",
+                                "media": "application/json",
+                                "size": "43",
+                                "added": "2019-04-23T20:08:51.294649Z",
+                                "meta": {
+                                    },
+                                "targets": [
+                                    "QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk"
+                                ]
+                            }
+                        }
+                    ],
+                    "threads": [
+                        "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+                    ]
+                }
+            },
+            {
+                "block": "QmV8HiBrgJvGx4mwVF8G8MDpyaiUcUX9YC52AjAjw3HHuV",
+                "thread": "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw",
+                "payload": {
+                    "@type": "/Join",
+                    "block": "QmV8HiBrgJvGx4mwVF8G8MDpyaiUcUX9YC52AjAjw3HHuV",
+                    "date": "2019-04-23T19:29:57.858974Z",
+                    "user": {
+                        "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
+                        "name": "Clyde",
+                        "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5"
+                    }
+                }
+            }
+        ],
+        "count": 5
+    }
+    ```
+
+The "annotations" mode functions like the files API but includes join and leave update types. [Textile Photos](https://textile.photos) uses the "stacks" mode.
 
 #### Subscribe to updates
 
