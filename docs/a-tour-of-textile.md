@@ -493,7 +493,7 @@ What just happened? The peer created a new DAG node for the input as defined by 
 
 - `data`: The output data of the schema step. Again, for our current example, this is just a passthrough (output is input).
 
-![The `target` shown in the output is the root hash of the DAG.](/images/blob.png)
+![The `target` shown in the output is the root hash of the DAG.](/images/blob.png){: .center}
 
 The [_files_](/concepts/threads/files) guide covers these concepts in more detail.
 
@@ -608,7 +608,7 @@ textile threads add "Dogs" --type="open" --sharing="shared" --media
 
 Notice that the media schema has links for a _large_, _small_, and _thumb_ sized image. This schema does not actually store the raw input data. Take a look at the built-in [camera roll](/threads/files#schemas) schema for an example of how you might do that, as well as extract exif data from an image.
 
-![Photo by William Milliot on Unsplash.](/images/william-milliot-510766-unsplash.jpg)
+![Photo by William Milliot on Unsplash.](/images/william-milliot-510766-unsplash.jpg){: .center}
 
 Try adding the image above to your dogs thread.
 
@@ -627,14 +627,14 @@ textile files add "~/Downloads/william-milliot-510766-unsplash.jpg" --caption="D
 
 Let's a look at the DAG node you just created. There will be three links, as defined by the schema.
 
-![A DAG node created by the media schema.](/images/media.png)
+![A DAG node created by the media schema.](/images/media.png){: .center}
 
 !!! info
     Notice that the media schema shown above only has `"pin": true` for the thumb node. In practice, this actually means that _if_ you were registered with a cafe peer and were auto-syncing your threads, the other nodes (small and large) would be "released" and only the thumb node would remain stored locally. This functionality is similar to other cloud providers that only store low-res versions of your photos on device, but here you can define the behavior with a schema!
 
 By default, when you specify a directory path with the `files add` command, an update block will be added for each file. However, using the `--group` flag, we can create a single DAG "folder" and add it to the thread with a single update block.
 
-![A DAG node created by the media schema using the --group flag.](/images/media_group.png)
+![A DAG node created by the media schema using the --group flag.](/images/media_group.png){: .center}
 
 #### Track some GeoJSON coordinates
 
@@ -830,6 +830,9 @@ textile invites create --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE
 
 This new account is not an existing contact. So, your peer will ask the network for its contact info. You can confirm that, yes, you'd like to add this account to your local contacts, and send it an invite to your thread.
 
+!!! hint
+    You just created an "account-to-account" invite, which is useful between existing account. "External" invites are useful when you want to invite a friend over another channel like SMS. See `textile invites create --help` for more.
+
 Next, we'll pretend that we are the second account and accept the invite. You should see a [notification](/a-tour-of-textile/#notifications) that you were invited to a thread in the daemon output.
 
 ```
@@ -865,7 +868,7 @@ As expected, looks like Clyde invited us to "My runs". Notice that we had to sup
 !!! tip
     You can avoid the need to use the `--api` when interacting with non-default peer APIs by exporting an environment variable, e.g., `export API="http://127.0.0.1:41600"`.
 
-You _could_ ignore the invite with `textile invites ignore ...`. However, we like Clyde and want to support his running efforts!
+You _could_ ignore the invite with `textile invites ignore`. However, we like Clyde and want to support his running efforts!
 
 ```tab="cmd"
 textile invites accept "QmXcJmyX2vbeJTcZSkoZCHc74yycjJcXbxCHkLknJhyPaL" --api="http://127.0.0.1:41600"
@@ -1013,29 +1016,125 @@ Whoa, Clyde liked that you joined his thread. What a guy!
 
 #### Start a chat
 
+We've already covered how to add plain text messages to a thread. Combined with a schema, you can build a media-rich chat interface. In fact, this is exactly what [Textile Photos](https://textile.photos) does with its "groups".
+
+![A Textile Photos group](/images/photos_chat.png){: .center}
+
+Create a new thread for chatting with your friend `P7X3gZu`.
+
 ```tab="cmd"
-textile chat --thread ""
+textile threads add "Chat" --type="open" --sharing="shared" --whitelist="P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"
 ```
 
-#### Leave a thread
+??? success
+    ```JSON
+    {
+        "block_count": 1,
+        "head": "QmVPzdEQrcXJKMnCpvuUcTk8sz9LTVFuY4dB9HXX2B5jtg",
+        "head_block": {
+            "author": "12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay",
+            "date": "2019-04-23T23:21:52.483721Z",
+            "id": "QmVPzdEQrcXJKMnCpvuUcTk8sz9LTVFuY4dB9HXX2B5jtg",
+            "parents": [],
+            "thread": "12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv",
+            "type": "JOIN",
+            "user": {
+                "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
+                "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5",
+                "name": "Clyde"
+            }
+        },
+        "id": "12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv",
+        "initiator": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
+        "key": "1KHwDgdRK6qV9pvIEBwNY8ZFyVf",
+        "name": "Chat",
+        "peer_count": 1,
+        "sharing": "SHARED",
+        "sk": "CAESQNKwDki8xpJ8dw3ifAfsGkqjz4Xr885uKlI0LjGTQPxiTHIas0+WrN7WErhk5jXRGmdMV5wAKuskKUOQhp4kKAU=",
+        "state": "LOADED",
+        "type": "OPEN",
+        "whitelist": [
+            "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"
+        ]
+    }
+    ```
+
+The whitelist ensures the chat remains between the two of us. As before, we need to create an invite and accept it. However, let's try an "external" invite.
 
 ```tab="cmd"
-textile 
+textile invites create --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"
 ```
+
+???+ success
+    ```JSON
+    {
+        "id": "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf",
+        "inviter": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
+        "key": "cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd"
+    }
+    ```
+
+The only difference this time was that we didn't specify `--address`. Instead of getting sent directly to another peer, the invite was encrypted with the key shown in the output and persisted to IPFS. Now, you're free to send it around however you choose. In order to accept, the recipient will have to specify the `id` and `key`.
+
+```tab="cmd"
+textile invites accept "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf" --key="cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd"
+```
+
+??? success
+    ```JSON
+    {
+        "author": "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV",
+        "date": "2019-04-24T00:03:09.432176Z",
+        "id": "QmRBZmo9uxVfy1cfBkpRP5SqMGTdXyPwAYpMtBFUJtXjdD",
+        "parents": [
+            "QmVPzdEQrcXJKMnCpvuUcTk8sz9LTVFuY4dB9HXX2B5jtg"
+        ],
+        "thread": "12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv",
+        "type": "JOIN",
+        "user": {
+            "address": "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs",
+            "name": "P7X3gZu"
+        }
+    }
+    ```
+
+Of course, passing all these hashes and keys around is a lot easier with a well designed UI.
+
+The command-line tool has a `chat` command that enters an interactive thread session in which participants can add and view messages. Start a chat on your first peer.
+
+```tab="cmd"
+textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"
+```
+
+Then start the same chat on your second peer.
+
+```tab="cmd"
+textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv" --api="http://localhost:41600"
+```
+
+![Clyde having a chat with a friend](/images/chat.png){: .center}
 
 #### List files
 
+
+
 ```tab="cmd"
-textile 
+textile files ls --thread=""
 ```
 
 #### The Feed API
 
 ```tab="cmd"
-textile 
+textile feed
 ```
 
 #### Subscribe to updates
+
+```tab="cmd"
+textile 
+```
+
+#### Leave a thread
 
 ```tab="cmd"
 textile 
