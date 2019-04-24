@@ -1,13 +1,10 @@
-Welcome to Textile! This tour is intended for...
+![Photo by Andrew Neel on Unsplash](/images/andrew-neel-133200-unsplash.jpg)
 
-- Developers interested in using Textile's decentralized tooling in their mobile, desktop, or web applications.
-- Anyone interested in running a Textile peer, because you'd like...
-    - a single, recoverable, sync-able, "account" on the IPFS network.
-    - to use this account to add structured and encrypted data to IPFS.
-    - to use this account to send encrypted messages and files to your friends.
-    - to use this account's data with Textile-based apps or other IPFS tooling.
+Welcome to Textile! This is a great place to start if you're a developer interested in using Textile's decentralized tooling in your mobile, desktop, or web applications. However, anyone interested in learning how to run and interact with a Textile peer will find this tour very useful.
 
 ## Concepts
+
+The rest of this document assumes that you are somewhat familiar with the following concepts:
 
 - [Introduction](/concepts/)
 - [The wallet](/concepts/the-wallet) and [accounts](/concepts/the-wallet#accounts)
@@ -18,7 +15,7 @@ Welcome to Textile! This tour is intended for...
 
 OK! Let's get into it.
 
-## Usage
+## Get started
 
 If you're using the command-line or JavaScript HTTP client, make sure your local [daemon](/install/the-daemon) is running.
 
@@ -621,6 +618,8 @@ textile files add "~/Downloads/william-milliot-510766-unsplash.jpg" --caption="D
     File target: QmT9Rj1wHosh1hL2kjVxm6RWtK3ZTSjb6b69qwdztVTkLR
     Added 1 file in 5.978401883s
     ```
+
+This is a fairly large (~3.5 MB) image. So, your peer took some time to encode all of the requested sizes.
 
 !!! tip
     The `/image/resize` mill can take JPEG, PNG, and GIF images.

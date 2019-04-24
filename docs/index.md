@@ -1,10 +1,14 @@
 [Textile](https://github.com/textileio) provides encrypted, recoverable, schema-based, and cross-application data storage built on [IPFS](https://github.com/ipfs) and [libp2p](https://github.com/libp2p). We like to think of it as a decentralized data wallet with built-in protocols for sharing and recovery, or more simply, **an open and programmable iCloud**.
 
-![The network](/images/home.png)
+![The network](/images/home.png){: .center}
 
 We believe that future technology can be built around a new model of data ownership where individuals have total agency over the information they create.
 
-Textile aims to standardize the use of _secure, cross-application user-owed data storage and sharing_ by providing a set of easy-to-use developer tools and UX primitives. Let's build technology that can be loved while not worrying about censorship and privacy.
+Textile is a set of tools and trust-less infrastructure for building _censorship resistant_ and _privacy preserving_ applications.
+
+While interoperable with the whole [IPFS](https://ipfs.io/) peer-to-peer network, Textile-flavored peers represent an additional layer or sub-network of **users, applications, and services**.
+
+With good encryption defaults and anonymous, disposable application services like [cafes](https://docs.textile.io/concepts/cafes/), Textile aims to bring the decentralized internet to real products that people love.
 
 With Textile, you can use or build applications...
 
