@@ -1,6 +1,10 @@
-Textile is a set of tools and decentralized infrastructure for applications that run on the [IPFS](https://github.com/ipfs) peer-to-peer network. While data is interoperable with the whole network, Textile-flavored peers represent an additional layer or sub-network of users, applications, and services.
+Textile is a set of tools and trust-less infrastructure for building _censorship resistant_ and _privacy preserving_ applications.
 
-![The Network](/images/net.png)
+While interoperable with the whole [IPFS](https://ipfs.io/) peer-to-peer network, Textile-flavored peers represent an additional layer or sub-network of **users, applications, and services**.
+
+With good encryption defaults and anonymous, disposable application services like [cafes](https://docs.textile.io/concepts/cafes/), Textile aims to bring the decentralized internet to real products that people love.
+
+![The network](/images/net.png){: .center}
 
 ## How it works
 

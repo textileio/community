@@ -1,9 +1,3 @@
-.center {
-  display: block;
-  margin: 0 auto;
-  padding: 2em 0;
-}
-
 .superfences-tabs {
   display: flex;
   position: relative;
@@ -50,4 +44,10 @@ figcaption {
   font-size: 80%;
   color: #666;
   margin-bottom: 2em;
+}
+
+figure.center > img, img.center {
+  display: block;
+  margin: 0 auto;
+  padding: 1em 0;
 }

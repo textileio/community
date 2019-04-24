@@ -103,6 +103,7 @@ nav:
     - The Daemon: install/the-daemon.md
     - Desktop: install/desktop.md
   - The HTTP API: the-http-api.md
+  - IPFS Gateway: ipfs-gateway.md
   - Clients:
     - Command-line: clients/command-line.md
     - JavaScript HTTP: clients/js-http.md
