@@ -13,8 +13,6 @@ The rest of this document assumes that you are somewhat familiar with the follow
 - [Files](/concepts/threads/files), [schemas](/concepts/threads/files#schemas), and [mills](/concepts/threads/files#mills)
 - [Cafes](/concepts/cafes)
 
-OK! Let's get into it.
-
 ## Get started
 
 If you're using the command-line or JavaScript HTTP client, make sure your local [daemon](/install/the-daemon) is running.
@@ -1365,31 +1363,146 @@ textile feed --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
 
 The "annotations" mode functions like the files API but includes join and leave update types. [Textile Photos](https://textile.photos) uses the "stacks" mode.
 
-#### Subscribe to updates
+#### Subscription API
+
+The `chat` command we saw above is actually built in part with a subscription. You can subscribe to any type of thread update [block](/concepts/threads#blocks).
+
+??? abstract "Block types"
+    -  `MERGE`
+    -  `IGNORE`
+    -  `FLAG`
+    -  `JOIN`
+    -  `ANNOUNCE`
+    -  `LEAVE`
+    -  `TEXT`
+    -  `FILES`
+    -  `COMMENT`
+    -  `LIKE`
+
+Let's subscribe to "files" updates across all threads.
 
 ```tab="cmd"
-textile 
+textile subscribe --type="files"
 ```
+
+In another terminal, add a location to the "My runs" thread.
+
+```tab="cmd"
+echo '{ "latitude": 48.868093, "longitude": 2.284694 }' | textile files add --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+```
+
+??? success
+    ```
+    File target: QmbkqtPBLH83opAAzjLdLszry55p8W4FZbc7HR1a1gbHK4
+    Added 1 file in 533.47ms
+    ```
+
+Your first window will display the update.
+
+??? success
+    ```JSON
+    {
+        "block": "QmaTUfyZGkQn6Wzo2FUSviDhEtE6Ezt5V7ot1tdVNR5gMg",
+        "thread": "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw",
+        "payload": {
+            "@type": "/Files",
+            "block": "QmaTUfyZGkQn6Wzo2FUSviDhEtE6Ezt5V7ot1tdVNR5gMg",
+            "target": "QmbkqtPBLH83opAAzjLdLszry55p8W4FZbc7HR1a1gbHK4",
+            "date": "2019-04-24T20:00:24.870515Z",
+            "user": {
+                "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
+                "name": "Clyde",
+                "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5"
+            },
+            "files": [
+                {
+                    "file": {
+                        "mill": "/json",
+                        "checksum": "DptTUm5Rh6gSdCvijL7hmcqnHH4MeG2nRTkVgZhv2EcK",
+                        "source": "3VhXeTZor66u8NdGhrPcYK2N7j5v6vceGZerpvehHSJh",
+                        "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
+                        "hash": "QmUaecS9uZ3QyDt3ybzDs1rQbvB5LbLQe2YFVojQsHqePq",
+                        "key": "8MnFgGEAj55y1sGW256JvE11KN4ZE89Weqzue3ZbkBvGB6jhvQZP2nq3JMZd",
+                        "media": "application/json",
+                        "size": "43",
+                        "added": "2019-04-24T20:00:24.489476Z",
+                        "meta": {
+                            }
+                    }
+                }
+            ],
+            "threads": [
+                "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+            ]
+        }
+    }
+    ```
+
+You can subscribe to multiple (or all) update types. [Textile Photos](https://textile.photos) uses a subscription to display realtime updates within its groups.
 
 #### Leave a thread
 
+When you leave a thread, all associated data is deleted from your peer. Additionally, any registered cafes will delete its associated snapshots.
+
+From your second peer, leave the "My runs" thread.
+
 ```tab="cmd"
-textile 
+textile threads rm "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" --api="http://127.0.0.1:41600"
 ```
+
+??? success
+    ```
+    ok
+    ```
 
 ### Notifications
 
+Notifications are generated when you receive a thread invitation or update from another peer. OS-based notification APIs like iOS/Android local notifications or macOS desktop notifications can directly consume these objects.
+
 #### List notifications
 
+Let's see what kind of notifications your first peer (Clyde) has.
+
 ```tab="cmd"
-textile 
+textile notifications ls
 ```
+
+???+ success
+    ```JSON
+    {
+        "items": [
+            {
+                "actor": "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV",
+                "block": "QmPQSwoXQL5Hgmof3fYZQgp5GKwaqY4wbeP4NaoQe2P9vV",
+                "body": "left",
+                "date": "2019-04-24T20:18:08.442121Z",
+                "id": "1KKP01K9SpRASYKkyxSK4EiSYEz",
+                "subject": "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw",
+                "subject_desc": "My runs",
+                "type": "PEER_LEFT",
+                "user": {
+                    "address": "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs",
+                    "name": "P7X3gZu"
+                }
+            }
+        ]
+    }
+    ```
+
+Hmm, only one notification? Remember that your other peer left the "My runs" thread. Besides the leave notification, all others from their actions in that thread (joined, commented, etc.) were deleted. 
 
 #### "Read" notifications
 
+Notifications have a `read` boolean status that is useful for some applications. Here, we can mark the above notification as read.
+
 ```tab="cmd"
-textile 
+textile notifications read "1KKP01K9SpRASYKkyxSK4EiSYEz"
 ```
+
+??? success
+    ```
+    ok
+    ```
 
 ### Cafe Hosts
 
