@@ -53,7 +53,7 @@ Addresses always start with a "P" for "public". Account _seeds_ (private keys) a
 You can set a display name for your peer. Interacting with other users is a lot easier with display names. However, they are _not_ unique on the network.
 
 ```tab="cmd"
-textile profile set name "Clyde"
+textile profile set username "Clyde"
 ```
 
 ??? success
