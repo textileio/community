@@ -107,7 +107,7 @@ As mentioned above, all peers have a special private _account_ thread. In additi
 Take a look at your account.
 
 ```tab="cmd"
-textile account get
+textile account contact
 ```
 
 ???+ success
@@ -176,7 +176,7 @@ In addition to your "self" contact, you can search for and add contacts to your 
 Try searching for "Andrew".
 
 ```tab="cmd"
-textile contacts search --name="Andrew"
+textile contacts search --username="Andrew"
 ```
 
 ??? success
