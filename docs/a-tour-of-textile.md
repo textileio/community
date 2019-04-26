@@ -1494,56 +1494,214 @@ textile notifications read "1KKP01K9SpRASYKkyxSK4EiSYEz"
 
 ### Summary
 
+Display a summary of your peer's threads, files, and contacts.
+
 ```tab="cmd"
 textile summary
 ```
 
+???+ success
+    ```JSON
+    {
+        "id": "12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay",
+        "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
+        "thread_count": 5,
+        "files_count": 5,
+        "contact_count": 1
+    }
+    ```
+
+`"files_count"` reports a total count of `files` update blocks.
+
 ### Logs
+
+Your peer's underlying IPFS node comes with a rich system-based logging framework. Textile peers leverage this same framework, adding additional log systems with the prefix "tex-".
 
 #### View current log levels
 
+Take a look at the current log levels.
+
 ```tab="cmd"
-textile 
+textile logs
 ```
+
+??? success
+    ```JSON
+    {
+        "addrutil": "ERROR",
+        "autonat": "ERROR",
+        "autonat-svc": "ERROR",
+        "autorelay": "ERROR",
+        "badger": "ERROR",
+        "basichost": "ERROR",
+        "bitswap": "ERROR",
+        "bitswap_network": "ERROR",
+        "blockservice": "ERROR",
+        "blockstore": "ERROR",
+        "boguskey": "ERROR",
+        "bstestnet": "ERROR",
+        "chunk": "ERROR",
+        "cmds": "ERROR",
+        "command": "ERROR",
+        "connmgr": "ERROR",
+        "core": "ERROR",
+        "core/coreapi": "ERROR",
+        "coreunix": "ERROR",
+        "dht": "ERROR",
+        "dht.pb": "ERROR",
+        "discovery": "ERROR",
+        "engine": "ERROR",
+        "eventlog": "ERROR",
+        "filestore": "ERROR",
+        "flatfs": "ERROR",
+        "fsrepo": "ERROR",
+        "ipfsaddr": "ERROR",
+        "ipns": "ERROR",
+        "ipns-repub": "ERROR",
+        "keystore": "ERROR",
+        "lock": "ERROR",
+        "mdns": "ERROR",
+        "mfs": "ERROR",
+        "mocknet": "ERROR",
+        "mockrouter": "ERROR",
+        "mount": "ERROR",
+        "mplex": "ERROR",
+        "namesys": "ERROR",
+        "nat": "ERROR",
+        "net/identify": "ERROR",
+        "p2p-config": "ERROR",
+        "p2p-mount": "ERROR",
+        "pathresolv": "ERROR",
+        "peerqueue": "ERROR",
+        "peerstore": "ERROR",
+        "pin": "ERROR",
+        "ping": "ERROR",
+        "plugin/loader": "ERROR",
+        "provider": "ERROR",
+        "providers": "ERROR",
+        "pubsub": "ERROR",
+        "pubsub-valuestore": "ERROR",
+        "relay": "ERROR",
+        "reprovider": "ERROR",
+        "reuseport-transport": "ERROR",
+        "routedhost": "ERROR",
+        "routing/record": "ERROR",
+        "secio": "ERROR",
+        "stream-upgrader": "ERROR",
+        "swarm2": "ERROR",
+        "table": "ERROR",
+        "tcp-tpt": "ERROR",
+        "tex-broadcast": "ERROR",
+        "tex-core": "ERROR",
+        "tex-datastore": "ERROR",
+        "tex-gateway": "ERROR",
+        "tex-ipfs": "ERROR",
+        "tex-main": "ERROR",
+        "tex-mill": "ERROR",
+        "tex-repo": "ERROR",
+        "tex-repo-config": "ERROR",
+        "tex-service": "ERROR",
+        "tex-util": "ERROR",
+        "transport": "ERROR",
+        "ulimit": "ERROR"
+    }
+    ```
+
+They should all be at their default value of "ERROR". Note that you have access to all of the IPFS log systems as well.
 
 #### Change log levels
 
+You can alter a peer's log levels even when it's running.
+
+!!! tip
+    During development, start the daemon with `--debug`. This will set all of the "tex-" log systems to "DEBUG". You can then tail the logs, like: `tail -f "path/to/repo/logs/textile.log"`.
+
+Set all of the "tex-" log systems to "INFO".
+
 ```tab="cmd"
-textile 
+textile logs --tex-only --level="info"
 ```
+
+???+ success
+    ```JSON
+    {
+        "tex-broadcast": "INFO",
+        "tex-core": "INFO",
+        "tex-datastore": "INFO",
+        "tex-gateway": "INFO",
+        "tex-ipfs": "INFO",
+        "tex-main": "INFO",
+        "tex-mill": "INFO",
+        "tex-repo": "INFO",
+        "tex-repo-config": "INFO",
+        "tex-service": "INFO",
+        "tex-util": "INFO"
+    }
+    ```
+
+Possible log level values are "debug", "info", "warning", "error", and "critical".
+
+See `textile logs --help` for more.
 
 ### Config
 
-Using the `config` command, you can view and alter [config file](/the-config-file) values.
+When your peer starts, it loads a JSON [config file](/the-config-file) from the repository directory, called "textile". This file lives alongside the IPFS config file (named "config"). You must restart your peer after making changes to either of these files.
 
 #### View a config value
 
+We can view the entire config or a specific value behind any JSON key. Try viewing the "Addresses" config.
+
 ```tab="cmd"
-textile 
+textile config "Addresses"
 ```
+
+???+ success
+    ```JSON
+    {
+        "API": "127.0.0.1:40600",
+        "CafeAPI": "127.0.0.1:40601",
+        "Gateway": "127.0.0.1:5050"
+    }
+    ```
 
 #### Set a config value
 
-In preparation for the cafe section below, let's set `Cafe.Host.Open` to `true`.
+Changing values follows the same pattern. In preparation for the [Cafe Hosts](#cafe-hosts) section below, let's set `"Cafe.Host.Open"` to `true`.
 
 ```tab="cmd"
-textile 
+textile config "Cafe.Host.Open" true
 ```
+
+???+ success
+    ```
+    Updated! Restart daemon for changes to take effect.
+    ```
+
+After restarting the daemon (or your `Textile` instance for users of the mobile SDKs), you should now see `true` when querying for the value.
+
+```tab="cmd"
+textile config "Cafe.Host.Open"
+```
+
+???+ success
+    ```
+    true
+    ```
 
 ### Cafe Hosts
 
-[Cafe](/concepts/cafes) peers (or just cafes) provide services to other peers. We can creat
+[Cafe](/concepts/cafes) peers (or just cafes) provide services to other peers.
 
 #### Create a client token
 
 ```tab="cmd"
-textile 
+textile tokens create
 ```
 
 #### View client tokens
 
 ```tab="cmd"
-textile 
+textile tokens ls
 ```
 
 ### Cafe Clients
@@ -1551,19 +1709,19 @@ textile
 #### Register with a cafe
 
 ```tab="cmd"
-textile 
+textile cafes add {Cafe.Host.URL} --token="token"
 ```
 
 #### List cafe sessions
 
 ```tab="cmd"
-textile 
+textile cafes ls
 ```
 
 #### Unregister with a cafe
 
 ```tab="cmd"
-textile 
+textile cafes rm "cafe-peer-id"
 ```
 
 ### IPFS
