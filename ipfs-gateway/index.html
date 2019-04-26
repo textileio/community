@@ -110,7 +110,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#view-file-dag-nodes" tabindex="1" class="md-skip">
+      <a href="#navigate-thread-files" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -472,15 +472,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#view-file-dag-nodes" title="View file DAG nodes" class="md-nav__link">
-    View file DAG nodes
+  <a href="#navigate-thread-files" title="Navigate thread files" class="md-nav__link">
+    Navigate thread files
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#decryption-service" title="Decryption service" class="md-nav__link">
-    Decryption service
+  <a href="#decrypt-thread-files" title="Decrypt thread files" class="md-nav__link">
+    Decrypt thread files
   </a>
   
 </li>
@@ -683,15 +683,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#view-file-dag-nodes" title="View file DAG nodes" class="md-nav__link">
-    View file DAG nodes
+  <a href="#navigate-thread-files" title="Navigate thread files" class="md-nav__link">
+    Navigate thread files
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#decryption-service" title="Decryption service" class="md-nav__link">
-    Decryption service
+  <a href="#decrypt-thread-files" title="Decrypt thread files" class="md-nav__link">
+    Decrypt thread files
   </a>
   
 </li>
@@ -727,7 +727,8 @@
 <p class="admonition-title">Tip</p>
 <p>Thread files are encrypted by default. Learn how to write schemas that generate unencrypted files <a href="/concepts/threads/files#schemas">here</a>.</p>
 </div>
-<h2 id="view-file-dag-nodes">View file DAG nodes<a class="headerlink" href="#view-file-dag-nodes" title="Permanent link">&para;</a></h2>
+<h2 id="navigate-thread-files">Navigate thread files<a class="headerlink" href="#navigate-thread-files" title="Permanent link">&para;</a></h2>
+<p>Threads store <a href="/concepts/threads/files">files</a> in structured DAG nodes. Web applications or light-clients will often want to use a gateway to navigate these thread file "directories".</p>
 <p>You can explore a file DAG node by referencing its <code>target</code> hash:</p>
 <div class="codehilite"><pre><span></span>https://gateway.textile.cafe/ipfs/&lt;target&gt;
 </pre></div>
@@ -737,9 +738,9 @@
 </ul>
 <p>Here is a DAG node served from one of Textile's federated gateways: <a href="https://gateway.textile.cafe/ipfs/QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6">https://gateway.textile.cafe/ipfs/QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6</a>.</p>
 <p>If your thread files are encrypted (the default), the meta and content data won't be viewable over a normal IPFS gateway. See next.</p>
-<h2 id="decryption-service">Decryption service<a class="headerlink" href="#decryption-service" title="Permanent link">&para;</a></h2>
+<h2 id="decrypt-thread-files">Decrypt thread files<a class="headerlink" href="#decrypt-thread-files" title="Permanent link">&para;</a></h2>
 <p>Gateways are primarily useful for sharing unencrypted data or in cases where the client can efficiently decrypt data locally. However, in many cases, it may be acceptable to let a gateway decrypt a file before serving it to a client.</p>
-<p>Here, we ask a cafe's gateway to decrypt an image by appending its key as a query parameter:</p>
+<p>We can ask this cafe's gateway to decrypt an image by appending the key as a query parameter:</p>
 <div class="codehilite"><pre><span></span>https://gateway.textile.cafe/ipfs/&lt;path&gt;?key=&lt;key&gt;
 </pre></div>
 
