@@ -4,19 +4,7 @@
 
 We believe that future technology can be built around a new model of data ownership where individuals have total agency over the information they create.
 
-Textile is a set of tools and trust-less infrastructure for building _censorship resistant_ and _privacy preserving_ applications.
-
-While interoperable with the whole [IPFS](https://ipfs.io/) peer-to-peer network, Textile-flavored peers represent an additional layer or sub-network of **users, applications, and services**.
-
-With good encryption defaults and anonymous, disposable application services like [cafes](https://docs.textile.io/concepts/cafes/), Textile aims to bring the decentralized internet to real products that people love.
-
-With Textile, you can use or build applications...
-
-* where users are able to utilize their data across applications and devices.
-* where users are able to leverage their own storage backend.
-* that run on mobile, web, and desktop.
-* that can traverse the IPFS network on any device.
-* by designing data structures (schemas) for user and app data, which can control encoding and encryption, and can also be parsed by other applications (programmability).
+**[Continue reading about Textile...](/concepts/)**
 
 ## What can you do with it?
 
@@ -55,10 +43,6 @@ Client SDKs or HTTP clients available for integrating Textile into your mobile, 
 ## Run a cafe peer
 
 Cafes are easy to deploy & manage (single executable, Docker). Setup your own cafe [here](/install/the-daemon/#initialize-a-cafe-peer).
-
-## Learn more
-
-[Start here](/concepts/) to learn more about the concepts and design behind Textile.
 
 ## Other Resources
 

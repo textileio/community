@@ -110,3 +110,5 @@ $ textile threads add --type 'open' --sharing 'shared' --media "My Open+Shared+M
     "file_cnt": 0
 }
 ```
+
+<br>
