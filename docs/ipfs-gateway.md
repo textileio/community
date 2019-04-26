@@ -11,7 +11,9 @@ https://gateway.textile.cafe/ipfs|ipns/<path>
 !!! tip
     Thread files are encrypted by default. Learn how to write schemas that generate unencrypted files [here](/concepts/threads/files#schemas).
 
-## View file DAG nodes
+## Navigate thread files
+
+Threads store [files](/concepts/threads/files) in structured DAG nodes. Web applications or light-clients will often want to use a gateway to navigate these thread file "directories".
 
 You can explore a file DAG node by referencing its `target` hash:
 
@@ -25,11 +27,11 @@ Here is a DAG node served from one of Textile's federated gateways: [https://gat
 
 If your thread files are encrypted (the default), the meta and content data won't be viewable over a normal IPFS gateway. See next.
 
-## Decryption service
+## Decrypt thread files
 
 Gateways are primarily useful for sharing unencrypted data or in cases where the client can efficiently decrypt data locally. However, in many cases, it may be acceptable to let a gateway decrypt a file before serving it to a client.
 
-Here, we ask a cafe's gateway to decrypt an image by appending its key as a query parameter:
+We can ask this cafe's gateway to decrypt an image by appending the key as a query parameter:
 
 ```
 https://gateway.textile.cafe/ipfs/<path>?key=<key>

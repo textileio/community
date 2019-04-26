@@ -206,3 +206,5 @@ All contents of the Site and Services including but not limited to design, text,
 Textile and the Textile logo are including without limitation, either trademarks, service marks or registered trademarks of Textile, Inc., and may not be copied, imitated, or used, in whole or in part, without Textile’s prior written permission or that of our suppliers or licensors. Other product and company names may be trade or service marks of their respective owners.
 
 Textile may have patents, patent applications, trademarks, copyrights, or other intellectual property rights covering subject matter that is part of the Service. Unless we have granted you licenses to our intellectual property in these Terms, our providing you with the Service does not give you any license to our intellectual property. Any rights not expressly granted herein are reserved.
+
+<br>

@@ -118,7 +118,6 @@ Stores settings controlling whether a node is running in *cafe* mode, and how it
 
 * `Host` is a JSON object where...
     * `Open` is a boolean controlling whether other peers can register with this node for cafe services.
-    * `PublicIP` is a string specifying the public IP address for the Cafe.
     * `URL` is a string specifying the public-facing URL of the host machine. This is needed in order to issue sessions to mobile clients, which need to communicate with the cafe over HTTP for background upload tasks.
 * `Client` is a JSON object where...
     * `Mobile` is a JSON object where...
@@ -162,3 +161,5 @@ These settings are only modified when initializing a new nod. For example, when 
 "IsMobile": false,
 "IsServer": false
 ```
+
+<br>

@@ -860,7 +860,7 @@ textile invites ls --api="http://127.0.0.1:41600"
     }
     ```
 
-As expected, looks like Clyde invited us to "My runs". Notice that we had to supply the `--api` flag to tell the command-line tool to list invites from the non-default peer API.
+As expected, looks like Clyde invited us to "My runs". Notice that we had to supply the `--api` flag to tell the command-line client to list invites from the non-default peer API.
 
 !!! tip
     You can avoid the need to use the `--api` when interacting with non-default peer APIs by exporting an environment variable, e.g., `export API="http://127.0.0.1:41600"`.
@@ -1097,7 +1097,7 @@ textile invites accept "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf" --key="c
 
 Of course, passing all these hashes and keys around is a lot easier with a well designed UI.
 
-The command-line tool has a `chat` command that enters an interactive thread session in which participants can add and view messages. Start a chat on your first peer.
+The command-line client has a `chat` command that enters an interactive thread session in which participants can add and view messages. Start a chat on your first peer.
 
 ```tab="cmd"
 textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"
@@ -1181,7 +1181,7 @@ You can also list files across all threads by omitting the `--thread` flag.
 
 #### The feed API
 
-The feed API provides a few different modes to drive feed-based UIs. Take a look at the usage text from the command-line tool (`textile feed --help`):
+The feed API provides a few different modes to drive feed-based UIs. Take a look at the usage text from the command-line client (`textile feed --help`):
 
 ```
 Usage:
@@ -1365,19 +1365,7 @@ The "annotations" mode functions like the files API but includes join and leave 
 
 #### Subscription API
 
-The `chat` command we saw above is actually built in part with a subscription. You can subscribe to any type of thread update [block](/concepts/threads#blocks).
-
-??? abstract "Block types"
-    -  `MERGE`
-    -  `IGNORE`
-    -  `FLAG`
-    -  `JOIN`
-    -  `ANNOUNCE`
-    -  `LEAVE`
-    -  `TEXT`
-    -  `FILES`
-    -  `COMMENT`
-    -  `LIKE`
+The `chat` command we saw above is actually built in part with a subscription. You can subscribe to any type of thread update [block](/concepts/threads#blocks): `merge`, `ignore`, `flag`, `join`, `announce`, `leave`, `text`, `files`, `comment`, `like`.
 
 Let's subscribe to "files" updates across all threads.
 
@@ -1493,7 +1481,7 @@ Hmm, only one notification? Remember that your other peer left the "My runs" thr
 
 #### "Read" notifications
 
-Notifications have a `read` boolean status that is useful for some applications. Here, we can mark the above notification as read.
+Notifications have a `read` boolean status that is useful for some applications. We can mark the above notification as read via its `id`.
 
 ```tab="cmd"
 textile notifications read "1KKP01K9SpRASYKkyxSK4EiSYEz"
@@ -1504,7 +1492,47 @@ textile notifications read "1KKP01K9SpRASYKkyxSK4EiSYEz"
     ok
     ```
 
+### Summary
+
+```tab="cmd"
+textile summary
+```
+
+### Logs
+
+#### View current log levels
+
+```tab="cmd"
+textile 
+```
+
+#### Change log levels
+
+```tab="cmd"
+textile 
+```
+
+### Config
+
+Using the `config` command, you can view and alter [config file](/the-config-file) values.
+
+#### View a config value
+
+```tab="cmd"
+textile 
+```
+
+#### Set a config value
+
+In preparation for the cafe section below, let's set `Cafe.Host.Open` to `true`.
+
+```tab="cmd"
+textile 
+```
+
 ### Cafe Hosts
+
+[Cafe](/concepts/cafes) peers (or just cafes) provide services to other peers. We can creat
 
 #### Create a client token
 
@@ -1538,67 +1566,338 @@ textile
 textile 
 ```
 
-### Summary
-
-```tab="cmd"
-textile summary
-```
-
-### Logs
-
-#### View current log levels
-
-```tab="cmd"
-textile 
-```
-
-#### Change log levels
-
-```tab="cmd"
-textile 
-```
-
-### Config
-
-#### View a config value
-
-```tab="cmd"
-textile 
-```
-
-#### Set a config value
-
-```tab="cmd"
-textile 
-```
-
 ### IPFS
 
-```tab="cmd"
-textile 
-```
+The Textile API exposes a handful of the more useful IPFS endpoints. For the command-line client, these are `id`, `cat`, `swarm peers`, and `swarm connect`. Please [open an issue](https://github.com/textileio/go-textile/issues) or pull request for other IPFS APIs you would like to use via `textile`.
 
 #### View peer ID
 
+At some point, you will want to view your IPFS peer ID. This is the same ID shown in your contact and profile info and printed by the daemon on startup.
+
 ```tab="cmd"
-textile 
+textile ipfs id
 ```
+
+???+ success
+    ```
+    12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay
+    ```
+
+See the [IPFS doc](https://docs.ipfs.io/reference/api/cli/#ipfs-id) for more info.
+
+Check out [this post](https://medium.com/textileio/how-ipfs-peer-nodes-identify-each-other-on-the-distributed-web-8b5b6476aa5e) on the Textile blog for more info about how peers identify each other on the distributed web.
 
 #### View the peer swarm
 
+Your peer is always communicating, or "gossiping", with a changing sub-set of other peers on the IPFS network called a "swarm". You can view that swarm at any time. It should be relatively large at this point since your peer has been "online" for awhile.
+
 ```tab="cmd"
-textile 
+textile ipfs swarm peers
 ```
+
+??? success
+    ```JSON
+    {
+        "Peers": [
+            {
+                "addr": "/ip4/104.154.192.219/tcp/4001",
+                "peer": "QmWAQKhwspxGmLbn23kBTWMSrhJe2HyivJx3Mi12GPdT4z"
+            },
+            {
+                "addr": "/ip4/109.194.47.83/tcp/4001",
+                "peer": "QmQCH7nuh5osaTj2BDKThL54fBJiQ8d5YMPcTokEP3dRem"
+            },
+            {
+                "addr": "/ip4/109.194.47.83/tcp/4004",
+                "peer": "QmbdY5KnhG6Dk5fEJZQSVDhHN7sdhSzsKMnJU6MnpmRg5h"
+            },
+            {
+                "addr": "/ip4/122.114.171.159/tcp/10001",
+                "peer": "QmTyZ4sMYQVEd9DXGEHCxouhKF6HyuzwbacJS9ZKb8Lr8B"
+            },
+            {
+                "addr": "/ip4/13.59.235.81/tcp/4001",
+                "peer": "QmYfywze6ADxF45Rmmcbv28MZQQ7QuiD1bV88n3Twyq7Ld"
+            },
+            {
+                "addr": "/ip4/134.209.237.173/tcp/4001",
+                "peer": "QmVFXZSJSsmpZoBaq1TfgDe4RGYfGonnxwToJN3jng7meD"
+            },
+            {
+                "addr": "/ip4/137.117.141.25/tcp/4001",
+                "peer": "QmVqgjoUAo1EAd7QpFYcMRuxfBQNBPStrLVHBz3FzLinZX"
+            },
+            {
+                "addr": "/ip4/138.201.67.218/tcp/4002/ws",
+                "peer": "QmbVWZQhCGrS7DhgLqWbgvdmKN7JueKCREVanfnVpgyq8x"
+            },
+            {
+                "addr": "/ip4/139.178.68.51/tcp/4001",
+                "peer": "QmaVhv3V6JpCsSexyZSqPFTSDNZLZvp3hifa78ntTnvn9c"
+            },
+            {
+                "addr": "/ip4/147.75.109.15/tcp/4001",
+                "peer": "QmdExkZGosUfEw4FFPrkdkfpFaaQ1HoZY2gBvJjWJoLEMf"
+            },
+            {
+                "addr": "/ip4/147.75.46.187/tcp/4001",
+                "peer": "QmXWMXquytgYKrMM3AZ8WCfxYqJdg2e2YK5aqocCT2r8Au"
+            },
+            {
+                "addr": "/ip4/147.75.48.175/tcp/4001",
+                "peer": "QmQemDUcDJDjjZBzL3fNMbQ72q8RK1h3rG6iWEN7zwFAgT"
+            },
+            {
+                "addr": "/ip4/147.75.92.69/tcp/4001",
+                "peer": "QmVwtm295H8qh3Gj2t3Mo2rfnU69A9EwKkts35uu922RmT"
+            },
+            {
+                "addr": "/ip4/176.99.11.18/tcp/4001",
+                "peer": "QmX8aSmP6j6HmXxkTZZBTJNv8yPJ1pU7bTRFyf83SQft2h"
+            },
+            {
+                "addr": "/ip4/178.32.250.99/tcp/4001",
+                "peer": "QmY7qra7XxWXz2DYguULqt9qXvczZr326wAGP7CukEctvV"
+            },
+            {
+                "addr": "/ip4/18.185.14.140/tcp/4001",
+                "peer": "QmdbxhD8SXxesfRRqwNRFFMgoXfCTKygn3mRj6tru8o5eJ"
+            },
+            {
+                "addr": "/ip4/18.195.119.140/tcp/4001",
+                "peer": "QmSfnb7FGivxSDsb7jyQes6JDdts7PLugEppgFfX5J32Bx"
+            },
+            {
+                "addr": "/ip4/18.224.54.97/tcp/4001",
+                "peer": "Qmdg1B1YJ3BtZ7VYPQY1uFn7me1kQZzuJquD1rYLGZwkAA"
+            },
+            {
+                "addr": "/ip4/18.237.227.0/tcp/4001",
+                "peer": "QmbdnQcvQEYxsHEDTk8TyopqkDoonwJ9QXXEvwJTizaNts"
+            },
+            {
+                "addr": "/ip4/187.151.117.208/tcp/4001",
+                "peer": "QmYN3x2AxHf3ksHKfXx9bgJJBFoSFLk7zRM5tZ8kzBiRXW"
+            },
+            {
+                "addr": "/ip4/192.168.0.8/tcp/4001",
+                "peer": "QmWjsB6syMRQpAjF9W39vLWn1g9wAW97vXXaBYD2vT3ZJt"
+            },
+            {
+                "addr": "/ip4/192.168.0.8/tcp/4101",
+                "peer": "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV"
+            },
+            {
+                "addr": "/ip4/192.241.197.9/tcp/4001",
+                "peer": "Qmf5FcVyjCehUfqtrRW4uEYEood37jW6u29rSD1Uga6w1W"
+            },
+            {
+                "addr": "/ip4/195.46.227.2/tcp/4001",
+                "peer": "QmW88x4CXMzymg7a22jy8J3JH3NJvCr2Rgg493aGTRSUQU"
+            },
+            {
+                "addr": "/ip4/207.154.212.173/tcp/4001",
+                "peer": "QmcqQ7GeJHBJyKasZCCgC8NHuh2xZUfR1BVUdsCSfbeYZJ"
+            },
+            {
+                "addr": "/ip4/208.68.36.4/tcp/4001",
+                "peer": "QmSvYwU4K4EuZzgmK3TBEVhwxnuM8RjahAEm9Agkbk6kES"
+            },
+            {
+                "addr": "/ip4/217.69.14.5/tcp/4001",
+                "peer": "QmdNSMKZEfUcNL8kVJfazFwqMEkva5eAeX4u91xAX6L8X5"
+            },
+            {
+                "addr": "/ip4/218.103.136.66/tcp/4001",
+                "peer": "QmWhw7b3nHp9qsJqmtzZysrsY71v5yMmwHCCzL5ojer1Jw"
+            },
+            {
+                "addr": "/ip4/221.149.2.111/tcp/17394",
+                "peer": "QmV34F67mUcEpq87ifyHGvmW3yyUjHBTi4NbJ42d3Wwbjc"
+            },
+            {
+                "addr": "/ip4/223.17.211.208/tcp/57897",
+                "peer": "QmatkeYLBXcTnQkCkxjTECph2uSpe24r3hLMdkQ4V9nALo"
+            },
+            {
+                "addr": "/ip4/223.17.211.243/tcp/11267",
+                "peer": "QmfKPg5euLfDLaVuXe5JfW8g7Xcfe4JgcUhkp34jbmoDha"
+            },
+            {
+                "addr": "/ip4/23.92.31.84/tcp/4001",
+                "peer": "QmWPPHiwbm4u9a2QRvWFy49RHNCLzDHsCCUrkHdAnckYUW"
+            },
+            {
+                "addr": "/ip4/3.16.48.115/tcp/4001",
+                "peer": "QmSR6CBn7NPkV4MuVHfM3UCEXwzgGD5k53H7KbSqA7b2hX"
+            },
+            {
+                "addr": "/ip4/3.16.67.1/tcp/4001",
+                "peer": "QmZeYh9LQSRLdhTMGtuha7BBarUxBVtxY7Jc2zAaMyFXvP"
+            },
+            {
+                "addr": "/ip4/34.217.111.111/tcp/4001",
+                "peer": "QmSjkiS837t8hT1Mbm4mAYMnVo5yhCgpvMPgGvSoMJcskn"
+            },
+            {
+                "addr": "/ip4/34.240.225.90/tcp/4001",
+                "peer": "Qmd256Ty5U8Ktou3HrGeXj6GirnEuEaecNLVGQhB6et28W"
+            },
+            {
+                "addr": "/ip4/34.244.27.104/tcp/4001",
+                "peer": "QmQaTKPoYpxecV4rnHrf4aKdgyRrCkuCKRE83DE6msdZg8"
+            },
+            {
+                "addr": "/ip4/35.180.35.45/tcp/4001",
+                "peer": "12D3KooWBCZEDkZ2VxdNYKLLUACWbXMvW9SpVbbvoFR9CtH4qJv9"
+            },
+            {
+                "addr": "/ip4/36.110.109.114/tcp/4001",
+                "peer": "QmbCGh5sgJAjjFWDw4JeLkoThBvWFBCgwc9nfB57QLzFmo"
+            },
+            {
+                "addr": "/ip4/37.1.207.72/tcp/4001",
+                "peer": "QmV1xHp8CAUTcFx6SyWkaZ7cUvVFAPiLrVeTqLafknAHWx"
+            },
+            {
+                "addr": "/ip4/38.29.203.106/tcp/30711",
+                "peer": "QmWVUG5ko1hN8HsWpZpiEQQQnt4khYYnXSFQE7rntzgvZU"
+            },
+            {
+                "addr": "/ip4/40.113.140.104/tcp/4001",
+                "peer": "QmUZg4LHARsMQfG5X29JkT9nRssdNxZx3GysojJsYHGPrd"
+            },
+            {
+                "addr": "/ip4/40.117.34.253/tcp/4001",
+                "peer": "QmVtPr2zPXDXZ7Ar1KJrLf8feHjPvNLeukhMm1bFzphA4R"
+            },
+            {
+                "addr": "/ip4/41.72.193.142/tcp/4001",
+                "peer": "QmWHhFfKp326abWQjgNqYCDZQVReRYguQsQuDho3YsZPqf"
+            },
+            {
+                "addr": "/ip4/5.196.133.152/tcp/4001",
+                "peer": "QmS5Z9CnGzq5F5MD4pvmRejEN2TNMtAWDnZxwyebRZqWrK"
+            },
+            {
+                "addr": "/ip4/50.236.201.218/tcp/4001",
+                "peer": "QmSfdK2HxLcqQ5VmW7ZtqSHkXbexPSprFN11zWHJa5CKkd"
+            },
+            {
+                "addr": "/ip4/50.3.70.3/tcp/7",
+                "peer": "Qmbi4qSVyperK6DEVdba6E2CrchdnVyTUjStbSb1A8DSdD"
+            },
+            {
+                "addr": "/ip4/52.18.254.51/tcp/4001",
+                "peer": "QmYnSZTvHhL2e5xT4Hkr9bEoGBic7eFJKqUAYWymSWaB5i"
+            },
+            {
+                "addr": "/ip4/52.90.203.188/tcp/4001",
+                "peer": "QmZWRFPXMaYLf2sTegMj7bP1JqP98oCgZteGg3NTUcJBkH"
+            },
+            {
+                "addr": "/ip4/54.212.188.163/tcp/4001",
+                "peer": "QmXmA7d4CuUAjfEcCQJXSS5NyowYDBJLbgGjVugjxpnFa8"
+            },
+            {
+                "addr": "/ip4/54.219.142.88/tcp/4001",
+                "peer": "12D3KooWLaJnBr1bqWkZCDhaFeGxKiCP91rt2gQ8rn7Lx7kcKAMY"
+            },
+            {
+                "addr": "/ip4/54.77.221.96/tcp/4001",
+                "peer": "QmSEwmV67SWoiKsKUiBfCBpTJjxr7ypQS7Md9Nye4EZX8V"
+            },
+            {
+                "addr": "/ip4/54.93.79.15/tcp/4001",
+                "peer": "QmQiEWx14TnX6tzgsdqKnXLbR55ZhfdXh2q49aYdheTMRD"
+            },
+            {
+                "addr": "/ip4/66.155.94.103/tcp/4001",
+                "peer": "QmQwAzFTKdZGmqvo8w4z4udDcdE6DUhqbt48MYEY2QUito"
+            },
+            {
+                "addr": "/ip4/69.181.194.58/tcp/4001",
+                "peer": "QmbQ1jUJquca964trBcL5tGw6ZDhcKeg3x4iaMQHXD8nd8"
+            },
+            {
+                "addr": "/ip4/81.235.46.228/tcp/41099",
+                "peer": "12D3KooWK2Ng4LwWKxLAuWH6oTBTpPNNor7Kwk1iL5ndCp6ncPiU"
+            },
+            {
+                "addr": "/ip4/83.49.184.55/tcp/4001",
+                "peer": "QmSeD98VAftZ6vUanVQcKbXKAT28UnpVH9zaAkuDRghxiw"
+            },
+            {
+                "addr": "/ip4/87.197.157.72/tcp/4001",
+                "peer": "QmTbjP4HmeRNUxkSDpcXxyL2e3NFiTTWF5fVsmcuFbJfoN"
+            },
+            {
+                "addr": "/ip4/94.23.19.73/tcp/4001",
+                "peer": "QmVjB18xK7UAR9f6sGEHP8o5qgb1H8Ewpu3kcBo8p2zKjw"
+            },
+            {
+                "addr": "/ip4/95.179.213.74/tcp/4001",
+                "peer": "QmcFshtLpo29wHDLJ56eqnRzreZWZYjdxhP2TadTahYQPC"
+            },
+            {
+                "addr": "/ipfs/QmQaTKPoYpxecV4rnHrf4aKdgyRrCkuCKRE83DE6msdZg8/p2p-circuit",
+                "peer": "QmfXzPqSzZHuabJpGTQjGgMusgVBXsunKDEt5SQX96eAAc"
+            },
+            {
+                "addr": "/ipfs/QmXmA7d4CuUAjfEcCQJXSS5NyowYDBJLbgGjVugjxpnFa8/p2p-circuit",
+                "peer": "QmfTqRRvtPgoorN2aPRvsfAVd8GVyup7YYiFGTn477Q2PH"
+            },
+            {
+                "addr": "/ipfs/QmYnSZTvHhL2e5xT4Hkr9bEoGBic7eFJKqUAYWymSWaB5i/p2p-circuit",
+                "peer": "QmbWJwDa9ESDwHnrxT12QDmRBMxeAJkhQjNuia45idL1du"
+            },
+            {
+                "addr": "/ipfs/Qmdg1B1YJ3BtZ7VYPQY1uFn7me1kQZzuJquD1rYLGZwkAA/p2p-circuit",
+                "peer": "QmVzQfhD3c2rj6GrYZgBadxsV3msHW69LockGJwsH6nRjK"
+            }
+        ]
+    }
+    ```
+
+See the [IPFS doc](https://docs.ipfs.io/reference/api/cli/#ipfs-swarm-peers) for more info.
+
+#### Connect to another peer
+
+You may also want to check or open a connection to another peer. You can do this by supplying a complete [multi-address](https://github.com/multiformats/multiaddr).
+
+Try connecting to one of Textile's federated cafe peers.
+
+```tab="cmd"
+textile ipfs swarm connect "/ip4/18.224.173.65/tcp/4001/ipfs/12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d"
+```
+
+???+ success
+    ```JSON
+    [
+        "connect 12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d success"
+    ]
+    ```
+
+See the [IPFS doc](https://docs.ipfs.io/reference/api/cli/#ipfs-swarm-connect) for more info.
 
 #### Cat any data on the network
 
+Downloading data behind a path is one of the most useful IPFS APIs. For example, we can "cat" an unencrypted Textile logo into a PNG file.
+
 ```tab="cmd"
-textile 
+textile ipfs cat "QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d" > textile.png
 ```
 
-### The Gateway
+???+ success
+    ![](/images/textile.png)
 
-#### Traverse files
-#### Decrypt files
+See the [IPFS doc](https://docs.ipfs.io/reference/api/cli/#ipfs-cat) for more info.
+
+### IPFS Gateway
+
+All desktop and server peers host an IPFS gateway. Read more and see some examples [here](/ipfs-gateway).
+
+!!! tip "A gateway to the gateways"
+    Textile hosts a number of federated cafe peers around the globe, each with a public-facing gateway. A latency-based load balancer ties them all together at `https://gateway.textile.cafe`, which you are free to use in your applications.
 
 <br>
