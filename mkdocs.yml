@@ -114,8 +114,8 @@ extra:
       link: https://medium.com/textileio
     - type: slack
       link: https://slack.textile.io
-  clients:
-      - type: code_snippets
-        yaml: a_tour_of_textile
   go_textile:
     - version: v0.1.11
+  yamls:
+    - name: a_tour_of_textile
+      yaml: a_tour_of_textile

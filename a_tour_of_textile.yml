@@ -4,7 +4,7 @@ examples:
       cmd:
         code: 'textile threads add "Chat" --type="open" --sharing="shared" --whitelist="P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"'
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.threads.add("chat", undefined, undefined, "open", "shared", ["P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"])'
       react_native:
         code: 'TODO'
       ios:
@@ -15,7 +15,7 @@ examples:
       cmd:
         code: 'textile invites create --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"'
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.invites.create("12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv")'
       react_native:
         code: 'TODO'
       ios:
@@ -26,7 +26,7 @@ examples:
       cmd:
         code: 'textile invites accept "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf" --key="cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd"'
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.invites.accept("QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf", "cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd")'
       react_native:
         code: 'TODO'
       ios:
@@ -37,30 +37,30 @@ examples:
       cmd:
         code: 'textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"'
       js_http_client:
-        code: 'TODO'
+        code: '/* interactive chat is only available via CMD */'
       react_native:
-        code: 'TODO'
+        code: '/* interactive chat is only available via CMD */'
       ios:
-        code: 'TODO'
+        code: '/* interactive chat is only available via CMD */'
       android:
-        code: 'TODO'
+        code: '/* interactive chat is only available via CMD */'
     join_chat_peer:
       cmd:
         code: 'textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv" --api="http://localhost:41600"'
       js_http_client:
-        code: 'TODO'
+        code: '/* interactive chat is only available via CMD */'
       react_native:
-        code: 'TODO'
+        code: '/* interactive chat is only available via CMD */'
       ios:
-        code: 'TODO'
+        code: '/* interactive chat is only available via CMD */'
       android:
-        code: 'TODO'
+        code: '/* interactive chat is only available via CMD */'
   my_runs:
     add_thread:
       cmd:
         code: 'textile threads add "My runs" --schema-file "~/Downloads/location.json" --type="public" --sharing="invite_only"'
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.threads.add("My runs", JSON.stringify(locations), undefined, "public", "invite_only")'
       react_native:
         code: 'TODO'
       ios:
@@ -71,7 +71,7 @@ examples:
       cmd:
         code: 'textile invites create --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" --address="P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"'
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.invites.create("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs")'
       react_native:
         code: 'TODO'
       ios:
@@ -82,7 +82,7 @@ examples:
       cmd:
         code: 'textile invites ls --api="http://127.0.0.1:41600"'
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.invites.list()'
       react_native:
         code: 'TODO'
       ios:
@@ -93,7 +93,7 @@ examples:
       cmd:
         code: 'textile invites accept "QmXcJmyX2vbeJTcZSkoZCHc74yycjJcXbxCHkLknJhyPaL" --api="http://127.0.0.1:41600"'
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.invites.accept("QmXcJmyX2vbeJTcZSkoZCHc74yycjJcXbxCHkLknJhyPaL")'
       react_native:
         code: 'TODO'
       ios:
@@ -104,7 +104,7 @@ examples:
       cmd:
         code: 'textile blocks ls --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"'
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.blocks.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
         code: 'TODO'
       ios:
@@ -115,7 +115,7 @@ examples:
       cmd:
         code: 'textile comments add "Is this an outlier?" --block="QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84" --api="http://127.0.0.1:41600"'
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.comments.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84", "Is this an outlier?")'
       react_native:
         code: 'TODO'
       ios:
@@ -126,7 +126,7 @@ examples:
       cmd:
         code: 'textile likes add --block="QmVoKpKsg5MkW11bK3LVmd3xMMaxTutVime32sV6EZWeLk"'
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.likes.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84")'
       react_native:
         code: 'TODO'
       ios:
@@ -137,7 +137,7 @@ examples:
       cmd:
         code: 'textile files ls --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"'
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.files.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
         code: 'TODO'
       ios:
@@ -148,7 +148,7 @@ examples:
       cmd:
         code: 'textile feed --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"'
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.feed.get("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
         code: 'TODO'
       ios:
@@ -159,7 +159,7 @@ examples:
       cmd:
         code: "echo '{ \"latitude\": 48.858093, \"longitude\": 2.294694 }' | textile files add --thread=\"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\"'"
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.files.add(JSON.stringify({ \"latitude\": 48.858093, \"longitude\": 2.294694 }), "", "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
         code: 'TODO'
       ios:
@@ -170,7 +170,7 @@ examples:
       cmd:
         code: "echo '{ \"latitude\": 91, \"longitude\": 2.294694 }' | textile files add --thread=\"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\"'"
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.files.add(JSON.stringify({ \"latitude\": 91, \"longitude\": 2.294694 }), "", "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
         code: 'TODO'
       ios:
@@ -181,7 +181,7 @@ examples:
       cmd:
         code: 'textile threads rm "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" --api="http://127.0.0.1:41600"'
       js_http_client:
-        code: 'TODO'
+        code: 'Textile.threads.remove("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
         code: 'TODO'
       ios:
@@ -248,7 +248,7 @@ notifications:
     cmd:
       code: 'textile notifications ls'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.notifications.list()'
     react_native:
       code: 'TODO'
     ios:
@@ -259,7 +259,7 @@ notifications:
     cmd:
       code: 'textile notifications read "1KKP01K9SpRASYKkyxSK4EiSYEz"'
     js_http_client:
-      code: 'TODO'
+        code: 'Textile.notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz")'
     react_native:
       code: 'TODO'
     ios:
@@ -271,9 +271,9 @@ profile:
     cmd:
       code: 'textile profile get'
     js_http_client:
-      code: 'const profile = await Textile.profile.get()'
+      code: 'Textile.profile.get()'
     react_native:
-      code: 'const profile = await API.profile.get()'
+      code: 'API.profile.get()'
     ios:
       code: 'TODO'
     android:
@@ -282,7 +282,7 @@ profile:
     cmd:
       code: 'textile profile set name "Clyde"'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.profile.setName("Clyde")'
     react_native:
       code: 'TODO'
     ios:
@@ -293,7 +293,7 @@ profile:
     cmd:
       code: 'textile profile set avatar "path/to/an/image"'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.profile.setAvatar("<image-hash>")'
     react_native:
       code: 'TODO'
     ios:
@@ -305,7 +305,7 @@ account:
     cmd:
       code: 'textile account get'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.account.get()'
     react_native:
       code: 'TODO'
     ios:
@@ -316,7 +316,7 @@ account:
     cmd:
       code: 'textile account seed'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.account.seed()'
     react_native:
       code: 'TODO'
     ios:
@@ -327,7 +327,7 @@ account:
     cmd:
       code: 'textile account sync'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.account.sync()'
     react_native:
       code: 'TODO'
     ios:
@@ -339,7 +339,7 @@ contacts:
     cmd:
       code: 'textile contacts search --name="Andrew"'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.contacts.search("Andrew")'
     react_native:
       code: 'TODO'
     ios:
@@ -350,7 +350,7 @@ contacts:
     cmd:
       code: 'textile contacts search --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.contacts.search(undefined, "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
     react_native:
       code: 'TODO'
     ios:
@@ -361,7 +361,7 @@ contacts:
     cmd:
       code: 'textile contacts add --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.contacts.add("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
     react_native:
       code: 'TODO'
     ios:
@@ -372,7 +372,7 @@ contacts:
     cmd:
       code: 'textile contacts ls'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.contacts.list()'
     react_native:
       code: 'TODO'
     ios:
@@ -383,7 +383,7 @@ contacts:
     cmd:
       code: 'textile contacts rm "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
     react_native:
       code: 'TODO'
     ios:
@@ -395,7 +395,7 @@ threads:
     cmd:
       code: 'textile threads add "Basic"'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.threads.add("Basic")'
     react_native:
       code: 'TODO'
     ios:
@@ -406,7 +406,7 @@ threads:
     cmd:
       code: 'textile threads add "Dogs" --type="open" --sharing="shared" --media'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.threads.add("Dogs", "media", undefined, "open", "shared")'
     react_native:
       code: 'TODO'
     ios:
@@ -417,7 +417,7 @@ threads:
     cmd:
       code: 'textile threads add "Any old data" --blob'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.threads.add("Any old data", "blob")'
     react_native:
       code: 'TODO'
     ios:
@@ -429,7 +429,7 @@ messages:
     cmd:
       code: 'textile messages add "hello?" --thread="12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk"'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.messages.add("12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk", "hello?")'
     react_native:
       code: 'TODO'
     ios:
@@ -441,7 +441,7 @@ files:
     cmd:
       code: 'echo "mmm, bytes..." | textile files add --thread="12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.files.addFile("mmm, bytes...", "", "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")'
     react_native:
       code: 'TODO'
     ios:
@@ -463,7 +463,7 @@ files:
     cmd:
       code: 'textile files keys "QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5"'
     js_http_client:
-      code: 'TODO'
+      code: 'Textile.files.keys("QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5")'
     react_native:
       code: 'TODO'
     ios:
