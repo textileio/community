@@ -28,6 +28,22 @@ First off, take a look at your peer profile:
 textile profile get
 ```
 
+```JavaScript tab="JS HTTP"
+// todo
+```
+
+```JavaScript tab="React Native"
+// todo
+```
+
+```Swift tab="iOS"
+// todo
+```
+
+```Java tab="Android"
+// todo
+```
+
 ???+ success
     ```JSON
     {
@@ -61,7 +77,7 @@ textile profile set name "Clyde"
 
 #### Set an avatar image
 
-Similarly, you can assign your peer a publicly visible avatar image.
+Similarly, you can assign your peer a publicly visible avatar image:
 
 ```tab="cmd"
 textile profile set avatar "path/to/an/image"
@@ -74,7 +90,7 @@ textile profile set avatar "path/to/an/image"
 
 Now, your avatar will be tracked internally by the special private _account thread_, keyed with your account seed. This means that when your avatar (or display name) is updated, your other account peers (if you have any) will also pick up the change.
 
-Take another look at your peer profile and see what happened.
+Take another look at your peer profile and see what happened:
 
 ```tab="cmd"
 textile profile get
@@ -102,7 +118,7 @@ As mentioned above, all peers have a special private _account_ thread. In additi
 
 #### View account
 
-Take a look at your account.
+Take a look at your account:
 
 ```tab="cmd"
 textile account get
@@ -131,7 +147,7 @@ Yep, just one peer so far. This object is actually a [contact](/concepts/contact
 
 #### View account seed
 
-Of course, your account seed (private key) is not included in the public-facing contact object, but we can access it with the `seed` command.
+Of course, your account seed (private key) is not included in the public-facing contact object, but we can access it with the `seed` command:
 
 ```tab="cmd"
 textile account seed
@@ -148,6 +164,8 @@ Periodically, your peer will search the network for other peers backed by the sa
 
 !!! hint
     A thread _snapshot_ is an encrypted object containing metadata and a reference to the latest update block, from which all others can be found. A snapshot may be stored at rest on a cafe peer or constructed dynamically for an account peer.
+
+You can also manually run account sync:
 
 ```tab="cmd"
 textile account sync
@@ -171,7 +189,7 @@ In addition to your "self" contact, you can search for and add contacts to your 
 !!! info
     Search is handled by a publish-subscribe mechanism, where participants across the entire network stream results directly to the requester. In many cases, the search responders are cafe peers, serving indexes for their clients, but normal account peers can also participate in search.
 
-Try searching for "Andrew".
+Try searching for "Andrew":
 
 ```tab="cmd"
 textile contacts search --name="Andrew"
@@ -210,7 +228,7 @@ textile contacts search --name="Andrew"
     ...
     ```
 
-With any luck, you should see a bunch of results. You can also search for a single account by its address.
+With any luck, you should see a bunch of results. You can also search for a single account by its address:
 
 ```tab="cmd"
 textile contacts search --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"
@@ -237,7 +255,7 @@ textile contacts search --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE
 
 We can add contacts by name or address. This will actually perform a search as above, and then present you with a prompt to confirm the addition. When you search by name, there may be more than one result.
 
-Try adding one of the contacts from above by address.
+Try adding one of the contacts from above by address:
 
 ```tab="cmd"
 textile contacts add --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"
@@ -251,7 +269,7 @@ textile contacts add --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG
 
 #### View contacts
 
-We can now see the added contact contact in our "address book".
+We can now see the added contact contact in our "address book":
 
 ```tab="cmd"
 textile contacts ls
@@ -275,7 +293,7 @@ textile contacts ls
 
 #### Delete a contact
 
-Removing contacts is done by address.
+Removing contacts is done by address:
 
 ```tab="cmd"
 textile contacts rm "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"
@@ -290,7 +308,7 @@ textile contacts rm "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"
 
 Pinging another peer is a useful way to check connectivity. If you want to ping a mobile or desktop peer (a peer without a public IP address), you may need to connect to it first with `textile ipfs connect /p2p-circuit/ipfs/<peerID>`. See [this section](/a-tour-of-textile/#ipfs) for more info about the IPFS sub-commands.
 
-Let's ping one of Textile's federated cafes.
+Let's ping one of Textile's federated cafes:
 
 ```tab="cmd"
 textile ping 12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d
@@ -408,7 +426,7 @@ A thread can track data if it was created with a schema. The most basic schema i
 
 If you read the [overview doc](/concepts/threads), you'll remember that thread schemas are _DAG_ schemas that contain steps to create each node. "blob" defines a single top-level DAG node without any links. We'll get to more complex schemas later. `pin` instructs the peer to locally pin the entire DAG node when it's created from the input. `mill` defines the function used to process (or "mill") the data on arrival. `/blob` is literally a passthrough, meaning that the data comes out untouched.
 
-We can create a thread with this schema using the `--blob` flag.
+We can create a thread with this schema using the `--blob` flag:
 
 ```tab="cmd"
 textile threads add "Any old data" --blob
@@ -492,7 +510,7 @@ What just happened? The peer created a new DAG node for the input as defined by 
 
 The [_files_](/concepts/threads/files) guide covers these concepts in more detail.
 
-Unless a schema step specifies `"plaintext": true`, the value of `meta` and `data` are both encrypted with the [Advanced Encryption Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) (AES) using their very own symmetric key. We can view the keys for each node in the DAG using the `keys` command.
+Unless a schema step specifies `"plaintext": true`, the value of `meta` and `data` are both encrypted with the [Advanced Encryption Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) (AES) using their very own symmetric key. We can view the keys for each node in the DAG using the `keys` command:
 
 ```tab="cmd"
 textile files keys "QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5"
@@ -511,7 +529,7 @@ The output gives us the key for the node at index `0`. There's only one key beca
 
 To add an actual file or directory, just specify a path, e.g, `textile files add "path/to/something" --thread="..."`.
 
-Let's try adding the _same_ data again.
+Let's try adding the _same_ data again:
 
 ```tab="cmd"
 echo "mmm, bytes..." | textile files add --thread="12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"
@@ -532,7 +550,7 @@ Notice that the file target **did not change**. The peer was able to reuse the n
 
 Now that you've got the hang of threads, let's make something a little more interesting. [Textile Photos](https://textile.photos) uses threads to track your camera roll and shared photo albums using the built-in _camera roll_ and _media_ schemas.
 
-Let's create an _open_ and _shared_ thread for dog photos with the _media_ schema.
+Let's create an _open_ and _shared_ thread for dog photos with the _media_ schema:
 
 ```tab="cmd"
 textile threads add "Dogs" --type="open" --sharing="shared" --media
@@ -605,7 +623,7 @@ Notice that the media schema has links for a _large_, _small_, and _thumb_ sized
 
 ![Photo by William Milliot on Unsplash.](/images/william-milliot-510766-unsplash.jpg){: .center}
 
-Try adding the image above to your dogs thread.
+Try adding the image above to your dogs thread:
 
 ```tab="cmd"
 textile files add "~/Downloads/william-milliot-510766-unsplash.jpg" --caption="Dog at work." --thread="12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq"
@@ -622,7 +640,7 @@ This is a fairly large (~3.5 MB) image. So, your peer took some time to encode a
 !!! tip
     The `/image/resize` mill can take JPEG, PNG, and GIF images.
 
-Let's a look at the DAG node you just created. There will be three links, as defined by the schema.
+Let's a look at the DAG node you just created. There will be three links, as defined by the schema:
 
 ![A DAG node created by the media schema.](/images/media.png){: .center}
 
@@ -637,7 +655,7 @@ By default, when you specify a directory path with the `files add` command, an u
 
 Let's go through one more threads use case that demonstrates how to create a custom DAG schema. Additionally, we'll make use of a [JSON schema](https://json-schema.org) for tracking JSON documents.
 
-Make a file named `location.json` with the following JSON document.
+Make a file named `location.json` with the following JSON document:
 
 ```JSON
 {
@@ -731,7 +749,7 @@ textile threads add "My runs" --schema-file "~/Downloads/location.json" --type="
     }
     ```
 
-Next, add some locations to your thread.
+Next, add some locations to your thread:
 
 ```tab="cmd"
 echo '{ "latitude": 48.858093, "longitude": 2.294694 }' | textile files add --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
@@ -743,7 +761,7 @@ echo '{ "latitude": 48.858093, "longitude": 2.294694 }' | textile files add --th
     Added 1 file in 534.774123ms
     ```
 
-Your peer will validate the input against the thread's schema. The input will _also_ be validated against its embedded JSON schema (schemas within schemas!). Try adding a location with latitude great than 90, which is invalid.
+Your peer will validate the input against the thread's schema. The input will _also_ be validated against its embedded JSON schema (schemas within schemas!). Try adding a location with latitude great than 90, which is invalid:
 
 ```tab="cmd"
 echo '{ "latitude": 91, "longitude": 2.294694 }' | textile files add --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
@@ -761,7 +779,7 @@ Let's share this thread with another user. It was created with type, "public", m
 !!! info
     "Writes" refer to messages and files, whereas "annotations" refer to comments and likes.
 
-For the purposes of this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing.
+For the purposes of this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing:
 
 ```tab="cmd"
 textile init --seed="$(textile wallet init | tail -n1)" --repo-dir="/tmp/buddy" --swarm-ports="4101" --api-bind-addr="127.0.0.1:41600" --gateway-bind-addr="127.0.0.1:5150"
@@ -775,7 +793,7 @@ textile init --seed="$(textile wallet init | tail -n1)" --repo-dir="/tmp/buddy" 
 !!! hint
     We used non-default ports so that this peer won't collide with the first one.
 
-Start the daemon in a new terminal.
+Start the daemon in a new terminal:
 
 ```tab="cmd"
 textile daemon --repo-dir="/tmp/buddy"
@@ -784,7 +802,7 @@ textile daemon --repo-dir="/tmp/buddy"
 ??? success
     ```
     23 Apr 19 14:02 PDT  P7X3gZu added JOIN update to Y6xBsPwB
-    go-textile version: v0.1.12-rc2-9-gf89759a1-dirty
+    go-textile version: v0.1.12
     Repo version: 13
     Repo path: /tmp/buddy
     API address: 127.0.0.1:41600
@@ -795,7 +813,7 @@ textile daemon --repo-dir="/tmp/buddy"
     Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
     ```
 
-Now that you have two peers running, invite the new account to your "My runs" thread.
+Now that you have two peers running, invite the new account to your "My runs" thread:
 
 ```tab="cmd"
 textile invites create --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" --address="P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"
@@ -836,7 +854,7 @@ Next, we'll pretend that we are the second account and accept the invite. You sh
 23 Apr 19 14:08 PDT  Clyde invited you to join QE5m1qw
 ```
 
-In order to accept, you'll have to list your pending invites and grab the ID.
+In order to accept, you'll have to list your pending invites and grab the ID:
 
 ```tab="cmd"
 textile invites ls --api="http://127.0.0.1:41600"
@@ -889,7 +907,7 @@ textile invites accept "QmXcJmyX2vbeJTcZSkoZCHc74yycjJcXbxCHkLknJhyPaL" --api="h
     }
     ```
 
-The output shows your "join" update in the thread. Take a look at your second peer's daemon output.
+The output shows your "join" update in the thread. Take a look at your second peer's daemon output:
 
 ```
 23 Apr 19 14:32 PDT  P7X3gZu added ANNOUNCE update to Y6xBsPwB
@@ -902,7 +920,7 @@ After accepting the invite, your peer downloaded the older thread updates, picki
 
 #### List blocks
 
-We can take a closer look at the state of the "My runs" thread using the `blocks ls` command, which lists updates blocks known to your peer.
+Take a closer look at the "My runs" thread using the `blocks ls` command, which lists updates blocks known to your peer:
 
 ```tab="cmd"
 textile blocks ls --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
@@ -964,7 +982,7 @@ The output should be the exact same on both your peers.
 
 #### Add a comment
 
-Using the output from `blocks ls`, add a comment to the one and only `FILES` update in the "My runs" thread.
+Using the output from `blocks ls`, add a comment to the one and only `FILES` update in the "My runs" thread:
 
 ```tab="cmd"
 textile comments add "Is this an outlier?" --block="QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84" --api="http://127.0.0.1:41600"
@@ -990,7 +1008,7 @@ Remember, this is a "public" type thread, meaning that all members can annotate 
 
 #### Add a "like"
 
-Likes are added in a similar fashion.
+Likes are added in a similar fashion:
 
 ```tab="cmd"
 textile likes add --block="QmVoKpKsg5MkW11bK3LVmd3xMMaxTutVime32sV6EZWeLk"
@@ -1017,7 +1035,7 @@ We've already covered how to add plain text messages to a thread. Combined with 
 
 ![A Textile Photos group](/images/photos_chat.png){: .center}
 
-Create a new thread for chatting with your friend `P7X3gZu`.
+Create a new thread for chatting with your friend `P7X3gZu`:
 
 ```tab="cmd"
 textile threads add "Chat" --type="open" --sharing="shared" --whitelist="P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"
@@ -1056,7 +1074,7 @@ textile threads add "Chat" --type="open" --sharing="shared" --whitelist="P7X3gZu
     }
     ```
 
-The whitelist ensures the chat remains between the two of us. As before, we need to create an invite and accept it. However, let's try an "external" invite.
+The whitelist ensures the chat remains between the two of us. As before, we need to create an invite and accept it. However, let's try an "external" invite:
 
 ```tab="cmd"
 textile invites create --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"
@@ -1071,7 +1089,7 @@ textile invites create --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVC
     }
     ```
 
-The only difference this time was that we didn't specify `--address`. Instead of getting sent directly to another peer, the invite was encrypted with the key shown in the output and persisted to IPFS. Now, you're free to send it around however you choose. In order to accept, the recipient will have to specify the `id` and `key`.
+The only difference this time was that we didn't specify `--address`. Instead of getting sent directly to another peer, the invite was encrypted with the key shown in the output and persisted to IPFS. Now, you're free to send it around however you choose. In order to accept, the recipient has to specify the `id` and `key`:
 
 ```tab="cmd"
 textile invites accept "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf" --key="cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd"
@@ -1097,13 +1115,13 @@ textile invites accept "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf" --key="c
 
 Of course, passing all these hashes and keys around is a lot easier with a well designed UI.
 
-The command-line client has a `chat` command that enters an interactive thread session in which participants can add and view messages. Start a chat on your first peer.
+The command-line client has a `chat` command that enters an interactive thread session in which participants can add and view messages. Start a chat on your first peer:
 
 ```tab="cmd"
 textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"
 ```
 
-Then start the same chat on your second peer.
+Then start the same chat on your second peer:
 
 ```tab="cmd"
 textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv" --api="http://localhost:41600"
@@ -1117,7 +1135,7 @@ Chat away!
 
 Applications will often want to paginate files and associated annotations in a thread. The files API lists update blocks that point to DAG nodes containing files. A JSON representation of the (decrypted) DAG node is attached to the response along with nested comments and likes.
 
-Try listing the files in your "My runs" thread.
+Try listing the files in your "My runs" thread:
 
 ```tab="cmd"
 textile files ls --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
@@ -1202,7 +1220,7 @@ annotations are nested under the target. Newer annotations may have already been
 Omit the --thread option to paginate all files.
 ```
 
-Give the default `chrono` (for chronological) mode a try.
+Give the default `chrono` (for chronological) mode a try:
 
 ```tab="cmd"
 textile feed --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
@@ -1367,13 +1385,13 @@ The "annotations" mode functions like the files API but includes join and leave 
 
 The `chat` command we saw above is actually built in part with a subscription. You can subscribe to any type of thread update [block](/concepts/threads#blocks): `merge`, `ignore`, `flag`, `join`, `announce`, `leave`, `text`, `files`, `comment`, `like`.
 
-Let's subscribe to "files" updates across all threads.
+Let's subscribe to "files" updates across all threads:
 
 ```tab="cmd"
 textile subscribe --type="files"
 ```
 
-In another terminal, add a location to the "My runs" thread.
+In another terminal, add a location to the "My runs" thread:
 
 ```tab="cmd"
 echo '{ "latitude": 48.868093, "longitude": 2.284694 }' | textile files add --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
@@ -1385,7 +1403,7 @@ echo '{ "latitude": 48.868093, "longitude": 2.284694 }' | textile files add --th
     Added 1 file in 533.47ms
     ```
 
-Your first window will display the update.
+Your first window will display the update:
 
 ??? success
     ```JSON
@@ -1432,7 +1450,7 @@ You can subscribe to multiple (or all) update types. [Textile Photos](https://te
 
 When you leave a thread, all associated data is deleted from your peer. Additionally, any registered cafes will delete its associated snapshots.
 
-From your second peer, leave the "My runs" thread.
+From your second peer, leave the "My runs" thread:
 
 ```tab="cmd"
 textile threads rm "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" --api="http://127.0.0.1:41600"
@@ -1449,7 +1467,7 @@ Notifications are generated when you receive a thread invitation or update from 
 
 #### List notifications
 
-Let's see what kind of notifications your first peer (Clyde) has.
+Let's see what kind of notifications your first peer (Clyde) has:
 
 ```tab="cmd"
 textile notifications ls
@@ -1481,7 +1499,7 @@ Hmm, only one notification? Remember that your other peer left the "My runs" thr
 
 #### "Read" notifications
 
-Notifications have a `read` boolean status that is useful for some applications. We can mark the above notification as read via its `id`.
+Notifications have a `read` boolean status that is useful for some applications. We can mark the above notification as read via its `id`:
 
 ```tab="cmd"
 textile notifications read "1KKP01K9SpRASYKkyxSK4EiSYEz"
@@ -1494,7 +1512,7 @@ textile notifications read "1KKP01K9SpRASYKkyxSK4EiSYEz"
 
 ### Summary
 
-Display a summary of your peer's threads, files, and contacts.
+Display a summary of your peer's threads, files, and contacts:
 
 ```tab="cmd"
 textile summary
@@ -1519,7 +1537,7 @@ Your peer's underlying IPFS node comes with a rich system-based logging framewor
 
 #### View current log levels
 
-Take a look at the current log levels.
+Take a look at the current log levels:
 
 ```tab="cmd"
 textile logs
@@ -1616,7 +1634,7 @@ You can alter a peer's log levels even when it's running.
 !!! tip
     During development, start the daemon with `--debug`. This will set all of the "tex-" log systems to "DEBUG". You can then tail the logs, like: `tail -f "path/to/repo/logs/textile.log"`.
 
-Set all of the "tex-" log systems to "INFO".
+Set all of the "tex-" log systems to "INFO":
 
 ```tab="cmd"
 textile logs --tex-only --level="info"
@@ -1649,7 +1667,7 @@ When your peer starts, it loads a JSON [config file](/the-config-file) from the 
 
 #### View a config value
 
-We can view the entire config or a specific value behind any JSON key. Try viewing the "Addresses" config.
+We can view the entire config or a specific value behind any JSON key. Try viewing the "Addresses" config:
 
 ```tab="cmd"
 textile config "Addresses"
@@ -1664,12 +1682,14 @@ textile config "Addresses"
     }
     ```
 
+`textile config` will display the entire file.
+
 #### Set a config value
 
-Changing values follows the same pattern. In preparation for the [Cafe Hosts](#cafe-hosts) section below, let's set `"Cafe.Host.Open"` to `true`.
+Changing values follows the same pattern. We can update our second peer's gateway bind address as follows:
 
 ```tab="cmd"
-textile config "Cafe.Host.Open" true
+textile config "Addresses.Gateway" \"127.0.0.1:9090\"
 ```
 
 ???+ success
@@ -1677,52 +1697,280 @@ textile config "Cafe.Host.Open" true
     Updated! Restart daemon for changes to take effect.
     ```
 
-After restarting the daemon (or your `Textile` instance for users of the mobile SDKs), you should now see `true` when querying for the value.
+Restart the daemon (or your `Textile` instance for users of a mobile SDK):
 
 ```tab="cmd"
-textile config "Cafe.Host.Open"
+textile daemon
 ```
 
-???+ success
+??? success
     ```
-    true
+    go-textile version: v0.1.12
+    Repo version: 13
+    Repo path: /Users/sander/.textile/repo
+    API address: 127.0.0.1:40600
+    Gateway address: 127.0.0.1:5050
+    System version: amd64/darwin
+    Golang version: go1.12.3
+    PeerID:  12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay
+    Account: P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j
+    ```
+
+You should now see the new gateway bind address in the config:
+
+```tab="cmd"
+textile config
+```
+
+??? success
+    ```
+    {
+        "API": {
+            "HTTPHeaders": {
+                "Access-Control-Allow-Headers": [
+                    "Content-Type",
+                    "Method",
+                    "X-Textile-Args",
+                    "X-Textile-Opts",
+                    "X-Requested-With"
+                ],
+                "Access-Control-Allow-Methods": [
+                    "GET",
+                    "POST",
+                    "DELETE",
+                    "OPTIONS"
+                ],
+                "Access-Control-Allow-Origin": [
+                    "http://localhost:*",
+                    "http://127.0.0.1:*"
+                ],
+                "Server": [
+                    "go-textile/0.1.12"
+                ]
+            },
+            "SizeLimit": 0
+        },
+        "Account": {
+            "Address": "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs",
+            "Thread": "12D3KooWLMV52tB3kP7qeRwrwfHQpaZZFaMnAm2wEwroY6xBsPwB"
+        },
+        "Addresses": {
+            "API": "127.0.0.1:41600",
+            "CafeAPI": "127.0.0.1:40601",
+            "Gateway": "127.0.0.1:9090"
+        },
+        "Cafe": {
+            "Client": {
+                "Mobile": {
+                    "P2PWireLimit": 0
+                }
+            },
+            "Host": {
+                "NeighborURL": "",
+                "Open": false,
+                "SizeLimit": 0,
+                "URL": ""
+            }
+        },
+        "IsMobile": false,
+        "IsServer": false,
+        "Logs": {
+            "LogToDisk": true
+        },
+        "Threads": {
+            "Defaults": {
+                "ID": ""
+            }
+        }
+    }
     ```
 
 ### Cafe Hosts
 
-[Cafe](/concepts/cafes) peers (or just cafes) provide services to other peers.
+[Cafe](/concepts/cafes) peers (or just cafes) provide services to other peers. Cafes are easy to deploy and manage (single executable, Docker). Checkout the [full guide](/install/the-daemon/#initialize-a-cafe-peer) if you're interested in hosting your own.
+
+For the purposes of this tour, let's transform your second peer into a local cafe. A production cafe should be run on a publicly accessible host, but a local cafe is useful for development and testing.
+
+On your second peer, open the cafe API by setting the config key `"Cafe.Host.Open"` to `true`:
+
+```tab="cmd"
+textile config "Cafe.Host.Open" true --api="http://127.0.0.1:41600"
+```
+
+??? success
+    ```
+    Updated! Restart daemon for changes to take effect.
+    ```
+
+You'll also need to set `"Cafe.Host.Local"` to `true`. This tells your peer to only announce `localhost` as it's external cafe address, rather than using IPFS's internal NAT traversal to find an external IPv4 address.
+
+```tab="cmd"
+textile config "Cafe.Host.Local" true --api="http://127.0.0.1:41600"
+```
+
+??? success
+    ```
+    Updated! Restart daemon for changes to take effect.
+    ```
+
+Now, restart the daemon in debug mode:
+
+```tab="cmd"
+textile daemon --repo-dir="/tmp/buddy" --debug
+```
+
+??? success
+    ```
+    go-textile version: v0.1.12
+    Repo version: 13
+    Repo path: /tmp/buddy
+    API address: 127.0.0.1:41600
+    Gateway address: 127.0.0.1:9090
+    Cafe address: 127.0.0.1:40601
+    System version: amd64/darwin
+    Golang version: go1.12.3
+    PeerID:  12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV
+    Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
+    ```
+
+Note that `Cafe address: 127.0.0.1:40601` is now shown after restarting the daemon.
 
 #### Create a client token
+
+In order for clients to register with your cafe, they'll need one of its _client tokens_.
+
+!!! info
+    Cafe client tokens are generated from cryptographically secure random bytes, salted, hashed, and stored locally. You can think of them as very strong passwords.
+
+Create a token as follows:
 
 ```tab="cmd"
 textile tokens create
 ```
 
+???+ success
+    ```
+    bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG
+    ```
+
 #### View client tokens
+
+View the cafe's client tokens with the `ls` command:
 
 ```tab="cmd"
 textile tokens ls
 ```
 
+???+ success
+    ```JSON
+    [
+        "2ZwjtRaFj6kMxnKm3BLnueqaT3WLXQS3evEZoJ87oZLUMhdNxr4sVKorUWSu3ZHgfBbyU726trkqSnsvLGmiJ8bpv5PEqqSf25f"
+    ]
+    ```
+
+The value shown in the list is the salted and hashed token. The plaintext version needed by a registering client is **only available at creation time** as they are never stored by the cafe.
+
 ### Cafe Clients
+
+Cafes perform work for their _clients_, which are account peers. Account peers don't _need_ to be registered with a cafe, but doing so has advantages, like improving discovery of its content and providing an inbox for messages received offline. See the [cafe service](https://docs.textile.io/concepts/cafes/#services) section for more about how cafes assist other peers on the network.
+
+!!! tip
+    Textile hosts a development cafe that you are free to use for non-production purposes. More details can be found [here](/concepts/cafe#try-it).
 
 #### Register with a cafe
 
+Using the token created above, register with your locally running test cafe:
+
 ```tab="cmd"
-textile cafes add {Cafe.Host.URL} --token="token"
+textile cafes add "http://127.0.0.1:40601" --token="bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
 ```
 
+???+ success
+    ```JSON
+    {
+        "access": "eyJhbGciOiJFZDI1NTE5IiwidHlwIjoiSldUIn0.eyJzY29wZXMiOiJhY2Nlc3MiLCJhdWQiOiIvdGV4dGlsZS9jYWZlLzEuMC4wIiwiZXhwIjoxNTU4OTk2NDcxLCJqdGkiOiIxS1luQ1doOXRkOU1abjVrdUtIYnJjR0NPRlkiLCJpYXQiOjE1NTY1NzcyNzEsImlzcyI6IjEyRDNLb29XOXlhQUx4eGszMW5uYVBaQjl0emp3eEZ5UFVCcndMdUNYWjNGbkFXZzhWeVYiLCJzdWIiOiIxMkQzS29vV0NNVkxmTVY4dXpZcEZOMzhxbjJlTXM0OHRBdUhkVlpkajNhRjZuZXg2emF5In0.j9N-AGVZhU5-eTSOm6fkZkKVsAeTSrPXjx3BmyZoB4gKG_T2G3g0iSB1n2Bz0ZWEre8gt6xRGA3yL0bMUw-dAw",
+        "cafe": {
+            "address": "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs",
+            "api": "v0",
+            "node": "0.1.12",
+            "peer": "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV",
+            "protocol": "/textile/cafe/1.0.0",
+            "url": "http://127.0.0.1:40601"
+        },
+        "exp": "2019-05-27T22:34:31.142527Z",
+        "id": "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV",
+        "refresh": "eyJhbGciOiJFZDI1NTE5IiwidHlwIjoiSldUIn0.eyJzY29wZXMiOiJyZWZyZXNoIiwiYXVkIjoiL3RleHRpbGUvY2FmZS8xLjAuMCIsImV4cCI6MTU2MTQxNTY3MSwianRpIjoicjFLWW5DV2g5dGQ5TVpuNWt1S0hicmNHQ09GWSIsImlhdCI6MTU1NjU3NzI3MSwiaXNzIjoiMTJEM0tvb1c5eWFBTHh4azMxbm5hUFpCOXR6and4RnlQVUJyd0x1Q1haM0ZuQVdnOFZ5ViIsInN1YiI6IjEyRDNLb29XQ01WTGZNVjh1ellwRk4zOHFuMmVNczQ4dEF1SGRWWmRqM2FGNm5leDZ6YXkifQ.erefmNinE3C1xpSa73TU6qJmTDLrjXtBh8-cojZ-D2_t6VrklYfffGGJLCQ7DKRv3UANS03U2KVX6WjH3GZADw",
+        "rexp": "2019-06-24T22:34:31.142527Z",
+        "subject": "12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay",
+        "type": "JWT"
+    }
+    ```
+
+A new client account associated with the provided token was added to your cafe. Your account peer now has an active cafe _session_ with which it can use to make authenticated requests. Cafe sessions are stateless [JWT](https://jwt.io) objects that can expire.
+
+!!! tip
+    An account peer may be registered with more than one cafe, and account peers do not need to be registered to the same cafe(s). Additionally, peers can easily migrate from one cafe to another, simply be deregistering from one and registering with another.
+
 #### List cafe sessions
+
+You can view your active cafe sessions with the `ls` command:
 
 ```tab="cmd"
 textile cafes ls
 ```
 
-#### Unregister with a cafe
+??? success
+    ```JSON
+    {
+        "items": [
+            {
+                "access": "eyJhbGciOiJFZDI1NTE5IiwidHlwIjoiSldUIn0.eyJzY29wZXMiOiJhY2Nlc3MiLCJhdWQiOiIvdGV4dGlsZS9jYWZlLzEuMC4wIiwiZXhwIjoxNTU4OTk2NDcxLCJqdGkiOiIxS1luQ1doOXRkOU1abjVrdUtIYnJjR0NPRlkiLCJpYXQiOjE1NTY1NzcyNzEsImlzcyI6IjEyRDNLb29XOXlhQUx4eGszMW5uYVBaQjl0emp3eEZ5UFVCcndMdUNYWjNGbkFXZzhWeVYiLCJzdWIiOiIxMkQzS29vV0NNVkxmTVY4dXpZcEZOMzhxbjJlTXM0OHRBdUhkVlpkajNhRjZuZXg2emF5In0.j9N-AGVZhU5-eTSOm6fkZkKVsAeTSrPXjx3BmyZoB4gKG_T2G3g0iSB1n2Bz0ZWEre8gt6xRGA3yL0bMUw-dAw",
+                "cafe": {
+                    "address": "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs",
+                    "api": "v0",
+                    "node": "0.1.12",
+                    "peer": "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV",
+                    "protocol": "/textile/cafe/1.0.0",
+                    "url": "http://127.0.0.1:40601"
+                },
+                "exp": "2019-05-27T22:34:31.142527Z",
+                "id": "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV",
+                "refresh": "eyJhbGciOiJFZDI1NTE5IiwidHlwIjoiSldUIn0.eyJzY29wZXMiOiJyZWZyZXNoIiwiYXVkIjoiL3RleHRpbGUvY2FmZS8xLjAuMCIsImV4cCI6MTU2MTQxNTY3MSwianRpIjoicjFLWW5DV2g5dGQ5TVpuNWt1S0hicmNHQ09GWSIsImlhdCI6MTU1NjU3NzI3MSwiaXNzIjoiMTJEM0tvb1c5eWFBTHh4azMxbm5hUFpCOXR6and4RnlQVUJyd0x1Q1haM0ZuQVdnOFZ5ViIsInN1YiI6IjEyRDNLb29XQ01WTGZNVjh1ellwRk4zOHFuMmVNczQ4dEF1SGRWWmRqM2FGNm5leDZ6YXkifQ.erefmNinE3C1xpSa73TU6qJmTDLrjXtBh8-cojZ-D2_t6VrklYfffGGJLCQ7DKRv3UANS03U2KVX6WjH3GZADw"
+            }
+        ]
+    }
+    ```
+
+#### Check messages
+
+An account peer will periodically check each of its registered cafes for new messages received by the cafe on its behalf. You can also manually check for messages:
 
 ```tab="cmd"
-textile cafes rm "cafe-peer-id"
+textile cafes messages
 ```
+
+???+ success
+    ```
+    ok
+    ```
+
+Messages are downloaded in batches and queued for processing.
+
+#### Unregister with a cafe
+
+You can leave a cafe at any time. Data associated with your client account will be removed.
+
+```tab="cmd"
+textile cafes rm "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV"
+```
+
+??? success
+    ```
+    ok
+    ```
+
+!!! info
+    Cafes are _anonymous_ and _disposable_ infrastructure, meaning that you can replace one cafe with another and still participate in the network as before.
 
 ### IPFS
 
@@ -1730,7 +1978,7 @@ The Textile API exposes a handful of the more useful IPFS endpoints. For the com
 
 #### View peer ID
 
-At some point, you will want to view your IPFS peer ID. This is the same ID shown in your contact and profile info and printed by the daemon on startup.
+At some point, you will want to view your IPFS peer ID. This is the same ID shown in your contact and profile info and printed by the daemon on startup:
 
 ```tab="cmd"
 textile ipfs id
@@ -2023,7 +2271,7 @@ See the [IPFS doc](https://docs.ipfs.io/reference/api/cli/#ipfs-swarm-peers) for
 
 You may also want to check or open a connection to another peer. You can do this by supplying a complete [multi-address](https://github.com/multiformats/multiaddr).
 
-Try connecting to one of Textile's federated cafe peers.
+Try connecting to one of Textile's federated cafe peers:
 
 ```tab="cmd"
 textile ipfs swarm connect "/ip4/18.224.173.65/tcp/4001/ipfs/12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d"
@@ -2040,7 +2288,7 @@ See the [IPFS doc](https://docs.ipfs.io/reference/api/cli/#ipfs-swarm-connect) f
 
 #### Cat any data on the network
 
-Downloading data behind a path is one of the most useful IPFS APIs. For example, we can "cat" an unencrypted Textile logo into a PNG file.
+Downloading data behind a path is one of the most useful IPFS APIs. For example, we can "cat" an unencrypted Textile logo into a PNG file:
 
 ```tab="cmd"
 textile ipfs cat "QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d" > textile.png
