@@ -1530,7 +1530,7 @@ Create a new thread for chatting with your friend `P7X3gZu`:
 {{examples.start_a_chat.add_thread.js_http_client.code}}
 ```
 
-```JavaScript tab="React Native"
+```TypeScript tab="React Native"
 {{examples.start_a_chat.add_thread.react_native.code}}
 ```
 
