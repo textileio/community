@@ -25,23 +25,23 @@ If you're using the command-line or JavaScript HTTP client, make sure your local
 First off, take a look at your peer profile:
 
 ```tab="cmd"
-textile profile get
+{{profile.get_.cmd.code}}
 ```
 
 ```JavaScript tab="JS HTTP"
-{{js_http_client.peer_profile.code}}
+{{profile.get_.js_http_client.code}}
 ```
 
 ```JavaScript tab="React Native"
-// todo
+{{profile.get_.react_native.code}}
 ```
 
 ```Swift tab="iOS"
-// todo
+{{profile.get_.ios.code}}
 ```
 
 ```Java tab="Android"
-// todo
+{{profile.get_.android.code}}
 ```
 
 ???+ success
@@ -67,8 +67,25 @@ Addresses always start with a "P" for "public". Account _seeds_ (private keys) a
 You can set a display name for your peer. Interacting with other users is a lot easier with display names. However, they are _not_ unique on the network.
 
 ```tab="cmd"
-textile profile set name "Clyde"
+{{profile.set_name.cmd.code}}
 ```
+
+```JavaScript tab="JS HTTP"
+{{profile.set_name.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{profile.set_name.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{profile.set_name.ios.code}}
+```
+
+```Java tab="Android"
+{{profile.set_name.android.code}}
+```
+
 
 ??? success
     ```
@@ -80,7 +97,23 @@ textile profile set name "Clyde"
 Similarly, you can assign your peer a publicly visible avatar image:
 
 ```tab="cmd"
-textile profile set avatar "path/to/an/image"
+{{profile.set_avatar.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{profile.set_avatar.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{profile.set_avatar.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{profile.set_avatar.ios.code}}
+```
+
+```Java tab="Android"
+{{profile.set_avatar.android.code}}
 ```
 
 ??? success
@@ -93,7 +126,23 @@ Now, your avatar will be tracked internally by the special private _account thre
 Take another look at your peer profile and see what happened:
 
 ```tab="cmd"
-textile profile get
+{{profile.get_.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{profile.get_.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{profile.get_.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{profile.get_.ios.code}}
+```
+
+```Java tab="Android"
+{{profile.get_.android.code}}
 ```
 
 ???+ success
@@ -121,7 +170,23 @@ As mentioned above, all peers have a special private _account_ thread. In additi
 Take a look at your account:
 
 ```tab="cmd"
-textile account get
+{{account.get_.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{account.get_.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{account.get_.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{account.get_.ios.code}}
+```
+
+```Java tab="Android"
+{{account.get_.android.code}}
 ```
 
 ???+ success
@@ -150,7 +215,23 @@ Yep, just one peer so far. This object is actually a [contact](/concepts/contact
 Of course, your account seed (private key) is not included in the public-facing contact object, but we can access it with the `seed` command:
 
 ```tab="cmd"
-textile account seed
+{{account.seed.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{account.seed.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{account.seed.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{account.seed.ios.code}}
+```
+
+```Java tab="Android"
+{{account.seed.android.code}}
 ```
 
 ???+ success
@@ -168,7 +249,23 @@ Periodically, your peer will search the network for other peers backed by the sa
 You can also manually run account sync:
 
 ```tab="cmd"
-textile account sync
+{{account.sync.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{account.sync.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{account.sync.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{account.sync.ios.code}}
+```
+
+```Java tab="Android"
+{{account.sync.android.code}}
 ```
 
 ???+ success
@@ -192,8 +289,25 @@ In addition to your "self" contact, you can search for and add contacts to your 
 Try searching for "Andrew":
 
 ```tab="cmd"
-textile contacts search --name="Andrew"
+{{contacts.search.cmd.code}}
 ```
+
+```JavaScript tab="JS HTTP"
+{{contacts.search.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{contacts.search.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{contacts.search.ios.code}}
+```
+
+```Java tab="Android"
+{{contacts.search.android.code}}
+```
+
 
 ??? success
     ```JSON
@@ -231,7 +345,23 @@ textile contacts search --name="Andrew"
 With any luck, you should see a bunch of results. You can also search for a single account by its address:
 
 ```tab="cmd"
-textile contacts search --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"
+{{contacts.search_address.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{contacts.search_address.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{contacts.search_address.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{contacts.search_address.ios.code}}
+```
+
+```Java tab="Android"
+{{contacts.search_address.android.code}}
 ```
 
 ??? success
@@ -258,7 +388,23 @@ We can add contacts by name or address. This will actually perform a search as a
 Try adding one of the contacts from above by address:
 
 ```tab="cmd"
-textile contacts add --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"
+{{contacts.add.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{contacts.add.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{contacts.add.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{contacts.add.ios.code}}
+```
+
+```Java tab="Android"
+{{contacts.add.android.code}}
 ```
 
 ??? success
@@ -272,7 +418,23 @@ textile contacts add --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG
 We can now see the added contact contact in our "address book":
 
 ```tab="cmd"
-textile contacts ls
+{{contacts.ls.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{contacts.ls.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{contacts.ls.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{contacts.ls.ios.code}}
+```
+
+```Java tab="Android"
+{{contacts.ls.android.code}}
 ```
 
 ??? success
@@ -296,7 +458,23 @@ textile contacts ls
 Removing contacts is done by address:
 
 ```tab="cmd"
-textile contacts rm "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"
+{{contacts.rm.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{contacts.rm.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{contacts.rm.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{contacts.rm.ios.code}}
+```
+
+```Java tab="Android"
+{{contacts.rm.android.code}}
 ```
 
 ??? success
@@ -311,7 +489,23 @@ Pinging another peer is a useful way to check connectivity. If you want to ping 
 Let's ping one of Textile's federated cafes:
 
 ```tab="cmd"
-textile ping 12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d
+{{core.ping.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{core.ping.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{core.ping.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{core.ping.ios.code}}
+```
+
+```Java tab="Android"
+{{core.ping.android.code}}
 ```
 
 ??? success
@@ -354,7 +548,23 @@ Check out the comprehensive [threads overview](/concepts/threads) for more about
 Create a thread and give it the name, "Basic". Note that thread names are _not_ unique.
 
 ```tab="cmd"
-textile threads add "Basic"
+{{threads.add.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{threads.add.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{threads.add.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{threads.add.ios.code}}
+```
+
+```Java tab="Android"
+{{threads.add.android.code}}
 ```
 
 ??? success
@@ -393,7 +603,23 @@ The output shows metadata about the thread you just created, with a reference to
 Any thread can take a plain old text message. Later, we'll use these with an interactive chat session.
 
 ```tab="cmd"
-textile messages add "hello?" --thread="12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk"
+{{messages.add.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{messages.add.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{messages.add.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{messages.add.ios.code}}
+```
+
+```Java tab="Android"
+{{messages.add.android.code}}
 ```
 
 ??? success
@@ -429,7 +655,23 @@ If you read the [overview doc](/concepts/threads), you'll remember that thread s
 We can create a thread with this schema using the `--blob` flag:
 
 ```tab="cmd"
-textile threads add "Any old data" --blob
+{{threads.blob_add.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{threads.blob_add.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{threads.blob_add.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{threads.blob_add.ios.code}}
+```
+
+```Java tab="Android"
+{{threads.blob_add.android.code}}
 ```
 
 ??? success
@@ -475,7 +717,23 @@ Check out the other built-in schemas [here](/concepts/threads/files#built-in-sch
 Let's add some data. Be sure to use your own thread ID.
 
 ```tab="cmd"
-echo "mmm, bytes..." | textile files add --thread="12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"
+{{files.add.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{files.add.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{files.add.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{files.add.ios.code}}
+```
+
+```Java tab="Android"
+{{files.add.android.code}}
 ```
 
 ??? success
@@ -513,8 +771,25 @@ The [_files_](/concepts/threads/files) guide covers these concepts in more detai
 Unless a schema step specifies `"plaintext": true`, the value of `meta` and `data` are both encrypted with the [Advanced Encryption Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) (AES) using their very own symmetric key. We can view the keys for each node in the DAG using the `keys` command:
 
 ```tab="cmd"
-textile files keys "QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5"
+{{files.keys_.cmd.code}}
 ```
+
+```JavaScript tab="JS HTTP"
+{{files.keys_.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{files.keys_.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{files.keys_.ios.code}}
+```
+
+```Java tab="Android"
+{{files.keys_.android.code}}
+```
+
 
 ???+ success
     ```JSON
@@ -532,7 +807,23 @@ To add an actual file or directory, just specify a path, e.g, `textile files add
 Let's try adding the _same_ data again:
 
 ```tab="cmd"
-echo "mmm, bytes..." | textile files add --thread="12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"
+{{files.add.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{files.add.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{files.add.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{files.add.ios.code}}
+```
+
+```Java tab="Android"
+{{files.add.android.code}}
 ```
 
 ??? success
@@ -553,7 +844,23 @@ Now that you've got the hang of threads, let's make something a little more inte
 Let's create an _open_ and _shared_ thread for dog photos with the _media_ schema:
 
 ```tab="cmd"
-textile threads add "Dogs" --type="open" --sharing="shared" --media
+{{threads.add_open_shared.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{threads.add_open_shared.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{threads.add_open_shared.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{threads.add_open_shared.ios.code}}
+```
+
+```Java tab="Android"
+{{threads.add_open_shared.android.code}}
 ```
 
 ??? success
@@ -626,7 +933,23 @@ Notice that the media schema has links for a _large_, _small_, and _thumb_ sized
 Try adding the image above to your dogs thread:
 
 ```tab="cmd"
-textile files add "~/Downloads/william-milliot-510766-unsplash.jpg" --caption="Dog at work." --thread="12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq"
+{{files.add_media.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{files.add_media.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{files.add_media.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{files.add_media.ios.code}}
+```
+
+```Java tab="Android"
+{{files.add_media.android.code}}
 ```
 
 ??? success
@@ -687,7 +1010,23 @@ Make a file named `location.json` with the following JSON document:
 Add a new thread to track your hypothetical runs:
 
 ```tab="cmd"
-textile threads add "My runs" --schema-file "~/Downloads/location.json" --type="public" --sharing="invite_only"
+{{examples.my_runs.add_thread.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.my_runs.add_thread.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.my_runs.add_thread.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.my_runs.add_thread.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.my_runs.add_thread.android.code}}
 ```
 
 ??? success
@@ -752,7 +1091,23 @@ textile threads add "My runs" --schema-file "~/Downloads/location.json" --type="
 Next, add some locations to your thread:
 
 ```tab="cmd"
-echo '{ "latitude": 48.858093, "longitude": 2.294694 }' | textile files add --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+{{files.add_location_data.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{files.add_location_data.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{files.add_location_data.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{files.add_location_data.ios.code}}
+```
+
+```Java tab="Android"
+{{files.add_location_data.android.code}}
 ```
 
 ??? success
@@ -763,8 +1118,25 @@ echo '{ "latitude": 48.858093, "longitude": 2.294694 }' | textile files add --th
 
 Your peer will validate the input against the thread's schema. The input will _also_ be validated against its embedded JSON schema (schemas within schemas!). Try adding a location with latitude great than 90, which is invalid:
 
+
 ```tab="cmd"
-echo '{ "latitude": 91, "longitude": 2.294694 }' | textile files add --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+{{files.add_location_data_fail.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{files.add_location_data_fail.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{files.add_location_data_fail.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{files.add_location_data_fail.ios.code}}
+```
+
+```Java tab="Android"
+{{files.add_location_data_fail.android.code}}
 ```
 
 ???+ fail
@@ -782,7 +1154,23 @@ Let's share this thread with another user. It was created with type, "public", m
 For the purposes of this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing:
 
 ```tab="cmd"
-textile init --seed="$(textile wallet init | tail -n1)" --repo-dir="/tmp/buddy" --swarm-ports="4101" --api-bind-addr="127.0.0.1:41600" --gateway-bind-addr="127.0.0.1:5150"
+{{core.init.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{core.init.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{core.init.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{core.init.ios.code}}
+```
+
+```Java tab="Android"
+{{core.init.android.code}}
 ```
 
 ??? success
@@ -796,7 +1184,7 @@ textile init --seed="$(textile wallet init | tail -n1)" --repo-dir="/tmp/buddy" 
 Start the daemon in a new terminal:
 
 ```tab="cmd"
-textile daemon --repo-dir="/tmp/buddy"
+{{core.daemon.cmd.code}}
 ```
 
 ??? success
@@ -816,7 +1204,23 @@ textile daemon --repo-dir="/tmp/buddy"
 Now that you have two peers running, invite the new account to your "My runs" thread:
 
 ```tab="cmd"
-textile invites create --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" --address="P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"
+{{examples.my_runs.invite.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.my_runs.invite.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.my_runs.invite.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.my_runs.invite.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.my_runs.invite.android.code}}
 ```
 
 ???+ success
@@ -857,7 +1261,23 @@ Next, we'll pretend that we are the second account and accept the invite. You sh
 In order to accept, you'll have to list your pending invites and grab the ID:
 
 ```tab="cmd"
-textile invites ls --api="http://127.0.0.1:41600"
+{{examples.my_runs.ls_invites.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.my_runs.ls_invites.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.my_runs.ls_invites.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.my_runs.ls_invites.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.my_runs.ls_invites.android.code}}
 ```
 
 ???+ success
@@ -886,7 +1306,23 @@ As expected, looks like Clyde invited us to "My runs". Notice that we had to sup
 You _could_ ignore the invite with `textile invites ignore`. However, we like Clyde and want to support his running efforts!
 
 ```tab="cmd"
-textile invites accept "QmXcJmyX2vbeJTcZSkoZCHc74yycjJcXbxCHkLknJhyPaL" --api="http://127.0.0.1:41600"
+{{examples.my_runs.accept.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.my_runs.accept.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.my_runs.accept.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.my_runs.accept.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.my_runs.accept.android.code}}
 ```
 
 ??? success
@@ -923,7 +1359,23 @@ After accepting the invite, your peer downloaded the older thread updates, picki
 Take a closer look at the "My runs" thread using the `blocks ls` command, which lists updates blocks known to your peer:
 
 ```tab="cmd"
-textile blocks ls --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+{{examples.my_runs.blocks_ls.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.my_runs.blocks_ls.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.my_runs.blocks_ls.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.my_runs.blocks_ls.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.my_runs.blocks_ls.android.code}}
 ```
 
 ??? success
@@ -985,8 +1437,25 @@ The output should be the exact same on both your peers.
 Using the output from `blocks ls`, add a comment to the one and only `FILES` update in the "My runs" thread:
 
 ```tab="cmd"
-textile comments add "Is this an outlier?" --block="QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84" --api="http://127.0.0.1:41600"
+{{examples.my_runs.comment_add.cmd.code}}
 ```
+
+```JavaScript tab="JS HTTP"
+{{examples.my_runs.comment_add.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.my_runs.comment_add.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.my_runs.comment_add.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.my_runs.comment_add.android.code}}
+```
+
 
 ??? success
     ```JSON
@@ -1011,8 +1480,25 @@ Remember, this is a "public" type thread, meaning that all members can annotate 
 Likes are added in a similar fashion:
 
 ```tab="cmd"
-textile likes add --block="QmVoKpKsg5MkW11bK3LVmd3xMMaxTutVime32sV6EZWeLk"
+{{examples.my_runs.like_add.cmd.code}}
 ```
+
+```JavaScript tab="JS HTTP"
+{{examples.my_runs.like_add.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.my_runs.like_add.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.my_runs.like_add.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.my_runs.like_add.android.code}}
+```
+
 
 ??? success
     ```JSON
@@ -1038,7 +1524,23 @@ We've already covered how to add plain text messages to a thread. Combined with 
 Create a new thread for chatting with your friend `P7X3gZu`:
 
 ```tab="cmd"
-textile threads add "Chat" --type="open" --sharing="shared" --whitelist="P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"
+{{examples.start_a_chat.add_thread.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.start_a_chat.add_thread.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.start_a_chat.add_thread.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.start_a_chat.add_thread.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.start_a_chat.add_thread.android.code}}
 ```
 
 ??? success
@@ -1077,7 +1579,23 @@ textile threads add "Chat" --type="open" --sharing="shared" --whitelist="P7X3gZu
 The whitelist ensures the chat remains between the two of us. As before, we need to create an invite and accept it. However, let's try an "external" invite:
 
 ```tab="cmd"
-textile invites create --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"
+{{examples.start_a_chat.invite_create.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.start_a_chat.invite_create.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.start_a_chat.invite_create.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.start_a_chat.invite_create.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.start_a_chat.invite_create.android.code}}
 ```
 
 ???+ success
@@ -1092,7 +1610,23 @@ textile invites create --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVC
 The only difference this time was that we didn't specify `--address`. Instead of getting sent directly to another peer, the invite was encrypted with the key shown in the output and persisted to IPFS. Now, you're free to send it around however you choose. In order to accept, the recipient has to specify the `id` and `key`:
 
 ```tab="cmd"
-textile invites accept "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf" --key="cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd"
+{{examples.start_a_chat.accept_invite.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.start_a_chat.accept_invite.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.start_a_chat.accept_invite.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.start_a_chat.accept_invite.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.start_a_chat.accept_invite.android.code}}
 ```
 
 ??? success
@@ -1118,13 +1652,45 @@ Of course, passing all these hashes and keys around is a lot easier with a well 
 The command-line client has a `chat` command that enters an interactive thread session in which participants can add and view messages. Start a chat on your first peer:
 
 ```tab="cmd"
-textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"
+{{examples.start_a_chat.join_chat.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.start_a_chat.join_chat.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.start_a_chat.join_chat.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.start_a_chat.join_chat.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.start_a_chat.join_chat.android.code}}
 ```
 
 Then start the same chat on your second peer:
 
 ```tab="cmd"
-textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv" --api="http://localhost:41600"
+{{examples.start_a_chat.join_chat_peer.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.start_a_chat.join_chat_peer.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.start_a_chat.join_chat_peer.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.start_a_chat.join_chat_peer.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.start_a_chat.join_chat_peer.android.code}}
 ```
 
 ![Clyde having a chat with a friend](/images/chat.png){: .center}
@@ -1138,7 +1704,23 @@ Applications will often want to paginate files and associated annotations in a t
 Try listing the files in your "My runs" thread:
 
 ```tab="cmd"
-textile files ls --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+{{examples.my_runs.files_ls.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.my_runs.files_ls.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.my_runs.files_ls.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.my_runs.files_ls.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.my_runs.files_ls.android.code}}
 ```
 
 ??? success
@@ -1223,7 +1805,23 @@ Omit the --thread option to paginate all files.
 Give the default `chrono` (for chronological) mode a try:
 
 ```tab="cmd"
-textile feed --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+{{examples.my_runs.feed.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.my_runs.feed.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.my_runs.feed.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.my_runs.feed.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.my_runs.feed.android.code}}
 ```
 
 ??? success
@@ -1388,13 +1986,45 @@ The `chat` command we saw above is actually built in part with a subscription. Y
 Let's subscribe to "files" updates across all threads:
 
 ```tab="cmd"
-textile subscribe --type="files"
+{{subscribe.files.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{subscribe.files.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{subscribe.files.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{subscribe.files.ios.code}}
+```
+
+```Java tab="Android"
+{{subscribe.files.android.code}}
 ```
 
 In another terminal, add a location to the "My runs" thread:
 
 ```tab="cmd"
-echo '{ "latitude": 48.868093, "longitude": 2.284694 }' | textile files add --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+{{examples.my_runs.add_location.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.my_runs.add_location.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.my_runs.add_location.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.my_runs.add_location.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.my_runs.add_location.android.code}}
 ```
 
 ??? success
@@ -1453,7 +2083,23 @@ When you leave a thread, all associated data is deleted from your peer. Addition
 From your second peer, leave the "My runs" thread:
 
 ```tab="cmd"
-textile threads rm "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" --api="http://127.0.0.1:41600"
+{{examples.my_runs.thread_leave.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{examples.my_runs.thread_leave.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{examples.my_runs.thread_leave.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{examples.my_runs.thread_leave.ios.code}}
+```
+
+```Java tab="Android"
+{{examples.my_runs.thread_leave.android.code}}
 ```
 
 ??? success
@@ -1470,7 +2116,23 @@ Notifications are generated when you receive a thread invitation or update from 
 Let's see what kind of notifications your first peer (Clyde) has:
 
 ```tab="cmd"
-textile notifications ls
+{{notifications.ls.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{notifications.ls.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{notifications.ls.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{notifications.ls.ios.code}}
+```
+
+```Java tab="Android"
+{{notifications.ls.android.code}}
 ```
 
 ???+ success
@@ -1502,7 +2164,23 @@ Hmm, only one notification? Remember that your other peer left the "My runs" thr
 Notifications have a `read` boolean status that is useful for some applications. We can mark the above notification as read via its `id`:
 
 ```tab="cmd"
-textile notifications read "1KKP01K9SpRASYKkyxSK4EiSYEz"
+{{notifications.read.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{notifications.read.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{notifications.read.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{notifications.read.ios.code}}
+```
+
+```Java tab="Android"
+{{notifications.read.android.code}}
 ```
 
 ??? success
@@ -1515,7 +2193,23 @@ textile notifications read "1KKP01K9SpRASYKkyxSK4EiSYEz"
 Display a summary of your peer's threads, files, and contacts:
 
 ```tab="cmd"
-textile summary
+{{core.summary.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{core.summary.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{core.summary.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{core.summary.ios.code}}
+```
+
+```Java tab="Android"
+{{core.summary.android.code}}
 ```
 
 ???+ success
@@ -1540,7 +2234,7 @@ Your peer's underlying IPFS node comes with a rich system-based logging framewor
 Take a look at the current log levels:
 
 ```tab="cmd"
-textile logs
+{{core.logs.cmd.code}}
 ```
 
 ??? success
@@ -1637,7 +2331,7 @@ You can alter a peer's log levels even when it's running.
 Set all of the "tex-" log systems to "INFO":
 
 ```tab="cmd"
-textile logs --tex-only --level="info"
+{{core.logs_text_only.cmd.code}}
 ```
 
 ???+ success
@@ -1700,7 +2394,7 @@ textile config "Addresses.Gateway" \"127.0.0.1:9090\"
 Restart the daemon (or your `Textile` instance for users of a mobile SDK):
 
 ```tab="cmd"
-textile daemon
+{{core.daemon.cmd.code}}
 ```
 
 ??? success

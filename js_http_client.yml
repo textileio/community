@@ -1,3 +1,0 @@
-js_http_client:
-  peer_profile:
-    code: 'textile.get(profile)'
