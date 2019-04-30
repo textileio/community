@@ -28,6 +28,22 @@ First off, take a look at your peer profile:
 textile profile get
 ```
 
+```JavaScript tab="JS HTTP"
+// todo
+```
+
+```JavaScript tab="React Native"
+// todo
+```
+
+```Swift tab="iOS"
+// todo
+```
+
+```Java tab="Android"
+// todo
+```
+
 ???+ success
     ```JSON
     {
