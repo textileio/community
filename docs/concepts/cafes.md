@@ -37,4 +37,17 @@ _Status Exploring. We are looking into the concept of offering server-less funct
 
 Cafes are easy to deploy and manage (single executable, Docker). Start [here](/install/the-daemon/#run-a-cafe-peer) to run your own.
 
+## Try one
+
+Textile hosts a [development cafe](https://us-west-dev.textile.cafe/) that you are free to use for non-production purposes.
+
+!!! danger
+    Use the dev cafe at your own risk. Your data may get lost without notice.
+
+Connection details:
+
+| Peer ID | API | Gateway | Token |
+| --- | --- | --- | --- |
+| `12D3KooWGN8VAsPHsHeJtoTbbzsGjs2LTmQZ6wFKvuPich1TYmYY` | [`https://us-west-dev.textile.cafe/`](https://us-west-dev.textile.cafe/) | [`https://us-west-dev.textile.cafe/ipfs`](https://us-west-dev.textile.cafe/ipfs/) | `uggU4NcVGFSPchULpa2zG2NRjw2bFzaiJo3BYAgaFyzCUPRLuAgToE3HXPyo` |
+
 <br>
