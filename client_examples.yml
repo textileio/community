@@ -155,9 +155,20 @@ examples:
         code: 'TODO'
       android:
         code: 'TODO'
-    add_location:
+    add_location_data:
       cmd:
-        code: "echo '{ \"latitude\": 48.868093,\"longitude\": 2.284694 }' | textile files add --thread=\"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\""
+        code: "echo '{ \"latitude\": 48.858093, \"longitude\": 2.294694 }' | textile files add --thread=\"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\"'"
+      js_http_client:
+        code: 'TODO'
+      react_native:
+        code: 'TODO'
+      ios:
+        code: 'TODO'
+      android:
+        code: 'TODO'
+    add_location_data_fail:
+      cmd:
+        code: "echo '{ \"latitude\": 91, \"longitude\": 2.294694 }' | textile files add --thread=\"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\"'"
       js_http_client:
         code: 'TODO'
       react_native:
@@ -440,28 +451,6 @@ files:
   add_media:
     cmd:
       code: 'textile files add "~/Downloads/william-milliot-510766-unsplash.jpg" --caption="Dog at work." --thread="12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq"'
-    js_http_client:
-      code: 'TODO'
-    react_native:
-      code: 'TODO'
-    ios:
-      code: 'TODO'
-    android:
-      code: 'TODO'
-  add_location_data:
-    cmd:
-      code: "echo '{ \"latitude\": 48.858093, \"longitude\": 2.294694 }' | textile files add --thread=\"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\"'"
-    js_http_client:
-      code: 'TODO'
-    react_native:
-      code: 'TODO'
-    ios:
-      code: 'TODO'
-    android:
-      code: 'TODO'
-  add_location_data_fail:
-    cmd:
-      code: "echo '{ \"latitude\": 91, \"longitude\": 2.294694 }' | textile files add --thread=\"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\"'"
     js_http_client:
       code: 'TODO'
     react_native:

@@ -1091,23 +1091,23 @@ Add a new thread to track your hypothetical runs:
 Next, add some locations to your thread:
 
 ```tab="cmd"
-{{files.add_location_data.cmd.code}}
+{{examples.my_runs.add_location_data.cmd.code}}
 ```
 
 ```JavaScript tab="JS HTTP"
-{{files.add_location_data.js_http_client.code}}
+{{examples.my_runs.add_location_data.js_http_client.code}}
 ```
 
 ```JavaScript tab="React Native"
-{{files.add_location_data.react_native.code}}
+{{examples.my_runs.add_location_data.react_native.code}}
 ```
 
 ```Swift tab="iOS"
-{{files.add_location_data.ios.code}}
+{{examples.my_runs.add_location_data.ios.code}}
 ```
 
 ```Java tab="Android"
-{{files.add_location_data.android.code}}
+{{examples.my_runs.add_location_data.android.code}}
 ```
 
 ??? success
@@ -1118,25 +1118,24 @@ Next, add some locations to your thread:
 
 Your peer will validate the input against the thread's schema. The input will _also_ be validated against its embedded JSON schema (schemas within schemas!). Try adding a location with latitude great than 90, which is invalid:
 
-
 ```tab="cmd"
-{{files.add_location_data_fail.cmd.code}}
+{{examples.my_runs.add_location_data_fail.cmd.code}}
 ```
 
 ```JavaScript tab="JS HTTP"
-{{files.add_location_data_fail.js_http_client.code}}
+{{examples.my_runs.add_location_data_fail.js_http_client.code}}
 ```
 
 ```JavaScript tab="React Native"
-{{files.add_location_data_fail.react_native.code}}
+{{examples.my_runs.add_location_data_fail.react_native.code}}
 ```
 
 ```Swift tab="iOS"
-{{files.add_location_data_fail.ios.code}}
+{{examples.my_runs.add_location_data_fail.ios.code}}
 ```
 
 ```Java tab="Android"
-{{files.add_location_data_fail.android.code}}
+{{examples.my_runs.add_location_data_fail.android.code}}
 ```
 
 ???+ fail
@@ -2008,23 +2007,23 @@ Let's subscribe to "files" updates across all threads:
 In another terminal, add a location to the "My runs" thread:
 
 ```tab="cmd"
-{{examples.my_runs.add_location.cmd.code}}
+{{examples.my_runs.add_location_data.cmd.code}}
 ```
 
 ```JavaScript tab="JS HTTP"
-{{examples.my_runs.add_location.js_http_client.code}}
+{{examples.my_runs.add_location_data.js_http_client.code}}
 ```
 
 ```JavaScript tab="React Native"
-{{examples.my_runs.add_location.react_native.code}}
+{{examples.my_runs.add_location_data.react_native.code}}
 ```
 
 ```Swift tab="iOS"
-{{examples.my_runs.add_location.ios.code}}
+{{examples.my_runs.add_location_data.ios.code}}
 ```
 
 ```Java tab="Android"
-{{examples.my_runs.add_location.android.code}}
+{{examples.my_runs.add_location_data.android.code}}
 ```
 
 ??? success
