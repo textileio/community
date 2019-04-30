@@ -29,7 +29,7 @@ textile profile get
 ```
 
 ```JavaScript tab="JS HTTP"
-// todo
+{{js_http_client.peer_profile.code}}
 ```
 
 ```JavaScript tab="React Native"

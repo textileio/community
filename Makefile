@@ -1,7 +1,7 @@
 setup:
 	pip install mkdocs
 	pip install mkdocs-material
-	pip install mkdocs-markdownextradata-plugin
+	pip install mkdocs-codeyaml-plugin
 	pip install markdown-captions
 
 serve:

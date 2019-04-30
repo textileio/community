@@ -36,23 +36,7 @@ extra_css:
 # Plugins
 plugins:
   - search
-  - markdownextradata
-
-# Customization
-extra:
-  social:
-    - type: globe
-      link: https://textile.io
-    - type: github-alt
-      link: https://github.com/textileio
-    - type: twitter
-      link: https://twitter.com/Textile01
-    - type: medium
-      link: https://medium.com/textileio
-    - type: slack
-      link: https://slack.textile.io
-  go_textile:
-    - version: v0.1.11
+  - codeyaml
 
 # Extensions
 markdown_extensions:
@@ -116,3 +100,22 @@ nav:
     - Privacy Policy: policies/privacy-policy.md
     - Terms of Service: policies/terms-of-service.md
     - License: policies/license.md
+
+# Customization
+extra:
+  social:
+    - type: globe
+      link: https://textile.io
+    - type: github-alt
+      link: https://github.com/textileio
+    - type: twitter
+      link: https://twitter.com/textileio
+    - type: medium
+      link: https://medium.com/textileio
+    - type: slack
+      link: https://slack.textile.io
+  clients:
+    - type: js_http_client
+      yaml: js_http_client
+  go_textile:
+    - version: v0.1.11
