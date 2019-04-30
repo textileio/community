@@ -3,7 +3,7 @@ Peers that run as a daemon (desktop and server, including cafes) are accessible 
 - The [Command-line](/clients/command-line) client (similar to `ipfs`, useful for interacting with a local peer).
 - The [JS HTTP](/clients/js-http) client: Useful for building NodeJS, frontend web, and electron apps.
 
-Below is the swagger-based documentation for the API.
+Below is the swagger-based documentation for the API. Note that endpoints must be prefixed with `/api/v{version}` (e.g., `/api/v0`).
 
 ## Version: 0
 
