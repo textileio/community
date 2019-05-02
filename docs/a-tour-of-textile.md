@@ -2358,7 +2358,7 @@ textile config "Addresses"
     ```JSON
     {
         "API": "127.0.0.1:40600",
-        "CafeAPI": "127.0.0.1:40601",
+        "CafeAPI": "0.0.0.0:40601",
         "Gateway": "127.0.0.1:5050"
     }
     ```
@@ -2483,17 +2483,6 @@ textile config "Cafe.Host.Open" true --api="http://127.0.0.1:41600"
     Updated! Restart daemon for changes to take effect.
     ```
 
-You'll also need to set `"Cafe.Host.Local"` to `true`. This tells your peer to only announce `localhost` as it's external cafe address, rather than using IPFS's internal NAT traversal to find an external IPv4 address.
-
-```tab="cmd"
-textile config "Cafe.Host.Local" true --api="http://127.0.0.1:41600"
-```
-
-??? success
-    ```
-    Updated! Restart daemon for changes to take effect.
-    ```
-
 Now, restart the daemon in debug mode:
 
 ```tab="cmd"
@@ -2507,14 +2496,14 @@ textile daemon --repo-dir="/tmp/buddy" --debug
     Repo path: /tmp/buddy
     API address: 127.0.0.1:41600
     Gateway address: 127.0.0.1:9090
-    Cafe address: 127.0.0.1:40601
+    Cafe address: 0.0.0.0:40601
     System version: amd64/darwin
     Golang version: go1.12.3
     PeerID:  12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV
     Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
     ```
 
-Note that `Cafe address: 127.0.0.1:40601` is now shown after restarting the daemon.
+Note that `Cafe address: 0.0.0.0:40601` is now shown after restarting the daemon.
 
 #### Create a client token
 
