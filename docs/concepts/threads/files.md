@@ -2,7 +2,7 @@ In addition to [messages](/concepts/messages) and the various [thread](/concepts
 
 Thread data is built into an [IPLD](https://ipld.io/) merkle DAG structure (similar to a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)) and stored separately from the block on IPFS. A `Files` block points to it's "data DAG"'s top-level hash.
 
-The structure of the data DAG is determined by, and validated against, a DAG [schema](/concepts/threads/files/schemas). **A thread can have only one schema**. It has two main functions:
+The structure of the data DAG is determined by, and validated against, a DAG [schema](/concepts/threads/files#schemas). **A thread can have only one schema**. It has two main functions:
 
 1. Define a Thread's data DAG structure
 2. Define the order of _mills_ (transforms) needed to produce this structure from the input

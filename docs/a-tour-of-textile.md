@@ -1,6 +1,6 @@
 ![Photo by Andrew Neel on Unsplash](/images/andrew-neel-133200-unsplash.jpg)
 
-Welcome to Textile! This is a great place to start if you're a developer interested in using Textile's decentralized tooling in your mobile, desktop, or web applications. However, anyone interested in learning how to run and interact with a Textile peer will find this tour very useful.
+Welcome to Textile! This is a great place to start if you're a developer interested in using Textile's decentralized tooling in your mobile, desktop, or web applications. However, anyone interested in learning how to run and interact with a Textile peer will also find this tour useful.
 
 ## Concepts
 
@@ -2144,7 +2144,7 @@ Let's see what kind of notifications your first peer (Clyde) has:
     }
     ```
 
-Hmm, only one notification? Remember that your other peer left the "My runs" thread. Besides the leave notification, all others from their actions in that thread (joined, commented, etc.) were deleted. 
+Hmm, only one notification? Remember that your other peer left the "My runs" thread. Besides the leave notification, all others from their actions in that thread (joined, commented, etc.) were deleted.
 
 #### "Read" notifications
 
