@@ -20,9 +20,29 @@ If you're using the command-line or JavaScript HTTP client, make sure your local
 !!! Info
     Peer-to-peer (p2p) slang is notoriously confusing. Throughout these docs, we often use the words "peer" and "node". Generally speaking, they are interchangeable. However, a network _node_ refers to the actual connection point that sends and receives data. On a p2p network like IPFS, all nodes are also _peers_. The network is like a "homogeneous solution" of particles (nodes). Mother Nature gets it!
 
+#### Connecting your client
+
+If you are running any of the client libraries (JavaScript, React Native, iOS, or Android) you will need to import and sometimes initialize your Textile session. Initialization is slightly different in each client so be sure to read specific setup and getting start steps for the client library you use. 
+
+```JavaScript tab="JS HTTP"
+{{core.setup.js_http_client.code}}
+```
+
+```JavaScript tab="React Native"
+{{core.setup.react_native.code}}
+```
+
+```Swift tab="iOS"
+{{core.setup.ios.code}}
+```
+
+```Java tab="Android"
+{{core.setup.android.code}}
+```
+
 ### Peer profile
 
-First off, take a look at your peer profile:
+Now, with Textile ready, take a look at your peer profile:
 
 ```tab="cmd"
 {{profile.get_.cmd.code}}
@@ -1654,42 +1674,10 @@ The command-line client has a `chat` command that enters an interactive thread s
 {{examples.start_a_chat.join_chat.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
-{{examples.start_a_chat.join_chat.js_http_client.code}}
-```
-
-```JavaScript tab="React Native"
-{{examples.start_a_chat.join_chat.react_native.code}}
-```
-
-```Swift tab="iOS"
-{{examples.start_a_chat.join_chat.ios.code}}
-```
-
-```Java tab="Android"
-{{examples.start_a_chat.join_chat.android.code}}
-```
-
 Then start the same chat on your second peer:
 
 ```tab="cmd"
 {{examples.start_a_chat.join_chat_peer.cmd.code}}
-```
-
-```JavaScript tab="JS HTTP"
-{{examples.start_a_chat.join_chat_peer.js_http_client.code}}
-```
-
-```JavaScript tab="React Native"
-{{examples.start_a_chat.join_chat_peer.react_native.code}}
-```
-
-```Swift tab="iOS"
-{{examples.start_a_chat.join_chat_peer.ios.code}}
-```
-
-```Java tab="Android"
-{{examples.start_a_chat.join_chat_peer.android.code}}
 ```
 
 ![Clyde having a chat with a friend](/images/chat.png){: .center}
