@@ -237,7 +237,11 @@ subscribe:
     cmd:
       code: 'textile subscribe --type="files"'
     js_http_client:
-      code: '@todo'
+      code: |
+            Textile.subscribe.stream("files")
+              .then((file) => {
+                // new file!
+              })
     react_native:
       code: '@todo'
     ios:
