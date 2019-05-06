@@ -15,7 +15,9 @@ examples:
       cmd:
         code: 'textile invites create --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"'
       js_http_client:
-        code: 'await textile.invites.create("12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv")'
+        code: |
+              // The below invite key can be sent securely to recipient in any way convenient
+              const inviteKey = await textile.invites.addExternal("12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv")
       react_native:
         code: |
               // The below invite key can be sent securely to recipient in any way convenient
@@ -49,9 +51,9 @@ examples:
       cmd:
         code: 'textile invites create --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" --address="P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"'
       js_http_client:
-        code: 'await textile.invites.create("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs")'
+        code: 'await textile.invites.add("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs")'
       react_native:
-        code: 'await textile.invites.create("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs")'
+        code: 'await textile.invites.add("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs")'
       ios:
         code: '@todo'
       android:
