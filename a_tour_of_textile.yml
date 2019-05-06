@@ -17,7 +17,9 @@ examples:
       js_http_client:
         code: 'await textile.invites.create("12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv")'
       react_native:
-        code: '@todo'
+        code: |
+              // The below invite key can be sent securely to recipient in any way convenient
+              const inviteKey = await textile.invites.addExternal("12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv")
       ios:
         code: '@todo'
       android:
@@ -49,7 +51,7 @@ examples:
       js_http_client:
         code: 'await textile.invites.create("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs")'
       react_native:
-        code: '@todo'
+        code: 'await textile.invites.create("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs")'
       ios:
         code: '@todo'
       android:
@@ -77,7 +79,7 @@ examples:
       js_http_client:
         code: 'await textile.comments.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84", "Is this an outlier?")'
       react_native:
-        code: '@todo'
+        code: 'await textile.comments.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84", "Is this an outlier?")'
       ios:
         code: '@todo'
       android:
@@ -88,7 +90,7 @@ examples:
       js_http_client:
         code: 'await textile.likes.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84")'
       react_native:
-        code: '@todo'
+        code: 'await textile.likes.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84")'
       ios:
         code: '@todo'
       android:
@@ -99,7 +101,7 @@ examples:
       js_http_client:
         code: 'await textile.files.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
-        code: '@todo'
+        code: 'await textile.files.list("", 50, "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       ios:
         code: '@todo'
       android:
@@ -110,7 +112,7 @@ examples:
       js_http_client:
         code: 'await textile.feed.get("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
-        code: '@todo'
+        code: 'await textile.feed.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       ios:
         code: '@todo'
       android:
@@ -121,7 +123,10 @@ examples:
       js_http_client:
         code: 'await textile.files.add(JSON.stringify({ \"latitude\": 48.858093, \"longitude\": 2.294694 }), "", "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
-        code: '@todo'
+        code: |
+              const input = Buffer.from(JSON.stringify({ "latitude": 48.858093, "longitude": 2.294694 }).toString('base64')
+              const result = await textile.files.prepare(input, "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")
+              const block = await textile.files.add(result.dir, "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")
       ios:
         code: '@todo'
       android:
@@ -132,7 +137,10 @@ examples:
       js_http_client:
         code: 'await textile.files.add(JSON.stringify({ \"latitude\": 91, \"longitude\": 2.294694 }), "", "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
-        code: '@todo'
+        code: |
+              const input = Buffer.from(JSON.stringify({ "latitude": 91, "longitude": 2.294694 }).toString('base64')
+              const result = await textile.files.prepare(input, "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")
+              const block = await textile.files.add(result.dir, "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")
       ios:
         code: '@todo'
       android:
@@ -147,7 +155,10 @@ core:
             // no initialization needed, only import
             import textile from "@textile/js-http-client"
     react_native:
-      code: '@todo'
+      code: |
+            import textile from "@textile/react-native-sdk"
+            // Make the sensitive below phrase available to your user for secure storage
+            const phrase: string | undefined = await textile.initialize(false, false)
     ios:
       code: '@todo'
     android:
@@ -170,7 +181,7 @@ core:
     js_http_client:
       code: '@todo'
     react_native:
-      code: '@todo'
+      code: 'const summary = await textile.summary()'
     ios:
       code: '@todo'
     android:
@@ -197,7 +208,13 @@ subscribe:
                 // new file!
               })
     react_native:
-      code: '@todo'
+      code: |
+            textile.events.addThreadUpdateReceivedListener((update) => {
+              const { type_url } = update.payload
+              if (type_url === '/Files') {
+                // new file!
+              }
+            })
     ios:
       code: '@todo'
     android:
@@ -209,7 +226,7 @@ notifications:
     js_http_client:
       code: 'await textile.notifications.list()'
     react_native:
-      code: '@todo'
+      code: 'const notifications = await textile.notifications.list()'
     ios:
       code: '@todo'
     android:
@@ -220,7 +237,7 @@ notifications:
     js_http_client:
         code: 'await textile.notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz")'
     react_native:
-      code: '@todo'
+      code: 'await textile.notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz")'
     ios:
       code: '@todo'
     android:
@@ -232,7 +249,7 @@ profile:
     js_http_client:
       code: await textile.profile.get()
     react_native:
-      code: 'API.profile.get()'
+      code: 'const profile = await textile.profile.get()'
     ios:
       code: '@todo'
     android:
@@ -243,7 +260,7 @@ profile:
     js_http_client:
       code: 'await textile.profile.setName("Clyde")'
     react_native:
-      code: '@todo'
+      code: 'await textile.profile.setName("Clyde")'
     ios:
       code: '@todo'
     android:
@@ -254,7 +271,7 @@ profile:
     js_http_client:
       code: 'await textile.profile.setAvatar("<image-hash>")'
     react_native:
-      code: '@todo'
+      code: 'await textile.profile.setAvatar("<image-hash>")'
     ios:
       code: '@todo'
     android:
@@ -266,7 +283,9 @@ account:
     js_http_client:
       code: 'await textile.account.get()'
     react_native:
-      code: '@todo'
+      code: |
+            // React native has endpoints for each component of the account
+            const address = await textile.account.address()
     ios:
       code: '@todo'
     android:
@@ -277,7 +296,7 @@ account:
     js_http_client:
       code: 'await textile.account.seed()'
     react_native:
-      code: '@todo'
+      code: 'const seed = await textile.account.seed()'
     ios:
       code: '@todo'
     android:
@@ -288,7 +307,7 @@ account:
     js_http_client:
       code: 'await textile.account.sync()'
     react_native:
-      code: '@todo'
+      code: 'await textile.account.sync()'
     ios:
       code: '@todo'
     android:
@@ -331,9 +350,9 @@ contacts:
     cmd:
       code: 'textile contacts ls'
     js_http_client:
-      code: 'await textile.contacts.list()'
+      code: 'const contacts = await textile.contacts.list()'
     react_native:
-      code: '@todo'
+      code: 'const contacts = await textile.contacts.list()'
     ios:
       code: '@todo'
     android:
@@ -344,7 +363,7 @@ contacts:
     js_http_client:
       code: 'await textile.contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
     react_native:
-      code: '@todo'
+      code: 'await textile.contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
     ios:
       code: '@todo'
     android:
@@ -354,7 +373,7 @@ threads:
     cmd:
       code: 'textile threads add "Basic"'
     js_http_client:
-      code: 'await textile.threads.add("Basic")'
+      code: 'const thread = await textile.threads.add("Basic")'
     react_native:
       code: '@todo'
     ios:
@@ -390,7 +409,7 @@ messages:
     js_http_client:
       code: 'await textile.messages.add("12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk", "hello?")'
     react_native:
-      code: '@todo'
+      code: 'await textile.messages.add("12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk", "hello?")'
     ios:
       code: '@todo'
     android:
@@ -402,7 +421,10 @@ files:
     js_http_client:
       code: 'await textile.files.add("mmm, bytes...", "", "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")'
     react_native:
-      code: '@todo'
+      code: |
+            const input = Buffer.from("mmm, bytes...").toString('base64')
+            const result = await textile.files.prepare(input, "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")
+            const block = await textile.files.add(result.dir, "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")
     ios:
       code: '@todo'
     android:
@@ -413,9 +435,12 @@ files:
     js_http_client:
       code: |
             const base64ImageString = "R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABA...."
-            await textile.files.add(base64ImageString, "Dog at work", "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")'
+            await textile.files.add(base64ImageString, "Dog at work", "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq")'
     react_native:
-      code: '@todo'
+      code: |
+            const base64ImageString = "R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABA...."
+            const result = await textile.files.prepare(base64ImageString, "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq")
+            const block = await textile.files.add(result.dir, "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq")
     ios:
       code: '@todo'
     android:
@@ -424,7 +449,7 @@ files:
     cmd:
       code: 'textile files keys "QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5"'
     js_http_client:
-      code: 'await textile.files.keys("QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5")'
+      code: 'const keys = await textile.files.keys("QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5")'
     react_native:
       code: '@todo'
     ios:
