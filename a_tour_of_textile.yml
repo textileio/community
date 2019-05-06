@@ -25,14 +25,6 @@ examples:
     accept_invite:
       cmd:
         code: 'textile invites accept "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf" --key="cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd"'
-      js_http_client:
-        code: 'await textile2.invites.accept("QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf", "cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd")'
-      react_native:
-        code: '@todo'
-      ios:
-        code: '@todo'
-      android:
-        code: '@todo'
     join_chat:
       cmd:
         code: 'textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"'
@@ -65,25 +57,9 @@ examples:
     ls_invites:
       cmd:
         code: 'textile invites ls --api="http://127.0.0.1:41600"'
-      js_http_client:
-        code: 'await textile2.invites.list()'
-      react_native:
-        code: '@todo'
-      ios:
-        code: '@todo'
-      android:
-        code: '@todo'
     accept:
       cmd:
         code: 'textile invites accept "QmXcJmyX2vbeJTcZSkoZCHc74yycjJcXbxCHkLknJhyPaL" --api="http://127.0.0.1:41600"'
-      js_http_client:
-        code: 'await textile2.invites.accept("QmXcJmyX2vbeJTcZSkoZCHc74yycjJcXbxCHkLknJhyPaL")'
-      react_native:
-        code: '@todo'
-      ios:
-        code: '@todo'
-      android:
-        code: '@todo'
     blocks_ls:
       cmd:
         code: 'textile blocks ls --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"'
@@ -164,14 +140,6 @@ examples:
     thread_leave:
       cmd:
         code: 'textile threads rm "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" --api="http://127.0.0.1:41600"'
-      js_http_client:
-        code: 'await textile2.threads.remove("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
-      react_native:
-        code: '@todo'
-      ios:
-        code: '@todo'
-      android:
-        code: '@todo'
 core:
   setup:
     js_http_client:
@@ -196,20 +164,6 @@ core:
   init:
     cmd:
       code: 'textile init --seed="$(textile wallet init | tail -n1)" --repo-dir="/tmp/buddy" --swarm-ports="4101" --api-bind-addr="127.0.0.1:41600" --gateway-bind-addr="127.0.0.1:5150"'
-    js_http_client:
-      code: |
-            // You can override API settings to make use of the second peer you setup in CMD
-            import textile from "@textile/js-http-client"
-            // We'll generate a new textile instance with our custom settings
-            const textile2 = textile.create({port: 41600, url: 'http://127.0.0.1'});
-            // The new account address should match what the CMD returned on setup
-            await textile2.account.address() // P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
-    react_native:
-      code: '@todo'
-    ios:
-      code: '@todo'
-    android:
-      code: '@todo'
   summary:
     cmd:
       code: 'textile summary'

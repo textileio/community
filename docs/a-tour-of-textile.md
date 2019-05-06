@@ -1170,26 +1170,10 @@ Let's share this thread with another user. It was created with type, "public", m
 !!! info
     "Writes" refer to messages and files, whereas "annotations" refer to comments and likes.
 
-For the purposes of this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing:
+For the purposes of this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer. 
 
 ```tab="cmd"
 {{core.init.cmd.code}}
-```
-
-```JavaScript tab="JS HTTP"
-{{core.init.js_http_client.code}}
-```
-
-```JavaScript tab="React Native"
-{{core.init.react_native.code}}
-```
-
-```Swift tab="iOS"
-{{core.init.ios.code}}
-```
-
-```Java tab="Android"
-{{core.init.android.code}}
 ```
 
 ??? success
@@ -1283,22 +1267,6 @@ In order to accept, you'll have to list your pending invites and grab the ID:
 {{examples.my_runs.ls_invites.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
-{{examples.my_runs.ls_invites.js_http_client.code}}
-```
-
-```JavaScript tab="React Native"
-{{examples.my_runs.ls_invites.react_native.code}}
-```
-
-```Swift tab="iOS"
-{{examples.my_runs.ls_invites.ios.code}}
-```
-
-```Java tab="Android"
-{{examples.my_runs.ls_invites.android.code}}
-```
-
 ???+ success
     ```JSON
     {
@@ -1327,23 +1295,6 @@ You _could_ ignore the invite with `textile invites ignore`. However, we like Cl
 ```tab="cmd"
 {{examples.my_runs.accept.cmd.code}}
 ```
-
-```JavaScript tab="JS HTTP"
-{{examples.my_runs.accept.js_http_client.code}}
-```
-
-```JavaScript tab="React Native"
-{{examples.my_runs.accept.react_native.code}}
-```
-
-```Swift tab="iOS"
-{{examples.my_runs.accept.ios.code}}
-```
-
-```Java tab="Android"
-{{examples.my_runs.accept.android.code}}
-```
-
 ??? success
     ```
     {
@@ -1630,22 +1581,6 @@ The only difference this time was that we didn't specify `--address`. Instead of
 
 ```tab="cmd"
 {{examples.start_a_chat.accept_invite.cmd.code}}
-```
-
-```JavaScript tab="JS HTTP"
-{{examples.start_a_chat.accept_invite.js_http_client.code}}
-```
-
-```JavaScript tab="React Native"
-{{examples.start_a_chat.accept_invite.react_native.code}}
-```
-
-```Swift tab="iOS"
-{{examples.start_a_chat.accept_invite.ios.code}}
-```
-
-```Java tab="Android"
-{{examples.start_a_chat.accept_invite.android.code}}
 ```
 
 ??? success
@@ -2071,22 +2006,6 @@ From your second peer, leave the "My runs" thread:
 
 ```tab="cmd"
 {{examples.my_runs.thread_leave.cmd.code}}
-```
-
-```JavaScript tab="JS HTTP"
-{{examples.my_runs.thread_leave.js_http_client.code}}
-```
-
-```JavaScript tab="React Native"
-{{examples.my_runs.thread_leave.react_native.code}}
-```
-
-```Swift tab="iOS"
-{{examples.my_runs.thread_leave.ios.code}}
-```
-
-```Java tab="Android"
-{{examples.my_runs.thread_leave.android.code}}
 ```
 
 ??? success
