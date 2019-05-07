@@ -1592,7 +1592,7 @@
                   <h1>A Tour of Textile</h1>
                 
                 <p><figure alt="Photo by Andrew Neel on Unsplash"><img src="/images/andrew-neel-133200-unsplash.jpg" /><figcaption>Photo by Andrew Neel on Unsplash</figcaption></figure></p>
-<p>Welcome to Textile! This tour is a great place to start if you're a developer interested in using Textile's decentralized tooling in your mobile, desktop, or web applications. However, anyone interested in learning how to run and interact with a Textile peer will find this tour very useful.</p>
+<p>Welcome to Textile! This is a great place to start if you're a developer interested in using Textile's decentralized tooling in your mobile, desktop, or web applications. However, anyone interested in learning how to run and interact with a Textile peer will also find this tour useful.</p>
 <h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
 <p>The rest of this document assumes that you are somewhat familiar with the following concepts:</p>
 <ul>
@@ -2320,6 +2320,7 @@ Added 1 file in 613.175326ms
 
 </details>
 <p>What just happened? The peer created a new DAG node for the input as defined by the schema. Every schema step adds a child node with two links:</p>
+<p><figure alt="The target shown in the output is the root hash of the DAG." class="center"><img src="/images/blob.png" /><figcaption>The target shown in the output is the root hash of the DAG.</figcaption></figure></p>
 <ul>
 <li><code>meta</code>: A JSON object containing metadata about the input and how it was processed. Some of the values are used for de-duplicating encrypted data. Here's the value of <code>meta</code> in the node we just created:</li>
 </ul>
@@ -2339,11 +2340,10 @@ Added 1 file in 613.175326ms
 </pre></div>
 
 <ul>
-<li><code>data</code>: The output data of the schema step. Again, for our current example, this is just a passthrough (output is input).</li>
+<li><code>content</code>: The output data of the schema step. Again, for our current example, this is just a passthrough (output is input).</li>
 </ul>
-<p><figure alt="The target shown in the output is the root hash of the DAG." class="center"><img src="/images/blob.png" /><figcaption>The target shown in the output is the root hash of the DAG.</figcaption></figure></p>
 <p>The <a href="/concepts/threads/files"><em>files</em></a> guide covers these concepts in more detail.</p>
-<p>Unless a schema step specifies <code>"plaintext": true</code>, the value of <code>meta</code> and <code>data</code> are both encrypted with the <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">Advanced Encryption Standard</a> (AES) using their very own symmetric key. We can view the keys for each node in the DAG using the <code>keys</code> command:</p>
+<p>Unless a schema step specifies <code>"plaintext": true</code>, the value of <code>meta</code> and <code>content</code> are both encrypted with the <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">Advanced Encryption Standard</a> (AES) using their very own symmetric key. We can view the keys for each node in the DAG using the <code>keys</code> command:</p>
 <div class="superfences-tabs">
 <input name="__tabs_19" type="radio" id="__tab_19_0" checked="checked" />
 <label for="__tab_19_0">cmd</label>
@@ -3588,7 +3588,7 @@ Added 1 file in 533.47ms
 </pre></div>
 
 </details>
-<p>Hmm, only one notification? Remember that your other peer left the "My runs" thread. Besides the leave notification, all others from their actions in that thread (joined, commented, etc.) were deleted. </p>
+<p>Hmm, only one notification? Remember that your other peer left the "My runs" thread. Besides the leave notification, all others from their actions in that thread (joined, commented, etc.) were deleted.</p>
 <h4 id="read-notifications">"Read" notifications<a class="headerlink" href="#read-notifications" title="Permanent link">&para;</a></h4>
 <p>Notifications have a <code>read</code> boolean status that is useful for some applications. We can mark the above notification as read via its <code>id</code>:</p>
 <div class="superfences-tabs">
@@ -3787,7 +3787,7 @@ Added 1 file in 533.47ms
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;API&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1:40600&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;CafeAPI&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1:40601&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;CafeAPI&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0.0.0:40601&quot;</span><span class="p">,</span>
     <span class="nt">&quot;Gateway&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1:5050&quot;</span>
 <span class="p">}</span>
 </pre></div>
@@ -3908,21 +3908,10 @@ Account: P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j
 </pre></div>
 
 </details>
-<p>You'll also need to set <code>"Cafe.Host.Local"</code> to <code>true</code>. This tells your peer to only announce <code>localhost</code> as it's external cafe address, rather than using IPFS's internal NAT traversal to find an external IPv4 address.</p>
+<p>Now, restart the daemon in debug mode:</p>
 <div class="superfences-tabs">
 <input name="__tabs_53" type="radio" id="__tab_53_0" checked="checked" />
 <label for="__tab_53_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile config &quot;Cafe.Host.Local&quot; true --api=&quot;http://127.0.0.1:41600&quot;
-</pre></div></div>
-</div>
-<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>Updated! Restart daemon for changes to take effect.
-</pre></div>
-
-</details>
-<p>Now, restart the daemon in debug mode:</p>
-<div class="superfences-tabs">
-<input name="__tabs_54" type="radio" id="__tab_54_0" checked="checked" />
-<label for="__tab_54_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile daemon --repo-dir=&quot;/tmp/buddy&quot; --debug
 </pre></div></div>
 </div>
@@ -3931,7 +3920,7 @@ Repo version: 13
 Repo path: /tmp/buddy
 API address: 127.0.0.1:41600
 Gateway address: 127.0.0.1:9090
-Cafe address: 127.0.0.1:40601
+Cafe address: 0.0.0.0:40601
 System version: amd64/darwin
 Golang version: go1.12.3
 PeerID:  12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV
@@ -3939,7 +3928,7 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 </pre></div>
 
 </details>
-<p>Note that <code>Cafe address: 127.0.0.1:40601</code> is now shown after restarting the daemon.</p>
+<p>Note that <code>Cafe address: 0.0.0.0:40601</code> is now shown after restarting the daemon.</p>
 <h4 id="create-a-client-token">Create a client token<a class="headerlink" href="#create-a-client-token" title="Permanent link">&para;</a></h4>
 <p>In order for clients to register with your cafe, they'll need one of its <em>client tokens</em>.</p>
 <div class="admonition info">
@@ -3948,8 +3937,8 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 </div>
 <p>Create a token as follows:</p>
 <div class="superfences-tabs">
-<input name="__tabs_55" type="radio" id="__tab_55_0" checked="checked" />
-<label for="__tab_55_0">cmd</label>
+<input name="__tabs_54" type="radio" id="__tab_54_0" checked="checked" />
+<label for="__tab_54_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile tokens create
 </pre></div></div>
 </div>
@@ -3960,8 +3949,8 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="view-client-tokens">View client tokens<a class="headerlink" href="#view-client-tokens" title="Permanent link">&para;</a></h4>
 <p>View the cafe's client tokens with the <code>ls</code> command:</p>
 <div class="superfences-tabs">
-<input name="__tabs_56" type="radio" id="__tab_56_0" checked="checked" />
-<label for="__tab_56_0">cmd</label>
+<input name="__tabs_55" type="radio" id="__tab_55_0" checked="checked" />
+<label for="__tab_55_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile tokens ls
 </pre></div></div>
 </div>
@@ -3981,8 +3970,8 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="register-with-a-cafe">Register with a cafe<a class="headerlink" href="#register-with-a-cafe" title="Permanent link">&para;</a></h4>
 <p>Using the token created above, register with your locally running test cafe:</p>
 <div class="superfences-tabs">
-<input name="__tabs_57" type="radio" id="__tab_57_0" checked="checked" />
-<label for="__tab_57_0">cmd</label>
+<input name="__tabs_56" type="radio" id="__tab_56_0" checked="checked" />
+<label for="__tab_56_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes add &quot;http://127.0.0.1:40601&quot; --token=&quot;bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG&quot;
 </pre></div></div>
 </div>
@@ -4014,8 +4003,8 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="list-cafe-sessions">List cafe sessions<a class="headerlink" href="#list-cafe-sessions" title="Permanent link">&para;</a></h4>
 <p>You can view your active cafe sessions with the <code>ls</code> command:</p>
 <div class="superfences-tabs">
-<input name="__tabs_58" type="radio" id="__tab_58_0" checked="checked" />
-<label for="__tab_58_0">cmd</label>
+<input name="__tabs_57" type="radio" id="__tab_57_0" checked="checked" />
+<label for="__tab_57_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes ls
 </pre></div></div>
 </div>
@@ -4043,8 +4032,8 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="check-messages">Check messages<a class="headerlink" href="#check-messages" title="Permanent link">&para;</a></h4>
 <p>An account peer will periodically check each of its registered cafes for new messages received by the cafe on its behalf. You can also manually check for messages:</p>
 <div class="superfences-tabs">
-<input name="__tabs_59" type="radio" id="__tab_59_0" checked="checked" />
-<label for="__tab_59_0">cmd</label>
+<input name="__tabs_58" type="radio" id="__tab_58_0" checked="checked" />
+<label for="__tab_58_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes messages
 </pre></div></div>
 </div>
@@ -4056,8 +4045,8 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="unregister-with-a-cafe">Unregister with a cafe<a class="headerlink" href="#unregister-with-a-cafe" title="Permanent link">&para;</a></h4>
 <p>You can leave a cafe at any time. Data associated with your client account will be removed.</p>
 <div class="superfences-tabs">
-<input name="__tabs_60" type="radio" id="__tab_60_0" checked="checked" />
-<label for="__tab_60_0">cmd</label>
+<input name="__tabs_59" type="radio" id="__tab_59_0" checked="checked" />
+<label for="__tab_59_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes rm &quot;12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV&quot;
 </pre></div></div>
 </div>
@@ -4074,8 +4063,8 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="view-peer-id">View peer ID<a class="headerlink" href="#view-peer-id" title="Permanent link">&para;</a></h4>
 <p>At some point, you will want to view your IPFS peer ID. This is the same ID shown in your contact and profile info and printed by the daemon on startup:</p>
 <div class="superfences-tabs">
-<input name="__tabs_61" type="radio" id="__tab_61_0" checked="checked" />
-<label for="__tab_61_0">cmd</label>
+<input name="__tabs_60" type="radio" id="__tab_60_0" checked="checked" />
+<label for="__tab_60_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile ipfs id
 </pre></div></div>
 </div>
@@ -4088,8 +4077,8 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="view-the-peer-swarm">View the peer swarm<a class="headerlink" href="#view-the-peer-swarm" title="Permanent link">&para;</a></h4>
 <p>Your peer is always communicating, or "gossiping", with a changing sub-set of other peers on the IPFS network called a "swarm". You can view that swarm at any time. It should be relatively large at this point since your peer has been "online" for awhile.</p>
 <div class="superfences-tabs">
-<input name="__tabs_62" type="radio" id="__tab_62_0" checked="checked" />
-<label for="__tab_62_0">cmd</label>
+<input name="__tabs_61" type="radio" id="__tab_61_0" checked="checked" />
+<label for="__tab_61_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile ipfs swarm peers
 </pre></div></div>
 </div>
@@ -4361,8 +4350,8 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <p>You may also want to check or open a connection to another peer. You can do this by supplying a complete <a href="https://github.com/multiformats/multiaddr">multi-address</a>.</p>
 <p>Try connecting to one of Textile's federated cafe peers:</p>
 <div class="superfences-tabs">
-<input name="__tabs_63" type="radio" id="__tab_63_0" checked="checked" />
-<label for="__tab_63_0">cmd</label>
+<input name="__tabs_62" type="radio" id="__tab_62_0" checked="checked" />
+<label for="__tab_62_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile ipfs swarm connect &quot;/ip4/18.224.173.65/tcp/4001/ipfs/12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d&quot;
 </pre></div></div>
 </div>
@@ -4376,8 +4365,8 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="cat-any-data-on-the-network">Cat any data on the network<a class="headerlink" href="#cat-any-data-on-the-network" title="Permanent link">&para;</a></h4>
 <p>Downloading data behind a path is one of the most useful IPFS APIs. For example, we can "cat" an unencrypted Textile logo into a PNG file:</p>
 <div class="superfences-tabs">
-<input name="__tabs_64" type="radio" id="__tab_64_0" checked="checked" />
-<label for="__tab_64_0">cmd</label>
+<input name="__tabs_63" type="radio" id="__tab_63_0" checked="checked" />
+<label for="__tab_63_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile ipfs cat &quot;QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d&quot; &gt; textile.png
 </pre></div></div>
 </div>

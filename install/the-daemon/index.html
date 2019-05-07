@@ -979,7 +979,7 @@ SYEv4DMBd9RHHKzUZxC5fpieWJAiSCMNnMCKWSYUFaVHKQkt
 <p>See <code>textile wallet accounts --help</code> for more.</p>
 <h3 id="initialize-an-account-peer">Initialize an account peer<a class="headerlink" href="#initialize-an-account-peer" title="Permanent link">&para;</a></h3>
 <p>Next, use an account seed from your wallet to initialize a new account peer. Here, we just grab the account seed from the first account above:</p>
-<div class="codehilite"><pre><span></span>textile init -s SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
+<div class="codehilite"><pre><span></span>textile init --seed SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
 </pre></div>
 
 
@@ -1022,13 +1022,16 @@ Help Options:
 </pre></div>
 
 
-<p>Anyone familiar with IPFS will recognize the similarities with these step. Much like <code>ipfs init</code>, <code>textile init</code> creates an IPFS node repository on disk.</p>
+<p>Anyone familiar with IPFS will recognize the similarities with these steps. Much like <code>ipfs init</code>, <code>textile init</code> creates an IPFS node repository on disk.</p>
 <h3 id="initialize-a-cafe-peer">Initialize a cafe peer<a class="headerlink" href="#initialize-a-cafe-peer" title="Permanent link">&para;</a></h3>
 <p>Anyone can run a cafe peer and offer services to the network. You do not need to rely on Textile's cafe network, or anyone else's network for that matter!</p>
 <p><a href="/concepts/cafes">Cafe peers</a> are initialized by adding some additional flags to <code>textile init</code>:</p>
+<div class="codehilite"><pre><span></span>textile init --seed SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6 --server --cafe-open
+</pre></div>
+
+<p><strong><code>--server</code>:</strong> This flag applies the <a href="https://github.com/ipfs/go-ipfs-config/blob/master/profile.go#L49">IPFS server profile</a> and is highly recommended for cafe peers.</p>
 <p><strong><code>--cafe-open</code>:</strong> This flag "opens" the cafe, meaning that it will expose an additional "service" API over libp2p and HTTP.</p>
-<p><strong><code>--cafe-url</code>:</strong> This is the full public URL of the cafe service HTTP API.</p>
-<p>By default, <code>--cafe-url</code> is <code>http://&lt;SWARM_PUBLIC_IP&gt;:40601</code>. If your peer is behind a DNS-based load balancer and/or requires HTTPS, you may want to override this value. For example, <a href="https://github.com/textileio/textile-opts#network">Textile's federated cafes</a> run behind EC2 load balancers with HTTPS listeners, which route traffic to the cafe API port (<code>--cafe-bind-addr</code>).</p>
+<p><strong><code>--cafe-url</code>:</strong> Optional, <code>http://&lt;SWARM_IP&gt;:40601</code> by default. Set this value if your peer is behind a DNS-based load balancer and/or requires HTTPS. For example, <a href="https://github.com/textileio/textile-opts#network">Textile's federated cafes</a> run behind EC2 load balancers with HTTPS listeners, which route traffic to the cafe API port (<code>--cafe-bind-addr</code>). See <a href="the-config-file/#cafecafehosturl"><code>Cafe.CafeHost.URL</code></a> for details on how the default value of <code>SWARM_IP</code> is determined.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Cafe service clients are issued JWT sessions used for authentication. These sessions contain the public URL of the cafe peer's service API so that it can be leveraged over HTTP.</p>
@@ -1060,20 +1063,20 @@ Help Options:
 <h3 id="run-the-daemon-with-docker">Run the daemon with Docker<a class="headerlink" href="#run-the-daemon-with-docker" title="Permanent link">&para;</a></h3>
 <p>The docker images have internal logic that will fist initialize a peer if needed before starting the daemon, enabling a single run command:</p>
 <h4 id="run-an-account-peer-with-docker">Run an account peer with docker<a class="headerlink" href="#run-an-account-peer-with-docker" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>$ docker run -it --name textile-node \
+<div class="codehilite"><pre><span></span>docker run -it --name textile-peer \
   -p 4001:4001 -p 8081:8081 -p 5050:5050 -p 127.0.0.1:40600:40600 \
-  textile/go-textile:latest
+  -v /tmp/textile:/data/textile textile/go-textile:latest
 </pre></div>
 
 
 <h4 id="run-a-cafe-peer-with-docker">Run a cafe peer with docker<a class="headerlink" href="#run-a-cafe-peer-with-docker" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>$ docker run -it --name textile-cafe-node \
+<div class="codehilite"><pre><span></span>docker run -it --name textile-cafe-peer \
   -p 4001:4001 -p 8081:8081 -p 5050:5050 -p 127.0.0.1:40600:40600 -p 40601:40601 \
-  -e CAFE_HOST_URL=&amp;lt;public_URL&amp;gt; -e CAFE_HOST_PUBLIC_IP=&amp;lt;public_IP&amp;gt; \
-  textile/go-textile:latest-cafe
+  -v /tmp/textile:/data/textile textile/go-textile:latest-cafe
 </pre></div>
 
 
+<p>You may need to include <code>-e CAFE_HOST_URL="https://mycafe.com"</code> or similar if the cafe peer will behind a DNS-based load balancer or required HTTPS. See the <a href="/install/the-daemon/#initialize-a-cafe-peer">init section</a> above for more.</p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>At last, your Textile peer is online. Now you're ready to start the <a href="/a-tour-of-textile">tour</a>!</p>

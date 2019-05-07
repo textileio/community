@@ -785,7 +785,7 @@
 <p class="admonition-title">Hint</p>
 <p>Unlike a blockchain, threads are not based around the idea of consensus. Rather, they follow an agent-centric approach similar to <a href="https://holochain.org/">holochain</a>. Each peer has authority over thread access-control and storage.</p>
 </div>
-<p>Because threads are simply a hash-chain of update messages, or <a href="/concepts/threads/blocks">blocks</a>, they can represent any type of dataset. Some blocks point to off-chain data stored on IPFS. For example, a set of photos, a PDF, or even an entire website. Application developers are able add structure to threads and make them interoperable with other applications with <a href="/concepts/threads/schemas">schemas</a>.</p>
+<p>Because threads are simply a hash-chain of update messages, or <a href="/concepts/threads#blocks">blocks</a>, they can represent any type of dataset. Some blocks point to off-chain data stored on IPFS. For example, a set of photos, a PDF, or even an entire website. Application developers are able add structure to threads and make them interoperable with other applications with <a href="/concepts/threads/files#schemas">schemas</a>.</p>
 <p>Threads are auto-magically synced with other account peers. For example, you may have one peer on your phone, and another on your laptop, both with access to the same account seed (more about accounts <a href="/concepts/the-wallet#accounts">here</a>). Threads can also be shared with other non-account peers (other users). In any case, each peer maintains a copy of its threads. A p2p messaging protocol keeps all the copies in sync.</p>
 <p>The special hash-chain or graph structure of a thread allows them to be easily shared with other peers and backed-up to cafes. Given one message, you can find all the others.</p>
 <p>Let's look a little closer at the different actors on the network.</p>
@@ -805,7 +805,7 @@
 <p>An account peer may be registered with more than one cafe, and account peers do not need to be registered to the same cafe(s). Additionally, peers can easily migrate from one cafe to another, simply be deregistering from one and registering with another.</p>
 </div>
 <h3 id="applications">Applications<a class="headerlink" href="#applications" title="Permanent link">&para;</a></h3>
-<p>Finally, applications run alongside or include an account peer and can create and/or access their data. Textile maintains a few reference apps like <a href="https://www.textile.photos">Textile Photos</a> for desktop and mobile. Check out the <a href="/clients">client SDKs</a> for information on how to leverage an account peer in your application.</p>
+<p>Finally, applications run alongside or include an account peer and can create and/or access their data. Textile maintains a few reference apps like <a href="https://www.textile.photos">Textile Photos</a> for desktop and mobile. Check out the <a href="/#integrate-into-your-apps">client SDKs</a> for information on how to leverage an account peer in your application.</p>
 <h2 id="why-ipfs">Why IPFS?<a class="headerlink" href="#why-ipfs" title="Permanent link">&para;</a></h2>
 <p>IPFS is the perfect file system for Textile for a few reasons:</p>
 <ol>
