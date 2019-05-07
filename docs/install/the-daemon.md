@@ -87,7 +87,7 @@ See `textile wallet accounts --help` for more.
 
 Next, use an account seed from your wallet to initialize a new account peer. Here, we just grab the account seed from the first account above:
 
-    textile init -s SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
+    textile init --seed SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
 
 !!! danger
     Use your own seed. Never share it or your wallet mnemonic phrase with anyone!
@@ -126,7 +126,7 @@ There are a dozen or so additional options that are available when initializing.
           -n, --no-log-files       Write logs to stdout instead of rolling files.
           -d, --debug              Set the logging level to debug.
 
-Anyone familiar with IPFS will recognize the similarities with these step. Much like `ipfs init`, `textile init` creates an IPFS node repository on disk.
+Anyone familiar with IPFS will recognize the similarities with these steps. Much like `ipfs init`, `textile init` creates an IPFS node repository on disk.
 
 ### Initialize a cafe peer
 
@@ -134,11 +134,15 @@ Anyone can run a cafe peer and offer services to the network. You do not need to
 
 [Cafe peers](/concepts/cafes) are initialized by adding some additional flags to `textile init`:
 
+```
+textile init --seed SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6 --server --cafe-open
+```
+
+**`--server`:** This flag applies the [IPFS server profile](https://github.com/ipfs/go-ipfs-config/blob/master/profile.go#L49) and is highly recommended for cafe peers.
+
 **`--cafe-open`:** This flag "opens" the cafe, meaning that it will expose an additional "service" API over libp2p and HTTP.
 
-**`--cafe-url`:** This is the full public URL of the cafe service HTTP API.
-
-By default, `--cafe-url` is `http://<SWARM_PUBLIC_IP>:40601`. If your peer is behind a DNS-based load balancer and/or requires HTTPS, you may want to override this value. For example, [Textile's federated cafes](https://github.com/textileio/textile-opts#network) run behind EC2 load balancers with HTTPS listeners, which route traffic to the cafe API port (`--cafe-bind-addr`).
+**`--cafe-url`:** Optional, `http://<SWARM_IP>:40601` by default. Set this value if your peer is behind a DNS-based load balancer and/or requires HTTPS. For example, [Textile's federated cafes](https://github.com/textileio/textile-opts#network) run behind EC2 load balancers with HTTPS listeners, which route traffic to the cafe API port (`--cafe-bind-addr`). See [`Cafe.CafeHost.URL`](the-config-file/#cafecafehosturl) for details on how the default value of `SWARM_IP` is determined.
 
 !!! info
     Cafe service clients are issued JWT sessions used for authentication. These sessions contain the public URL of the cafe peer's service API so that it can be leveraged over HTTP.
@@ -174,16 +178,17 @@ The docker images have internal logic that will fist initialize a peer if needed
 
 #### Run an account peer with docker
 
-    $ docker run -it --name textile-node \
+    docker run -it --name textile-peer \
       -p 4001:4001 -p 8081:8081 -p 5050:5050 -p 127.0.0.1:40600:40600 \
-      textile/go-textile:latest
+      -v /tmp/textile:/data/textile textile/go-textile:latest
 
 #### Run a cafe peer with docker
 
-    $ docker run -it --name textile-cafe-node \
+    docker run -it --name textile-cafe-peer \
       -p 4001:4001 -p 8081:8081 -p 5050:5050 -p 127.0.0.1:40600:40600 -p 40601:40601 \
-      -e CAFE_HOST_URL=<public_URL> -e CAFE_HOST_PUBLIC_IP=<public_IP> \
-      textile/go-textile:latest-cafe
+      -v /tmp/textile:/data/textile textile/go-textile:latest-cafe
+
+You may need to include `-e CAFE_HOST_URL="https://mycafe.com"` or similar if the cafe peer will behind a DNS-based load balancer or required HTTPS. See the [init section](/install/the-daemon/#initialize-a-cafe-peer) above for more.
 
 !!! success
     At last, your Textile peer is online. Now you're ready to start the [tour](/a-tour-of-textile)!
