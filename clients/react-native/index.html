@@ -1027,9 +1027,10 @@
 </pre></div>
 
 <h4 id="add-react-native-sdk-to-settingsgradle">Add React Native SDK to settings.gradle<a class="headerlink" href="#add-react-native-sdk-to-settingsgradle" title="Permanent link">&para;</a></h4>
-<p>Inside of <code>android/settings.gradle</code> include the SDK moule,</p>
+<p>Inside of <code>android/settings.gradle</code> include the SDK module,</p>
 <div class="codehilite"><pre><span></span><span class="o">...</span>
 <span class="n">include</span> <span class="err">&#39;</span><span class="o">:</span><span class="nd">@textile_react</span><span class="o">-</span><span class="kd">native</span><span class="o">-</span><span class="n">sdk</span><span class="err">&#39;</span>
+<span class="n">project</span><span class="o">(</span><span class="err">&#39;</span><span class="o">:</span><span class="nd">@textile_react</span><span class="o">-</span><span class="kd">native</span><span class="o">-</span><span class="n">sdk</span><span class="err">&#39;</span><span class="o">).</span><span class="na">projectDir</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">rootProject</span><span class="o">.</span><span class="na">projectDir</span><span class="o">,</span> <span class="err">&#39;</span><span class="o">../</span><span class="n">node_modules</span><span class="o">/</span><span class="nd">@textile</span><span class="o">/</span><span class="n">react</span><span class="o">-</span><span class="kd">native</span><span class="o">-</span><span class="n">sdk</span><span class="o">/</span><span class="n">android</span><span class="err">&#39;</span><span class="o">)</span>
 <span class="o">...</span>
 <span class="o">}</span>
 </pre></div>
