@@ -5,7 +5,7 @@ To use the JS HTTP Client, you'll need either a locally running [Daemon](/instal
 
 ## Installation
 
-The JS HTTP Client is published as an [NPM Package](https://www.npmjs.com/package/@textile/js-http-client)
+The JS HTTP Client is published as an [NPM Package](https://www.npmjs.com/package/@textile/js-http-client). You are free to use the [source code](https://github.com/textileio/js-http-client) directly or use a package manager to install the official release.
 
 #### NPM
 
