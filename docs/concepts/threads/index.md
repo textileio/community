@@ -1,18 +1,5 @@
 _Threads_ are distributed datasets of encrypted messages and files, often shared between peers, and governed by [schemas](/concepts/threads/files#schemas). Threads allow group members to keep a record of who shared what data, and when. This simple concept is quite powerful — and on the surface, you can think of a thread like a decentralized database, shared between specific participants. The structure of a thread's [files](/concepts/threads/files) (content) are defined by [schemas](/concepts/threads/files#schemas) and contain [blocks](#blocks) of information (or updates). They are specifically designed to work well in mobile, offline-first scenarios, where peers are constantly making updates, coming online, and going offline. Avoiding state conflicts is a central focus of their operation. This issue comes up frequently when working collaboratively on documents, updating shared databases, etc.
 
-Combination of libp2p and pubsub.
-
-## Requirements
-
-- 
-
-## Security
-
-
-Agent based...
-
-dots files
-
 
 ## Conflict Avoidance/Resolution
 
