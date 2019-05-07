@@ -8,13 +8,13 @@ The JS HTTP Client is published as an [NPM Package](https://www.npmjs.com/packag
 
 #### NPM
 
-```JavaScript tab="JS HTTP"
+```JavaScript
 npm install @textile/js-http-client
 ```
 
 #### Yarn
 
-```JavaScript tab="JS HTTP"
+```JavaScript
 yarn add @textile/js-http-client
 ```
 
@@ -37,7 +37,7 @@ If you don't normally use TypeScript in your projects, never fear, it will be ve
 
 The JS HTTP Client does not maintain any state for your app, it simply provides easy to use APIs so your app can interact with your user's Textile account. You import the library in any library simply.
 
-```JavaScript tab="JS HTTP"
+```JavaScript
 {{core.setup.js_http_client.code}}
 ```
 
@@ -45,26 +45,26 @@ Below are some basic examples to get you started. If you are interested in a mor
 
 ### Get the account display name
 
-```JavaScript tab="JS HTTP"
+```JavaScript
 {{profile.name.js_http_client.code}}
 ```
 
 ### Subscribe to file updates
 
 
-```JavaScript tab="JS HTTP"
+```JavaScript
 {{subscribe.files.js_http_client.code}}
 ```
 
 ### Create a thread
 
-```JavaScript tab="JS HTTP"
+```JavaScript
 {{threads.add.js_http_client.code}}
 ```
 
 ### Add a file
 
-```JavaScript tab="JS HTTP"
+```JavaScript
 {{files.add.js_http_client.code}}
 ```
 
