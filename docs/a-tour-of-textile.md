@@ -1,6 +1,6 @@
 ![Photo by Andrew Neel on Unsplash](/images/andrew-neel-133200-unsplash.jpg)
 
-Welcome to Textile! This is a great place to start if you're a developer interested in using Textile's decentralized tooling in your mobile, desktop, or web applications. However, anyone interested in learning how to run and interact with a Textile peer will find this tour very useful.
+Welcome to Textile! This tour is a great place to start if you're a developer interested in using Textile's decentralized tooling in your mobile, desktop, or web applications. However, anyone interested in learning how to run and interact with a Textile peer will find this tour very useful.
 
 ## Concepts
 
@@ -22,7 +22,7 @@ If you're using the command-line or JavaScript HTTP client, make sure your local
 
 #### Connecting your client
 
-If you are running any of the client libraries (JavaScript, React Native, iOS, or Android) you will need to import and sometimes initialize your Textile session. Initialization is slightly different in each client so be sure to read specific setup and getting start steps for the client library you use. 
+If you are running any of the client libraries (JavaScript, React Native, iOS, or Android), you will need to import and sometimes initialize your Textile session. Initialization is slightly different in each client so be sure to read specific client setup steps for the library you use.
 
 ```JavaScript tab="JS HTTP"
 {{core.setup.js_http_client.code}}
@@ -181,7 +181,7 @@ Huzzah! If we had any threads, these updates would have been announced to them s
 
 ### Account
 
-Generally speaking, peers can be thought of as ephemeral. You may lose your device and/or need to access your account on a new one.
+Generally speaking, you can think of peers as ephemeral agents owned by your account. You may lose your device and/or need to access your account on a new one.
 
 As mentioned above, all peers have a special private _account_ thread. In addition to avatars, this thread keeps track of your account peers.
 
@@ -261,7 +261,7 @@ Of course, your account seed (private key) is not included in the public-facing 
 
 #### Account sync
 
-Periodically, your peer will search the network for other peers backed by the same account (account peers). Technically, it will search for thread _snapshots_ created with your account address. If it finds any, they are decrypted and traversed like normal thread updates, keeping your peers in sync.
+Periodically, your local peer will search the network for other peers that are part of the same account (account peers). Technically, your local peer will search for thread _snapshots_ created by any peer with your account address. If it finds any, the snapshots are decrypted and traversed like normal thread updates, keeping all your peers in sync.
 
 !!! hint
     A thread _snapshot_ is an encrypted object containing metadata and a reference to the latest update block, from which all others can be found. A snapshot may be stored at rest on a cafe peer or constructed dynamically for an account peer.
@@ -539,7 +539,7 @@ Looking good.
 
 [Threads](/concepts/threads) are distributed datasets of encrypted messages and files, often shared between peers, and governed by schemas.
 
-Control over thread access and sharing is handled by a combination of the _type_ and _sharing_ settings. An immutable member address "whitelist" gives the initiator fine-grained control. The table below outlines access patterns for the thread initiator and the whitelist members. An empty whitelist is taken to be "everyone", which is the default.
+The rules for thread access and sharing are controlled by a combination of the _type_ and _sharing_ settings. An immutable member address "whitelist" gives the initiator fine-grained control. The table below outlines access patterns for the thread initiator and the whitelist members. An empty whitelist is taken to be "everyone", which is the default.
 
 Thread _type_ controls read (R), annotate (A), and write (W) access:
 
@@ -670,7 +670,7 @@ A thread can track data if it was created with a schema. The most basic schema i
 }
 ```
 
-If you read the [overview doc](/concepts/threads), you'll remember that thread schemas are _DAG_ schemas that contain steps to create each node. "blob" defines a single top-level DAG node without any links. We'll get to more complex schemas later. `pin` instructs the peer to locally pin the entire DAG node when it's created from the input. `mill` defines the function used to process (or "mill") the data on arrival. `/blob` is literally a passthrough, meaning that the data comes out untouched.
+If you read the [overview doc](/concepts/threads), you'll remember that thread schemas are _DAG_ schemas that contain steps to create each node. "blob" defines a single top-level DAG node without any links. We'll get to more complex schemas later. `pin` instructs the peer to locally pin the entire DAG node when it's created from the input. `mill` defines the function used to process (or "mill") the data on arrival. `/blob` is a passthrough, meaning that the data comes out untouched.
 
 We can create a thread with this schema using the `--blob` flag:
 
@@ -852,14 +852,14 @@ Let's try adding the _same_ data again:
     Added 1 file in 138.218899ms
     ```
 
-Notice that the file target **did not change**. The peer was able to reuse the node from the prior add because it detected the same data being added via the same schema. This means that the input was _not_ duplicated on the peer, even though it was encrypted non-deterministically.
+Notice that the file target **did not change**. The peer was able to reuse the node from the prior add because it detected the same data added multiple times via the same schema. This means that the input was _not_ duplicated on the peer, even though it was encrypted non-deterministically.
 
 !!! info
     Good encryption is always non-deterministic, which means that re-encrypting the same input will always result in a _different_ output.
 
 #### Make a photo album
 
-Now that you've got the hang of threads, let's make something a little more interesting. [Textile Photos](https://textile.photos) uses threads to track your camera roll and shared photo albums using the built-in _camera roll_ and _media_ schemas.
+Now that you've got the hang of threads let's make something a little more interesting. [Textile Photos](https://textile.photos) uses threads to track your camera roll and shared photo albums using the built-in _camera roll_ and _media_ schemas.
 
 Let's create an _open_ and _shared_ thread for dog photos with the _media_ schema:
 
@@ -946,7 +946,7 @@ Let's create an _open_ and _shared_ thread for dog photos with the _media_ schem
     }
     ```
 
-Notice that the media schema has links for a _large_, _small_, and _thumb_ sized image. This schema does not actually store the raw input data. Take a look at the built-in [camera roll](/threads/files#schemas) schema for an example of how you might do that, as well as extract exif data from an image.
+Notice that the media schema has links for a _large_, _small_, and _thumb_ sized image. This schema does not store the raw input data. Take a look at the built-in [camera roll](/threads/files#schemas) schema for an example of how you might do that, as well as extract exif data from an image.
 
 ![Photo by William Milliot on Unsplash.](/images/william-milliot-510766-unsplash.jpg){: .center}
 
@@ -978,7 +978,7 @@ Try adding the image above to your dogs thread:
     Added 1 file in 5.978401883s
     ```
 
-This is a fairly large (~3.5 MB) image. So, your peer took some time to encode all of the requested sizes.
+The above image is fairly large (~3.5 MB). So, your peer took some time to encode all of the requested sizes.
 
 !!! tip
     The `/image/resize` mill can take JPEG, PNG, and GIF images.
@@ -988,7 +988,7 @@ Let's a look at the DAG node you just created. There will be three links, as def
 ![A DAG node created by the media schema.](/images/media.png){: .center}
 
 !!! info
-    Notice that the media schema shown above only has `"pin": true` for the thumb node. In practice, this actually means that _if_ you were registered with a cafe peer and were auto-syncing your threads, the other nodes (small and large) would be "released" and only the thumb node would remain stored locally. This functionality is similar to other cloud providers that only store low-res versions of your photos on device, but here you can define the behavior with a schema!
+    Notice that the media schema shown above only has `"pin": true` for the thumb node. In practice, this  means that _if_ you were registered with a cafe peer and were auto-syncing your threads, the other nodes (small and large) would be "released" and only the thumb node would remain stored locally. This functionality is similar to other cloud providers that only store low-res versions of your photos on device, but here you can define the behavior with a schema!
 
 By default, when you specify a directory path with the `files add` command, an update block will be added for each file. However, using the `--group` flag, we can create a single DAG "folder" and add it to the thread with a single update block.
 
@@ -996,7 +996,7 @@ By default, when you specify a directory path with the `files add` command, an u
 
 #### Track some GeoJSON coordinates
 
-Let's go through one more threads use case that demonstrates how to create a custom DAG schema. Additionally, we'll make use of a [JSON schema](https://json-schema.org) for tracking JSON documents.
+Let's go through one more thread use case that demonstrates how to create a custom DAG schema. Additionally, we'll make use of a [JSON schema](https://json-schema.org) for tracking JSON documents.
 
 Make a file named `location.json` with the following JSON document:
 
