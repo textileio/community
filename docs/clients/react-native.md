@@ -50,11 +50,12 @@ dependencies {
 
 #### Add React Native SDK to settings.gradle
 
-Inside of `android/settings.gradle` include the SDK moule,
+Inside of `android/settings.gradle` include the SDK module,
 
 ```Java
 ...
 include ':@textile_react-native-sdk'
+project(':@textile_react-native-sdk').projectDir = new File(rootProject.projectDir, '../node_modules/@textile/react-native-sdk/android')
 ...
 }
 ```
