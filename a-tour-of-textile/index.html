@@ -2138,7 +2138,23 @@ shared      --&gt; initiator: Y, whitelist: Y`
 </pre></div></div>
 <input name="__tabs_15" type="radio" id="__tab_15_2" />
 <label for="__tab_15_2">React Native</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">todo</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">threadKey</span> <span class="o">=</span> <span class="s1">&#39;your.bundle.id.version.Basic&#39;</span>
+<span class="kr">const</span> <span class="nx">threadName</span> <span class="o">=</span> <span class="s1">&#39;Basic&#39;</span>
+<span class="kr">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="nx">json</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="nx">preset</span><span class="o">:</span> <span class="nx">AddThreadConfig</span><span class="p">.</span><span class="nx">Schema</span><span class="p">.</span><span class="nx">Preset</span><span class="p">.</span><span class="nx">BLOB</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="nx">threadKey</span><span class="p">,</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="nx">threadName</span><span class="p">,</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="nx">Thread</span><span class="p">.</span><span class="nx">Type</span><span class="p">.</span><span class="nx">PRIVATE</span><span class="p">,</span>
+  <span class="nx">sharing</span><span class="o">:</span> <span class="nx">Thread</span><span class="p">.</span><span class="nx">Sharing</span><span class="p">.</span><span class="nx">NOT_SHARED</span><span class="p">,</span>
+  <span class="nx">schema</span><span class="o">:</span> <span class="nx">schema</span><span class="p">,</span>
+  <span class="nx">force</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nx">members</span><span class="o">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">newTarget</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_15" type="radio" id="__tab_15_3" />
 <label for="__tab_15_3">iOS</label>
