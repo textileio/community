@@ -1,0 +1,329 @@
+core:
+  setup:
+    js_http_client:
+      code: |
+            // no initialization needed, only import
+            import textile from "@textile/js-http-client"
+    react_native:
+      code: |
+            import textile from "@textile/react-native-sdk"
+            // Make the sensitive below phrase available to your user for secure storage
+            const phrase: string | undefined = await textile.initialize(false, false)
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  daemon:
+    cmd:
+      code: 'textile daemon --repo-dir="/tmp/buddy"'
+  logs:
+    cmd:
+      code: 'textile logs'
+  logs_text_only:
+    cmd:
+      code: 'textile logs --tex-only --level="info"'
+  init:
+    cmd:
+      code: 'textile init --seed="$(textile wallet init | tail -n1)" --repo-dir="/tmp/buddy" --swarm-ports="4101" --api-bind-addr="127.0.0.1:41600" --gateway-bind-addr="127.0.0.1:5150"'
+  summary:
+    cmd:
+      code: 'textile summary'
+    js_http_client:
+      code: '@todo'
+    react_native:
+      code: 'const summary = await textile.summary()'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  ping:
+    cmd:
+      code: 'textile ping 12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d'
+    js_http_client:
+      code: '@todo'
+    react_native:
+      code: '@todo'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+subscribe:
+  files:
+    cmd:
+      code: 'textile subscribe --type="files"'
+    js_http_client:
+      code: |
+            textile.subscribe.stream("files")
+              .then((file) => {
+                // new file!
+              })
+    react_native:
+      code: |
+            textile.events.addThreadUpdateReceivedListener((update) => {
+              const { type_url } = update.payload
+              if (type_url === '/Files') {
+                // new file!
+              }
+            })
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+notifications:
+  ls:
+    cmd:
+      code: 'textile notifications ls'
+    js_http_client:
+      code: 'await textile.notifications.list()'
+    react_native:
+      code: 'const notifications = await textile.notifications.list()'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  read:
+    cmd:
+      code: 'textile notifications read "1KKP01K9SpRASYKkyxSK4EiSYEz"'
+    js_http_client:
+        code: 'await textile.notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz")'
+    react_native:
+      code: 'await textile.notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz")'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+profile:
+  get_:
+    cmd:
+      code: 'textile profile get'
+    js_http_client:
+      code: await textile.profile.get()
+    react_native:
+      code: 'const profile = await textile.profile.get()'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  name:
+    cmd:
+      code: 'textile profile get name '
+    js_http_client:
+      code: 'const name = await textile.profile.name()'
+    react_native:
+      code: |
+            const profile = await textile.profile.get()
+            const name = profile.name
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  set_name:
+    notes: Name should equal 'Clyde' as it is used in Tour
+    cmd:
+      code: 'textile profile set name "Clyde"'
+    js_http_client:
+      code: 'await textile.profile.setName("Clyde")'
+    react_native:
+      code: 'await textile.profile.setName("Clyde")'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  set_avatar:
+    cmd:
+      code: 'textile profile set avatar "path/to/an/image"'
+    js_http_client:
+      code: 'await textile.profile.setAvatar("<image-hash>")'
+    react_native:
+      code: 'await textile.profile.setAvatar("<image-hash>")'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+account:
+  get_:
+    cmd:
+      code: 'textile account get'
+    js_http_client:
+      code: 'await textile.account.get()'
+    react_native:
+      code: |
+            // React native has endpoints for each component of the account
+            const address = await textile.account.address()
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  seed:
+    cmd:
+      code: 'textile account seed'
+    js_http_client:
+      code: 'await textile.account.seed()'
+    react_native:
+      code: 'const seed = await textile.account.seed()'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  sync:
+    cmd:
+      code: 'textile account sync'
+    js_http_client:
+      code: 'await textile.account.sync()'
+    react_native:
+      code: 'await textile.account.sync()'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+contacts:
+  search:
+    notes: Name should equal 'Andrew' as it is used in Tour
+    cmd:
+      code: 'textile contacts search --name="Andrew"'
+    js_http_client:
+      code: 'await textile.contacts.search("Andrew")'
+    react_native:
+      code: '@todo'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  search_address:
+    notes: Address is set to match that of the Tour
+    cmd:
+      code: 'textile contacts search --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"'
+    js_http_client:
+      code: 'await textile.contacts.search(undefined, "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
+    react_native:
+      code: '@todo'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  add:
+    notes: Address is set to match that of the Tour
+    cmd:
+      code: 'textile contacts add --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"'
+    js_http_client:
+      code: 'await textile.contacts.add("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
+    react_native:
+      code: '@todo'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  ls:
+    cmd:
+      code: 'textile contacts ls'
+    js_http_client:
+      code: 'const contacts = await textile.contacts.list()'
+    react_native:
+      code: 'const contacts = await textile.contacts.list()'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  rm:
+    notes: Address is set to match that of the Tour
+    cmd:
+      code: 'textile contacts rm "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"'
+    js_http_client:
+      code: 'await textile.contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
+    react_native:
+      code: 'await textile.contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+threads:
+  add:
+    notes: Use of 'Basic' set to match that of the Tour
+    cmd:
+      code: 'textile threads add "Basic"'
+    js_http_client:
+      code: 'const thread = await textile.threads.add("Basic")'
+    react_native:
+      code: '@todo'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  add_open_shared:
+    notes: Dogs and params are set to match that of the Tour
+    cmd:
+      code: 'textile threads add "Dogs" --type="open" --sharing="shared" --media'
+    js_http_client:
+      code: 'await textile.threads.add("Dogs", "media", undefined, "open", "shared")'
+    react_native:
+      code: '@todo'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  blob_add:
+    cmd:
+      code: 'textile threads add "Any old data" --blob'
+    js_http_client:
+      code: 'await textile.threads.add("Any old data", "blob")'
+    react_native:
+      code: '@todo'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+messages:
+  notes: Use of threadId set to match that of the Tour
+  add:
+    cmd:
+      code: 'textile messages add "hello?" --thread="12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk"'
+    js_http_client:
+      code: 'await textile.messages.add("12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk", "hello?")'
+    react_native:
+      code: 'await textile.messages.add("12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk", "hello?")'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+files:
+  add:
+    cmd:
+      code: 'echo "mmm, bytes..." | textile files add --thread="12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"'
+    js_http_client:
+      code: 'await textile.files.add("mmm, bytes...", "", "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")'
+    react_native:
+      code: |
+            const input = Buffer.from("mmm, bytes...").toString('base64')
+            const result = await textile.files.prepare(input, "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")
+            const block = await textile.files.add(result.dir, "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  add_media:
+    cmd:
+      code: 'textile files add "~/Downloads/william-milliot-510766-unsplash.jpg" --caption="Dog at work." --thread="12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq"'
+    js_http_client:
+      code: |
+            const base64ImageString = "R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABA...."
+            await textile.files.add(base64ImageString, "Dog at work", "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq")'
+    react_native:
+      code: |
+            const base64ImageString = "R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABA...."
+            const result = await textile.files.prepare(base64ImageString, "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq")
+            const block = await textile.files.add(result.dir, "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq")
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  keys_:
+    cmd:
+      code: 'textile files keys "QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5"'
+    js_http_client:
+      code: 'const keys = await textile.files.keys("QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5")'
+    react_native:
+      code: '@todo'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'

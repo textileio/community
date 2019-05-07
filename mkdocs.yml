@@ -117,5 +117,7 @@ extra:
   go_textile:
     - version: v0.1.11
   yamls:
+    - name: common
+      yaml: snippets/common
     - name: a_tour_of_textile
-      yaml: a_tour_of_textile
+      yaml: snippets/a_tour_of_textile
