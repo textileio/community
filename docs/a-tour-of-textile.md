@@ -22,7 +22,7 @@ If you're using the command-line or JavaScript HTTP client, make sure your local
 
 #### Connecting your client
 
-If you are running any of the client libraries (JavaScript, React Native, iOS, or Android) you will need to import and sometimes initialize your Textile session. Initialization is slightly different in each client so be sure to read specific setup and getting start steps for the client library you use. 
+If you are running any of the client libraries (JavaScript, React Native, iOS, or Android) you will need to import and sometimes initialize your Textile session. Initialization is slightly different in each client so be sure to read specific setup and getting start steps for the client library you use.
 
 ```JavaScript tab="JS HTTP"
 {{core.setup.js_http_client.code}}
@@ -105,7 +105,6 @@ You can set a display name for your peer. Interacting with other users is a lot 
 ```Java tab="Android"
 {{profile.set_name.android.code}}
 ```
-
 
 ??? success
     ```
@@ -327,7 +326,6 @@ Try searching for "Andrew":
 ```Java tab="Android"
 {{contacts.search.android.code}}
 ```
-
 
 ??? success
     ```JSON
@@ -764,6 +762,8 @@ Let's add some data. Be sure to use your own thread ID.
 
 What just happened? The peer created a new DAG node for the input as defined by the schema. Every schema step adds a child node with two links:
 
+![The `target` shown in the output is the root hash of the DAG.](/images/blob.png){: .center}
+
 - `meta`: A JSON object containing metadata about the input and how it was processed. Some of the values are used for de-duplicating encrypted data. Here's the value of `meta` in the node we just created:
 
 ```JSON
@@ -782,13 +782,11 @@ What just happened? The peer created a new DAG node for the input as defined by 
 }
 ```
 
-- `data`: The output data of the schema step. Again, for our current example, this is just a passthrough (output is input).
-
-![The `target` shown in the output is the root hash of the DAG.](/images/blob.png){: .center}
+- `content`: The output data of the schema step. Again, for our current example, this is just a passthrough (output is input).
 
 The [_files_](/concepts/threads/files) guide covers these concepts in more detail.
 
-Unless a schema step specifies `"plaintext": true`, the value of `meta` and `data` are both encrypted with the [Advanced Encryption Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) (AES) using their very own symmetric key. We can view the keys for each node in the DAG using the `keys` command:
+Unless a schema step specifies `"plaintext": true`, the value of `meta` and `content` are both encrypted with the [Advanced Encryption Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) (AES) using their very own symmetric key. We can view the keys for each node in the DAG using the `keys` command:
 
 ```tab="cmd"
 {{files.keys_.cmd.code}}
@@ -809,7 +807,6 @@ Unless a schema step specifies `"plaintext": true`, the value of `meta` and `dat
 ```Java tab="Android"
 {{files.keys_.android.code}}
 ```
-
 
 ???+ success
     ```JSON
@@ -1475,7 +1472,6 @@ Using the output from `blocks ls`, add a comment to the one and only `FILES` upd
 {{examples.my_runs.comment_add.android.code}}
 ```
 
-
 ??? success
     ```JSON
     {
@@ -1517,7 +1513,6 @@ Likes are added in a similar fashion:
 ```Java tab="Android"
 {{examples.my_runs.like_add.android.code}}
 ```
-
 
 ??? success
     ```JSON
