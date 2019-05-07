@@ -25,6 +25,17 @@ core:
   init:
     cmd:
       code: 'textile init --seed="$(textile wallet init | tail -n1)" --repo-dir="/tmp/buddy" --swarm-ports="4101" --api-bind-addr="127.0.0.1:41600" --gateway-bind-addr="127.0.0.1:5150"'
+    react_native:
+      code: |
+            // This is the user's new Textile wallet seed. They must keep it secure and never share it. Your production app should not keep a copy long term and should never share it with any API.
+            const seed = await textile.initialize(false, false)
+            alert(`WARNING - Never lose or share your seed: ${seed}`)
+  reinit:
+    react_native:
+      code: '@todo'
+  pair:
+    react_native:
+      code: '@todo'
   summary:
     cmd:
       code: 'textile summary'
@@ -244,7 +255,24 @@ threads:
     js_http_client:
       code: 'const thread = await textile.threads.add("Basic")'
     react_native:
-      code: '@todo'
+      code: |
+            const threadKey = 'your.bundle.id.version.Basic'
+            const threadName = 'Basic'
+            const schema = {
+              id: '',
+              json: '',
+              preset: AddThreadConfig.Schema.Preset.BLOB
+            }
+            const config = {
+              key: threadKey,
+              name: threadName,
+              type: Thread.Type.PRIVATE,
+              sharing: Thread.Sharing.NOT_SHARED,
+              schema: schema,
+              force: false,
+              members: []
+            }
+            const newTarget = yield call(Textile.threads.add, config)
     ios:
       code: '@todo'
     android:
