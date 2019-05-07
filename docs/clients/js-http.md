@@ -1,5 +1,4 @@
-
-The JS HTTP Client was designed to work in the browserm in Node.js, or in Electron. 
+The JS HTTP Client was designed to work in the browser, using Node.js, or in Electron. 
 
 To use the JS HTTP Client, you'll need either a locally running [Daemon](/install/the-daemon) or a locally running [Desktop Tray](/install/desktop) instance containing a Textile account and available on `localhost` with default ports for both the `API` and `Gateway`.
 
