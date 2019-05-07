@@ -7,6 +7,16 @@ Below is the swagger-based documentation for the API. Note that endpoints must b
 
 ## Version: 0
 
+### Terms of service
+https://github.com/textileio/go-textile/blob/master/TERMS
+
+**Contact information:**  
+Textile  
+https://textile.io/  
+contact@textile.io  
+
+**License:** [MIT License](https://github.com/textileio/go-textile/blob/master/LICENSE)
+
 ### /account
 
 #### GET
@@ -623,6 +633,30 @@ Newer annotations may have already been listed in the case as well.
 | 404 | Not Found | string |
 | 500 | Internal Server Error | string |
 
+### /file/{hash}/data
+
+#### GET
+##### Summary:
+
+File data at hash
+
+##### Description:
+
+Returns raw data for file
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| hash | path | file hash | Yes | string |
+
+##### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | OK | string |
+| 404 | Not Found | string |
+
 ### /files
 
 #### GET
@@ -1054,7 +1088,7 @@ Process input JSON data
 
 ##### Description:
 
-Takes an input JSON document, validates it according to its schema.org definition,
+Takes an input JSON document, validates it according to its json-schema.org definition,
 optionally encrypts the output before adding to IPFS, and returns a file object
 
 ##### Parameters
@@ -1189,13 +1223,7 @@ Set avatar
 
 ##### Description:
 
-Sets public profile avatar by specifying an existing image file hash
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| X-Textile-Args | header | hash | Yes | string |
+Forces local node to update avatar image to latest image added to 'account' thread
 
 ##### Responses
 
@@ -1692,7 +1720,6 @@ Check validity of existing cafe access token
 | node | string |  | No |
 | peer | string |  | No |
 | protocol | string |  | No |
-| swarm | [ string ] |  | No |
 | url | string |  | No |
 
 #### pb.CafeSession
