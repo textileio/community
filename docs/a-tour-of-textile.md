@@ -1170,7 +1170,7 @@ Let's share this thread with another user. It was created with type, "public", m
 !!! info
     "Writes" refer to messages and files, whereas "annotations" refer to comments and likes.
 
-For the purposes of this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer. 
+For this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer. 
 
 ```tab="cmd"
 {{core.init.cmd.code}}
@@ -1250,7 +1250,7 @@ Now that you have two peers running, invite the new account to your "My runs" th
     ok
     ```
 
-This new account is not an existing contact. So, your peer will ask the network for its contact info. You can confirm that, yes, you'd like to add this account to your local contacts, and send it an invite to your thread.
+This new account is not an existing contact. So, your peer will ask the network for its contact info. You can confirm that, yes, you'd like to add this account to your local contacts and send it an invite to your thread.
 
 !!! hint
     You just created an "account-to-account" invite, which is useful between existing account. "External" invites are useful when you want to invite a friend over another channel like SMS. See `textile invites create --help` for more.
@@ -1261,7 +1261,7 @@ Next, we'll pretend that we are the second account and accept the invite. You sh
 23 Apr 19 14:08 PDT  Clyde invited you to join QE5m1qw
 ```
 
-In order to accept, you'll have to list your pending invites and grab the ID:
+To accept, you'll have to list your pending invites and grab the ID:
 
 ```tab="cmd"
 {{examples.my_runs.ls_invites.cmd.code}}
