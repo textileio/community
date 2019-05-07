@@ -1,165 +1,261 @@
-The Textile config file is similar in structure and usage to the [IPFS config](https://github.com/ipfs/go-ipfs/blob/master/docs/config.md) file. It is a JSON document located at `<repo-dir>/textile`. It is read once at node instantiation, either for an offline command, or when starting the daemon. Commands that execute on a running daemon _do not_ read the config file at runtime. The various settings control different aspects of a Textile node, from public account information, to API access and functionality, to activity logging and everything in between. Here, we cover each config section in detail, though users are encouraged to explore the Textile command-line tools for further details and information (try `textile config --help` to get started).
+A JSON config file (`<repo-dir>/textile`) is used to control various peer settings. This file lives alongside the [IPFS config](https://github.com/ipfs/go-ipfs/blob/master/docs/config.md) file (named `config`) and has a similar structure and functionality. Both of these files are read once at node instantiation, either for an offline command, or when starting the daemon. Commands that execute on a running daemon _do not_ read the config file at runtime.
 
-## Account
-
-Stores public account information. These values are populated upon repository initialization, and are not currently configurable. <Further explanation needed here.>
-
-* `Address` is the public key, whose seed is stored in the _possibly_ encrypted datastore.
-* `Thread` is the thread id of the default account thread used for syncing information between account peers.
-
-**Default**:
+The JSON config is marshaled from the Go [type definition](https://github.com/textileio/go-textile/blob/master/repo/config/init.go):
 
 ```
-"Account": {
-    "Address": "",
-    "Thread": ""
+type Config struct {
+	Account   Account   // local node's account (public info only)
+	Addresses Addresses // local node's addresses
+	API       API       // local node's API settings
+	Logs      Logs      // local node's log settings
+	Threads   Threads   // local node's thread settings
+	IsMobile  bool      // local node is setup for mobile
+	IsServer  bool      // local node is setup for a server w/ a public IP
+	Cafe      Cafe      // local node cafe settings
 }
 ```
+
+These settings can be modified via the [command-line](/clients/command-line) `config` command. For example, to allow CORS from all origins:
+
+???+ example
+    ```
+    textile config API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
+    ```
+
+## `Account`
+
+```
+// Account store public account info
+type Account struct {
+	Address string // public key (seed is stored in the _possibly_ encrypted datastore)
+	Thread  string // thread id of the default account thread used for sync between account peers
+}
+```
+
+### `Account.Address`
+
+Address is the account-wide public key derived from a [wallet](/concepts/the-wallet) account seed.
+
+**Default**: _Populated upon repository initialization_
+
+### `Account.Thread`
+
+`Thread` is currently a [libp2p peer](https://github.com/libp2p/go-libp2p-peer) ID derived from the account seed. **This will be changed to the hash of a symmetric key in the next version of threads.**
+
+**Default**: _Populated upon repository initialization_
 
 ## `Addresses`
 
-Stores the bind addresses for the various node HTTP APIs.
-
-* `API` is the address of the local node REST API (RPC).
-* `CafeAPI` is the address of the cafe REST API.
-* `Gateway` is the address to listen on for the IPFS HTTP gateway.
-
-The `API` address is the address that the daemon will serve the HTTP API from. This API is used to control the daemon through the command line (or via curl or some other client). Unlike the Gateway address, you should ensure that the `API` address is _not_ dial-able from outside of your machine, or potentially malicious parties may be able to send commands to your Textile daemon. Having said that, see the [`API`] config entry for details on further controlling the API HTTP server.
-
-The `CafeAPI` address is the address that the Textile peer will serve the cafe REST API. This API is used to enable other peers on the network to request pinning, backup, and inbox services. Normally, a only a designated *cafe* peer would enable this API, though any peer may operate as a cafe if they want. See [[Cafes|Cafes]] wiki page for details.
-
-The `Gateway` address is the address that the daemon will serve the gateway interface from. The gateway may be used to view files through Textile, and serve static content. This port may or may not be dial-able from outside you machine, that's entirely up to you. The `Gateway` address is on by default, but if you leave it blank, the gateway server will not start.
-
-The `Addresses` config settings can be specified at node initialization via the Textile `init` subcommand's address options (see `textile init --help` for details). Alternatively, they can be modified individually via the `config` subcommand (e.g., `textile config Addresses.API '"127.0.0.1:40600"'`).
-
-**Default**:
-
 ```
-"Addresses": {
-    "API": "127.0.0.1:40600",
-    "CafeAPI": "127.0.0.1:40601",
-    "Gateway": "127.0.0.1:5050"
+// Addresses stores the (string) bind addresses for the node.
+type Addresses struct {
+	API       string // bind address of the local REST API
+	CafeAPI   string // bind address of the cafe REST API
+	Gateway   string // bind address of the IPFS object gateway
+	Profiling string // bind address of the profiling API
 }
 ```
+
+### `Addresses.API`
+
+This API is used to control the daemon through the command line (or via curl or some other client). Unlike the Gateway address, you should ensure that the `API` address is _not_ dial-able from outside of your machine, or potentially malicious parties may be able to send commands to your daemon. Having said that, see the [`API`](#API) config entry for details on further controlling the API HTTP server.
+
+**Default**: `"127.0.0.1:40600"`
+
+### `Addresses.CafeAPI`
+
+Normally, only a designated *cafe* peer would enable this API, though any peer may operate as a cafe if desired. See the [cafes](/concepts/cafes) overview for more.
+
+**Default**: `"127.0.0.1:40601"`
+
+### `Addresses.Gateway`
+
+The [gateway](/ipfs-gateway) may be used to view and decrypt files. This port may or may not be dial-able from outside you machine, that's entirely up to you. The `Gateway` address is on by default, but if you leave it blank, the gateway server will not start.
+
+**Default**: `"127.0.0.1:5050"`
+
+### `Addresses.Profiling`
+
+This API is used internally for obtaining memory and CPU profiles from a running peer.
+
+**Default**: `"127.0.0.1:6060"`
 
 ## `API`
 
-Stores settings specific to the local node REST API.
+```
+// API settings
+type API struct {
+	HTTPHeaders map[string][]string // HTTP headers to return with the API.
+	SizeLimit   int64               // Maximum file size limit to accept for POST requests in bytes (a zero value means no limit)
+}
+```
 
-* `HTTPHeaders` is a map of the HTTP headers to set on responses from the API HTTP server.
+### `API.HTTPHeaders`
 
-The `API` config entry contains information (settings) to be used by the node REST API. Essentially, your daemon is running a lightweight HTTP server that will respond to client (e.g., IPFS commands, curl) requests. The `HTTPHeaders` sub-entry (currently the only entry under the `API` config option) is a map of [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) to set on responses from your API HTTP server. You might want to edit these settings if you need to allow additional access control methods, or [require authorization headers](https://github.com/ipfs/js-ipfs-api/pull/741), etc. For example, you may want to enable [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for your API; this can be done by modifying your `"Access-Control-Allow-Origin"` header. See [this blog post](https://medium.com/textileio/tutorial-setting-up-an-ipfs-peer-part-iii-f5f43506874c) for a discussion of similar IPFS gateway settings.
-
-These settings can be modified via the `config` subcommand. For example, to allow CORS from all origins, you can do `textile config API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'`.
+A map of [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) for responses from the API. You might want to edit these settings if you need to allow additional access control methods, or [require authorization headers](https://github.com/ipfs/js-ipfs-api/pull/741), etc. For example, you may want to enable [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for your API; this can be done by modifying your `"Access-Control-Allow-Origin"` header. See [this blog post](https://medium.com/textileio/tutorial-setting-up-an-ipfs-peer-part-iii-f5f43506874c) for a discussion of similar IPFS gateway settings.
 
 **Default**:
 
 ```
-"API": {
-    "HTTPHeaders": {
-        "Access-Control-Allow-Headers": [
-            "Content-Type",
-            "Method",
-            "X-Textile-Args",
-            "X-Textile-Opts",
-            "X-Requested-With"
-        ],
-        "Access-Control-Allow-Methods": [
-            "GET",
-            "POST",
-            "DELETE",
-            "OPTIONS"
-        ],
-        "Access-Control-Allow-Origin": [],
-        "Server": [
-            "textile-go/<version>"
-        ]
-    }
+{
+    "Access-Control-Allow-Headers": [
+        "Content-Type",
+        "Method",
+        "X-Textile-Args",
+        "X-Textile-Opts",
+        "X-Requested-With"
+    ],
+    "Access-Control-Allow-Methods": [
+        "GET",
+        "POST",
+        "DELETE",
+        "OPTIONS"
+    ],
+    "Access-Control-Allow-Origin": [],
+    "Server": [
+        "textile-go/<version>"
+    ]
 }
 ```
+
+### `API.SizeLimit`
+
+Maximum file size limit to accept for POST requests in bytes. A zero value indicates no limit should be enforced.
+
+**Default**: `0`
 
 ## `Logs`
 
-Stores settings relevant to logging node activities and services.
-
-* `LogToDisk` is a boolean indicating whether to send all logs to rolling files on disk (true) or Stdout (false).
-
-The `LogToDisk` config entry controls how a node handles subsystem logging. By default, when `LogToDisk` is `true`, logs are written to `<repo-dir>/logs/textile.log`. These can be monitored via `tail -f <repo-dir>/logs/textile.log` or similar. The verbosity of these logs can be controlled at run-time via the Textile `logs` subcommand (see `textile logs --help` for details), or at node instantiation (`textile daemon`) via the `--logs` flag (see `textile daemon --help` for details). This config entry they can be modified directly via the `config` subcommand (e.g., `textile config Logs.LogToDisk 'true'`).
-
-**Default**:
-
 ```
-"Logs": {
-    "LogToDisk": true,
+// Logs settings
+type Logs struct {
+	LogToDisk bool // when true, sends all logs to rolling files on disk
 }
 ```
+
+### `Logs.LogToDisk`
+
+A boolean indicating whether to send all logs to rolling files on disk (true) or Stdout (false).
+
+Logs written to disk (`<repo-dir>/logs/textile.log`) can be monitored via `tail -f <repo-dir>/logs/textile.log` or similar. The verbosity of these logs can be controlled at run-time via the `logs` command (see `textile logs --help` for details).
+
+**Default**: `true`
 
 ## `Threads`
 
-Stores settings controlling defaults for threads.
-
-* `Defaults.ID` is the default thread ID for reads/writes.
-
-A node can have a default thread ID that is used when a thread ID is not supplied to a given command or API call. This can simplify thread access on a peer with a singular thread, when testing command line tools, or in mobile-specific apps where a default thread is useful (for example, a user's backup thread). This setting can be accessed via the Textile `threads default` subcommand (or via the `config` subcommand), and can be set directly via the `config` subcommand (e.g., `textile config Threads.Defaults.ID '"<thread-id>"'`).
-
-**Default**:
-
 ```
-"Threads": {
-    "Defaults": {
-        "ID": ""
-    }
+// Thread settings
+type Threads struct {
+	Defaults ThreadDefaults // default settings
 }
 ```
+
+### `Threads.Defaults`
+
+```
+// ThreadDefaults settings
+type ThreadDefaults struct {
+	ID string // default thread ID for reads/writes
+}
+```
+
+#### `Threads.Defaults.ID`
+
+Default thread ID for reads/writes (`textile threads default`).
+
+**Default**: `""`
+
+### `IsMobile`
+
+A boolean indicating whether or not to apply the [IPFS low-power profile](https://github.com/ipfs/go-ipfs-config/blob/master/profile.go#L158), among other optimizations.
+
+**Default**: `false`
+
+### `IsServer`
+
+A boolean indicating whether or not to apply the [IPFS server profile](https://github.com/ipfs/go-ipfs-config/blob/master/profile.go#L49), among other optimizations.
+
+**Default**: `false`
 
 ## `Cafe`
 
-Stores settings controlling whether a node is running in *cafe* mode, and how it should be accessed by clients.
-
-* `Host` is a JSON object where...
-    * `Open` is a boolean controlling whether other peers can register with this node for cafe services.
-    * `URL` is a string specifying the public-facing URL of the host machine. This is needed in order to issue sessions to mobile clients, which need to communicate with the cafe over HTTP for background upload tasks.
-* `Client` is a JSON object where...
-    * `Mobile` is a JSON object where...
-        * `P2PWireLimit` is an integer cutoff/limit for determining how a message will be transmitted to peers.
-
-The `Cafe` config entry is broken up into two sections, one for controlling how a cafe `Host` behaves, and one for controlling how a `Client` interacts with a host peer. Currently, only a `Mobile` client entry is  used. Cafes can be controlled to some degree via the Textile `cafes` subcommand (see `textile cafes --help` for details), and via the `config` subcommand (see `textile config --help` for details). See also the [[Cafes|Cafes]] wiki page.
-
-For the `Host` config entries, `Open` is used to control if a Textile node is running in *cafe mode* or not. If not, then the `Addresses.CafeAPI` settings are not used, and the node will only operate as a *potential* client node. If a node *is* running in *cafe mode*, then the `PublicIP` config entry can be used to specify the public IP address of a cafe node in instances where IPFS' NAT traversal is unable to discover the public IP. This may, for example, happen when running a cafe on an Amazon EC2 instance or similar. Both of these settings can be modified via the `config` subcommand (e.g., `textile config Cafe.Host.Open true`), though they will require the `daemon` to be restarted before taking effect.
-
-Clients normally register with one or more cafes. The `Client` will then remote pin/upload files/messages to a _single_ cafe address provided by a cafe session object. Messages with size less than `P2PWireLimit` will be handled by the p2p cafe service, whereas messages with size greater than `P2PWireLimit` will be handled by the mobile OS's background upload service and the cafe's HTTP API. Clients can register with a cafe (see `textile cafes register --help`), and check cafe messages (see `textile cafes messages --help`) via the command line using the `cafes` subcommands. Again, the `P2PWireLimit` setting can be modified via the `config` subcommand (e.g., `textile config Cafe.Client.Mobile.P2PWireLimit 20000`).
-
-**Default**:
-
 ```
-"Cafe": {
-    "Host": {
-        "Open": false,
-        "PublicIP": "",
-        "URL": ""
-    },
-    "Client": {
-        "Mobile": {
-            "P2PWireLimit": 20000
-        }
-    }
+type Cafe struct {
+	Host   CafeHost
+	Client CafeClient
 }
 ```
 
-## Additional Settings
+For more information about configuring and running a cafe peer, see the [daemon installation guide](/install/the-daemon/#initialize-a-cafe-peer).
 
-Stores settings specific to *how* a local node is set up; for example, for running on a mobile device, or as a server with a public IP address.
+The `Cafe` config entry is broken up into two sections, one for controlling how a cafe `Host` behaves, and one for controlling how a `Client` interacts with a host peer.
 
-* `IsMobile` is a boolean indicating whether the local node is setup for mobile.
-* `IsServer` is a boolean indicating whether the local node is setup as a server with a public IP.
-
-These settings are only modified when initializing a new nod. For example, when accessing Textile on a mobile device, the `IsMobile` config entry will automatically be set to `true`. Conversely, when initializing a desktop or server node, the `--server` flag may be specified, which will set `IsServer` to true, *and* apply the IPFS *server profile* to the underlying IPFS node. See `textile init --help` and [this blog post](https://medium.com/textileio/tutorial-setting-up-an-ipfs-peer-part-iv-1595d4ba221b) for details. Alternatively, they _can_ be modified individually via the `config` subcommand (e.g., `textile config IsServer true`).
-
-**Default**:
+### `Cafe.CafeHost`
 
 ```
-"IsMobile": false,
-"IsServer": false
+type CafeHost struct {
+	Open        bool   // When true, other peers can register with this node for cafe services.
+	URL         string // Override the resolved URL of this cafe, useful for load HTTPS and/or load balancers
+	NeighborURL string // Specifies the URL of a secondary cafe. Must return cafe info.
+	SizeLimit   int64  // Maximum file size limit to accept for POST requests in bytes.
+}
 ```
+
+#### `Cafe.CafeHost.Open`
+
+A boolean indicating whether or not to open the Cafe API and accept client requests.
+
+**Default**: `false`
+
+#### `Cafe.CafeHost.URL`
+
+Override this value if a cafe peer is behind a DNS-based load balancer and/or requires HTTPS. For example, [Textile's federated cafes](https://github.com/textileio/textile-opts#network) run behind EC2 load balancers with HTTPS listeners, which route traffic to the cafe API bind address.
+
+If not specified during repository initialization, a peer will try to determine its "most public" IP address on start up:
+
+1. Use a LAN address if present in the peer host's advertised addresses
+2. If no LAN is present, poll the peer host for an address that passes a superficial test for being public (it may take a few seconds to to complete NAT discovery)
+3. Use the loopback address (`127.0.0.1`)
+
+**Default**: `http://<SWARM_IP>:40601`
+
+#### `Cafe.CafeHost.NeighborURL`
+
+_Deprecated_.
+
+**Default**: `""`
+
+#### `Cafe.CafeHost.SizeLimit`
+
+Maximum file size limit to accept for POST requests in bytes. A zero value indicates no limit should be enforced.
+
+**Default**: `0`
+
+### `Cafe.CafeClient`
+
+```
+// CafeClient settings
+type CafeClient struct {
+	Mobile MobileCafeClient
+}
+```
+
+#### `Cafe.CafeClient.MobileCafeClient`
+
+```
+// MobileCafeClient settings
+type MobileCafeClient struct {
+	// messages w/ size less than limit will be handled by the p2p cafe service,
+	// messages w/ size greater than limit will be handled by the mobile OS's background
+	// upload service and the cafe HTTP API
+	P2PWireLimit int
+}
+```
+
+##### `Cafe.MobileCafeClient.P2PWireLimit`
+
+_Deprecated_.
+
+**Default**: `0`
 
 <br>

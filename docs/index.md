@@ -10,7 +10,7 @@ We believe that future technology can be built around a new model of data owners
 
 ### Developers
 
-* Build decentralized storage and sharing applications. See [Textile Photos](https://github.com/textileio/textile-mobile).
+* Build decentralized storage and sharing applications. See [Textile Photos](https://github.com/textileio/photos).
 * Build better ways for users to manage their private information. See [AirSecure](https://github.com/airsecure/airsecure).
 * Build chat apps, website publishing services, health apps, family tools, and more. Got an idea, [get in touch](https://slack.textile.io/).
 
@@ -24,21 +24,23 @@ Whatever your use-case may be, the [tour of Textile](/a-tour-of-textile) is grea
 
 ## Install Textile apps
 
-* Photos: https://github.com/textileio/Photos
+* Photos: https://github.com/textileio/photos
 * Photos Desktop: https://github.com/textileio/photos-desktop
 * Notes: https://github.com/textileio/notes
+* Notes Desktop: https://github.com/textileio/notes-desktop
 * AirSecure: https://github.com/airsecure/airsecure
 
 ## Integrate into your apps
 
 Client SDKs or HTTP clients available for integrating Textile into your mobile, desktop, and web applications:
 
-* Core lib: https://github.com/textileio/go-textile
-* JS HTTP Client: https://github.com/textileio/js-http-client
-* React Native SDK: https://github.com/textileio/react-native-sdk
-* iOS SDK: https://github.com/textileio/ios-textile
-* Android SDK: https://github.com/textileio/android-textile
-* Desktop: (tray/taskbar app installer) https://github.com/textileio/desktop
+* [Core lib](https://github.com/textileio/go-textile)
+* [Command-line Client](/clients/command-line)
+* [JS HTTP Client](/clients/js-http)
+* [React Native SDK](/clients/react-native)
+* [iOS SDK](/clients/ios)
+* [Android SDK](/clients/android)
+* [Desktop](/install/desktop) (tray/taskbar app installer)
 
 ## Run a cafe peer
 
