@@ -272,7 +272,7 @@ threads:
               force: false,
               members: []
             }
-            const newTarget = await Textile.threads.add(config)
+            const newTarget = await textile.threads.add(config)
     ios:
       code: '@todo'
     android:
