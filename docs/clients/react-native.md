@@ -84,10 +84,6 @@ cd ios/
 pod install
 ```
 
-## API Documentation
-
-API Documentation for Textile's React Native SDK (react-native-sdk) can be found at https://textileio.github.io/react-native-sdk.
-
 ## TypeScript
 
 We strongly recommend using [TypeScript](https://www.typescriptlang.org/) if you plan to use the React Native SDK in your project. The React Native SDK's endpoints are all typed and those types are available to projects that support them. Because Textile libraries are rapidly developing, this will make your upgrade process much easier and faster. 
@@ -151,6 +147,8 @@ Below are some basic examples to get you started. If you are interested in a mor
 {{files.add.react_native.code}}
 ```
 
-### Next steps
+## API Documentation
 
-Head on over to the [Textile Developer Slack](https://slack.textile.io/) and let us know what you are building. People are always excited to share and learn about new ideas. 
+You can read the full API Documentation for Textile's React Native SDK (react-native-sdk) at https://textileio.github.io/react-native-sdk.
+
+Feel free to join the [Textile Developer Slack](https://slack.textile.io/) and let us know what you are building. People are always excited to share and learn about new ideas. 
