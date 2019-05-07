@@ -10,7 +10,7 @@ The JS HTTP Client is published as an [NPM Package](https://www.npmjs.com/packag
 #### NPM
 
 ```JavaScript tab="JS HTTP"
-npm add @textile/js-http-client
+npm install @textile/js-http-client
 ```
 
 #### Yarn
