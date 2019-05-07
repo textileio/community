@@ -18,10 +18,6 @@ npm install @textile/js-http-client
 yarn add @textile/js-http-client
 ```
 
-## API Documentation
-
-Documentation for Textile's JavaScript HTTP Client (js-http-client) can be found at https://textileio.github.io/js-http-client.
-
 ## TypeScript
 
 We strongly recommend using [TypeScript](https://www.typescriptlang.org/) if you plan to use the JS Client in your project. The JS Client's endpoints are all typed and those types are available to projects that support them. Because Textile libraries are rapidly developing, this will make your upgrade process much easier and faster. 
@@ -68,6 +64,8 @@ Below are some basic examples to get you started. If you are interested in a mor
 {{files.add.js_http_client.code}}
 ```
 
-### Next steps
+## API Documentation
 
-Head on over to the [Textile Developer Slack](https://slack.textile.io/) and let us know what you are building. People are always excited to share and learn about new ideas. 
+You can read the full API documentation for Textile's JavaScript HTTP Client (js-http-client) can be found at https://textileio.github.io/js-http-client.
+
+Feel free to join the [Textile Developer Slack](https://slack.textile.io/) and let us know what you are building. People are always excited to share and learn about new ideas. 
