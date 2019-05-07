@@ -121,5 +121,3 @@ extra:
       yaml: snippets/common
     - name: a_tour_of_textile
       yaml: snippets/a_tour_of_textile
-    - name: js_http_client_getting_started
-      yaml: snippets/js_http_client_getting_started
