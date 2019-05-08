@@ -1168,7 +1168,7 @@ Let's share this thread with another user. It was created with type, "public", m
 !!! info
     "Writes" refer to messages and files, whereas "annotations" refer to comments and likes.
 
-For this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer. 
+For this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer.
 
 ```tab="cmd"
 {{core.init.cmd.code}}
@@ -1259,7 +1259,7 @@ Next, we'll pretend that we are the second account and accept the invite. You sh
 23 Apr 19 14:08 PDT  Clyde invited you to join QE5m1qw
 ```
 
-To accept, you'll have to list your pending invites and grab the ID:
+Before you accept, list your pending invites and grab the invite's ID:
 
 ```tab="cmd"
 {{examples.my_runs.ls_invites.cmd.code}}
@@ -1283,7 +1283,7 @@ To accept, you'll have to list your pending invites and grab the ID:
     }
     ```
 
-As expected, looks like Clyde invited us to "My runs". Notice that we had to supply the `--api` flag to tell the command-line client to list invites from the non-default peer API.
+As expected, it looks like Clyde invited us to "My runs". Notice that we had to supply the `--api` flag to tell the command-line client to list invites from the non-default peer API.
 
 !!! tip
     You can avoid the need to use the `--api` when interacting with non-default peer APIs by exporting an environment variable, e.g., `export API="http://127.0.0.1:41600"`.
@@ -1293,6 +1293,7 @@ You _could_ ignore the invite with `textile invites ignore`. However, we like Cl
 ```tab="cmd"
 {{examples.my_runs.accept.cmd.code}}
 ```
+
 ??? success
     ```
     {
