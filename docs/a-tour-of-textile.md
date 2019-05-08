@@ -1612,6 +1612,9 @@ Then start the same chat on your second peer:
 {{examples.start_a_chat.join_chat_peer.cmd.code}}
 ```
 
+!!! tip
+    Currently, the `chat` command doesn't work with Git Bash on Windows. To open an interactive thread session, run the aforementioned commands in the system shell (`cmd`) or Powershell instead.
+
 ![Clyde having a chat with a friend](/images/chat.png){: .center}
 
 Chat away!
