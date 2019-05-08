@@ -44,6 +44,10 @@ Join us on our [public Slack channel](https://slack.textile.io/) for news, discu
 
     $ make deploy
 
+### Note for Windows Users
+
+Windows doesn't come with `make`. In order to access the tool and contribute to these docs, we recommend installing a windows port of the tool. If you're using Git Bash, we recommend following [Evan Will's guide to adding more tools to Git Bash](https://gist.github.com/evanwill/0207876c3243bbb6863e65ec5dc3f058).
+
 ## Maintainer
 
 [Carson Farmer](https://github.com/carsonfarmer)
