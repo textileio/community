@@ -8,16 +8,16 @@ With good encryption defaults and anonymous, disposable application services lik
 
 ## How it works
 
-Textile peers use p2p messaging patterns to orchestrate shared datasets, or more specifically your chats, contacts, albums, etc. With iCloud or another major cloud provider, you expect these datasets to be synced across your iOS devices. Additionally, if you've shared a dataset like a playlist or photo album with other users, you would expect changes to be synced with their devices as well. You can expect the same with Textile, but without the centralized control of a single organization or government.
+Textile peers use p2p messaging patterns to orchestrate shared datasets, or more specifically your chats, contacts, albums, and more. With iCloud or another major cloud provider, you expect these datasets to be synced across your iOS devices. Additionally, if you've shared a dataset like a playlist or photo album with other users, you would expect changes to be synced with their devices as well. You can expect the same with Textile, but without the centralized control of a single organization or government.
 
 A traditional cloud provider will store your datasets in one, maybe a few, central location(s). This means that you _must_ trust the provider won't decide to drop your access, and in some cases, to _not_ view or expose the contents of your datasets.
 
 In Textile, these types of datasets are called _threads_. At the core of every thread is a secret. Only peers that possess the secret are able to decrypt thread content or follow linkages.
 
 !!! hint
-    Unlike a blockchain, threads are not based around the idea of consensus. Rather, they follow an agent-centric approach similar to [holochain](https://holochain.org/). Each peer has authority over thread access-control and storage.
+    Unlike a blockchain, threads are not based around the idea of consensus. Instead, they follow an agent-centric approach similar to [holochain](https://holochain.org/). Each peer has authority over thread access-control and storage.
 
-Because threads are simply a hash-chain of update messages, or [blocks](/concepts/threads#blocks), they can represent any type of dataset. Some blocks point to off-chain data stored on IPFS. For example, a set of photos, a PDF, or even an entire website. Application developers are able add structure to threads and make them interoperable with other applications by using [schemas](/concepts/threads/files#schemas).
+Because threads are simply a hash-chain of update messages, or [blocks](/concepts/threads#blocks), they can represent any type of dataset. Some blocks point to off-chain data stored on IPFS. For example, a set of photos, a PDF, or even an entire website. Application developers are able to add structure to threads and make them interoperable with other applications by using [schemas](/concepts/threads/files#schemas).
 
 Threads are auto-magically synced with other account peers. For example, you may have one peer on your phone, and another on your laptop, both with access to the same account seed (more about accounts [here](/concepts/the-wallet#accounts)). Threads can also be shared with other non-account peers (other users). In any case, each peer maintains a copy of its threads. A p2p messaging protocol keeps all the copies in sync.
 
@@ -38,7 +38,7 @@ _Cafe peers_ (or just cafes) are _anonymous_ and _disposable_ infrastructure. Th
 - it will have an always-online message inbox for receiving thread updates from other peers when offline.
 - its contact info will be indexed and made available for search on the network.
 
-Unlike account peers, cafes need to be online at all times in order to properly function. For this reason, they typically run in a server environment. They are easy to deploy & manage (single executable, Docker).
+Unlike account peers, cafes need to be online at all times in order to function properly. For this reason, they typically run in a server environment. They are easy to deploy & manage (single executable, Docker).
 
 !!! tip
     An account peer may be registered with more than one cafe, and account peers do not need to be registered to the same cafe(s). Additionally, peers can easily migrate from one cafe to another, simply be deregistering from one and registering with another.

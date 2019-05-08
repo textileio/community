@@ -1,4 +1,4 @@
-Any data added to a thread ends up as a _file_. Most of the time, a [schema](#schemas) is used to define one or more types of data in a thread such that it can be understood by other users and applications. Currently, the following input types are available: Raw data blobs, images, exif data, and JSON documents.
+Any data added to a thread ends up as a _file_. Most of the time, a [schema](#schemas) is used to define one or more types of data in a thread such that other users and applications can understand it. Currently, the following input types are available: Raw data blobs, images, EXIF data, and JSON documents.
 
 ## Structure
 
