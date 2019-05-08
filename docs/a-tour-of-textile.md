@@ -618,7 +618,7 @@ The output shows metadata about the thread you just created, with a reference to
 
 #### Add a text message
 
-Any thread can take a plain old text message. Later, we'll use these with an interactive chat session.
+Any thread can take a plain old text message. Later, we'll use these with an interactive chat session. **Be sure to replace the thread parameter with the ID of the thread you generated in the last step.**
 
 ```tab="cmd"
 {{messages.add.cmd.code}}
