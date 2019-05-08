@@ -2000,7 +2000,7 @@ You can subscribe to multiple (or all) update types. [Textile Photos](https://te
 
 #### Leave a thread
 
-When you leave a thread, all associated data is deleted from your peer. Additionally, any registered cafes will delete its associated snapshots.
+When you leave a thread, all associated data is deleted from your peer. Additionally, all registered cafes will delete their associated snapshots.
 
 From your second peer, leave the "My runs" thread:
 
