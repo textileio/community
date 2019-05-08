@@ -42,7 +42,7 @@ Cafes are easy to deploy and manage (single executable, Docker). Start [here](/i
 Textile hosts a [development cafe](https://us-west-dev.textile.cafe/) that you are free to use for non-production purposes.
 
 !!! danger
-    Use the dev cafe at your own risk. Your data may get lost without notice.
+    Use the dev cafe at your own risk. Your data may be deleted without notice.
 
 Connection details:
 
