@@ -1614,7 +1614,7 @@
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">// no initialization needed, only import</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">// No initialization needed, only import</span>
 <span class="kr">import</span> <span class="nx">textile</span> <span class="nx">from</span> <span class="s2">&quot;@textile/js-http-client&quot;</span>
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_1" />
@@ -1641,7 +1641,7 @@
 </pre></div></div>
 <input name="__tabs_2" type="radio" id="__tab_2_1" />
 <label for="__tab_2_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">profile</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
 </pre></div></div>
 <input name="__tabs_2" type="radio" id="__tab_2_2" />
 <label for="__tab_2_2">React Native</label>
@@ -1669,7 +1669,10 @@
 <li><code>id</code>: Your embedded IPFS node's peer ID, which is unique on the network</li>
 <li><code>address</code>: Your wallet account's address (public key), which can be shared with other account peers</li>
 </ul>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
 <p>Addresses always start with a "P" for "public". Account <em>seeds</em> (private keys) always start with an "S" for "secret", which should help you remember which one to keep secret.</p>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Textile uses an <a href="https://ed25519.cr.yp.to/">ed25519</a> <a href="https://en.bitcoinwiki.org/wiki/Deterministic_wallet">HD wallet</a> and IPFS peer IDs because they provide fast key generation, signing, and verification. These properties become important on less powerful devices like phones.</p>
@@ -1711,7 +1714,9 @@
 </pre></div></div>
 <input name="__tabs_4" type="radio" id="__tab_4_1" />
 <label for="__tab_4_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">setAvatar</span><span class="p">(</span><span class="s2">&quot;&lt;image-hash&gt;&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">()</span>
+<span class="nx">form</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="c1">// file is File object or raw Buffer/Blob</span>
+<span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">setAvatar</span><span class="p">(</span><span class="nx">form</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_4" type="radio" id="__tab_4_2" />
 <label for="__tab_4_2">React Native</label>
@@ -1739,7 +1744,7 @@
 </pre></div></div>
 <input name="__tabs_5" type="radio" id="__tab_5_1" />
 <label for="__tab_5_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">profile</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
 </pre></div></div>
 <input name="__tabs_5" type="radio" id="__tab_5_2" />
 <label for="__tab_5_2">React Native</label>
@@ -1778,7 +1783,7 @@
 </pre></div></div>
 <input name="__tabs_6" type="radio" id="__tab_6_1" />
 <label for="__tab_6_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">account</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">account</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">account</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
 </pre></div></div>
 <input name="__tabs_6" type="radio" id="__tab_6_2" />
 <label for="__tab_6_2">React Native</label>
@@ -1822,7 +1827,7 @@
 </pre></div></div>
 <input name="__tabs_7" type="radio" id="__tab_7_1" />
 <label for="__tab_7_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">account</span><span class="p">.</span><span class="nx">seed</span><span class="p">()</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">seed</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">account</span><span class="p">.</span><span class="nx">seed</span><span class="p">()</span>
 </pre></div></div>
 <input name="__tabs_7" type="radio" id="__tab_7_2" />
 <label for="__tab_7_2">React Native</label>
@@ -1891,7 +1896,9 @@
 </pre></div></div>
 <input name="__tabs_9" type="radio" id="__tab_9_1" />
 <label for="__tab_9_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">contacts</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="s2">&quot;Andrew&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">// The js-http-client returns a `ReadableStream` to be accessed by the caller</span>
+<span class="c1">// See https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream for details</span>
+<span class="kr">const</span> <span class="nx">stream</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">contacts</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="s2">&quot;Andrew&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_9" type="radio" id="__tab_9_2" />
 <label for="__tab_9_2">React Native</label>
@@ -1946,7 +1953,8 @@
 </pre></div></div>
 <input name="__tabs_10" type="radio" id="__tab_10_1" />
 <label for="__tab_10_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">contacts</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="s2">&quot;P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">// Again, `stream` is a `ReadableStream` to be accessed by the caller</span>
+<span class="kr">const</span> <span class="nx">stream</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">contacts</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span> <span class="s2">&quot;P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_10" type="radio" id="__tab_10_2" />
 <label for="__tab_10_2">React Native</label>
@@ -1987,7 +1995,8 @@
 </pre></div></div>
 <input name="__tabs_11" type="radio" id="__tab_11_1" />
 <label for="__tab_11_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">contacts</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">contact</span> <span class="o">=</span> <span class="p">...</span> <span class="c1">// Should be a Contact object, as returned by `search` `ReadableStream`</span>
+<span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">contacts</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG&quot;</span><span class="p">,</span> <span class="nx">contact</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_11" type="radio" id="__tab_11_2" />
 <label for="__tab_11_2">React Native</label>
@@ -2084,7 +2093,7 @@ added P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG
 </pre></div></div>
 <input name="__tabs_14" type="radio" id="__tab_14_1" />
 <label for="__tab_14_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">todo</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">ping</span><span class="p">(</span><span class="s2">&quot;12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_14" type="radio" id="__tab_14_2" />
 <label for="__tab_14_2">React Native</label>
@@ -2195,7 +2204,7 @@ shared      --&gt; initiator: Y, whitelist: Y`
 </details>
 <p>The output shows metadata about the thread you just created, with a reference to the "HEAD" (latest) update block. At this point, this is also the only block, which indicates that your peer joined.</p>
 <h4 id="add-a-text-message">Add a text message<a class="headerlink" href="#add-a-text-message" title="Permanent link">&para;</a></h4>
-<p>Any thread can take a plain old text message. Later, we'll use these with an interactive chat session.</p>
+<p>Any thread can take a plain old text message. Later, we'll use these with an interactive chat session. <strong>Be sure to replace the thread parameter with the ID of the thread you generated in the last step.</strong></p>
 <div class="superfences-tabs">
 <input name="__tabs_16" type="radio" id="__tab_16_0" checked="checked" />
 <label for="__tab_16_0">cmd</label>
@@ -2251,7 +2260,8 @@ shared      --&gt; initiator: Y, whitelist: Y`
 </pre></div></div>
 <input name="__tabs_17" type="radio" id="__tab_17_1" />
 <label for="__tab_17_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;Any old data&quot;</span><span class="p">,</span> <span class="s2">&quot;blob&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">blob</span> <span class="o">=</span> <span class="p">(</span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">schemas</span><span class="p">.</span><span class="nx">defaults</span><span class="p">()).</span><span class="nx">blob</span>
+<span class="kr">const</span> <span class="nx">thread</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;Any old data&quot;</span><span class="p">,</span> <span class="nx">blob</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_17" type="radio" id="__tab_17_2" />
 <label for="__tab_17_2">React Native</label>
@@ -2313,7 +2323,7 @@ shared      --&gt; initiator: Y, whitelist: Y`
 </pre></div></div>
 <input name="__tabs_18" type="radio" id="__tab_18_1" />
 <label for="__tab_18_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;mmm, bytes...&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;mmm, bytes...&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_18" type="radio" id="__tab_18_2" />
 <label for="__tab_18_2">React Native</label>
@@ -2400,7 +2410,7 @@ Added 1 file in 613.175326ms
 </pre></div></div>
 <input name="__tabs_20" type="radio" id="__tab_20_1" />
 <label for="__tab_20_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;mmm, bytes...&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;mmm, bytes...&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_20" type="radio" id="__tab_20_2" />
 <label for="__tab_20_2">React Native</label>
@@ -2524,7 +2534,8 @@ Added 1 file in 138.218899ms
 </pre></div></div>
 <input name="__tabs_22" type="radio" id="__tab_22_1" />
 <label for="__tab_22_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">base64ImageString</span> <span class="o">=</span> <span class="s2">&quot;R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABA....&quot;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">()</span>
+<span class="nx">form</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="c1">// file is File object or raw Buffer/Blob or even fs.createReadStream() in Node.js</span>
 <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">base64ImageString</span><span class="p">,</span> <span class="s2">&quot;Dog at work&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq&quot;</span><span class="p">)</span><span class="err">&#39;</span>
 </pre></div></div>
 <input name="__tabs_22" type="radio" id="__tab_22_2" />
@@ -2597,7 +2608,8 @@ Added 1 file in 5.978401883s
 </pre></div></div>
 <input name="__tabs_23" type="radio" id="__tab_23_1" />
 <label for="__tab_23_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;My runs&quot;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">locations</span><span class="p">),</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s2">&quot;public&quot;</span><span class="p">,</span> <span class="s2">&quot;invite_only&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">locations</span> <span class="o">=</span> <span class="p">(</span><span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;location.json&quot;</span><span class="p">)).</span><span class="nx">json</span><span class="p">()</span>
+<span class="kr">const</span> <span class="nx">thread</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;My runs&quot;</span><span class="p">,</span> <span class="nx">locations</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s2">&quot;public&quot;</span><span class="p">,</span> <span class="s2">&quot;invite_only&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_23" type="radio" id="__tab_23_2" />
 <label for="__tab_23_2">React Native</label>
@@ -2674,11 +2686,11 @@ Added 1 file in 5.978401883s
 <div class="superfences-tabs">
 <input name="__tabs_24" type="radio" id="__tab_24_0" checked="checked" />
 <label for="__tab_24_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &#39;{ &quot;latitude&quot;: 48.858093, &quot;longitude&quot;: 2.294694 }&#39; | textile files add --thread=&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;&#39;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &#39;{ &quot;latitude&quot;: 48.858093, &quot;longitude&quot;: 2.294694 }&#39; | textile files add --thread=12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw
 </pre></div></div>
 <input name="__tabs_24" type="radio" id="__tab_24_1" />
 <label for="__tab_24_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="err">\</span><span class="s2">&quot;latitude\&quot;: 48.858093, \&quot;longitude\&quot;: 2.294694 }), &quot;&quot;, &quot;</span><span class="mi">12</span><span class="nx">D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw</span><span class="err">&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span> <span class="nx">latitude</span><span class="o">:</span> <span class="mf">48.858093</span><span class="p">,</span> <span class="nx">longitude</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_24" type="radio" id="__tab_24_2" />
 <label for="__tab_24_2">React Native</label>
@@ -2708,7 +2720,7 @@ Added 1 file in 534.774123ms
 </pre></div></div>
 <input name="__tabs_25" type="radio" id="__tab_25_1" />
 <label for="__tab_25_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="err">\</span><span class="s2">&quot;latitude\&quot;: 91, \&quot;longitude\&quot;: 2.294694 }), &quot;&quot;, &quot;</span><span class="mi">12</span><span class="nx">D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw</span><span class="err">&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span> <span class="nx">latitude</span><span class="o">:</span> <span class="mi">91</span><span class="p">,</span> <span class="nx">longitude</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_25" type="radio" id="__tab_25_2" />
 <label for="__tab_25_2">React Native</label>
@@ -3273,7 +3285,7 @@ Omit the --thread option to paginate all files.
 </pre></div></div>
 <input name="__tabs_39" type="radio" id="__tab_39_1" />
 <label for="__tab_39_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">feed</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">feed</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_39" type="radio" id="__tab_39_2" />
 <label for="__tab_39_2">React Native</label>
@@ -3451,10 +3463,23 @@ Omit the --thread option to paginate all files.
 </pre></div></div>
 <input name="__tabs_40" type="radio" id="__tab_40_1" />
 <label for="__tab_40_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">textile</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">.</span><span class="nx">stream</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">file</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="c1">// new file!</span>
-  <span class="p">})</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">// The js-http-client returns a `ReadableStream` to be accessed by the caller</span>
+<span class="c1">// See https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream for details</span>
+<span class="kr">const</span> <span class="nx">stream</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">.</span><span class="nx">stream</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">reader</span> <span class="o">=</span> <span class="nx">stream</span><span class="p">.</span><span class="nx">getReader</span><span class="p">()</span>
+<span class="kr">const</span> <span class="nx">read</span> <span class="o">=</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// ReadableStreamReadResult&lt;FeedItem&gt;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>  
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">reader</span><span class="p">.</span><span class="nx">cancel</span><span class="p">(</span><span class="kc">undefined</span><span class="p">)</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+  <span class="nx">read</span><span class="p">(</span><span class="nx">await</span> <span class="nx">reader</span><span class="p">.</span><span class="nx">read</span><span class="p">())</span>
+<span class="p">}</span>
+<span class="nx">read</span><span class="p">(</span><span class="nx">await</span> <span class="nx">reader</span><span class="p">.</span><span class="nx">read</span><span class="p">())</span>
 </pre></div></div>
 <input name="__tabs_40" type="radio" id="__tab_40_2" />
 <label for="__tab_40_2">React Native</label>
@@ -3478,11 +3503,11 @@ Omit the --thread option to paginate all files.
 <div class="superfences-tabs">
 <input name="__tabs_41" type="radio" id="__tab_41_0" checked="checked" />
 <label for="__tab_41_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &#39;{ &quot;latitude&quot;: 48.858093, &quot;longitude&quot;: 2.294694 }&#39; | textile files add --thread=&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;&#39;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &#39;{ &quot;latitude&quot;: 48.858093, &quot;longitude&quot;: 2.294694 }&#39; | textile files add --thread=12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw
 </pre></div></div>
 <input name="__tabs_41" type="radio" id="__tab_41_1" />
 <label for="__tab_41_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="err">\</span><span class="s2">&quot;latitude\&quot;: 48.858093, \&quot;longitude\&quot;: 2.294694 }), &quot;&quot;, &quot;</span><span class="mi">12</span><span class="nx">D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw</span><span class="err">&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span> <span class="nx">latitude</span><span class="o">:</span> <span class="mf">48.858093</span><span class="p">,</span> <span class="nx">longitude</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_41" type="radio" id="__tab_41_2" />
 <label for="__tab_41_2">React Native</label>
@@ -3642,7 +3667,7 @@ Added 1 file in 533.47ms
 </pre></div></div>
 <input name="__tabs_45" type="radio" id="__tab_45_1" />
 <label for="__tab_45_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">todo</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">summary</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">summary</span><span class="p">()</span>
 </pre></div></div>
 <input name="__tabs_45" type="radio" id="__tab_45_2" />
 <label for="__tab_45_2">React Native</label>
@@ -3770,7 +3795,7 @@ Added 1 file in 533.47ms
 <div class="superfences-tabs">
 <input name="__tabs_47" type="radio" id="__tab_47_0" checked="checked" />
 <label for="__tab_47_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile logs --tex-only --level=&quot;info&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile logs --level=&quot;info&quot; --tex-only
 </pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -3800,6 +3825,10 @@ Added 1 file in 533.47ms
 <label for="__tab_48_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile config &quot;Addresses&quot;
 </pre></div></div>
+<input name="__tabs_48" type="radio" id="__tab_48_1" />
+<label for="__tab_48_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;Addresses&quot;</span><span class="p">)</span>
+</pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;API&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1:40600&quot;</span><span class="p">,</span>
@@ -3816,6 +3845,10 @@ Added 1 file in 533.47ms
 <input name="__tabs_49" type="radio" id="__tab_49_0" checked="checked" />
 <label for="__tab_49_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile config &quot;Addresses.Gateway&quot; \&quot;127.0.0.1:9090\&quot;
+</pre></div></div>
+<input name="__tabs_49" type="radio" id="__tab_49_1" />
+<label for="__tab_49_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;Addresses.Gateway&quot;</span><span class="p">,</span> <span class="s2">&quot;127.0.0.1:9090&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span>Updated! Restart daemon for changes to take effect.
@@ -3846,6 +3879,10 @@ Account: P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j
 <input name="__tabs_51" type="radio" id="__tab_51_0" checked="checked" />
 <label for="__tab_51_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile config
+</pre></div></div>
+<input name="__tabs_51" type="radio" id="__tab_51_1" />
+<label for="__tab_51_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>{
@@ -3957,6 +3994,10 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <label for="__tab_54_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile tokens create
 </pre></div></div>
+<input name="__tabs_54" type="radio" id="__tab_54_1" />
+<label for="__tab_54_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">tokens</span><span class="p">.</span><span class="nx">create</span><span class="p">()</span>
+</pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span>bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG
 </pre></div>
@@ -3968,6 +4009,10 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <input name="__tabs_55" type="radio" id="__tab_55_0" checked="checked" />
 <label for="__tab_55_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile tokens ls
+</pre></div></div>
+<input name="__tabs_55" type="radio" id="__tab_55_1" />
+<label for="__tab_55_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">tokens</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">tokens</span><span class="p">.</span><span class="nx">list</span><span class="p">()</span>
 </pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">[</span>
@@ -3989,6 +4034,11 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <input name="__tabs_56" type="radio" id="__tab_56_0" checked="checked" />
 <label for="__tab_56_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes add &quot;http://127.0.0.1:40601&quot; --token=&quot;bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG&quot;
+</pre></div></div>
+<input name="__tabs_56" type="radio" id="__tab_56_1" />
+<label for="__tab_56_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">&quot;bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG&quot;</span>
+<span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;http://127.0.0.1:40601&quot;</span><span class="p">,</span> <span class="nx">token</span><span class="p">)</span>
 </pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -4023,6 +4073,10 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <label for="__tab_57_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes ls
 </pre></div></div>
+<input name="__tabs_57" type="radio" id="__tab_57_1" />
+<label for="__tab_57_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">sessions</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">list</span><span class="p">()</span>
+</pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -4052,6 +4106,10 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <label for="__tab_58_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes messages
 </pre></div></div>
+<input name="__tabs_58" type="radio" id="__tab_58_1" />
+<label for="__tab_58_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">messages</span><span class="p">()</span>
+</pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span>ok
 </pre></div>
@@ -4064,6 +4122,10 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <input name="__tabs_59" type="radio" id="__tab_59_0" checked="checked" />
 <label for="__tab_59_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes rm &quot;12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV&quot;
+</pre></div></div>
+<input name="__tabs_59" type="radio" id="__tab_59_1" />
+<label for="__tab_59_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>ok
@@ -4083,6 +4145,10 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <label for="__tab_60_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile ipfs id
 </pre></div></div>
+<input name="__tabs_60" type="radio" id="__tab_60_1" />
+<label for="__tab_60_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">ipfs</span><span class="p">.</span><span class="nx">id</span><span class="p">()</span>
+</pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span>12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay
 </pre></div>
@@ -4096,6 +4162,10 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <input name="__tabs_61" type="radio" id="__tab_61_0" checked="checked" />
 <label for="__tab_61_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile ipfs swarm peers
+</pre></div></div>
+<input name="__tabs_61" type="radio" id="__tab_61_1" />
+<label for="__tab_61_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">peers</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">ipfs</span><span class="p">.</span><span class="nx">peers</span><span class="p">()</span>
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -4370,6 +4440,10 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <label for="__tab_62_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile ipfs swarm connect &quot;/ip4/18.224.173.65/tcp/4001/ipfs/12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d&quot;
 </pre></div></div>
+<input name="__tabs_62" type="radio" id="__tab_62_1" />
+<label for="__tab_62_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">ipfs</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s2">&quot;/ip4/18.224.173.65/tcp/4001/ipfs/12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d&quot;</span><span class="p">)</span>
+</pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">[</span>
     <span class="s2">&quot;connect 12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d success&quot;</span>
@@ -4384,6 +4458,10 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <input name="__tabs_63" type="radio" id="__tab_63_0" checked="checked" />
 <label for="__tab_63_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile ipfs cat &quot;QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d&quot; &gt; textile.png
+</pre></div></div>
+<input name="__tabs_63" type="radio" id="__tab_63_1" />
+<label for="__tab_63_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">logo</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">ipfs</span><span class="p">.</span><span class="nx">cat</span><span class="p">(</span><span class="s2">&quot;QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><p><img alt="" src="/images/textile.png" /></p>

@@ -891,7 +891,7 @@
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <h3 id="initialize-the-js-client">Initialize the JS Client<a class="headerlink" href="#initialize-the-js-client" title="Permanent link">&para;</a></h3>
 <p>The JS HTTP Client does not maintain any state for your app, it simply provides easy to use APIs so your app can interact with your user's Textile account. You import the library in any library simply.</p>
-<div class="codehilite"><pre><span></span><span class="c1">// no initialization needed, only import</span>
+<div class="codehilite"><pre><span></span><span class="c1">// No initialization needed, only import</span>
 <span class="kr">import</span> <span class="nx">textile</span> <span class="nx">from</span> <span class="s2">&quot;@textile/js-http-client&quot;</span>
 </pre></div>
 
@@ -901,10 +901,23 @@
 </pre></div>
 
 <h3 id="subscribe-to-file-updates">Subscribe to file updates<a class="headerlink" href="#subscribe-to-file-updates" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="nx">textile</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">.</span><span class="nx">stream</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">file</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="c1">// new file!</span>
-  <span class="p">})</span>
+<div class="codehilite"><pre><span></span><span class="c1">// The js-http-client returns a `ReadableStream` to be accessed by the caller</span>
+<span class="c1">// See https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream for details</span>
+<span class="kr">const</span> <span class="nx">stream</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">.</span><span class="nx">stream</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">reader</span> <span class="o">=</span> <span class="nx">stream</span><span class="p">.</span><span class="nx">getReader</span><span class="p">()</span>
+<span class="kr">const</span> <span class="nx">read</span> <span class="o">=</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// ReadableStreamReadResult&lt;FeedItem&gt;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>  
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">reader</span><span class="p">.</span><span class="nx">cancel</span><span class="p">(</span><span class="kc">undefined</span><span class="p">)</span>
+    <span class="k">return</span>
+  <span class="p">}</span>
+  <span class="nx">read</span><span class="p">(</span><span class="nx">await</span> <span class="nx">reader</span><span class="p">.</span><span class="nx">read</span><span class="p">())</span>
+<span class="p">}</span>
+<span class="nx">read</span><span class="p">(</span><span class="nx">await</span> <span class="nx">reader</span><span class="p">.</span><span class="nx">read</span><span class="p">())</span>
 </pre></div>
 
 <h3 id="create-a-thread">Create a thread<a class="headerlink" href="#create-a-thread" title="Permanent link">&para;</a></h3>
@@ -912,7 +925,7 @@
 </pre></div>
 
 <h3 id="add-a-file">Add a file<a class="headerlink" href="#add-a-file" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;mmm, bytes...&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;mmm, bytes...&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
 </pre></div>
 
 <h2 id="api-documentation">API Documentation<a class="headerlink" href="#api-documentation" title="Permanent link">&para;</a></h2>

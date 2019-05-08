@@ -110,7 +110,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#conflict-avoidanceresolution" tabindex="1" class="md-skip">
+      <a href="#requirements" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -370,15 +370,62 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#conflict-avoidanceresolution" title="Conflict Avoidance/Resolution" class="md-nav__link">
-    Conflict Avoidance/Resolution
+  <a href="#requirements" title="Requirements" class="md-nav__link">
+    Requirements
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#recoverability" title="Recoverability" class="md-nav__link">
-    Recoverability
+  <a href="#implementation" title="Implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model" title="Model" class="md-nav__link">
+    Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orchestration" title="Orchestration" class="md-nav__link">
+    Orchestration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outbound-updates" title="Outbound updates" class="md-nav__link">
+    Outbound updates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inbound-updates" title="Inbound updates" class="md-nav__link">
+    Inbound updates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account-sync" title="Account Sync" class="md-nav__link">
+    Account Sync
   </a>
   
 </li>
@@ -400,6 +447,13 @@
         <li class="md-nav__item">
   <a href="#files" title="Files" class="md-nav__link">
     Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v2-roadmap" title="V2 Roadmap" class="md-nav__link">
+    V2 Roadmap
   </a>
   
 </li>
@@ -708,15 +762,62 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#conflict-avoidanceresolution" title="Conflict Avoidance/Resolution" class="md-nav__link">
-    Conflict Avoidance/Resolution
+  <a href="#requirements" title="Requirements" class="md-nav__link">
+    Requirements
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#recoverability" title="Recoverability" class="md-nav__link">
-    Recoverability
+  <a href="#implementation" title="Implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model" title="Model" class="md-nav__link">
+    Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orchestration" title="Orchestration" class="md-nav__link">
+    Orchestration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outbound-updates" title="Outbound updates" class="md-nav__link">
+    Outbound updates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inbound-updates" title="Inbound updates" class="md-nav__link">
+    Inbound updates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#account-sync" title="Account Sync" class="md-nav__link">
+    Account Sync
   </a>
   
 </li>
@@ -742,6 +843,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v2-roadmap" title="V2 Roadmap" class="md-nav__link">
+    V2 Roadmap
+  </a>
+  
+</li>
+      
       
       
       
@@ -763,11 +871,97 @@
                 
                   <h1>Introduction</h1>
                 
-                <p><em>Threads</em> are distributed datasets of encrypted messages and files, often shared between peers, and governed by <a href="/concepts/threads/files#schemas">schemas</a>. Threads allow group members to keep a record of who shared what data, and when. This simple concept is quite powerful — and on the surface, you can think of a thread like a decentralized database, shared between specific participants. The structure of a thread's <a href="/concepts/threads/files">files</a> (content) are defined by <a href="/concepts/threads/files#schemas">schemas</a> and contain <a href="#blocks">blocks</a> of information (or updates). They are specifically designed to work well in mobile, offline-first scenarios, where peers are constantly making updates, coming online, and going offline. Avoiding state conflicts is a central focus of their operation. This issue comes up frequently when working collaboratively on documents, updating shared databases, etc.</p>
-<h2 id="conflict-avoidanceresolution">Conflict Avoidance/Resolution<a class="headerlink" href="#conflict-avoidanceresolution" title="Permanent link">&para;</a></h2>
-<p>For the purposes of updating a shared thread of photos or similar data, an <a href="https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type">operation-based CRDT</a> that supports append-only operations is all that is needed. You can think of thread's CRDT (which shares some ideas with <code>ipfs-log</code>) as an immutable, append-only tree that can be used to model a mutable, shared state between peers. Every entry in the tree is saved on IPFS, and each points to a hash of previous entry(ies) forming a graph. These trees can be <a href="https://www.atlassian.com/git/tutorials/using-branches/git-merge">3-way and fast-forward merged</a>.</p>
-<h2 id="recoverability">Recoverability<a class="headerlink" href="#recoverability" title="Permanent link">&para;</a></h2>
-<p>The same properties that make hash trees or blockchains useful for developing a shared, consistent (consensus-driven) state, also makes it possible to recover the full state of a thread from the network as a whole. Because each thread update references its parent(s), given a single point on the thread tree, the entire thread history can be recovered.</p>
+                <p><em>Threads</em> are the backbone of Textile's <em>encrypted, recoverable, schema-based, and cross-application data storage</em>. Think of a thread as a decentralized database of encrypted files and messages, shared between specific participants.</p>
+<p>At the core of every thread is a secret. Only peers that possess the secret are able to decrypt thread content or follow linkages.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Unlike a blockchain, threads are not based around the idea of consensus. Rather, they follow an agent-centric approach similar to <a href="https://holochain.org/">holochain</a>. Each peer has authority over thread access-control and storage.</p>
+</div>
+<p>Because threads are simply a hash-chain of update messages, or <a href="#blocks">blocks</a>, they can represent any type of dataset. Some blocks point to off-chain data stored on IPFS. For example, a set of photos, a PDF, or even an entire website. Application developers are able add structure to threads and make them interoperable with other applications by using <a href="/concepts/threads/files#schemas">schemas</a>.</p>
+<p>Threads are auto-magically synced with other account peers. For example, you may have one peer on your phone, and another on your laptop, both with access to the same account seed (more about accounts <a href="/concepts/the-wallet#accounts">here</a>). Threads can also be shared with other non-account peers (other users). In any case, each peer maintains a copy of its threads. A p2p messaging protocol keeps all the copies in sync.</p>
+<p>The special hash-chain or graph structure of a thread allows them to be easily shared with other peers and backed-up to <a href="/concepts/cafes">cafes</a>. Given one message, you can find all the others.</p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<p>Threads are supposed to serve a decentralized cloud-like function for safely storing and retrieving data generated by applications for users, i.e., photos, messages, contacts, health data, etc. They were designed with the following requirements in mind:</p>
+<ul>
+<li>Conflict resistant: Similar to <a href="https://github.com/orbitdb/ipfs-log"><code>ipfs-log</code></a>, a thread should facilitate a resilient, distributed state, shared among multiple members (and/or devices).</li>
+<li>Mud puddle resistant: There should be a way to safely backup a thread's state such that it can be recovered by the owner.</li>
+<li>Offline-first: Because most people access the internet primarily from mobile devices, threads must enable a UX that works well in scenarios where connectivity is spotty and peers are constantly coming and going from the network.</li>
+<li>Secure: Updates must be signed by peers and encrypted with the shared key. Ideally, linkages should also be obscured by encryption.</li>
+</ul>
+<h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h2>
+<p>On the one hand, threads is a data model for representing a dataset as a hash-chain of updates. On the other hand, it's a protocol for orchestrating that state between peers.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Threads aim to be language and platform agnostic. For this reason, Textile uses <a href="https://developers.google.com/protocol-buffers/">protocol buffers</a> extensively because they are a "language-neutral, platform-neutral, extensible mechanism for serializing structured data".</p>
+</div>
+<h3 id="model">Model<a class="headerlink" href="#model" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span>message Thread {
+    string id                 = 1;
+    string key                = 2;
+    bytes sk                  = 3;
+    string name               = 4;
+    string schema             = 5;
+    string initiator          = 6;
+    Type type                 = 7;
+    Sharing sharing           = 8;
+    repeated string whitelist = 9;
+    State state               = 10;
+    string head               = 11;
+
+    // Type controls read (R), annotate (A), and write (W) access
+    enum Type {
+        PRIVATE   = 0; // initiator: RAW, whitelist:
+        READ_ONLY = 1; // initiator: RAW, whitelist: R
+        PUBLIC    = 2; // initiator: RAW, whitelist: RA
+        OPEN      = 3; // initiator: RAW, whitelist: RAW
+    }
+
+    // Sharing controls if (Y/N) a thread can be shared
+    enum Sharing {
+        NOT_SHARED  = 0; // initiator: N, whitelist: N
+        INVITE_ONLY = 1; // initiator: Y, whitelist: N
+        SHARED      = 2; // initiator: Y, whitelist: Y
+    }
+
+    // State indicates the loading state
+    enum State {
+        LOADING_TAIL = 0; // tail blocks are being loaded
+        LOADED       = 1; // blocks are all loaded / paused
+        LOADING_HEAD = 2; // head block is being loaded
+    }
+
+    // view info
+    Block head_block  = 101;
+    Node schema_node  = 102;
+    int32 block_count = 103;
+    int32 peer_count  = 104;
+}
+</pre></div>
+
+<h3 id="orchestration">Orchestration<a class="headerlink" href="#orchestration" title="Permanent link">&para;</a></h3>
+<p>The orchestration of thread state between peers can be thought of as syncing a graph of <a href="#blocks">blocks</a> and <a href="/concepts/threads/files">files</a>, which involves sending outbound updates and reading inbound updates. In practice, this is handled by a <a href="https://github.com/libp2p/go-libp2p">libp2p</a> service.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The thread service's protocol ID is <code>/textile/threads/&lt;version&gt;</code>.</p>
+</div>
+<h4 id="outbound-updates">Outbound updates<a class="headerlink" href="#outbound-updates" title="Permanent link">&para;</a></h4>
+<ol>
+<li>A <a href="#blocks">blocks</a> describing an update to a thread is signed with the author's private key and encrypted with the thread secret.</li>
+<li>The resulting message is then sent over directly to known participants.</li>
+<li>If a peer is offline, the message is again encrypted with their public key and delivered to their <a href="/concepts/cafes/#message-inbox-ing">cafe inbox(es)</a>.</li>
+</ol>
+<h4 id="inbound-updates">Inbound updates<a class="headerlink" href="#inbound-updates" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Upon receiving an update, either directly or from a <a href="/concepts/cafes/#message-inbox-ing">cafe inbox</a>, a peer will decrypt, verify, and locally index the inner <a href="#blocks">block</a>.</li>
+<li>Depending on thread behavior, the peer will follow the graph, downloading linked messages from the network until it no longer finds new blocks.</li>
+<li>Ideally, the update can be fast-forwarded merged but a deterministic <a href="https://www.atlassian.com/git/tutorials/using-branches/git-merge">3-way merge</a> may be needed.</li>
+<li><a href="/concepts/threads/files">Files</a> DAG node referenced by the graph also need to be synced. This is done by first downloading the thread's schema, which contains pinning (storage) instructions for the DAG's inner files.</li>
+<li>Finally, a peer may send back an acknowledgement to the author containing <em>its</em> latest graph tip (or HEAD in git terminology) if it believes they have diverged.</li>
+</ol>
+<h2 id="account-sync">Account Sync<a class="headerlink" href="#account-sync" title="Permanent link">&para;</a></h2>
+<p><a href="/concepts/#account-peers">Account peers</a> are able to instruct each other to create and delete threads. This is handled by an additional signature on outbound updates, which differentiates account and non-account peer messages.</p>
+<p>Additionally, peers are able to search the network for encrypted thread snapshots (metadata and hash of the latest update, usually stored by <a href="/concepts/cafes">#cafes</a>) created by their account peers. In an effort to stay in sync, peers will perform this search automatically on an interval. Thread snapshots also enable logins from new devices, as the new peer just needs to search for snapshots created by its account.</p>
+<p>Every peer has in internal <em>account thread</em>, which is used to track profile information and known contacts. This thread is also kept in sync between account peers.</p>
 <h2 id="access-control">Access Control<a class="headerlink" href="#access-control" title="Permanent link">&para;</a></h2>
 <p>Control over thread access and sharing is handled by a combination of the <em>type</em> and <em>sharing</em> settings. An immutable member address "whitelist" gives the initiator fine-grained control. The table below outlines access patterns for the thread initiator and the whitelist members. An empty whitelist is taken to be "everyone", which is the default.</p>
 <p>Thread <em>type</em> controls read (R), annotate (A), and write (W) access:</p>
@@ -789,7 +983,7 @@ shared      --&gt; initiator: Y, whitelist: Y`
 </div>
 <h2 id="blocks">Blocks<a class="headerlink" href="#blocks" title="Permanent link">&para;</a></h2>
 <p>Blocks are the raw components of a thread. Think of them as an append-only log of thread updates where each one is hash-linked to its parent(s), forming a tree. New / recovering peers can sync history by simply traversing the hash tree.</p>
-<p>In practice, blocks are small (encrypted) <a href="https://developers.google.com/protocol-buffers/">Protobuf messages</a>, linked together by their IPFS CID (content id or hash). You can explore the proto definitions <a href="https://github.com/textileio/textile-go/tree/master/pb/protos">here</a>.</p>
+<p>In practice, blocks are small (encrypted) <a href="https://developers.google.com/protocol-buffers/">protocol buffers</a>, linked together by their IPFS CID (content id or hash). You can explore the protocol buffer definitions <a href="https://github.com/textileio/textile-go/tree/master/pb/protos">here</a>.</p>
 <p>There are several block types:</p>
 <div class="codehilite"><pre><span></span>-  MERGE:    3-way merge added.
 -  IGNORE:   A block was ignored.
@@ -803,13 +997,41 @@ shared      --&gt; initiator: Y, whitelist: Y`
 -  LIKE:     Like added to another block.
 </pre></div>
 
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The Blocks API can serve <a href="https://www.graphviz.org/">Graphviz</a> dot files which can be converted to image as seen below. See <code>textile blocks --help</code> for more)</p>
+</div>
+<details class="example" open="open"><summary>A chat thread</summary><p><img alt="" class="center" src="/images/blocks_s.png" /></p>
+</details>
+<details class="example" open="open"><summary>An account thread shared between eight peers</summary><p><img alt="" class="center" src="/images/account_blocks.png" /></p>
+</details>
 <h2 id="files">Files<a class="headerlink" href="#files" title="Permanent link">&para;</a></h2>
-<p>The <code>FILES</code> block type points to off-thread data in the form of an IPFS DAG. These DAGs are described by and validated against the thread's schema.</p>
+<p>The <code>FILES</code> block type points to off-thread data in the form of an <a href="https://ipld.io/">IPLD</a> merkle DAG. These DAGs are described by and validated against the thread's <a href="/concepts/threads/files#schemas"><em>schema</em></a>.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Any data added to a thread ends up as a <a href="/concepts/threads/files"><em>file</em></a>, regardless of whether or not the source data was an actual file. For example, echoing a string into a thread results in a "file" containing that string.</p>
 </div>
 <p>Read more about files in <a href="/concepts/threads/files">the next section</a>.</p>
+<h2 id="v2-roadmap">V2 Roadmap<a class="headerlink" href="#v2-roadmap" title="Permanent link">&para;</a></h2>
+<p>Work on the next version of threads (v2) has started. The goals and individual issues for the next version can be seen <a href="https://github.com/textileio/go-textile/issues/748">here</a>. The high-level goals have been copied below:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Move to a standalone GitHub repository.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Add the notion of "intent" to the data model so that other applications can understand a threads intended purpose.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Replace the protocol buffer based linkages with IPLD so threads can be more easily traversed by other programs.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Use a hybrid p2p and gossipsub orchestration pattern (details to come).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Break HEAD into multiple categories (peers, content, annotations)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Move to a roll-based access model for accounts and applications.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Encrypt thread snapshots with one off keys that can be provisioned w/ rolls.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Allow threads to be searchable and "followed" from a gateway.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Support a more traditional "feed" mechanism (1-&gt;many vs. some-&gt;some).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Use a single AES key as the thread secret, hash of key as ID.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> In addition to being governed by access roll, peers should not be required to download thread history.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Local thread interactions should use the more human-readable key and not id.</li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Feedback welcome!</p>
+<p>Please <a href="mailto:contact@textile.io">let us know</a> if you want to weigh-in on the next version of threads.</p>
+</div>
 <p><br></p>
                 
                   
