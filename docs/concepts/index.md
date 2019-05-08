@@ -17,11 +17,11 @@ In Textile, these types of datasets are called _threads_. At the core of every t
 !!! hint
     Unlike a blockchain, threads are not based around the idea of consensus. Rather, they follow an agent-centric approach similar to [holochain](https://holochain.org/). Each peer has authority over thread access-control and storage.
 
-Because threads are simply a hash-chain of update messages, or [blocks](/concepts/threads#blocks), they can represent any type of dataset. Some blocks point to off-chain data stored on IPFS. For example, a set of photos, a PDF, or even an entire website. Application developers are able add structure to threads and make them interoperable with other applications with [schemas](/concepts/threads/files#schemas).
+Because threads are simply a hash-chain of update messages, or [blocks](/concepts/threads#blocks), they can represent any type of dataset. Some blocks point to off-chain data stored on IPFS. For example, a set of photos, a PDF, or even an entire website. Application developers are able add structure to threads and make them interoperable with other applications by using [schemas](/concepts/threads/files#schemas).
 
 Threads are auto-magically synced with other account peers. For example, you may have one peer on your phone, and another on your laptop, both with access to the same account seed (more about accounts [here](/concepts/the-wallet#accounts)). Threads can also be shared with other non-account peers (other users). In any case, each peer maintains a copy of its threads. A p2p messaging protocol keeps all the copies in sync.
 
-The special hash-chain or graph structure of a thread allows them to be easily shared with other peers and backed-up to cafes. Given one message, you can find all the others.
+The special hash-chain or graph structure of a thread allows them to be easily shared with other peers and backed-up to [cafes](/concepts/cafes). Given one message, you can find all the others.
 
 Let's look a little closer at the different actors on the network.
 
