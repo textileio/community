@@ -1019,7 +1019,7 @@
                 
                   <h1>Files</h1>
                 
-                <p>Any data added to a thread ends up as a <em>file</em>. Most of the time, a <a href="#schemas">schema</a> is used to define one or more types of data in a thread such that it can be understood by other users and applications. Currently, the following input types are available: Raw data blobs, images, exif data, and JSON documents.</p>
+                <p>Any data added to a thread ends up as a <em>file</em>. Most of the time, a <a href="#schemas">schema</a> is used to define one or more types of data in a thread such that other users and applications can understand it. Currently, the following input types are available: Raw data blobs, images, EXIF data, and JSON documents.</p>
 <h2 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h2>
 <p>Thread data is built into an <a href="https://ipld.io/">IPLD</a> merkle DAG structure (similar to a <a href="https://en.wikipedia.org/wiki/Merkle_tree">merkle tree</a>) and stored separately from update <a href="/concepts/threads#blocks">blocks</a> on IPFS. A <code>FILES</code> block points to the top-level hash of a files DAG node.</p>
 <p>The structure of files DAG nodes are determined by, and validated against, a <a href="#schemas">schema</a>. <strong>A thread can have only one schema</strong>. It has two main functions:</p>
