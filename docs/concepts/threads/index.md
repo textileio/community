@@ -98,11 +98,11 @@ The orchestration of thread state between peers can be thought of as syncing a g
 
 [Account peers](/concepts/#account-peers) can instruct each other to create and delete threads by communicating over a special internal _account_ thread. An additional signature is used to handle this on outbound updates, which differentiates account and non-account peer messages.
 
-The account thread is used to track profile information and known account-wide contacts. Like normal threads, it is kept in sync between account peers. Read more about account sync [here](/concepts/the-wallet#sync).
+The account thread is used to track account peers, profile information, and known contacts. Like normal threads, it is kept in sync between account peers. Read more about account sync [here](/concepts/the-wallet#sync).
 
 ## Snapshots
 
-Thread snapshots enable [account sync](/concepts/the-wallet#sync) and recovery and login from new devices. Snapshots are an encrypted representation of a thread. They contain thread metadata and the latest update hash, which is usually stored by [cafes](/concepts/cafes). Account peers will continuously [search](/concepts/search) for, decrypt, and apply one another's snapshots to their local thread state.
+Thread snapshots enable [account sync](/concepts/the-wallet#sync), recovery, and login from new devices. Snapshots are an encrypted representation of a thread. They contain metadata and the latest update hash, which is usually stored by [cafes](/concepts/cafes). Account peers will continuously [search](/concepts/search) for, decrypt, and apply one another's snapshots to their local thread state.
 
 ## Access Control
 

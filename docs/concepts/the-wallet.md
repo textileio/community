@@ -35,6 +35,6 @@ Peers that are backed by the same account are called [_account peers_](/concepts
 !!! info
     Thread [snapshots](/concepts/threads#snapshots) also enable logins from new devices, as the new peer just needs to search for snapshots created by its account.
 
-Every peer has in internal _account thread_, which is used to track profile information and known contacts. Read more about account threads [here](/concepts/threads/#account-threads).
+Every peer has in internal _account thread_, which is used to track account peers, profile information, and known contacts. Read more about account threads [here](/concepts/threads/#account-threads).
 
 <br>

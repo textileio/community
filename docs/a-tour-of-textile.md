@@ -141,7 +141,7 @@ Similarly, you can assign your peer a publicly visible avatar image:
     ok
     ```
 
-Now, your avatar will be tracked internally by the special private _account thread_, keyed with your account seed. This means that when your avatar (or display name) is updated, your other account peers (if you have any) will also pick up the change.
+Now, your avatar will be tracked internally by the special private [_account thread_](/concepts/threads#account-threads), keyed with your account seed. This means that when your avatar (or display name) is updated, your other account peers (if you have any) will also pick up the change.
 
 Take another look at your peer profile and see what happened:
 
@@ -183,7 +183,7 @@ Huzzah! If we had any threads, these updates would have been announced to them s
 
 Generally speaking, you can think of peers as ephemeral agents owned by your account. You may lose your device and/or need to access your account on a new one.
 
-As mentioned above, all peers have a special private _account_ thread. In addition to avatars, this thread keeps track of your account peers.
+As mentioned above, all peers have a special private [_account_ thread](/concepts/threads#account-threads). In addition to avatars, this thread keeps track of your account peers.
 
 #### View account
 
@@ -261,10 +261,10 @@ Of course, your account seed (private key) is not included in the public-facing 
 
 #### Account sync
 
-Periodically, your local peer will search the network for other peers that are part of the same account (account peers). Technically, your local peer will search for thread _snapshots_ created by any peer with your account address. If it finds any, the snapshots are decrypted and traversed like normal thread updates, keeping all your peers in sync.
+Periodically, your local peer will search the network for other peers that are part of the same account ([account peers](/concepts/#account-peers)). Technically, your local peer will search for thread [_snapshots_](/concepts/threads#snapshots) created by any peer with your account address. If it finds any, the snapshots are decrypted and traversed like normal thread updates, keeping all your peers in sync.
 
 !!! hint
-    A thread _snapshot_ is an encrypted object containing metadata and a reference to the latest update block, from which all others can be found. A snapshot may be stored at rest on a cafe peer or constructed dynamically for an account peer.
+    A thread [_snapshot_](/concepts/threads#snapshots) is an encrypted object containing metadata and a reference to the latest update block, from which all others can be found. A snapshot may be stored at rest on a cafe peer or constructed dynamically for an account peer.
 
 You can also manually run account sync:
 
