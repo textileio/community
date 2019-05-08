@@ -850,7 +850,7 @@ Let's try adding the _same_ data again:
     Added 1 file in 138.218899ms
     ```
 
-Notice that the file target **did not change**. The peer was able to reuse the node from the prior add because it detected the same data added multiple times via the same schema. This means that the input was _not_ duplicated on the peer, even though it was encrypted non-deterministically.
+Notice that the file target **did not change**. The peer was able to reuse the node from the prior addition because it detected that the same data was added via the same schema. This means that the input was _not_ duplicated on the peer, even though it was encrypted non-deterministically.
 
 !!! info
     Good encryption is always non-deterministic, which means that re-encrypting the same input will always result in a _different_ output.
@@ -1168,7 +1168,7 @@ Let's share this thread with another user. It was created with type, "public", m
 !!! info
     "Writes" refer to messages and files, whereas "annotations" refer to comments and likes.
 
-For this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer. 
+For this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer.
 
 ```tab="cmd"
 {{core.init.cmd.code}}

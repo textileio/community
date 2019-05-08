@@ -1,1 +1,1 @@
-_Coming soon._
+!["Contacts" are derived from account peer profiles.](/images/contact.png){: .center}

@@ -27,7 +27,9 @@ Let's look a little closer at the different actors on the network.
 
 ### Account Peers
 
-User _account peers_ share access to a single account from a [data wallet](/concepts/the-wallet). You can think of the data wallet as a collection of thread secrets. Account peers typically run on desktops, laptops, and mobile devices and expose APIs for encrypting, storing, and sharing files/data/messages, among other functions.
+User _account peers_ share access to a single account from a [data wallet](/concepts/the-wallet). You can think of the wallet as a collection of thread secrets. Account peers typically run on desktops, laptops, and mobile devices and expose APIs for encrypting, storing, and sharing files/data/messages, among other functions.
+
+Account peers will automatically stay in sync. Read more about account sync [here](/concepts/the-wallet#sync).
 
 ### Cafe Peers
 

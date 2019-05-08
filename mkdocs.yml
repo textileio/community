@@ -36,7 +36,23 @@ extra_css:
 # Plugins
 plugins:
   - search
-  - codeyaml
+  - markdownextradata
+
+# Customization
+extra:
+  social:
+    - type: globe
+      link: https://textile.io
+    - type: github-alt
+      link: https://github.com/textileio
+    - type: twitter
+      link: https://twitter.com/Textile01
+    - type: medium
+      link: https://medium.com/textileio
+    - type: slack
+      link: https://slack.textile.io
+  go_textile:
+    - version: v0.1.11
 
 # Extensions
 markdown_extensions:
@@ -83,6 +99,7 @@ nav:
       - Introduction: concepts/threads/index.md
       - Files: concepts/threads/files.md
     - Cafes: concepts/cafes.md
+    - Search: concepts/search.md
   - Install:
     - The Daemon: install/the-daemon.md
     - Desktop: install/desktop.md
@@ -100,24 +117,3 @@ nav:
     - Privacy Policy: policies/privacy-policy.md
     - Terms of Service: policies/terms-of-service.md
     - License: policies/license.md
-
-# Customization
-extra:
-  social:
-    - type: globe
-      link: https://textile.io
-    - type: github-alt
-      link: https://github.com/textileio
-    - type: twitter
-      link: https://twitter.com/textileio
-    - type: medium
-      link: https://medium.com/textileio
-    - type: slack
-      link: https://slack.textile.io
-  go_textile:
-    - version: v0.1.11
-  yamls:
-    - name: common
-      yaml: snippets/common
-    - name: a_tour_of_textile
-      yaml: snippets/a_tour_of_textile
