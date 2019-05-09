@@ -383,6 +383,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../search/" title="Search" class="md-nav__link">
+      Search
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -645,7 +657,19 @@
                 
                   <h1>Contacts</h1>
                 
-                <p><em>Coming soon.</em></p>
+                <p>A <em>contact</em> can be thought of as a set of ephemeral agents (peers) owned by a single account.</p>
+<p><figure alt="&quot;Contacts&quot; are derived from account peer profiles. Peers may be connected with different cafe inboxes." class="center"><img src="/images/contact.png" /><figcaption>"Contacts" are derived from account peer profiles. Peers may be connected with different cafe inboxes.</figcaption></figure></p>
+<p>Each of these peers shares a special private <a href="/concepts/threads#account-threads"><em>account thread</em></a>, which tracks account peers, profile information, and known contacts. When indexed, this thread provides:</p>
+<ul>
+<li>A "self" contact, much like iOS or other contact systems, which is advertised to the network and indexed for search by registered <a href="/concepts/cafes">cafes</a>.</li>
+<li>A contact "address book" for interacting with other users.</li>
+</ul>
+<p>As shown in the diagram above, a contact will display profile information (name and avatar) from the most recently updated peer.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See <code>textile contacts --help</code> or check out the tour section on <a href="/a-tour-of-textile/#contacts">contacts</a> to learn more about contact management.</p>
+</div>
+<p><br></p>
                 
                   
                 

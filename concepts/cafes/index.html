@@ -489,6 +489,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../search/" title="Search" class="md-nav__link">
+      Search
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -867,7 +879,7 @@
 <h3 id="message-inbox-ing">Message inbox-ing<a class="headerlink" href="#message-inbox-ing" title="Permanent link">&para;</a></h3>
 <p>Very often, a peer is not online or is otherwise unreachable and therefore unable to receive a message (usually a <a href="/concepts/threads">thread</a> update message, or <a href="/concepts/threads#blocks">block</a>). In this failed state, the sender can send the message to the recipient's always-online cafe(s), ensuring the message is delivered when the recipient returns online. In practice, this means that, when available, cafe "inbox" addresses are attached to <a href="/concepts/contacts">contacts</a>, which get published to the network. This is sort of like your phone's voicemail service, but here you're in control of where the message is actually delivered. Most importantly, because the update messages are encrypted, you <em>do not</em> need to trust the cafe hosting the inbox.</p>
 <h3 id="user-account-indexing">User account indexing<a class="headerlink" href="#user-account-indexing" title="Permanent link">&para;</a></h3>
-<p>Textile provides tooling for certain types of network-wide queries, like user account search. Changes to a peer's public-facing <a href="/concepts/contacts">contact</a> is indexed and made query-able by its cafes. So, while you do not need to be registered with a cafe in order to leverage these queries, doing so may increase your chances of being discovered by others, assuming you local peer is periodically offline.</p>
+<p>Textile provides tooling for certain types of <a href="/concepts/search">network-wide queries</a>, like user account search. Changes to a peer's public-facing <a href="/concepts/contacts">contact</a> are indexed and made query-able by its cafes. So, while you do not need to be registered with a cafe in order to leverage these queries, doing so may increase your chances of being discovered by others, assuming you local peer is periodically offline.</p>
 <h3 id="web-endpoints">Web endpoints<a class="headerlink" href="#web-endpoints" title="Permanent link">&para;</a></h3>
 <h4 id="ipfs-gateway">IPFS gateway<a class="headerlink" href="#ipfs-gateway" title="Permanent link">&para;</a></h4>
 <p>All desktop and server peers host an IPFS gateway. However, the gateway is most useful on a cafe peer where clients' content is stored. See the <a href="/ipfs-gateway">IPFS Gateway</a> section for more, including details about a <a href="http://127.0.0.1:8000/ipfs-gateway/#decryption-service">decryption service</a> unique to Textile gateways.</p>
@@ -938,13 +950,13 @@
           </a>
         
         
-          <a href="../../install/the-daemon/" title="The Daemon" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../search/" title="Search" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                The Daemon
+                Search
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

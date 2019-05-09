@@ -424,8 +424,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#account-sync" title="Account Sync" class="md-nav__link">
-    Account Sync
+  <a href="#account-threads" title="Account Threads" class="md-nav__link">
+    Account Threads
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snapshots" title="Snapshots" class="md-nav__link">
+    Snapshots
   </a>
   
 </li>
@@ -494,6 +501,18 @@
   <li class="md-nav__item">
     <a href="../cafes/" title="Cafes" class="md-nav__link">
       Cafes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../search/" title="Search" class="md-nav__link">
+      Search
     </a>
   </li>
 
@@ -816,8 +835,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#account-sync" title="Account Sync" class="md-nav__link">
-    Account Sync
+  <a href="#account-threads" title="Account Threads" class="md-nav__link">
+    Account Threads
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snapshots" title="Snapshots" class="md-nav__link">
+    Snapshots
   </a>
   
 </li>
@@ -946,7 +972,7 @@
 </div>
 <h4 id="outbound-updates">Outbound updates<a class="headerlink" href="#outbound-updates" title="Permanent link">&para;</a></h4>
 <ol>
-<li>A <a href="#blocks">blocks</a> describing an update to a thread is signed with the author's private key and encrypted with the thread secret.</li>
+<li>A <a href="#blocks">block</a> describing an update to a thread is signed with the author's private key and encrypted with the thread secret.</li>
 <li>The resulting message is then sent over directly to known participants.</li>
 <li>If a peer is offline, the message is again encrypted with their public key and delivered to their <a href="/concepts/cafes/#message-inbox-ing">cafe inbox(es)</a>.</li>
 </ol>
@@ -958,10 +984,11 @@
 <li><a href="/concepts/threads/files">Files</a> DAG node referenced by the graph also need to be synced. Sync is handled by first downloading the thread's schema, which contains pinning (storage) instructions for the DAG's inner files.</li>
 <li>Finally, a peer may send back an acknowledgment to the author containing <em>its</em> latest graph tip (or HEAD in git terminology) if it believes they have diverged.</li>
 </ol>
-<h2 id="account-sync">Account Sync<a class="headerlink" href="#account-sync" title="Permanent link">&para;</a></h2>
-<p><a href="/concepts/#account-peers">Account peers</a> can instruct each other to create and delete threads. An additional signature is used to handle this on outbound updates, which differentiates account and non-account peer messages.</p>
-<p>Additionally, peers are able to search the network for encrypted thread snapshots (metadata and hash of the latest update, usually stored by <a href="/concepts/cafes">#cafes</a>) created by their account peers. In an effort to stay in sync, peers will perform this search automatically on an interval. Thread snapshots also enable logins from new devices, as the new peer just needs to search for snapshots created by its account.</p>
-<p>Every peer has in internal <em>account thread</em>, which is used to track profile information and known contacts. This thread is also kept in sync between account peers.</p>
+<h2 id="account-threads">Account Threads<a class="headerlink" href="#account-threads" title="Permanent link">&para;</a></h2>
+<p><a href="/concepts/#account-peers">Account peers</a> can instruct each other to create and delete threads by communicating over a special internal <em>account</em> thread. An additional signature is used to handle this on outbound updates, which differentiates account and non-account peer messages.</p>
+<p>The account thread is used to track account peers, profile information, and known contacts. Like normal threads, it is kept in sync between account peers. Read more about account sync <a href="/concepts/the-wallet#sync">here</a>.</p>
+<h2 id="snapshots">Snapshots<a class="headerlink" href="#snapshots" title="Permanent link">&para;</a></h2>
+<p>Thread snapshots enable <a href="/concepts/the-wallet#sync">account sync</a>, recovery, and login from new devices. Snapshots are an encrypted representation of a thread. They contain metadata and the latest update hash, which is usually stored by <a href="/concepts/cafes">cafes</a>. Account peers will continuously <a href="/concepts/search">search</a> for, decrypt, and apply one another's snapshots to their local thread state.</p>
 <h2 id="access-control">Access Control<a class="headerlink" href="#access-control" title="Permanent link">&para;</a></h2>
 <p>Control over thread access and sharing is handled by a combination of the <em>type</em> and <em>sharing</em> settings. An immutable member address "whitelist" gives the initiator fine-grained control. The table below outlines access patterns for the thread initiator and the whitelist members. An empty whitelist is taken to be "everyone", which is the default.</p>
 <p>Thread <em>type</em> controls read (R), annotate (A), and write (W) access:</p>

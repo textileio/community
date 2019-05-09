@@ -856,6 +856,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../concepts/search/" title="Search" class="md-nav__link">
+      Search
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1735,7 +1747,7 @@
 </pre></div>
 
 </details>
-<p>Now, your avatar will be tracked internally by the special private <em>account thread</em>, keyed with your account seed. This means that when your avatar (or display name) is updated, your other account peers (if you have any) will also pick up the change.</p>
+<p>Now, your avatar will be tracked internally by the special private <a href="/concepts/threads#account-threads"><em>account thread</em></a>, keyed with your account seed. This means that when your avatar (or display name) is updated, your other account peers (if you have any) will also pick up the change.</p>
 <p>Take another look at your peer profile and see what happened:</p>
 <div class="superfences-tabs">
 <input name="__tabs_5" type="radio" id="__tab_5_0" checked="checked" />
@@ -1773,7 +1785,7 @@
 <p>Huzzah! If we had any threads, these updates would have been announced to them so that other members could pick up the changes.</p>
 <h3 id="account">Account<a class="headerlink" href="#account" title="Permanent link">&para;</a></h3>
 <p>Generally speaking, you can think of peers as ephemeral agents owned by your account. You may lose your device and/or need to access your account on a new one.</p>
-<p>As mentioned above, all peers have a special private <em>account</em> thread. In addition to avatars, this thread keeps track of your account peers.</p>
+<p>As mentioned above, all peers have a special private <a href="/concepts/threads#account-threads"><em>account</em> thread</a>. In addition to avatars, this thread keeps track of your account peers.</p>
 <h4 id="view-account">View account<a class="headerlink" href="#view-account" title="Permanent link">&para;</a></h4>
 <p>Take a look at your account:</p>
 <div class="superfences-tabs">
@@ -1847,10 +1859,10 @@
 
 </details>
 <h4 id="account-sync">Account sync<a class="headerlink" href="#account-sync" title="Permanent link">&para;</a></h4>
-<p>Periodically, your local peer will search the network for other peers that are part of the same account (account peers). Technically, your local peer will search for thread <em>snapshots</em> created by any peer with your account address. If it finds any, the snapshots are decrypted and traversed like normal thread updates, keeping all your peers in sync.</p>
+<p>Periodically, your local peer will search the network for other peers that are part of the same account (<a href="/concepts/#account-peers">account peers</a>). Technically, your local peer will search for thread <a href="/concepts/threads#snapshots"><em>snapshots</em></a> created by any peer with your account address. If it finds any, the snapshots are decrypted and traversed like normal thread updates, keeping all your peers in sync.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>A thread <em>snapshot</em> is an encrypted object containing metadata and a reference to the latest update block, from which all others can be found. A snapshot may be stored at rest on a cafe peer or constructed dynamically for an account peer.</p>
+<p>A thread <a href="/concepts/threads#snapshots"><em>snapshot</em></a> is an encrypted object containing metadata and a reference to the latest update block, from which all others can be found. A snapshot may be stored at rest on a cafe peer or constructed dynamically for an account peer.</p>
 </div>
 <p>You can also manually run account sync:</p>
 <div class="superfences-tabs">
@@ -2432,7 +2444,7 @@ Added 1 file in 138.218899ms
 </pre></div>
 
 </details>
-<p>Notice that the file target <strong>did not change</strong>. The peer was able to reuse the node from the prior add because it detected the same data added multiple times via the same schema. This means that the input was <em>not</em> duplicated on the peer, even though it was encrypted non-deterministically.</p>
+<p>Notice that the file target <strong>did not change</strong>. The peer was able to reuse the node from the prior addition because it detected that the same data was added via the same schema. This means that the input was <em>not</em> duplicated on the peer, even though it was encrypted non-deterministically.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Good encryption is always non-deterministic, which means that re-encrypting the same input will always result in a <em>different</em> output.</p>
@@ -2747,7 +2759,7 @@ Added 1 file in 534.774123ms
 <p class="admonition-title">Info</p>
 <p>"Writes" refer to messages and files, whereas "annotations" refer to comments and likes.</p>
 </div>
-<p>For this tour, let's start another peer from a different wallet account. Below is a handy way to <a href="/install/the-daemon/#initialize-an-account-peer">initialize an account peer</a> for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer. </p>
+<p>For this tour, let's start another peer from a different wallet account. Below is a handy way to <a href="/install/the-daemon/#initialize-an-account-peer">initialize an account peer</a> for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer.</p>
 <div class="superfences-tabs">
 <input name="__tabs_26" type="radio" id="__tab_26_0" checked="checked" />
 <label for="__tab_26_0">cmd</label>
@@ -2837,7 +2849,7 @@ ok
 <div class="codehilite"><pre><span></span>23 Apr 19 14:08 PDT  Clyde invited you to join QE5m1qw
 </pre></div>
 
-<p>To accept, you'll have to list your pending invites and grab the ID:</p>
+<p>Before you accept, list your pending invites and grab the invite's ID:</p>
 <div class="superfences-tabs">
 <input name="__tabs_29" type="radio" id="__tab_29_0" checked="checked" />
 <label for="__tab_29_0">cmd</label>
@@ -2861,12 +2873,18 @@ ok
 </pre></div>
 
 </details>
-<p>As expected, looks like Clyde invited us to "My runs". Notice that we had to supply the <code>--api</code> flag to tell the command-line client to list invites from the non-default peer API.</p>
+<p>As expected, it looks like Clyde invited us to "My runs". Notice that we had to supply the <code>--api</code> flag to tell the command-line client to list invites from the non-default peer API.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You can avoid the need to use the <code>--api</code> when interacting with non-default peer APIs by exporting an environment variable, e.g., <code>export API="http://127.0.0.1:41600"</code>.</p>
 </div>
 <p>You <em>could</em> ignore the invite with <code>textile invites ignore</code>. However, we like Clyde and want to support his running efforts!</p>
+<div class="superfences-tabs">
+<input name="__tabs_30" type="radio" id="__tab_30_0" checked="checked" />
+<label for="__tab_30_0">cmd</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile invites accept &quot;QmXcJmyX2vbeJTcZSkoZCHc74yycjJcXbxCHkLknJhyPaL&quot; --api=&quot;http://127.0.0.1:41600&quot;
+</pre></div></div>
+</div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>{
     &quot;author&quot;: &quot;12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV&quot;,
     &quot;date&quot;: &quot;2019-04-23T21:32:22.486183Z&quot;,
@@ -2895,24 +2913,24 @@ ok
 <h4 id="list-blocks">List blocks<a class="headerlink" href="#list-blocks" title="Permanent link">&para;</a></h4>
 <p>Take a closer look at the "My runs" thread using the <code>blocks ls</code> command, which lists updates blocks known to your peer:</p>
 <div class="superfences-tabs">
-<input name="__tabs_30" type="radio" id="__tab_30_0" checked="checked" />
-<label for="__tab_30_0">cmd</label>
+<input name="__tabs_31" type="radio" id="__tab_31_0" checked="checked" />
+<label for="__tab_31_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile blocks ls --thread=&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;
 </pre></div></div>
-<input name="__tabs_30" type="radio" id="__tab_30_1" />
-<label for="__tab_30_1">JS HTTP</label>
+<input name="__tabs_31" type="radio" id="__tab_31_1" />
+<label for="__tab_31_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">blocks</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_30" type="radio" id="__tab_30_2" />
-<label for="__tab_30_2">React Native</label>
+<input name="__tabs_31" type="radio" id="__tab_31_2" />
+<label for="__tab_31_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">todo</span>
 </pre></div></div>
-<input name="__tabs_30" type="radio" id="__tab_30_3" />
-<label for="__tab_30_3">iOS</label>
+<input name="__tabs_31" type="radio" id="__tab_31_3" />
+<label for="__tab_31_3">iOS</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
-<input name="__tabs_30" type="radio" id="__tab_30_4" />
-<label for="__tab_30_4">Android</label>
+<input name="__tabs_31" type="radio" id="__tab_31_4" />
+<label for="__tab_31_4">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2971,24 +2989,24 @@ ok
 <h4 id="add-a-comment">Add a comment<a class="headerlink" href="#add-a-comment" title="Permanent link">&para;</a></h4>
 <p>Using the output from <code>blocks ls</code>, add a comment to the one and only <code>FILES</code> update in the "My runs" thread:</p>
 <div class="superfences-tabs">
-<input name="__tabs_31" type="radio" id="__tab_31_0" checked="checked" />
-<label for="__tab_31_0">cmd</label>
+<input name="__tabs_32" type="radio" id="__tab_32_0" checked="checked" />
+<label for="__tab_32_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile comments add &quot;Is this an outlier?&quot; --block=&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot; --api=&quot;http://127.0.0.1:41600&quot;
 </pre></div></div>
-<input name="__tabs_31" type="radio" id="__tab_31_1" />
-<label for="__tab_31_1">JS HTTP</label>
+<input name="__tabs_32" type="radio" id="__tab_32_1" />
+<label for="__tab_32_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">comments</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">,</span> <span class="s2">&quot;Is this an outlier?&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_31" type="radio" id="__tab_31_2" />
-<label for="__tab_31_2">React Native</label>
+<input name="__tabs_32" type="radio" id="__tab_32_2" />
+<label for="__tab_32_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">comments</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">,</span> <span class="s2">&quot;Is this an outlier?&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_31" type="radio" id="__tab_31_3" />
-<label for="__tab_31_3">iOS</label>
+<input name="__tabs_32" type="radio" id="__tab_32_3" />
+<label for="__tab_32_3">iOS</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
-<input name="__tabs_31" type="radio" id="__tab_31_4" />
-<label for="__tab_31_4">Android</label>
+<input name="__tabs_32" type="radio" id="__tab_32_4" />
+<label for="__tab_32_4">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3012,24 +3030,24 @@ ok
 <h4 id="add-a-like">Add a "like"<a class="headerlink" href="#add-a-like" title="Permanent link">&para;</a></h4>
 <p>Likes are added in a similar fashion:</p>
 <div class="superfences-tabs">
-<input name="__tabs_32" type="radio" id="__tab_32_0" checked="checked" />
-<label for="__tab_32_0">cmd</label>
+<input name="__tabs_33" type="radio" id="__tab_33_0" checked="checked" />
+<label for="__tab_33_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile likes add --block=&quot;QmVoKpKsg5MkW11bK3LVmd3xMMaxTutVime32sV6EZWeLk&quot;
 </pre></div></div>
-<input name="__tabs_32" type="radio" id="__tab_32_1" />
-<label for="__tab_32_1">JS HTTP</label>
+<input name="__tabs_33" type="radio" id="__tab_33_1" />
+<label for="__tab_33_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">likes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_32" type="radio" id="__tab_32_2" />
-<label for="__tab_32_2">React Native</label>
+<input name="__tabs_33" type="radio" id="__tab_33_2" />
+<label for="__tab_33_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">likes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_32" type="radio" id="__tab_32_3" />
-<label for="__tab_32_3">iOS</label>
+<input name="__tabs_33" type="radio" id="__tab_33_3" />
+<label for="__tab_33_3">iOS</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
-<input name="__tabs_32" type="radio" id="__tab_32_4" />
-<label for="__tab_32_4">Android</label>
+<input name="__tabs_33" type="radio" id="__tab_33_4" />
+<label for="__tab_33_4">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3051,24 +3069,24 @@ ok
 <p><figure alt="A Textile Photos group" class="center"><img src="/images/photos_chat.png" /><figcaption>A Textile Photos group</figcaption></figure></p>
 <p>Create a new thread for chatting with your friend <code>P7X3gZu</code>:</p>
 <div class="superfences-tabs">
-<input name="__tabs_33" type="radio" id="__tab_33_0" checked="checked" />
-<label for="__tab_33_0">cmd</label>
+<input name="__tabs_34" type="radio" id="__tab_34_0" checked="checked" />
+<label for="__tab_34_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile threads add &quot;Chat&quot; --type=&quot;open&quot; --sharing=&quot;shared&quot; --whitelist=&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;
 </pre></div></div>
-<input name="__tabs_33" type="radio" id="__tab_33_1" />
-<label for="__tab_33_1">JS HTTP</label>
+<input name="__tabs_34" type="radio" id="__tab_34_1" />
+<label for="__tab_34_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;chat&quot;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="s2">&quot;shared&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;</span><span class="p">])</span>
 </pre></div></div>
-<input name="__tabs_33" type="radio" id="__tab_33_2" />
-<label for="__tab_33_2">React Native</label>
+<input name="__tabs_34" type="radio" id="__tab_34_2" />
+<label for="__tab_34_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">@todo</span>
 </pre></div></div>
-<input name="__tabs_33" type="radio" id="__tab_33_3" />
-<label for="__tab_33_3">iOS</label>
+<input name="__tabs_34" type="radio" id="__tab_34_3" />
+<label for="__tab_34_3">iOS</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
-<input name="__tabs_33" type="radio" id="__tab_33_4" />
-<label for="__tab_33_4">Android</label>
+<input name="__tabs_34" type="radio" id="__tab_34_4" />
+<label for="__tab_34_4">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3106,26 +3124,26 @@ ok
 </details>
 <p>The whitelist ensures the chat remains between the two of us. As before, we need to create an invite and accept it. However, let's try an "external" invite:</p>
 <div class="superfences-tabs">
-<input name="__tabs_34" type="radio" id="__tab_34_0" checked="checked" />
-<label for="__tab_34_0">cmd</label>
+<input name="__tabs_35" type="radio" id="__tab_35_0" checked="checked" />
+<label for="__tab_35_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile invites create --thread=&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;
 </pre></div></div>
-<input name="__tabs_34" type="radio" id="__tab_34_1" />
-<label for="__tab_34_1">JS HTTP</label>
+<input name="__tabs_35" type="radio" id="__tab_35_1" />
+<label for="__tab_35_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">// The below invite key can be sent securely to recipient in any way convenient</span>
 <span class="kr">const</span> <span class="nx">inviteKey</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">invites</span><span class="p">.</span><span class="nx">addExternal</span><span class="p">(</span><span class="s2">&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_34" type="radio" id="__tab_34_2" />
-<label for="__tab_34_2">React Native</label>
+<input name="__tabs_35" type="radio" id="__tab_35_2" />
+<label for="__tab_35_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">// The below invite key can be sent securely to recipient in any way convenient</span>
 <span class="kr">const</span> <span class="nx">inviteKey</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">invites</span><span class="p">.</span><span class="nx">addExternal</span><span class="p">(</span><span class="s2">&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_34" type="radio" id="__tab_34_3" />
-<label for="__tab_34_3">iOS</label>
+<input name="__tabs_35" type="radio" id="__tab_35_3" />
+<label for="__tab_35_3">iOS</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
-<input name="__tabs_34" type="radio" id="__tab_34_4" />
-<label for="__tab_34_4">Android</label>
+<input name="__tabs_35" type="radio" id="__tab_35_4" />
+<label for="__tab_35_4">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3139,9 +3157,9 @@ ok
 </details>
 <p>The only difference this time was that we didn't specify <code>--address</code>. Instead of getting sent directly to another peer, the invite was encrypted with the key shown in the output and persisted to IPFS. Now, you're free to send it around however you choose. In order to accept, the recipient has to specify the <code>id</code> and <code>key</code>:</p>
 <div class="superfences-tabs">
-<input name="__tabs_35" type="radio" id="__tab_35_0" checked="checked" />
-<label for="__tab_35_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile invites accept &quot;QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf&quot; --key=&quot;cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd&quot;
+<input name="__tabs_36" type="radio" id="__tab_36_0" checked="checked" />
+<label for="__tab_36_0">cmd</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile invites accept &quot;QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf&quot; --key=&quot;cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd&quot; --api=&quot;http://127.0.0.1:41600&quot;
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -3164,17 +3182,21 @@ ok
 <p>Of course, passing all these hashes and keys around is a lot easier with a well designed UI.</p>
 <p>The command-line client has a <code>chat</code> command that enters an interactive thread session in which participants can add and view messages. Start a chat on your first peer:</p>
 <div class="superfences-tabs">
-<input name="__tabs_36" type="radio" id="__tab_36_0" checked="checked" />
-<label for="__tab_36_0">cmd</label>
+<input name="__tabs_37" type="radio" id="__tab_37_0" checked="checked" />
+<label for="__tab_37_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile chat --thread=&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;
 </pre></div></div>
 </div>
 <p>Then start the same chat on your second peer:</p>
 <div class="superfences-tabs">
-<input name="__tabs_37" type="radio" id="__tab_37_0" checked="checked" />
-<label for="__tab_37_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile chat --thread=&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot; --api=&quot;http://localhost:41600&quot;
+<input name="__tabs_38" type="radio" id="__tab_38_0" checked="checked" />
+<label for="__tab_38_0">cmd</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile chat --thread=&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot; --api=&quot;http://127.0.0.1:41600&quot;
 </pre></div></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Currently, the <code>chat</code> command doesn't work with Git Bash on Windows. To open an interactive thread session, run the aforementioned commands in the system shell (<code>cmd</code>) or Powershell instead.</p>
 </div>
 <p><figure alt="Clyde having a chat with a friend" class="center"><img src="/images/chat.png" /><figcaption>Clyde having a chat with a friend</figcaption></figure></p>
 <p>Chat away!</p>
@@ -3182,24 +3204,24 @@ ok
 <p>Applications will often want to paginate files and associated annotations in a thread. The files API lists update blocks that point to DAG nodes containing files. A JSON representation of the (decrypted) DAG node is attached to the response along with nested comments and likes.</p>
 <p>Try listing the files in your "My runs" thread:</p>
 <div class="superfences-tabs">
-<input name="__tabs_38" type="radio" id="__tab_38_0" checked="checked" />
-<label for="__tab_38_0">cmd</label>
+<input name="__tabs_39" type="radio" id="__tab_39_0" checked="checked" />
+<label for="__tab_39_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile files ls --thread=&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;
 </pre></div></div>
-<input name="__tabs_38" type="radio" id="__tab_38_1" />
-<label for="__tab_38_1">JS HTTP</label>
+<input name="__tabs_39" type="radio" id="__tab_39_1" />
+<label for="__tab_39_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_38" type="radio" id="__tab_38_2" />
-<label for="__tab_38_2">React Native</label>
+<input name="__tabs_39" type="radio" id="__tab_39_2" />
+<label for="__tab_39_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_38" type="radio" id="__tab_38_3" />
-<label for="__tab_38_3">iOS</label>
+<input name="__tabs_39" type="radio" id="__tab_39_3" />
+<label for="__tab_39_3">iOS</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
-<input name="__tabs_38" type="radio" id="__tab_38_4" />
-<label for="__tab_38_4">Android</label>
+<input name="__tabs_39" type="radio" id="__tab_39_4" />
+<label for="__tab_39_4">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3279,24 +3301,24 @@ Omit the --thread option to paginate all files.
 
 <p>Give the default <code>chrono</code> (for chronological) mode a try:</p>
 <div class="superfences-tabs">
-<input name="__tabs_39" type="radio" id="__tab_39_0" checked="checked" />
-<label for="__tab_39_0">cmd</label>
+<input name="__tabs_40" type="radio" id="__tab_40_0" checked="checked" />
+<label for="__tab_40_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile feed --thread=&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;
 </pre></div></div>
-<input name="__tabs_39" type="radio" id="__tab_39_1" />
-<label for="__tab_39_1">JS HTTP</label>
+<input name="__tabs_40" type="radio" id="__tab_40_1" />
+<label for="__tab_40_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">feed</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_39" type="radio" id="__tab_39_2" />
-<label for="__tab_39_2">React Native</label>
+<input name="__tabs_40" type="radio" id="__tab_40_2" />
+<label for="__tab_40_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">feed</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_39" type="radio" id="__tab_39_3" />
-<label for="__tab_39_3">iOS</label>
+<input name="__tabs_40" type="radio" id="__tab_40_3" />
+<label for="__tab_40_3">iOS</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
-<input name="__tabs_39" type="radio" id="__tab_39_4" />
-<label for="__tab_39_4">Android</label>
+<input name="__tabs_40" type="radio" id="__tab_40_4" />
+<label for="__tab_40_4">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3457,12 +3479,12 @@ Omit the --thread option to paginate all files.
 <p>The <code>chat</code> command we saw above is actually built in part with a subscription. You can subscribe to any type of thread update <a href="/concepts/threads#blocks">block</a>: <code>merge</code>, <code>ignore</code>, <code>flag</code>, <code>join</code>, <code>announce</code>, <code>leave</code>, <code>text</code>, <code>files</code>, <code>comment</code>, <code>like</code>.</p>
 <p>Let's subscribe to "files" updates across all threads:</p>
 <div class="superfences-tabs">
-<input name="__tabs_40" type="radio" id="__tab_40_0" checked="checked" />
-<label for="__tab_40_0">cmd</label>
+<input name="__tabs_41" type="radio" id="__tab_41_0" checked="checked" />
+<label for="__tab_41_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile subscribe --type=&quot;files&quot;
 </pre></div></div>
-<input name="__tabs_40" type="radio" id="__tab_40_1" />
-<label for="__tab_40_1">JS HTTP</label>
+<input name="__tabs_41" type="radio" id="__tab_41_1" />
+<label for="__tab_41_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">// The js-http-client returns a `ReadableStream` to be accessed by the caller</span>
 <span class="c1">// See https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream for details</span>
 <span class="kr">const</span> <span class="nx">stream</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">.</span><span class="nx">stream</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span>
@@ -3481,8 +3503,8 @@ Omit the --thread option to paginate all files.
 <span class="p">}</span>
 <span class="nx">read</span><span class="p">(</span><span class="nx">await</span> <span class="nx">reader</span><span class="p">.</span><span class="nx">read</span><span class="p">())</span>
 </pre></div></div>
-<input name="__tabs_40" type="radio" id="__tab_40_2" />
-<label for="__tab_40_2">React Native</label>
+<input name="__tabs_41" type="radio" id="__tab_41_2" />
+<label for="__tab_41_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">textile</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">addThreadUpdateReceivedListener</span><span class="p">((</span><span class="nx">update</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="p">{</span> <span class="nx">type_url</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">update</span><span class="p">.</span><span class="nx">payload</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">type_url</span> <span class="o">===</span> <span class="s1">&#39;/Files&#39;</span><span class="p">)</span> <span class="p">{</span>
@@ -3490,37 +3512,37 @@ Omit the --thread option to paginate all files.
   <span class="p">}</span>
 <span class="p">})</span>
 </pre></div></div>
-<input name="__tabs_40" type="radio" id="__tab_40_3" />
-<label for="__tab_40_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
-</pre></div></div>
-<input name="__tabs_40" type="radio" id="__tab_40_4" />
-<label for="__tab_40_4">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
-</pre></div></div>
-</div>
-<p>In another terminal, add a location to the "My runs" thread:</p>
-<div class="superfences-tabs">
-<input name="__tabs_41" type="radio" id="__tab_41_0" checked="checked" />
-<label for="__tab_41_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &#39;{ &quot;latitude&quot;: 48.858093, &quot;longitude&quot;: 2.294694 }&#39; | textile files add --thread=12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw
-</pre></div></div>
-<input name="__tabs_41" type="radio" id="__tab_41_1" />
-<label for="__tab_41_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span> <span class="nx">latitude</span><span class="o">:</span> <span class="mf">48.858093</span><span class="p">,</span> <span class="nx">longitude</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
-</pre></div></div>
-<input name="__tabs_41" type="radio" id="__tab_41_2" />
-<label for="__tab_41_2">React Native</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="s2">&quot;latitude&quot;</span><span class="o">:</span> <span class="mf">48.858093</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">}).</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;base64&#39;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
-</pre></div></div>
 <input name="__tabs_41" type="radio" id="__tab_41_3" />
 <label for="__tab_41_3">iOS</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
 <input name="__tabs_41" type="radio" id="__tab_41_4" />
 <label for="__tab_41_4">Android</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
+</pre></div></div>
+</div>
+<p>In another terminal, add a location to the "My runs" thread:</p>
+<div class="superfences-tabs">
+<input name="__tabs_42" type="radio" id="__tab_42_0" checked="checked" />
+<label for="__tab_42_0">cmd</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &#39;{ &quot;latitude&quot;: 48.858093, &quot;longitude&quot;: 2.294694 }&#39; | textile files add --thread=12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw
+</pre></div></div>
+<input name="__tabs_42" type="radio" id="__tab_42_1" />
+<label for="__tab_42_1">JS HTTP</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span> <span class="nx">latitude</span><span class="o">:</span> <span class="mf">48.858093</span><span class="p">,</span> <span class="nx">longitude</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_42" type="radio" id="__tab_42_2" />
+<label for="__tab_42_2">React Native</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="s2">&quot;latitude&quot;</span><span class="o">:</span> <span class="mf">48.858093</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">}).</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;base64&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_42" type="radio" id="__tab_42_3" />
+<label for="__tab_42_3">iOS</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+</pre></div></div>
+<input name="__tabs_42" type="radio" id="__tab_42_4" />
+<label for="__tab_42_4">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3570,11 +3592,11 @@ Added 1 file in 533.47ms
 </details>
 <p>You can subscribe to multiple (or all) update types. <a href="https://textile.photos">Textile Photos</a> uses a subscription to display realtime updates within its groups.</p>
 <h4 id="leave-a-thread">Leave a thread<a class="headerlink" href="#leave-a-thread" title="Permanent link">&para;</a></h4>
-<p>When you leave a thread, all associated data is deleted from your peer. Additionally, any registered cafes will delete its associated snapshots.</p>
+<p>When you leave a thread, all associated data is deleted from your peer. Additionally, all registered cafes will delete their associated snapshots.</p>
 <p>From your second peer, leave the "My runs" thread:</p>
 <div class="superfences-tabs">
-<input name="__tabs_42" type="radio" id="__tab_42_0" checked="checked" />
-<label for="__tab_42_0">cmd</label>
+<input name="__tabs_43" type="radio" id="__tab_43_0" checked="checked" />
+<label for="__tab_43_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile threads rm &quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot; --api=&quot;http://127.0.0.1:41600&quot;
 </pre></div></div>
 </div>
@@ -3587,24 +3609,24 @@ Added 1 file in 533.47ms
 <h4 id="list-notifications">List notifications<a class="headerlink" href="#list-notifications" title="Permanent link">&para;</a></h4>
 <p>Let's see what kind of notifications your first peer (Clyde) has:</p>
 <div class="superfences-tabs">
-<input name="__tabs_43" type="radio" id="__tab_43_0" checked="checked" />
-<label for="__tab_43_0">cmd</label>
+<input name="__tabs_44" type="radio" id="__tab_44_0" checked="checked" />
+<label for="__tab_44_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile notifications ls
 </pre></div></div>
-<input name="__tabs_43" type="radio" id="__tab_43_1" />
-<label for="__tab_43_1">JS HTTP</label>
+<input name="__tabs_44" type="radio" id="__tab_44_1" />
+<label for="__tab_44_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">list</span><span class="p">()</span>
 </pre></div></div>
-<input name="__tabs_43" type="radio" id="__tab_43_2" />
-<label for="__tab_43_2">React Native</label>
+<input name="__tabs_44" type="radio" id="__tab_44_2" />
+<label for="__tab_44_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">notifications</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">list</span><span class="p">()</span>
 </pre></div></div>
-<input name="__tabs_43" type="radio" id="__tab_43_3" />
-<label for="__tab_43_3">iOS</label>
+<input name="__tabs_44" type="radio" id="__tab_44_3" />
+<label for="__tab_44_3">iOS</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
-<input name="__tabs_43" type="radio" id="__tab_43_4" />
-<label for="__tab_43_4">Android</label>
+<input name="__tabs_44" type="radio" id="__tab_44_4" />
+<label for="__tab_44_4">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3633,24 +3655,24 @@ Added 1 file in 533.47ms
 <h4 id="read-notifications">"Read" notifications<a class="headerlink" href="#read-notifications" title="Permanent link">&para;</a></h4>
 <p>Notifications have a <code>read</code> boolean status that is useful for some applications. We can mark the above notification as read via its <code>id</code>:</p>
 <div class="superfences-tabs">
-<input name="__tabs_44" type="radio" id="__tab_44_0" checked="checked" />
-<label for="__tab_44_0">cmd</label>
+<input name="__tabs_45" type="radio" id="__tab_45_0" checked="checked" />
+<label for="__tab_45_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile notifications read &quot;1KKP01K9SpRASYKkyxSK4EiSYEz&quot;
 </pre></div></div>
-<input name="__tabs_44" type="radio" id="__tab_44_1" />
-<label for="__tab_44_1">JS HTTP</label>
+<input name="__tabs_45" type="radio" id="__tab_45_1" />
+<label for="__tab_45_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="s2">&quot;1KKP01K9SpRASYKkyxSK4EiSYEz&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_44" type="radio" id="__tab_44_2" />
-<label for="__tab_44_2">React Native</label>
+<input name="__tabs_45" type="radio" id="__tab_45_2" />
+<label for="__tab_45_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="s2">&quot;1KKP01K9SpRASYKkyxSK4EiSYEz&quot;</span><span class="p">)</span>
 </pre></div></div>
-<input name="__tabs_44" type="radio" id="__tab_44_3" />
-<label for="__tab_44_3">iOS</label>
+<input name="__tabs_45" type="radio" id="__tab_45_3" />
+<label for="__tab_45_3">iOS</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
-<input name="__tabs_44" type="radio" id="__tab_44_4" />
-<label for="__tab_44_4">Android</label>
+<input name="__tabs_45" type="radio" id="__tab_45_4" />
+<label for="__tab_45_4">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3661,24 +3683,24 @@ Added 1 file in 533.47ms
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
 <p>Display a summary of your peer's threads, files, and contacts:</p>
 <div class="superfences-tabs">
-<input name="__tabs_45" type="radio" id="__tab_45_0" checked="checked" />
-<label for="__tab_45_0">cmd</label>
+<input name="__tabs_46" type="radio" id="__tab_46_0" checked="checked" />
+<label for="__tab_46_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile summary
 </pre></div></div>
-<input name="__tabs_45" type="radio" id="__tab_45_1" />
-<label for="__tab_45_1">JS HTTP</label>
+<input name="__tabs_46" type="radio" id="__tab_46_1" />
+<label for="__tab_46_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">summary</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">summary</span><span class="p">()</span>
 </pre></div></div>
-<input name="__tabs_45" type="radio" id="__tab_45_2" />
-<label for="__tab_45_2">React Native</label>
+<input name="__tabs_46" type="radio" id="__tab_46_2" />
+<label for="__tab_46_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">summary</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">summary</span><span class="p">()</span>
 </pre></div></div>
-<input name="__tabs_45" type="radio" id="__tab_45_3" />
-<label for="__tab_45_3">iOS</label>
+<input name="__tabs_46" type="radio" id="__tab_46_3" />
+<label for="__tab_46_3">iOS</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
-<input name="__tabs_45" type="radio" id="__tab_45_4" />
-<label for="__tab_45_4">Android</label>
+<input name="__tabs_46" type="radio" id="__tab_46_4" />
+<label for="__tab_46_4">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3698,8 +3720,8 @@ Added 1 file in 533.47ms
 <h4 id="view-current-log-levels">View current log levels<a class="headerlink" href="#view-current-log-levels" title="Permanent link">&para;</a></h4>
 <p>Take a look at the current log levels:</p>
 <div class="superfences-tabs">
-<input name="__tabs_46" type="radio" id="__tab_46_0" checked="checked" />
-<label for="__tab_46_0">cmd</label>
+<input name="__tabs_47" type="radio" id="__tab_47_0" checked="checked" />
+<label for="__tab_47_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile logs
 </pre></div></div>
 </div>
@@ -3793,8 +3815,8 @@ Added 1 file in 533.47ms
 </div>
 <p>Set all of the "tex-" log systems to "INFO":</p>
 <div class="superfences-tabs">
-<input name="__tabs_47" type="radio" id="__tab_47_0" checked="checked" />
-<label for="__tab_47_0">cmd</label>
+<input name="__tabs_48" type="radio" id="__tab_48_0" checked="checked" />
+<label for="__tab_48_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile logs --level=&quot;info&quot; --tex-only
 </pre></div></div>
 </div>
@@ -3821,12 +3843,12 @@ Added 1 file in 533.47ms
 <h4 id="view-a-config-value">View a config value<a class="headerlink" href="#view-a-config-value" title="Permanent link">&para;</a></h4>
 <p>We can view the entire config or a specific value behind any JSON key. Try viewing the "Addresses" config:</p>
 <div class="superfences-tabs">
-<input name="__tabs_48" type="radio" id="__tab_48_0" checked="checked" />
-<label for="__tab_48_0">cmd</label>
+<input name="__tabs_49" type="radio" id="__tab_49_0" checked="checked" />
+<label for="__tab_49_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile config &quot;Addresses&quot;
 </pre></div></div>
-<input name="__tabs_48" type="radio" id="__tab_48_1" />
-<label for="__tab_48_1">JS HTTP</label>
+<input name="__tabs_49" type="radio" id="__tab_49_1" />
+<label for="__tab_49_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;Addresses&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
@@ -3842,12 +3864,12 @@ Added 1 file in 533.47ms
 <h4 id="set-a-config-value">Set a config value<a class="headerlink" href="#set-a-config-value" title="Permanent link">&para;</a></h4>
 <p>Changing values follows the same pattern. We can update our second peer's gateway bind address as follows:</p>
 <div class="superfences-tabs">
-<input name="__tabs_49" type="radio" id="__tab_49_0" checked="checked" />
-<label for="__tab_49_0">cmd</label>
+<input name="__tabs_50" type="radio" id="__tab_50_0" checked="checked" />
+<label for="__tab_50_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile config &quot;Addresses.Gateway&quot; \&quot;127.0.0.1:9090\&quot;
 </pre></div></div>
-<input name="__tabs_49" type="radio" id="__tab_49_1" />
-<label for="__tab_49_1">JS HTTP</label>
+<input name="__tabs_50" type="radio" id="__tab_50_1" />
+<label for="__tab_50_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;Addresses.Gateway&quot;</span><span class="p">,</span> <span class="s2">&quot;127.0.0.1:9090&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
@@ -3857,8 +3879,8 @@ Added 1 file in 533.47ms
 </details>
 <p>Restart the daemon (or your <code>Textile</code> instance for users of a mobile SDK):</p>
 <div class="superfences-tabs">
-<input name="__tabs_50" type="radio" id="__tab_50_0" checked="checked" />
-<label for="__tab_50_0">cmd</label>
+<input name="__tabs_51" type="radio" id="__tab_51_0" checked="checked" />
+<label for="__tab_51_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile daemon --repo-dir=&quot;/tmp/buddy&quot;
 </pre></div></div>
 </div>
@@ -3876,12 +3898,12 @@ Account: P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j
 </details>
 <p>You should now see the new gateway bind address in the config:</p>
 <div class="superfences-tabs">
-<input name="__tabs_51" type="radio" id="__tab_51_0" checked="checked" />
-<label for="__tab_51_0">cmd</label>
+<input name="__tabs_52" type="radio" id="__tab_52_0" checked="checked" />
+<label for="__tab_52_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile config
 </pre></div></div>
-<input name="__tabs_51" type="radio" id="__tab_51_1" />
-<label for="__tab_51_1">JS HTTP</label>
+<input name="__tabs_52" type="radio" id="__tab_52_1" />
+<label for="__tab_52_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
 </pre></div></div>
 </div>
@@ -3952,8 +3974,8 @@ Account: P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j
 <p>For the purposes of this tour, let's transform your second peer into a local cafe. A production cafe should be run on a publicly accessible host, but a local cafe is useful for development and testing.</p>
 <p>On your second peer, open the cafe API by setting the config key <code>"Cafe.Host.Open"</code> to <code>true</code>:</p>
 <div class="superfences-tabs">
-<input name="__tabs_52" type="radio" id="__tab_52_0" checked="checked" />
-<label for="__tab_52_0">cmd</label>
+<input name="__tabs_53" type="radio" id="__tab_53_0" checked="checked" />
+<label for="__tab_53_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile config &quot;Cafe.Host.Open&quot; true --api=&quot;http://127.0.0.1:41600&quot;
 </pre></div></div>
 </div>
@@ -3963,8 +3985,8 @@ Account: P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j
 </details>
 <p>Now, restart the daemon in debug mode:</p>
 <div class="superfences-tabs">
-<input name="__tabs_53" type="radio" id="__tab_53_0" checked="checked" />
-<label for="__tab_53_0">cmd</label>
+<input name="__tabs_54" type="radio" id="__tab_54_0" checked="checked" />
+<label for="__tab_54_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile daemon --repo-dir=&quot;/tmp/buddy&quot; --debug
 </pre></div></div>
 </div>
@@ -3990,12 +4012,12 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 </div>
 <p>Create a token as follows:</p>
 <div class="superfences-tabs">
-<input name="__tabs_54" type="radio" id="__tab_54_0" checked="checked" />
-<label for="__tab_54_0">cmd</label>
+<input name="__tabs_55" type="radio" id="__tab_55_0" checked="checked" />
+<label for="__tab_55_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile tokens create
 </pre></div></div>
-<input name="__tabs_54" type="radio" id="__tab_54_1" />
-<label for="__tab_54_1">JS HTTP</label>
+<input name="__tabs_55" type="radio" id="__tab_55_1" />
+<label for="__tab_55_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">tokens</span><span class="p">.</span><span class="nx">create</span><span class="p">()</span>
 </pre></div></div>
 </div>
@@ -4006,12 +4028,12 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="view-client-tokens">View client tokens<a class="headerlink" href="#view-client-tokens" title="Permanent link">&para;</a></h4>
 <p>View the cafe's client tokens with the <code>ls</code> command:</p>
 <div class="superfences-tabs">
-<input name="__tabs_55" type="radio" id="__tab_55_0" checked="checked" />
-<label for="__tab_55_0">cmd</label>
+<input name="__tabs_56" type="radio" id="__tab_56_0" checked="checked" />
+<label for="__tab_56_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile tokens ls
 </pre></div></div>
-<input name="__tabs_55" type="radio" id="__tab_55_1" />
-<label for="__tab_55_1">JS HTTP</label>
+<input name="__tabs_56" type="radio" id="__tab_56_1" />
+<label for="__tab_56_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">tokens</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">tokens</span><span class="p">.</span><span class="nx">list</span><span class="p">()</span>
 </pre></div></div>
 </div>
@@ -4026,17 +4048,17 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <p>Cafes perform work for their <em>clients</em>, which are account peers. Account peers don't <em>need</em> to be registered with a cafe, but doing so has advantages, like improving discovery of its content and providing an inbox for messages received offline. See the <a href="https://docs.textile.io/concepts/cafes/#services">cafe service</a> section for more about how cafes assist other peers on the network.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Textile hosts a development cafe that you are free to use for non-production purposes. More details can be found <a href="/concepts/cafe#try-it">here</a>.</p>
+<p>Textile hosts a development cafe that you are free to use for non-production purposes. More details can be found <a href="/concepts/cafes#try-one">here</a>.</p>
 </div>
 <h4 id="register-with-a-cafe">Register with a cafe<a class="headerlink" href="#register-with-a-cafe" title="Permanent link">&para;</a></h4>
 <p>Using the token created above, register with your locally running test cafe:</p>
 <div class="superfences-tabs">
-<input name="__tabs_56" type="radio" id="__tab_56_0" checked="checked" />
-<label for="__tab_56_0">cmd</label>
+<input name="__tabs_57" type="radio" id="__tab_57_0" checked="checked" />
+<label for="__tab_57_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes add &quot;http://127.0.0.1:40601&quot; --token=&quot;bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG&quot;
 </pre></div></div>
-<input name="__tabs_56" type="radio" id="__tab_56_1" />
-<label for="__tab_56_1">JS HTTP</label>
+<input name="__tabs_57" type="radio" id="__tab_57_1" />
+<label for="__tab_57_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">&quot;bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG&quot;</span>
 <span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;http://127.0.0.1:40601&quot;</span><span class="p">,</span> <span class="nx">token</span><span class="p">)</span>
 </pre></div></div>
@@ -4061,7 +4083,7 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 </pre></div>
 
 </details>
-<p>A new client account associated with the provided token was added to your cafe. Your account peer now has an active cafe <em>session</em> with which it can use to make authenticated requests. Cafe sessions are stateless <a href="https://jwt.io">JWT</a> objects that can expire.</p>
+<p>A new client account associated with the provided token was added to your cafe. Your account peer now has an active cafe <em>session</em> which it can use to make authenticated requests. Cafe sessions are stateless <a href="https://jwt.io">JWT</a> objects that can expire.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>An account peer may be registered with more than one cafe, and account peers do not need to be registered to the same cafe(s). Additionally, peers can easily migrate from one cafe to another, simply be deregistering from one and registering with another.</p>
@@ -4069,12 +4091,12 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="list-cafe-sessions">List cafe sessions<a class="headerlink" href="#list-cafe-sessions" title="Permanent link">&para;</a></h4>
 <p>You can view your active cafe sessions with the <code>ls</code> command:</p>
 <div class="superfences-tabs">
-<input name="__tabs_57" type="radio" id="__tab_57_0" checked="checked" />
-<label for="__tab_57_0">cmd</label>
+<input name="__tabs_58" type="radio" id="__tab_58_0" checked="checked" />
+<label for="__tab_58_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes ls
 </pre></div></div>
-<input name="__tabs_57" type="radio" id="__tab_57_1" />
-<label for="__tab_57_1">JS HTTP</label>
+<input name="__tabs_58" type="radio" id="__tab_58_1" />
+<label for="__tab_58_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">sessions</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">list</span><span class="p">()</span>
 </pre></div></div>
 </div>
@@ -4102,12 +4124,12 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="check-messages">Check messages<a class="headerlink" href="#check-messages" title="Permanent link">&para;</a></h4>
 <p>An account peer will periodically check each of its registered cafes for new messages received by the cafe on its behalf. You can also manually check for messages:</p>
 <div class="superfences-tabs">
-<input name="__tabs_58" type="radio" id="__tab_58_0" checked="checked" />
-<label for="__tab_58_0">cmd</label>
+<input name="__tabs_59" type="radio" id="__tab_59_0" checked="checked" />
+<label for="__tab_59_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes messages
 </pre></div></div>
-<input name="__tabs_58" type="radio" id="__tab_58_1" />
-<label for="__tab_58_1">JS HTTP</label>
+<input name="__tabs_59" type="radio" id="__tab_59_1" />
+<label for="__tab_59_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">messages</span><span class="p">()</span>
 </pre></div></div>
 </div>
@@ -4115,16 +4137,16 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 </pre></div>
 
 </details>
-<p>Messages are downloaded in batches and queued for processing.</p>
+<p>Messages are downloaded in batches and queued for processing. This enables cafes to receive messages on an account peer's behalf when it is offline.</p>
 <h4 id="unregister-with-a-cafe">Unregister with a cafe<a class="headerlink" href="#unregister-with-a-cafe" title="Permanent link">&para;</a></h4>
 <p>You can leave a cafe at any time. Data associated with your client account will be removed.</p>
 <div class="superfences-tabs">
-<input name="__tabs_59" type="radio" id="__tab_59_0" checked="checked" />
-<label for="__tab_59_0">cmd</label>
+<input name="__tabs_60" type="radio" id="__tab_60_0" checked="checked" />
+<label for="__tab_60_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes rm &quot;12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV&quot;
 </pre></div></div>
-<input name="__tabs_59" type="radio" id="__tab_59_1" />
-<label for="__tab_59_1">JS HTTP</label>
+<input name="__tabs_60" type="radio" id="__tab_60_1" />
+<label for="__tab_60_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
@@ -4141,12 +4163,12 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="view-peer-id">View peer ID<a class="headerlink" href="#view-peer-id" title="Permanent link">&para;</a></h4>
 <p>At some point, you will want to view your IPFS peer ID. This is the same ID shown in your contact and profile info and printed by the daemon on startup:</p>
 <div class="superfences-tabs">
-<input name="__tabs_60" type="radio" id="__tab_60_0" checked="checked" />
-<label for="__tab_60_0">cmd</label>
+<input name="__tabs_61" type="radio" id="__tab_61_0" checked="checked" />
+<label for="__tab_61_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile ipfs id
 </pre></div></div>
-<input name="__tabs_60" type="radio" id="__tab_60_1" />
-<label for="__tab_60_1">JS HTTP</label>
+<input name="__tabs_61" type="radio" id="__tab_61_1" />
+<label for="__tab_61_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">ipfs</span><span class="p">.</span><span class="nx">id</span><span class="p">()</span>
 </pre></div></div>
 </div>
@@ -4159,12 +4181,12 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="view-the-peer-swarm">View the peer swarm<a class="headerlink" href="#view-the-peer-swarm" title="Permanent link">&para;</a></h4>
 <p>Your peer is always communicating, or "gossiping", with a changing sub-set of other peers on the IPFS network called a "swarm". You can view that swarm at any time. It should be relatively large at this point since your peer has been "online" for awhile.</p>
 <div class="superfences-tabs">
-<input name="__tabs_61" type="radio" id="__tab_61_0" checked="checked" />
-<label for="__tab_61_0">cmd</label>
+<input name="__tabs_62" type="radio" id="__tab_62_0" checked="checked" />
+<label for="__tab_62_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile ipfs swarm peers
 </pre></div></div>
-<input name="__tabs_61" type="radio" id="__tab_61_1" />
-<label for="__tab_61_1">JS HTTP</label>
+<input name="__tabs_62" type="radio" id="__tab_62_1" />
+<label for="__tab_62_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">peers</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">ipfs</span><span class="p">.</span><span class="nx">peers</span><span class="p">()</span>
 </pre></div></div>
 </div>
@@ -4436,12 +4458,12 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <p>You may also want to check or open a connection to another peer. You can do this by supplying a complete <a href="https://github.com/multiformats/multiaddr">multi-address</a>.</p>
 <p>Try connecting to one of Textile's federated cafe peers:</p>
 <div class="superfences-tabs">
-<input name="__tabs_62" type="radio" id="__tab_62_0" checked="checked" />
-<label for="__tab_62_0">cmd</label>
+<input name="__tabs_63" type="radio" id="__tab_63_0" checked="checked" />
+<label for="__tab_63_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile ipfs swarm connect &quot;/ip4/18.224.173.65/tcp/4001/ipfs/12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d&quot;
 </pre></div></div>
-<input name="__tabs_62" type="radio" id="__tab_62_1" />
-<label for="__tab_62_1">JS HTTP</label>
+<input name="__tabs_63" type="radio" id="__tab_63_1" />
+<label for="__tab_63_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">ipfs</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s2">&quot;/ip4/18.224.173.65/tcp/4001/ipfs/12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
@@ -4455,12 +4477,12 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <h4 id="cat-any-data-on-the-network">Cat any data on the network<a class="headerlink" href="#cat-any-data-on-the-network" title="Permanent link">&para;</a></h4>
 <p>Downloading data behind a path is one of the most useful IPFS APIs. For example, we can "cat" an unencrypted Textile logo into a PNG file:</p>
 <div class="superfences-tabs">
-<input name="__tabs_63" type="radio" id="__tab_63_0" checked="checked" />
-<label for="__tab_63_0">cmd</label>
+<input name="__tabs_64" type="radio" id="__tab_64_0" checked="checked" />
+<label for="__tab_64_0">cmd</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span>textile ipfs cat &quot;QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d&quot; &gt; textile.png
 </pre></div></div>
-<input name="__tabs_63" type="radio" id="__tab_63_1" />
-<label for="__tab_63_1">JS HTTP</label>
+<input name="__tabs_64" type="radio" id="__tab_64_1" />
+<label for="__tab_64_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">logo</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">ipfs</span><span class="p">.</span><span class="nx">cat</span><span class="p">(</span><span class="s2">&quot;QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
