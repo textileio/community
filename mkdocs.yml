@@ -83,6 +83,7 @@ nav:
       - Introduction: concepts/threads/index.md
       - Files: concepts/threads/files.md
     - Cafes: concepts/cafes.md
+    - Search: concepts/search.md
   - Install:
     - The Daemon: install/the-daemon.md
     - Desktop: install/desktop.md

@@ -82,7 +82,7 @@ The orchestration of thread state between peers can be thought of as syncing a g
 
 #### Outbound updates
 
-1. A [blocks](#blocks) describing an update to a thread is signed with the author's private key and encrypted with the thread secret.
+1. A [block](#blocks) describing an update to a thread is signed with the author's private key and encrypted with the thread secret.
 2. The resulting message is then sent over directly to known participants.
 3. If a peer is offline, the message is again encrypted with their public key and delivered to their [cafe inbox(es)](/concepts/cafes/#message-inbox-ing).
 
@@ -94,13 +94,15 @@ The orchestration of thread state between peers can be thought of as syncing a g
 4. [Files](/concepts/threads/files) DAG node referenced by the graph also need to be synced. Sync is handled by first downloading the thread's schema, which contains pinning (storage) instructions for the DAG's inner files.
 5. Finally, a peer may send back an acknowledgment to the author containing _its_ latest graph tip (or HEAD in git terminology) if it believes they have diverged.
 
-## Account Sync
+## Account Threads
 
-[Account peers](/concepts/#account-peers) can instruct each other to create and delete threads. An additional signature is used to handle this on outbound updates, which differentiates account and non-account peer messages.
+[Account peers](/concepts/#account-peers) can instruct each other to create and delete threads by communicating over a special internal _account_ thread. An additional signature is used to handle this on outbound updates, which differentiates account and non-account peer messages.
 
-Additionally, peers are able to search the network for encrypted thread snapshots (metadata and hash of the latest update, usually stored by [#cafes](/concepts/cafes)) created by their account peers. In an effort to stay in sync, peers will perform this search automatically on an interval. Thread snapshots also enable logins from new devices, as the new peer just needs to search for snapshots created by its account.
+The account thread is used to track account peers, profile information, and known contacts. Like normal threads, it is kept in sync between account peers. Read more about account sync [here](/concepts/the-wallet#sync).
 
-Every peer has in internal _account thread_, which is used to track profile information and known contacts. This thread is also kept in sync between account peers.
+## Snapshots
+
+Thread snapshots enable [account sync](/concepts/the-wallet#sync), recovery, and login from new devices. Snapshots are an encrypted representation of a thread. They contain metadata and the latest update hash, which is usually stored by [cafes](/concepts/cafes). Account peers will continuously [search](/concepts/search) for, decrypt, and apply one another's snapshots to their local thread state.
 
 ## Access Control
 
