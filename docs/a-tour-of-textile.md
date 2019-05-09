@@ -2484,7 +2484,7 @@ The value shown in the list is the salted and hashed token. The plaintext versio
 Cafes perform work for their _clients_, which are account peers. Account peers don't _need_ to be registered with a cafe, but doing so has advantages, like improving discovery of its content and providing an inbox for messages received offline. See the [cafe service](https://docs.textile.io/concepts/cafes/#services) section for more about how cafes assist other peers on the network.
 
 !!! tip
-    Textile hosts a development cafe that you are free to use for non-production purposes. More details can be found [here](/concepts/cafe#try-it).
+    Textile hosts a development cafe that you are free to use for non-production purposes. More details can be found [here](/concepts/cafes#try-one).
 
 #### Register with a cafe
 
