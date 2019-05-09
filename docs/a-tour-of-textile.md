@@ -2519,7 +2519,7 @@ Using the token created above, register with your locally running test cafe:
     }
     ```
 
-A new client account associated with the provided token was added to your cafe. Your account peer now has an active cafe _session_ with which it can use to make authenticated requests. Cafe sessions are stateless [JWT](https://jwt.io) objects that can expire.
+A new client account associated with the provided token was added to your cafe. Your account peer now has an active cafe _session_ which it can use to make authenticated requests. Cafe sessions are stateless [JWT](https://jwt.io) objects that can expire.
 
 !!! tip
     An account peer may be registered with more than one cafe, and account peers do not need to be registered to the same cafe(s). Additionally, peers can easily migrate from one cafe to another, simply be deregistering from one and registering with another.
