@@ -28,13 +28,13 @@ examples:
         code: '@todo'
     accept_invite:
       cmd:
-        code: 'textile invites accept "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf" --key="cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd"'
+        code: 'textile invites accept "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf" --key="cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd" --api="http://127.0.0.1:41600"'
     join_chat:
       cmd:
         code: 'textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"'
     join_chat_peer:
       cmd:
-        code: 'textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv" --api="http://localhost:41600"'
+        code: 'textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv" --api="http://127.0.0.1:41600"'
   my_runs:
     add_thread:
       cmd:

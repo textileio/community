@@ -1168,7 +1168,7 @@ Let's share this thread with another user. It was created with type, "public", m
 !!! info
     "Writes" refer to messages and files, whereas "annotations" refer to comments and likes.
 
-For this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer. 
+For this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer.
 
 ```tab="cmd"
 {{core.init.cmd.code}}
@@ -1259,7 +1259,7 @@ Next, we'll pretend that we are the second account and accept the invite. You sh
 23 Apr 19 14:08 PDT  Clyde invited you to join QE5m1qw
 ```
 
-To accept, you'll have to list your pending invites and grab the ID:
+Before you accept, list your pending invites and grab the invite's ID:
 
 ```tab="cmd"
 {{examples.my_runs.ls_invites.cmd.code}}
@@ -1283,7 +1283,7 @@ To accept, you'll have to list your pending invites and grab the ID:
     }
     ```
 
-As expected, looks like Clyde invited us to "My runs". Notice that we had to supply the `--api` flag to tell the command-line client to list invites from the non-default peer API.
+As expected, it looks like Clyde invited us to "My runs". Notice that we had to supply the `--api` flag to tell the command-line client to list invites from the non-default peer API.
 
 !!! tip
     You can avoid the need to use the `--api` when interacting with non-default peer APIs by exporting an environment variable, e.g., `export API="http://127.0.0.1:41600"`.
@@ -1293,6 +1293,7 @@ You _could_ ignore the invite with `textile invites ignore`. However, we like Cl
 ```tab="cmd"
 {{examples.my_runs.accept.cmd.code}}
 ```
+
 ??? success
     ```
     {
@@ -1610,6 +1611,9 @@ Then start the same chat on your second peer:
 ```tab="cmd"
 {{examples.start_a_chat.join_chat_peer.cmd.code}}
 ```
+
+!!! tip
+    Currently, the `chat` command doesn't work with Git Bash on Windows. To open an interactive thread session, run the aforementioned commands in the system shell (`cmd`) or Powershell instead.
 
 ![Clyde having a chat with a friend](/images/chat.png){: .center}
 
@@ -1996,7 +2000,7 @@ You can subscribe to multiple (or all) update types. [Textile Photos](https://te
 
 #### Leave a thread
 
-When you leave a thread, all associated data is deleted from your peer. Additionally, any registered cafes will delete its associated snapshots.
+When you leave a thread, all associated data is deleted from your peer. Additionally, all registered cafes will delete their associated snapshots.
 
 From your second peer, leave the "My runs" thread:
 
@@ -2480,7 +2484,7 @@ The value shown in the list is the salted and hashed token. The plaintext versio
 Cafes perform work for their _clients_, which are account peers. Account peers don't _need_ to be registered with a cafe, but doing so has advantages, like improving discovery of its content and providing an inbox for messages received offline. See the [cafe service](https://docs.textile.io/concepts/cafes/#services) section for more about how cafes assist other peers on the network.
 
 !!! tip
-    Textile hosts a development cafe that you are free to use for non-production purposes. More details can be found [here](/concepts/cafe#try-it).
+    Textile hosts a development cafe that you are free to use for non-production purposes. More details can be found [here](/concepts/cafes#try-one).
 
 #### Register with a cafe
 
@@ -2515,7 +2519,7 @@ Using the token created above, register with your locally running test cafe:
     }
     ```
 
-A new client account associated with the provided token was added to your cafe. Your account peer now has an active cafe _session_ with which it can use to make authenticated requests. Cafe sessions are stateless [JWT](https://jwt.io) objects that can expire.
+A new client account associated with the provided token was added to your cafe. Your account peer now has an active cafe _session_ which it can use to make authenticated requests. Cafe sessions are stateless [JWT](https://jwt.io) objects that can expire.
 
 !!! tip
     An account peer may be registered with more than one cafe, and account peers do not need to be registered to the same cafe(s). Additionally, peers can easily migrate from one cafe to another, simply be deregistering from one and registering with another.
@@ -2571,7 +2575,7 @@ An account peer will periodically check each of its registered cafes for new mes
     ok
     ```
 
-Messages are downloaded in batches and queued for processing.
+Messages are downloaded in batches and queued for processing. This enables cafes to receive messages on an account peer's behalf when it is offline.
 
 #### Unregister with a cafe
 
