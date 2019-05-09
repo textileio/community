@@ -2575,7 +2575,7 @@ An account peer will periodically check each of its registered cafes for new mes
     ok
     ```
 
-Messages are downloaded in batches and queued for processing.
+Messages are downloaded in batches and queued for processing. This enables cafes to receive messages on an account peer's behalf when it is offline.
 
 #### Unregister with a cafe
 
