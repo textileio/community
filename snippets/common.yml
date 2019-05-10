@@ -398,12 +398,12 @@ files:
 cafes:
   tokens_create:
     cmd:
-      code: 'textile tokens create'
+      code: 'textile tokens create --api="http://127.0.0.1:41600"'
     js_http_client:
       code: 'const token = await textile.tokens.create()'
   tokens_list:
     cmd:
-      code: 'textile tokens ls'
+      code: 'textile tokens ls --api="http://127.0.0.1:41600"'
     js_http_client:
       code: 'const tokens = await textile.tokens.list()'
   add:

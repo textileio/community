@@ -1134,6 +1134,9 @@ Next, add some locations to your thread:
     Added 1 file in 534.774123ms
     ```
 
+!!! info
+    On Windows, exclude the wrapping single quotes (`'`) on JSON objects when adding to a thread with the command-line client.
+
 Your peer will validate the input against the thread's schema. The input will _also_ be validated against its embedded JSON schema (schemas within schemas!). Try adding a location with latitude great than 90, which is invalid:
 
 ```tab="cmd"
@@ -1247,6 +1250,9 @@ Now that you have two peers running, invite the new account to your "My runs" th
     added P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
     ok
     ```
+
+!!! Note
+    You may have to make a couple attempts to send the invite because your second peer is probably not yet very well connected to the network.
 
 This new account is not an existing contact. So, your peer will ask the network for its contact info. You can confirm that, yes, you'd like to add this account to your local contacts and send it an invite to your thread.
 
