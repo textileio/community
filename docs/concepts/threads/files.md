@@ -1,10 +1,10 @@
-Any data added to a thread ends up as a _file_. Most of the time, a [schema](#schemas) is used to define one or more types of data in a thread such that it can be understood by other users and applications. Currently, the following input types are available: Raw data blobs, images, exif data, and JSON documents.
+Any data added to a thread ends up as a _file_. Most of the time, a [schema](#schemas) is used to define one or more types of data in a thread such that other users and applications can understand it. Currently, the following input types are available: Raw data blobs, images, EXIF data, and JSON documents.
 
 ## Structure
 
 Thread data is built into an [IPLD](https://ipld.io/) merkle DAG structure (similar to a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)) and stored separately from update [blocks](/concepts/threads#blocks) on IPFS. A `FILES` block points to the top-level hash of a files DAG node.
 
-The structure files DAGs are determined by, and validated against, a [schema](#schemas). **A thread can have only one schema**. It has two main functions:
+The structure of files DAG nodes are determined by, and validated against, a [schema](#schemas). **A thread can have only one schema**. It has two main functions:
 
 1. Define a Thread's data DAG structure
 2. Define the order of _mills_ (transforms) needed to produce this structure from the input

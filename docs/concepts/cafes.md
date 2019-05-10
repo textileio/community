@@ -17,7 +17,7 @@ Very often, a peer is not online or is otherwise unreachable and therefore unabl
 
 ### User account indexing
 
-Textile provides tooling for certain types of network-wide queries, like user account search. Changes to a peer's public-facing [contact](/concepts/contacts) is indexed and made query-able by its cafes. So, while you do not need to be registered with a cafe in order to leverage these queries, doing so may increase your chances of being discovered by others, assuming you local peer is periodically offline.
+Textile provides tooling for certain types of [network-wide queries](/concepts/search), like user account search. Changes to a peer's public-facing [contact](/concepts/contacts) are indexed and made query-able by its cafes. So, while you do not need to be registered with a cafe in order to leverage these queries, doing so may increase your chances of being discovered by others, assuming you local peer is periodically offline.
 
 ### Web endpoints
 
@@ -42,7 +42,7 @@ Cafes are easy to deploy and manage (single executable, Docker). Start [here](/i
 Textile hosts a [development cafe](https://us-west-dev.textile.cafe/) that you are free to use for non-production purposes.
 
 !!! danger
-    Use the dev cafe at your own risk. Your data may get lost without notice.
+    Use the dev cafe at your own risk. Your data may be deleted without notice.
 
 Connection details:
 

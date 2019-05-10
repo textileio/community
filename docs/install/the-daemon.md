@@ -42,6 +42,8 @@ The first step is to create a new [wallet](/concepts/the-wallet).
 
 Textile uses a hierarchical deterministic (HD) wallet to derive account keys from a set of unique words, called a [mnemonic phrase](https://en.bitcoin.it/wiki/Seed_phrase).
 
+Initialize a wallet with the command-line client (this will _not_ persist anything to your filesystem):
+
     textile wallet init
 
 This will output something like,

@@ -2,7 +2,7 @@ core:
   setup:
     js_http_client:
       code: |
-            // no initialization needed, only import
+            // No initialization needed, only import
             import textile from "@textile/js-http-client"
     react_native:
       code: |
@@ -19,9 +19,13 @@ core:
   logs:
     cmd:
       code: 'textile logs'
+    js_http_client:
+      code: 'const levels = await textile.logs.get()'
   logs_text_only:
     cmd:
-      code: 'textile logs --tex-only --level="info"'
+      code: 'textile logs --level="info" --tex-only'
+    js_http_client:
+      code: 'const levels = await textile.logs.set("info", undefined, true)'
   init:
     cmd:
       code: 'textile init --seed="$(textile wallet init | tail -n1)" --repo-dir="/tmp/buddy" --swarm-ports="4101" --api-bind-addr="127.0.0.1:41600" --gateway-bind-addr="127.0.0.1:5150"'
@@ -40,7 +44,7 @@ core:
     cmd:
       code: 'textile summary'
     js_http_client:
-      code: '@todo'
+      code: 'const summary = await textile.utils.summary()'
     react_native:
       code: 'const summary = await textile.summary()'
     ios:
@@ -51,23 +55,46 @@ core:
     cmd:
       code: 'textile ping 12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d'
     js_http_client:
-      code: '@todo'
+      code: 'await textile.utils.ping("12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d")'
     react_native:
       code: '@todo'
     ios:
       code: '@todo'
     android:
       code: '@todo'
+  config:
+    cmd:
+      code: 'textile config "Addresses"'
+    js_http_client:
+      code: 'const config = await textile.config.get("Addresses")'
+  config_set:
+    cmd:
+      code: 'textile config "Addresses.Gateway" \"127.0.0.1:9090\"'
+    js_http_client:
+      code: 'const config = await textile.config.set("Addresses.Gateway", "127.0.0.1:9090")'
 subscribe:
   files:
     cmd:
       code: 'textile subscribe --type="files"'
     js_http_client:
       code: |
-            textile.subscribe.stream("files")
-              .then((file) => {
-                // new file!
-              })
+            // The js-http-client returns a `ReadableStream` to be accessed by the caller
+            // See https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream for details
+            const stream = await textile.subscribe.stream("files")
+            const reader = stream.getReader()
+            const read = (result) => { // ReadableStreamReadResult<FeedItem>
+              if (result.done) {
+                return
+              }
+              try {
+                console.log(result.value)  
+              } catch (err) {
+                reader.cancel(undefined)
+                return
+              }
+              read(await reader.read())
+            }
+            read(await reader.read())
     react_native:
       code: |
             textile.events.addThreadUpdateReceivedListener((update) => {
@@ -108,7 +135,7 @@ profile:
     cmd:
       code: 'textile profile get'
     js_http_client:
-      code: await textile.profile.get()
+      code: 'const profile = await textile.profile.get()'
     react_native:
       code: 'const profile = await textile.profile.get()'
     ios:
@@ -144,7 +171,10 @@ profile:
     cmd:
       code: 'textile profile set avatar "path/to/an/image"'
     js_http_client:
-      code: 'await textile.profile.setAvatar("<image-hash>")'
+      code: |
+            const form = new FormData()
+            form.append('file', file, file.name) // file is File object or raw Buffer/Blob
+            await textile.profile.setAvatar(form)
     react_native:
       code: 'await textile.profile.setAvatar("<image-hash>")'
     ios:
@@ -156,7 +186,7 @@ account:
     cmd:
       code: 'textile account get'
     js_http_client:
-      code: 'await textile.account.get()'
+      code: 'const account = await textile.account.get()'
     react_native:
       code: |
             // React native has endpoints for each component of the account
@@ -169,7 +199,7 @@ account:
     cmd:
       code: 'textile account seed'
     js_http_client:
-      code: 'await textile.account.seed()'
+      code: 'const seed = await textile.account.seed()'
     react_native:
       code: 'const seed = await textile.account.seed()'
     ios:
@@ -193,7 +223,10 @@ contacts:
     cmd:
       code: 'textile contacts search --name="Andrew"'
     js_http_client:
-      code: 'await textile.contacts.search("Andrew")'
+      code: |
+            // The js-http-client returns a `ReadableStream` to be accessed by the caller
+            // See https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream for details
+            const stream = await textile.contacts.search("Andrew")
     react_native:
       code: '@todo'
     ios:
@@ -205,7 +238,9 @@ contacts:
     cmd:
       code: 'textile contacts search --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"'
     js_http_client:
-      code: 'await textile.contacts.search(undefined, "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
+      code: |
+            // Again, `stream` is a `ReadableStream` to be accessed by the caller
+            const stream = await textile.contacts.search(undefined, "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")
     react_native:
       code: '@todo'
     ios:
@@ -217,7 +252,9 @@ contacts:
     cmd:
       code: 'textile contacts add --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"'
     js_http_client:
-      code: 'await textile.contacts.add("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
+      code: |
+            const contact = ... // Should be a Contact object, as returned by `search` `ReadableStream`
+            await textile.contacts.add("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG", contact)
     react_native:
       code: '@todo'
     ios:
@@ -293,7 +330,9 @@ threads:
     cmd:
       code: 'textile threads add "Any old data" --blob'
     js_http_client:
-      code: 'await textile.threads.add("Any old data", "blob")'
+      code: |
+            const blob = (await textile.schemas.defaults()).blob
+            const thread = await textile.threads.add("Any old data", blob)
     react_native:
       code: '@todo'
     ios:
@@ -318,7 +357,7 @@ files:
     cmd:
       code: 'echo "mmm, bytes..." | textile files add --thread="12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"'
     js_http_client:
-      code: 'await textile.files.add("mmm, bytes...", "", "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")'
+      code: 'const block = await textile.files.add("mmm, bytes...", "", "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")'
     react_native:
       code: |
             const input = Buffer.from("mmm, bytes...").toString('base64')
@@ -333,7 +372,8 @@ files:
       code: 'textile files add "~/Downloads/william-milliot-510766-unsplash.jpg" --caption="Dog at work." --thread="12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq"'
     js_http_client:
       code: |
-            const base64ImageString = "R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABA...."
+            const form = new FormData()
+            form.append('file', file, file.name) // file is File object or raw Buffer/Blob or even fs.createReadStream() in Node.js
             await textile.files.add(base64ImageString, "Dog at work", "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq")'
     react_native:
       code: |
@@ -355,3 +395,57 @@ files:
       code: '@todo'
     android:
       code: '@todo'
+cafes:
+  tokens_create:
+    cmd:
+      code: 'textile tokens create'
+    js_http_client:
+      code: 'const token = await textile.tokens.create()'
+  tokens_list:
+    cmd:
+      code: 'textile tokens ls'
+    js_http_client:
+      code: 'const tokens = await textile.tokens.list()'
+  add:
+    cmd:
+      code: 'textile cafes add "http://127.0.0.1:40601" --token="bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"'
+    js_http_client:
+      code: |
+            const token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
+            const success = await textile.cafes.add("http://127.0.0.1:40601", token)
+  list:
+    cmd:
+      code: 'textile cafes ls'
+    js_http_client:
+      code: 'const sessions = await textile.cafes.list()'
+  messages:
+    cmd:
+      code: 'textile cafes messages'
+    js_http_client:
+      code: 'const success = await textile.cafes.messages()'
+  remove:
+    cmd:
+      code: 'textile cafes rm "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV"'
+    js_http_client:
+      code: 'const success = await textile.cafes.remove("12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV")'
+ipfs:
+  peer_id:
+    cmd:
+      code: 'textile ipfs id'
+    js_http_client:
+      code: 'const id = await textile.ipfs.id()'
+  swarm_peers:
+    cmd:
+      code: 'textile ipfs swarm peers'
+    js_http_client:
+      code: 'const peers = await textile.ipfs.peers()'
+  swarm_connect:
+    cmd:
+      code: 'textile ipfs swarm connect "/ip4/18.224.173.65/tcp/4001/ipfs/12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d"'
+    js_http_client:
+      code: 'const success = await textile.ipfs.connect("/ip4/18.224.173.65/tcp/4001/ipfs/12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d")'
+  cat:
+    cmd:
+      code: 'textile ipfs cat "QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d" > textile.png'
+    js_http_client:
+      code: 'const logo = await textile.ipfs.cat("QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d")'

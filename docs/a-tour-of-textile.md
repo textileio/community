@@ -77,7 +77,8 @@ Now, with Textile ready, take a look at your peer profile:
 - `id`: Your embedded IPFS node's peer ID, which is unique on the network
 - `address`: Your wallet account's address (public key), which can be shared with other account peers
 
-Addresses always start with a "P" for "public". Account _seeds_ (private keys) always start with an "S" for "secret", which should help you remember which one to keep secret.
+!!! hint
+    Addresses always start with a "P" for "public". Account _seeds_ (private keys) always start with an "S" for "secret", which should help you remember which one to keep secret.
 
 !!! info
     Textile uses an [ed25519](https://ed25519.cr.yp.to/) [HD wallet](https://en.bitcoinwiki.org/wiki/Deterministic_wallet) and IPFS peer IDs because they provide fast key generation, signing, and verification. These properties become important on less powerful devices like phones.
@@ -140,7 +141,7 @@ Similarly, you can assign your peer a publicly visible avatar image:
     ok
     ```
 
-Now, your avatar will be tracked internally by the special private _account thread_, keyed with your account seed. This means that when your avatar (or display name) is updated, your other account peers (if you have any) will also pick up the change.
+Now, your avatar will be tracked internally by the special private [_account thread_](/concepts/threads#account-threads), keyed with your account seed. This means that when your avatar (or display name) is updated, your other account peers (if you have any) will also pick up the change.
 
 Take another look at your peer profile and see what happened:
 
@@ -182,7 +183,7 @@ Huzzah! If we had any threads, these updates would have been announced to them s
 
 Generally speaking, you can think of peers as ephemeral agents owned by your account. You may lose your device and/or need to access your account on a new one.
 
-As mentioned above, all peers have a special private _account_ thread. In addition to avatars, this thread keeps track of your account peers.
+As mentioned above, all peers have a special private [_account_ thread](/concepts/threads#account-threads). In addition to avatars, this thread keeps track of your account peers.
 
 #### View account
 
@@ -260,10 +261,10 @@ Of course, your account seed (private key) is not included in the public-facing 
 
 #### Account sync
 
-Periodically, your local peer will search the network for other peers that are part of the same account (account peers). Technically, your local peer will search for thread _snapshots_ created by any peer with your account address. If it finds any, the snapshots are decrypted and traversed like normal thread updates, keeping all your peers in sync.
+Periodically, your local peer will search the network for other peers that are part of the same account ([account peers](/concepts/#account-peers)). Technically, your local peer will search for thread [_snapshots_](/concepts/threads#snapshots) created by any peer with your account address. If it finds any, the snapshots are decrypted and traversed like normal thread updates, keeping all your peers in sync.
 
 !!! hint
-    A thread _snapshot_ is an encrypted object containing metadata and a reference to the latest update block, from which all others can be found. A snapshot may be stored at rest on a cafe peer or constructed dynamically for an account peer.
+    A thread [_snapshot_](/concepts/threads#snapshots) is an encrypted object containing metadata and a reference to the latest update block, from which all others can be found. A snapshot may be stored at rest on a cafe peer or constructed dynamically for an account peer.
 
 You can also manually run account sync:
 
@@ -618,7 +619,7 @@ The output shows metadata about the thread you just created, with a reference to
 
 #### Add a text message
 
-Any thread can take a plain old text message. Later, we'll use these with an interactive chat session.
+Any thread can take a plain old text message. Later, we'll use these with an interactive chat session. **Be sure to replace the thread parameter with the ID of the thread you generated in the last step.**
 
 ```tab="cmd"
 {{messages.add.cmd.code}}
@@ -849,7 +850,7 @@ Let's try adding the _same_ data again:
     Added 1 file in 138.218899ms
     ```
 
-Notice that the file target **did not change**. The peer was able to reuse the node from the prior add because it detected the same data added multiple times via the same schema. This means that the input was _not_ duplicated on the peer, even though it was encrypted non-deterministically.
+Notice that the file target **did not change**. The peer was able to reuse the node from the prior addition because it detected that the same data was added via the same schema. This means that the input was _not_ duplicated on the peer, even though it was encrypted non-deterministically.
 
 !!! info
     Good encryption is always non-deterministic, which means that re-encrypting the same input will always result in a _different_ output.
@@ -1167,7 +1168,7 @@ Let's share this thread with another user. It was created with type, "public", m
 !!! info
     "Writes" refer to messages and files, whereas "annotations" refer to comments and likes.
 
-For this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer. 
+For this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer.
 
 ```tab="cmd"
 {{core.init.cmd.code}}
@@ -1258,7 +1259,7 @@ Next, we'll pretend that we are the second account and accept the invite. You sh
 23 Apr 19 14:08 PDT  Clyde invited you to join QE5m1qw
 ```
 
-To accept, you'll have to list your pending invites and grab the ID:
+Before you accept, list your pending invites and grab the invite's ID:
 
 ```tab="cmd"
 {{examples.my_runs.ls_invites.cmd.code}}
@@ -1282,7 +1283,7 @@ To accept, you'll have to list your pending invites and grab the ID:
     }
     ```
 
-As expected, looks like Clyde invited us to "My runs". Notice that we had to supply the `--api` flag to tell the command-line client to list invites from the non-default peer API.
+As expected, it looks like Clyde invited us to "My runs". Notice that we had to supply the `--api` flag to tell the command-line client to list invites from the non-default peer API.
 
 !!! tip
     You can avoid the need to use the `--api` when interacting with non-default peer APIs by exporting an environment variable, e.g., `export API="http://127.0.0.1:41600"`.
@@ -1292,6 +1293,7 @@ You _could_ ignore the invite with `textile invites ignore`. However, we like Cl
 ```tab="cmd"
 {{examples.my_runs.accept.cmd.code}}
 ```
+
 ??? success
     ```
     {
@@ -1609,6 +1611,9 @@ Then start the same chat on your second peer:
 ```tab="cmd"
 {{examples.start_a_chat.join_chat_peer.cmd.code}}
 ```
+
+!!! tip
+    Currently, the `chat` command doesn't work with Git Bash on Windows. To open an interactive thread session, run the aforementioned commands in the system shell (`cmd`) or Powershell instead.
 
 ![Clyde having a chat with a friend](/images/chat.png){: .center}
 
@@ -1995,7 +2000,7 @@ You can subscribe to multiple (or all) update types. [Textile Photos](https://te
 
 #### Leave a thread
 
-When you leave a thread, all associated data is deleted from your peer. Additionally, any registered cafes will delete its associated snapshots.
+When you leave a thread, all associated data is deleted from your peer. Additionally, all registered cafes will delete their associated snapshots.
 
 From your second peer, leave the "My runs" thread:
 
@@ -2265,7 +2270,11 @@ When your peer starts, it loads a JSON [config file](/the-config-file) from the 
 We can view the entire config or a specific value behind any JSON key. Try viewing the "Addresses" config:
 
 ```tab="cmd"
-textile config "Addresses"
+{{core.config.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{core.config.js_http_client.code}}
 ```
 
 ???+ success
@@ -2284,7 +2293,11 @@ textile config "Addresses"
 Changing values follows the same pattern. We can update our second peer's gateway bind address as follows:
 
 ```tab="cmd"
-textile config "Addresses.Gateway" \"127.0.0.1:9090\"
+{{core.config_set.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{core.config_set.js_http_client.code}}
 ```
 
 ???+ success
@@ -2315,6 +2328,10 @@ You should now see the new gateway bind address in the config:
 
 ```tab="cmd"
 textile config
+```
+
+```JavaScript tab="JS HTTP"
+const config = await textile.config.get()
 ```
 
 ??? success
@@ -2429,7 +2446,11 @@ In order for clients to register with your cafe, they'll need one of its _client
 Create a token as follows:
 
 ```tab="cmd"
-textile tokens create
+{{cafes.tokens_create.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{cafes.tokens_create.js_http_client.code}}
 ```
 
 ???+ success
@@ -2442,7 +2463,11 @@ textile tokens create
 View the cafe's client tokens with the `ls` command:
 
 ```tab="cmd"
-textile tokens ls
+{{cafes.tokens_list.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{cafes.tokens_list.js_http_client.code}}
 ```
 
 ???+ success
@@ -2459,14 +2484,18 @@ The value shown in the list is the salted and hashed token. The plaintext versio
 Cafes perform work for their _clients_, which are account peers. Account peers don't _need_ to be registered with a cafe, but doing so has advantages, like improving discovery of its content and providing an inbox for messages received offline. See the [cafe service](https://docs.textile.io/concepts/cafes/#services) section for more about how cafes assist other peers on the network.
 
 !!! tip
-    Textile hosts a development cafe that you are free to use for non-production purposes. More details can be found [here](/concepts/cafe#try-it).
+    Textile hosts a development cafe that you are free to use for non-production purposes. More details can be found [here](/concepts/cafes#try-one).
 
 #### Register with a cafe
 
 Using the token created above, register with your locally running test cafe:
 
 ```tab="cmd"
-textile cafes add "http://127.0.0.1:40601" --token="bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
+{{cafes.add.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{cafes.add.js_http_client.code}}
 ```
 
 ???+ success
@@ -2490,7 +2519,7 @@ textile cafes add "http://127.0.0.1:40601" --token="bYJLFjHsRsZjdzEwC2pJwQthmfYb
     }
     ```
 
-A new client account associated with the provided token was added to your cafe. Your account peer now has an active cafe _session_ with which it can use to make authenticated requests. Cafe sessions are stateless [JWT](https://jwt.io) objects that can expire.
+A new client account associated with the provided token was added to your cafe. Your account peer now has an active cafe _session_ which it can use to make authenticated requests. Cafe sessions are stateless [JWT](https://jwt.io) objects that can expire.
 
 !!! tip
     An account peer may be registered with more than one cafe, and account peers do not need to be registered to the same cafe(s). Additionally, peers can easily migrate from one cafe to another, simply be deregistering from one and registering with another.
@@ -2500,7 +2529,11 @@ A new client account associated with the provided token was added to your cafe. 
 You can view your active cafe sessions with the `ls` command:
 
 ```tab="cmd"
-textile cafes ls
+{{cafes.list.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{cafes.list.js_http_client.code}}
 ```
 
 ??? success
@@ -2530,7 +2563,11 @@ textile cafes ls
 An account peer will periodically check each of its registered cafes for new messages received by the cafe on its behalf. You can also manually check for messages:
 
 ```tab="cmd"
-textile cafes messages
+{{cafes.messages.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{cafes.messages.js_http_client.code}}
 ```
 
 ???+ success
@@ -2538,14 +2575,18 @@ textile cafes messages
     ok
     ```
 
-Messages are downloaded in batches and queued for processing.
+Messages are downloaded in batches and queued for processing. This enables cafes to receive messages on an account peer's behalf when it is offline.
 
 #### Unregister with a cafe
 
 You can leave a cafe at any time. Data associated with your client account will be removed.
 
 ```tab="cmd"
-textile cafes rm "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV"
+{{cafes.remove.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{cafes.remove.js_http_client.code}}
 ```
 
 ??? success
@@ -2565,7 +2606,11 @@ The Textile API exposes a handful of the more useful IPFS endpoints. For the com
 At some point, you will want to view your IPFS peer ID. This is the same ID shown in your contact and profile info and printed by the daemon on startup:
 
 ```tab="cmd"
-textile ipfs id
+{{ipfs.peer_id.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{ipfs.peer_id.js_http_client.code}}
 ```
 
 ???+ success
@@ -2582,7 +2627,11 @@ Check out [this post](https://medium.com/textileio/how-ipfs-peer-nodes-identify-
 Your peer is always communicating, or "gossiping", with a changing sub-set of other peers on the IPFS network called a "swarm". You can view that swarm at any time. It should be relatively large at this point since your peer has been "online" for awhile.
 
 ```tab="cmd"
-textile ipfs swarm peers
+{{ipfs.swarm_peers.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{ipfs.swarm_peers.js_http_client.code}}
 ```
 
 ??? success
@@ -2858,7 +2907,11 @@ You may also want to check or open a connection to another peer. You can do this
 Try connecting to one of Textile's federated cafe peers:
 
 ```tab="cmd"
-textile ipfs swarm connect "/ip4/18.224.173.65/tcp/4001/ipfs/12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d"
+{{ipfs.swarm_connect.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{ipfs.swarm_connect.js_http_client.code}}
 ```
 
 ???+ success
@@ -2875,7 +2928,11 @@ See the [IPFS doc](https://docs.ipfs.io/reference/api/cli/#ipfs-swarm-connect) f
 Downloading data behind a path is one of the most useful IPFS APIs. For example, we can "cat" an unencrypted Textile logo into a PNG file:
 
 ```tab="cmd"
-textile ipfs cat "QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d" > textile.png
+{{ipfs.cat.cmd.code}}
+```
+
+```JavaScript tab="JS HTTP"
+{{ipfs.cat.js_http_client.code}}
 ```
 
 ???+ success

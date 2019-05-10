@@ -28,19 +28,21 @@ examples:
         code: '@todo'
     accept_invite:
       cmd:
-        code: 'textile invites accept "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf" --key="cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd"'
+        code: 'textile invites accept "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf" --key="cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd" --api="http://127.0.0.1:41600"'
     join_chat:
       cmd:
         code: 'textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"'
     join_chat_peer:
       cmd:
-        code: 'textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv" --api="http://localhost:41600"'
+        code: 'textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv" --api="http://127.0.0.1:41600"'
   my_runs:
     add_thread:
       cmd:
         code: 'textile threads add "My runs" --schema-file "~/Downloads/location.json" --type="public" --sharing="invite_only"'
       js_http_client:
-        code: 'await textile.threads.add("My runs", JSON.stringify(locations), undefined, "public", "invite_only")'
+        code: |
+              const locations = (await fetch("location.json")).json()
+              const thread = await textile.threads.add("My runs", locations, undefined, "public", "invite_only")
       react_native:
         code: '@todo'
       ios:
@@ -112,7 +114,7 @@ examples:
       cmd:
         code: 'textile feed --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"'
       js_http_client:
-        code: 'await textile.feed.get("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
+        code: 'await textile.feed.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
         code: 'await textile.feed.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       ios:
@@ -121,9 +123,9 @@ examples:
         code: '@todo'
     add_location_data:
       cmd:
-        code: "echo '{ \"latitude\": 48.858093, \"longitude\": 2.294694 }' | textile files add --thread=\"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\"'"
+        code: "echo '{ \"latitude\": 48.858093, \"longitude\": 2.294694 }' | textile files add --thread=12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
       js_http_client:
-        code: 'await textile.files.add(JSON.stringify({ \"latitude\": 48.858093, \"longitude\": 2.294694 }), "", "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
+        code: 'await textile.files.add({ latitude: 48.858093, longitude: 2.294694 }, "", "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
         code: |
               const input = Buffer.from(JSON.stringify({ "latitude": 48.858093, "longitude": 2.294694 }).toString('base64')
@@ -137,7 +139,7 @@ examples:
       cmd:
         code: "echo '{ \"latitude\": 91, \"longitude\": 2.294694 }' | textile files add --thread=\"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\"'"
       js_http_client:
-        code: 'await textile.files.add(JSON.stringify({ \"latitude\": 91, \"longitude\": 2.294694 }), "", "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
+        code: 'await textile.files.add({ latitude: 91, longitude: 2.294694 }, "", "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
         code: |
               const input = Buffer.from(JSON.stringify({ "latitude": 91, "longitude": 2.294694 }).toString('base64')

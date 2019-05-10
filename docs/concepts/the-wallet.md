@@ -1,37 +1,40 @@
-A Textile 'wallet' is a core component of the Textile system. A wallet is represented by mnemonic phrase, and in practice is a [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) Hierarchical [Deterministic Wallet](https://en.bitcoin.it/wiki/Deterministic_wallet) based on Stellar's implementation of [SLIP-0010](https://github.com/satoshilabs/slips/blob/master/slip-0010.md). You can learn more about BIP39 mnemonics and more in this really nice [interactive webpage](https://iancoleman.io/bip39/). You can think of a wallet as a master key, and the account (see [accounts](/concepts/the-wallet#Accounts)) represent keys specific to a given application or use-case. Any given wallet may create an arbitrary number of accounts. For example, you may use a wallet to provision multiple Textile Photos 'accounts', each with a completely different persona if you so choose. This provides a powerful framework 'partitioning' use cases. It is also the backbone for enabling account backup and recovery.
+Textile uses a hierarchical deterministic (HD) wallet to derive account keys from a set of unique words, called a [mnemonic phrase](https://en.bitcoin.it/wiki/Seed_phrase).
 
-From the command-line, a new wallet can be generated with the `textile wallet init` command. The output produces a simple, multi-word 'phrase' (of varying levels of entropy) useful for the generation of deterministic binary seeds. Textile currently supports 12, 15, 18, 21, or 24 'words'.
+![Textile account key derivation from a BIP39 mnemonic.](/images/wallet.png){: .center}
 
-```
-$textile wallet init
------------------------------------------------------------------------
-| blah blah blah blade blah blah blah blah blah blah blah blah |
------------------------------------------------------------------------
-WARNING! Store these words above in a safe place!
-WARNING! If you lose your words, you will lose access to data in all derived accounts!
-WARNING! Anyone who has access to these words can access your wallet accounts!
+Every account seed "inside" the wallet can be derived from this mnemonic phrase. Meaning that the wallet effectively _is_ the mnemonic phrase. Any given wallet may create an arbitrary number of accounts. For example, a single wallet can be used to provision multiple Textile Photos "accounts", each with a completely different persona. This provides a powerful partitioning framework.
 
-Use: `wallet accounts` command to inspect more accounts.
+Textile _account seeds_ (private keys) always starts with an "S" for "secret" and _account addresses_ (public keys) always start with a "P" for "public".
 
---- ACCOUNT 0 ---
-blahblahblahblahblahblahblahblahblahblahblahblah
-blahblahblahblahblahblahblahblahblahblahblahblah
-```
+!!! hint
+    Peer initialization **does not** (by design) use the whole wallet, just one account seed. Users and applications are free to use any seed from their wallet, but most use cases will just make use of the seed from the default account, or _account 0_.
+    
+    This BIP39 mnemonic explorer can be helpful when learning about HD wallets: https://iancoleman.io/bip39/.
+
+The current implementation is a [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) Hierarchical [Deterministic Wallet](https://en.bitcoin.it/wiki/Deterministic_wallet) based on Stellar's implementation of [SLIP-0010](https://github.com/satoshilabs/slips/blob/master/slip-0010.md).
+
+See the [daemon installation section](/install/the-daemon/#create-a-new-wallet) for a guide to generating a wallet with the command-line client.
+
+### Clients
+
+Generating and interacting with a wallet are capabilities separate from the core peer API. Below is a list of clients that are currently able to generate and interact with wallets.
+
+- The command-line client via the [`wallet`](/clients/command-line/#wallet) subcommand
+- [js-wallet](https://github.com/textileio/js-wallet)
+- [ios-textile](https://github.com/textileio/ios-textile/blob/master/Textile/Classes/TextileApi.m)
+- [android-textile](https://github.com/textileio/android-textile/blob/master/textile/src/main/java/io/textile/textile/Textile.java)
 
 ## Accounts
 
-Accounts are generated via the wallet pass-phrase (as above) and are an [Ed25519](https://ed25519.cr.yp.to/) public/private keypair used to sign backups, provision libp2p identities, etc. Textile uses Ed25519 here because it's fast, compact, secure, and widely used. See the [EdDSA Wikipedia page](https://en.wikipedia.org/wiki/EdDSA) for more details.
+Account seeds and their public addresses are generated via the wallet pass-phrase. Textile uses [ed25519](https://ed25519.cr.yp.to/) keys because they provide fast key generation, signing, and verification. These properties become important on less powerful devices like phones.
 
-From the command-line, a new account can be generated with the `textile wallet accounts` command. The output produces a new account address and key (see `textile wallet accounts --help` for details). Multiple accounts can be provisioned at once, to any arbitrary depth. An offset can also be supplied.
+### Sync
 
-```
-$textile wallet accounts "blah blah ... blah blah -d 2 -o 1
---- ACCOUNT 1 ---
-blahblahblahblahblahblahblahblahblahblahblahblah
-blahblahblahblahblahblahblahblahblahblahblahblah
---- ACCOUNT 2 ---
-blahblahblahblahblahblahblahblahblahblahblahblah
-blahblahblahblahblahblahblahblahblahblahblahblah
-```
+Peers that are backed by the same account are called [_account peers_](/concepts/#account-peers). Account peers will automatically stay in sync. They are able to instruct one another to create and delete threads. Additionally, they will continuously search the network for each other's encrypted thread [snapshots](/concepts/threads#snapshots) (metadata and the latest update hash, usually stored by [cafes](/concepts/cafes)). Learn how search works [here](/concepts/search).
+
+!!! info
+    Thread [snapshots](/concepts/threads#snapshots) also enable logins from new devices, as the new peer just needs to search for snapshots created by its account.
+
+Every peer has in internal _account thread_, which is used to track account peers, profile information, and known contacts. Read more about account threads [here](/concepts/threads/#account-threads).
 
 <br>
