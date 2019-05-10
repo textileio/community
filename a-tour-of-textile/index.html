@@ -2724,6 +2724,10 @@ Added 1 file in 534.774123ms
 </pre></div>
 
 </details>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>On Windows, exclude the wrapping single quotes (<code>'</code>) on JSON objects when adding to a thread with the command-line client.</p>
+</div>
 <p>Your peer will validate the input against the thread's schema. The input will <em>also</em> be validated against its embedded JSON schema (schemas within schemas!). Try adding a location with latitude great than 90, which is invalid:</p>
 <div class="superfences-tabs">
 <input name="__tabs_25" type="radio" id="__tab_25_0" checked="checked" />
@@ -2840,6 +2844,10 @@ ok
 </pre></div>
 
 </details>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may have to make a couple attempts to send the invite because your second peer is probably not yet very well connected to the network.</p>
+</div>
 <p>This new account is not an existing contact. So, your peer will ask the network for its contact info. You can confirm that, yes, you'd like to add this account to your local contacts and send it an invite to your thread.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
@@ -4014,7 +4022,7 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <div class="superfences-tabs">
 <input name="__tabs_55" type="radio" id="__tab_55_0" checked="checked" />
 <label for="__tab_55_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile tokens create
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile tokens create --api=&quot;http://127.0.0.1:41600&quot;
 </pre></div></div>
 <input name="__tabs_55" type="radio" id="__tab_55_1" />
 <label for="__tab_55_1">JS HTTP</label>
@@ -4030,7 +4038,7 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <div class="superfences-tabs">
 <input name="__tabs_56" type="radio" id="__tab_56_0" checked="checked" />
 <label for="__tab_56_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile tokens ls
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile tokens ls --api=&quot;http://127.0.0.1:41600&quot;
 </pre></div></div>
 <input name="__tabs_56" type="radio" id="__tab_56_1" />
 <label for="__tab_56_1">JS HTTP</label>
