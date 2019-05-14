@@ -85,10 +85,12 @@ nav:
     - Cafes: concepts/cafes.md
     - Search: concepts/search.md
   - Connectors:
+    - Introduction: connectors/index.md
     - Images & Media: connectors/images/index.md
   - Install:
     - The Daemon: install/the-daemon.md
     - Desktop: install/desktop.md
+    - Apps: install/apps.md
   - Develop:
     - Clients:
       - Command-line: develop/clients/command-line.md

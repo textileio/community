@@ -331,8 +331,31 @@ threads:
       code: 'textile threads add "Any old data" --blob'
     js_http_client:
       code: |
-            const blob = (await textile.schemas.defaults()).blob
-            const thread = await textile.threads.add("Any old data", blob)
+            const thread = await textile.threads.add("Any old data", 'blob')
+    react_native:
+      code: '@todo'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  cameraroll_add:
+    cmd:
+      code: 'textile threads add "New Shots" --cameraRoll'
+    js_http_client:
+      code: |
+            const thread = await textile.threads.add("New Shots", 'cameraRoll')
+    react_native:
+      code: '@todo'
+    ios:
+      code: '@todo'
+    android:
+      code: '@todo'
+  media_add:
+    cmd:
+      code: 'textile threads add "New Shares" --media'
+    js_http_client:
+      code: |
+            const thread = await textile.threads.add("New Shares", 'media')
     react_native:
       code: '@todo'
     ios:

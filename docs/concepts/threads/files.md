@@ -250,6 +250,15 @@ JSON-based schemas are defined using the `json_schema` property:
 
 Simply embed your [JSON Schema](https://json-schema.org/) within the thread schemas.
 
+### Encryption
+
+All threads blocks are encrypted no matter the thread schema. However, apps have the ability to include encrypted or unencypted raw file content in each of the thread posts. 
+
+**Encrypted file content** is the default. If you want file content in your threads to be encrypted then you don't need to do anything more. If you ever need to decrypt a file outside of a Textile peer, [see the decrypting gateway](http://localhost:8000/develop/ipfs-gateway/#decrypt-thread-files).
+
+**Unencrypted file content** can be created by creating threads using schemas where `"plaintext": true`, like the example given above. Setting the plaintext option to true will keep your thread's blocks encrypted, but the file content in each block will be open. 
+
+
 ### Examples
 
 #### A "Person"
