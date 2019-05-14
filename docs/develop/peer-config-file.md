@@ -15,7 +15,7 @@ type Config struct {
 }
 ```
 
-These settings can be modified via the [command-line](/clients/command-line) `config` command. For example, to allow CORS from all origins:
+These settings can be modified via the [command-line](/develop/clients/command-line) `config` command. For example, to allow CORS from all origins:
 
 ???+ example
     ```
@@ -70,7 +70,7 @@ Normally, only a designated *cafe* peer would enable this API, though any peer m
 
 ### `Addresses.Gateway`
 
-The [gateway](/ipfs-gateway) may be used to view and decrypt files. This port may or may not be dial-able from outside you machine, that's entirely up to you. The `Gateway` address is on by default, but if you leave it blank, the gateway server will not start.
+The [gateway](/develop/ipfs-gateway) may be used to view and decrypt files. This port may or may not be dial-able from outside you machine, that's entirely up to you. The `Gateway` address is on by default, but if you leave it blank, the gateway server will not start.
 
 **Default**: `"127.0.0.1:5050"`
 

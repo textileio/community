@@ -19,7 +19,7 @@ See the [daemon installation section](/install/the-daemon/#create-a-new-wallet) 
 
 Generating and interacting with a wallet are capabilities separate from the core peer API. Below is a list of clients that are currently able to generate and interact with wallets.
 
-- The command-line client via the [`wallet`](/clients/command-line/#wallet) subcommand
+- The command-line client via the [`wallet`](/develop/clients/command-line/#wallet) subcommand
 - [js-wallet](https://github.com/textileio/js-wallet)
 - [ios-textile](https://github.com/textileio/ios-textile/blob/master/Textile/Classes/TextileApi.m)
 - [android-textile](https://github.com/textileio/android-textile/blob/master/textile/src/main/java/io/textile/textile/Textile.java)

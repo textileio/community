@@ -2269,7 +2269,7 @@ See `textile logs --help` for more.
 
 ### Config
 
-When your peer starts, it loads a JSON [config file](/the-config-file) from the repository directory, called "textile". This file lives alongside the IPFS config file (named "config"). You must restart your peer after making changes to either of these files.
+When your peer starts, it loads a JSON [config file](/develop/peer-config-file) from the repository directory, called "textile". This file lives alongside the IPFS config file (named "config"). You must restart your peer after making changes to either of these files.
 
 #### View a config value
 
@@ -2948,7 +2948,7 @@ See the [IPFS doc](https://docs.ipfs.io/reference/api/cli/#ipfs-cat) for more in
 
 ### IPFS Gateway
 
-All desktop and server peers host an IPFS gateway. Read more and see some examples [here](/ipfs-gateway).
+All desktop and server peers host an IPFS gateway. Read more and see some examples [here](/develop/ipfs-gateway).
 
 !!! tip "A gateway to the gateways"
     Textile hosts a number of federated cafe peers around the globe, each with a public-facing gateway. A latency-based load balancer ties them all together at `https://gateway.textile.cafe`, which you are free to use in your applications.
