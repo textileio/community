@@ -145,7 +145,7 @@ Beyond improving the experience in your app, leveraging existing user threads ca
 
 ## Created unencrypted content
 
-There are some use-cases where media created by a user is best shared in a decrypted format. Every Textile thread supports encrypted raw file content by default, but apps have the ability to create encrypted threads that contain plaintext file content. [Read more about that here](/concepts/threads/files/#encryption). 
+There are some use-cases where media created by a user is best shared in a decrypted format. Every Textile thread supports encrypted raw file content by default, but apps have the ability to create encrypted threads that contain plaintext file content. [Read more about thread encryption here](/concepts/threads/files/#encryption). 
 
 ## Cafe Sync & Recovery
 
