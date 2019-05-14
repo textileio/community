@@ -9,6 +9,6 @@ Here are a few of the ingredients that make up connectors.
 
 In this section, we'll walk you through the instructions for how to use each type of connector in Textile, starting with photos. We have been actively developing the Images & Media connector and others (Documents & Notes, Tasks & Todos, Invoices, and Analytics) are close behind.
 
-You can reach out to us anytime on our slack, grab an appointment with one of our engineers, or send us an email inquiry.
+You can reach out to us anytime [on our Slack](https://slack.textile.io/), grab an appointment with one of our engineers, or send us [an email inquiry](mailto:contact@textile.io).
 
 <br>
