@@ -319,9 +319,26 @@ threads:
     cmd:
       code: 'textile threads add "Dogs" --type="open" --sharing="shared" --media'
     js_http_client:
-      code: 'await textile.threads.add("Dogs", "media", undefined, "open", "shared")'
+      code: 'await textile.threads.add("Dogs", "media", 'your.bundle.id.version.Media', "open", "shared")'
     react_native:
-      code: '@todo'
+      code: |
+            const threadKey = 'your.bundle.id.version.Media'
+            const threadName = 'Dogs'
+            const schema = {
+              id: '',
+              json: '',
+              preset: AddThreadConfig.Schema.Preset.MEDIA
+            }
+            const config = {
+              key: threadKey,
+              name: threadName,
+              type: Thread.Type.OPEN,
+              sharing: Thread.Sharing.SHARED,
+              schema: schema,
+              force: false,
+              members: []
+            }
+            const newTarget = await textile.threads.add(config)
     ios:
       code: '@todo'
     android:
@@ -333,7 +350,24 @@ threads:
       code: |
             const thread = await textile.threads.add("Any old data", 'blob')
     react_native:
-      code: '@todo'
+      code: |
+            const threadKey = 'your.bundle.id.version.Blob'
+            const threadName = 'Any old data'
+            const schema = {
+              id: '',
+              json: '',
+              preset: AddThreadConfig.Schema.Preset.BLOB
+            }
+            const config = {
+              key: threadKey,
+              name: threadName,
+              type: Thread.Type.PRIVATE,
+              sharing: Thread.Sharing.NOT_SHARED,
+              schema: schema,
+              force: false,
+              members: []
+            }
+            const newTarget = await textile.threads.add(config)
     ios:
       code: '@todo'
     android:
@@ -345,7 +379,23 @@ threads:
       code: |
             const thread = await textile.threads.add("New Shots", 'cameraRoll')
     react_native:
-      code: '@todo'
+      code: |
+            const threadKey = 'your.bundle.id.version.Media'
+            const threadName = 'Dogs'
+            const schema = {
+              id: '',
+              json: '',
+              preset: AddThreadConfig.Schema.Preset.CAMERA_ROLL
+            }
+            const config = {
+              key: threadKey,
+              name: threadName,
+              type: Thread.Type.OPEN,
+              sharing: Thread.Sharing.SHARED,
+              schema: schema,
+              force: false,
+              members: []
+            }
     ios:
       code: '@todo'
     android:
@@ -357,7 +407,24 @@ threads:
       code: |
             const thread = await textile.threads.add("New Shares", 'media')
     react_native:
-      code: '@todo'
+      code: |
+            const threadKey = 'your.bundle.id.version.Media'
+            const threadName = 'Dogs'
+            const schema = {
+              id: '',
+              json: '',
+              preset: AddThreadConfig.Schema.Preset.MEDIA
+            }
+            const config = {
+              key: threadKey,
+              name: threadName,
+              type: Thread.Type.OPEN,
+              sharing: Thread.Sharing.SHARED,
+              schema: schema,
+              force: false,
+              members: []
+            }
+            const newTarget = await textile.threads.add(config)
     ios:
       code: '@todo'
     android:

@@ -10,7 +10,7 @@ Handling images for your users falls generally into two use-cases. First, images
 
 Threads help a user grant access to their photos & media to new applications, share individual photos to new users, or sync all their data to trusted peers like their desktop or store it encrypted on the cafes.
 
-We covered threads in depth in the Tour of Textile and in the Threads overview pages. We recommend reviewing those two documents if you haven't already.
+We covered threads in depth in the [Tour of Textile](/a-tour-of-textile) and in the [Threads Introduction](/concepts/threads/) pages. We recommend reviewing those two documents if you haven't already.
 
 Let's look apps can create new image-based threads in their app or connect to existing ones the user is already maintaining in other apps.
 
@@ -139,7 +139,7 @@ Unlike the CameraRoll schema, you can see that images are resampled into a few d
 
 ### Connect to existing photo threads
 
-In many cases, it is just as easy for your app to connect to a user's existing photo threads. Connecting to an existing stream can give your app the ability to provide value across many more photos or simplify photo selection, editing, or sharing workflows. Requesting permission to a user's existing Media or CameraRoll threads is straightforward in your app and is expected to be released to production in the first half of July. Subscribe to this Issue to track our progress on the feature. 
+In many cases, it is just as easy for your app to connect to a user's existing photo threads. Connecting to an existing stream can give your app the ability to provide value across many more photos or simplify photo selection, editing, or sharing workflows. Requesting permission to a user's existing Media or CameraRoll threads is straightforward in your app and is expected to be released to production in the first half of July. Subscribe to [this Issue](https://github.com/textileio/go-textile/issues/694) to track our progress on the feature. 
 
 Beyond improving the experience in your app, leveraging existing user threads can help reduce the overall data you or your users are required to store. IPFS based content addressing allows photos to be shared across all of a user's apps without the need to ever duplicate that content.
 
