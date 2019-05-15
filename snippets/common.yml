@@ -319,7 +319,7 @@ threads:
     cmd:
       code: 'textile threads add "Dogs" --type="open" --sharing="shared" --media'
     js_http_client:
-      code: 'await textile.threads.add("Dogs", "media", 'your.bundle.id.version.Media', "open", "shared")'
+      code: 'await textile.threads.add("Dogs", "media", "your.bundle.id.version.Media", "open", "shared")'
     react_native:
       code: |
             const threadKey = 'your.bundle.id.version.Media'
