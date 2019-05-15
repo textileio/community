@@ -84,18 +84,23 @@ nav:
       - Files: concepts/threads/files.md
     - Cafes: concepts/cafes.md
     - Search: concepts/search.md
+  - Connectors:
+    - Introduction: connectors/index.md
+    - Images & Media: connectors/images/index.md
   - Install:
     - The Daemon: install/the-daemon.md
     - Desktop: install/desktop.md
-  - The HTTP API: the-http-api.md
-  - IPFS Gateway: ipfs-gateway.md
-  - Clients:
-    - Command-line: clients/command-line.md
-    - JavaScript HTTP: clients/js-http.md
-    - React Native: clients/react-native.md
-    - iOS: clients/ios.md
-    - Android: clients/android.md
-  - The Config File: the-config-file.md
+    - Apps: install/apps.md
+  - Develop:
+    - Clients:
+      - Command-line: develop/clients/command-line.md
+      - JavaScript HTTP: develop/clients/js-http.md
+      - React Native: develop/clients/react-native.md
+      - iOS: develop/clients/ios.md
+      - Android: develop/clients/android.md
+    - The HTTP API: develop/the-http-api.md
+    - IPFS Gateway: develop/ipfs-gateway.md
+    - Peer Config File: develop/peer-config-file.md
   - Policies:
     - Code of Conduct: policies/code-of-conduct.md
     - Privacy Policy: policies/privacy-policy.md

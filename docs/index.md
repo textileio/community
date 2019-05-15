@@ -35,11 +35,11 @@ Whatever your use-case may be, the [tour of Textile](/a-tour-of-textile) is grea
 Client SDKs or HTTP clients available for integrating Textile into your mobile, desktop, and web applications:
 
 * [Core lib](https://github.com/textileio/go-textile)
-* [Command-line Client](/clients/command-line)
-* [JS HTTP Client](/clients/js-http)
-* [React Native SDK](/clients/react-native)
-* [iOS SDK](/clients/ios)
-* [Android SDK](/clients/android)
+* [Command-line Client](/develop/clients/command-line)
+* [JS HTTP Client](/develop/clients/js-http)
+* [React Native SDK](/develop/clients/react-native)
+* [iOS SDK](/develop/clients/ios)
+* [Android SDK](/develop/clients/android)
 * [Desktop](/install/desktop) (tray/taskbar app installer)
 
 ## Run a cafe peer

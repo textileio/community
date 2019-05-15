@@ -23,7 +23,7 @@ Textile provides tooling for certain types of [network-wide queries](/concepts/s
 
 #### IPFS gateway
 
-All desktop and server peers host an IPFS gateway. However, the gateway is most useful on a cafe peer where clients' content is stored. See the [IPFS Gateway](/ipfs-gateway) section for more, including details about a [decryption service](http://127.0.0.1:8000/ipfs-gateway/#decryption-service) unique to Textile gateways.
+All desktop and server peers host an IPFS gateway. However, the gateway is most useful on a cafe peer where clients' content is stored. See the [IPFS Gateway](/develop/ipfs-gateway) section for more, including details about a [decryption service](http://127.0.0.1:8000/develop/ipfs-gateway/#decryption-service) unique to Textile gateways.
 
 #### Latest thread share
 

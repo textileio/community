@@ -144,7 +144,7 @@ textile init --seed SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6 --server --
 
 **`--cafe-open`:** This flag "opens" the cafe, meaning that it will expose an additional "service" API over libp2p and HTTP.
 
-**`--cafe-url`:** Optional, `http://<SWARM_IP>:40601` by default. Set this value if your peer is behind a DNS-based load balancer and/or requires HTTPS. For example, [Textile's federated cafes](https://github.com/textileio/textile-opts#network) run behind EC2 load balancers with HTTPS listeners, which route traffic to the cafe API port (`--cafe-bind-addr`). See [`Cafe.CafeHost.URL`](the-config-file/#cafecafehosturl) for details on how the default value of `SWARM_IP` is determined.
+**`--cafe-url`:** Optional, `http://<SWARM_IP>:40601` by default. Set this value if your peer is behind a DNS-based load balancer and/or requires HTTPS. For example, [Textile's federated cafes](https://github.com/textileio/textile-opts#network) run behind EC2 load balancers with HTTPS listeners, which route traffic to the cafe API port (`--cafe-bind-addr`). See [`Cafe.CafeHost.URL`](develop/peer-config-file/#cafecafehosturl) for details on how the default value of `SWARM_IP` is determined.
 
 !!! info
     Cafe service clients are issued JWT sessions used for authentication. These sessions contain the public URL of the cafe peer's service API so that it can be leveraged over HTTP.
@@ -164,7 +164,7 @@ Later, when the peer is started, it's service info will be visible at the cafe U
         ]
     }
 
-You can modify the `init` settings anytime but editing the config file and restarting the peer. Read more about the cafe host config settings [here](/the-config-file#cafe).
+You can modify the `init` settings anytime but editing the config file and restarting the peer. Read more about the cafe host config settings [here](/develop/peer-config-file#cafe).
 
 ### Run the daemon
 
