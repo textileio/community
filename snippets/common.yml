@@ -246,7 +246,7 @@ account:
     react_native:
       code: 'const seed = await textile.account.seed()'
     ios:
-      code: 'NSString *address = [Textile.instance.account seed];'
+      code: 'NSString *seed = [Textile.instance.account seed];'
     android:
       code: '@todo'
   sync:
