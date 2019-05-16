@@ -1,6 +1,6 @@
 ![Textile Photos](/images/textile-mobile-panels.png)
 
-If you are building a consumer app, it's highly likely you encounter the need to store and retrieve images for your user at some point. The Textile image & media connector is an excellent place for you to start. Textile has already designed a robust system for user photo storage and recovery, and all your app needs to do is plug into it. 
+If you are building a consumer app, it's highly likely you encounter the need to store and retrieve images for your user at some point. The Textile image & media connector is an excellent place for you to start. Textile has already designed a robust system for user photo storage and recovery, and all your app needs to do is plug into it.
 
 ## Get Started
 
@@ -139,20 +139,22 @@ Unlike the CameraRoll schema, you can see that images are resampled into a few d
 
 ### Connect to existing photo threads
 
-In many cases, it is just as easy for your app to connect to a user's existing photo threads. Connecting to an existing stream can give your app the ability to provide value across many more photos or simplify photo selection, editing, or sharing workflows. Requesting permission to a user's existing Media or CameraRoll threads is straightforward in your app and is expected to be released to production in the first half of July. Subscribe to [this Issue](https://github.com/textileio/go-textile/issues/694) to track our progress on the feature. 
+In many cases, it is just as easy for your app to connect to a user's existing photo threads. Connecting to an existing stream can give your app the ability to provide value across many more photos or simplify photo selection, editing, or sharing workflows. Requesting permission to a user's existing Media or CameraRoll threads is straightforward in your app and is expected to be released to production in the first half of July. Subscribe to [this Issue](https://github.com/textileio/go-textile/issues/694) to track our progress on the feature.
 
 Beyond improving the experience in your app, leveraging existing user threads can help reduce the overall data you or your users are required to store. IPFS based content addressing allows photos to be shared across all of a user's apps without the need to ever duplicate that content.
 
 ## Created unencrypted content
 
-There are some use-cases where media created by a user is best shared in a decrypted format. Every Textile thread supports encrypted raw file content by default, but apps have the ability to create encrypted threads that contain plaintext file content. [Read more about thread encryption here](/concepts/threads/files/#encryption). 
+There are some use-cases where media created by a user is best shared in a decrypted format. Every Textile thread supports encrypted raw file content by default, but apps have the ability to create encrypted threads that contain plaintext file content. [Read more about thread encryption here](/concepts/threads/files/#encryption).
 
 ## Cafe Sync & Recovery
 
-A critical component of the image & media connector is the ability for your users to recover their data in the future. Threads can be easily backed up by registering your app with a live cafe or by encouraging your users to manage their cafe subscriptions. 
+A critical component of the image & media connector is the ability for your users to recover their data in the future. Threads can be easily backed up by registering your app with a live cafe or by encouraging your users to manage their cafe subscriptions.
 
 When a user joins your app, either new or by linking their existing Textile wallet, you can provide a cafe for app-specific thread storage. [Read our instructions on Cafe setup](/install/the-daemon/#initialize-a-cafe-peer) or try out [our developer instances](/concepts/cafes/#try-one) immediately.
 
 ## Apps & demos
 
 There are a couple of apps already using the images & media connector. We recommend downloading the [Textile Photos](https://textile.photos/) mobile (iOS and Android) app or the [desktop](https://github.com/textileio/desktop-photos) app. You can also browse the source code for both of those apps to understand how they connect to and create a user's photo streams.
+
+<br>

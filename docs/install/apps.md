@@ -1,4 +1,4 @@
-Here are a few of the apps that have been built on Textile. 
+Here are a few of the apps that have been built on Textile.
 
 ## Textile Photos
 
@@ -19,3 +19,5 @@ The original Textile-based app, [Textile Photos](https://textile.photos/) comes 
 ## Add yours
 
 If you would like to get your app on the list, edit this page and submit a pull-request! Include a a brief 1-2 line description and a preview image, no more than 1000px wide and with roughly 5x3 width to height ratio.
+
+<br>
