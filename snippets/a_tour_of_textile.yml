@@ -21,7 +21,7 @@ examples:
       ios:
         code: |
               NSError *error;
-              AddThreadConfig *config;
+              AddThreadConfig *config = [[AddThreadConfig alloc] init];
               config.key = @"your.bundle.id.version.Chat";
               config.name = @"Chat";
               config.type = Thread_Type_Open;
@@ -84,9 +84,9 @@ examples:
       ios:
         code: |
               NSError *error;
-              AddThreadConfig_Schema *schema;
+              AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
               schema.json = @"<location.json string>";
-              AddThreadConfig *config;
+              AddThreadConfig *config = [[AddThreadConfig alloc] init];
               config.key = @"your.bundle.id.version.MyRuns";
               config.name = @"My Runs";
               config.type = Thread_Type_Public;

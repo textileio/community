@@ -374,9 +374,9 @@ threads:
     ios:
       code: |
             NSError *error;
-            AddThreadConfig_Schema *schema;
+            AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
             schema.preset = AddThreadConfig_Schema_Preset_Blob;
-            AddThreadConfig *config;
+            AddThreadConfig *config = [[AddThreadConfig alloc] init];
             config.key = @"your.bundle.id.version.Basic";
             config.name = @"Basic";
             config.type = Thread_Type_Private;
@@ -413,9 +413,9 @@ threads:
     ios:
       code: |
             NSError *error;
-            AddThreadConfig_Schema *schema;
+            AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
             schema.preset = AddThreadConfig_Schema_Preset_Media;
-            AddThreadConfig *config;
+            AddThreadConfig *config = [[AddThreadConfig alloc] init];
             config.key = @"your.bundle.id.version.Media";
             config.name = @"Dogs";
             config.type = Thread_Type_Open;
@@ -452,9 +452,9 @@ threads:
     ios:
       code: |
             NSError *error;
-            AddThreadConfig_Schema *schema;
+            AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
             schema.preset = AddThreadConfig_Schema_Preset_Blob;
-            AddThreadConfig *config;
+            AddThreadConfig *config = [[AddThreadConfig alloc] init];
             config.key = @"your.bundle.id.version.Blob";
             config.name = @"Any old data";
             config.type = Thread_Type_Private;
@@ -490,9 +490,9 @@ threads:
     ios:
       code: |
             NSError *error;
-            AddThreadConfig_Schema *schema;
+            AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
             schema.preset = AddThreadConfig_Schema_Preset_CameraRoll;
-            AddThreadConfig *config;
+            AddThreadConfig *config = [[AddThreadConfig alloc] init];
             config.key = @"your.bundle.id.version.CameraRoll";
             config.name = @"New Shots";
             config.type = Thread_Type_Open;
@@ -529,9 +529,9 @@ threads:
     ios:
       code: |
             NSError *error;
-            AddThreadConfig_Schema *schema;
+            AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
             schema.preset = AddThreadConfig_Schema_Preset_Media;
-            AddThreadConfig *config;
+            AddThreadConfig *config = [[AddThreadConfig alloc] init];
             config.key = @"your.bundle.id.version.Media";
             config.name = @"New Shots";
             config.type = Thread_Type_Open;
