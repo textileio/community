@@ -393,9 +393,17 @@
     Schemas
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#encryption" title="Encryption" class="md-nav__link">
+    Encryption
+  </a>
+  
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#presets" title="Presets" class="md-nav__link">
     Presets
   </a>
@@ -428,21 +436,14 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#json-schemas" title="JSON Schemas" class="md-nav__link">
     JSON Schemas
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#encryption" title="Encryption" class="md-nav__link">
-    Encryption
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#examples" title="Examples" class="md-nav__link">
@@ -477,6 +478,11 @@
   <a href="#weather" title="Weather" class="md-nav__link">
     Weather
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -950,9 +956,17 @@
     Schemas
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#encryption" title="Encryption" class="md-nav__link">
+    Encryption
+  </a>
+  
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#presets" title="Presets" class="md-nav__link">
     Presets
   </a>
@@ -985,21 +999,14 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#json-schemas" title="JSON Schemas" class="md-nav__link">
     JSON Schemas
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#encryption" title="Encryption" class="md-nav__link">
-    Encryption
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#examples" title="Examples" class="md-nav__link">
@@ -1034,6 +1041,11 @@
   <a href="#weather" title="Weather" class="md-nav__link">
     Weather
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1226,7 +1238,7 @@
 
 </details>
 <h2 id="schemas">Schemas<a class="headerlink" href="#schemas" title="Permanent link">&para;</a></h2>
-<p>Schemas are used to create and validate the structure of thread files, defining their type and purpose for consumers (users and applications). For example, a photos application may create photo-based threads, a health application my create threads with medical records, etc. By treating schemas as first-class citizens, other applications are also able to understand and make use of these threads. </p>
+<p>Schemas are used to create and validate the structure of thread files, defining their type and purpose for consumers (users and applications). For example, a photos application may create photo-based threads, a health application my create threads with medical records, etc. By treating schemas as first-class citizens, other applications are also able to understand and make use of these threads.</p>
 <p>In practice, schemas have three distinct rolls:</p>
 <ol>
 <li>Provide instructions for how to transform or "mill" an input, e.g., given a photo, create three different sizes and discard the raw input (this is the <a href="#media">media</a> schema).</li>
@@ -1241,9 +1253,12 @@
 <li>EXIF data is extracted and encrypted from the output of (1).</li>
 <li>All of these output files (and their metadata) are added to IPFS in a single "folder" or DAG structure.</li>
 </ol>
-<h2 id="presets">Presets<a class="headerlink" href="#presets" title="Permanent link">&para;</a></h2>
+<h3 id="encryption">Encryption<a class="headerlink" href="#encryption" title="Permanent link">&para;</a></h3>
+<p>Threads blocks and their links are always encrypted. However, <em>file</em> encryption is defined by schema nodes using the <code>"plaintext"</code> param and is on by default, i.e, <code>"plaintext": true</code> means "do not encrypt this node".</p>
+<p>The <a href="/develop/ipfs-gateway/#decrypt-thread-files">decrypting gateway</a> can be used to decrypt files outside of a peer's API.</p>
+<h3 id="presets">Presets<a class="headerlink" href="#presets" title="Permanent link">&para;</a></h3>
 <p>There are several "preset" or builtin schemas, available for use from client libraries. <a href="https://textile.photos">Textile Photos</a> uses the <a href="#media">media</a> and <a href="#camera-roll">camera roll</a> presets.</p>
-<h3 id="media">Media<a class="headerlink" href="#media" title="Permanent link">&para;</a></h3>
+<h4 id="media">Media<a class="headerlink" href="#media" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>Used for posting media intended for sharing</p>
 </blockquote>
@@ -1281,7 +1296,7 @@
 </pre></div>
 
 </details>
-<h3 id="camera-roll">Camera Roll<a class="headerlink" href="#camera-roll" title="Permanent link">&para;</a></h3>
+<h4 id="camera-roll">Camera Roll<a class="headerlink" href="#camera-roll" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>Used for backing up a mobile phone camera roll</p>
 </blockquote>
@@ -1311,7 +1326,7 @@
 </pre></div>
 
 </details>
-<h3 id="avatars">Avatars<a class="headerlink" href="#avatars" title="Permanent link">&para;</a></h3>
+<h4 id="avatars">Avatars<a class="headerlink" href="#avatars" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>Used by the internal account thread for user avatar images</p>
 </blockquote>
@@ -1344,7 +1359,7 @@
 </pre></div>
 
 </details>
-<h2 id="json-schemas">JSON Schemas<a class="headerlink" href="#json-schemas" title="Permanent link">&para;</a></h2>
+<h3 id="json-schemas">JSON Schemas<a class="headerlink" href="#json-schemas" title="Permanent link">&para;</a></h3>
 <p>JSON-based schemas are defined using the <code>json_schema</code> property:</p>
 <details class="example" open="open"><summary>Example</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;pin&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1356,12 +1371,8 @@
 
 </details>
 <p>Simply embed your <a href="https://json-schema.org/">JSON Schema</a> within the thread schemas.</p>
-<h3 id="encryption">Encryption<a class="headerlink" href="#encryption" title="Permanent link">&para;</a></h3>
-<p>All threads blocks are encrypted no matter the thread schema. However, apps have the ability to include encrypted or unencypted raw file content in each of the thread posts. </p>
-<p><strong>Encrypted file content</strong> is the default. If you want file content in your threads to be encrypted then you don't need to do anything more. If you ever need to decrypt a file outside of a Textile peer, <a href="http://localhost:8000/develop/ipfs-gateway/#decrypt-thread-files">see the decrypting gateway</a>.</p>
-<p><strong>Unencrypted file content</strong> can be created by creating threads using schemas where <code>"plaintext": true</code>, like the example given above. Setting the plaintext option to true will keep your thread's blocks encrypted, but the file content in each block will be open. </p>
-<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
-<h4 id="a-person">A "Person"<a class="headerlink" href="#a-person" title="Permanent link">&para;</a></h4>
+<h4 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h4>
+<h5 id="a-person">A "Person"<a class="headerlink" href="#a-person" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p>The "Person" example from <a href="http://json-schema.org/learn/miscellaneous-examples.html">http://json-schema.org/learn/miscellaneous-examples.html</a></p>
 </blockquote>
@@ -1393,7 +1404,7 @@
 </pre></div>
 
 </details>
-<h4 id="logs">Logs<a class="headerlink" href="#logs" title="Permanent link">&para;</a></h4>
+<h5 id="logs">Logs<a class="headerlink" href="#logs" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p>BSD syslog protocol (<a href="https://tools.ietf.org/html/rfc3164">https://tools.ietf.org/html/rfc3164</a>)</p>
 </blockquote>
@@ -1443,7 +1454,7 @@
 </pre></div>
 
 </details>
-<h4 id="json-patch">JSON Patch<a class="headerlink" href="#json-patch" title="Permanent link">&para;</a></h4>
+<h5 id="json-patch">JSON Patch<a class="headerlink" href="#json-patch" title="Permanent link">&para;</a></h5>
 <p><a href="https://tools.ietf.org/html/rfc6902">RFC 6902</a></p>
 <p>A schema for tracking JSON document modifications can be built with the <a href="https://tools.ietf.org/html/rfc6902">JSON Patch specification</a>:</p>
 <blockquote>
@@ -1539,7 +1550,7 @@
 </pre></div>
 
 </details>
-<h4 id="weather">Weather<a class="headerlink" href="#weather" title="Permanent link">&para;</a></h4>
+<h5 id="weather">Weather<a class="headerlink" href="#weather" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p>A <a href="https://twitter.com/sanderpick/status/1068279840946585600">stream of forecasts from Dark Sky weather data</a></p>
 </blockquote>
