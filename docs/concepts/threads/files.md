@@ -109,7 +109,7 @@ Below is a JSON representation of file indexes from a single image corresponding
 
 ## Schemas
 
-Schemas are used to create and validate the structure of thread files, defining their type and purpose for consumers (users and applications). For example, a photos application may create photo-based threads, a health application my create threads with medical records, etc. By treating schemas as first-class citizens, other applications are also able to understand and make use of these threads. 
+Schemas are used to create and validate the structure of thread files, defining their type and purpose for consumers (users and applications). For example, a photos application may create photo-based threads, a health application my create threads with medical records, etc. By treating schemas as first-class citizens, other applications are also able to understand and make use of these threads.
 
 In practice, schemas have three distinct rolls:
 
@@ -126,11 +126,17 @@ For example, consider a thread backed by the builtin [camera roll](#camera-roll)
 3. EXIF data is extracted and encrypted from the output of (1).
 4. All of these output files (and their metadata) are added to IPFS in a single "folder" or DAG structure.
 
-## Presets
+### Encryption
+
+Threads blocks and their links are always encrypted. However, _file_ encryption is defined by schema nodes using the `"plaintext"` param and is on by default, i.e, `"plaintext": true` means "do not encrypt this node".
+
+The [decrypting gateway](/develop/ipfs-gateway/#decrypt-thread-files) can be used to decrypt files outside of a peer's API.
+
+### Presets
 
 There are several "preset" or builtin schemas, available for use from client libraries. [Textile Photos](https://textile.photos) uses the [media](#media) and [camera roll](#camera-roll) presets.
 
-### Media
+#### Media
 
 > Used for posting media intended for sharing
 
@@ -169,7 +175,7 @@ There are several "preset" or builtin schemas, available for use from client lib
     }
     ```
 
-### Camera Roll
+#### Camera Roll
 
 > Used for backing up a mobile phone camera roll
 
@@ -200,7 +206,7 @@ There are several "preset" or builtin schemas, available for use from client lib
     }
     ```
 
-### Avatars
+#### Avatars
 
 > Used by the internal account thread for user avatar images
 
@@ -234,7 +240,7 @@ There are several "preset" or builtin schemas, available for use from client lib
     }
     ```
 
-## JSON Schemas
+### JSON Schemas
 
 JSON-based schemas are defined using the `json_schema` property:
 
@@ -250,18 +256,9 @@ JSON-based schemas are defined using the `json_schema` property:
 
 Simply embed your [JSON Schema](https://json-schema.org/) within the thread schemas.
 
-### Encryption
+#### Examples
 
-All threads blocks are encrypted no matter the thread schema. However, apps have the ability to include encrypted or unencypted raw file content in each of the thread posts. 
-
-**Encrypted file content** is the default. If you want file content in your threads to be encrypted then you don't need to do anything more. If you ever need to decrypt a file outside of a Textile peer, [see the decrypting gateway](http://localhost:8000/develop/ipfs-gateway/#decrypt-thread-files).
-
-**Unencrypted file content** can be created by creating threads using schemas where `"plaintext": true`, like the example given above. Setting the plaintext option to true will keep your thread's blocks encrypted, but the file content in each block will be open. 
-
-
-### Examples
-
-#### A "Person"
+##### A "Person"
 
 > The "Person" example from http://json-schema.org/learn/miscellaneous-examples.html
 
@@ -294,7 +291,7 @@ All threads blocks are encrypted no matter the thread schema. However, apps have
     }
     ```
 
-#### Logs
+##### Logs
 
 > BSD syslog protocol (https://tools.ietf.org/html/rfc3164)
 
@@ -345,7 +342,7 @@ All threads blocks are encrypted no matter the thread schema. However, apps have
     }
     ```
 
-#### JSON Patch
+##### JSON Patch
 
 [RFC 6902](https://tools.ietf.org/html/rfc6902)
 
@@ -445,7 +442,7 @@ The JSON schema store provides [one solution](http://json.schemastore.org/json-p
     }
     ```
 
-#### Weather
+##### Weather
 
 > A [stream of forecasts from Dark Sky weather data](https://twitter.com/sanderpick/status/1068279840946585600)
 
