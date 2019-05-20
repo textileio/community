@@ -9,7 +9,7 @@ core:
             import textile from "@textile/react-native-sdk"
             // Make the sensitive below phrase available to your user for secure storage
             const phrase: string | undefined = await textile.initialize(false, false)
-    ios:
+    objc:
       code: |
             - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             {
@@ -50,7 +50,7 @@ core:
             // This is the user's new Textile wallet seed. They must keep it secure and never share it. Your production app should not keep a copy long term and should never share it with any API.
             const seed = await textile.initialize(false, false)
             alert(`WARNING - Never lose or share your seed: ${seed}`)
-    ios:
+    objc:
       code: |
             - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             {
@@ -81,7 +81,7 @@ core:
       code: 'const summary = await textile.utils.summary()'
     react_native:
       code: 'const summary = await textile.summary()'
-    ios:
+    objc:
       code: '@todo'
     android:
       code: '@todo'
@@ -92,7 +92,7 @@ core:
       code: 'await textile.utils.ping("12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d")'
     react_native:
       code: '@todo'
-    ios:
+    objc:
       code: '@todo'
     android:
       code: '@todo'
@@ -137,7 +137,7 @@ subscribe:
                 // new file!
               }
             })
-    ios:
+    objc:
       code: '@todo'
     android:
       code: '@todo'
@@ -149,7 +149,7 @@ notifications:
       code: 'await textile.notifications.list()'
     react_native:
       code: 'const notifications = await textile.notifications.list()'
-    ios:
+    objc:
       code: |
             NSError *error;
             NotificationList *notifications = [Textile.instance.notifications list:@"0" limit:10 error:&error];
@@ -162,7 +162,7 @@ notifications:
         code: 'await textile.notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz")'
     react_native:
       code: 'await textile.notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz")'
-    ios:
+    objc:
       code: |
             [Textile.instance.notifications read:"1KKP01K9SpRASYKkyxSK4EiSYEz" error:&error];
     android:
@@ -175,7 +175,7 @@ profile:
       code: 'const profile = await textile.profile.get()'
     react_native:
       code: 'const profile = await textile.profile.get()'
-    ios:
+    objc:
       code: |
             NSError *error;
             Peer *profile = [Textile.instance.profile get:&error];
@@ -190,7 +190,7 @@ profile:
       code: |
             const profile = await textile.profile.get()
             const name = profile.name
-    ios:
+    objc:
       code: |
             NSError *error;
             NSString *name = [Textile.instance.profile name:&error];
@@ -204,7 +204,7 @@ profile:
       code: 'await textile.profile.setName("Clyde")'
     react_native:
       code: 'await textile.profile.setName("Clyde")'
-    ios:
+    objc:
       code: |
             NSError *error;
             [Textile.instance.profile setName:@"Clyde" error:&error];
@@ -220,7 +220,7 @@ profile:
             await textile.profile.setAvatar(form)
     react_native:
       code: 'await textile.profile.setAvatar("<image-hash>")'
-    ios:
+    objc:
       code: '@todo'
     android:
       code: '@todo'
@@ -234,7 +234,7 @@ account:
       code: |
             // React native has endpoints for each component of the account
             const address = await textile.account.address()
-    ios:
+    objc:
       code: 'NSString *address = [Textile.instance.account address];'
     android:
       code: '@todo'
@@ -245,7 +245,7 @@ account:
       code: 'const seed = await textile.account.seed()'
     react_native:
       code: 'const seed = await textile.account.seed()'
-    ios:
+    objc:
       code: 'NSString *seed = [Textile.instance.account seed];'
     android:
       code: '@todo'
@@ -256,7 +256,7 @@ account:
       code: 'await textile.account.sync()'
     react_native:
       code: 'await textile.account.sync()'
-    ios:
+    objc:
       code: |
             NSError *error;
             [Textile.instance.account sync:options error:&error];
@@ -274,7 +274,7 @@ contacts:
             const stream = await textile.contacts.search("Andrew")
     react_native:
       code: '@todo'
-    ios:
+    objc:
       code: |
             NSError *error;
             QueryOptions *options;
@@ -295,7 +295,7 @@ contacts:
             const stream = await textile.contacts.search(undefined, "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")
     react_native:
       code: '@todo'
-    ios:
+    objc:
       code: |
             NSError *error;
             QueryOptions *options;
@@ -316,7 +316,7 @@ contacts:
             await textile.contacts.add("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG", contact)
     react_native:
       code: '@todo'
-    ios:
+    objc:
       code: |
             Contact searchResult = // Should be a Contact object as returned by contact search
             [Textile.instance.contacts add:searchResult error:&error]
@@ -329,7 +329,7 @@ contacts:
       code: 'const contacts = await textile.contacts.list()'
     react_native:
       code: 'const contacts = await textile.contacts.list()'
-    ios:
+    objc:
       code: 'ContactList *contacts = [Textile.instance.contacts list:&error];'
     android:
       code: '@todo'
@@ -341,7 +341,7 @@ contacts:
       code: 'await textile.contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
     react_native:
       code: 'await textile.contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
-    ios:
+    objc:
       code: '[Textile.instance.contacts remove:@"P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG" error:&error];'
     android:
       code: '@todo'
@@ -371,7 +371,7 @@ threads:
               members: []
             }
             const newTarget = await textile.threads.add(config)
-    ios:
+    objc:
       code: |
             NSError *error;
             AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
@@ -410,7 +410,7 @@ threads:
               members: []
             }
             const newTarget = await textile.threads.add(config)
-    ios:
+    objc:
       code: |
             NSError *error;
             AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
@@ -429,7 +429,7 @@ threads:
       code: 'textile threads add "Any old data" "your.bundle.id.version.Blob" --blob'
     js_http_client:
       code: |
-            const thread = await textile.threads.add("Any old data", 'blob')
+            const thread = await textile.threads.add("Any old data", "blob")
     react_native:
       code: |
             const threadKey = 'your.bundle.id.version.Blob'
@@ -449,7 +449,7 @@ threads:
               members: []
             }
             const newTarget = await textile.threads.add(config)
-    ios:
+    objc:
       code: |
             NSError *error;
             AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
@@ -487,7 +487,7 @@ threads:
               force: false,
               members: []
             }
-    ios:
+    objc:
       code: |
             NSError *error;
             AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
@@ -526,7 +526,7 @@ threads:
               members: []
             }
             const newTarget = await textile.threads.add(config)
-    ios:
+    objc:
       code: |
             NSError *error;
             AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
@@ -549,7 +549,7 @@ messages:
       code: 'await textile.messages.add("12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk", "hello?")'
     react_native:
       code: 'await textile.messages.add("12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk", "hello?")'
-    ios:
+    objc:
       code: |
             NSError *error;
             [Textile.instance.messages add:@"12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk" body:@"hello?" error:&error]
@@ -566,7 +566,7 @@ files:
             const input = Buffer.from("mmm, bytes...").toString('base64')
             const result = await textile.files.prepare(input, "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")
             const block = await textile.files.add(result.dir, "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")
-    ios:
+    objc:
       code: |
             NSError *error;
             NSString *threadId = @"12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc";
@@ -588,7 +588,7 @@ files:
             const base64ImageString = "R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABA...."
             const result = await textile.files.prepare(base64ImageString, "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq")
             const block = await textile.files.add(result.dir, "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq")
-    ios:
+    objc:
       code: |
             NSError *error;
             NSString *threadId = @"12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc";
@@ -604,7 +604,7 @@ files:
       code: 'const keys = await textile.files.keys("QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5")'
     react_native:
       code: '@todo'
-    ios:
+    objc:
       code: '@todo'
     android:
       code: '@todo'
@@ -631,7 +631,7 @@ cafes:
       code: 'textile cafes ls'
     js_http_client:
       code: 'const sessions = await textile.cafes.list()'
-    ios:
+    objc:
       code: |
             NSError *error;
             CafeSessionList *sessions = [Textile.instance.cafes sessions:&error];
@@ -640,14 +640,14 @@ cafes:
       code: 'textile cafes messages'
     js_http_client:
       code: 'const success = await textile.cafes.messages()'
-    ios:
+    objc:
       code: '[Textile.instance.cafes checkMessages:&error];'
   remove:
     cmd:
       code: 'textile cafes rm "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV"'
     js_http_client:
       code: 'const success = await textile.cafes.remove("12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV")'
-    ios:
+    objc:
       code: '[Textile.instance.cafes deregister:@"12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV" error:&error];'
 ipfs:
   peer_id:
@@ -670,7 +670,7 @@ ipfs:
       code: 'textile ipfs cat "QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d" > textile.png'
     js_http_client:
       code: 'const logo = await textile.ipfs.cat("QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d")'
-    ios:
+    objc:
       code: |
             NSError *error;
             NSData *file = [Textile.instance.ipfs dataAtPath:@"" error:&error]

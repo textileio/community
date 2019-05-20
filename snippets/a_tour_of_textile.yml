@@ -18,7 +18,7 @@ examples:
                 members: ["P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"]
               }
               const newTarget = await textile.threads.add(config)
-      ios:
+      objc:
         code: |
               NSError *error;
               AddThreadConfig *config = [[AddThreadConfig alloc] init];
@@ -41,7 +41,7 @@ examples:
         code: |
               // The below invite key can be sent securely to recipient in any way convenient
               const inviteKey = await textile.invites.addExternal("12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv")
-      ios:
+      objc:
         code: '[Textile.instance.invites addExternal:@"12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv" error:&error];'
       android:
         code: '@todo'
@@ -81,7 +81,7 @@ examples:
                 members: []
               }
               const newTarget = await textile.threads.add(config)
-      ios:
+      objc:
         code: |
               NSError *error;
               AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
@@ -102,7 +102,7 @@ examples:
         code: 'await textile.invites.add("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs")'
       react_native:
         code: 'await textile.invites.add("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs")'
-      ios:
+      objc:
         code: '[Textile.instance.invites add:@"" address:@"" error:&error];'
       android:
         code: '@todo'
@@ -119,7 +119,7 @@ examples:
         code: 'await textile.blocks.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
         code: '@todo'
-      ios:
+      objc:
         code: '@todo'
       android:
         code: '@todo'
@@ -130,7 +130,7 @@ examples:
         code: 'await textile.comments.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84", "Is this an outlier?")'
       react_native:
         code: 'await textile.comments.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84", "Is this an outlier?")'
-      ios:
+      objc:
         code: '[Textile.instance.comments add:@"QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84" body:@"Is this an outlier?" error:&error];'
       android:
         code: '@todo'
@@ -141,7 +141,7 @@ examples:
         code: 'await textile.likes.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84")'
       react_native:
         code: 'await textile.likes.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84")'
-      ios:
+      objc:
         code: '[Textile.instance.likes add:@"QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84" error:&error];'
       android:
         code: '@todo'
@@ -152,7 +152,7 @@ examples:
         code: 'await textile.files.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", undefined, 5)'
       react_native:
         code: 'await textile.files.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "", 5)'
-      ios:
+      objc:
         code: 'FilesList *files = [Textile.instance.files list:@"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" offset:@"" limit:5 error:&error];'
       android:
         code: '@todo'
@@ -163,7 +163,7 @@ examples:
         code: 'await textile.feed.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
       react_native:
         code: 'await textile.feed.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
-      ios:
+      objc:
         code: |
               FeedRequest *request;
               request.thread = @"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw";
@@ -180,7 +180,7 @@ examples:
               const input = Buffer.from(JSON.stringify({ "latitude": 48.858093, "longitude": 2.294694 }).toString('base64')
               const result = await textile.files.prepare(input, "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")
               const block = await textile.files.add(result.dir, "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")
-      ios:
+      objc:
         code: |
               NSError *error;
               NSString *threadId = @"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw";
@@ -199,7 +199,7 @@ examples:
               const input = Buffer.from(JSON.stringify({ "latitude": 91, "longitude": 2.294694 }).toString('base64')
               const result = await textile.files.prepare(input, "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")
               const block = await textile.files.add(result.dir, "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")
-      ios:
+      objc:
         code: |
               NSError *error;
               NSString *threadId = @"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw";
