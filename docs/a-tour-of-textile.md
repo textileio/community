@@ -32,8 +32,8 @@ If you are running any of the client libraries (JavaScript, React Native, iOS, o
 {{core.setup.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{core.setup.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{core.setup.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -56,8 +56,8 @@ Now, with Textile ready, take a look at your peer profile:
 {{profile.get_.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{profile.get_.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{profile.get_.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -99,8 +99,8 @@ You can set a display name for your peer. Interacting with other users is a lot 
 {{profile.set_name.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{profile.set_name.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{profile.set_name.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -128,8 +128,8 @@ Similarly, you can assign your peer a publicly visible avatar image:
 {{profile.set_avatar.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{profile.set_avatar.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{profile.set_avatar.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -157,8 +157,8 @@ Take another look at your peer profile and see what happened:
 {{profile.get_.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{profile.get_.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{profile.get_.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -201,8 +201,8 @@ Take a look at your account:
 {{account.get_.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{account.get_.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{account.get_.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -246,8 +246,8 @@ Of course, your account seed (private key) is not included in the public-facing 
 {{account.seed.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{account.seed.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{account.seed.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -280,8 +280,8 @@ You can also manually run account sync:
 {{account.sync.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{account.sync.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{account.sync.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -320,8 +320,8 @@ Try searching for "Andrew":
 {{contacts.search.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{contacts.search.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{contacts.search.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -375,8 +375,8 @@ With any luck, you should see a bunch of results. You can also search for a sing
 {{contacts.search_address.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{contacts.search_address.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{contacts.search_address.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -418,8 +418,8 @@ Try adding one of the contacts from above by address:
 {{contacts.add.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{contacts.add.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{contacts.add.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -448,8 +448,8 @@ We can now see the added contact contact in our "address book":
 {{contacts.ls.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{contacts.ls.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{contacts.ls.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -488,8 +488,8 @@ Removing contacts is done by address:
 {{contacts.rm.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{contacts.rm.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{contacts.rm.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -519,8 +519,8 @@ Let's ping one of Textile's federated cafes:
 {{core.ping.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{core.ping.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{core.ping.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -578,8 +578,8 @@ Create a thread and give it the name, "Basic". Note that thread names are _not_ 
 {{threads.add.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{threads.add.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{threads.add.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -633,8 +633,8 @@ Any thread can take a plain old text message. Later, we'll use these with an int
 {{messages.add.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{messages.add.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{messages.add.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -685,8 +685,8 @@ We can create a thread with this schema using the `--blob` flag:
 {{threads.blob_add.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{threads.blob_add.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{threads.blob_add.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -747,8 +747,8 @@ Let's add some data. Be sure to use your own thread ID.
 {{files.add.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{files.add.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{files.add.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -801,8 +801,8 @@ Unless a schema step specifies `"plaintext": true`, the value of `meta` and `con
 {{files.keys_.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{files.keys_.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{files.keys_.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -836,8 +836,8 @@ Let's try adding the _same_ data again:
 {{files.add.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{files.add.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{files.add.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -873,8 +873,8 @@ Let's create an _open_ and _shared_ thread for dog photos with the _media_ schem
 {{threads.add_open_shared.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{threads.add_open_shared.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{threads.add_open_shared.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -962,8 +962,8 @@ Try adding the image above to your dogs thread:
 {{files.add_media.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{files.add_media.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{files.add_media.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -1039,8 +1039,8 @@ Add a new thread to track your hypothetical runs:
 {{examples.my_runs.add_thread.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{examples.my_runs.add_thread.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{examples.my_runs.add_thread.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -1120,8 +1120,8 @@ Next, add some locations to your thread:
 {{examples.my_runs.add_location_data.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{examples.my_runs.add_location_data.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{examples.my_runs.add_location_data.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -1151,8 +1151,8 @@ Your peer will validate the input against the thread's schema. The input will _a
 {{examples.my_runs.add_location_data_fail.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{examples.my_runs.add_location_data_fail.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{examples.my_runs.add_location_data_fail.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -1219,8 +1219,8 @@ Now that you have two peers running, invite the new account to your "My runs" th
 {{examples.my_runs.invite.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{examples.my_runs.invite.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{examples.my_runs.invite.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -1345,8 +1345,8 @@ Take a closer look at the "My runs" thread using the `blocks ls` command, which 
 {{examples.my_runs.blocks_ls.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{examples.my_runs.blocks_ls.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{examples.my_runs.blocks_ls.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -1423,8 +1423,8 @@ Using the output from `blocks ls`, add a comment to the one and only `FILES` upd
 {{examples.my_runs.comment_add.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{examples.my_runs.comment_add.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{examples.my_runs.comment_add.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -1465,8 +1465,8 @@ Likes are added in a similar fashion:
 {{examples.my_runs.like_add.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{examples.my_runs.like_add.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{examples.my_runs.like_add.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -1508,8 +1508,8 @@ Create a new thread for chatting with your friend `P7X3gZu`:
 {{examples.start_a_chat.add_thread.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{examples.start_a_chat.add_thread.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{examples.start_a_chat.add_thread.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -1563,8 +1563,8 @@ The whitelist ensures the chat remains between the two of us. As before, we need
 {{examples.start_a_chat.invite_create.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{examples.start_a_chat.invite_create.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{examples.start_a_chat.invite_create.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -1643,8 +1643,8 @@ Try listing the files in your "My runs" thread:
 {{examples.my_runs.files_ls.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{examples.my_runs.files_ls.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{examples.my_runs.files_ls.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -1744,8 +1744,8 @@ Give the default `chrono` (for chronological) mode a try:
 {{examples.my_runs.feed.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{examples.my_runs.feed.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{examples.my_runs.feed.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -1925,8 +1925,8 @@ Let's subscribe to "files" updates across all threads:
 {{subscribe.files.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{subscribe.files.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{subscribe.files.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -1947,8 +1947,8 @@ In another terminal, add a location to the "My runs" thread:
 {{examples.my_runs.add_location_data.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{examples.my_runs.add_location_data.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{examples.my_runs.add_location_data.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -2039,8 +2039,8 @@ Let's see what kind of notifications your first peer (Clyde) has:
 {{notifications.ls.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{notifications.ls.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{notifications.ls.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -2087,8 +2087,8 @@ Notifications have a `read` boolean status that is useful for some applications.
 {{notifications.read.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{notifications.read.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{notifications.read.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -2116,8 +2116,8 @@ Display a summary of your peer's threads, files, and contacts:
 {{core.summary.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{core.summary.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{core.summary.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -2542,8 +2542,8 @@ You can view your active cafe sessions with the `ls` command:
 {{cafes.list.js_http_client.code}}
 ```
 
-```Swift tab="iOS"
-{{cafes.list.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{cafes.list.objc.code}}
 ```
 
 ??? success
@@ -2580,8 +2580,8 @@ An account peer will periodically check each of its registered cafes for new mes
 {{cafes.messages.js_http_client.code}}
 ```
 
-```Swift tab="iOS"
-{{cafes.messages.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{cafes.messages.objc.code}}
 ```
 
 ???+ success
@@ -2603,8 +2603,8 @@ You can leave a cafe at any time. Data associated with your client account will 
 {{cafes.remove.js_http_client.code}}
 ```
 
-```Swift tab="iOS"
-{{cafes.remove.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{cafes.remove.objc.code}}
 ```
 
 
@@ -2954,8 +2954,8 @@ Downloading data behind a path is one of the most useful IPFS APIs. For example,
 {{ipfs.cat.js_http_client.code}}
 ```
 
-```Swift tab="iOS"
-{{ipfs.cat.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{ipfs.cat.objc.code}}
 ```
 
 ???+ success

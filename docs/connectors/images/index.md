@@ -32,8 +32,8 @@ To handle full-res images, your app can connect to existing user threads (such a
 {{threads.cameraroll_add.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{threads.cameraroll_add.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{threads.cameraroll_add.objc.code}}
 ```
 
 ```Java tab="Android"
@@ -91,8 +91,8 @@ Sharable image threads are optimized for p2p or group sharing of content. Every 
 {{threads.media_add.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{threads.media_add.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{threads.media_add.objc.code}}
 ```
 
 ```Java tab="Android"
