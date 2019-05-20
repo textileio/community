@@ -36,6 +36,10 @@ If you are running any of the client libraries (JavaScript, React Native, iOS, o
 {{core.setup.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{core.setup.swift.code}}
+```
+
 ```Java tab="Android"
 {{core.setup.android.code}}
 ```
@@ -58,6 +62,10 @@ Now, with Textile ready, take a look at your peer profile:
 
 ```ObjectiveC tab="Objective-C"
 {{profile.get_.objc.code}}
+```
+
+```Swift tab="Swift"
+{{profile.get_.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -103,6 +111,10 @@ You can set a display name for your peer. Interacting with other users is a lot 
 {{profile.set_name.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{profile.set_name.swift.code}}
+```
+
 ```Java tab="Android"
 {{profile.set_name.android.code}}
 ```
@@ -132,6 +144,10 @@ Similarly, you can assign your peer a publicly visible avatar image:
 {{profile.set_avatar.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{profile.set_avatar.swift.code}}
+```
+
 ```Java tab="Android"
 {{profile.set_avatar.android.code}}
 ```
@@ -159,6 +175,10 @@ Take another look at your peer profile and see what happened:
 
 ```ObjectiveC tab="Objective-C"
 {{profile.get_.objc.code}}
+```
+
+```Swift tab="Swift"
+{{profile.get_.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -203,6 +223,10 @@ Take a look at your account:
 
 ```ObjectiveC tab="Objective-C"
 {{account.get_.objc.code}}
+```
+
+```Swift tab="Swift"
+{{account.get_.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -250,6 +274,10 @@ Of course, your account seed (private key) is not included in the public-facing 
 {{account.seed.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{account.seed.swift.code}}
+```
+
 ```Java tab="Android"
 {{account.seed.android.code}}
 ```
@@ -282,6 +310,10 @@ You can also manually run account sync:
 
 ```ObjectiveC tab="Objective-C"
 {{account.sync.objc.code}}
+```
+
+```Swift tab="Swift"
+{{account.sync.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -322,6 +354,10 @@ Try searching for "Andrew":
 
 ```ObjectiveC tab="Objective-C"
 {{contacts.search.objc.code}}
+```
+
+```Swift tab="Swift"
+{{contacts.search.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -379,6 +415,10 @@ With any luck, you should see a bunch of results. You can also search for a sing
 {{contacts.search_address.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{contacts.search_address.swift.code}}
+```
+
 ```Java tab="Android"
 {{contacts.search_address.android.code}}
 ```
@@ -422,6 +462,10 @@ Try adding one of the contacts from above by address:
 {{contacts.add.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{contacts.add.swift.code}}
+```
+
 ```Java tab="Android"
 {{contacts.add.android.code}}
 ```
@@ -450,6 +494,10 @@ We can now see the added contact contact in our "address book":
 
 ```ObjectiveC tab="Objective-C"
 {{contacts.ls.objc.code}}
+```
+
+```Swift tab="Swift"
+{{contacts.ls.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -492,6 +540,10 @@ Removing contacts is done by address:
 {{contacts.rm.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{contacts.rm.swift.code}}
+```
+
 ```Java tab="Android"
 {{contacts.rm.android.code}}
 ```
@@ -521,6 +573,10 @@ Let's ping one of Textile's federated cafes:
 
 ```ObjectiveC tab="Objective-C"
 {{core.ping.objc.code}}
+```
+
+```Swift tab="Swift"
+{{core.ping.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -582,6 +638,10 @@ Create a thread and give it the name, "Basic". Note that thread names are _not_ 
 {{threads.add.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{threads.add.swift.code}}
+```
+
 ```Java tab="Android"
 {{threads.add.android.code}}
 ```
@@ -637,6 +697,10 @@ Any thread can take a plain old text message. Later, we'll use these with an int
 {{messages.add.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{messages.add.swift.code}}
+```
+
 ```Java tab="Android"
 {{messages.add.android.code}}
 ```
@@ -687,6 +751,10 @@ We can create a thread with this schema using the `--blob` flag:
 
 ```ObjectiveC tab="Objective-C"
 {{threads.blob_add.objc.code}}
+```
+
+```Swift tab="Swift"
+{{threads.blob_add.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -751,6 +819,10 @@ Let's add some data. Be sure to use your own thread ID.
 {{files.add.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{files.add.swift.code}}
+```
+
 ```Java tab="Android"
 {{files.add.android.code}}
 ```
@@ -805,6 +877,10 @@ Unless a schema step specifies `"plaintext": true`, the value of `meta` and `con
 {{files.keys_.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{files.keys_.swift.code}}
+```
+
 ```Java tab="Android"
 {{files.keys_.android.code}}
 ```
@@ -838,6 +914,10 @@ Let's try adding the _same_ data again:
 
 ```ObjectiveC tab="Objective-C"
 {{files.add.objc.code}}
+```
+
+```Swift tab="Swift"
+{{files.add.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -875,6 +955,10 @@ Let's create an _open_ and _shared_ thread for dog photos with the _media_ schem
 
 ```ObjectiveC tab="Objective-C"
 {{threads.add_open_shared.objc.code}}
+```
+
+```Swift tab="Swift"
+{{threads.add_open_shared.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -966,6 +1050,10 @@ Try adding the image above to your dogs thread:
 {{files.add_media.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{files.add_media.swift.code}}
+```
+
 ```Java tab="Android"
 {{files.add_media.android.code}}
 ```
@@ -1041,6 +1129,10 @@ Add a new thread to track your hypothetical runs:
 
 ```ObjectiveC tab="Objective-C"
 {{examples.my_runs.add_thread.objc.code}}
+```
+
+```Swift tab="Swift"
+{{examples.my_runs.add_thread.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -1124,6 +1216,10 @@ Next, add some locations to your thread:
 {{examples.my_runs.add_location_data.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{examples.my_runs.add_location_data.swift.code}}
+```
+
 ```Java tab="Android"
 {{examples.my_runs.add_location_data.android.code}}
 ```
@@ -1153,6 +1249,10 @@ Your peer will validate the input against the thread's schema. The input will _a
 
 ```ObjectiveC tab="Objective-C"
 {{examples.my_runs.add_location_data_fail.objc.code}}
+```
+
+```Swift tab="Swift"
+{{examples.my_runs.add_location_data_fail.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -1221,6 +1321,10 @@ Now that you have two peers running, invite the new account to your "My runs" th
 
 ```ObjectiveC tab="Objective-C"
 {{examples.my_runs.invite.objc.code}}
+```
+
+```Swift tab="Swift"
+{{examples.my_runs.invite.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -1349,6 +1453,10 @@ Take a closer look at the "My runs" thread using the `blocks ls` command, which 
 {{examples.my_runs.blocks_ls.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{examples.my_runs.blocks_ls.swift.code}}
+```
+
 ```Java tab="Android"
 {{examples.my_runs.blocks_ls.android.code}}
 ```
@@ -1427,6 +1535,10 @@ Using the output from `blocks ls`, add a comment to the one and only `FILES` upd
 {{examples.my_runs.comment_add.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{examples.my_runs.comment_add.swift.code}}
+```
+
 ```Java tab="Android"
 {{examples.my_runs.comment_add.android.code}}
 ```
@@ -1467,6 +1579,10 @@ Likes are added in a similar fashion:
 
 ```ObjectiveC tab="Objective-C"
 {{examples.my_runs.like_add.objc.code}}
+```
+
+```Swift tab="Swift"
+{{examples.my_runs.like_add.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -1510,6 +1626,10 @@ Create a new thread for chatting with your friend `P7X3gZu`:
 
 ```ObjectiveC tab="Objective-C"
 {{examples.start_a_chat.add_thread.objc.code}}
+```
+
+```Swift tab="Swift"
+{{examples.start_a_chat.add_thread.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -1565,6 +1685,10 @@ The whitelist ensures the chat remains between the two of us. As before, we need
 
 ```ObjectiveC tab="Objective-C"
 {{examples.start_a_chat.invite_create.objc.code}}
+```
+
+```Swift tab="Swift"
+{{examples.start_a_chat.invite_create.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -1645,6 +1769,10 @@ Try listing the files in your "My runs" thread:
 
 ```ObjectiveC tab="Objective-C"
 {{examples.my_runs.files_ls.objc.code}}
+```
+
+```Swift tab="Swift"
+{{examples.my_runs.files_ls.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -1746,6 +1874,10 @@ Give the default `chrono` (for chronological) mode a try:
 
 ```ObjectiveC tab="Objective-C"
 {{examples.my_runs.feed.objc.code}}
+```
+
+```Swift tab="Swift"
+{{examples.my_runs.feed.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -1929,6 +2061,10 @@ Let's subscribe to "files" updates across all threads:
 {{subscribe.files.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{subscribe.files.swift.code}}
+```
+
 ```Java tab="Android"
 {{subscribe.files.android.code}}
 ```
@@ -1949,6 +2085,10 @@ In another terminal, add a location to the "My runs" thread:
 
 ```ObjectiveC tab="Objective-C"
 {{examples.my_runs.add_location_data.objc.code}}
+```
+
+```Swift tab="Swift"
+{{examples.my_runs.add_location_data.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -2043,6 +2183,10 @@ Let's see what kind of notifications your first peer (Clyde) has:
 {{notifications.ls.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{notifications.ls.swift.code}}
+```
+
 ```Java tab="Android"
 {{notifications.ls.android.code}}
 ```
@@ -2091,6 +2235,10 @@ Notifications have a `read` boolean status that is useful for some applications.
 {{notifications.read.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{notifications.read.swift.code}}
+```
+
 ```Java tab="Android"
 {{notifications.read.android.code}}
 ```
@@ -2118,6 +2266,10 @@ Display a summary of your peer's threads, files, and contacts:
 
 ```ObjectiveC tab="Objective-C"
 {{core.summary.objc.code}}
+```
+
+```Swift tab="Swift"
+{{core.summary.swift.code}}
 ```
 
 ```Java tab="Android"
@@ -2546,6 +2698,10 @@ You can view your active cafe sessions with the `ls` command:
 {{cafes.list.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{cafes.list.swift.code}}
+```
+
 ??? success
     ```JSON
     {
@@ -2584,6 +2740,10 @@ An account peer will periodically check each of its registered cafes for new mes
 {{cafes.messages.objc.code}}
 ```
 
+```Swift tab="Swift"
+{{cafes.messages.swift.code}}
+```
+
 ???+ success
     ```
     ok
@@ -2605,6 +2765,10 @@ You can leave a cafe at any time. Data associated with your client account will 
 
 ```ObjectiveC tab="Objective-C"
 {{cafes.remove.objc.code}}
+```
+
+```Swift tab="Swift"
+{{cafes.remove.swift.code}}
 ```
 
 
@@ -2956,6 +3120,10 @@ Downloading data behind a path is one of the most useful IPFS APIs. For example,
 
 ```ObjectiveC tab="Objective-C"
 {{ipfs.cat.objc.code}}
+```
+
+```Swift tab="Swift"
+{{ipfs.cat.swift.code}}
 ```
 
 ???+ success
