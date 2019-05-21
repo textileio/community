@@ -102,6 +102,10 @@ Just with writing blob data to threads, you need to be aware of differences when
 {{files.get_.js_http_client.node.code}}
 ```
 
+## Live playground
+
+You can start playing with some of the core functionality in our [developer playground](https://github.com/textileio/js-http-playground). The playground provides a number of examples that you can run directly against a local Textile node (deamon or desktop installation).
+
 ## API Documentation
 
 You can read the full API documentation for Textile's JavaScript HTTP Client (js-http-client) can be found at https://textileio.github.io/js-http-client.
