@@ -92,7 +92,7 @@ In this example, we get a file stored with a `/json` based schema.
 
 #### Files stored as blobs
 
-Just with writing blob data to threads, you need to be aware of differences when reading blob data if you are in the browser versus if you are in Node.js.
+The same as when writing blob data to threads, you need to be aware of differences when reading blob data if you are in the browser versus if you are in Node.js.
 
 ```JavaScript tab="browser"
 {{files.get_.js_http_client.browser.code}}
