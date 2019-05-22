@@ -108,8 +108,12 @@ Here's how we create our app's new thread.
 {{connectors.documents.add_slate.react_native.code}}
 ```
 
-```Swift tab="iOS"
-{{connectors.documents.add_slate.ios.code}}
+```ObjectiveC tab="Objective-C"
+{{connectors.documents.add_slate.objc.code}}
+```
+
+```Swift tab="Swift"
+{{connectors.documents.add_slate.swift.code}}
 ```
 
 ```Java tab="Android"
