@@ -87,6 +87,7 @@ nav:
   - Connectors:
     - Introduction: connectors/index.md
     - Images & Media: connectors/images/index.md
+    - Documents: connectors/documents/index.md
   - Install:
     - The Daemon: install/the-daemon.md
     - Desktop: install/desktop.md
@@ -127,3 +128,5 @@ extra:
       yaml: snippets/common
     - name: a_tour_of_textile
       yaml: snippets/a_tour_of_textile
+    - name: connectors
+      yaml: snippets/connectors
