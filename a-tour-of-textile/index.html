@@ -1720,11 +1720,35 @@
 <span class="kr">const</span> <span class="nx">phrase</span><span class="o">:</span> <span class="nx">string</span> <span class="o">|</span> <span class="kc">undefined</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">initialize</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_2" />
-<label for="__tab_1_2">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_1_2">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">// Early on in the app lifecycle, usually in AppDelegate</span>
+<span class="c1">// Initialize a new Textile wallet for the user.</span>
+<span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="bp">NSString</span> <span class="o">*</span><span class="n">recoveryPhrase</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span> <span class="nl">initializeWithDebug</span><span class="p">:</span><span class="nb">FALSE</span> <span class="nl">logToDisk</span><span class="p">:</span><span class="nb">FALSE</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">recoveryPhrase</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Return phrase to the user for secure, out of app, storage</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;initialize error: %@&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">.</span><span class="n">localizedDescription</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// Set the Textile delegate to any object that conforms to the TextileDelegate protocol</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">delegate</span><span class="p">;</span>
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_3" />
-<label for="__tab_1_3">Android</label>
+<label for="__tab_1_3">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">do</span> <span class="p">{</span>
+  <span class="c1">// recoveryPhrase should be optional here, fix coming asap</span>
+  <span class="kd">let</span> <span class="nv">recoveryPhrase</span> <span class="p">=</span> <span class="k">try</span> <span class="n">Textile</span><span class="p">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">withDebug</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="n">logToDisk</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+  <span class="c1">// Return phrase to the user for secure, out of app, storage</span>
+
+  <span class="c1">// Set the Textile delegate to self so we can make use of events such nodeStarted</span>
+  <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">delegate</span> <span class="p">=</span> <span class="kc">self</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+  <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Unexpected error: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_4" />
+<label for="__tab_1_4">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -1744,11 +1768,27 @@
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">profile</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
 </pre></div></div>
 <input name="__tabs_2" type="radio" id="__tab_2_3" />
-<label for="__tab_2_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_2_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">Peer</span> <span class="o">*</span><span class="n">profile</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">profile</span> <span class="nl">get</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_2" type="radio" id="__tab_2_4" />
-<label for="__tab_2_4">Android</label>
+<label for="__tab_2_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">profile</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">profile</span><span class="p">.</span><span class="kr">get</span><span class="p">(&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_5" />
+<label for="__tab_2_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -1789,11 +1829,27 @@
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">setName</span><span class="p">(</span><span class="s2">&quot;Clyde&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_3" type="radio" id="__tab_3_3" />
-<label for="__tab_3_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_3_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">profile</span> <span class="nl">setName</span><span class="p">:</span><span class="s">@&quot;Clyde&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_3" type="radio" id="__tab_3_4" />
-<label for="__tab_3_4">Android</label>
+<label for="__tab_3_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">profile</span><span class="p">.</span><span class="n">setName</span><span class="p">(</span><span class="s">&quot;Clyde&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_3" type="radio" id="__tab_3_5" />
+<label for="__tab_3_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -1816,14 +1872,18 @@
 </pre></div></div>
 <input name="__tabs_4" type="radio" id="__tab_4_2" />
 <label for="__tab_4_2">React Native</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">setAvatar</span><span class="p">(</span><span class="s2">&quot;&lt;image-hash&gt;&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">todo</span>
 </pre></div></div>
 <input name="__tabs_4" type="radio" id="__tab_4_3" />
-<label for="__tab_4_3">iOS</label>
+<label for="__tab_4_3">Objective-C</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
 <input name="__tabs_4" type="radio" id="__tab_4_4" />
-<label for="__tab_4_4">Android</label>
+<label for="__tab_4_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+</pre></div></div>
+<input name="__tabs_4" type="radio" id="__tab_4_5" />
+<label for="__tab_4_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -1847,11 +1907,27 @@
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">profile</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">profile</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
 </pre></div></div>
 <input name="__tabs_5" type="radio" id="__tab_5_3" />
-<label for="__tab_5_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_5_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">Peer</span> <span class="o">*</span><span class="n">profile</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">profile</span> <span class="nl">get</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_5" type="radio" id="__tab_5_4" />
-<label for="__tab_5_4">Android</label>
+<label for="__tab_5_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">profile</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">profile</span><span class="p">.</span><span class="kr">get</span><span class="p">(&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_5" type="radio" id="__tab_5_5" />
+<label for="__tab_5_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -1887,11 +1963,15 @@
 <span class="kr">const</span> <span class="nx">address</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">account</span><span class="p">.</span><span class="nx">address</span><span class="p">()</span>
 </pre></div></div>
 <input name="__tabs_6" type="radio" id="__tab_6_3" />
-<label for="__tab_6_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_6_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">address</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">account</span> <span class="n">address</span><span class="p">];</span>
 </pre></div></div>
 <input name="__tabs_6" type="radio" id="__tab_6_4" />
-<label for="__tab_6_4">Android</label>
+<label for="__tab_6_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">adress</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">account</span><span class="p">.</span><span class="n">address</span><span class="p">()</span>
+</pre></div></div>
+<input name="__tabs_6" type="radio" id="__tab_6_5" />
+<label for="__tab_6_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -1930,11 +2010,15 @@
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">seed</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">account</span><span class="p">.</span><span class="nx">seed</span><span class="p">()</span>
 </pre></div></div>
 <input name="__tabs_7" type="radio" id="__tab_7_3" />
-<label for="__tab_7_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_7_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">seed</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">account</span> <span class="n">seed</span><span class="p">];</span>
 </pre></div></div>
 <input name="__tabs_7" type="radio" id="__tab_7_4" />
-<label for="__tab_7_4">Android</label>
+<label for="__tab_7_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">seed</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">account</span><span class="p">.</span><span class="n">seed</span><span class="p">()</span>
+</pre></div></div>
+<input name="__tabs_7" type="radio" id="__tab_7_5" />
+<label for="__tab_7_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -1963,11 +2047,29 @@
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">account</span><span class="p">.</span><span class="nx">sync</span><span class="p">()</span>
 </pre></div></div>
 <input name="__tabs_8" type="radio" id="__tab_8_3" />
-<label for="__tab_8_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_8_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">QueryOptions</span> <span class="o">*</span><span class="n">options</span> <span class="o">=</span> <span class="p">[[</span><span class="n">QueryOptions</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">account</span> <span class="nl">sync</span><span class="p">:</span><span class="n">options</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_8" type="radio" id="__tab_8_4" />
-<label for="__tab_8_4">Android</label>
+<label for="__tab_8_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">options</span> <span class="p">=</span> <span class="n">QueryOptions</span><span class="p">()</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">account</span><span class="p">.</span><span class="n">sync</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_8" type="radio" id="__tab_8_5" />
+<label for="__tab_8_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2001,11 +2103,37 @@
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">todo</span>
 </pre></div></div>
 <input name="__tabs_9" type="radio" id="__tab_9_3" />
-<label for="__tab_9_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_9_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">QueryOptions</span> <span class="o">*</span><span class="n">options</span> <span class="o">=</span> <span class="p">[[</span><span class="n">QueryOptions</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">options</span><span class="p">.</span><span class="n">wait</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">options</span><span class="p">.</span><span class="n">limit</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">ContactQuery</span> <span class="o">*</span><span class="n">query</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ContactQuery</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">query</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;Andrew&quot;</span><span class="p">;</span>
+<span class="n">MobileSearchHandle</span> <span class="o">*</span><span class="n">handle</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">contacts</span> <span class="nl">search</span><span class="p">:</span><span class="n">query</span> <span class="nl">options</span><span class="p">:</span><span class="n">options</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_9" type="radio" id="__tab_9_4" />
-<label for="__tab_9_4">Android</label>
+<label for="__tab_9_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">options</span> <span class="p">=</span> <span class="n">QueryOptions</span><span class="p">()</span>
+<span class="n">options</span><span class="p">.</span><span class="n">wait</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="n">options</span><span class="p">.</span><span class="n">limit</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="kd">let</span> <span class="nv">query</span> <span class="p">=</span> <span class="n">ContactQuery</span><span class="p">()</span>
+<span class="n">query</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;Andrew&quot;</span>
+<span class="kd">let</span> <span class="nv">handle</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">contacts</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">options</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_9" type="radio" id="__tab_9_5" />
+<label for="__tab_9_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2057,11 +2185,37 @@
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">todo</span>
 </pre></div></div>
 <input name="__tabs_10" type="radio" id="__tab_10_3" />
-<label for="__tab_10_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_10_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">QueryOptions</span> <span class="o">*</span><span class="n">options</span> <span class="o">=</span> <span class="p">[[</span><span class="n">QueryOptions</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">options</span><span class="p">.</span><span class="n">wait</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">options</span><span class="p">.</span><span class="n">limit</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">ContactQuery</span> <span class="o">*</span><span class="n">query</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ContactQuery</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">query</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span> <span class="s">@&quot;P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG&quot;</span><span class="p">;</span>
+<span class="n">MobileSearchHandle</span> <span class="o">*</span><span class="n">handle</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">contacts</span> <span class="nl">search</span><span class="p">:</span><span class="n">query</span> <span class="nl">options</span><span class="p">:</span><span class="n">options</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_10" type="radio" id="__tab_10_4" />
-<label for="__tab_10_4">Android</label>
+<label for="__tab_10_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">options</span> <span class="p">=</span> <span class="n">QueryOptions</span><span class="p">()</span>
+<span class="n">options</span><span class="p">.</span><span class="n">wait</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="n">options</span><span class="p">.</span><span class="n">limit</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="kd">let</span> <span class="nv">query</span> <span class="p">=</span> <span class="n">ContactQuery</span><span class="p">()</span>
+<span class="n">query</span><span class="p">.</span><span class="n">address</span> <span class="p">=</span> <span class="s">&quot;P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG&quot;</span>
+<span class="kd">let</span> <span class="nv">handle</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">contacts</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">options</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_10" type="radio" id="__tab_10_5" />
+<label for="__tab_10_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2099,11 +2253,29 @@
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">todo</span>
 </pre></div></div>
 <input name="__tabs_11" type="radio" id="__tab_11_3" />
-<label for="__tab_11_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_11_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">Contact</span> <span class="o">*</span><span class="n">searchResult</span> <span class="o">=</span> <span class="c1">// Should be a Contact object as returned by contact search</span>
+<span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">contacts</span> <span class="nl">add</span><span class="p">:</span><span class="n">searchResult</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_11" type="radio" id="__tab_11_4" />
-<label for="__tab_11_4">Android</label>
+<label for="__tab_11_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">contact</span> <span class="p">=</span> <span class="c1">// Should be a Contact object as returned by contact search</span>
+<span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">contacts</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">contact</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_11" type="radio" id="__tab_11_5" />
+<label for="__tab_11_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2128,11 +2300,27 @@ added P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">contacts</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">contacts</span><span class="p">.</span><span class="nx">list</span><span class="p">()</span>
 </pre></div></div>
 <input name="__tabs_12" type="radio" id="__tab_12_3" />
-<label for="__tab_12_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_12_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">ContactList</span> <span class="o">*</span><span class="n">contacts</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">contacts</span> <span class="nl">list</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_12" type="radio" id="__tab_12_4" />
-<label for="__tab_12_4">Android</label>
+<label for="__tab_12_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">contacts</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">contacts</span><span class="p">.</span><span class="n">list</span><span class="p">(&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_12" type="radio" id="__tab_12_5" />
+<label for="__tab_12_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2167,11 +2355,27 @@ added P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">contacts</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_13" type="radio" id="__tab_13_3" />
-<label for="__tab_13_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_13_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">contacts</span> <span class="nl">remove</span><span class="p">:</span><span class="s">@&quot;P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_13" type="radio" id="__tab_13_4" />
-<label for="__tab_13_4">Android</label>
+<label for="__tab_13_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">contacts</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s">&quot;P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_13" type="radio" id="__tab_13_5" />
+<label for="__tab_13_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2196,11 +2400,15 @@ added P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">todo</span>
 </pre></div></div>
 <input name="__tabs_14" type="radio" id="__tab_14_3" />
-<label for="__tab_14_3">iOS</label>
+<label for="__tab_14_3">Objective-C</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
 <input name="__tabs_14" type="radio" id="__tab_14_4" />
-<label for="__tab_14_4">Android</label>
+<label for="__tab_14_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+</pre></div></div>
+<input name="__tabs_14" type="radio" id="__tab_14_5" />
+<label for="__tab_14_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2262,11 +2470,43 @@ shared      --&gt; initiator: Y, whitelist: Y`
 <span class="kr">const</span> <span class="nx">newTarget</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_15" type="radio" id="__tab_15_3" />
-<label for="__tab_15_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_15_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">AddThreadConfig_Schema</span> <span class="o">*</span><span class="n">schema</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AddThreadConfig_Schema</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">schema</span><span class="p">.</span><span class="n">preset</span> <span class="o">=</span> <span class="n">AddThreadConfig_Schema_Preset_Blob</span><span class="p">;</span>
+<span class="n">AddThreadConfig</span> <span class="o">*</span><span class="n">config</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AddThreadConfig</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="o">=</span> <span class="s">@&quot;your.bundle.id.version.Basic&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;Basic&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">Thread_Type_Private</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="o">=</span> <span class="n">Thread_Sharing_NotShared</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">;</span>
+<span class="n">Thread</span> <span class="o">*</span><span class="kr">thread</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">threads</span> <span class="nl">add</span><span class="p">:</span><span class="n">config</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_15" type="radio" id="__tab_15_4" />
-<label for="__tab_15_4">Android</label>
+<label for="__tab_15_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">schema</span> <span class="p">=</span> <span class="n">AddThreadConfig_Schema</span><span class="p">()</span>
+<span class="n">schema</span><span class="p">.</span><span class="n">preset</span> <span class="p">=</span> <span class="n">AddThreadConfig_Schema_Preset</span><span class="p">.</span><span class="n">blob</span>
+<span class="kd">let</span> <span class="nv">config</span> <span class="p">=</span> <span class="n">AddThreadConfig</span><span class="p">()</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="p">=</span> <span class="s">&quot;your.bundle.id.version.Basic&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;Basic&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="p">=</span> <span class="n">Thread_Type</span><span class="p">.</span><span class="kd">private</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="p">=</span> <span class="n">Thread_Sharing</span><span class="p">.</span><span class="n">notShared</span>
+<span class="n">config</span><span class="p">.</span><span class="n">schema</span> <span class="p">=</span> <span class="n">schema</span>
+<span class="kd">let</span> <span class="nv">thread</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">threads</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_15" type="radio" id="__tab_15_5" />
+<label for="__tab_15_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2315,11 +2555,27 @@ shared      --&gt; initiator: Y, whitelist: Y`
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk&quot;</span><span class="p">,</span> <span class="s2">&quot;hello?&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_16" type="radio" id="__tab_16_3" />
-<label for="__tab_16_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_16_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">messages</span> <span class="nl">add</span><span class="p">:</span><span class="s">@&quot;12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk&quot;</span> <span class="nl">body</span><span class="p">:</span><span class="s">@&quot;hello?&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_16" type="radio" id="__tab_16_4" />
-<label for="__tab_16_4">Android</label>
+<label for="__tab_16_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">messages</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk&quot;</span><span class="p">,</span> <span class="n">body</span><span class="p">:</span> <span class="s">&quot;hello?&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_16" type="radio" id="__tab_16_5" />
+<label for="__tab_16_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2352,11 +2608,11 @@ shared      --&gt; initiator: Y, whitelist: Y`
 <div class="superfences-tabs">
 <input name="__tabs_17" type="radio" id="__tab_17_0" checked="checked" />
 <label for="__tab_17_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile threads add &quot;Any old data&quot; --blob
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile threads add &quot;Any old data&quot; &quot;your.bundle.id.version.Blob&quot; --blob
 </pre></div></div>
 <input name="__tabs_17" type="radio" id="__tab_17_1" />
 <label for="__tab_17_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">thread</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;Any old data&quot;</span><span class="p">,</span> <span class="s1">&#39;blob&#39;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">thread</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;Any old data&quot;</span><span class="p">,</span> <span class="s2">&quot;blob&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_17" type="radio" id="__tab_17_2" />
 <label for="__tab_17_2">React Native</label>
@@ -2379,11 +2635,43 @@ shared      --&gt; initiator: Y, whitelist: Y`
 <span class="kr">const</span> <span class="nx">newTarget</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_17" type="radio" id="__tab_17_3" />
-<label for="__tab_17_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_17_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">AddThreadConfig_Schema</span> <span class="o">*</span><span class="n">schema</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AddThreadConfig_Schema</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">schema</span><span class="p">.</span><span class="n">preset</span> <span class="o">=</span> <span class="n">AddThreadConfig_Schema_Preset_Blob</span><span class="p">;</span>
+<span class="n">AddThreadConfig</span> <span class="o">*</span><span class="n">config</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AddThreadConfig</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="o">=</span> <span class="s">@&quot;your.bundle.id.version.Blob&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;Any old data&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">Thread_Type_Private</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="o">=</span> <span class="n">Thread_Sharing_NotShared</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">;</span>
+<span class="n">Thread</span> <span class="o">*</span><span class="kr">thread</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">threads</span> <span class="nl">add</span><span class="p">:</span><span class="n">config</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_17" type="radio" id="__tab_17_4" />
-<label for="__tab_17_4">Android</label>
+<label for="__tab_17_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">schema</span> <span class="p">=</span> <span class="n">AddThreadConfig_Schema</span><span class="p">()</span>
+<span class="n">schema</span><span class="p">.</span><span class="n">preset</span> <span class="p">=</span> <span class="n">AddThreadConfig_Schema_Preset</span><span class="p">.</span><span class="n">blob</span>
+<span class="kd">let</span> <span class="nv">config</span> <span class="p">=</span> <span class="n">AddThreadConfig</span><span class="p">()</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="p">=</span> <span class="s">&quot;your.bundle.id.version.Blob&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;Any old data&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="p">=</span> <span class="n">Thread_Type</span><span class="p">.</span><span class="kd">private</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="p">=</span> <span class="n">Thread_Sharing</span><span class="p">.</span><span class="n">notShared</span>
+<span class="n">config</span><span class="p">.</span><span class="n">schema</span> <span class="p">=</span> <span class="n">schema</span>
+<span class="kd">let</span> <span class="nv">thread</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">threads</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_17" type="radio" id="__tab_17_5" />
+<label for="__tab_17_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2443,11 +2731,43 @@ shared      --&gt; initiator: Y, whitelist: Y`
 <span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_18" type="radio" id="__tab_18_3" />
-<label for="__tab_18_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_18_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">;</span>
+<span class="bp">NSString</span> <span class="o">*</span><span class="n">filePath</span> <span class="o">=</span> <span class="s">@&quot;/path/to/mmm-bytes....&quot;</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">prepareByPath</span><span class="p">:</span><span class="n">filePath</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MobilePreparedFiles</span> <span class="o">*</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Do somehting with this error</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">NSError</span> <span class="o">*</span><span class="n">addFilesError</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">add</span><span class="p">:</span><span class="n">preparedFiles</span><span class="p">.</span><span class="n">dir</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">caption</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">addFilesError</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">addFilesError</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Do somehting with this error</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Success!</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}];</span>
 </pre></div></div>
 <input name="__tabs_18" type="radio" id="__tab_18_4" />
-<label for="__tab_18_4">Android</label>
+<label for="__tab_18_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span>
+<span class="kd">let</span> <span class="nv">filePath</span> <span class="p">=</span> <span class="s">&quot;/path/to/mmm-bytes....&quot;</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">byPath</span><span class="p">:</span> <span class="n">filePath</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+  <span class="k">if</span> <span class="kd">let</span> <span class="nv">files</span> <span class="p">=</span> <span class="n">preparedFiles</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">addFilesError</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+    <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">files</span><span class="p">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">,</span> <span class="n">caption</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">addFilesError</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">addFilesError</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Do something with this error</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Success!</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Do something with error</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_18" type="radio" id="__tab_18_5" />
+<label for="__tab_18_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2495,11 +2815,15 @@ Added 1 file in 613.175326ms
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">todo</span>
 </pre></div></div>
 <input name="__tabs_19" type="radio" id="__tab_19_3" />
-<label for="__tab_19_3">iOS</label>
+<label for="__tab_19_3">Objective-C</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
 <input name="__tabs_19" type="radio" id="__tab_19_4" />
-<label for="__tab_19_4">Android</label>
+<label for="__tab_19_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+</pre></div></div>
+<input name="__tabs_19" type="radio" id="__tab_19_5" />
+<label for="__tab_19_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2530,11 +2854,43 @@ Added 1 file in 613.175326ms
 <span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_20" type="radio" id="__tab_20_3" />
-<label for="__tab_20_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_20_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">;</span>
+<span class="bp">NSString</span> <span class="o">*</span><span class="n">filePath</span> <span class="o">=</span> <span class="s">@&quot;/path/to/mmm-bytes....&quot;</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">prepareByPath</span><span class="p">:</span><span class="n">filePath</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MobilePreparedFiles</span> <span class="o">*</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Do somehting with this error</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">NSError</span> <span class="o">*</span><span class="n">addFilesError</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">add</span><span class="p">:</span><span class="n">preparedFiles</span><span class="p">.</span><span class="n">dir</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">caption</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">addFilesError</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">addFilesError</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Do somehting with this error</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Success!</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}];</span>
 </pre></div></div>
 <input name="__tabs_20" type="radio" id="__tab_20_4" />
-<label for="__tab_20_4">Android</label>
+<label for="__tab_20_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span>
+<span class="kd">let</span> <span class="nv">filePath</span> <span class="p">=</span> <span class="s">&quot;/path/to/mmm-bytes....&quot;</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">byPath</span><span class="p">:</span> <span class="n">filePath</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+  <span class="k">if</span> <span class="kd">let</span> <span class="nv">files</span> <span class="p">=</span> <span class="n">preparedFiles</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">addFilesError</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+    <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">files</span><span class="p">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">,</span> <span class="n">caption</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">addFilesError</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">addFilesError</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Do something with this error</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Success!</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Do something with error</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_20" type="radio" id="__tab_20_5" />
+<label for="__tab_20_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2581,11 +2937,43 @@ Added 1 file in 138.218899ms
 <span class="kr">const</span> <span class="nx">newTarget</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_21" type="radio" id="__tab_21_3" />
-<label for="__tab_21_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_21_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">AddThreadConfig_Schema</span> <span class="o">*</span><span class="n">schema</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AddThreadConfig_Schema</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">schema</span><span class="p">.</span><span class="n">preset</span> <span class="o">=</span> <span class="n">AddThreadConfig_Schema_Preset_Media</span><span class="p">;</span>
+<span class="n">AddThreadConfig</span> <span class="o">*</span><span class="n">config</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AddThreadConfig</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="o">=</span> <span class="s">@&quot;your.bundle.id.version.Media&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;Dogs&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">Thread_Type_Open</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="o">=</span> <span class="n">Thread_Sharing_Shared</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">;</span>
+<span class="n">Thread</span> <span class="o">*</span><span class="kr">thread</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">threads</span> <span class="nl">add</span><span class="p">:</span><span class="n">config</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_21" type="radio" id="__tab_21_4" />
-<label for="__tab_21_4">Android</label>
+<label for="__tab_21_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">schema</span> <span class="p">=</span> <span class="n">AddThreadConfig_Schema</span><span class="p">()</span>
+<span class="n">schema</span><span class="p">.</span><span class="n">preset</span> <span class="p">=</span> <span class="n">AddThreadConfig_Schema_Preset</span><span class="p">.</span><span class="n">media</span>
+<span class="kd">let</span> <span class="nv">config</span> <span class="p">=</span> <span class="n">AddThreadConfig</span><span class="p">()</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="p">=</span> <span class="s">&quot;your.bundle.id.version.Media&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;Dogs&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="p">=</span> <span class="n">Thread_Type</span><span class="p">.</span><span class="n">open</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="p">=</span> <span class="n">Thread_Sharing</span><span class="p">.</span><span class="n">shared</span>
+<span class="n">config</span><span class="p">.</span><span class="n">schema</span> <span class="p">=</span> <span class="n">schema</span>
+<span class="kd">let</span> <span class="nv">thread</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">threads</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_21" type="radio" id="__tab_21_5" />
+<label for="__tab_21_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2672,11 +3060,43 @@ Added 1 file in 138.218899ms
 <span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_22" type="radio" id="__tab_22_3" />
-<label for="__tab_22_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_22_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">;</span>
+<span class="bp">NSString</span> <span class="o">*</span><span class="n">filePath</span> <span class="o">=</span> <span class="s">@&quot;/path/to/image&quot;</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">prepareByPath</span><span class="p">:</span><span class="n">filePath</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MobilePreparedFiles</span> <span class="o">*</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Do somehting with this error</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">NSError</span> <span class="o">*</span><span class="n">addFilesError</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">add</span><span class="p">:</span><span class="n">preparedFiles</span><span class="p">.</span><span class="n">dir</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">caption</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">addFilesError</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">addFilesError</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Do somehting with this error</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Success!</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}];</span>
 </pre></div></div>
 <input name="__tabs_22" type="radio" id="__tab_22_4" />
-<label for="__tab_22_4">Android</label>
+<label for="__tab_22_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span>
+<span class="kd">let</span> <span class="nv">filePath</span> <span class="p">=</span> <span class="s">&quot;/path/to/image&quot;</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">byPath</span><span class="p">:</span> <span class="n">filePath</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+  <span class="k">if</span> <span class="kd">let</span> <span class="nv">files</span> <span class="p">=</span> <span class="n">preparedFiles</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">addFilesError</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+    <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">files</span><span class="p">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">,</span> <span class="n">caption</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">addFilesError</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">addFilesError</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Do something with this error</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Success!</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Do something with error</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_22" type="radio" id="__tab_22_5" />
+<label for="__tab_22_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2736,18 +3156,66 @@ Added 1 file in 5.978401883s
 <input name="__tabs_23" type="radio" id="__tab_23_1" />
 <label for="__tab_23_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">locations</span> <span class="o">=</span> <span class="p">(</span><span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;location.json&quot;</span><span class="p">)).</span><span class="nx">json</span><span class="p">()</span>
-<span class="kr">const</span> <span class="nx">thread</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;My runs&quot;</span><span class="p">,</span> <span class="nx">locations</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s2">&quot;public&quot;</span><span class="p">,</span> <span class="s2">&quot;invite_only&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">thread</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;My runs&quot;</span><span class="p">,</span> <span class="nx">locations</span><span class="p">,</span> <span class="s2">&quot;your.bundle.id.version.MyRuns&quot;</span><span class="p">,</span> <span class="s2">&quot;public&quot;</span><span class="p">,</span> <span class="s2">&quot;invite_only&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_23" type="radio" id="__tab_23_2" />
 <label for="__tab_23_2">React Native</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">todo</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">threadKey</span> <span class="o">=</span> <span class="s1">&#39;your.bundle.id.version.MyRuns&#39;</span>
+<span class="kr">const</span> <span class="nx">threadName</span> <span class="o">=</span> <span class="s1">&#39;My Runs&#39;</span>
+<span class="kr">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="nx">json</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">locations</span><span class="p">),</span>
+  <span class="nx">preset</span><span class="o">:</span> <span class="nx">AddThreadConfig</span><span class="p">.</span><span class="nx">Schema</span><span class="p">.</span><span class="nx">Preset</span><span class="p">.</span><span class="nx">NONE</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="nx">threadKey</span><span class="p">,</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="nx">threadName</span><span class="p">,</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="nx">Thread</span><span class="p">.</span><span class="nx">Type</span><span class="p">.</span><span class="nx">PUBLIC</span><span class="p">,</span>
+  <span class="nx">sharing</span><span class="o">:</span> <span class="nx">Thread</span><span class="p">.</span><span class="nx">Sharing</span><span class="p">.</span><span class="nx">INVITE_ONLY</span><span class="p">,</span>
+  <span class="nx">schema</span><span class="o">:</span> <span class="nx">schema</span><span class="p">,</span>
+  <span class="nx">force</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nx">members</span><span class="o">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">newTarget</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_23" type="radio" id="__tab_23_3" />
-<label for="__tab_23_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_23_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">AddThreadConfig_Schema</span> <span class="o">*</span><span class="n">schema</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AddThreadConfig_Schema</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">schema</span><span class="p">.</span><span class="n">json</span> <span class="o">=</span> <span class="s">@&quot;&lt;location.json string&gt;&quot;</span><span class="p">;</span>
+<span class="n">AddThreadConfig</span> <span class="o">*</span><span class="n">config</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AddThreadConfig</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="o">=</span> <span class="s">@&quot;your.bundle.id.version.MyRuns&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;My Runs&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">Thread_Type_Public</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="o">=</span> <span class="n">Thread_Sharing_InviteOnly</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">;</span>
+<span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">Thread</span> <span class="o">*</span><span class="kr">thread</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">threads</span> <span class="nl">add</span><span class="p">:</span><span class="n">config</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_23" type="radio" id="__tab_23_4" />
-<label for="__tab_23_4">Android</label>
+<label for="__tab_23_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">schema</span> <span class="p">=</span> <span class="n">AddThreadConfig_Schema</span><span class="p">()</span>
+<span class="n">schema</span><span class="p">.</span><span class="n">json</span> <span class="p">=</span> <span class="s">&quot;&lt;location.json string&gt;&quot;</span>
+<span class="kd">let</span> <span class="nv">config</span> <span class="p">=</span> <span class="n">AddThreadConfig</span><span class="p">()</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="p">=</span> <span class="s">&quot;&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;My Runs&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="p">=</span> <span class="n">Thread_Type</span><span class="p">.</span><span class="kd">public</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="p">=</span> <span class="n">Thread_Sharing</span><span class="p">.</span><span class="n">inviteOnly</span>
+<span class="n">config</span><span class="p">.</span><span class="n">schema</span> <span class="p">=</span> <span class="n">schema</span>
+<span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">thread</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">threads</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_23" type="radio" id="__tab_23_5" />
+<label for="__tab_23_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2826,11 +3294,47 @@ Added 1 file in 5.978401883s
 <span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_24" type="radio" id="__tab_24_3" />
-<label for="__tab_24_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_24_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">;</span>
+<span class="bp">NSData</span> <span class="o">*</span><span class="n">jsonData</span> <span class="o">=</span> <span class="p">[</span><span class="s">@&quot;{ latitude: 48.858093, longitude: 2.294694 }&quot;</span> <span class="nl">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span>
+<span class="bp">NSString</span> <span class="o">*</span><span class="n">dataString</span> <span class="o">=</span> <span class="p">[</span><span class="n">jsonData</span> <span class="nl">base64EncodedStringWithOptions</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">prepare</span><span class="p">:</span><span class="n">dataString</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MobilePreparedFiles</span> <span class="o">*</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Do something with this error</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">add</span><span class="p">:</span><span class="n">preparedFiles</span><span class="p">.</span><span class="n">dir</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">caption</span><span class="p">:</span><span class="s">@&quot;&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Do something with this error</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Success!</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}];</span>
 </pre></div></div>
 <input name="__tabs_24" type="radio" id="__tab_24_4" />
-<label for="__tab_24_4">Android</label>
+<label for="__tab_24_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span>
+<span class="kd">let</span> <span class="nv">jsonData</span> <span class="p">=</span> <span class="s">&quot;{ latitude: 48.858093, longitude: 2.294694 }&quot;</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">using</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">)</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">jsonData</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nv">dataString</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">base64EncodedString</span><span class="p">()</span>
+  <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">dataString</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">files</span> <span class="p">=</span> <span class="n">preparedFiles</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nv">filesAddError</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+      <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">files</span><span class="p">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">,</span> <span class="n">caption</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">filesAddError</span><span class="p">)</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">filesAddError</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Do something with this error</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Success!</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Do something with error</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_24" type="radio" id="__tab_24_5" />
+<label for="__tab_24_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2860,11 +3364,47 @@ Added 1 file in 534.774123ms
 <span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_25" type="radio" id="__tab_25_3" />
-<label for="__tab_25_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_25_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">;</span>
+<span class="bp">NSData</span> <span class="o">*</span><span class="n">jsonData</span> <span class="o">=</span> <span class="p">[</span><span class="s">@&quot;{ latitude: 91, longitude: 2.294694 }&quot;</span> <span class="nl">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span>
+<span class="bp">NSString</span> <span class="o">*</span><span class="n">dataString</span> <span class="o">=</span> <span class="p">[</span><span class="n">jsonData</span> <span class="nl">base64EncodedStringWithOptions</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">prepare</span><span class="p">:</span><span class="n">dataString</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MobilePreparedFiles</span> <span class="o">*</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Do something with this error</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">add</span><span class="p">:</span><span class="n">preparedFiles</span><span class="p">.</span><span class="n">dir</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">caption</span><span class="p">:</span><span class="s">@&quot;&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Do something with this error</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Success!</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}];</span>
 </pre></div></div>
 <input name="__tabs_25" type="radio" id="__tab_25_4" />
-<label for="__tab_25_4">Android</label>
+<label for="__tab_25_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span>
+<span class="kd">let</span> <span class="nv">jsonData</span> <span class="p">=</span> <span class="s">&quot;{ latitude: 91, longitude: 2.294694 }&quot;</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">using</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">)</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">jsonData</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nv">dataString</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">base64EncodedString</span><span class="p">()</span>
+  <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">dataString</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">files</span> <span class="p">=</span> <span class="n">preparedFiles</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nv">filesAddError</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+      <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">files</span><span class="p">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">,</span> <span class="n">caption</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">filesAddError</span><span class="p">)</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">filesAddError</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Do something with this error</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Success!</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Do something with error</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_25" type="radio" id="__tab_25_5" />
+<label for="__tab_25_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -2928,11 +3468,27 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">invites</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">,</span> <span class="s2">&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_28" type="radio" id="__tab_28_3" />
-<label for="__tab_28_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_28_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">invites</span> <span class="nl">add</span><span class="p">:</span><span class="s">@&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span> <span class="nl">address</span><span class="p">:</span><span class="s">@&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_28" type="radio" id="__tab_28_4" />
-<label for="__tab_28_4">Android</label>
+<label for="__tab_28_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">invites</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="s">&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_28" type="radio" id="__tab_28_5" />
+<label for="__tab_28_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3049,11 +3605,15 @@ ok
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="err">@</span><span class="nx">todo</span>
 </pre></div></div>
 <input name="__tabs_31" type="radio" id="__tab_31_3" />
-<label for="__tab_31_3">iOS</label>
+<label for="__tab_31_3">Objective-C</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
 </pre></div></div>
 <input name="__tabs_31" type="radio" id="__tab_31_4" />
-<label for="__tab_31_4">Android</label>
+<label for="__tab_31_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+</pre></div></div>
+<input name="__tabs_31" type="radio" id="__tab_31_5" />
+<label for="__tab_31_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3125,11 +3685,27 @@ ok
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">comments</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">,</span> <span class="s2">&quot;Is this an outlier?&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_32" type="radio" id="__tab_32_3" />
-<label for="__tab_32_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_32_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">comments</span> <span class="nl">add</span><span class="p">:</span><span class="s">@&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span> <span class="nl">body</span><span class="p">:</span><span class="s">@&quot;Is this an outlier?&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_32" type="radio" id="__tab_32_4" />
-<label for="__tab_32_4">Android</label>
+<label for="__tab_32_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">comments</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">,</span> <span class="n">body</span><span class="p">:</span> <span class="s">&quot;Is this an outlier?&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_32" type="radio" id="__tab_32_5" />
+<label for="__tab_32_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3166,11 +3742,27 @@ ok
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">likes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_33" type="radio" id="__tab_33_3" />
-<label for="__tab_33_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_33_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">likes</span> <span class="nl">add</span><span class="p">:</span><span class="s">@&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_33" type="radio" id="__tab_33_4" />
-<label for="__tab_33_4">Android</label>
+<label for="__tab_33_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">likes</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_33" type="radio" id="__tab_33_5" />
+<label for="__tab_33_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3198,18 +3790,56 @@ ok
 </pre></div></div>
 <input name="__tabs_34" type="radio" id="__tab_34_1" />
 <label for="__tab_34_1">JS HTTP</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;chat&quot;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="s2">&quot;shared&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;</span><span class="p">])</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;chat&quot;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="s2">&quot;your.bundle.id.version.Chat&quot;</span><span class="p">,</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="s2">&quot;shared&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;</span><span class="p">])</span>
 </pre></div></div>
 <input name="__tabs_34" type="radio" id="__tab_34_2" />
 <label for="__tab_34_2">React Native</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">@todo</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">threadKey</span> <span class="o">=</span> <span class="s1">&#39;your.bundle.id.version.Chat&#39;</span>
+<span class="kr">const</span> <span class="nx">threadName</span> <span class="o">=</span> <span class="s1">&#39;Chat&#39;</span>
+<span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">key</span>: <span class="kt">threadKey</span><span class="p">,</span>
+  <span class="nx">name</span>: <span class="kt">threadName</span><span class="p">,</span>
+  <span class="nx">type</span>: <span class="kt">Thread.Type.OPEN</span><span class="p">,</span>
+  <span class="nx">sharing</span>: <span class="kt">Thread.Sharing.SHARED</span><span class="p">,</span>
+  <span class="nx">force</span>: <span class="kt">false</span><span class="p">,</span>
+  <span class="nx">members</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">newTarget</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_34" type="radio" id="__tab_34_3" />
-<label for="__tab_34_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_34_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">AddThreadConfig</span> <span class="o">*</span><span class="n">config</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AddThreadConfig</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="o">=</span> <span class="s">@&quot;your.bundle.id.version.Chat&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;Chat&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">Thread_Type_Open</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="o">=</span> <span class="n">Thread_Sharing_Shared</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">whitelistArray</span> <span class="o">=</span> <span class="p">[</span><span class="l">@[</span><span class="s">@&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;</span><span class="l">]</span> <span class="n">mutableCopy</span><span class="p">];</span>
+<span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">Thread</span> <span class="o">*</span><span class="kr">thread</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">threads</span> <span class="nl">add</span><span class="p">:</span><span class="n">config</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_34" type="radio" id="__tab_34_4" />
-<label for="__tab_34_4">Android</label>
+<label for="__tab_34_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">config</span> <span class="p">=</span> <span class="n">AddThreadConfig</span><span class="p">()</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="p">=</span> <span class="s">&quot;your.bundle.id.version.Chat&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;Chat&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="p">=</span> <span class="n">Thread_Type</span><span class="p">.</span><span class="n">open</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="p">=</span> <span class="n">Thread_Sharing</span><span class="p">.</span><span class="n">shared</span>
+<span class="n">config</span><span class="p">.</span><span class="n">whitelistArray</span> <span class="p">=</span> <span class="p">[</span><span class="s">&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;</span><span class="p">]</span>
+<span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">thread</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">threads</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_34" type="radio" id="__tab_34_5" />
+<label for="__tab_34_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3262,11 +3892,27 @@ ok
 <span class="kr">const</span> <span class="nx">inviteKey</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">invites</span><span class="p">.</span><span class="nx">addExternal</span><span class="p">(</span><span class="s2">&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_35" type="radio" id="__tab_35_3" />
-<label for="__tab_35_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_35_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">invites</span> <span class="nl">addExternal</span><span class="p">:</span><span class="s">@&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_35" type="radio" id="__tab_35_4" />
-<label for="__tab_35_4">Android</label>
+<label for="__tab_35_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">invites</span><span class="p">.</span><span class="n">addExternal</span><span class="p">(</span><span class="s">&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_35" type="radio" id="__tab_35_5" />
+<label for="__tab_35_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3340,11 +3986,27 @@ ok
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_39" type="radio" id="__tab_39_3" />
-<label for="__tab_39_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_39_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">FilesList</span> <span class="o">*</span><span class="n">filesList</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">list</span><span class="p">:</span><span class="s">@&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span> <span class="nl">offset</span><span class="p">:</span><span class="s">@&quot;&quot;</span> <span class="nl">limit</span><span class="p">:</span><span class="mi">5</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_39" type="radio" id="__tab_39_4" />
-<label for="__tab_39_4">Android</label>
+<label for="__tab_39_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">filesList</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">list</span><span class="p">(</span><span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">,</span> <span class="n">offset</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_39" type="radio" id="__tab_39_5" />
+<label for="__tab_39_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3437,11 +4099,31 @@ Omit the --thread option to paginate all files.
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">feed</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_40" type="radio" id="__tab_40_3" />
-<label for="__tab_40_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_40_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">FeedRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[[</span><span class="n">FeedRequest</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">request</span><span class="p">.</span><span class="kr">thread</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">;</span>
+<span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">FeedItemList</span> <span class="o">*</span><span class="n">feedItemList</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">feed</span> <span class="nl">list</span><span class="p">:</span><span class="n">request</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_40" type="radio" id="__tab_40_4" />
-<label for="__tab_40_4">Android</label>
+<label for="__tab_40_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">request</span> <span class="p">=</span> <span class="n">FeedRequest</span><span class="p">()</span>
+<span class="n">request</span><span class="p">.</span><span class="n">thread</span> <span class="p">=</span> <span class="s">&quot;&quot;</span>
+<span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">feedItemList</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">feed</span><span class="p">.</span><span class="n">list</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_40" type="radio" id="__tab_40_5" />
+<label for="__tab_40_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3617,7 +4299,7 @@ Omit the --thread option to paginate all files.
     <span class="k">return</span>
   <span class="p">}</span>
   <span class="k">try</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
   <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">reader</span><span class="p">.</span><span class="nx">cancel</span><span class="p">(</span><span class="kc">undefined</span><span class="p">)</span>
     <span class="k">return</span>
@@ -3636,11 +4318,31 @@ Omit the --thread option to paginate all files.
 <span class="p">})</span>
 </pre></div></div>
 <input name="__tabs_41" type="radio" id="__tab_41_3" />
-<label for="__tab_41_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_41_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">// Set the Textile delegate to any object that conforms to the TextileDelegate protocol</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">delegate</span><span class="p">;</span>
+
+<span class="c1">// The delegate can receive callbacks for any event it is interested in, for example</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">threadUpdateReceived:</span><span class="p">(</span><span class="n">FeedItem</span> <span class="o">*</span><span class="p">)</span><span class="nv">feedItem</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">([</span><span class="n">feedItem</span><span class="p">.</span><span class="n">payload</span><span class="p">.</span><span class="n">typeURL</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&quot;/Files&quot;</span><span class="p">])</span> <span class="p">{</span>
+    <span class="c1">// new file!</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_41" type="radio" id="__tab_41_4" />
-<label for="__tab_41_4">Android</label>
+<label for="__tab_41_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">// Set the Textile delegate to any object that conforms to the TextileDelegate protocol</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">delegate</span> <span class="p">=</span> <span class="n">delegate</span>
+
+<span class="c1">// The delegate can receive callbacks for any event it is interested in, for example</span>
+<span class="kd">func</span> <span class="nf">threadUpdateReceived</span><span class="p">(</span><span class="kc">_</span> <span class="n">feedItem</span><span class="p">:</span> <span class="n">FeedItem</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">feedItem</span><span class="p">.</span><span class="n">payload</span><span class="p">.</span><span class="n">typeURL</span> <span class="p">==</span> <span class="s">&quot;/Files&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// new file!</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_41" type="radio" id="__tab_41_5" />
+<label for="__tab_41_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3661,11 +4363,47 @@ Omit the --thread option to paginate all files.
 <span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_42" type="radio" id="__tab_42_3" />
-<label for="__tab_42_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_42_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">;</span>
+<span class="bp">NSData</span> <span class="o">*</span><span class="n">jsonData</span> <span class="o">=</span> <span class="p">[</span><span class="s">@&quot;{ latitude: 48.858093, longitude: 2.294694 }&quot;</span> <span class="nl">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span>
+<span class="bp">NSString</span> <span class="o">*</span><span class="n">dataString</span> <span class="o">=</span> <span class="p">[</span><span class="n">jsonData</span> <span class="nl">base64EncodedStringWithOptions</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">prepare</span><span class="p">:</span><span class="n">dataString</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MobilePreparedFiles</span> <span class="o">*</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Do something with this error</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">add</span><span class="p">:</span><span class="n">preparedFiles</span><span class="p">.</span><span class="n">dir</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">caption</span><span class="p">:</span><span class="s">@&quot;&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Do something with this error</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Success!</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}];</span>
 </pre></div></div>
 <input name="__tabs_42" type="radio" id="__tab_42_4" />
-<label for="__tab_42_4">Android</label>
+<label for="__tab_42_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span>
+<span class="kd">let</span> <span class="nv">jsonData</span> <span class="p">=</span> <span class="s">&quot;{ latitude: 48.858093, longitude: 2.294694 }&quot;</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">using</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">)</span>
+<span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">jsonData</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nv">dataString</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">base64EncodedString</span><span class="p">()</span>
+  <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">dataString</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">files</span> <span class="p">=</span> <span class="n">preparedFiles</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nv">filesAddError</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+      <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">files</span><span class="p">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">,</span> <span class="n">caption</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">filesAddError</span><span class="p">)</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">filesAddError</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Do something with this error</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Success!</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// Do something with error</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_42" type="radio" id="__tab_42_5" />
+<label for="__tab_42_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3745,11 +4483,27 @@ Added 1 file in 533.47ms
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">notifications</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">list</span><span class="p">()</span>
 </pre></div></div>
 <input name="__tabs_44" type="radio" id="__tab_44_3" />
-<label for="__tab_44_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_44_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">NotificationList</span> <span class="o">*</span><span class="n">notifications</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">notifications</span> <span class="nl">list</span><span class="p">:</span><span class="s">@&quot;0&quot;</span> <span class="nl">limit</span><span class="p">:</span><span class="mi">10</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_44" type="radio" id="__tab_44_4" />
-<label for="__tab_44_4">Android</label>
+<label for="__tab_44_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">notifications</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">notifications</span><span class="p">.</span><span class="n">list</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_44" type="radio" id="__tab_44_5" />
+<label for="__tab_44_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3791,11 +4545,27 @@ Added 1 file in 533.47ms
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="s2">&quot;1KKP01K9SpRASYKkyxSK4EiSYEz&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_45" type="radio" id="__tab_45_3" />
-<label for="__tab_45_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_45_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">notifications</span> <span class="nl">read</span><span class="p">:</span><span class="s">@&quot;1KKP01K9SpRASYKkyxSK4EiSYEz&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_45" type="radio" id="__tab_45_4" />
-<label for="__tab_45_4">Android</label>
+<label for="__tab_45_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">notifications</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="s">&quot;1KKP01K9SpRASYKkyxSK4EiSYEz&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_45" type="radio" id="__tab_45_5" />
+<label for="__tab_45_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -3819,11 +4589,27 @@ Added 1 file in 533.47ms
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">summary</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">summary</span><span class="p">()</span>
 </pre></div></div>
 <input name="__tabs_46" type="radio" id="__tab_46_3" />
-<label for="__tab_46_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_46_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">Summary</span> <span class="o">*</span><span class="n">summary</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span> <span class="nl">summary</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_46" type="radio" id="__tab_46_4" />
-<label for="__tab_46_4">Android</label>
+<label for="__tab_46_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">summary</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">summary</span><span class="p">(&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_46" type="radio" id="__tab_46_5" />
+<label for="__tab_46_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -4222,6 +5008,26 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <label for="__tab_58_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">sessions</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">list</span><span class="p">()</span>
 </pre></div></div>
+<input name="__tabs_58" type="radio" id="__tab_58_2" />
+<label for="__tab_58_2">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">CafeSessionList</span> <span class="o">*</span><span class="n">sessions</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">cafes</span> <span class="nl">sessions</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_58" type="radio" id="__tab_58_3" />
+<label for="__tab_58_3">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">sessions</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">cafes</span><span class="p">.</span><span class="n">sessions</span><span class="p">(&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -4255,6 +5061,26 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <label for="__tab_59_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">messages</span><span class="p">()</span>
 </pre></div></div>
+<input name="__tabs_59" type="radio" id="__tab_59_2" />
+<label for="__tab_59_2">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">cafes</span> <span class="nl">checkMessages</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_59" type="radio" id="__tab_59_3" />
+<label for="__tab_59_3">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">cafes</span><span class="p">.</span><span class="n">checkMessages</span><span class="p">(&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span>ok
 </pre></div>
@@ -4271,6 +5097,26 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <input name="__tabs_60" type="radio" id="__tab_60_1" />
 <label for="__tab_60_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV&quot;</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_60" type="radio" id="__tab_60_2" />
+<label for="__tab_60_2">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">cafes</span> <span class="nl">deregister</span><span class="p">:</span><span class="s">@&quot;12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_60" type="radio" id="__tab_60_3" />
+<label for="__tab_60_3">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">cafes</span><span class="p">.</span><span class="n">deregister</span><span class="p">(</span><span class="s">&quot;12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>ok
@@ -4607,6 +5453,26 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <input name="__tabs_64" type="radio" id="__tab_64_1" />
 <label for="__tab_64_1">JS HTTP</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">logo</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">ipfs</span><span class="p">.</span><span class="nx">cat</span><span class="p">(</span><span class="s2">&quot;QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d&quot;</span><span class="p">)</span>
+</pre></div></div>
+<input name="__tabs_64" type="radio" id="__tab_64_2" />
+<label for="__tab_64_2">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="bp">NSData</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">ipfs</span> <span class="nl">dataAtPath</span><span class="p">:</span><span class="s">@&quot;QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_64" type="radio" id="__tab_64_3" />
+<label for="__tab_64_3">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">ipfs</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">atPath</span><span class="p">:</span> <span class="s">&quot;QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><p><img alt="" src="/images/textile.png" /></p>

@@ -951,7 +951,7 @@
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile threads add &quot;New Shots&quot; --cameraRoll
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile threads add &quot;New Shots&quot; &quot;your.bundle.id.version.CameraRoll&quot; --cameraRoll
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_1" />
 <label for="__tab_1_1">JS HTTP</label>
@@ -959,7 +959,7 @@
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_2" />
 <label for="__tab_1_2">React Native</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">threadKey</span> <span class="o">=</span> <span class="s1">&#39;your.bundle.id.version.Media&#39;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">threadKey</span> <span class="o">=</span> <span class="s1">&#39;your.bundle.id.version.CameraRoll&#39;</span>
 <span class="kr">const</span> <span class="nx">threadName</span> <span class="o">=</span> <span class="s1">&#39;Dogs&#39;</span>
 <span class="kr">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
@@ -977,11 +977,43 @@
 <span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_3" />
-<label for="__tab_1_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_1_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">AddThreadConfig_Schema</span> <span class="o">*</span><span class="n">schema</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AddThreadConfig_Schema</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">schema</span><span class="p">.</span><span class="n">preset</span> <span class="o">=</span> <span class="n">AddThreadConfig_Schema_Preset_CameraRoll</span><span class="p">;</span>
+<span class="n">AddThreadConfig</span> <span class="o">*</span><span class="n">config</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AddThreadConfig</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="o">=</span> <span class="s">@&quot;your.bundle.id.version.CameraRoll&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;New Shots&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">Thread_Type_Open</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="o">=</span> <span class="n">Thread_Sharing_Shared</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">;</span>
+<span class="n">Thread</span> <span class="o">*</span><span class="kr">thread</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">threads</span> <span class="nl">add</span><span class="p">:</span><span class="n">config</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_4" />
-<label for="__tab_1_4">Android</label>
+<label for="__tab_1_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">schema</span> <span class="p">=</span> <span class="n">AddThreadConfig_Schema</span><span class="p">()</span>
+<span class="n">schema</span><span class="p">.</span><span class="n">preset</span> <span class="p">=</span> <span class="n">AddThreadConfig_Schema_Preset</span><span class="p">.</span><span class="n">cameraRoll</span>
+<span class="kd">let</span> <span class="nv">config</span> <span class="p">=</span> <span class="n">AddThreadConfig</span><span class="p">()</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="p">=</span> <span class="s">&quot;your.bundle.id.version.CameraRoll&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;New Shots&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="p">=</span> <span class="n">Thread_Type</span><span class="p">.</span><span class="n">open</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="p">=</span> <span class="n">Thread_Sharing</span><span class="p">.</span><span class="n">shared</span>
+<span class="n">config</span><span class="p">.</span><span class="n">schema</span> <span class="p">=</span> <span class="n">schema</span>
+<span class="kd">let</span> <span class="nv">thread</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">threads</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_5" />
+<label for="__tab_1_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
@@ -1050,11 +1082,43 @@
 <span class="kr">const</span> <span class="nx">newTarget</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_2" type="radio" id="__tab_2_3" />
-<label for="__tab_2_3">iOS</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">todo</span>
+<label for="__tab_2_3">Objective-C</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="n">AddThreadConfig_Schema</span> <span class="o">*</span><span class="n">schema</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AddThreadConfig_Schema</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">schema</span><span class="p">.</span><span class="n">preset</span> <span class="o">=</span> <span class="n">AddThreadConfig_Schema_Preset_Media</span><span class="p">;</span>
+<span class="n">AddThreadConfig</span> <span class="o">*</span><span class="n">config</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AddThreadConfig</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="o">=</span> <span class="s">@&quot;your.bundle.id.version.Media&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&quot;New Shots&quot;</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">Thread_Type_Open</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="o">=</span> <span class="n">Thread_Sharing_Shared</span><span class="p">;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">schema</span> <span class="o">=</span> <span class="n">schema</span><span class="p">;</span>
+<span class="n">Thread</span> <span class="o">*</span><span class="kr">thread</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">threads</span> <span class="nl">add</span><span class="p">:</span><span class="n">config</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do somehting with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
 </pre></div></div>
 <input name="__tabs_2" type="radio" id="__tab_2_4" />
-<label for="__tab_2_4">Android</label>
+<label for="__tab_2_4">Swift</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+<span class="kd">let</span> <span class="nv">schema</span> <span class="p">=</span> <span class="n">AddThreadConfig_Schema</span><span class="p">()</span>
+<span class="n">schema</span><span class="p">.</span><span class="n">preset</span> <span class="p">=</span> <span class="n">AddThreadConfig_Schema_Preset</span><span class="p">.</span><span class="n">media</span>
+<span class="kd">let</span> <span class="nv">config</span> <span class="p">=</span> <span class="n">AddThreadConfig</span><span class="p">()</span>
+<span class="n">config</span><span class="p">.</span><span class="n">key</span> <span class="p">=</span> <span class="s">&quot;your.bundle.id.version.Media&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&quot;New Shots&quot;</span>
+<span class="n">config</span><span class="p">.</span><span class="n">type</span> <span class="p">=</span> <span class="n">Thread_Type</span><span class="p">.</span><span class="n">open</span>
+<span class="n">config</span><span class="p">.</span><span class="n">sharing</span> <span class="p">=</span> <span class="n">Thread_Sharing</span><span class="p">.</span><span class="n">shared</span>
+<span class="n">config</span><span class="p">.</span><span class="n">schema</span> <span class="p">=</span> <span class="n">schema</span>
+<span class="kd">let</span> <span class="nv">thread</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">threads</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Do something with this error</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// Success!</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_5" />
+<label for="__tab_2_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
 </pre></div></div>
 </div>
