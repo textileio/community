@@ -11,22 +11,21 @@ core:
             const phrase: string | undefined = await textile.initialize(false, false)
     objc:
       code: |
-            - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-            {
-              NSError *error;
-              // Initialize a new Textile wallet for the user.
-              NSString *recoveryPhrase = [Textile initializeWithDebug:FALSE logToDisk:FALSE error:&error];
-              if (recoveryPhrase) {
-                // Return phrase to the user for secure, out of app, storage
-              }
-              if (error) {
-                NSLog(@"initialize error: %@", error.localizedDescription);
-              }
-              // Set the Textile delegate to self so we can make use of events such nodeStarted
-              Textile.instance.delegate = self;
-
-              return YES;
+            // Early on in the app lifecycle, usually in AppDelegate
+            // Initialize a new Textile wallet for the user.
+            NSError *error;
+            NSString *recoveryPhrase = [Textile initializeWithDebug:FALSE logToDisk:FALSE error:&error];
+            if (recoveryPhrase) {
+              // Return phrase to the user for secure, out of app, storage
             }
+            if (error) {
+              NSLog(@"initialize error: %@", error.localizedDescription);
+            }
+            // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
+            Textile.instance.delegate = delegate;
+    swift:
+      code: |
+
     android:
       code: '@todo'
   daemon:
@@ -52,22 +51,21 @@ core:
             alert(`WARNING - Never lose or share your seed: ${seed}`)
     objc:
       code: |
-            - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-            {
-              NSError *error;
-              // Initialize a new Textile wallet for the user.
-              NSString *recoveryPhrase = [Textile initializeWithDebug:FALSE logToDisk:FALSE error:&error];
-              if (recoveryPhrase) {
-                // Return phrase to the user for secure, out of app, storage
-              }
-              if (error) {
-                NSLog(@"initialize error: %@", error.localizedDescription);
-              }
-              // Set the Textile delegate to self so we can make use of events such nodeStarted
-              Textile.instance.delegate = self;
-
-              return YES;
+            // Early on in the app lifecycle, usually in AppDelegate
+            // Initialize a new Textile wallet for the user.
+            NSError *error;
+            NSString *recoveryPhrase = [Textile initializeWithDebug:FALSE logToDisk:FALSE error:&error];
+            if (recoveryPhrase) {
+              // Return phrase to the user for secure, out of app, storage
             }
+            if (error) {
+              NSLog(@"initialize error: %@", error.localizedDescription);
+            }
+            // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
+            Textile.instance.delegate = delegate;
+    swift:
+      code: |
+
   reinit:
     react_native:
       code: '@todo'
@@ -82,7 +80,17 @@ core:
     react_native:
       code: 'const summary = await textile.summary()'
     objc:
-      code: '@todo'
+      code: |
+            NSError *error;
+            Summary *summary = [Textile.instance summary:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
   ping:
@@ -93,6 +101,8 @@ core:
     react_native:
       code: '@todo'
     objc:
+      code: '@todo'
+    swift:
       code: '@todo'
     android:
       code: '@todo'
@@ -121,7 +131,7 @@ subscribe:
                 return
               }
               try {
-                console.log(result.value)  
+                console.log(result.value)
               } catch (err) {
                 reader.cancel(undefined)
                 return
@@ -138,7 +148,19 @@ subscribe:
               }
             })
     objc:
-      code: '@todo'
+      code: |
+            // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
+            Textile.instance.delegate = delegate;
+
+            // The delegate can receive callbacks for any event it is interested in, for example
+            - (void)threadUpdateReceived:(FeedItem *)feedItem {
+              if ([feedItem.payload.typeURL isEqualToString:@"/Files"]) {
+                // new file!
+              }
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
 notifications:
@@ -153,6 +175,14 @@ notifications:
       code: |
             NSError *error;
             NotificationList *notifications = [Textile.instance.notifications list:@"0" limit:10 error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
   read:
@@ -164,7 +194,16 @@ notifications:
       code: 'await textile.notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz")'
     objc:
       code: |
-            [Textile.instance.notifications read:"1KKP01K9SpRASYKkyxSK4EiSYEz" error:&error];
+            NSError *error;
+            [Textile.instance.notifications read:@"1KKP01K9SpRASYKkyxSK4EiSYEz" error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
 profile:
@@ -179,6 +218,14 @@ profile:
       code: |
             NSError *error;
             Peer *profile = [Textile.instance.profile get:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
   name:
@@ -194,6 +241,14 @@ profile:
       code: |
             NSError *error;
             NSString *name = [Textile.instance.profile name:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
   set_name:
@@ -208,6 +263,14 @@ profile:
       code: |
             NSError *error;
             [Textile.instance.profile setName:@"Clyde" error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
   set_avatar:
@@ -219,8 +282,10 @@ profile:
             form.append('file', file, file.name) // file is File object or raw Buffer/Blob
             await textile.profile.setAvatar(form)
     react_native:
-      code: 'await textile.profile.setAvatar("<image-hash>")'
+      code: '@todo'
     objc:
+      code: '@todo'
+    swift:
       code: '@todo'
     android:
       code: '@todo'
@@ -236,6 +301,8 @@ account:
             const address = await textile.account.address()
     objc:
       code: 'NSString *address = [Textile.instance.account address];'
+    swift:
+      code: ''
     android:
       code: '@todo'
   seed:
@@ -247,6 +314,8 @@ account:
       code: 'const seed = await textile.account.seed()'
     objc:
       code: 'NSString *seed = [Textile.instance.account seed];'
+    swift:
+      code: ''
     android:
       code: '@todo'
   sync:
@@ -259,7 +328,16 @@ account:
     objc:
       code: |
             NSError *error;
+            QueryOptions *options = [[QueryOptions alloc] init];
             [Textile.instance.account sync:options error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
 contacts:
@@ -277,12 +355,20 @@ contacts:
     objc:
       code: |
             NSError *error;
-            QueryOptions *options;
+            QueryOptions *options = [[QueryOptions alloc] init];
             options.wait = 10;
             options.limit = 1;
-            ContactQuery *query;
+            ContactQuery *query = [[ContactQuery alloc] init];
             query.name = @"Andrew";
             MobileSearchHandle *handle = [Textile.instance.contacts search:query options:options error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
   search_address:
@@ -298,12 +384,20 @@ contacts:
     objc:
       code: |
             NSError *error;
-            QueryOptions *options;
+            QueryOptions *options = [[QueryOptions alloc] init];
             options.wait = 10;
             options.limit = 1;
-            ContactQuery *query;
+            ContactQuery *query = [[ContactQuery alloc] init];
             query.address = @"P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG";
             MobileSearchHandle *handle = [Textile.instance.contacts search:query options:options error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
   add:
@@ -318,8 +412,17 @@ contacts:
       code: '@todo'
     objc:
       code: |
-            Contact searchResult = // Should be a Contact object as returned by contact search
-            [Textile.instance.contacts add:searchResult error:&error]
+            Contact *searchResult = // Should be a Contact object as returned by contact search
+            NSError *error;
+            [Textile.instance.contacts add:searchResult error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
   ls:
@@ -330,7 +433,17 @@ contacts:
     react_native:
       code: 'const contacts = await textile.contacts.list()'
     objc:
-      code: 'ContactList *contacts = [Textile.instance.contacts list:&error];'
+      code: |
+            NSError *error;
+            ContactList *contacts = [Textile.instance.contacts list:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
   rm:
@@ -342,7 +455,17 @@ contacts:
     react_native:
       code: 'await textile.contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
     objc:
-      code: '[Textile.instance.contacts remove:@"P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG" error:&error];'
+      code: |
+            NSError *error;
+            [Textile.instance.contacts remove:@"P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG" error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
 threads:
@@ -383,6 +506,14 @@ threads:
             config.sharing = Thread_Sharing_NotShared;
             config.schema = schema;
             Thread *thread = [Textile.instance.threads add:config error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
   add_open_shared:
@@ -422,6 +553,14 @@ threads:
             config.sharing = Thread_Sharing_Shared;
             config.schema = schema;
             Thread *thread = [Textile.instance.threads add:config error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
   blob_add:
@@ -461,6 +600,14 @@ threads:
             config.sharing = Thread_Sharing_NotShared;
             config.schema = schema;
             Thread *thread = [Textile.instance.threads add:config error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
   cameraroll_add:
@@ -499,6 +646,14 @@ threads:
             config.sharing = Thread_Sharing_Shared;
             config.schema = schema;
             Thread *thread = [Textile.instance.threads add:config error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
   media_add:
@@ -538,6 +693,14 @@ threads:
             config.sharing = Thread_Sharing_Shared;
             config.schema = schema;
             Thread *thread = [Textile.instance.threads add:config error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
 messages:
@@ -552,7 +715,15 @@ messages:
     objc:
       code: |
             NSError *error;
-            [Textile.instance.messages add:@"12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk" body:@"hello?" error:&error]
+            [Textile.instance.messages add:@"12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk" body:@"hello?" error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
     android:
       code: '@todo'
 files:
@@ -568,11 +739,24 @@ files:
             const block = await textile.files.add(result.dir, "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")
     objc:
       code: |
-            NSError *error;
             NSString *threadId = @"12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc";
             NSString *filePath = @"/path/to/mmm-bytes....";
-            MobilePreparedFiles *files = [Textile.instance.files prepareByPathSync:filePath threadId:threadId error:&error];
-            [Textile.instance.files add:files.dir threadId:threadId caption:@"" error:&error];
+            [Textile.instance.files prepareByPath:filePath threadId:threadId completion:^(MobilePreparedFiles *preparedFiles, NSError *error) {
+              if (error) {
+                // Do somehting with this error
+              } else {
+                NSError *addFilesError;
+                [Textile.instance.files add:preparedFiles.dir threadId:threadId caption:nil error:&addFilesError];
+                if (addFilesError) {
+                  // Do somehting with this error
+                } else {
+                  // Success!
+                }
+              }
+            }];
+    swift:
+      code: |
+
     android:
       code: '@todo'
   add_media:
@@ -590,11 +774,24 @@ files:
             const block = await textile.files.add(result.dir, "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq")
     objc:
       code: |
-            NSError *error;
             NSString *threadId = @"12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc";
             NSString *filePath = @"/path/to/image";
-            MobilePreparedFiles *files = [Textile.instance.files prepareByPathSync:filePath threadId:threadId error:&error];
-            [Textile.instance.files add:files.dir threadId:threadId caption:@"" error:&error];
+            [Textile.instance.files prepareByPath:filePath threadId:threadId completion:^(MobilePreparedFiles *preparedFiles, NSError *error) {
+              if (error) {
+                // Do somehting with this error
+              } else {
+                NSError *addFilesError;
+                [Textile.instance.files add:preparedFiles.dir threadId:threadId caption:nil error:&addFilesError];
+                if (addFilesError) {
+                  // Do somehting with this error
+                } else {
+                  // Success!
+                }
+              }
+            }];
+    swift:
+      code: |
+
     android:
       code: '@todo'
   keys_:
@@ -605,6 +802,8 @@ files:
     react_native:
       code: '@todo'
     objc:
+      code: '@todo'
+    swift:
       code: '@todo'
     android:
       code: '@todo'
@@ -626,6 +825,25 @@ cafes:
       code: |
             const token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
             const success = await textile.cafes.add("http://127.0.0.1:40601", token)
+    react_native:
+      code: |
+            const token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
+            await textile.cafes.register("http://127.0.0.1:40601", token)
+    objc:
+      code: |
+            NSString *token = @"bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG";
+            NSError *error;
+            [Textile.instance.cafes register:@"http://127.0.0.1:40601" token:token error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
+    android:
+      code: '@todo'
   list:
     cmd:
       code: 'textile cafes ls'
@@ -635,26 +853,74 @@ cafes:
       code: |
             NSError *error;
             CafeSessionList *sessions = [Textile.instance.cafes sessions:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
   messages:
     cmd:
       code: 'textile cafes messages'
     js_http_client:
       code: 'const success = await textile.cafes.messages()'
     objc:
-      code: '[Textile.instance.cafes checkMessages:&error];'
+      code: |
+            NSError *error;
+            [Textile.instance.cafes checkMessages:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
+    android:
+      code: '@todo'
   remove:
     cmd:
       code: 'textile cafes rm "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV"'
     js_http_client:
       code: 'const success = await textile.cafes.remove("12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV")'
     objc:
-      code: '[Textile.instance.cafes deregister:@"12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV" error:&error];'
+      code: |
+            NSError *error;
+            [Textile.instance.cafes deregister:@"12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV" error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
+    android:
+      code: '@todo'
 ipfs:
   peer_id:
     cmd:
       code: 'textile ipfs id'
     js_http_client:
       code: 'const id = await textile.ipfs.id()'
+    react_native:
+      code: 'const id = await textile.ipfs.peerId()'
+    objc:
+      code: |
+            NSError *error;
+            NSString *peerId = [Textile.instance.ipfs peerId:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
+    android:
+      code: '@todo'
   swarm_peers:
     cmd:
       code: 'textile ipfs swarm peers'
@@ -673,4 +939,14 @@ ipfs:
     objc:
       code: |
             NSError *error;
-            NSData *file = [Textile.instance.ipfs dataAtPath:@"" error:&error]
+            NSData *data = [Textile.instance.ipfs dataAtPath:@"QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d" error:&error];
+            if (error) {
+              // Do somehting with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+
+    android:
+      code: '@todo'
