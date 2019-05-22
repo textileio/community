@@ -56,6 +56,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://docs.textile.io/connectors/documents/</loc>
+     <lastmod>2019-05-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://docs.textile.io/install/the-daemon/</loc>
      <lastmod>2019-05-22</lastmod>
      <changefreq>daily</changefreq>
