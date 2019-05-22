@@ -52,6 +52,12 @@ Below are some basic examples to get you started. If you are interested in a mor
 {{subscribe.files.js_http_client.code}}
 ```
 
+### Fetch chronological thread updates
+
+```JavaScript
+{{examples.my_runs.feed.js_http_client.code}}
+```
+
 ### Create a thread
 
 ```JavaScript
@@ -61,8 +67,44 @@ Below are some basic examples to get you started. If you are interested in a mor
 ### Add a file
 
 ```JavaScript
-{{files.add.js_http_client.code}}
+{{examples.my_runs.add_location_data.js_http_client.code}}
 ```
+
+#### Files stored as blobs
+
+For threads you create that use the `/blob` schema, you need to add your files slightly differently if your code is running in Node.js or running in the browser.
+
+```JavaScript tab="browser"
+{{files.add.js_http_client.browser.code}}
+```
+
+```JavaScript tab="node.js"
+{{files.add.js_http_client.node.code}}
+```
+
+### Get a file
+
+In this example, we get a file stored with a `/json` based schema.
+
+```JavaScript
+{{files.json_get.js_http_client.code}}
+```
+
+#### Files stored as blobs
+
+The same as when writing blob data to threads, you need to be aware of differences when reading blob data if you are in the browser versus if you are in Node.js.
+
+```JavaScript tab="browser"
+{{files.get_.js_http_client.browser.code}}
+```
+
+```JavaScript tab="node.js"
+{{files.get_.js_http_client.node.code}}
+```
+
+## Live playground
+
+You can start playing with some of the core functionality in our [developer playground](https://github.com/textileio/js-http-playground). The playground provides a number of examples that you can run directly against a local Textile node (deamon or desktop installation).
 
 ## API Documentation
 

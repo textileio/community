@@ -808,7 +808,7 @@ Let's add some data. Be sure to use your own thread ID.
 ```
 
 ```JavaScript tab="JS HTTP"
-{{files.add.js_http_client.code}}
+{{files.add.js_http_client.node.code}}
 ```
 
 ```JavaScript tab="React Native"
@@ -905,7 +905,7 @@ Let's try adding the _same_ data again:
 ```
 
 ```JavaScript tab="JS HTTP"
-{{files.add.js_http_client.code}}
+{{files.add.js_http_client.node.code}}
 ```
 
 ```JavaScript tab="React Native"

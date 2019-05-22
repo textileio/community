@@ -917,11 +917,40 @@ messages:
     android:
       code: '@todo'
 files:
+  json_get:
+    js_http_client:
+      code: |
+            // fileHash is a string hash, commonly found in block.files[index].file.hash
+            const jsonData = textile.file.content(fileHash)
+  get_:
+    js_http_client:
+      node:
+        code: |
+              // fileHash is a string hash, commonly found in block.files[index].file.hash
+              const content = textile.file.content(fileHash)
+      browser:
+        code: |
+              // fileHash is a string hash, commonly found in block.files[index].file.hash
+              const content = textile.file.content(fileHash)
+              const reader = new FileReader();
+              reader.onload = function() {
+                  console.log(reader.result);
+              }
+              reader.readAsText(content);
   add:
     cmd:
       code: 'echo "mmm, bytes..." | textile files add --thread="12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"'
     js_http_client:
-      code: 'const block = await textile.files.add("mmm, bytes...", "", "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")'
+      node:
+        code: 'const block = await textile.files.add("mmm, bytes...", "", "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")'
+      browser:
+        code: |
+              const data = new Blob(["mmm, bytes..."])
+              await textile.files.add(
+                data,
+                "",
+                "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"
+              )
     react_native:
       code: |
             const input = Buffer.from("mmm, bytes...").toString('base64')
