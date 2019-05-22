@@ -1,4 +1,4 @@
-![Textile Photos](/images/textile-notes-panels.png)
+![Textile Notes](/images/textile-notes-panels.png)
 
 Documents come in many different formats and rely on many different standards. Textile remains flexible enough for your application to write or read any document your user wants to store. Below, we walk through how to think about each of these cases generally. Then we show an example of building on the popular note storage schema used [Slate](https://docs.slatejs.org/) and all the note-taking apps that use it.
 
