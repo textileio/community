@@ -19,11 +19,16 @@ pod 'Textile'
 
 This will install the latest version of the SDK into your app. 
 
-#### Carthage
+#### Carthage (experimental)
+
+Carthage support is minimally tested today, but if you are a Carthage user and would like to try, we'd love a PR here to update this process. 
 
 ```cmd
 github "textileio/ios-textile"
 ```
+
+There you'll need two dependencies that are the Protobuf library from Google and the Textile Core iOS library [available on our releases page](https://github.com/textileio/go-textile/releases). You can see how those are handled in our [CocoaPods setup](https://github.com/textileio/ios-textile/blob/master/Textile.podspec#L18).
+
 
 ## Getting Started
 
