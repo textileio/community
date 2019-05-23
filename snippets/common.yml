@@ -939,19 +939,24 @@ files:
               reader.readAsText(content);
     objc:
       code: |
+            NSString *hash = @"some file hash";
             NSError *error;
-            NSString *result = [Textile.instance.files data:hash error:&error];
+            NSString *base64 = [Textile.instance.files data:hash error:&error];
+            if (error) {
+              // Do something with this error
+            } else {
+              // Success!
+            }
     swift:
       code: |
+            let hash = "<some file hash>"
             var error: NSError?
-            NSString *result = [Textile.instance.files data:hash error:&error];
-            [Textile.instance.files data:hash completion:^(NSString *result, NSError *error) {
-              if (error) {
-                // Do something with this error
-              } else {
-                  // Success!
-              }
-            }];
+            let base64 = Textile.instance().files.data(hash, error: &error)
+            if (error != nil) {
+              // Do something with this error
+            } else {
+              // Success!
+            }
   add:
     cmd:
       code: 'echo "mmm, bytes..." | textile files add --thread="12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"'
