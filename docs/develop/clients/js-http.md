@@ -108,6 +108,6 @@ You can start playing with some of the core functionality in our [developer play
 
 ## API Documentation
 
-You can read the full API documentation for Textile's JavaScript HTTP Client (js-http-client) can be found at https://textileio.github.io/js-http-client.
+The full API documentation for Textile's JavaScript HTTP Client (js-http-client) can be found at https://textileio.github.io/js-http-client.
 
 Feel free to join the [Textile Developer Slack](https://slack.textile.io/) and let us know what you are building. People are always excited to share and learn about new ideas. 
