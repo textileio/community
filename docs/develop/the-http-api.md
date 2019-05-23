@@ -1,7 +1,7 @@
 Peers that run as a daemon (desktop and server, including cafes) are accessible over a local HTTP REST API. In most cases, this API should not be exposed to the public internet. Textile currently maintains two client libraries:
 
 - The [Command-line](/develop/clients/command-line) client (similar to `ipfs`, useful for interacting with a local peer).
-- The [JS HTTP](/develop/clients/js-http) client: Useful for building NodeJS, frontend web, and electron apps.
+- The [JS HTTP](/develop/clients/javascript) client: Useful for building NodeJS, frontend web, and electron apps.
 
 Below is the swagger-based documentation for the API. Note that endpoints must be prefixed with `/api/v{version}` (e.g., `/api/v0`).
 
