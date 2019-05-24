@@ -40,7 +40,7 @@ connectors:
               config.schema = schema;
               Thread *thread = [Textile.instance.threads add:config error:&error];
               if (error) {
-                // Do somehting with this error
+                // Do something with this error
               } else {
                 // Success!
               }

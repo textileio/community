@@ -106,7 +106,7 @@ core:
             NSError *error;
             Summary *summary = [Textile.instance summary:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -212,7 +212,7 @@ notifications:
             NSError *error;
             NotificationList *notifications = [Textile.instance.notifications list:@"0" limit:10 error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -239,7 +239,7 @@ notifications:
             NSError *error;
             [Textile.instance.notifications read:@"1KKP01K9SpRASYKkyxSK4EiSYEz" error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -267,7 +267,7 @@ profile:
             NSError *error;
             Peer *profile = [Textile.instance.profile get:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -296,7 +296,7 @@ profile:
             NSError *error;
             NSString *name = [Textile.instance.profile name:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -324,7 +324,7 @@ profile:
             NSError *error;
             [Textile.instance.profile setName:@"Clyde" error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -397,7 +397,7 @@ account:
             QueryOptions *options = [[QueryOptions alloc] init];
             [Textile.instance.account sync:options error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -435,7 +435,7 @@ contacts:
             query.name = @"Andrew";
             MobileSearchHandle *handle = [Textile.instance.contacts search:query options:options error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -475,7 +475,7 @@ contacts:
             query.address = @"P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG";
             MobileSearchHandle *handle = [Textile.instance.contacts search:query options:options error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -511,7 +511,7 @@ contacts:
             NSError *error;
             [Textile.instance.contacts add:searchResult error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -539,7 +539,7 @@ contacts:
             NSError *error;
             ContactList *contacts = [Textile.instance.contacts list:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -567,7 +567,7 @@ contacts:
             NSError *error;
             [Textile.instance.contacts remove:@"P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG" error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -621,7 +621,7 @@ threads:
             config.schema = schema;
             Thread *thread = [Textile.instance.threads add:config error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -682,7 +682,7 @@ threads:
             config.schema = schema;
             Thread *thread = [Textile.instance.threads add:config error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -743,7 +743,7 @@ threads:
             config.schema = schema;
             Thread *thread = [Textile.instance.threads add:config error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -803,7 +803,7 @@ threads:
             config.schema = schema;
             Thread *thread = [Textile.instance.threads add:config error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -864,7 +864,7 @@ threads:
             config.schema = schema;
             Thread *thread = [Textile.instance.threads add:config error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -901,7 +901,7 @@ messages:
             NSError *error;
             [Textile.instance.messages add:@"12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk" body:@"hello?" error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -937,6 +937,26 @@ files:
                   console.log(reader.result);
               }
               reader.readAsText(content);
+    objc:
+      code: |
+            NSString *hash = @"some file hash";
+            NSError *error;
+            NSString *base64 = [Textile.instance.files data:hash error:&error];
+            if (error) {
+              // Do something with this error
+            } else {
+              // Success!
+            }
+    swift:
+      code: |
+            let hash = "<some file hash>"
+            var error: NSError?
+            let base64 = Textile.instance().files.data(hash, error: &error)
+            if (error != nil) {
+              // Do something with this error
+            } else {
+              // Success!
+            }
   add:
     cmd:
       code: 'echo "mmm, bytes..." | textile files add --thread="12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"'
@@ -962,12 +982,12 @@ files:
             NSString *filePath = @"/path/to/mmm-bytes....";
             [Textile.instance.files prepareByPath:filePath threadId:threadId completion:^(MobilePreparedFiles *preparedFiles, NSError *error) {
               if (error) {
-                // Do somehting with this error
+                // Do something with this error
               } else {
                 NSError *addFilesError;
                 [Textile.instance.files add:preparedFiles.dir threadId:threadId caption:nil error:&addFilesError];
                 if (addFilesError) {
-                  // Do somehting with this error
+                  // Do something with this error
                 } else {
                   // Success!
                 }
@@ -1011,12 +1031,12 @@ files:
             NSString *filePath = @"/path/to/image";
             [Textile.instance.files prepareByPath:filePath threadId:threadId completion:^(MobilePreparedFiles *preparedFiles, NSError *error) {
               if (error) {
-                // Do somehting with this error
+                // Do something with this error
               } else {
                 NSError *addFilesError;
                 [Textile.instance.files add:preparedFiles.dir threadId:threadId caption:nil error:&addFilesError];
                 if (addFilesError) {
-                  // Do somehting with this error
+                  // Do something with this error
                 } else {
                   // Success!
                 }
@@ -1082,7 +1102,7 @@ cafes:
             NSError *error;
             [Textile.instance.cafes register:@"http://127.0.0.1:40601" token:token error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -1108,7 +1128,7 @@ cafes:
             NSError *error;
             CafeSessionList *sessions = [Textile.instance.cafes sessions:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -1131,7 +1151,7 @@ cafes:
             NSError *error;
             [Textile.instance.cafes checkMessages:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -1156,7 +1176,7 @@ cafes:
             NSError *error;
             [Textile.instance.cafes deregister:@"12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV" error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -1184,7 +1204,7 @@ ipfs:
             NSError *error;
             NSString *peerId = [Textile.instance.ipfs peerId:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
@@ -1219,7 +1239,7 @@ ipfs:
             NSError *error;
             NSData *data = [Textile.instance.ipfs dataAtPath:@"QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d" error:&error];
             if (error) {
-              // Do somehting with this error
+              // Do something with this error
             } else {
               // Success!
             }
