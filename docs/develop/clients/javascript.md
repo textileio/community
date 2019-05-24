@@ -102,6 +102,25 @@ The same as when writing blob data to threads, you need to be aware of differenc
 {{files.get_.js_http_client.node.code}}
 ```
 
+## Use with redux-saga
+
+Many clients are using libraries such as [redux-sagas](https://redux-saga.js.org/) to manage app state combined with Textile. If you use the above examples, you might hit an issue where you need to declare the context of a function your are calling ([detailed in this ticket](https://github.com/redux-saga/redux-saga/issues/1389)). Here are a couple examples using Textile to get you started. 
+
+#### Create a thread
+
+```JavaScript
+{{special.sagas.add_thread.js_http_client.code}}
+```
+
+#### Get file content
+
+```JavaScript
+{{special.sagas.get_file.js_http_client.code}}
+```
+
+#### Get a file
+
+
 ## Live playground
 
 You can start playing with some of the core functionality in our [developer playground](https://github.com/textileio/js-http-playground). The playground provides a number of examples that you can run directly against a local Textile node (deamon or desktop installation).

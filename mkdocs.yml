@@ -130,3 +130,5 @@ extra:
       yaml: snippets/a_tour_of_textile
     - name: connectors
       yaml: snippets/connectors
+    - name: special
+      yaml: snippets/special
