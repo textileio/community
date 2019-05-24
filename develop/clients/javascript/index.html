@@ -13,7 +13,7 @@
         <meta name="description" content="Encrypted, recoverable, schema-based, cross-application data storage built on IPFS and LibP2P.">
       
       
-        <link rel="canonical" href="https://docs.textile.io/develop/clients/js-http/">
+        <link rel="canonical" href="https://docs.textile.io/develop/clients/javascript/">
       
       
         <meta name="author" content="textile.io">
@@ -42,7 +42,7 @@
     
     
       
-        <title>JavaScript HTTP - Textile Docs</title>
+        <title>JavaScript - Textile Docs</title>
       
     
     
@@ -135,7 +135,7 @@
               Textile Docs
             </span>
             <span class="md-header-nav__topic">
-              JavaScript HTTP
+              JavaScript
             </span>
           
         </div>
@@ -582,11 +582,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        JavaScript HTTP
+        JavaScript
       </label>
     
-    <a href="./" title="JavaScript HTTP" class="md-nav__link md-nav__link--active">
-      JavaScript HTTP
+    <a href="./" title="JavaScript" class="md-nav__link md-nav__link--active">
+      JavaScript
     </a>
     
       
@@ -711,6 +711,33 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-with-redux-saga" title="Use with redux-saga" class="md-nav__link">
+    Use with redux-saga
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-thread_1" title="Create a thread" class="md-nav__link">
+    Create a thread
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-file-content" title="Get file content" class="md-nav__link">
+    Get file content
+  </a>
   
 </li>
         
@@ -1039,6 +1066,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#use-with-redux-saga" title="Use with redux-saga" class="md-nav__link">
+    Use with redux-saga
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-thread_1" title="Create a thread" class="md-nav__link">
+    Create a thread
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-file-content" title="Get file content" class="md-nav__link">
+    Get file content
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#live-playground" title="Live playground" class="md-nav__link">
     Live playground
   </a>
@@ -1068,10 +1122,10 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/textileio/docs/edit/master/docs/develop/clients/js-http.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/textileio/docs/edit/master/docs/develop/clients/javascript.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>JavaScript HTTP</h1>
+                  <h1>JavaScript</h1>
                 
                 <p>The JS HTTP Client was designed to work in the browser, using Node.js, or in Electron. </p>
 <p>To use the JS HTTP Client, you'll need either a locally running <a href="/install/the-daemon">Daemon</a> or a locally running <a href="/install/desktop">Desktop Tray</a> instance containing a Textile account and available on <code>localhost</code> with default ports for both the <code>API</code> and <code>Gateway</code>.</p>
@@ -1178,6 +1232,22 @@
 <span class="kr">const</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">content</span><span class="p">(</span><span class="nx">fileHash</span><span class="p">)</span>
 </pre></div></div>
 </div>
+<h2 id="use-with-redux-saga">Use with redux-saga<a class="headerlink" href="#use-with-redux-saga" title="Permanent link">&para;</a></h2>
+<p>Many clients are using libraries such as <a href="https://redux-saga.js.org/">redux-sagas</a> to manage app state combined with Textile. If you use the above examples, you might hit an issue where you need to declare the context of a function your are calling (<a href="https://github.com/redux-saga/redux-saga/issues/1389">detailed in this ticket</a>). Here are a couple examples using Textile to get you started. </p>
+<h4 id="create-a-thread_1">Create a thread<a class="headerlink" href="#create-a-thread_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kd">function</span> <span class="o">*</span> <span class="nx">createThread</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">thread</span> <span class="o">=</span> <span class="k">yield</span> <span class="nx">call</span><span class="p">([</span><span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">],</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">thread</span>
+<span class="p">}</span>
+</pre></div>
+
+<h4 id="get-file-content">Get file content<a class="headerlink" href="#get-file-content" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kd">function</span> <span class="o">*</span> <span class="nx">getFile</span><span class="p">(</span><span class="nx">hash</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">file</span> <span class="o">=</span> <span class="k">yield</span> <span class="nx">call</span><span class="p">([</span><span class="nx">textile</span><span class="p">.</span><span class="nx">file</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">],</span> <span class="nx">hash</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">file</span>
+<span class="p">}</span>
+</pre></div>
+
 <h2 id="live-playground">Live playground<a class="headerlink" href="#live-playground" title="Permanent link">&para;</a></h2>
 <p>You can start playing with some of the core functionality in our <a href="https://github.com/textileio/js-http-playground">developer playground</a>. The playground provides a number of examples that you can run directly against a local Textile node (deamon or desktop installation).</p>
 <h2 id="api-documentation">API Documentation<a class="headerlink" href="#api-documentation" title="Permanent link">&para;</a></h2>
