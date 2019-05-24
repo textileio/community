@@ -36,7 +36,7 @@ Client SDKs or HTTP clients available for integrating Textile into your mobile, 
 
 * [Core lib](https://github.com/textileio/go-textile)
 * [Command-line Client](/develop/clients/command-line)
-* [JS HTTP Client](/develop/clients/js-http)
+* [JavaScript](/develop/clients/javascript)
 * [React Native SDK](/develop/clients/react-native)
 * [iOS SDK](/develop/clients/ios)
 * [Android SDK](/develop/clients/android)
@@ -48,6 +48,6 @@ Cafes are easy to deploy & manage (single executable, Docker). Setup your own ca
 
 ## Other Resources
 
-Join our public [Slack](https://slack.textile.io), visit our [GitHub](https://github.com/textileio), follow us on [Twitter](https://twitter.com/textile01), and check out the [Blog](https://medium.com/textileio)!
+Join our public [Slack](https://slack.textile.io), visit our [GitHub](https://github.com/textileio), follow us on [Twitter](https://twitter.com/textileio), and check out the [Blog](https://medium.com/textileio)!
 
 <br>

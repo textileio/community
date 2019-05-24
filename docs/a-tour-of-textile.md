@@ -24,7 +24,7 @@ If you're using the command-line or JavaScript HTTP client, make sure your local
 
 If you are running any of the client libraries (JavaScript, React Native, iOS, or Android), you will need to import and sometimes initialize your Textile session. Initialization is slightly different in each client so be sure to read specific client setup steps for the library you use.
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{core.setup.js_http_client.code}}
 ```
 
@@ -52,7 +52,7 @@ Now, with Textile ready, take a look at your peer profile:
 {{profile.get_.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{profile.get_.js_http_client.code}}
 ```
 
@@ -99,7 +99,7 @@ You can set a display name for your peer. Interacting with other users is a lot 
 {{profile.set_name.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{profile.set_name.js_http_client.code}}
 ```
 
@@ -132,7 +132,7 @@ Similarly, you can assign your peer a publicly visible avatar image:
 {{profile.set_avatar.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{profile.set_avatar.js_http_client.code}}
 ```
 
@@ -165,7 +165,7 @@ Take another look at your peer profile and see what happened:
 {{profile.get_.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{profile.get_.js_http_client.code}}
 ```
 
@@ -213,7 +213,7 @@ Take a look at your account:
 {{account.get_.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{account.get_.js_http_client.code}}
 ```
 
@@ -262,7 +262,7 @@ Of course, your account seed (private key) is not included in the public-facing 
 {{account.seed.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{account.seed.js_http_client.code}}
 ```
 
@@ -300,7 +300,7 @@ You can also manually run account sync:
 {{account.sync.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{account.sync.js_http_client.code}}
 ```
 
@@ -344,7 +344,7 @@ Try searching for "Andrew":
 {{contacts.search.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{contacts.search.js_http_client.code}}
 ```
 
@@ -403,7 +403,7 @@ With any luck, you should see a bunch of results. You can also search for a sing
 {{contacts.search_address.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{contacts.search_address.js_http_client.code}}
 ```
 
@@ -450,7 +450,7 @@ Try adding one of the contacts from above by address:
 {{contacts.add.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{contacts.add.js_http_client.code}}
 ```
 
@@ -484,7 +484,7 @@ We can now see the added contact contact in our "address book":
 {{contacts.ls.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{contacts.ls.js_http_client.code}}
 ```
 
@@ -528,7 +528,7 @@ Removing contacts is done by address:
 {{contacts.rm.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{contacts.rm.js_http_client.code}}
 ```
 
@@ -563,7 +563,7 @@ Let's ping one of Textile's federated cafes:
 {{core.ping.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{core.ping.js_http_client.code}}
 ```
 
@@ -626,7 +626,7 @@ Create a thread and give it the name, "Basic". Note that thread names are _not_ 
 {{threads.add.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{threads.add.js_http_client.code}}
 ```
 
@@ -685,7 +685,7 @@ Any thread can take a plain old text message. Later, we'll use these with an int
 {{messages.add.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{messages.add.js_http_client.code}}
 ```
 
@@ -741,7 +741,7 @@ We can create a thread with this schema using the `--blob` flag:
 {{threads.blob_add.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{threads.blob_add.js_http_client.code}}
 ```
 
@@ -807,7 +807,7 @@ Let's add some data. Be sure to use your own thread ID.
 {{files.add.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{files.add.js_http_client.node.code}}
 ```
 
@@ -865,7 +865,7 @@ Unless a schema step specifies `"plaintext": true`, the value of `meta` and `con
 {{files.keys_.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{files.keys_.js_http_client.code}}
 ```
 
@@ -904,7 +904,7 @@ Let's try adding the _same_ data again:
 {{files.add.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{files.add.js_http_client.node.code}}
 ```
 
@@ -945,7 +945,7 @@ Let's create an _open_ and _shared_ thread for dog photos with the _media_ schem
 {{threads.add_open_shared.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{threads.add_open_shared.js_http_client.code}}
 ```
 
@@ -1038,7 +1038,7 @@ Try adding the image above to your dogs thread:
 {{files.add_media.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{files.add_media.js_http_client.code}}
 ```
 
@@ -1119,7 +1119,7 @@ Add a new thread to track your hypothetical runs:
 {{examples.my_runs.add_thread.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{examples.my_runs.add_thread.js_http_client.code}}
 ```
 
@@ -1204,7 +1204,7 @@ Next, add some locations to your thread:
 {{examples.my_runs.add_location_data.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{examples.my_runs.add_location_data.js_http_client.code}}
 ```
 
@@ -1239,7 +1239,7 @@ Your peer will validate the input against the thread's schema. The input will _a
 {{examples.my_runs.add_location_data_fail.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{examples.my_runs.add_location_data_fail.js_http_client.code}}
 ```
 
@@ -1311,7 +1311,7 @@ Now that you have two peers running, invite the new account to your "My runs" th
 {{examples.my_runs.invite.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{examples.my_runs.invite.js_http_client.code}}
 ```
 
@@ -1441,7 +1441,7 @@ Take a closer look at the "My runs" thread using the `blocks ls` command, which 
 {{examples.my_runs.blocks_ls.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{examples.my_runs.blocks_ls.js_http_client.code}}
 ```
 
@@ -1523,7 +1523,7 @@ Using the output from `blocks ls`, add a comment to the one and only `FILES` upd
 {{examples.my_runs.comment_add.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{examples.my_runs.comment_add.js_http_client.code}}
 ```
 
@@ -1569,7 +1569,7 @@ Likes are added in a similar fashion:
 {{examples.my_runs.like_add.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{examples.my_runs.like_add.js_http_client.code}}
 ```
 
@@ -1616,7 +1616,7 @@ Create a new thread for chatting with your friend `P7X3gZu`:
 {{examples.start_a_chat.add_thread.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{examples.start_a_chat.add_thread.js_http_client.code}}
 ```
 
@@ -1675,7 +1675,7 @@ The whitelist ensures the chat remains between the two of us. As before, we need
 {{examples.start_a_chat.invite_create.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{examples.start_a_chat.invite_create.js_http_client.code}}
 ```
 
@@ -1759,7 +1759,7 @@ Try listing the files in your "My runs" thread:
 {{examples.my_runs.files_ls.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{examples.my_runs.files_ls.js_http_client.code}}
 ```
 
@@ -1864,7 +1864,7 @@ Give the default `chrono` (for chronological) mode a try:
 {{examples.my_runs.feed.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{examples.my_runs.feed.js_http_client.code}}
 ```
 
@@ -2049,7 +2049,7 @@ Let's subscribe to "files" updates across all threads:
 {{subscribe.files.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{subscribe.files.js_http_client.code}}
 ```
 
@@ -2075,7 +2075,7 @@ In another terminal, add a location to the "My runs" thread:
 {{examples.my_runs.add_location_data.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{examples.my_runs.add_location_data.js_http_client.code}}
 ```
 
@@ -2171,7 +2171,7 @@ Let's see what kind of notifications your first peer (Clyde) has:
 {{notifications.ls.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{notifications.ls.js_http_client.code}}
 ```
 
@@ -2223,7 +2223,7 @@ Notifications have a `read` boolean status that is useful for some applications.
 {{notifications.read.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{notifications.read.js_http_client.code}}
 ```
 
@@ -2256,7 +2256,7 @@ Display a summary of your peer's threads, files, and contacts:
 {{core.summary.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{core.summary.js_http_client.code}}
 ```
 
@@ -2431,7 +2431,7 @@ We can view the entire config or a specific value behind any JSON key. Try viewi
 {{core.config.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{core.config.js_http_client.code}}
 ```
 
@@ -2454,7 +2454,7 @@ Changing values follows the same pattern. We can update our second peer's gatewa
 {{core.config_set.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{core.config_set.js_http_client.code}}
 ```
 
@@ -2488,7 +2488,7 @@ You should now see the new gateway bind address in the config:
 textile config
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 const config = await textile.config.get()
 ```
 
@@ -2607,7 +2607,7 @@ Create a token as follows:
 {{cafes.tokens_create.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{cafes.tokens_create.js_http_client.code}}
 ```
 
@@ -2624,7 +2624,7 @@ View the cafe's client tokens with the `ls` command:
 {{cafes.tokens_list.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{cafes.tokens_list.js_http_client.code}}
 ```
 
@@ -2652,7 +2652,7 @@ Using the token created above, register with your locally running test cafe:
 {{cafes.add.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{cafes.add.js_http_client.code}}
 ```
 
@@ -2690,7 +2690,7 @@ You can view your active cafe sessions with the `ls` command:
 {{cafes.list.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{cafes.list.js_http_client.code}}
 ```
 
@@ -2732,7 +2732,7 @@ An account peer will periodically check each of its registered cafes for new mes
 {{cafes.messages.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{cafes.messages.js_http_client.code}}
 ```
 
@@ -2759,7 +2759,7 @@ You can leave a cafe at any time. Data associated with your client account will 
 {{cafes.remove.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{cafes.remove.js_http_client.code}}
 ```
 
@@ -2792,7 +2792,7 @@ At some point, you will want to view your IPFS peer ID. This is the same ID show
 {{ipfs.peer_id.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{ipfs.peer_id.js_http_client.code}}
 ```
 
@@ -2813,7 +2813,7 @@ Your peer is always communicating, or "gossiping", with a changing sub-set of ot
 {{ipfs.swarm_peers.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{ipfs.swarm_peers.js_http_client.code}}
 ```
 
@@ -3093,7 +3093,7 @@ Try connecting to one of Textile's federated cafe peers:
 {{ipfs.swarm_connect.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{ipfs.swarm_connect.js_http_client.code}}
 ```
 
@@ -3114,7 +3114,7 @@ Downloading data behind a path is one of the most useful IPFS APIs. For example,
 {{ipfs.cat.cmd.code}}
 ```
 
-```JavaScript tab="JS HTTP"
+```JavaScript tab="JavaScript"
 {{ipfs.cat.js_http_client.code}}
 ```
 

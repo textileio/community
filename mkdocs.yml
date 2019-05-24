@@ -95,7 +95,7 @@ nav:
   - Develop:
     - Clients:
       - Command-line: develop/clients/command-line.md
-      - JavaScript HTTP: develop/clients/js-http.md
+      - JavaScript: develop/clients/javascript.md
       - React Native: develop/clients/react-native.md
       - iOS: develop/clients/ios.md
       - Android: develop/clients/android.md
@@ -130,3 +130,5 @@ extra:
       yaml: snippets/a_tour_of_textile
     - name: connectors
       yaml: snippets/connectors
+    - name: special
+      yaml: snippets/special
