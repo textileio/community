@@ -118,9 +118,6 @@ Many clients are using libraries such as [redux-sagas](https://redux-saga.js.org
 {{special.sagas.get_file.js_http_client.code}}
 ```
 
-#### Get a file
-
-
 ## Live playground
 
 You can start playing with some of the core functionality in our [developer playground](https://github.com/textileio/js-http-playground). The playground provides a number of examples that you can run directly against a local Textile node (deamon or desktop installation).
