@@ -148,6 +148,10 @@ Below are some basic examples to get you started. If you are interested in a mor
 {{files.add.react_native.code}}
 ```
 
+### Boilerplate app
+
+You can clone the [react-native boilerplate](https://github.com/textileio/advanced-react-native-boilerplate) if you want to run a development app and start playing with the library right away. Be sure to check the Textile API in the boilerplate to know if it is currently up to date with the latest release of the SDK.
+
 ## API Documentation
 
 You can read the full API Documentation for Textile's React Native SDK (react-native-sdk) at https://textileio.github.io/react-native-sdk.
