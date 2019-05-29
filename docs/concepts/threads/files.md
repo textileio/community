@@ -2,7 +2,7 @@ Any data added to a thread ends up as a _file_. Most of the time, a [schema](#sc
 
 ## Structure
 
-Thread data is built into an [IPLD](https://ipld.io/) merkle DAG structure (similar to a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)) and stored separately from update [blocks](/concepts/threads#blocks) on IPFS. A `FILES` block points to the top-level hash of a files DAG node.
+Thread data is built into an [IPLD](https://ipld.io/) merkle DAG structure (similar to a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)) and stored separately from update [blocks](/concepts/threads#blocks) on IPFS. A `FILES` block points to the top-level hash of a file's DAG node.
 
 The structure of files DAG nodes are determined by, and validated against, a [schema](#schemas). **A thread can have only one schema**. It has two main functions:
 
