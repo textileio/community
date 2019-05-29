@@ -126,7 +126,7 @@ shared      --> initiator: Y, whitelist: Y`
 ```
 
 !!! info
-    Access control will be moving to a more familiar, _roll-based_ design in a future release. See [this GitHub issue](https://github.com/textileio/go-textile/issues/694) for more.
+    Access control will be moving to a more familiar, _role-based_ design in a future release. See [this GitHub issue](https://github.com/textileio/go-textile/issues/694) for more.
 
 ## Blocks
 
