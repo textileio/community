@@ -111,7 +111,7 @@ Below is a JSON representation of file indexes from a single image corresponding
 
 Schemas are used to create and validate the structure of thread files, defining their type and purpose for consumers (users and applications). For example, a photos application may create photo-based threads, a health application my create threads with medical records, etc. By treating schemas as first-class citizens, other applications are also able to understand and make use of these threads.
 
-In practice, schemas have three distinct rolls:
+In practice, schemas have three distinct roles:
 
 1. Provide instructions for how to transform or "mill" an input, e.g., given a photo, create three different sizes and discard the raw input (this is the [media](#media) schema).
 2. Define whether or not the resulting DAG nodes should be stored (pinned) on account peers.
