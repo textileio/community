@@ -49,7 +49,15 @@ examples:
                 // Success!
               }
       android:
-        code: '@todo'
+        code: |
+              AddThreadConfig config = AddThreadConfig.newBuilder()
+                    .setKey("your.bundle.id.version.Chat")
+                    .setName("Chat")
+                    .setType(Thread.Type.OPEN)
+                    .setSharing(Thread.Sharing.SHARED)
+                    .addWhitelist("P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs")
+                    .build();
+            Textile.instance().threads.add(config);
     invite_create:
       cmd:
         code: 'textile invites create --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"'
@@ -80,7 +88,7 @@ examples:
                 // Success!
               }
       android:
-        code: '@todo'
+        code: 'Textile.instance().invites.addExternal("12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv");'
     accept_invite:
       cmd:
         code: 'textile invites accept "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf" --key="cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd" --api="http://127.0.0.1:41600"'
@@ -139,7 +147,7 @@ examples:
               let schema = AddThreadConfig_Schema()
               schema.json = "<location.json string>"
               let config = AddThreadConfig()
-              config.key = ""
+              config.key = "your.bundle.id.version.MyRuns"
               config.name = "My Runs"
               config.type = Thread_Type.public
               config.sharing = Thread_Sharing.inviteOnly
@@ -152,7 +160,18 @@ examples:
                 // Success!
               }
       android:
-        code: '@todo'
+        code: |
+              AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
+                    .setJson("<location.json string>")
+                    .build();
+              AddThreadConfig config = AddThreadConfig.newBuilder()
+                    .setKey("your.bundle.id.version.MyRuns")
+                    .setName("My Runs")
+                    .setType(Thread.Type.PUBLIC)
+                    .setSharing(Thread.Sharing.INVITE_ONLY)
+                    .setSchema(schema)
+                    .build();
+              Textile.instance().threads.add(config);
     invite:
       cmd:
         code: 'textile invites create --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" --address="P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"'
@@ -179,7 +198,7 @@ examples:
                 // Success!
               }
       android:
-        code: '@todo'
+        code: 'Textile.instance().invites.add("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs");'
     ls_invites:
       cmd:
         code: 'textile invites ls --api="http://127.0.0.1:41600"'
@@ -225,7 +244,7 @@ examples:
                 // Success!
               }
       android:
-        code: '@todo'
+        code: 'Textile.instance().comments.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84", "Is this an outlier?");'
     like_add:
       cmd:
         code: 'textile likes add --block="QmVoKpKsg5MkW11bK3LVmd3xMMaxTutVime32sV6EZWeLk"'
@@ -252,7 +271,7 @@ examples:
                 // Success!
               }
       android:
-        code: '@todo'
+        code: 'Textile.instance().likes.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84");'
     files_ls:
       cmd:
         code: 'textile files ls --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"'
@@ -279,7 +298,7 @@ examples:
                 // Success!
               }
       android:
-        code: '@todo'
+        code: 'FilesList files = Textile.instance().files.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "", 5);'
     feed:
       cmd:
         code: 'textile feed --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"'
@@ -310,7 +329,11 @@ examples:
                 // Success!
               }
       android:
-        code: '@todo'
+        code: |
+              FeedRequest request = FeedRequest.newBuilder()
+                    .setThread("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\"")
+                    .build();
+              FeedItemList feedItemList = Textile.instance().feed.list(request);
     add_location_data:
       cmd:
         code: "echo '{ \"latitude\": 48.858093, \"longitude\": 2.294694 }' | textile files add --thread=12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
@@ -360,7 +383,25 @@ examples:
                 }
               }
       android:
-        code: '@todo'
+        code: |
+              final String threadId = "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw";
+              byte[] jsonData = "{ latitude: 48.858093, longitude: 2.294694 }".getBytes();
+              String dataString = Base64.encodeToString(jsonData, Base64.DEFAULT);
+              Textile.instance().files.prepare(dataString, threadId, new PreparedFilesHandler() {
+                  @Override
+                  public void onFilesPrepared(MobilePreparedFiles preparedFiles) {
+                      try {
+                          Textile.instance().files.add(preparedFiles.getDir(), threadId, null);
+                      } catch (Exception e) {
+                          // Do something with this error
+                      }
+                  }
+
+                  @Override
+                  public void onError(Exception e) {
+                      // Do something with this error
+                  }
+              });
     add_location_data_fail:
       cmd:
         code: "echo '{ \"latitude\": 91, \"longitude\": 2.294694 }' | textile files add --thread=\"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\"'"
@@ -410,7 +451,25 @@ examples:
                 }
               }
       android:
-        code: '@todo'
+        code: |
+              final String threadId = "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw";
+              byte[] jsonData = "{ latitude: 91, longitude: 2.294694 }".getBytes();
+              String dataString = Base64.encodeToString(jsonData, Base64.DEFAULT);
+              Textile.instance().files.prepare(dataString, threadId, new PreparedFilesHandler() {
+                  @Override
+                  public void onFilesPrepared(MobilePreparedFiles preparedFiles) {
+                      try {
+                          Textile.instance().files.add(preparedFiles.getDir(), threadId, null);
+                      } catch (Exception e) {
+                          // Do something with this error
+                      }
+                  }
+
+                  @Override
+                  public void onError(Exception e) {
+                      // Do something with this error
+                  }
+              });
     thread_leave:
       cmd:
         code: 'textile threads rm "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" --api="http://127.0.0.1:41600"'
