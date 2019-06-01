@@ -26,6 +26,8 @@ theme:
     code: Roboto Mono
   favicon: images/favicon.ico
   logo: images/logo_pink.svg
+  static_templates:
+    - 404.html
 
 extra_javascript:
   - js/sidebar.js
