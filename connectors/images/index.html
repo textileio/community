@@ -1026,7 +1026,17 @@
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_5" />
 <label for="__tab_1_5">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">AddThreadConfig</span><span class="o">.</span><span class="na">Schema</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">AddThreadConfig</span><span class="o">.</span><span class="na">Schema</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">setPreset</span><span class="o">(</span><span class="n">AddThreadConfig</span><span class="o">.</span><span class="na">Schema</span><span class="o">.</span><span class="na">Preset</span><span class="o">.</span><span class="na">CAMERA_ROLL</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">AddThreadConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="n">AddThreadConfig</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">setKey</span><span class="o">(</span><span class="s">&quot;your.bundle.id.version.CameraRoll&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;New Shots&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">Type</span><span class="o">.</span><span class="na">OPEN</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">setSharing</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">Sharing</span><span class="o">.</span><span class="na">SHARED</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">setSchema</span><span class="o">(</span><span class="n">schema</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">threads</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">config</span><span class="o">);</span>
 </pre></div></div>
 </div>
 <p>The app posting new photos to this thread doesn't need to handle sampling raw images proactively, instead, the Textile peer has the <a href="/concepts/threads/files/#mills">file milling logic</a> to transform any input image into the output schema. Here's what the schema looks like,</p>
@@ -1131,7 +1141,17 @@
 </pre></div></div>
 <input name="__tabs_2" type="radio" id="__tab_2_5" />
 <label for="__tab_2_5">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nd">@todo</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">AddThreadConfig</span><span class="o">.</span><span class="na">Schema</span> <span class="n">schema</span> <span class="o">=</span> <span class="n">AddThreadConfig</span><span class="o">.</span><span class="na">Schema</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">setPreset</span><span class="o">(</span><span class="n">AddThreadConfig</span><span class="o">.</span><span class="na">Schema</span><span class="o">.</span><span class="na">Preset</span><span class="o">.</span><span class="na">MEDIA</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">AddThreadConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="n">AddThreadConfig</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">setKey</span><span class="o">(</span><span class="s">&quot;your.bundle.id.version.Media&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">&quot;New Shots&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">Type</span><span class="o">.</span><span class="na">OPEN</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">setSharing</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">Sharing</span><span class="o">.</span><span class="na">SHARED</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">setSchema</span><span class="o">(</span><span class="n">schema</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">threads</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">config</span><span class="o">);</span>
 </pre></div></div>
 </div>
 <p>Like the CameraRoll thread types, Media thread types contain a local file mill that will resample any input image to make it share-ready. Here is what the thread's schema looks like.</p>
