@@ -57,7 +57,7 @@ examples:
                     .setSharing(Thread.Sharing.SHARED)
                     .addWhitelist("P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs")
                     .build();
-            Textile.instance().threads.add(config);
+              Textile.instance().threads.add(config);
     invite_create:
       cmd:
         code: 'textile invites create --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"'
