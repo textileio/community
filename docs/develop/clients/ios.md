@@ -1,4 +1,4 @@
-The iOS SDK is designed to work in iOS mobile apps written in Objective-C or Swift. 
+The iOS SDK is designed to work in iOS mobile apps written in Objective-C or Swift.
 
 Apps running the iOS SDK run an on device Textile peer (including a managed [IPFS](https://ipfs.io) peer). The SDK provides you with a number of helpful APIs to manage sharing, contacts, file encryption & storage, and much more.
 
@@ -17,11 +17,11 @@ If you haven't already, you'll need to [setup CocoaPods in your project](https:/
 pod 'Textile'
 ```
 
-This will install the latest version of the SDK into your app. 
+This will install the latest version of the SDK into your app.
 
 #### Carthage (experimental)
 
-Carthage support is minimally tested today, but if you are a Carthage user and would like to try, we'd love a PR here to update this process. 
+Carthage support is minimally tested today, but if you are a Carthage user and would like to try, we'd love a PR here to update this process.
 
 ```cmd
 github "textileio/ios-textile"
@@ -34,7 +34,7 @@ There you'll need two dependencies that are the Protobuf library from Google and
 
 ### Initialize Textile
 
-#### Objective-C 
+#### Objective-C
 
 Then in your application delegate’s - application:didFinishLaunchingWithOptions: method, setup Textile as follows,
 
@@ -131,4 +131,4 @@ The [ios-textile repo](https://github.com/textileio/ios-textile) contains a simp
 
 The full API documentation for Textile's iOS SDK (ios-textile) can be found at https://textileio.github.io/ios-textile.
 
-Feel free to join the [Textile Developer Slack](https://slack.textile.io/) and let us know what you are building. People are always excited to share and learn about new ideas. 
+Feel free to join the [Textile Developer Slack](https://slack.textile.io/) and let us know what you are building. People are always excited to share and learn about new ideas.

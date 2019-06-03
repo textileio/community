@@ -36,7 +36,17 @@ core:
               print("Unexpected error: \(error).")
             }
     android:
-      code: '@todo'
+      code: |
+            String recoveryPhrase = Textile.initialize(this.getApplicationContext(), false, false);
+            if (recoveryPhrase != nil) {
+                // Return phrase to the user for secure, out of app, storage
+            }
+
+            class MyEventListener extends BaseTextileEventListener {
+                // ...
+            }
+
+            Textile.instance().addEventListener(new MyEventListener());
   daemon:
     cmd:
       code: 'textile daemon --repo-dir="/tmp/buddy"'
@@ -87,7 +97,19 @@ core:
               print("Unexpected error: \(error).")
             }
     android:
-      code: '@todo'
+      code: |
+            // Early on in the app lifecycle, usually in MainActivity
+            // Initialize a new Textile wallet for the user.
+            String recoveryPhrase = Textile.initialize(this.getApplicationContext(), false, false);
+            if (recoveryPhrase != nil) {
+                // Return phrase to the user for secure, out of app, storage
+            }
+
+            class MyEventListener extends BaseTextileEventListener {
+                // ...
+            }
+
+            Textile.instance().addEventListener(new MyEventListener());
   reinit:
     react_native:
       code: '@todo'
@@ -120,7 +142,7 @@ core:
               // Success!
             }
     android:
-      code: '@todo'
+      code: 'Summary summary = Textile.instance().summary();'
   ping:
     cmd:
       code: 'textile ping 12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d'
@@ -198,7 +220,17 @@ subscribe:
               }
             }
     android:
-      code: '@todo'
+      code: |
+            // Add an event listener that conforms to TextileEventListener
+            class MyEventListener extends BaseTextileEventListener {
+                @Override
+                public void threadUpdateReceived(io.textile.pb.View.FeedItem feedItem) {
+                    if (feedItem.getPayload().getTypeUrl() == "/Files") {
+                        // new file!
+                    }
+                }
+            }
+            Textile.instance().addEventListener(new MyEventListener());
 notifications:
   ls:
     cmd:
@@ -226,7 +258,7 @@ notifications:
               // Success!
             }
     android:
-      code: '@todo'
+      code: 'NotificationList notifications = Textile.instance().notifications.list("", 10);'
   read:
     cmd:
       code: 'textile notifications read "1KKP01K9SpRASYKkyxSK4EiSYEz"'
@@ -253,7 +285,7 @@ notifications:
               // Success!
             }
     android:
-      code: '@todo'
+      code: 'Textile.instance().notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz");'
 profile:
   get_:
     cmd:
@@ -281,7 +313,7 @@ profile:
               // Success!
             }
     android:
-      code: '@todo'
+      code: 'Peer profile = Textile.instance().profile.get();'
   name:
     cmd:
       code: 'textile profile get name '
@@ -310,7 +342,7 @@ profile:
               // Success!
             }
     android:
-      code: '@todo'
+      code: 'String name = Textile.instance().profile.name();'
   set_name:
     notes: Name should equal 'Clyde' as it is used in Tour
     cmd:
@@ -338,7 +370,7 @@ profile:
               // Success!
             }
     android:
-      code: '@todo'
+      code: 'Textile.instance().profile.setName("Clyde");'
   set_avatar:
     cmd:
       code: 'textile profile set avatar "path/to/an/image"'
@@ -370,7 +402,7 @@ account:
     swift:
       code: 'let adress = Textile.instance().account.address()'
     android:
-      code: '@todo'
+      code: 'String address = Textile.instance().account.address();'
   seed:
     cmd:
       code: 'textile account seed'
@@ -383,7 +415,7 @@ account:
     swift:
       code: 'let seed = Textile.instance().account.seed()'
     android:
-      code: '@todo'
+      code: 'String seed = Textile.instance().account.seed();'
   sync:
     cmd:
       code: 'textile account sync'
@@ -412,7 +444,9 @@ account:
               // Success!
             }
     android:
-      code: '@todo'
+      code: |
+            QueryOptions options = QueryOptions.newBuilder().build();
+            Textile.instance().account.sync(options);
 contacts:
   search:
     notes: Name should equal 'Andrew' as it is used in Tour
@@ -454,7 +488,15 @@ contacts:
               // Success!
             }
     android:
-      code: '@todo'
+      code: |
+            QueryOptions options = QueryOptions.newBuilder()
+                    .setWait(10)
+                    .setLimit(1)
+                    .build();
+            ContactQuery query = ContactQuery.newBuilder()
+                    .setName("Andrew")
+                    .build();
+            SearchHandle handle = Textile.instance().contacts.search(query, options);
   search_address:
     notes: Address is set to match that of the Tour
     cmd:
@@ -494,7 +536,15 @@ contacts:
               // Success!
             }
     android:
-      code: '@todo'
+      code: |
+            QueryOptions options = QueryOptions.newBuilder()
+                    .setWait(10)
+                    .setLimit(1)
+                    .build();
+            ContactQuery query = ContactQuery.newBuilder()
+                    .setAddress("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")
+                    .build();
+            SearchHandle handle = Textile.instance().contacts.search(query, options);
   add:
     notes: Address is set to match that of the Tour
     cmd:
@@ -526,7 +576,9 @@ contacts:
               // Success!
             }
     android:
-      code: '@todo'
+      code: |
+            Contact searchResult = // Should be a Contact object as returned by contact search
+            Textile.instance().contacts.add(searchResult);
   ls:
     cmd:
       code: 'textile contacts ls'
@@ -553,7 +605,7 @@ contacts:
               // Success!
             }
     android:
-      code: '@todo'
+      code: 'ContactList contacts = Textile.instance().contacts.list();'
   rm:
     notes: Address is set to match that of the Tour
     cmd:
@@ -581,7 +633,7 @@ contacts:
               // Success!
             }
     android:
-      code: '@todo'
+      code: 'Textile.instance().contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG");'
 threads:
   add:
     notes: Use of 'Basic' set to match that of the Tour
@@ -643,7 +695,18 @@ threads:
               // Success!
             }
     android:
-      code: '@todo'
+      code: |
+            AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
+                    .setPreset(AddThreadConfig.Schema.Preset.BLOB)
+                    .build();
+            AddThreadConfig config = AddThreadConfig.newBuilder()
+                    .setKey("your.bundle.id.version.Basic")
+                    .setName("Basic")
+                    .setType(Thread.Type.PRIVATE)
+                    .setSharing(Thread.Sharing.NOT_SHARED)
+                    .setSchema(schema)
+                    .build();
+            Textile.instance().threads.add(config);
   add_open_shared:
     notes: Dogs and params are set to match that of the Tour
     cmd:
@@ -704,7 +767,18 @@ threads:
               // Success!
             }
     android:
-      code: '@todo'
+      code: |
+            AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
+                    .setPreset(AddThreadConfig.Schema.Preset.MEDIA)
+                    .build();
+            AddThreadConfig config = AddThreadConfig.newBuilder()
+                    .setKey("your.bundle.id.version.Media")
+                    .setName("Dogs")
+                    .setType(Thread.Type.OPEN)
+                    .setSharing(Thread.Sharing.SHARED)
+                    .setSchema(schema)
+                    .build();
+            Textile.instance().threads.add(config);
   blob_add:
     cmd:
       code: 'textile threads add "Any old data" "your.bundle.id.version.Blob" --blob'
@@ -765,7 +839,18 @@ threads:
               // Success!
             }
     android:
-      code: '@todo'
+      code: |
+            AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
+                    .setPreset(AddThreadConfig.Schema.Preset.BLOB)
+                    .build();
+            AddThreadConfig config = AddThreadConfig.newBuilder()
+                    .setKey("your.bundle.id.version.Blob")
+                    .setName("Any old data")
+                    .setType(Thread.Type.PRIVATE)
+                    .setSharing(Thread.Sharing.NOT_SHARED)
+                    .setSchema(schema)
+                    .build();
+            Textile.instance().threads.add(config);
   cameraroll_add:
     cmd:
       code: 'textile threads add "New Shots" "your.bundle.id.version.CameraRoll" --cameraRoll'
@@ -825,7 +910,18 @@ threads:
               // Success!
             }
     android:
-      code: '@todo'
+      code: |
+            AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
+                    .setPreset(AddThreadConfig.Schema.Preset.CAMERA_ROLL)
+                    .build();
+            AddThreadConfig config = AddThreadConfig.newBuilder()
+                    .setKey("your.bundle.id.version.CameraRoll")
+                    .setName("New Shots")
+                    .setType(Thread.Type.OPEN)
+                    .setSharing(Thread.Sharing.SHARED)
+                    .setSchema(schema)
+                    .build();
+            Textile.instance().threads.add(config);
   media_add:
     cmd:
       code: 'textile threads add "New Shares" --media'
@@ -886,7 +982,18 @@ threads:
               // Success!
             }
     android:
-      code: '@todo'
+      code: |
+            AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
+                    .setPreset(AddThreadConfig.Schema.Preset.MEDIA)
+                    .build();
+            AddThreadConfig config = AddThreadConfig.newBuilder()
+                    .setKey("your.bundle.id.version.Media")
+                    .setName("New Shots")
+                    .setType(Thread.Type.OPEN)
+                    .setSharing(Thread.Sharing.SHARED)
+                    .setSchema(schema)
+                    .build();
+            Textile.instance().threads.add(config);
 messages:
   notes: Use of threadId set to match that of the Tour
   add:
@@ -915,7 +1022,7 @@ messages:
               // Success!
             }
     android:
-      code: '@todo'
+      code: 'Textile.instance().messages.add("12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk", "hello?");'
 files:
   json_get:
     js_http_client:
@@ -957,6 +1064,10 @@ files:
             } else {
               // Success!
             }
+    android:
+      code: |
+            String hash = "some file hash";
+            String base64 = Textile.instance().files.data(hash);
   add:
     cmd:
       code: 'echo "mmm, bytes..." | textile files add --thread="12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"'
@@ -1011,7 +1122,24 @@ files:
               }
             }
     android:
-      code: '@todo'
+      code: |
+            final String threadId = "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc";
+            String filePath = "/path/to/mmm-bytes....";
+            Textile.instance().files.prepareByPath(filePath, threadId, new PreparedFilesHandler() {
+                @Override
+                public void onFilesPrepared(MobilePreparedFiles preparedFiles) {
+                    try {
+                        Textile.instance().files.add(preparedFiles.getDir(), threadId, null);
+                    } catch (Exception e) {
+                        // Do something with this error
+                    }
+                }
+
+                @Override
+                public void onError(Exception e) {
+                    // Do something with this error
+                }
+            });
   add_media:
     cmd:
       code: 'textile files add "~/Downloads/william-milliot-510766-unsplash.jpg" --caption="Dog at work." --thread="12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq"'
@@ -1060,7 +1188,24 @@ files:
               }
             }
     android:
-      code: '@todo'
+      code: |
+            final String threadId = "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc";
+            String filePath = "/path/to/image";
+            Textile.instance().files.prepareByPath(filePath, threadId, new PreparedFilesHandler() {
+                @Override
+                public void onFilesPrepared(MobilePreparedFiles preparedFiles) {
+                    try {
+                        Textile.instance().files.add(preparedFiles.getDir(), threadId, null);
+                    } catch (Exception e) {
+                        // Do something with this error
+                    }
+                }
+
+                @Override
+                public void onError(Exception e) {
+                    // Do something with this error
+                }
+            });
   keys_:
     cmd:
       code: 'textile files keys "QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5"'
@@ -1117,7 +1262,9 @@ cafes:
               // Success!
             }
     android:
-      code: '@todo'
+      code: |
+            String token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG";
+            Textile.instance().cafes.register("http://127.0.0.1:40601", token);
   list:
     cmd:
       code: 'textile cafes ls'
@@ -1141,6 +1288,8 @@ cafes:
             } else {
               // Success!
             }
+    android:
+      code: 'CafeSessionList sessions = Textile.instance().cafes.sessions();'
   messages:
     cmd:
       code: 'textile cafes messages'
@@ -1165,7 +1314,7 @@ cafes:
               // Success!
             }
     android:
-      code: '@todo'
+      code: 'Textile.instance().cafes.checkMessages();'
   remove:
     cmd:
       code: 'textile cafes rm "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV"'
@@ -1190,7 +1339,7 @@ cafes:
               // Success!
             }
     android:
-      code: '@todo'
+      code: 'Textile.instance().cafes.deregister("12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV");'
 ipfs:
   peer_id:
     cmd:
@@ -1218,7 +1367,7 @@ ipfs:
               // Success!
             }
     android:
-      code: '@todo'
+      code: 'String peerId = Textile.instance().ipfs.peerId();'
   swarm_peers:
     cmd:
       code: 'textile ipfs swarm peers'
@@ -1253,4 +1402,4 @@ ipfs:
               // Success!
             }
     android:
-      code: '@todo'
+      code: 'byte[] data = Textile.instance().ipfs.dataAtPath("QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d");'

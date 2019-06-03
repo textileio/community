@@ -2702,6 +2702,10 @@ You can view your active cafe sessions with the `ls` command:
 {{cafes.list.swift.code}}
 ```
 
+```Java tab="Android"
+{{cafes.list.android.code}}
+```
+
 ??? success
     ```JSON
     {
@@ -2744,6 +2748,10 @@ An account peer will periodically check each of its registered cafes for new mes
 {{cafes.messages.swift.code}}
 ```
 
+```Java tab="Android"
+{{cafes.messages.android.code}}
+```
+
 ???+ success
     ```
     ok
@@ -2769,6 +2777,10 @@ You can leave a cafe at any time. Data associated with your client account will 
 
 ```Swift tab="Swift"
 {{cafes.remove.swift.code}}
+```
+
+```Java tab="Android"
+{{cafes.remove.android.code}}
 ```
 
 
@@ -3124,6 +3136,10 @@ Downloading data behind a path is one of the most useful IPFS APIs. For example,
 
 ```Swift tab="Swift"
 {{ipfs.cat.swift.code}}
+```
+
+```Java tab="Android"
+{{ipfs.cat.android.code}}
 ```
 
 ???+ success
