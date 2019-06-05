@@ -21,32 +21,25 @@ Join us on our [public Slack channel](https://slack.textile.io/) for news, discu
 - python >= 3.6.0
 - pip >= 19.0
 - wget >= 1.0
+- bash >= 3
 
 ### Commands
 
 #### Install dependencies:
 
-    $ make setup
+    ./scripts/setup
 
 #### Build docs
 
-    $ make build
+    ./scripts/build
 
 #### Serve locally
 
-    $ make serve
-
-#### Pull latest downstream docs
-
-    $ make sync
+    ./scripts/serve
 
 #### Deploy to docs.textile.io
 
-    $ make deploy
-
-### Note for Windows Users
-
-Windows doesn't come with `make`. In order to access the tool and contribute to these docs, we recommend installing a windows port of the tool. If you're using Git Bash, we recommend following [Evan Will's guide to adding more tools to Git Bash](https://gist.github.com/evanwill/0207876c3243bbb6863e65ec5dc3f058).
+    ./scripts/deploy
 
 ## Maintainer
 
@@ -64,6 +57,7 @@ Before you get started, be sure to read our [contributors guide](CONTRIBUTING.md
 * Sander Pick <sander@textile.io>
 * Andrew Hill <andrew@textile.io>
 * Aaron Sutula <aaron@textile.io>
+* Benjamin Lupton <benjamin@textile.io>
 
 ## License
 
