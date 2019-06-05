@@ -1,5 +1,5 @@
 # Project information
-site_name: 'Textile Docs'
+site_name: 'Textile Documentation'
 site_description: 'Encrypted, recoverable, schema-based, cross-application data storage built on IPFS and LibP2P.'
 site_author: textile.io
 site_url: https://docs.textile.io/
@@ -78,37 +78,37 @@ nav:
   - Welcome!: index.md
   - A Tour of Textile: a-tour-of-textile.md
   - Concepts:
-    - Introduction: concepts/index.md
-    - The Wallet: concepts/the-wallet.md
-    - Contacts: concepts/contacts.md
-    - Threads:
-      - Introduction: concepts/threads/index.md
-      - Files: concepts/threads/files.md
-    - Cafes: concepts/cafes.md
-    - Search: concepts/search.md
+      - Introduction: concepts/index.md
+      - The Wallet: concepts/the-wallet.md
+      - Contacts: concepts/contacts.md
+      - Threads:
+          - Introduction: concepts/threads/index.md
+          - Files: concepts/threads/files.md
+      - Cafes: concepts/cafes.md
+      - Search: concepts/search.md
   - Connectors:
-    - Introduction: connectors/index.md
-    - Images & Media: connectors/images/index.md
-    - Documents: connectors/documents/index.md
+      - Introduction: connectors/index.md
+      - Images & Media: connectors/images/index.md
+      - Documents: connectors/documents/index.md
   - Install:
-    - The Daemon: install/the-daemon.md
-    - Desktop: install/desktop.md
-    - Apps: install/apps.md
+      - The Daemon: install/the-daemon.md
+      - Desktop: install/desktop.md
+      - Apps: install/apps.md
   - Develop:
-    - Clients:
-      - Command-line: develop/clients/command-line.md
-      - JavaScript: develop/clients/javascript.md
-      - React Native: develop/clients/react-native.md
-      - iOS: develop/clients/ios.md
-      - Android: develop/clients/android.md
-    - The HTTP API: develop/the-http-api.md
-    - IPFS Gateway: develop/ipfs-gateway.md
-    - Peer Config File: develop/peer-config-file.md
+      - Clients:
+          - Command-line: develop/clients/command-line.md
+          - JavaScript: develop/clients/javascript.md
+          - React Native: develop/clients/react-native.md
+          - iOS: develop/clients/ios.md
+          - Android: develop/clients/android.md
+      - The HTTP API: develop/the-http-api.md
+      - IPFS Gateway: develop/ipfs-gateway.md
+      - Peer Config File: develop/peer-config-file.md
   - Policies:
-    - Code of Conduct: policies/code-of-conduct.md
-    - Privacy Policy: policies/privacy-policy.md
-    - Terms of Service: policies/terms-of-service.md
-    - License: policies/license.md
+      - Code of Conduct: policies/code-of-conduct.md
+      - Privacy Policy: policies/privacy-policy.md
+      - Terms of Service: policies/terms-of-service.md
+      - License: policies/license.md
 
 # Customization
 extra:
