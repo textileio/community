@@ -2,7 +2,7 @@ connectors:
   documents:
     add_slate:
       cmd:
-        code: textile threads add "app notes" --schema-file "./slate.json" --type="public" --sharing="invite_only"
+        code: textile threads add "app notes" --schema-file=slate.json --type="public" --sharing="invite_only"
       js_http_client:
         code: |
               const schema = require('slate.json')
@@ -69,4 +69,3 @@ connectors:
               const title = "Note Title"
               const json = slateNote.toJSON()
               const block = await textile.files.add(json, title, "12D3KooWSYT0SUX7f415pwjHSVUsuymnixmRtPGySmFYtWE51z8")'
-      

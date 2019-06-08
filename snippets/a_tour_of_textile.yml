@@ -101,7 +101,7 @@ examples:
   my_runs:
     add_thread:
       cmd:
-        code: 'textile threads add "My runs" --schema-file "~/Downloads/location.json" --type="public" --sharing="invite_only"'
+        code: 'textile threads add "My runs" --schema-file=~/Downloads/location.json --type="public" --sharing="invite_only"'
       js_http_client:
         code: |
               const locations = (await fetch("location.json")).json()

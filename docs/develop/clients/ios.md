@@ -132,3 +132,5 @@ The [ios-textile repo](https://github.com/textileio/ios-textile) contains a simp
 The full API documentation for Textile's iOS SDK (ios-textile) can be found at https://textileio.github.io/ios-textile.
 
 Feel free to join the [Textile Developer Slack](https://slack.textile.io/) and let us know what you are building. People are always excited to share and learn about new ideas.
+
+<br>

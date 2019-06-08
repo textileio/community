@@ -97,3 +97,5 @@ The [android-textile repo](https://github.com/textileio/android-textile) contain
 The full API documentation for Textile's Android SDK (android-textile) can be found at https://textileio.github.io/android-textile.
 
 Feel free to join the [Textile Developer Slack](https://slack.textile.io/) and let us know what you are building. People are always excited to share and learn about new ideas.
+
+<br>

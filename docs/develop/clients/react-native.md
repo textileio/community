@@ -87,7 +87,7 @@ pod install
 
 ## TypeScript
 
-We strongly recommend using [TypeScript](https://www.typescriptlang.org/) if you plan to use the React Native SDK in your project. The React Native SDK's endpoints are all typed and those types are available to projects that support them. Because Textile libraries are rapidly developing, this will make your upgrade process much easier and faster. 
+We strongly recommend using [TypeScript](https://www.typescriptlang.org/) if you plan to use the React Native SDK in your project. The React Native SDK's endpoints are all typed and those types are available to projects that support them. Because Textile libraries are rapidly developing, this will make your upgrade process much easier and faster.
 
 If you don't normally use TypeScript in your projects, never fear, it will be very familiar and only takes a few steps to setup.
 
@@ -103,7 +103,7 @@ To start using the mobile Textile peer your app needs to initialize the local wa
 #### Creating wallet from scratch
 
 !!! Warning
-    Mobile apps that use the React Native SDK (or one of our native libraries) run on-device Textile peers for their users. On-device peers require that the users pair the app with their primary account (see the [Tour of Textile](/a-tour-of-textile)). We recomment encouraging your users to pair with an external account during onboarding, as migrating their primary wallet out of an app later will be challenging (and is not supported yet!). 
+    Mobile apps that use the React Native SDK (or one of our native libraries) run on-device Textile peers for their users. On-device peers require that the users pair the app with their primary account (see the [Tour of Textile](/a-tour-of-textile)). We recomment encouraging your users to pair with an external account during onboarding, as migrating their primary wallet out of an app later will be challenging (and is not supported yet!).
 
 ```JavaScript
 {{core.init.react_native.code}}
@@ -115,7 +115,7 @@ To start using the mobile Textile peer your app needs to initialize the local wa
 {{core.pair.react_native.code}}
 ```
 
-Once a local account is paired, you don't need to pass the pairing key on every startup. Because the account data is now local, you can simply re-initialize. 
+Once a local account is paired, you don't need to pass the pairing key on every startup. Because the account data is now local, you can simply re-initialize.
 
 ```JavaScript
 {{core.reinit.react_native.code}}
@@ -156,4 +156,6 @@ You can clone the [react-native boilerplate](https://github.com/textileio/advanc
 
 You can read the full API Documentation for Textile's React Native SDK (react-native-sdk) at https://textileio.github.io/react-native-sdk.
 
-Feel free to join the [Textile Developer Slack](https://slack.textile.io/) and let us know what you are building. People are always excited to share and learn about new ideas. 
+Feel free to join the [Textile Developer Slack](https://slack.textile.io/) and let us know what you are building. People are always excited to share and learn about new ideas.
+
+<br>

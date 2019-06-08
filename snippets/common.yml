@@ -781,7 +781,7 @@ threads:
             Textile.instance().threads.add(config);
   blob_add:
     cmd:
-      code: 'textile threads add "Any old data" "your.bundle.id.version.Blob" --blob'
+      code: 'textile threads add "Any old data" --blob --key="your.bundle.id.version.Blob"'
     js_http_client:
       code: |
             const thread = await textile.threads.add("Any old data", "blob")
@@ -1142,7 +1142,7 @@ files:
             });
   add_media:
     cmd:
-      code: 'textile files add "~/Downloads/william-milliot-510766-unsplash.jpg" --caption="Dog at work." --thread="12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq"'
+      code: 'textile files add ~/Downloads/william-milliot-510766-unsplash.jpg --caption="Dog at work." --thread="12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq"'
     js_http_client:
       code: |
             const form = new FormData()

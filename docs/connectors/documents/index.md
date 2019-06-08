@@ -12,10 +12,10 @@ We are focusing on the [note storage schema](https://docs.slatejs.org/guides/sch
 
 ```JSON
 {
-  document: Object,
-  blocks: Object,
-  inlines: Object,
-  rules: Array,
+  "document": Object,
+  "blocks": Object,
+  "inlines": Object,
+  "rules": Array,
 }
 ```
 
@@ -55,7 +55,7 @@ Any application using the Slate library is already using a variant of the schema
 
 ## Slate thread schema
 
-The first thing we need to do is take the above Slate schema for documents and format it as a Textile JSON schema. Here is what that looks like, with each of the primary elements in the Slate document defined as properties of the JSON object. 
+The first thing we need to do is take the above Slate schema for documents and format it as a Textile JSON schema. Here is what that looks like, with each of the primary elements in the Slate document defined as properties of the JSON object.
 
 ```JSON
 {
@@ -92,7 +92,7 @@ We can save that JSON file as `slate.json` to use for creating a thread below.
 
 ## Create a Slate thread
 
-You can now use the above schema to quickly create Textile threads that are interoperable with other apps using the Slate library for document editing. 
+You can now use the above schema to quickly create Textile threads that are interoperable with other apps using the Slate library for document editing.
 
 Here's how we create our app's new thread.
 
@@ -139,7 +139,7 @@ Using Slate's built-in JSON converter, you can extract a JSON document from your
 
 ### Connect to existing photo threads
 
-If your app can display Slate notes, you can now request access to other apps that are using the Slate schema and display a user's other notes in your app. 
+If your app can display Slate notes, you can now request access to other apps that are using the Slate schema and display a user's other notes in your app.
 
 ## Cafe Sync & Recovery
 
