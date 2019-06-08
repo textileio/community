@@ -42,7 +42,7 @@
     
     
       
-        <title>Documents - Textile Docs</title>
+        <title>Documents - Textile Documentation</title>
       
     
     
@@ -119,7 +119,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://docs.textile.io/" title="Textile Docs" class="md-header-nav__button md-logo">
+        <a href="https://docs.textile.io/" title="Textile Documentation" class="md-header-nav__button md-logo">
           
             <img src="../../images/logo_pink.svg" width="24" height="24">
           
@@ -132,7 +132,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Textile Docs
+              Textile Documentation
             </span>
             <span class="md-header-nav__topic">
               Documents
@@ -209,12 +209,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://docs.textile.io/" title="Textile Docs" class="md-nav__button md-logo">
+    <a href="https://docs.textile.io/" title="Textile Documentation" class="md-nav__button md-logo">
       
         <img src="../../images/logo_pink.svg" width="48" height="48">
       
     </a>
-    Textile Docs
+    Textile Documentation
   </label>
   
     <div class="md-nav__source">
@@ -956,10 +956,10 @@
 <h2 id="the-slate-notes-schema">The Slate Notes Schema<a class="headerlink" href="#the-slate-notes-schema" title="Permanent link">&para;</a></h2>
 <p>We are focusing on the <a href="https://docs.slatejs.org/guides/schemas">note storage schema</a> used by Slate. The schema is simply this,</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="err">document:</span> <span class="err">Object,</span>
-  <span class="err">blocks:</span> <span class="err">Object,</span>
-  <span class="err">inlines:</span> <span class="err">Object,</span>
-  <span class="err">rules:</span> <span class="err">Array,</span>
+  <span class="nt">&quot;document&quot;</span><span class="p">:</span> <span class="err">Object</span><span class="p">,</span>
+  <span class="nt">&quot;blocks&quot;</span><span class="p">:</span> <span class="err">Object</span><span class="p">,</span>
+  <span class="nt">&quot;inlines&quot;</span><span class="p">:</span> <span class="err">Object</span><span class="p">,</span>
+  <span class="nt">&quot;rules&quot;</span><span class="p">:</span> <span class="err">Array</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -995,7 +995,7 @@
 
 <p>Any application using the Slate library is already using a variant of the schema shown above and so can store a user's notes (or other documents) in a way that other apps can make use of them (new UI, collaborative interfaces, etc.).</p>
 <h2 id="slate-thread-schema">Slate thread schema<a class="headerlink" href="#slate-thread-schema" title="Permanent link">&para;</a></h2>
-<p>The first thing we need to do is take the above Slate schema for documents and format it as a Textile JSON schema. Here is what that looks like, with each of the primary elements in the Slate document defined as properties of the JSON object. </p>
+<p>The first thing we need to do is take the above Slate schema for documents and format it as a Textile JSON schema. Here is what that looks like, with each of the primary elements in the Slate document defined as properties of the JSON object.</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;slatejs&quot;</span><span class="p">,</span>
   <span class="nt">&quot;mill&quot;</span><span class="p">:</span> <span class="s2">&quot;/json&quot;</span><span class="p">,</span>
@@ -1028,12 +1028,12 @@
 
 <p>We can save that JSON file as <code>slate.json</code> to use for creating a thread below.</p>
 <h2 id="create-a-slate-thread">Create a Slate thread<a class="headerlink" href="#create-a-slate-thread" title="Permanent link">&para;</a></h2>
-<p>You can now use the above schema to quickly create Textile threads that are interoperable with other apps using the Slate library for document editing. </p>
+<p>You can now use the above schema to quickly create Textile threads that are interoperable with other apps using the Slate library for document editing.</p>
 <p>Here's how we create our app's new thread.</p>
 <div class="superfences-tabs">
 <input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
 <label for="__tab_1_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile threads add &quot;app notes&quot; --schema-file &quot;./slate.json&quot; --type=&quot;public&quot; --sharing=&quot;invite_only&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile threads add &quot;app notes&quot; --schema-file=slate.json --type=&quot;public&quot; --sharing=&quot;invite_only&quot;
 </pre></div></div>
 <input name="__tabs_1" type="radio" id="__tab_1_1" />
 <label for="__tab_1_1">JS HTTP</label>
@@ -1117,7 +1117,7 @@
 </div>
 <p>Using Slate's built-in JSON converter, you can extract a JSON document from your users live notes and store them in a Textile thread.</p>
 <h3 id="connect-to-existing-photo-threads">Connect to existing photo threads<a class="headerlink" href="#connect-to-existing-photo-threads" title="Permanent link">&para;</a></h3>
-<p>If your app can display Slate notes, you can now request access to other apps that are using the Slate schema and display a user's other notes in your app. </p>
+<p>If your app can display Slate notes, you can now request access to other apps that are using the Slate schema and display a user's other notes in your app.</p>
 <h2 id="cafe-sync-recovery">Cafe Sync &amp; Recovery<a class="headerlink" href="#cafe-sync-recovery" title="Permanent link">&para;</a></h2>
 <p>A critical component of the image &amp; media connector is the ability for your users to recover their data in the future. Threads can be easily backed up by registering your app with a live cafe or by encouraging your users to manage their cafe subscriptions.</p>
 <p>When a user joins your app, either new or by linking their existing Textile wallet, you can provide a cafe for app-specific thread storage. <a href="/install/the-daemon/#initialize-a-cafe-peer">Read our instructions on Cafe setup</a> or try out <a href="/concepts/cafes/#try-one">our developer instances</a> immediately.</p>

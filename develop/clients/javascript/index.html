@@ -42,7 +42,7 @@
     
     
       
-        <title>JavaScript - Textile Docs</title>
+        <title>JavaScript - Textile Documentation</title>
       
     
     
@@ -119,7 +119,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://docs.textile.io/" title="Textile Docs" class="md-header-nav__button md-logo">
+        <a href="https://docs.textile.io/" title="Textile Documentation" class="md-header-nav__button md-logo">
           
             <img src="../../../images/logo_pink.svg" width="24" height="24">
           
@@ -132,7 +132,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              Textile Docs
+              Textile Documentation
             </span>
             <span class="md-header-nav__topic">
               JavaScript
@@ -209,12 +209,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://docs.textile.io/" title="Textile Docs" class="md-nav__button md-logo">
+    <a href="https://docs.textile.io/" title="Textile Documentation" class="md-nav__button md-logo">
       
         <img src="../../../images/logo_pink.svg" width="48" height="48">
       
     </a>
-    Textile Docs
+    Textile Documentation
   </label>
   
     <div class="md-nav__source">
@@ -1127,7 +1127,7 @@
                 
                   <h1>JavaScript</h1>
                 
-                <p>The JS HTTP Client was designed to work in the browser, using Node.js, or in Electron. </p>
+                <p>The JS HTTP Client was designed to work in the browser, using Node.js, or in Electron.</p>
 <p>To use the JS HTTP Client, you'll need either a locally running <a href="/install/the-daemon">Daemon</a> or a locally running <a href="/install/desktop">Desktop Tray</a> instance containing a Textile account and available on <code>localhost</code> with default ports for both the <code>API</code> and <code>Gateway</code>.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>The JS HTTP Client is published as an <a href="https://www.npmjs.com/package/@textile/js-http-client">NPM Package</a>. You are free to use the <a href="https://github.com/textileio/js-http-client">source code</a> directly or use a package manager to install the official release.</p>
@@ -1140,8 +1140,8 @@
 </pre></div>
 
 <h2 id="typescript">TypeScript<a class="headerlink" href="#typescript" title="Permanent link">&para;</a></h2>
-<p>We strongly recommend using <a href="https://www.typescriptlang.org/">TypeScript</a> if you plan to use the JS Client in your project. The JS Client's endpoints are all typed and those types are available to projects that support them. Because Textile libraries are rapidly developing, this will make your upgrade process much easier and faster. </p>
-<p>If you don't normally use TypeScript in your projects, never fear, it will be very familiar and only takes a few steps to setup. </p>
+<p>We strongly recommend using <a href="https://www.typescriptlang.org/">TypeScript</a> if you plan to use the JS Client in your project. The JS Client's endpoints are all typed and those types are available to projects that support them. Because Textile libraries are rapidly developing, this will make your upgrade process much easier and faster.</p>
+<p>If you don't normally use TypeScript in your projects, never fear, it will be very familiar and only takes a few steps to setup.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>We recommend <a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html">TypeScript in 5 minutes</a> as a good place to start if you are totally new to TypeScript.</p>
@@ -1233,7 +1233,7 @@
 </pre></div></div>
 </div>
 <h2 id="use-with-redux-saga">Use with redux-saga<a class="headerlink" href="#use-with-redux-saga" title="Permanent link">&para;</a></h2>
-<p>Many clients are using libraries such as <a href="https://redux-saga.js.org/">redux-sagas</a> to manage app state combined with Textile. If you use the above examples, you might hit an issue where you need to declare the context of a function your are calling (<a href="https://github.com/redux-saga/redux-saga/issues/1389">detailed in this ticket</a>). Here are a couple examples using Textile to get you started. </p>
+<p>Many clients are using libraries such as <a href="https://redux-saga.js.org/">redux-sagas</a> to manage app state combined with Textile. If you use the above examples, you might hit an issue where you need to declare the context of a function your are calling (<a href="https://github.com/redux-saga/redux-saga/issues/1389">detailed in this ticket</a>). Here are a couple examples using Textile to get you started.</p>
 <h4 id="create-a-thread_1">Create a thread<a class="headerlink" href="#create-a-thread_1" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><span class="kr">export</span> <span class="kd">function</span> <span class="o">*</span> <span class="nx">createThread</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">thread</span> <span class="o">=</span> <span class="k">yield</span> <span class="nx">call</span><span class="p">([</span><span class="nx">textile</span><span class="p">.</span><span class="nx">threads</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">],</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span>
@@ -1252,7 +1252,8 @@
 <p>You can start playing with some of the core functionality in our <a href="https://github.com/textileio/js-http-playground">developer playground</a>. The playground provides a number of examples that you can run directly against a local Textile node (deamon or desktop installation).</p>
 <h2 id="api-documentation">API Documentation<a class="headerlink" href="#api-documentation" title="Permanent link">&para;</a></h2>
 <p>The full API documentation for Textile's JavaScript HTTP Client (js-http-client) can be found at <a href="https://textileio.github.io/js-http-client">https://textileio.github.io/js-http-client</a>.</p>
-<p>Feel free to join the <a href="https://slack.textile.io/">Textile Developer Slack</a> and let us know what you are building. People are always excited to share and learn about new ideas. </p>
+<p>Feel free to join the <a href="https://slack.textile.io/">Textile Developer Slack</a> and let us know what you are building. People are always excited to share and learn about new ideas.</p>
+<p><br></p>
                 
                   
                 
