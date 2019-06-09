@@ -3154,7 +3154,7 @@ All desktop and server peers host an IPFS gateway. Read more and see some exampl
 !!! tip "A gateway to the gateways"
     Textile hosts a number of federated cafe peers around the globe, each with a public-facing gateway. A latency-based load balancer ties them all together at `https://gateway.textile.cafe`, which you are free to use in your applications.
 
-![This is a dynamically decrypted image. Gateways will attempt to decrypt data with a key passed as a query parameter. Photo by Jan Tinneberg on Unsplash.](https://gateway.textile.cafe/ipfs/QmQ3Q8sSqgUNuvKm6HXM16cnFk4SX3N2C7tcMEoob6L16c/0/large/content/?key=2Ra1ACYaEgyQMe8qnETm8aU5T32TKhuudNywtG2nz4QEpRhpQNHsEWqHuUycB){: .center}
+![This is a dynamically decrypted image. Gateways will attempt to decrypt data with a key passed as a query parameter. Photo by Jan Tinneberg on Unsplash.](https://gateway.textile.cafe/ipfs/QmQ3Q8sSqgUNuvKm6HXM16cnFk4SX3N2C7tcMEoob6L16c/0/large/content.jpg/?key=2Ra1ACYaEgyQMe8qnETm8aU5T32TKhuudNywtG2nz4QEpRhpQNHsEWqHuUycB){: .center}
 
 **Thank you for taking the tour! 👋**. Feel free to join the [Textile Developer Slack](https://slack.textile.io/) and let us know what you are building. People are always excited to share and learn about new ideas.
 

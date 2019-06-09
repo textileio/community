@@ -38,8 +38,8 @@ https://gateway.textile.cafe/ipfs/<path>?key=<key>
 ```
 
 - **path**: A path in a file DAG node to either a `meta` or `content` link.
-- **key**: An AES encryption key for the data at `path`. See [files](/concepts/threads/files) for about keys.
+- **key**: An AES encryption key for the data at `path`. See [files](/concepts/threads/files) for more about keys.
 
-![This is a dynamically decrypted image. Gateways will attempt to decrypt data with a key passed as a query parameter.](https://gateway.textile.cafe/ipfs/QmYtYMG8zwUUTseuDW8AV7dcomdh9JRLTx24ZPMiVHYnbh/0/large/content/?key=215bsNF3qpRiJMfqWySs5wwoXT5jK37geDkAsyMan1qfJyc29RSdYmLd21DXJ){: .center}
+![This is a dynamically decrypted image. Gateways will attempt to decrypt data with a key passed as a query parameter.](https://gateway.textile.cafe/ipfs/QmYtYMG8zwUUTseuDW8AV7dcomdh9JRLTx24ZPMiVHYnbh/0/large/content.jpg/?key=215bsNF3qpRiJMfqWySs5wwoXT5jK37geDkAsyMan1qfJyc29RSdYmLd21DXJ){: .center}
 
 <br>
