@@ -40,6 +40,6 @@ https://gateway.textile.cafe/ipfs/<path>?key=<key>
 - **path**: A path in a file DAG node to either a `meta` or `content` link.
 - **key**: An AES encryption key for the data at `path`. See [files](/concepts/threads/files) for about keys.
 
-![This is an encrypted image decrypted on a gateway.](https://cafe.us-east-1.textile.io/ipfs/QmY7ezUccNt3i7qnyhJWN8xKL6cDe7RkEQEViPd33TFfxj/photo?key=17q9mTWHjSOIjWiAoZxYy3cYTN917q9mUBhOu0mxr6YM){: .center}
+![This is a dynamically decrypted image. Gateways will attempt to decrypt data with a key passed as a query parameter.](https://gateway.textile.cafe/ipfs/QmYtYMG8zwUUTseuDW8AV7dcomdh9JRLTx24ZPMiVHYnbh/0/large/content/?key=215bsNF3qpRiJMfqWySs5wwoXT5jK37geDkAsyMan1qfJyc29RSdYmLd21DXJ){: .center}
 
 <br>
