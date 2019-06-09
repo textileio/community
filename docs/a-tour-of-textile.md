@@ -284,7 +284,7 @@ Of course, your account seed (private key) is not included in the public-facing 
 
 ???+ success
     ```
-    SXdGtLsF3ULiBDpVZ1MAmNBVdsMSNQGhqtDEuxbn732Wi3XJ
+    SXdGtLsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     ```
 
 #### Account sync
@@ -669,7 +669,7 @@ Create a thread and give it the name, "Basic". Note that thread names are _not_ 
         "key": "1K9AdMotTN98hd6LZgOZAzpPBFr",
         "name": "Basic",
         "peer_count": 1,
-        "sk": "CAESQL7Vb/FsCblSl9H6HNNG074KtFHLbQnFLDsZGS2N5K/brM5gAU6su7lxIGEN414b9kIa1LOCMubgtCGE8RgRbS0=",
+        "sk": "CAESQL7...",
         "state": "LOADED",
         "whitelist": []
     }
@@ -790,7 +790,7 @@ We can create a thread with this schema using the `--blob` flag:
             "name": "blob",
             "pin": true
         },
-        "sk": "CAESQIq0gRpucHb8qUQg/1csjgKydDgDIuLL8FoLl0yJomQ/+IL0U+xOmaTrSnHodPDhNAKYSnU6ZKz52+o0Jqp8CZ0=",
+        "sk": "CAESQIq...",
         "state": "LOADED",
         "whitelist": []
     }
@@ -1021,7 +1021,7 @@ Let's create an _open_ and _shared_ thread for dog photos with the _media_ schem
             "pin": true
         },
         "sharing": "SHARED",
-        "sk": "CAESQBF0SBWyu8oj6cb+AdmZHE4Bw0W9R3J6XZnjn1241MVLv7R8H9aGb4c8pyn3+p1VwHxJyVxHlp5gMTV105wHLZY=",
+        "sk": "CAESQBF...",
         "state": "LOADED",
         "type": "OPEN",
         "whitelist": []
@@ -1191,7 +1191,7 @@ Add a new thread to track your hypothetical runs:
             "name": "location"
         },
         "sharing": "INVITE_ONLY",
-        "sk": "CAESQDlZnNWOC2hdJMQS1KuxeEHAb4/UTM455NswWAFzz7G9G3qzdmmja2jA9arsHjNvR+JvhyWnD54xglwfWq1gSpY=",
+        "sk": "CAESQDl...",
         "state": "LOADED",
         "type": "PUBLIC",
         "whitelist": []
@@ -1387,7 +1387,7 @@ Before you accept, list your pending invites and grab the invite's ID:
                     "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5",
                     "name": "Clyde"
                 },
-             "name": "My runs"
+                "name": "My runs"
             }
         ]
     }
@@ -1660,7 +1660,7 @@ Create a new thread for chatting with your friend `P7X3gZu`:
         "name": "Chat",
         "peer_count": 1,
         "sharing": "SHARED",
-        "sk": "CAESQNKwDki8xpJ8dw3ifAfsGkqjz4Xr885uKlI0LjGTQPxiTHIas0+WrN7WErhk5jXRGmdMV5wAKuskKUOQhp4kKAU=",
+        "sk": "CAESQNK...",
         "state": "LOADED",
         "type": "OPEN",
         "whitelist": [
@@ -3153,5 +3153,9 @@ All desktop and server peers host an IPFS gateway. Read more and see some exampl
 
 !!! tip "A gateway to the gateways"
     Textile hosts a number of federated cafe peers around the globe, each with a public-facing gateway. A latency-based load balancer ties them all together at `https://gateway.textile.cafe`, which you are free to use in your applications.
+
+![This is a dynamically decrypted image. Gateways will attempt to decrypt data with a key passed as a query parameter. Photo by Jan Tinneberg on Unsplash.](https://gateway.textile.cafe/ipfs/QmQ3Q8sSqgUNuvKm6HXM16cnFk4SX3N2C7tcMEoob6L16c/0/large/content/?key=2Ra1ACYaEgyQMe8qnETm8aU5T32TKhuudNywtG2nz4QEpRhpQNHsEWqHuUycB){: .center}
+
+**Thank you for taking the tour! 👋**. Feel free to join the [Textile Developer Slack](https://slack.textile.io/) and let us know what you are building. People are always excited to share and learn about new ideas.
 
 <br>

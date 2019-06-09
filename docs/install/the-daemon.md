@@ -49,7 +49,7 @@ Initialize a wallet with the command-line client (this will _not_ persist anythi
 This will output something like,
 
     --------------------------------------------------------------------------------
-    | field speak key various picture captain laugh produce word cage estate space |
+    | field speak xxx xxxxxxx xxxxxxx xxxxxxx xxxxx xxxxxxx xxxx xxxx xxxxxx xxxxx |
     --------------------------------------------------------------------------------
     WARNING! Store these words above in a safe place!
     WARNING! If you lose your words, you will lose access to data in all derived accounts!
@@ -59,7 +59,7 @@ This will output something like,
 
     --- ACCOUNT 0 ---
     P8sRrQuvwTCisEg3jndAWtNTbkqnrisHbxEutSm1AvC5qJA1
-    SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
+    SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 You may optionally specify a word count and password that will be required along with your mnemonic phrase when accessing the wallet's account keys (run with `--help` for usage).
 
@@ -72,16 +72,16 @@ The output contains information about the wallet's first account, or the keys at
 
 Most users will only be interested in the first account keys, but you can access deeper indexes with the `accounts` sub-command:
 
-    textile wallet accounts "field speak key various picture captain laugh produce word cage estate space" --depth 3
+    textile wallet accounts "field speak xxx xxxxxxx xxxxxxx xxxxxxx xxxxx xxxxxxx xxxx xxxx xxxxxx xxxxx" --depth 3
     --- ACCOUNT 0 ---
     P8sRrQuvwTCisEg3jndAWtNTbkqnrisHbxEutSm1AvC5qJA1
-    SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
+    SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     --- ACCOUNT 1 ---
     P5rVWTKLKQFq42Ht7mdab9P3fSmyZyh2zWGHzLE8aipgoyRU
-    SXw4tZNxnajX2PuurVBde8wCzfX9DfskC47QQB4hJgBKGAPq
+    SXw4tZNxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     --- ACCOUNT 2 ---
     P7d43jRarv7k5e5WHmpDWuLevambQVu1YhrJ5CoRRfExLEwc
-    SYEv4DMBd9RHHKzUZxC5fpieWJAiSCMNnMCKWSYUFaVHKQkt
+    SYEv4DMxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 See `textile wallet accounts --help` for more.
 
@@ -89,44 +89,42 @@ See `textile wallet accounts --help` for more.
 
 Next, use an account seed from your wallet to initialize a new account peer. Here, we just grab the account seed from the first account above:
 
-    textile init --seed SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
+    textile init --seed="SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 !!! danger
     Use your own seed. Never share it or your wallet mnemonic phrase with anyone!
 
 There are a dozen or so additional options that are available when initializing. `textile init --help`:
 
-    Usage:
-      textile [OPTIONS] init [init-OPTIONS]
+    usage: textile init --seed=SEED [<flags>]
 
-    Initialize the node repository and exit.
+    Initialize the node repository and exit
 
-    Help Options:
-      -h, --help                   Show this help message
-
-    [init command options]
-          -s, --seed=              Account seed (run 'wallet' command to generate new seeds).
-          -p, --pin-code=          Specify a pin code for datastore encryption.
-          -r, --repo-dir=          Specify a custom repository path.
-
-        Address Options:
-          -a, --api-bind-addr=     Set the local API address. (default: 127.0.0.1:40600)
-          -c, --cafe-bind-addr=    Set the cafe REST API address. (default: 127.0.0.1:40601)
-          -g, --gateway-bind-addr= Set the IPFS gateway address. (default: 127.0.0.1:5050)
-
-        Cafe Options:
-              --cafe-open          Open the p2p Cafe Service for other peers.
-              --cafe-public-ip=    Required with --cafe-open on a server with a public IP address.
-              --cafe-url=          Specify the URL of this cafe, e.g., https://mycafe.com
-              --cafe-neighbor-url= Specify the URL of a secondary cafe. Must return cafe info, e.g., via a Gateway: https://my-gateway.yolo.com/cafe, or a Cafe API: https://my-cafe.yolo.com
-
-        IPFS Options:
-              --server             Apply IPFS server profile.
-              --swarm-ports=       Set the swarm ports (TCP,WS). Random ports are chosen by default.
-
-        Log Options:
-          -n, --no-log-files       Write logs to stdout instead of rolling files.
-          -d, --debug              Set the logging level to debug.
+    Flags:
+      --help                     Show context-sensitive help (also try --help-long and --help-man).
+      --api="http://127.0.0.1:40600"
+                                 API Address to use
+      --api-version="v0"         API version to use
+      --debug                    Set the logging level to debug
+    -s, --seed=SEED                Account seed (run 'wallet' command to generate new seeds)
+    -p, --pin-code=PIN-CODE        Specify a pin code for datastore encryption
+    -r, --repo-dir=REPO-DIR        Specify a custom repository path
+      --server                   Apply IPFS server profile
+      --swarm-ports=SWARM-PORTS  Set the swarm ports (TCP,WS). A random TCP port is chosen by default
+      --log-files                If true, writes logs to rolling files, if false, writes logs to stdout
+      --api-bind-addr="127.0.0.1:40600"
+                                 Set the local API address
+      --cafe-bind-addr="0.0.0.0:40601"
+                                 Set the cafe REST API address
+      --gateway-bind-addr="127.0.0.1:5050"
+                                 Set the IPFS gateway address
+      --profile-bind-addr="127.0.0.1:6060"
+                                 Set the profiling address
+      --cafe-open                Open the p2p cafe service for other peers
+      --cafe-url=CAFE-URL        Specify a custom URL of this cafe, e.g., https://mycafe.com
+      --cafe-neighbor-url=CAFE-NEIGHBOR-URL
+                                 Specify the URL of a secondary cafe. Must return cafe info, e.g., via a Gateway:
+                                 https://my-gateway.yolo.com/cafe, or a cafe API: https://my-cafe.yolo.com
 
 Anyone familiar with IPFS will recognize the similarities with these steps. Much like `ipfs init`, `textile init` creates an IPFS node repository on disk.
 
@@ -137,7 +135,7 @@ Anyone can run a cafe peer and offer services to the network. You do not need to
 [Cafe peers](/concepts/cafes) are initialized by adding some additional flags to `textile init`:
 
 ```
-textile init --seed SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6 --server --cafe-open
+textile init --seed="SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" --server --cafe-open
 ```
 
 **`--server`:** This flag applies the [IPFS server profile](https://github.com/ipfs/go-ipfs-config/blob/master/profile.go#L49) and is highly recommended for cafe peers.
