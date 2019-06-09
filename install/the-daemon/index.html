@@ -1050,7 +1050,7 @@
 
 <p>This will output something like,</p>
 <div class="codehilite"><pre><span></span>--------------------------------------------------------------------------------
-| field speak key various picture captain laugh produce word cage estate space |
+| field speak xxx xxxxxxx xxxxxxx xxxxxxx xxxxx xxxxxxx xxxx xxxx xxxxxx xxxxx |
 --------------------------------------------------------------------------------
 WARNING! Store these words above in a safe place!
 WARNING! If you lose your words, you will lose access to data in all derived accounts!
@@ -1060,7 +1060,7 @@ Use: `wallet accounts` command to inspect more accounts.
 
 --- ACCOUNT 0 ---
 P8sRrQuvwTCisEg3jndAWtNTbkqnrisHbxEutSm1AvC5qJA1
-SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
+SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 </pre></div>
 
 
@@ -1072,23 +1072,23 @@ SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
 <p>The output contains information about the wallet's first account, or the keys at <em>index 0</em>. <em>Account seeds</em> (private keys) always starts with an "S" for "secret" and <em>account addresses</em> (public keys) always start with a "P" for "public".</p>
 <h3 id="access-wallet-accounts">Access wallet accounts<a class="headerlink" href="#access-wallet-accounts" title="Permanent link">&para;</a></h3>
 <p>Most users will only be interested in the first account keys, but you can access deeper indexes with the <code>accounts</code> sub-command:</p>
-<div class="codehilite"><pre><span></span>textile wallet accounts &quot;field speak key various picture captain laugh produce word cage estate space&quot; --depth 3
+<div class="codehilite"><pre><span></span>textile wallet accounts &quot;field speak xxx xxxxxxx xxxxxxx xxxxxxx xxxxx xxxxxxx xxxx xxxx xxxxxx xxxxx&quot; --depth 3
 --- ACCOUNT 0 ---
 P8sRrQuvwTCisEg3jndAWtNTbkqnrisHbxEutSm1AvC5qJA1
-SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
+SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 --- ACCOUNT 1 ---
 P5rVWTKLKQFq42Ht7mdab9P3fSmyZyh2zWGHzLE8aipgoyRU
-SXw4tZNxnajX2PuurVBde8wCzfX9DfskC47QQB4hJgBKGAPq
+SXw4tZNxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 --- ACCOUNT 2 ---
 P7d43jRarv7k5e5WHmpDWuLevambQVu1YhrJ5CoRRfExLEwc
-SYEv4DMBd9RHHKzUZxC5fpieWJAiSCMNnMCKWSYUFaVHKQkt
+SYEv4DMxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 </pre></div>
 
 
 <p>See <code>textile wallet accounts --help</code> for more.</p>
 <h3 id="initialize-an-account-peer">Initialize an account peer<a class="headerlink" href="#initialize-an-account-peer" title="Permanent link">&para;</a></h3>
 <p>Next, use an account seed from your wallet to initialize a new account peer. Here, we just grab the account seed from the first account above:</p>
-<div class="codehilite"><pre><span></span>textile init --seed SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6
+<div class="codehilite"><pre><span></span>textile init --seed=&quot;SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;
 </pre></div>
 
 
@@ -1097,37 +1097,35 @@ SYEv4DMBd9RHHKzUZxC5fpieWJAiSCMNnMCKWSYUFaVHKQkt
 <p>Use your own seed. Never share it or your wallet mnemonic phrase with anyone!</p>
 </div>
 <p>There are a dozen or so additional options that are available when initializing. <code>textile init --help</code>:</p>
-<div class="codehilite"><pre><span></span>Usage:
-  textile [OPTIONS] init [init-OPTIONS]
+<div class="codehilite"><pre><span></span>usage: textile init --seed=SEED [&lt;flags&gt;]
 
-Initialize the node repository and exit.
+Initialize the node repository and exit
 
-Help Options:
-  -h, --help                   Show this help message
-
-[init command options]
-      -s, --seed=              Account seed (run &#39;wallet&#39; command to generate new seeds).
-      -p, --pin-code=          Specify a pin code for datastore encryption.
-      -r, --repo-dir=          Specify a custom repository path.
-
-    Address Options:
-      -a, --api-bind-addr=     Set the local API address. (default: 127.0.0.1:40600)
-      -c, --cafe-bind-addr=    Set the cafe REST API address. (default: 127.0.0.1:40601)
-      -g, --gateway-bind-addr= Set the IPFS gateway address. (default: 127.0.0.1:5050)
-
-    Cafe Options:
-          --cafe-open          Open the p2p Cafe Service for other peers.
-          --cafe-public-ip=    Required with --cafe-open on a server with a public IP address.
-          --cafe-url=          Specify the URL of this cafe, e.g., https://mycafe.com
-          --cafe-neighbor-url= Specify the URL of a secondary cafe. Must return cafe info, e.g., via a Gateway: https://my-gateway.yolo.com/cafe, or a Cafe API: https://my-cafe.yolo.com
-
-    IPFS Options:
-          --server             Apply IPFS server profile.
-          --swarm-ports=       Set the swarm ports (TCP,WS). Random ports are chosen by default.
-
-    Log Options:
-      -n, --no-log-files       Write logs to stdout instead of rolling files.
-      -d, --debug              Set the logging level to debug.
+Flags:
+  --help                     Show context-sensitive help (also try --help-long and --help-man).
+  --api=&quot;http://127.0.0.1:40600&quot;
+                             API Address to use
+  --api-version=&quot;v0&quot;         API version to use
+  --debug                    Set the logging level to debug
+-s, --seed=SEED                Account seed (run &#39;wallet&#39; command to generate new seeds)
+-p, --pin-code=PIN-CODE        Specify a pin code for datastore encryption
+-r, --repo-dir=REPO-DIR        Specify a custom repository path
+  --server                   Apply IPFS server profile
+  --swarm-ports=SWARM-PORTS  Set the swarm ports (TCP,WS). A random TCP port is chosen by default
+  --log-files                If true, writes logs to rolling files, if false, writes logs to stdout
+  --api-bind-addr=&quot;127.0.0.1:40600&quot;
+                             Set the local API address
+  --cafe-bind-addr=&quot;0.0.0.0:40601&quot;
+                             Set the cafe REST API address
+  --gateway-bind-addr=&quot;127.0.0.1:5050&quot;
+                             Set the IPFS gateway address
+  --profile-bind-addr=&quot;127.0.0.1:6060&quot;
+                             Set the profiling address
+  --cafe-open                Open the p2p cafe service for other peers
+  --cafe-url=CAFE-URL        Specify a custom URL of this cafe, e.g., https://mycafe.com
+  --cafe-neighbor-url=CAFE-NEIGHBOR-URL
+                             Specify the URL of a secondary cafe. Must return cafe info, e.g., via a Gateway:
+                             https://my-gateway.yolo.com/cafe, or a cafe API: https://my-cafe.yolo.com
 </pre></div>
 
 
@@ -1135,7 +1133,7 @@ Help Options:
 <h3 id="initialize-a-cafe-peer">Initialize a cafe peer<a class="headerlink" href="#initialize-a-cafe-peer" title="Permanent link">&para;</a></h3>
 <p>Anyone can run a cafe peer and offer services to the network. You do not need to rely on Textile's cafe network, or anyone else's network for that matter!</p>
 <p><a href="/concepts/cafes">Cafe peers</a> are initialized by adding some additional flags to <code>textile init</code>:</p>
-<div class="codehilite"><pre><span></span>textile init --seed SSkyezjKSb979BYYkwhgbq8GyB5HRry3gtf8CJBaNRKpFdt6 --server --cafe-open
+<div class="codehilite"><pre><span></span>textile init --seed=&quot;SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot; --server --cafe-open
 </pre></div>
 
 <p><strong><code>--server</code>:</strong> This flag applies the <a href="https://github.com/ipfs/go-ipfs-config/blob/master/profile.go#L49">IPFS server profile</a> and is highly recommended for cafe peers.</p>
