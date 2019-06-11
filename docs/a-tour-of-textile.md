@@ -91,6 +91,9 @@ Now, with Textile ready, take a look at your peer profile:
 !!! info
     Textile uses an [ed25519](https://ed25519.cr.yp.to/) [HD wallet](https://en.bitcoinwiki.org/wiki/Deterministic_wallet) and IPFS peer IDs because they provide fast key generation, signing, and verification. These properties become important on less powerful devices like phones.
 
+!!! tip
+    If you got a `connection refused` error, be sure that your [textile daemon](/install/the-daemon) is running.
+
 #### Set a display name
 
 You can set a display name for your peer. Interacting with other users is a lot easier with display names. However, they are _not_ unique on the network.
