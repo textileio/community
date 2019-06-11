@@ -831,34 +831,54 @@ Let's add some data. Be sure to use your own thread ID.
 ```
 
 ??? success
-    ```
-    File target: QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5
-    Added 1 file in 613.175326ms
+    ``` json
+    {
+        "block": "QmUYxxx",
+        "target": "QmVxxx",
+        "date": "2019-06-11T06:44:05.535163Z",
+        "user": {
+            "address": "P9fbxxx",
+            "name": "Clyde",
+            "avatar": "QmRoJxxxx"
+        },
+        "files": [
+            {
+                "file": {
+                    "mill": "/blob",
+                    "checksum": "EPBRa7xxx",
+                    "source": "EPBRaxxx",
+                    "opts": "G7x9bfxxx",
+                    "hash": "QmVQD8xxxx",
+                    "key": "x5sa9ixxx",
+                    "media": "text/plain; charset=utf-8",
+                    "name": "stdin",
+                    "size": "14",
+                    "added": "2019-06-06T02:13:00.620280Z",
+                    "meta": {
+                        },
+                    "targets": [
+                        "QmVikPYxxxxy"
+                    ]
+                }
+            }
+        ],
+        "comments": [
+        ],
+        "likes": [
+        ],
+        "threads": [
+            "12D3Koxxxx"
+        ]
+    }
     ```
 
-What just happened? The peer created a new DAG node for the input as defined by the schema. Every schema step adds a child node with two links:
+What just happened? The peer created a new DAG node (a textile block) for the input as defined by the schema. Every schema step adds a child node with two links:
 
 ![The `target` shown in the output is the root hash of the DAG.](/images/blob.png){: .center}
 
-- `meta`: A JSON object containing metadata about the input and how it was processed. Some of the values are used for de-duplicating encrypted data. Here's the value of `meta` in the node we just created:
+- `meta`: A JSON object containing metadata about the input and how it was processed. Which is the success output of the previosu command.
 
-```JSON
-{
-    "mill": "/blob",
-    "checksum": "EPBRa7eDzgoXyvDXqRYuXLkRoZqMizZ4R8QkZyF8n9DP",
-    "source": "EPBRa7eDzgoXyvDXqRYuXLkRoZqMizZ4R8QkZyF8n9DP",
-    "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
-    "hash": "QmTwQWfkR343HHxhdhTX7er6eHnYkgej7GNNsmbS6eZCyQ",
-    "key": "QQ3QUdkJ2LCH4ycDjEMHQVHkhnMRiZhkncMCN1i4pbYSXD1heeq2DuNrdm3F",
-    "media": "text/plain; charset=utf-8",
-    "name": "stdin",
-    "size": "14",
-    "added": "2019-04-20T22:46:19.976891Z",
-    "meta": {}
-}
-```
-
-- `content`: The output data of the schema step. Again, for our current example, this is just a passthrough (output is input).
+- `content`: The content of the file that was added, in the above command output, this is at `.files[0].hash`, and can be fetched via `textile file get <hash> --content`, or via `textile block file <blockid> --path=file --content`.
 
 The [_files_](/concepts/threads/files) guide covers these concepts in more detail.
 
@@ -899,7 +919,7 @@ Unless a schema step specifies `"plaintext": true`, the value of `meta` and `con
 
 The output gives us the key for the node at index `0`. There's only one key because this target node only contains one file.
 
-To add an actual file or directory, just specify a path, e.g, `textile files add "path/to/something" --thread="..."`.
+To add an actual file or directory, just specify a path, e.g, `textile files add <thread> "path/to/something"`.
 
 Let's try adding the _same_ data again:
 
@@ -2154,7 +2174,7 @@ When you leave a thread, all associated data is deleted from your peer. Addition
 From your second peer, leave the "My runs" thread:
 
 ```tab="cmd"
-{{examples.my_runs.thread_leave.cmd.code}}
+{{examples.my_runs.thread_abandon.cmd.code}}
 ```
 
 ??? success
@@ -2578,7 +2598,7 @@ textile config "Cafe.Host.Open" true --api="http://127.0.0.1:41600"
 Now, restart the daemon in debug mode:
 
 ```tab="cmd"
-textile daemon --repo-dir="/tmp/buddy" --debug
+textile daemon --repo="/tmp/buddy" --debug
 ```
 
 ??? success

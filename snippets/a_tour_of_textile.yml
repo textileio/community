@@ -60,19 +60,19 @@ examples:
               Textile.instance().threads.add(config);
     invite_create:
       cmd:
-        code: 'textile invites create --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"'
+        code: 'textile invite create "<thread>"'
       js_http_client:
         code: |
               // The below invite key can be sent securely to recipient in any way convenient
-              const inviteKey = await textile.invites.addExternal("12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv")
+              const inviteKey = await textile.invites.addExternal("<thread>")
       react_native:
         code: |
               // The below invite key can be sent securely to recipient in any way convenient
-              const inviteKey = await textile.invites.addExternal("12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv")
+              const inviteKey = await textile.invites.addExternal("<thread>")
       objc:
         code: |
               NSError *error;
-              [Textile.instance.invites addExternal:@"12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv" error:&error];
+              [Textile.instance.invites addExternal:@"<thread>" error:&error];
               if (error) {
                 // Do something with this error
               } else {
@@ -81,23 +81,23 @@ examples:
       swift:
         code: |
               var error: NSError?
-              Textile.instance().invites.addExternal("12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv", error: &error)
+              Textile.instance().invites.addExternal("<thread>", error: &error)
               if (error != nil) {
                 // Do something with this error
               } else {
                 // Success!
               }
       android:
-        code: 'Textile.instance().invites.addExternal("12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv");'
+        code: 'Textile.instance().invites.addExternal("<thread>");'
     accept_invite:
       cmd:
         code: 'textile invites accept "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf" --key="cCBPKRN6723KkroCfMsLVHj3cbVkwpg47s5wdjyEPxXz6rRoo6mjBZqiizd" --api="http://127.0.0.1:41600"'
     join_chat:
       cmd:
-        code: 'textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv"'
+        code: 'textile chat "<thread>"'
     join_chat_peer:
       cmd:
-        code: 'textile chat --thread="12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv" --api="http://127.0.0.1:41600"'
+        code: 'textile chat "<thread>" --api="http://127.0.0.1:41600"'
   my_runs:
     add_thread:
       cmd:
@@ -174,7 +174,7 @@ examples:
               Textile.instance().threads.add(config);
     invite:
       cmd:
-        code: 'textile invites create --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" --address="P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"'
+        code: 'textile invite create <thread> --address="P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs"'
       js_http_client:
         code: 'await textile.invites.add("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs")'
       react_native:
@@ -201,15 +201,15 @@ examples:
         code: 'Textile.instance().invites.add("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs");'
     ls_invites:
       cmd:
-        code: 'textile invites ls --api="http://127.0.0.1:41600"'
+        code: 'textile invites list --api="http://127.0.0.1:41600"'
     accept:
       cmd:
         code: 'textile invites accept "QmXcJmyX2vbeJTcZSkoZCHc74yycjJcXbxCHkLknJhyPaL" --api="http://127.0.0.1:41600"'
     blocks_ls:
       cmd:
-        code: 'textile blocks ls --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"'
+        code: 'textile blocks list "<thread>"'
       js_http_client:
-        code: 'await textile.blocks.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
+        code: 'await textile.blocks.list("<thread>")'
       react_native:
         code: '@todo'
       objc:
@@ -220,15 +220,15 @@ examples:
         code: '@todo'
     comment_add:
       cmd:
-        code: 'textile comments add "Is this an outlier?" --block="QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84" --api="http://127.0.0.1:41600"'
+        code: 'textile comments add <block> "Is this an outlier?" --api="http://127.0.0.1:41600"'
       js_http_client:
-        code: 'await textile.comments.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84", "Is this an outlier?")'
+        code: 'await textile.comments.add("<block>", "Is this an outlier?")'
       react_native:
-        code: 'await textile.comments.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84", "Is this an outlier?")'
+        code: 'await textile.comments.add("<block>", "Is this an outlier?")'
       objc:
         code: |
               NSError *error;
-              [Textile.instance.comments add:@"QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84" body:@"Is this an outlier?" error:&error];
+              [Textile.instance.comments add:@"<block>" body:@"Is this an outlier?" error:&error];
               if (error) {
                 // Do something with this error
               } else {
@@ -244,18 +244,18 @@ examples:
                 // Success!
               }
       android:
-        code: 'Textile.instance().comments.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84", "Is this an outlier?");'
+        code: 'Textile.instance().comments.add("<block>", "Is this an outlier?");'
     like_add:
       cmd:
-        code: 'textile likes add --block="QmVoKpKsg5MkW11bK3LVmd3xMMaxTutVime32sV6EZWeLk"'
+        code: 'textile likes add <block>'
       js_http_client:
-        code: 'await textile.likes.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84")'
+        code: 'await textile.likes.add("<block>")'
       react_native:
-        code: 'await textile.likes.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84")'
+        code: 'await textile.likes.add("<block>")'
       objc:
         code: |
               NSError *error;
-              [Textile.instance.likes add:@"QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84" error:&error];
+              [Textile.instance.likes add:@"<block>" error:&error];
               if (error) {
                 // Do something with this error
               } else {
@@ -264,25 +264,25 @@ examples:
       swift:
         code: |
               var error: NSError?
-              Textile.instance().likes.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84", error: &error)
+              Textile.instance().likes.add("<block>", error: &error)
               if (error != nil) {
                 // Do something with this error
               } else {
                 // Success!
               }
       android:
-        code: 'Textile.instance().likes.add("QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84");'
+        code: 'Textile.instance().likes.add("<block>");'
     files_ls:
       cmd:
-        code: 'textile files ls --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"'
+        code: 'textile thread files <thread>'
       js_http_client:
-        code: 'await textile.files.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", undefined, 5)'
+        code: 'await textile.files.list("<thread>", undefined, 5)'
       react_native:
-        code: 'await textile.files.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "", 5)'
+        code: 'await textile.files.list("<thread>", "", 5)'
       objc:
         code: |
               NSError *error;
-              FilesList *filesList = [Textile.instance.files list:@"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" offset:@"" limit:5 error:&error];
+              FilesList *filesList = [Textile.instance.files list:@"<thread>" offset:@"" limit:5 error:&error];
               if (error) {
                 // Do something with this error
               } else {
@@ -291,25 +291,25 @@ examples:
       swift:
         code: |
               var error: NSError?
-              let filesList = Textile.instance().files.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", offset: "", limit: 5, error: &error)
+              let filesList = Textile.instance().files.list("<thread>", offset: "", limit: 5, error: &error)
               if (error != nil) {
                 // Do something with this error
               } else {
                 // Success!
               }
       android:
-        code: 'FilesList files = Textile.instance().files.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw", "", 5);'
+        code: 'FilesList files = Textile.instance().files.list("<thread>", "", 5);'
     feed:
       cmd:
-        code: 'textile feed --thread="12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"'
+        code: 'textile feed "<thread>"'
       js_http_client:
-        code: 'await textile.feed.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
+        code: 'await textile.feed.list("<thread>")'
       react_native:
-        code: 'await textile.feed.list("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
+        code: 'await textile.feed.list("<thread>")'
       objc:
         code: |
               FeedRequest *request = [[FeedRequest alloc] init];
-              request.thread = @"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw";
+              request.thread = @"<thread>";
               NSError *error;
               FeedItemList *feedItemList = [Textile.instance.feed list:request error:&error];
               if (error) {
@@ -331,22 +331,22 @@ examples:
       android:
         code: |
               FeedRequest request = FeedRequest.newBuilder()
-                    .setThread("12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\"")
+                    .setThread("<thread>")
                     .build();
               FeedItemList feedItemList = Textile.instance().feed.list(request);
     add_location_data:
       cmd:
-        code: "echo '{ \"latitude\": 48.858093, \"longitude\": 2.294694 }' | textile files add --thread=12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+        code: "echo '{ \"latitude\": 48.858093, \"longitude\": 2.294694 }' | textile files add <thread>"
       js_http_client:
-        code: 'await textile.files.add({ latitude: 48.858093, longitude: 2.294694 }, "", "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
+        code: 'await textile.files.add({ latitude: 48.858093, longitude: 2.294694 }, "", "<thread>")'
       react_native:
         code: |
               const input = Buffer.from(JSON.stringify({ "latitude": 48.858093, "longitude": 2.294694 }).toString('base64')
-              const result = await textile.files.prepare(input, "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")
-              const block = await textile.files.add(result.dir, "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")
+              const result = await textile.files.prepare(input, "<thread>")
+              const block = await textile.files.add(result.dir, "<thread>")
       objc:
         code: |
-              NSString *threadId = @"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw";
+              NSString *threadId = @"<thread>";
               NSData *jsonData = [@"{ latitude: 48.858093, longitude: 2.294694 }" dataUsingEncoding:NSUTF8StringEncoding];
               NSString *dataString = [jsonData base64EncodedStringWithOptions:0];
               [Textile.instance.files prepare:dataString threadId:threadId completion:^(MobilePreparedFiles *preparedFiles, NSError *error) {
@@ -364,7 +364,7 @@ examples:
               }];
       swift:
         code: |
-              let threadId = "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+              let threadId = "<thread>"
               let jsonData = "{ latitude: 48.858093, longitude: 2.294694 }".data(using: .utf8)
               if let data = jsonData {
                 let dataString = data.base64EncodedString()
@@ -384,7 +384,7 @@ examples:
               }
       android:
         code: |
-              final String threadId = "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw";
+              final String threadId = "<thread>";
               byte[] jsonData = "{ latitude: 48.858093, longitude: 2.294694 }".getBytes();
               String dataString = Base64.encodeToString(jsonData, Base64.DEFAULT);
               Textile.instance().files.prepare(dataString, threadId, new PreparedFilesHandler() {
@@ -404,17 +404,17 @@ examples:
               });
     add_location_data_fail:
       cmd:
-        code: "echo '{ \"latitude\": 91, \"longitude\": 2.294694 }' | textile files add --thread=\"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\"'"
+        code: "echo '{ \"latitude\": 91, \"longitude\": 2.294694 }' | textile files add <thread>"
       js_http_client:
-        code: 'await textile.files.add({ latitude: 91, longitude: 2.294694 }, "", "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")'
+        code: 'await textile.files.add({ latitude: 91, longitude: 2.294694 }, "", "<thread>")'
       react_native:
         code: |
               const input = Buffer.from(JSON.stringify({ "latitude": 91, "longitude": 2.294694 }).toString('base64')
-              const result = await textile.files.prepare(input, "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")
-              const block = await textile.files.add(result.dir, "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw")
+              const result = await textile.files.prepare(input, "<thread>")
+              const block = await textile.files.add(result.dir, "<thread>")
       objc:
         code: |
-              NSString *threadId = @"12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw";
+              NSString *threadId = @"<thread>";
               NSData *jsonData = [@"{ latitude: 91, longitude: 2.294694 }" dataUsingEncoding:NSUTF8StringEncoding];
               NSString *dataString = [jsonData base64EncodedStringWithOptions:0];
               [Textile.instance.files prepare:dataString threadId:threadId completion:^(MobilePreparedFiles *preparedFiles, NSError *error) {
@@ -432,7 +432,7 @@ examples:
               }];
       swift:
         code: |
-              let threadId = "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
+              let threadId = "<thread>"
               let jsonData = "{ latitude: 91, longitude: 2.294694 }".data(using: .utf8)
               if let data = jsonData {
                 let dataString = data.base64EncodedString()
@@ -452,7 +452,7 @@ examples:
               }
       android:
         code: |
-              final String threadId = "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw";
+              final String threadId = "<thread>";
               byte[] jsonData = "{ latitude: 91, longitude: 2.294694 }".getBytes();
               String dataString = Base64.encodeToString(jsonData, Base64.DEFAULT);
               Textile.instance().files.prepare(dataString, threadId, new PreparedFilesHandler() {
@@ -470,6 +470,6 @@ examples:
                       // Do something with this error
                   }
               });
-    thread_leave:
+    thread_abandon:
       cmd:
-        code: 'textile threads rm "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw" --api="http://127.0.0.1:41600"'
+        code: 'textile thread abandon "<thread>" --api="http://127.0.0.1:41600"'

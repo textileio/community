@@ -44,9 +44,9 @@ Textile uses a hierarchical deterministic (HD) wallet to derive account keys fro
 
 Initialize a wallet with the command-line client (this will _not_ persist anything to your filesystem):
 
-    textile wallet init
+    textile wallet create
 
-This will output something like,
+This will output something like:
 
     --------------------------------------------------------------------------------
     | field speak xxx xxxxxxx xxxxxxx xxxxxxx xxxxx xxxxxxx xxxx xxxx xxxxxx xxxxx |
@@ -89,7 +89,7 @@ See `textile wallet accounts --help` for more.
 
 Next, use an account seed from your wallet to initialize a new account peer. Here, we just grab the account seed from the first account above:
 
-    textile init --seed="SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    textile init "SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 !!! danger
     Use your own seed. Never share it or your wallet mnemonic phrase with anyone!
@@ -105,7 +105,7 @@ Anyone can run a cafe peer and offer services to the network. You do not need to
 [Cafe peers](/concepts/cafes) are initialized by adding some additional flags to `textile init`:
 
 ```
-textile init --seed="SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" --server --cafe-open
+textile init <account-seed> --server --cafe-open
 ```
 
 **`--server`:** This flag applies the [IPFS server profile](https://github.com/ipfs/go-ipfs-config/blob/master/profile.go#L49) and is highly recommended for cafe peers.

@@ -49,7 +49,7 @@ core:
             Textile.instance().addEventListener(new MyEventListener());
   daemon:
     cmd:
-      code: 'textile daemon --repo-dir="/tmp/buddy"'
+      code: 'textile daemon --repo="/tmp/buddy"'
   logs:
     cmd:
       code: 'textile logs'
@@ -62,7 +62,7 @@ core:
       code: 'const levels = await textile.logs.set("info", undefined, true)'
   init:
     cmd:
-      code: 'textile init --seed="$(textile wallet init | tail -n1)" --repo-dir="/tmp/buddy" --swarm-ports="4101" --api-bind-addr="127.0.0.1:41600" --gateway-bind-addr="127.0.0.1:5150"'
+      code: 'textile init "$(textile wallet init | tail -n1)" --repo="/tmp/buddy" --swarm-ports="4101" --api-bind-addr="127.0.0.1:41600" --gateway-bind-addr="127.0.0.1:5150"'
     react_native:
       code: |
             // This is the user's new Textile wallet seed. They must keep it secure and never share it. Your production app should not keep a copy long term and should never share it with any API.
@@ -346,7 +346,7 @@ profile:
   set_name:
     notes: Name should equal 'Clyde' as it is used in Tour
     cmd:
-      code: 'textile profile set name "Clyde"'
+      code: 'textile profile set --name="Clyde"'
     js_http_client:
       code: 'await textile.profile.setName("Clyde")'
     react_native:
@@ -373,7 +373,7 @@ profile:
       code: 'Textile.instance().profile.setName("Clyde");'
   set_avatar:
     cmd:
-      code: 'textile profile set avatar "path/to/an/image"'
+      code: 'textile profile set --avatar="path/to/an/image"'
     js_http_client:
       code: |
             const form = new FormData()
@@ -581,7 +581,7 @@ contacts:
             Textile.instance().contacts.add(searchResult);
   ls:
     cmd:
-      code: 'textile contacts ls'
+      code: 'textile contacts list'
     js_http_client:
       code: 'const contacts = await textile.contacts.list()'
     react_native:
@@ -609,7 +609,7 @@ contacts:
   rm:
     notes: Address is set to match that of the Tour
     cmd:
-      code: 'textile contacts rm "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"'
+      code: 'textile contacts delete "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"'
     js_http_client:
       code: 'await textile.contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
     react_native:
@@ -998,15 +998,15 @@ messages:
   notes: Use of threadId set to match that of the Tour
   add:
     cmd:
-      code: 'textile messages add "hello?" --thread="12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk"'
+      code: 'textile messages add <thread> "hello?"'
     js_http_client:
-      code: 'await textile.messages.add("12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk", "hello?")'
+      code: 'await textile.messages.add("<thread>", "hello?")'
     react_native:
-      code: 'await textile.messages.add("12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk", "hello?")'
+      code: 'await textile.messages.add("<thread>", "hello?")'
     objc:
       code: |
             NSError *error;
-            [Textile.instance.messages add:@"12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk" body:@"hello?" error:&error];
+            [Textile.instance.messages add:@"<thread>" body:@"hello?" error:&error];
             if (error) {
               // Do something with this error
             } else {
@@ -1015,14 +1015,14 @@ messages:
     swift:
       code: |
             var error: NSError?
-            Textile.instance().messages.add("12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk", body: "hello?", error: &error)
+            Textile.instance().messages.add("<thread>", body: "hello?", error: &error)
             if (error != nil) {
               // Do something with this error
             } else {
               // Success!
             }
     android:
-      code: 'Textile.instance().messages.add("12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk", "hello?");'
+      code: 'Textile.instance().messages.add("<thread>", "hello?");'
 files:
   json_get:
     js_http_client:
@@ -1070,26 +1070,26 @@ files:
             String base64 = Textile.instance().files.data(hash);
   add:
     cmd:
-      code: 'echo "mmm, bytes..." | textile files add --thread="12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"'
+      code: 'echo "mmm, bytes..." | textile files add <thread>'
     js_http_client:
       node:
-        code: 'const block = await textile.files.add("mmm, bytes...", "", "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")'
+        code: 'const block = await textile.files.add("mmm, bytes...", "", "<thread>")'
       browser:
         code: |
               const data = new Blob(["mmm, bytes..."])
               await textile.files.add(
                 data,
                 "",
-                "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"
+                "<thread>"
               )
     react_native:
       code: |
             const input = Buffer.from("mmm, bytes...").toString('base64')
-            const result = await textile.files.prepare(input, "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")
-            const block = await textile.files.add(result.dir, "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc")
+            const result = await textile.files.prepare(input, "<thread>")
+            const block = await textile.files.add(result.dir, "<thread>")
     objc:
       code: |
-            NSString *threadId = @"12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc";
+            NSString *threadId = @"<thread>";
             NSString *filePath = @"/path/to/mmm-bytes....";
             [Textile.instance.files prepareByPath:filePath threadId:threadId completion:^(MobilePreparedFiles *preparedFiles, NSError *error) {
               if (error) {
@@ -1106,7 +1106,7 @@ files:
             }];
     swift:
       code: |
-            let threadId = "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"
+            let threadId = "<thread>"
             let filePath = "/path/to/mmm-bytes...."
             Textile.instance().files.prepare(byPath: filePath, threadId: threadId) { (preparedFiles, error) in
               if let files = preparedFiles {
@@ -1123,7 +1123,7 @@ files:
             }
     android:
       code: |
-            final String threadId = "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc";
+            final String threadId = "<thread>";
             String filePath = "/path/to/mmm-bytes....";
             Textile.instance().files.prepareByPath(filePath, threadId, new PreparedFilesHandler() {
                 @Override
@@ -1142,20 +1142,20 @@ files:
             });
   add_media:
     cmd:
-      code: 'textile files add ~/Downloads/william-milliot-510766-unsplash.jpg --caption="Dog at work." --thread="12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq"'
+      code: 'textile files add <thread> ~/Downloads/william-milliot-510766-unsplash.jpg --caption="Dog at work."'
     js_http_client:
       code: |
             const form = new FormData()
             form.append('file', file, file.name) // file is File object or raw Buffer/Blob or even fs.createReadStream() in Node.js
-            await textile.files.add(base64ImageString, "Dog at work", "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq")'
+            await textile.files.add(base64ImageString, "Dog at work", "<threaD>")'
     react_native:
       code: |
             const base64ImageString = "R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABA...."
-            const result = await textile.files.prepare(base64ImageString, "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq")
-            const block = await textile.files.add(result.dir, "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq")
+            const result = await textile.files.prepare(base64ImageString, "<threaD>")
+            const block = await textile.files.add(result.dir, "<threaD>")
     objc:
       code: |
-            NSString *threadId = @"12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc";
+            NSString *threadId = @"<thread>";
             NSString *filePath = @"/path/to/image";
             [Textile.instance.files prepareByPath:filePath threadId:threadId completion:^(MobilePreparedFiles *preparedFiles, NSError *error) {
               if (error) {
@@ -1172,7 +1172,7 @@ files:
             }];
     swift:
       code: |
-            let threadId = "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc"
+            let threadId = "<thread>"
             let filePath = "/path/to/image"
             Textile.instance().files.prepare(byPath: filePath, threadId: threadId) { (preparedFiles, error) in
               if let files = preparedFiles {
@@ -1189,7 +1189,7 @@ files:
             }
     android:
       code: |
-            final String threadId = "12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc";
+            final String threadId = "<thread>";
             String filePath = "/path/to/image";
             Textile.instance().files.prepareByPath(filePath, threadId, new PreparedFilesHandler() {
                 @Override
@@ -1232,20 +1232,20 @@ cafes:
       code: 'const tokens = await textile.tokens.list()'
   add:
     cmd:
-      code: 'textile cafes add "http://127.0.0.1:40601" --token="bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"'
+      code: 'textile cafes add <cafe-peer-id> --token="bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"'
     js_http_client:
       code: |
             const token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
-            const success = await textile.cafes.add("http://127.0.0.1:40601", token)
+            const success = await textile.cafes.add("<cafe-peer-id>", token)
     react_native:
       code: |
             const token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
-            await textile.cafes.register("http://127.0.0.1:40601", token)
+            await textile.cafes.register("<cafe-peer-id>", token)
     objc:
       code: |
             NSString *token = @"bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG";
             NSError *error;
-            [Textile.instance.cafes register:@"http://127.0.0.1:40601" token:token error:&error];
+            [Textile.instance.cafes register:@"<cafe-peer-id>" token:token error:&error];
             if (error) {
               // Do something with this error
             } else {
@@ -1255,7 +1255,7 @@ cafes:
       code: |
             let token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
             var error: NSError?
-            Textile.instance().cafes .register("http://127.0.0.1:40601", token: token, error: &error)
+            Textile.instance().cafes .register("<cafe-peer-id>", token: token, error: &error)
             if (error != nil) {
               // Do something with this error
             } else {
@@ -1264,7 +1264,7 @@ cafes:
     android:
       code: |
             String token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG";
-            Textile.instance().cafes.register("http://127.0.0.1:40601", token);
+            Textile.instance().cafes.register("<cafe-peer-id>", token);
   list:
     cmd:
       code: 'textile cafes ls'
