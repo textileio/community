@@ -94,37 +94,7 @@ Next, use an account seed from your wallet to initialize a new account peer. Her
 !!! danger
     Use your own seed. Never share it or your wallet mnemonic phrase with anyone!
 
-There are a dozen or so additional options that are available when initializing. `textile init --help`:
-
-    usage: textile init --seed=SEED [<flags>]
-
-    Initialize the node repository and exit
-
-    Flags:
-      --help                     Show context-sensitive help (also try --help-long and --help-man).
-      --api="http://127.0.0.1:40600"
-                                 API Address to use
-      --api-version="v0"         API version to use
-      --debug                    Set the logging level to debug
-    -s, --seed=SEED                Account seed (run 'wallet' command to generate new seeds)
-    -p, --pin-code=PIN-CODE        Specify a pin code for datastore encryption
-    -r, --repo-dir=REPO-DIR        Specify a custom repository path
-      --server                   Apply IPFS server profile
-      --swarm-ports=SWARM-PORTS  Set the swarm ports (TCP,WS). A random TCP port is chosen by default
-      --log-files                If true, writes logs to rolling files, if false, writes logs to stdout
-      --api-bind-addr="127.0.0.1:40600"
-                                 Set the local API address
-      --cafe-bind-addr="0.0.0.0:40601"
-                                 Set the cafe REST API address
-      --gateway-bind-addr="127.0.0.1:5050"
-                                 Set the IPFS gateway address
-      --profile-bind-addr="127.0.0.1:6060"
-                                 Set the profiling address
-      --cafe-open                Open the p2p cafe service for other peers
-      --cafe-url=CAFE-URL        Specify a custom URL of this cafe, e.g., https://mycafe.com
-      --cafe-neighbor-url=CAFE-NEIGHBOR-URL
-                                 Specify the URL of a secondary cafe. Must return cafe info, e.g., via a Gateway:
-                                 https://my-gateway.yolo.com/cafe, or a cafe API: https://my-cafe.yolo.com
+There are a dozen or so additional options that are available when initializing, you can find them all via `textile init --help`.
 
 Anyone familiar with IPFS will recognize the similarities with these steps. Much like `ipfs init`, `textile init` creates an IPFS node repository on disk.
 
