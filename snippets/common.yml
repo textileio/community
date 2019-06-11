@@ -781,7 +781,7 @@ threads:
             Textile.instance().threads.add(config);
   blob_add:
     cmd:
-      code: 'textile threads add "Any old data" --blob --key="your.bundle.id.version.Blob"'
+      code: 'textile threads add "Any old data" --key="your.bundle.id.version.Blob" --blob'
     js_http_client:
       code: |
             const thread = await textile.threads.add("Any old data", "blob")
@@ -853,7 +853,7 @@ threads:
             Textile.instance().threads.add(config);
   cameraroll_add:
     cmd:
-      code: 'textile threads add "New Shots" "your.bundle.id.version.CameraRoll" --cameraRoll'
+      code: 'textile threads add "New Shots" --key="your.bundle.id.version.CameraRoll" --cameraRoll'
     js_http_client:
       code: |
             const thread = await textile.threads.add("New Shots", 'cameraRoll')
