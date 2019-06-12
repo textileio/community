@@ -2,59 +2,59 @@ core:
   setup:
     js_http_client:
       code: |
-            // No initialization needed, only import
-            import textile from "@textile/js-http-client"
+        // No initialization needed, only import
+        import textile from "@textile/js-http-client"
     react_native:
       code: |
-            import textile from "@textile/react-native-sdk"
-            // Make the sensitive below phrase available to your user for secure storage
-            const phrase: string | undefined = await textile.initialize(false, false)
+        import textile from "@textile/react-native-sdk"
+        // Make the sensitive below phrase available to your user for secure storage
+        const phrase: string | undefined = await textile.initialize(false, false)
     objc:
       code: |
-            // Early on in the app lifecycle, usually in AppDelegate
-            // Initialize a new Textile wallet for the user.
-            NSError *error;
-            NSString *recoveryPhrase = [Textile initializeWithDebug:FALSE logToDisk:FALSE error:&error];
-            if (recoveryPhrase) {
-              // Return phrase to the user for secure, out of app, storage
-            }
-            if (error) {
-              NSLog(@"initialize error: %@", error.localizedDescription);
-            }
-            // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
-            Textile.instance.delegate = delegate;
+        // Early on in the app lifecycle, usually in AppDelegate
+        // Initialize a new Textile wallet for the user.
+        NSError *error;
+        NSString *recoveryPhrase = [Textile initializeWithDebug:FALSE logToDisk:FALSE error:&error];
+        if (recoveryPhrase) {
+          // Return phrase to the user for secure, out of app, storage
+        }
+        if (error) {
+          NSLog(@"initialize error: %@", error.localizedDescription);
+        }
+        // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
+        Textile.instance.delegate = delegate;
     swift:
       code: |
-            do {
-              // recoveryPhrase should be optional here, fix coming asap
-              let recoveryPhrase = try Textile.initialize(withDebug: false, logToDisk: false)
-              // Return phrase to the user for secure, out of app, storage
+        do {
+          // recoveryPhrase should be optional here, fix coming asap
+          let recoveryPhrase = try Textile.initialize(withDebug: false, logToDisk: false)
+          // Return phrase to the user for secure, out of app, storage
 
-              // Set the Textile delegate to self so we can make use of events such nodeStarted
-              Textile.instance().delegate = self
-            } catch {
-              print("Unexpected error: \(error).")
-            }
+          // Set the Textile delegate to self so we can make use of events such nodeStarted
+          Textile.instance().delegate = self
+        } catch {
+          print("Unexpected error: \(error).")
+        }
     android:
       code: |
-            String recoveryPhrase = Textile.initialize(this.getApplicationContext(), false, false);
-            if (recoveryPhrase != nil) {
-                // Return phrase to the user for secure, out of app, storage
-            }
+        String recoveryPhrase = Textile.initialize(this.getApplicationContext(), false, false);
+        if (recoveryPhrase != nil) {
+            // Return phrase to the user for secure, out of app, storage
+        }
 
-            class MyEventListener extends BaseTextileEventListener {
-                // ...
-            }
+        class MyEventListener extends BaseTextileEventListener {
+            // ...
+        }
 
-            Textile.instance().addEventListener(new MyEventListener());
+        Textile.instance().addEventListener(new MyEventListener());
   daemon:
     cmd:
       code: 'textile daemon --repo="/tmp/buddy"'
   logs:
     cmd:
-      code: 'textile logs'
+      code: "textile logs"
     js_http_client:
-      code: 'const levels = await textile.logs.get()'
+      code: "const levels = await textile.logs.get()"
   logs_text_only:
     cmd:
       code: 'textile logs --level="info" --tex-only'
@@ -65,97 +65,97 @@ core:
       code: 'textile init "$(textile wallet init | tail -n1)" --repo="/tmp/buddy" --swarm-ports="4101" --api-bind-addr="127.0.0.1:41600" --gateway-bind-addr="127.0.0.1:5150"'
     react_native:
       code: |
-            // This is the user's new Textile wallet seed. They must keep it secure and never share it. Your production app should not keep a copy long term and should never share it with any API.
-            const seed = await textile.initialize(false, false)
-            alert(`WARNING - Never lose or share your seed: ${seed}`)
+        // This is the user's new Textile wallet seed. They must keep it secure and never share it. Your production app should not keep a copy long term and should never share it with any API.
+        const seed = await textile.initialize(false, false)
+        alert(`WARNING - Never lose or share your seed: ${seed}`)
     objc:
       code: |
-            // Early on in the app lifecycle, usually in AppDelegate
-            // Initialize a new Textile wallet for the user.
-            NSError *error;
-            NSString *recoveryPhrase = [Textile initializeWithDebug:FALSE logToDisk:FALSE error:&error];
-            if (recoveryPhrase) {
-              // Return phrase to the user for secure, out of app, storage
-            }
-            if (error) {
-              NSLog(@"initialize error: %@", error.localizedDescription);
-            }
-            // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
-            Textile.instance.delegate = delegate;
+        // Early on in the app lifecycle, usually in AppDelegate
+        // Initialize a new Textile wallet for the user.
+        NSError *error;
+        NSString *recoveryPhrase = [Textile initializeWithDebug:FALSE logToDisk:FALSE error:&error];
+        if (recoveryPhrase) {
+          // Return phrase to the user for secure, out of app, storage
+        }
+        if (error) {
+          NSLog(@"initialize error: %@", error.localizedDescription);
+        }
+        // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
+        Textile.instance.delegate = delegate;
     swift:
       code: |
-            // Early on in the app lifecycle, usually in AppDelegate
-            // Initialize a new Textile wallet for the user.
-            do {
-              // recoveryPhrase should be optional here, fix coming asap
-              let recoveryPhrase = try Textile.initialize(withDebug: false, logToDisk: false)
-              // Return phrase to the user for secure, out of app, storage
+        // Early on in the app lifecycle, usually in AppDelegate
+        // Initialize a new Textile wallet for the user.
+        do {
+          // recoveryPhrase should be optional here, fix coming asap
+          let recoveryPhrase = try Textile.initialize(withDebug: false, logToDisk: false)
+          // Return phrase to the user for secure, out of app, storage
 
-              // Set the Textile delegate to self so we can make use of events such nodeStarted
-              Textile.instance().delegate = self
-            } catch {
-              print("Unexpected error: \(error).")
-            }
+          // Set the Textile delegate to self so we can make use of events such nodeStarted
+          Textile.instance().delegate = self
+        } catch {
+          print("Unexpected error: \(error).")
+        }
     android:
       code: |
-            // Early on in the app lifecycle, usually in MainActivity
-            // Initialize a new Textile wallet for the user.
-            String recoveryPhrase = Textile.initialize(this.getApplicationContext(), false, false);
-            if (recoveryPhrase != nil) {
-                // Return phrase to the user for secure, out of app, storage
-            }
+        // Early on in the app lifecycle, usually in MainActivity
+        // Initialize a new Textile wallet for the user.
+        String recoveryPhrase = Textile.initialize(this.getApplicationContext(), false, false);
+        if (recoveryPhrase != nil) {
+            // Return phrase to the user for secure, out of app, storage
+        }
 
-            class MyEventListener extends BaseTextileEventListener {
-                // ...
-            }
+        class MyEventListener extends BaseTextileEventListener {
+            // ...
+        }
 
-            Textile.instance().addEventListener(new MyEventListener());
+        Textile.instance().addEventListener(new MyEventListener());
   reinit:
     react_native:
-      code: '@todo'
+      code: "@todo"
   pair:
     react_native:
-      code: '@todo'
+      code: "@todo"
   summary:
     cmd:
-      code: 'textile summary'
+      code: "textile summary"
     js_http_client:
-      code: 'const summary = await textile.utils.summary()'
+      code: "const summary = await textile.utils.summary()"
     react_native:
-      code: 'const summary = await textile.summary()'
+      code: "const summary = await textile.summary()"
     objc:
       code: |
-            NSError *error;
-            Summary *summary = [Textile.instance summary:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        Summary *summary = [Textile.instance summary:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let summary = Textile.instance().summary(&error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let summary = Textile.instance().summary(&error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
-      code: 'Summary summary = Textile.instance().summary();'
+      code: "Summary summary = Textile.instance().summary();"
   ping:
     cmd:
-      code: 'textile ping 12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d'
+      code: "textile ping 12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d"
     js_http_client:
       code: 'await textile.utils.ping("12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d")'
     react_native:
-      code: '@todo'
+      code: "@todo"
     objc:
-      code: '@todo'
+      code: "@todo"
     swift:
-      code: '@todo'
+      code: "@todo"
     android:
-      code: '@todo'
+      code: "@todo"
   config:
     cmd:
       code: 'textile config "Addresses"'
@@ -172,177 +172,177 @@ subscribe:
       code: 'textile subscribe --type="files"'
     js_http_client:
       code: |
-            // The js-http-client returns a `ReadableStream` to be accessed by the caller
-            // See https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream for details
-            const stream = await textile.subscribe.stream("files")
-            const reader = stream.getReader()
-            const read = (result) => { // ReadableStreamReadResult<FeedItem>
-              if (result.done) {
-                return
-              }
-              try {
-                console.log(result.value)
-              } catch (err) {
-                reader.cancel(undefined)
-                return
-              }
-              read(await reader.read())
-            }
-            read(await reader.read())
+        // The js-http-client returns a `ReadableStream` to be accessed by the caller
+        // See https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream for details
+        const stream = await textile.subscribe.stream("files")
+        const reader = stream.getReader()
+        const read = (result) => { // ReadableStreamReadResult<FeedItem>
+          if (result.done) {
+            return
+          }
+          try {
+            console.log(result.value)
+          } catch (err) {
+            reader.cancel(undefined)
+            return
+          }
+          read(await reader.read())
+        }
+        read(await reader.read())
     react_native:
       code: |
-            textile.events.addThreadUpdateReceivedListener((update) => {
-              const { type_url } = update.payload
-              if (type_url === '/Files') {
-                // new file!
-              }
-            })
+        textile.events.addThreadUpdateReceivedListener((update) => {
+          const { type_url } = update.payload
+          if (type_url === '/Files') {
+            // new file!
+          }
+        })
     objc:
       code: |
-            // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
-            Textile.instance.delegate = delegate;
+        // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
+        Textile.instance.delegate = delegate;
 
-            // The delegate can receive callbacks for any event it is interested in, for example
-            - (void)threadUpdateReceived:(FeedItem *)feedItem {
-              if ([feedItem.payload.typeURL isEqualToString:@"/Files"]) {
-                // new file!
-              }
-            }
+        // The delegate can receive callbacks for any event it is interested in, for example
+        - (void)threadUpdateReceived:(FeedItem *)feedItem {
+          if ([feedItem.payload.typeURL isEqualToString:@"/Files"]) {
+            // new file!
+          }
+        }
     swift:
       code: |
-            // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
-            Textile.instance().delegate = delegate
+        // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
+        Textile.instance().delegate = delegate
 
-            // The delegate can receive callbacks for any event it is interested in, for example
-            func threadUpdateReceived(_ feedItem: FeedItem) {
-              if (feedItem.payload.typeURL == "/Files") {
-                // new file!
-              }
-            }
+        // The delegate can receive callbacks for any event it is interested in, for example
+        func threadUpdateReceived(_ feedItem: FeedItem) {
+          if (feedItem.payload.typeURL == "/Files") {
+            // new file!
+          }
+        }
     android:
       code: |
-            // Add an event listener that conforms to TextileEventListener
-            class MyEventListener extends BaseTextileEventListener {
-                @Override
-                public void threadUpdateReceived(io.textile.pb.View.FeedItem feedItem) {
-                    if (feedItem.getPayload().getTypeUrl() == "/Files") {
-                        // new file!
-                    }
+        // Add an event listener that conforms to TextileEventListener
+        class MyEventListener extends BaseTextileEventListener {
+            @Override
+            public void threadUpdateReceived(io.textile.pb.View.FeedItem feedItem) {
+                if (feedItem.getPayload().getTypeUrl() == "/Files") {
+                    // new file!
                 }
             }
-            Textile.instance().addEventListener(new MyEventListener());
+        }
+        Textile.instance().addEventListener(new MyEventListener());
 notifications:
   ls:
     cmd:
-      code: 'textile notifications ls'
+      code: "textile notifications ls"
     js_http_client:
-      code: 'await textile.notifications.list()'
+      code: "await textile.notifications.list()"
     react_native:
-      code: 'const notifications = await textile.notifications.list()'
+      code: "const notifications = await textile.notifications.list()"
     objc:
       code: |
-            NSError *error;
-            NotificationList *notifications = [Textile.instance.notifications list:@"0" limit:10 error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        NotificationList *notifications = [Textile.instance.notifications list:@"0" limit:10 error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let notifications = Textile.instance().notifications.list(nil, limit: 10, error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let notifications = Textile.instance().notifications.list(nil, limit: 10, error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: 'NotificationList notifications = Textile.instance().notifications.list("", 10);'
   read:
     cmd:
       code: 'textile notifications read "1KKP01K9SpRASYKkyxSK4EiSYEz"'
     js_http_client:
-        code: 'await textile.notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz")'
+      code: 'await textile.notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz")'
     react_native:
       code: 'await textile.notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz")'
     objc:
       code: |
-            NSError *error;
-            [Textile.instance.notifications read:@"1KKP01K9SpRASYKkyxSK4EiSYEz" error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        [Textile.instance.notifications read:@"1KKP01K9SpRASYKkyxSK4EiSYEz" error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            Textile.instance().notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz", error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        Textile.instance().notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz", error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: 'Textile.instance().notifications.read("1KKP01K9SpRASYKkyxSK4EiSYEz");'
 profile:
   get_:
     cmd:
-      code: 'textile profile get'
+      code: "textile profile get"
     js_http_client:
-      code: 'const profile = await textile.profile.get()'
+      code: "const profile = await textile.profile.get()"
     react_native:
-      code: 'const profile = await textile.profile.get()'
+      code: "const profile = await textile.profile.get()"
     objc:
       code: |
-            NSError *error;
-            Peer *profile = [Textile.instance.profile get:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        Peer *profile = [Textile.instance.profile get:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let profile = Textile.instance().profile.get(&error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let profile = Textile.instance().profile.get(&error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
-      code: 'Peer profile = Textile.instance().profile.get();'
+      code: "Peer profile = Textile.instance().profile.get();"
   name:
     cmd:
-      code: 'textile profile get name '
+      code: "textile profile get name "
     js_http_client:
-      code: 'const name = await textile.profile.name()'
+      code: "const name = await textile.profile.name()"
     react_native:
       code: |
-            const profile = await textile.profile.get()
-            const name = profile.name
+        const profile = await textile.profile.get()
+        const name = profile.name
     objc:
       code: |
-            NSError *error;
-            NSString *name = [Textile.instance.profile name:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        NSString *name = [Textile.instance.profile name:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let name = Textile.instance().profile.name(&error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let name = Textile.instance().profile.name(&error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
-      code: 'String name = Textile.instance().profile.name();'
+      code: "String name = Textile.instance().profile.name();"
   set_name:
     notes: Name should equal 'Clyde' as it is used in Tour
     cmd:
@@ -353,22 +353,22 @@ profile:
       code: 'await textile.profile.setName("Clyde")'
     objc:
       code: |
-            NSError *error;
-            [Textile.instance.profile setName:@"Clyde" error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        [Textile.instance.profile setName:@"Clyde" error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            Textile.instance().profile.setName("Clyde", error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        Textile.instance().profile.setName("Clyde", error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: 'Textile.instance().profile.setName("Clyde");'
   set_avatar:
@@ -376,77 +376,77 @@ profile:
       code: 'textile profile set --avatar="path/to/an/image"'
     js_http_client:
       code: |
-            const form = new FormData()
-            form.append('file', file, file.name) // file is File object or raw Buffer/Blob
-            await textile.profile.setAvatar(form)
+        const form = new FormData()
+        form.append('file', file, file.name) // file is File object or raw Buffer/Blob
+        await textile.profile.setAvatar(form)
     react_native:
-      code: '@todo'
+      code: "@todo"
     objc:
-      code: '@todo'
+      code: "@todo"
     swift:
-      code: '@todo'
+      code: "@todo"
     android:
-      code: '@todo'
+      code: "@todo"
 account:
   get_:
     cmd:
-      code: 'textile account get'
+      code: "textile account get"
     js_http_client:
-      code: 'const account = await textile.account.get()'
+      code: "const account = await textile.account.get()"
     react_native:
       code: |
-            // React native has endpoints for each component of the account
-            const address = await textile.account.address()
+        // React native has endpoints for each component of the account
+        const address = await textile.account.address()
     objc:
-      code: 'NSString *address = [Textile.instance.account address];'
+      code: "NSString *address = [Textile.instance.account address];"
     swift:
-      code: 'let adress = Textile.instance().account.address()'
+      code: "let adress = Textile.instance().account.address()"
     android:
-      code: 'String address = Textile.instance().account.address();'
+      code: "String address = Textile.instance().account.address();"
   seed:
     cmd:
-      code: 'textile account seed'
+      code: "textile account seed"
     js_http_client:
-      code: 'const seed = await textile.account.seed()'
+      code: "const seed = await textile.account.seed()"
     react_native:
-      code: 'const seed = await textile.account.seed()'
+      code: "const seed = await textile.account.seed()"
     objc:
-      code: 'NSString *seed = [Textile.instance.account seed];'
+      code: "NSString *seed = [Textile.instance.account seed];"
     swift:
-      code: 'let seed = Textile.instance().account.seed()'
+      code: "let seed = Textile.instance().account.seed()"
     android:
-      code: 'String seed = Textile.instance().account.seed();'
+      code: "String seed = Textile.instance().account.seed();"
   sync:
     cmd:
-      code: 'textile account sync'
+      code: "textile account sync"
     js_http_client:
-      code: 'await textile.account.sync()'
+      code: "await textile.account.sync()"
     react_native:
-      code: 'await textile.account.sync()'
+      code: "await textile.account.sync()"
     objc:
       code: |
-            NSError *error;
-            QueryOptions *options = [[QueryOptions alloc] init];
-            [Textile.instance.account sync:options error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        QueryOptions *options = [[QueryOptions alloc] init];
+        [Textile.instance.account sync:options error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let options = QueryOptions()
-            Textile.instance().account.sync(options, error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let options = QueryOptions()
+        Textile.instance().account.sync(options, error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: |
-            QueryOptions options = QueryOptions.newBuilder().build();
-            Textile.instance().account.sync(options);
+        QueryOptions options = QueryOptions.newBuilder().build();
+        Textile.instance().account.sync(options);
 contacts:
   search:
     notes: Name should equal 'Andrew' as it is used in Tour
@@ -454,158 +454,158 @@ contacts:
       code: 'textile contacts search --name="Andrew"'
     js_http_client:
       code: |
-            // The js-http-client returns a `ReadableStream` to be accessed by the caller
-            // See https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream for details
-            const stream = await textile.contacts.search("Andrew")
+        // The js-http-client returns a `ReadableStream` to be accessed by the caller
+        // See https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream for details
+        const stream = await textile.contacts.search("Andrew")
     react_native:
-      code: '@todo'
+      code: "@todo"
     objc:
       code: |
-            NSError *error;
-            QueryOptions *options = [[QueryOptions alloc] init];
-            options.wait = 10;
-            options.limit = 1;
-            ContactQuery *query = [[ContactQuery alloc] init];
-            query.name = @"Andrew";
-            MobileSearchHandle *handle = [Textile.instance.contacts search:query options:options error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        QueryOptions *options = [[QueryOptions alloc] init];
+        options.wait = 10;
+        options.limit = 1;
+        ContactQuery *query = [[ContactQuery alloc] init];
+        query.name = @"Andrew";
+        MobileSearchHandle *handle = [Textile.instance.contacts search:query options:options error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let options = QueryOptions()
-            options.wait = 10
-            options.limit = 1
-            let query = ContactQuery()
-            query.name = "Andrew"
-            let handle = Textile.instance().contacts.search(query, options: options, error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let options = QueryOptions()
+        options.wait = 10
+        options.limit = 1
+        let query = ContactQuery()
+        query.name = "Andrew"
+        let handle = Textile.instance().contacts.search(query, options: options, error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: |
-            QueryOptions options = QueryOptions.newBuilder()
-                    .setWait(10)
-                    .setLimit(1)
-                    .build();
-            ContactQuery query = ContactQuery.newBuilder()
-                    .setName("Andrew")
-                    .build();
-            SearchHandle handle = Textile.instance().contacts.search(query, options);
+        QueryOptions options = QueryOptions.newBuilder()
+                .setWait(10)
+                .setLimit(1)
+                .build();
+        ContactQuery query = ContactQuery.newBuilder()
+                .setName("Andrew")
+                .build();
+        SearchHandle handle = Textile.instance().contacts.search(query, options);
   search_address:
     notes: Address is set to match that of the Tour
     cmd:
       code: 'textile contacts search --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"'
     js_http_client:
       code: |
-            // Again, `stream` is a `ReadableStream` to be accessed by the caller
-            const stream = await textile.contacts.search(undefined, "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")
+        // Again, `stream` is a `ReadableStream` to be accessed by the caller
+        const stream = await textile.contacts.search(undefined, "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")
     react_native:
-      code: '@todo'
+      code: "@todo"
     objc:
       code: |
-            NSError *error;
-            QueryOptions *options = [[QueryOptions alloc] init];
-            options.wait = 10;
-            options.limit = 1;
-            ContactQuery *query = [[ContactQuery alloc] init];
-            query.address = @"P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG";
-            MobileSearchHandle *handle = [Textile.instance.contacts search:query options:options error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        QueryOptions *options = [[QueryOptions alloc] init];
+        options.wait = 10;
+        options.limit = 1;
+        ContactQuery *query = [[ContactQuery alloc] init];
+        query.address = @"P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG";
+        MobileSearchHandle *handle = [Textile.instance.contacts search:query options:options error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let options = QueryOptions()
-            options.wait = 10
-            options.limit = 1
-            let query = ContactQuery()
-            query.address = "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"
-            let handle = Textile.instance().contacts.search(query, options: options, error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let options = QueryOptions()
+        options.wait = 10
+        options.limit = 1
+        let query = ContactQuery()
+        query.address = "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"
+        let handle = Textile.instance().contacts.search(query, options: options, error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: |
-            QueryOptions options = QueryOptions.newBuilder()
-                    .setWait(10)
-                    .setLimit(1)
-                    .build();
-            ContactQuery query = ContactQuery.newBuilder()
-                    .setAddress("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")
-                    .build();
-            SearchHandle handle = Textile.instance().contacts.search(query, options);
+        QueryOptions options = QueryOptions.newBuilder()
+                .setWait(10)
+                .setLimit(1)
+                .build();
+        ContactQuery query = ContactQuery.newBuilder()
+                .setAddress("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")
+                .build();
+        SearchHandle handle = Textile.instance().contacts.search(query, options);
   add:
     notes: Address is set to match that of the Tour
     cmd:
       code: 'textile contacts add --address="P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG"'
     js_http_client:
       code: |
-            const contact = ... // Should be a Contact object, as returned by `search` `ReadableStream`
-            await textile.contacts.add("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG", contact)
+        const contact = ... // Should be a Contact object, as returned by `search` `ReadableStream`
+        await textile.contacts.add("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG", contact)
     react_native:
-      code: '@todo'
+      code: "@todo"
     objc:
       code: |
-            Contact *searchResult = // Should be a Contact object as returned by contact search
-            NSError *error;
-            [Textile.instance.contacts add:searchResult error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        Contact *searchResult = // Should be a Contact object as returned by contact search
+        NSError *error;
+        [Textile.instance.contacts add:searchResult error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            let contact = // Should be a Contact object as returned by contact search
-            var error: NSError?
-            Textile.instance().contacts.add(contact, error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        let contact = // Should be a Contact object as returned by contact search
+        var error: NSError?
+        Textile.instance().contacts.add(contact, error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: |
-            Contact searchResult = // Should be a Contact object as returned by contact search
-            Textile.instance().contacts.add(searchResult);
+        Contact searchResult = // Should be a Contact object as returned by contact search
+        Textile.instance().contacts.add(searchResult);
   ls:
     cmd:
-      code: 'textile contacts list'
+      code: "textile contacts list"
     js_http_client:
-      code: 'const contacts = await textile.contacts.list()'
+      code: "const contacts = await textile.contacts.list()"
     react_native:
-      code: 'const contacts = await textile.contacts.list()'
+      code: "const contacts = await textile.contacts.list()"
     objc:
       code: |
-            NSError *error;
-            ContactList *contacts = [Textile.instance.contacts list:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        ContactList *contacts = [Textile.instance.contacts list:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let contacts = Textile.instance().contacts.list(&error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let contacts = Textile.instance().contacts.list(&error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
-      code: 'ContactList contacts = Textile.instance().contacts.list();'
+      code: "ContactList contacts = Textile.instance().contacts.list();"
   rm:
     notes: Address is set to match that of the Tour
     cmd:
@@ -616,22 +616,22 @@ contacts:
       code: 'await textile.contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")'
     objc:
       code: |
-            NSError *error;
-            [Textile.instance.contacts remove:@"P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG" error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        [Textile.instance.contacts remove:@"P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG" error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            Textile.instance().contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG", error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        Textile.instance().contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG", error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: 'Textile.instance().contacts.remove("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG");'
 threads:
@@ -643,71 +643,117 @@ threads:
       code: 'const thread = await textile.threads.add("Basic")'
     react_native:
       code: |
-            const threadKey = 'your.bundle.id.version.Basic'
-            const threadName = 'Basic'
-            const schema = {
-              id: '',
-              json: '',
-              preset: AddThreadConfig.Schema.Preset.BLOB
-            }
-            const config = {
-              key: threadKey,
-              name: threadName,
-              type: Thread.Type.PRIVATE,
-              sharing: Thread.Sharing.NOT_SHARED,
-              schema: schema,
-              force: false,
-              members: []
-            }
-            const newTarget = await textile.threads.add(config)
+        const threadKey = 'your.bundle.id.version.Basic'
+        const threadName = 'Basic'
+        const schema = {
+          id: '',
+          json: '',
+          preset: AddThreadConfig.Schema.Preset.BLOB
+        }
+        const config = {
+          key: threadKey,
+          name: threadName,
+          type: Thread.Type.PRIVATE,
+          sharing: Thread.Sharing.NOT_SHARED,
+          schema: schema,
+          force: false,
+          members: []
+        }
+        const newTarget = await textile.threads.add(config)
     objc:
       code: |
-            NSError *error;
-            AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
-            schema.preset = AddThreadConfig_Schema_Preset_Blob;
-            AddThreadConfig *config = [[AddThreadConfig alloc] init];
-            config.key = @"your.bundle.id.version.Basic";
-            config.name = @"Basic";
-            config.type = Thread_Type_Private;
-            config.sharing = Thread_Sharing_NotShared;
-            config.schema = schema;
-            Thread *thread = [Textile.instance.threads add:config error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
+        schema.preset = AddThreadConfig_Schema_Preset_Blob;
+        AddThreadConfig *config = [[AddThreadConfig alloc] init];
+        config.key = @"your.bundle.id.version.Basic";
+        config.name = @"Basic";
+        config.type = Thread_Type_Private;
+        config.sharing = Thread_Sharing_NotShared;
+        config.schema = schema;
+        Thread *thread = [Textile.instance.threads add:config error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let schema = AddThreadConfig_Schema()
-            schema.preset = AddThreadConfig_Schema_Preset.blob
-            let config = AddThreadConfig()
-            config.key = "your.bundle.id.version.Basic"
-            config.name = "Basic"
-            config.type = Thread_Type.private
-            config.sharing = Thread_Sharing.notShared
-            config.schema = schema
-            let thread = Textile.instance().threads.add(config, error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let schema = AddThreadConfig_Schema()
+        schema.preset = AddThreadConfig_Schema_Preset.blob
+        let config = AddThreadConfig()
+        config.key = "your.bundle.id.version.Basic"
+        config.name = "Basic"
+        config.type = Thread_Type.private
+        config.sharing = Thread_Sharing.notShared
+        config.schema = schema
+        let thread = Textile.instance().threads.add(config, error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: |
-            AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
-                    .setPreset(AddThreadConfig.Schema.Preset.BLOB)
-                    .build();
-            AddThreadConfig config = AddThreadConfig.newBuilder()
-                    .setKey("your.bundle.id.version.Basic")
-                    .setName("Basic")
-                    .setType(Thread.Type.PRIVATE)
-                    .setSharing(Thread.Sharing.NOT_SHARED)
-                    .setSchema(schema)
-                    .build();
-            Textile.instance().threads.add(config);
+        AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
+                .setPreset(AddThreadConfig.Schema.Preset.BLOB)
+                .build();
+        AddThreadConfig config = AddThreadConfig.newBuilder()
+                .setKey("your.bundle.id.version.Basic")
+                .setName("Basic")
+                .setType(Thread.Type.PRIVATE)
+                .setSharing(Thread.Sharing.NOT_SHARED)
+                .setSchema(schema)
+                .build();
+        Textile.instance().threads.add(config);
   add_open_shared:
+    success: |
+      {
+         "block_count": 1,
+         "id": "<thread-id>",
+         "initiator": "<peer-id>",
+         "key": "xxx",
+         "name": "Dogs",
+         "peer_count": 1,
+         "schema": "<schema-ipfs-hash>",
+         "schema_node": {
+           "links": {
+             "large": {
+               "mill": "/image/resize",
+               "opts": {
+                 "quality": "80",
+                 "width": "800"
+               },
+               "use": ":file"
+             },
+             "small": {
+               "mill": "/image/resize",
+               "opts": {
+                 "quality": "80",
+                 "width": "320"
+               },
+               "use": ":file"
+             },
+             "thumb": {
+               "mill": "/image/resize",
+               "opts": {
+                 "quality": "80",
+                 "width": "100"
+               },
+               "pin": true,
+               "use": "large"
+             }
+           },
+           "name": "media",
+           "pin": true
+         },
+         "sharing": "SHARED",
+         "sk": "xxx",
+         "state": "LOADED",
+         "type": "OPEN",
+         "whitelist": []
+       }
     notes: Dogs and params are set to match that of the Tour
     cmd:
       code: 'textile threads add "Dogs" --type="open" --sharing="shared" --media'
@@ -715,606 +761,726 @@ threads:
       code: 'await textile.threads.add("Dogs", "media", "your.bundle.id.version.Media", "open", "shared")'
     react_native:
       code: |
-            const threadKey = 'your.bundle.id.version.Media'
-            const threadName = 'Dogs'
-            const schema = {
-              id: '',
-              json: '',
-              preset: AddThreadConfig.Schema.Preset.MEDIA
-            }
-            const config = {
-              key: threadKey,
-              name: threadName,
-              type: Thread.Type.OPEN,
-              sharing: Thread.Sharing.SHARED,
-              schema: schema,
-              force: false,
-              members: []
-            }
-            const newTarget = await textile.threads.add(config)
+        const threadKey = 'your.bundle.id.version.Media'
+        const threadName = 'Dogs'
+        const schema = {
+          id: '',
+          json: '',
+          preset: AddThreadConfig.Schema.Preset.MEDIA
+        }
+        const config = {
+          key: threadKey,
+          name: threadName,
+          type: Thread.Type.OPEN,
+          sharing: Thread.Sharing.SHARED,
+          schema: schema,
+          force: false,
+          members: []
+        }
+        const newTarget = await textile.threads.add(config)
     objc:
       code: |
-            NSError *error;
-            AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
-            schema.preset = AddThreadConfig_Schema_Preset_Media;
-            AddThreadConfig *config = [[AddThreadConfig alloc] init];
-            config.key = @"your.bundle.id.version.Media";
-            config.name = @"Dogs";
-            config.type = Thread_Type_Open;
-            config.sharing = Thread_Sharing_Shared;
-            config.schema = schema;
-            Thread *thread = [Textile.instance.threads add:config error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
+        schema.preset = AddThreadConfig_Schema_Preset_Media;
+        AddThreadConfig *config = [[AddThreadConfig alloc] init];
+        config.key = @"your.bundle.id.version.Media";
+        config.name = @"Dogs";
+        config.type = Thread_Type_Open;
+        config.sharing = Thread_Sharing_Shared;
+        config.schema = schema;
+        Thread *thread = [Textile.instance.threads add:config error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let schema = AddThreadConfig_Schema()
-            schema.preset = AddThreadConfig_Schema_Preset.media
-            let config = AddThreadConfig()
-            config.key = "your.bundle.id.version.Media"
-            config.name = "Dogs"
-            config.type = Thread_Type.open
-            config.sharing = Thread_Sharing.shared
-            config.schema = schema
-            let thread = Textile.instance().threads.add(config, error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let schema = AddThreadConfig_Schema()
+        schema.preset = AddThreadConfig_Schema_Preset.media
+        let config = AddThreadConfig()
+        config.key = "your.bundle.id.version.Media"
+        config.name = "Dogs"
+        config.type = Thread_Type.open
+        config.sharing = Thread_Sharing.shared
+        config.schema = schema
+        let thread = Textile.instance().threads.add(config, error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: |
-            AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
-                    .setPreset(AddThreadConfig.Schema.Preset.MEDIA)
-                    .build();
-            AddThreadConfig config = AddThreadConfig.newBuilder()
-                    .setKey("your.bundle.id.version.Media")
-                    .setName("Dogs")
-                    .setType(Thread.Type.OPEN)
-                    .setSharing(Thread.Sharing.SHARED)
-                    .setSchema(schema)
-                    .build();
-            Textile.instance().threads.add(config);
+        AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
+                .setPreset(AddThreadConfig.Schema.Preset.MEDIA)
+                .build();
+        AddThreadConfig config = AddThreadConfig.newBuilder()
+                .setKey("your.bundle.id.version.Media")
+                .setName("Dogs")
+                .setType(Thread.Type.OPEN)
+                .setSharing(Thread.Sharing.SHARED)
+                .setSchema(schema)
+                .build();
+        Textile.instance().threads.add(config);
   blob_add:
     cmd:
       code: 'textile threads add "Any old data" --key="your.bundle.id.version.Blob" --blob'
     js_http_client:
       code: |
-            const thread = await textile.threads.add("Any old data", "blob")
+        const thread = await textile.threads.add("Any old data", "blob")
     react_native:
       code: |
-            const threadKey = 'your.bundle.id.version.Blob'
-            const threadName = 'Any old data'
-            const schema = {
-              id: '',
-              json: '',
-              preset: AddThreadConfig.Schema.Preset.BLOB
-            }
-            const config = {
-              key: threadKey,
-              name: threadName,
-              type: Thread.Type.PRIVATE,
-              sharing: Thread.Sharing.NOT_SHARED,
-              schema: schema,
-              force: false,
-              members: []
-            }
-            const newTarget = await textile.threads.add(config)
+        const threadKey = 'your.bundle.id.version.Blob'
+        const threadName = 'Any old data'
+        const schema = {
+          id: '',
+          json: '',
+          preset: AddThreadConfig.Schema.Preset.BLOB
+        }
+        const config = {
+          key: threadKey,
+          name: threadName,
+          type: Thread.Type.PRIVATE,
+          sharing: Thread.Sharing.NOT_SHARED,
+          schema: schema,
+          force: false,
+          members: []
+        }
+        const newTarget = await textile.threads.add(config)
     objc:
       code: |
-            NSError *error;
-            AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
-            schema.preset = AddThreadConfig_Schema_Preset_Blob;
-            AddThreadConfig *config = [[AddThreadConfig alloc] init];
-            config.key = @"your.bundle.id.version.Blob";
-            config.name = @"Any old data";
-            config.type = Thread_Type_Private;
-            config.sharing = Thread_Sharing_NotShared;
-            config.schema = schema;
-            Thread *thread = [Textile.instance.threads add:config error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
+        schema.preset = AddThreadConfig_Schema_Preset_Blob;
+        AddThreadConfig *config = [[AddThreadConfig alloc] init];
+        config.key = @"your.bundle.id.version.Blob";
+        config.name = @"Any old data";
+        config.type = Thread_Type_Private;
+        config.sharing = Thread_Sharing_NotShared;
+        config.schema = schema;
+        Thread *thread = [Textile.instance.threads add:config error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let schema = AddThreadConfig_Schema()
-            schema.preset = AddThreadConfig_Schema_Preset.blob
-            let config = AddThreadConfig()
-            config.key = "your.bundle.id.version.Blob"
-            config.name = "Any old data"
-            config.type = Thread_Type.private
-            config.sharing = Thread_Sharing.notShared
-            config.schema = schema
-            let thread = Textile.instance().threads.add(config, error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let schema = AddThreadConfig_Schema()
+        schema.preset = AddThreadConfig_Schema_Preset.blob
+        let config = AddThreadConfig()
+        config.key = "your.bundle.id.version.Blob"
+        config.name = "Any old data"
+        config.type = Thread_Type.private
+        config.sharing = Thread_Sharing.notShared
+        config.schema = schema
+        let thread = Textile.instance().threads.add(config, error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: |
-            AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
-                    .setPreset(AddThreadConfig.Schema.Preset.BLOB)
-                    .build();
-            AddThreadConfig config = AddThreadConfig.newBuilder()
-                    .setKey("your.bundle.id.version.Blob")
-                    .setName("Any old data")
-                    .setType(Thread.Type.PRIVATE)
-                    .setSharing(Thread.Sharing.NOT_SHARED)
-                    .setSchema(schema)
-                    .build();
-            Textile.instance().threads.add(config);
+        AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
+                .setPreset(AddThreadConfig.Schema.Preset.BLOB)
+                .build();
+        AddThreadConfig config = AddThreadConfig.newBuilder()
+                .setKey("your.bundle.id.version.Blob")
+                .setName("Any old data")
+                .setType(Thread.Type.PRIVATE)
+                .setSharing(Thread.Sharing.NOT_SHARED)
+                .setSchema(schema)
+                .build();
+        Textile.instance().threads.add(config);
   cameraroll_add:
     cmd:
       code: 'textile threads add "New Shots" --key="your.bundle.id.version.CameraRoll" --cameraRoll'
     js_http_client:
       code: |
-            const thread = await textile.threads.add("New Shots", 'cameraRoll')
+        const thread = await textile.threads.add("New Shots", 'cameraRoll')
     react_native:
       code: |
-            const threadKey = 'your.bundle.id.version.CameraRoll'
-            const threadName = 'Dogs'
-            const schema = {
-              id: '',
-              json: '',
-              preset: AddThreadConfig.Schema.Preset.CAMERA_ROLL
-            }
-            const config = {
-              key: threadKey,
-              name: threadName,
-              type: Thread.Type.OPEN,
-              sharing: Thread.Sharing.SHARED,
-              schema: schema,
-              force: false,
-              members: []
-            }
+        const threadKey = 'your.bundle.id.version.CameraRoll'
+        const threadName = 'Dogs'
+        const schema = {
+          id: '',
+          json: '',
+          preset: AddThreadConfig.Schema.Preset.CAMERA_ROLL
+        }
+        const config = {
+          key: threadKey,
+          name: threadName,
+          type: Thread.Type.OPEN,
+          sharing: Thread.Sharing.SHARED,
+          schema: schema,
+          force: false,
+          members: []
+        }
     objc:
       code: |
-            NSError *error;
-            AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
-            schema.preset = AddThreadConfig_Schema_Preset_CameraRoll;
-            AddThreadConfig *config = [[AddThreadConfig alloc] init];
-            config.key = @"your.bundle.id.version.CameraRoll";
-            config.name = @"New Shots";
-            config.type = Thread_Type_Open;
-            config.sharing = Thread_Sharing_Shared;
-            config.schema = schema;
-            Thread *thread = [Textile.instance.threads add:config error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
+        schema.preset = AddThreadConfig_Schema_Preset_CameraRoll;
+        AddThreadConfig *config = [[AddThreadConfig alloc] init];
+        config.key = @"your.bundle.id.version.CameraRoll";
+        config.name = @"New Shots";
+        config.type = Thread_Type_Open;
+        config.sharing = Thread_Sharing_Shared;
+        config.schema = schema;
+        Thread *thread = [Textile.instance.threads add:config error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let schema = AddThreadConfig_Schema()
-            schema.preset = AddThreadConfig_Schema_Preset.cameraRoll
-            let config = AddThreadConfig()
-            config.key = "your.bundle.id.version.CameraRoll"
-            config.name = "New Shots"
-            config.type = Thread_Type.open
-            config.sharing = Thread_Sharing.shared
-            config.schema = schema
-            let thread = Textile.instance().threads.add(config, error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let schema = AddThreadConfig_Schema()
+        schema.preset = AddThreadConfig_Schema_Preset.cameraRoll
+        let config = AddThreadConfig()
+        config.key = "your.bundle.id.version.CameraRoll"
+        config.name = "New Shots"
+        config.type = Thread_Type.open
+        config.sharing = Thread_Sharing.shared
+        config.schema = schema
+        let thread = Textile.instance().threads.add(config, error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: |
-            AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
-                    .setPreset(AddThreadConfig.Schema.Preset.CAMERA_ROLL)
-                    .build();
-            AddThreadConfig config = AddThreadConfig.newBuilder()
-                    .setKey("your.bundle.id.version.CameraRoll")
-                    .setName("New Shots")
-                    .setType(Thread.Type.OPEN)
-                    .setSharing(Thread.Sharing.SHARED)
-                    .setSchema(schema)
-                    .build();
-            Textile.instance().threads.add(config);
+        AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
+                .setPreset(AddThreadConfig.Schema.Preset.CAMERA_ROLL)
+                .build();
+        AddThreadConfig config = AddThreadConfig.newBuilder()
+                .setKey("your.bundle.id.version.CameraRoll")
+                .setName("New Shots")
+                .setType(Thread.Type.OPEN)
+                .setSharing(Thread.Sharing.SHARED)
+                .setSchema(schema)
+                .build();
+        Textile.instance().threads.add(config);
   media_add:
     cmd:
       code: 'textile threads add "New Shares" --media'
     js_http_client:
       code: |
-            const thread = await textile.threads.add("New Shares", 'media')
+        const thread = await textile.threads.add("New Shares", 'media')
     react_native:
       code: |
-            const threadKey = 'your.bundle.id.version.Media'
-            const threadName = 'Dogs'
-            const schema = {
-              id: '',
-              json: '',
-              preset: AddThreadConfig.Schema.Preset.MEDIA
-            }
-            const config = {
-              key: threadKey,
-              name: threadName,
-              type: Thread.Type.OPEN,
-              sharing: Thread.Sharing.SHARED,
-              schema: schema,
-              force: false,
-              members: []
-            }
-            const newTarget = await textile.threads.add(config)
+        const threadKey = 'your.bundle.id.version.Media'
+        const threadName = 'Dogs'
+        const schema = {
+          id: '',
+          json: '',
+          preset: AddThreadConfig.Schema.Preset.MEDIA
+        }
+        const config = {
+          key: threadKey,
+          name: threadName,
+          type: Thread.Type.OPEN,
+          sharing: Thread.Sharing.SHARED,
+          schema: schema,
+          force: false,
+          members: []
+        }
+        const newTarget = await textile.threads.add(config)
     objc:
       code: |
-            NSError *error;
-            AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
-            schema.preset = AddThreadConfig_Schema_Preset_Media;
-            AddThreadConfig *config = [[AddThreadConfig alloc] init];
-            config.key = @"your.bundle.id.version.Media";
-            config.name = @"New Shots";
-            config.type = Thread_Type_Open;
-            config.sharing = Thread_Sharing_Shared;
-            config.schema = schema;
-            Thread *thread = [Textile.instance.threads add:config error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
+        schema.preset = AddThreadConfig_Schema_Preset_Media;
+        AddThreadConfig *config = [[AddThreadConfig alloc] init];
+        config.key = @"your.bundle.id.version.Media";
+        config.name = @"New Shots";
+        config.type = Thread_Type_Open;
+        config.sharing = Thread_Sharing_Shared;
+        config.schema = schema;
+        Thread *thread = [Textile.instance.threads add:config error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let schema = AddThreadConfig_Schema()
-            schema.preset = AddThreadConfig_Schema_Preset.media
-            let config = AddThreadConfig()
-            config.key = "your.bundle.id.version.Media"
-            config.name = "New Shots"
-            config.type = Thread_Type.open
-            config.sharing = Thread_Sharing.shared
-            config.schema = schema
-            let thread = Textile.instance().threads.add(config, error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let schema = AddThreadConfig_Schema()
+        schema.preset = AddThreadConfig_Schema_Preset.media
+        let config = AddThreadConfig()
+        config.key = "your.bundle.id.version.Media"
+        config.name = "New Shots"
+        config.type = Thread_Type.open
+        config.sharing = Thread_Sharing.shared
+        config.schema = schema
+        let thread = Textile.instance().threads.add(config, error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: |
-            AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
-                    .setPreset(AddThreadConfig.Schema.Preset.MEDIA)
-                    .build();
-            AddThreadConfig config = AddThreadConfig.newBuilder()
-                    .setKey("your.bundle.id.version.Media")
-                    .setName("New Shots")
-                    .setType(Thread.Type.OPEN)
-                    .setSharing(Thread.Sharing.SHARED)
-                    .setSchema(schema)
-                    .build();
-            Textile.instance().threads.add(config);
+        AddThreadConfig.Schema schema = AddThreadConfig.Schema.newBuilder()
+                .setPreset(AddThreadConfig.Schema.Preset.MEDIA)
+                .build();
+        AddThreadConfig config = AddThreadConfig.newBuilder()
+                .setKey("your.bundle.id.version.Media")
+                .setName("New Shots")
+                .setType(Thread.Type.OPEN)
+                .setSharing(Thread.Sharing.SHARED)
+                .setSchema(schema)
+                .build();
+        Textile.instance().threads.add(config);
 messages:
   notes: Use of threadId set to match that of the Tour
   add:
     cmd:
-      code: 'textile messages add <thread> "hello?"'
+      code: 'textile messages add <thread-id> "hello?"'
     js_http_client:
-      code: 'await textile.messages.add("<thread>", "hello?")'
+      code: 'await textile.messages.add("<thread-id>", "hello?")'
     react_native:
-      code: 'await textile.messages.add("<thread>", "hello?")'
+      code: 'await textile.messages.add("<thread-id>", "hello?")'
     objc:
       code: |
-            NSError *error;
-            [Textile.instance.messages add:@"<thread>" body:@"hello?" error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        [Textile.instance.messages add:@"<thread-id>" body:@"hello?" error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            Textile.instance().messages.add("<thread>", body: "hello?", error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        Textile.instance().messages.add("<thread-id>", body: "hello?", error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
-      code: 'Textile.instance().messages.add("<thread>", "hello?");'
+      code: 'Textile.instance().messages.add("<thread-id>", "hello?");'
 files:
   json_get:
     js_http_client:
       code: |
-            // fileHash is a string hash, commonly found in block.files[index].file.hash
-            const jsonData = textile.file.content(fileHash)
+        // fileHash is a string hash, commonly found in block.files[index].file.hash
+        const jsonData = textile.file.content(fileHash)
   get_:
     js_http_client:
       node:
         code: |
-              // fileHash is a string hash, commonly found in block.files[index].file.hash
-              const content = textile.file.content(fileHash)
+          // fileHash is a string hash, commonly found in block.files[index].file.hash
+          const content = textile.file.content(fileHash)
       browser:
         code: |
-              // fileHash is a string hash, commonly found in block.files[index].file.hash
-              const content = textile.file.content(fileHash)
-              const reader = new FileReader();
-              reader.onload = function() {
-                  console.log(reader.result);
-              }
-              reader.readAsText(content);
+          // fileHash is a string hash, commonly found in block.files[index].file.hash
+          const content = textile.file.content(fileHash)
+          const reader = new FileReader();
+          reader.onload = function() {
+              console.log(reader.result);
+          }
+          reader.readAsText(content);
     objc:
       code: |
-            NSString *hash = @"some file hash";
-            NSError *error;
-            NSString *base64 = [Textile.instance.files data:hash error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSString *hash = @"some file hash";
+        NSError *error;
+        NSString *base64 = [Textile.instance.files data:hash error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            let hash = "<some file hash>"
-            var error: NSError?
-            let base64 = Textile.instance().files.data(hash, error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        let hash = "<some file hash>"
+        var error: NSError?
+        let base64 = Textile.instance().files.data(hash, error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: |
-            String hash = "some file hash";
-            String base64 = Textile.instance().files.data(hash);
+        String hash = "some file hash";
+        String base64 = Textile.instance().files.data(hash);
   add:
+    success: |
+      {
+        "block": "<block-id>",
+        "target": "<block-target>",
+        "date": "2019-06-11T06:44:05.535163Z",
+        "user": {
+            "address": "<peer-address>",
+            "name": "<peer-name>",
+            "avatar": "<peer-avatar>"
+        },
+        "files": [
+            {
+                "file": {
+                    "mill": "/blob",
+                    "checksum": "xxx",
+                    "source": "<source-ipfs-hash>",
+                    "opts": "xxx",
+                    "hash": "<result-ipfs-hash>",
+                    "key": "<encryption-key-for-result>",
+                    "media": "text/plain; charset=utf-8",
+                    "name": "stdin",
+                    "size": "14",
+                    "added": "2019-06-06T02:13:00.620280Z",
+                    "meta": {
+                        },
+                    "targets": [
+                        "<block-target>"
+                    ]
+                }
+            }
+        ],
+        "comments": [
+        ],
+        "likes": [
+        ],
+        "threads": [
+            "<thread-id>"
+        ]
+      }
     cmd:
-      code: 'echo "mmm, bytes..." | textile files add <thread>'
+      code: 'echo "mmm, bytes..." | textile files add <thread-id>'
     js_http_client:
       node:
-        code: 'const block = await textile.files.add("mmm, bytes...", "", "<thread>")'
+        code: 'const block = await textile.files.add("mmm, bytes...", "", "<thread-id>")'
       browser:
         code: |
-              const data = new Blob(["mmm, bytes..."])
-              await textile.files.add(
-                data,
-                "",
-                "<thread>"
-              )
+          const data = new Blob(["mmm, bytes..."])
+          await textile.files.add(
+            data,
+            "",
+            "<thread-id>"
+          )
     react_native:
       code: |
-            const input = Buffer.from("mmm, bytes...").toString('base64')
-            const result = await textile.files.prepare(input, "<thread>")
-            const block = await textile.files.add(result.dir, "<thread>")
+        const input = Buffer.from("mmm, bytes...").toString('base64')
+        const result = await textile.files.prepare(input, "<thread-id>")
+        const block = await textile.files.add(result.dir, "<thread-id>")
     objc:
       code: |
-            NSString *threadId = @"<thread>";
-            NSString *filePath = @"/path/to/mmm-bytes....";
-            [Textile.instance.files prepareByPath:filePath threadId:threadId completion:^(MobilePreparedFiles *preparedFiles, NSError *error) {
-              if (error) {
-                // Do something with this error
-              } else {
-                NSError *addFilesError;
-                [Textile.instance.files add:preparedFiles.dir threadId:threadId caption:nil error:&addFilesError];
-                if (addFilesError) {
-                  // Do something with this error
-                } else {
-                  // Success!
-                }
-              }
-            }];
+        NSString *threadId = @"<thread-id>";
+        NSString *filePath = @"/path/to/mmm-bytes....";
+        [Textile.instance.files prepareByPath:filePath threadId:threadId completion:^(MobilePreparedFiles *preparedFiles, NSError *error) {
+          if (error) {
+            // Do something with this error
+          } else {
+            NSError *addFilesError;
+            [Textile.instance.files add:preparedFiles.dir threadId:threadId caption:nil error:&addFilesError];
+            if (addFilesError) {
+              // Do something with this error
+            } else {
+              // Success!
+            }
+          }
+        }];
     swift:
       code: |
-            let threadId = "<thread>"
-            let filePath = "/path/to/mmm-bytes...."
-            Textile.instance().files.prepare(byPath: filePath, threadId: threadId) { (preparedFiles, error) in
-              if let files = preparedFiles {
-                var addFilesError: NSError?
-                Textile.instance().files.add(files.dir, threadId: threadId, caption: nil, error: &addFilesError)
-                if (addFilesError != nil) {
-                  // Do something with this error
-                } else {
-                  // Success!
-                }
-              } else {
-                // Do something with error
-              }
+        let threadId = "<thread-id>"
+        let filePath = "/path/to/mmm-bytes...."
+        Textile.instance().files.prepare(byPath: filePath, threadId: threadId) { (preparedFiles, error) in
+          if let files = preparedFiles {
+            var addFilesError: NSError?
+            Textile.instance().files.add(files.dir, threadId: threadId, caption: nil, error: &addFilesError)
+            if (addFilesError != nil) {
+              // Do something with this error
+            } else {
+              // Success!
             }
+          } else {
+            // Do something with error
+          }
+        }
     android:
       code: |
-            final String threadId = "<thread>";
-            String filePath = "/path/to/mmm-bytes....";
-            Textile.instance().files.prepareByPath(filePath, threadId, new PreparedFilesHandler() {
-                @Override
-                public void onFilesPrepared(MobilePreparedFiles preparedFiles) {
-                    try {
-                        Textile.instance().files.add(preparedFiles.getDir(), threadId, null);
-                    } catch (Exception e) {
-                        // Do something with this error
-                    }
-                }
-
-                @Override
-                public void onError(Exception e) {
+        final String threadId = "<thread-id>";
+        String filePath = "/path/to/mmm-bytes....";
+        Textile.instance().files.prepareByPath(filePath, threadId, new PreparedFilesHandler() {
+            @Override
+            public void onFilesPrepared(MobilePreparedFiles preparedFiles) {
+                try {
+                    Textile.instance().files.add(preparedFiles.getDir(), threadId, null);
+                } catch (Exception e) {
                     // Do something with this error
                 }
-            });
+            }
+
+            @Override
+            public void onError(Exception e) {
+                // Do something with this error
+            }
+        });
   add_media:
+    success: |
+      {
+        "block": "<block-id>",
+        "target": "<block-target>",
+        "date": "2019-06-12T12:48:50.548068Z",
+        "user": {
+          "address": "<peer-id>",
+          "name": "<peer-name>",
+          "avatar": "<peer-avatar>"
+        },
+        "caption": "Dog at work.",
+        "files": [
+          {
+            "links": {
+                "large": {
+                  "mill": "/image/resize",
+                  "checksum": "xxx",
+                  "source": "<source-ipfs-hash>",
+                  "opts": "xxx",
+                  "hash": "<result-ipfs-hash>",
+                  "key": "<encryption-key-for-result>",
+                  "media": "image/jpeg",
+                  "name": "william-milliot-510766-unsplash.jpg",
+                  "size": "106235",
+                  "added": "2019-06-12T12:48:49.990597Z",
+                  "meta": {
+                    "height": 534,
+                    "width": 800
+                  },
+                  "targets": [
+                    "<block-target>"
+                  ]
+                },
+                "small": {
+                  "mill": "/image/resize",
+                  "checksum": "xxx",
+                  "source": "<source-ipfs-hash>",
+                  "opts": "xxx",
+                  "hash": "<result-ipfs-hash>",
+                  "key": "<encryption-key-for-result>",
+                  "media": "image/jpeg",
+                  "name": "william-milliot-510766-unsplash.jpg",
+                  "size": "23789",
+                  "added": "2019-06-12T12:48:47.950855Z",
+                  "meta": {
+                    "height": 214,
+                    "width": 320
+                  },
+                  "targets": [
+                    "<block-target>"
+                  ]
+                },
+                "thumb": {
+                  "mill": "/image/resize",
+                  "checksum": "xxx",
+                  "source": "<source-ipfs-hash>",
+                  "opts": "xxx",
+                  "hash": "<result-ipfs-hash>",
+                  "key": "<encryption-key-for-result>",
+                  "media": "image/jpeg",
+                  "size": "3723",
+                  "added": "2019-06-12T12:48:50.093557Z",
+                  "meta": {
+                    "height": 67,
+                    "width": 100
+                  },
+                  "targets": [
+                    "<block-target>"
+                  ]
+                }
+            }
+          }
+        ],
+        "comments": [
+        ],
+        "likes": [
+        ],
+        "threads": [
+            "<thread-id>"
+        ]
+      }
     cmd:
-      code: 'textile files add <thread> ~/Downloads/william-milliot-510766-unsplash.jpg --caption="Dog at work."'
+      code: 'textile files add <thread-id> ~/Downloads/william-milliot-510766-unsplash.jpg --caption="Dog at work."'
     js_http_client:
       code: |
-            const form = new FormData()
-            form.append('file', file, file.name) // file is File object or raw Buffer/Blob or even fs.createReadStream() in Node.js
-            await textile.files.add(base64ImageString, "Dog at work", "<threaD>")'
+        const form = new FormData()
+        form.append('file', file, file.name) // file is File object or raw Buffer/Blob or even fs.createReadStream() in Node.js
+        await textile.files.add(base64ImageString, "Dog at work", "<thread-id>")'
     react_native:
       code: |
-            const base64ImageString = "R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABA...."
-            const result = await textile.files.prepare(base64ImageString, "<threaD>")
-            const block = await textile.files.add(result.dir, "<threaD>")
+        const base64ImageString = "R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABA...."
+        const result = await textile.files.prepare(base64ImageString, "<thread-id>")
+        const block = await textile.files.add(result.dir, "<thread-id>")
     objc:
       code: |
-            NSString *threadId = @"<thread>";
-            NSString *filePath = @"/path/to/image";
-            [Textile.instance.files prepareByPath:filePath threadId:threadId completion:^(MobilePreparedFiles *preparedFiles, NSError *error) {
-              if (error) {
-                // Do something with this error
-              } else {
-                NSError *addFilesError;
-                [Textile.instance.files add:preparedFiles.dir threadId:threadId caption:nil error:&addFilesError];
-                if (addFilesError) {
-                  // Do something with this error
-                } else {
-                  // Success!
-                }
-              }
-            }];
+        NSString *threadId = @"<thread-id>";
+        NSString *filePath = @"/path/to/image";
+        [Textile.instance.files prepareByPath:filePath threadId:threadId completion:^(MobilePreparedFiles *preparedFiles, NSError *error) {
+          if (error) {
+            // Do something with this error
+          } else {
+            NSError *addFilesError;
+            [Textile.instance.files add:preparedFiles.dir threadId:threadId caption:nil error:&addFilesError];
+            if (addFilesError) {
+              // Do something with this error
+            } else {
+              // Success!
+            }
+          }
+        }];
     swift:
       code: |
-            let threadId = "<thread>"
-            let filePath = "/path/to/image"
-            Textile.instance().files.prepare(byPath: filePath, threadId: threadId) { (preparedFiles, error) in
-              if let files = preparedFiles {
-                var addFilesError: NSError?
-                Textile.instance().files.add(files.dir, threadId: threadId, caption: nil, error: &addFilesError)
-                if (addFilesError != nil) {
-                  // Do something with this error
-                } else {
-                  // Success!
-                }
-              } else {
-                // Do something with error
-              }
+        let threadId = "<thread-id>"
+        let filePath = "/path/to/image"
+        Textile.instance().files.prepare(byPath: filePath, threadId: threadId) { (preparedFiles, error) in
+          if let files = preparedFiles {
+            var addFilesError: NSError?
+            Textile.instance().files.add(files.dir, threadId: threadId, caption: nil, error: &addFilesError)
+            if (addFilesError != nil) {
+              // Do something with this error
+            } else {
+              // Success!
             }
+          } else {
+            // Do something with error
+          }
+        }
     android:
       code: |
-            final String threadId = "<thread>";
-            String filePath = "/path/to/image";
-            Textile.instance().files.prepareByPath(filePath, threadId, new PreparedFilesHandler() {
-                @Override
-                public void onFilesPrepared(MobilePreparedFiles preparedFiles) {
-                    try {
-                        Textile.instance().files.add(preparedFiles.getDir(), threadId, null);
-                    } catch (Exception e) {
-                        // Do something with this error
-                    }
-                }
-
-                @Override
-                public void onError(Exception e) {
+        final String threadId = "<thread-id>";
+        String filePath = "/path/to/image";
+        Textile.instance().files.prepareByPath(filePath, threadId, new PreparedFilesHandler() {
+            @Override
+            public void onFilesPrepared(MobilePreparedFiles preparedFiles) {
+                try {
+                    Textile.instance().files.add(preparedFiles.getDir(), threadId, null);
+                } catch (Exception e) {
                     // Do something with this error
                 }
-            });
+            }
+
+            @Override
+            public void onError(Exception e) {
+                // Do something with this error
+            }
+        });
   keys_:
     cmd:
-      code: 'textile files keys "QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5"'
+      code: 'textile files keys "<block-target>"'
     js_http_client:
-      code: 'const keys = await textile.files.keys("QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5")'
+      code: 'const keys = await textile.files.keys("<block-target>")'
     react_native:
-      code: '@todo'
+      code: "@todo"
     objc:
-      code: '@todo'
+      code: "@todo"
     swift:
-      code: '@todo'
+      code: "@todo"
     android:
-      code: '@todo'
+      code: "@todo"
 cafes:
   tokens_create:
     cmd:
       code: 'textile tokens create --api="http://127.0.0.1:41600"'
     js_http_client:
-      code: 'const token = await textile.tokens.create()'
+      code: "const token = await textile.tokens.create()"
   tokens_list:
     cmd:
       code: 'textile tokens ls --api="http://127.0.0.1:41600"'
     js_http_client:
-      code: 'const tokens = await textile.tokens.list()'
+      code: "const tokens = await textile.tokens.list()"
   add:
     cmd:
       code: 'textile cafes add <cafe-peer-id> --token="bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"'
     js_http_client:
       code: |
-            const token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
-            const success = await textile.cafes.add("<cafe-peer-id>", token)
+        const token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
+        const success = await textile.cafes.add("<cafe-peer-id>", token)
     react_native:
       code: |
-            const token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
-            await textile.cafes.register("<cafe-peer-id>", token)
+        const token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
+        await textile.cafes.register("<cafe-peer-id>", token)
     objc:
       code: |
-            NSString *token = @"bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG";
-            NSError *error;
-            [Textile.instance.cafes register:@"<cafe-peer-id>" token:token error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSString *token = @"bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG";
+        NSError *error;
+        [Textile.instance.cafes register:@"<cafe-peer-id>" token:token error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            let token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
-            var error: NSError?
-            Textile.instance().cafes .register("<cafe-peer-id>", token: token, error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        let token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
+        var error: NSError?
+        Textile.instance().cafes .register("<cafe-peer-id>", token: token, error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: |
-            String token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG";
-            Textile.instance().cafes.register("<cafe-peer-id>", token);
+        String token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG";
+        Textile.instance().cafes.register("<cafe-peer-id>", token);
   list:
     cmd:
-      code: 'textile cafes ls'
+      code: "textile cafes ls"
     js_http_client:
-      code: 'const sessions = await textile.cafes.list()'
+      code: "const sessions = await textile.cafes.list()"
     objc:
       code: |
-            NSError *error;
-            CafeSessionList *sessions = [Textile.instance.cafes sessions:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        CafeSessionList *sessions = [Textile.instance.cafes sessions:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let sessions = Textile.instance().cafes.sessions(&error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let sessions = Textile.instance().cafes.sessions(&error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
-      code: 'CafeSessionList sessions = Textile.instance().cafes.sessions();'
+      code: "CafeSessionList sessions = Textile.instance().cafes.sessions();"
   messages:
     cmd:
-      code: 'textile cafes messages'
+      code: "textile cafes messages"
     js_http_client:
-      code: 'const success = await textile.cafes.messages()'
+      code: "const success = await textile.cafes.messages()"
     objc:
       code: |
-            NSError *error;
-            [Textile.instance.cafes checkMessages:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        [Textile.instance.cafes checkMessages:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            Textile.instance().cafes.checkMessages(&error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        Textile.instance().cafes.checkMessages(&error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
-      code: 'Textile.instance().cafes.checkMessages();'
+      code: "Textile.instance().cafes.checkMessages();"
   remove:
     cmd:
       code: 'textile cafes rm "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV"'
@@ -1322,57 +1488,57 @@ cafes:
       code: 'const success = await textile.cafes.remove("12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV")'
     objc:
       code: |
-            NSError *error;
-            [Textile.instance.cafes deregister:@"12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV" error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        [Textile.instance.cafes deregister:@"12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV" error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            Textile.instance().cafes.deregister("12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV", error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        Textile.instance().cafes.deregister("12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV", error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: 'Textile.instance().cafes.deregister("12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV");'
 ipfs:
   peer_id:
     cmd:
-      code: 'textile ipfs id'
+      code: "textile ipfs id"
     js_http_client:
-      code: 'const id = await textile.ipfs.id()'
+      code: "const id = await textile.ipfs.id()"
     react_native:
-      code: 'const id = await textile.ipfs.peerId()'
+      code: "const id = await textile.ipfs.peerId()"
     objc:
       code: |
-            NSError *error;
-            NSString *peerId = [Textile.instance.ipfs peerId:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        NSString *peerId = [Textile.instance.ipfs peerId:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let peerId = Textile.instance().ipfs.peerId(&error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let peerId = Textile.instance().ipfs.peerId(&error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
-      code: 'String peerId = Textile.instance().ipfs.peerId();'
+      code: "String peerId = Textile.instance().ipfs.peerId();"
   swarm_peers:
     cmd:
-      code: 'textile ipfs swarm peers'
+      code: "textile ipfs swarm peers"
     js_http_client:
-      code: 'const peers = await textile.ipfs.peers()'
+      code: "const peers = await textile.ipfs.peers()"
   swarm_connect:
     cmd:
       code: 'textile ipfs swarm connect "/ip4/18.224.173.65/tcp/4001/ipfs/12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d"'
@@ -1385,21 +1551,21 @@ ipfs:
       code: 'const logo = await textile.ipfs.cat("QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d")'
     objc:
       code: |
-            NSError *error;
-            NSData *data = [Textile.instance.ipfs dataAtPath:@"QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d" error:&error];
-            if (error) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        NSError *error;
+        NSData *data = [Textile.instance.ipfs dataAtPath:@"QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d" error:&error];
+        if (error) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     swift:
       code: |
-            var error: NSError?
-            let data = Textile.instance().ipfs.data(atPath: "QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d", error: &error)
-            if (error != nil) {
-              // Do something with this error
-            } else {
-              // Success!
-            }
+        var error: NSError?
+        let data = Textile.instance().ipfs.data(atPath: "QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d", error: &error)
+        if (error != nil) {
+          // Do something with this error
+        } else {
+          // Success!
+        }
     android:
       code: 'byte[] data = Textile.instance().ipfs.dataAtPath("QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d");'

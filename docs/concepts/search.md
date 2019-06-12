@@ -21,6 +21,7 @@ See `textile contacts search --help` or check out the tour section on [contact s
 [Thread](/concepts/threads) search is currently limited to account peers searching for each other's [snapshots](/concepts/threads#snapshots). This functionality is the backbone of [account sync](/concepts/the-wallet#sync).
 
 !!! info
+
     Check out the [threads v2 roadmap](/concepts/threads/#v2-roadmap) for some coming functionality around public-facing thread search.
 
 <br>

@@ -1,0 +1,14 @@
+# 2019 June 12
+# https://github.com/textileio/base
+
+# Base
+**/docs/
+**/dist/
+**/vendor/
+**/node_modules/
+**/assets/
+**/*.d.ts
+
+# Custom
+material/
+site/search/

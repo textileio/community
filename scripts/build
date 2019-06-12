@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
+echo 'update cli docs...'
 printf "<h1>Command-line</h1>\n\n<p>The command-line client ships alongside the daemon. Usage information for all commands, including sub-commands, is available via the --help flag.</p>\n\n<style>pre { background: inherit !important; word-wrap: inherit !important;  white-space: pre-wrap !important; }</style>\n%s" "$(textile docs)" > ./docs/develop/clients/command-line.md
 
+echo 'prettify...'
+npx prettier --write "./**" 2> /dev/null || true
+
+echo 'build docs...'
 mkdocs build

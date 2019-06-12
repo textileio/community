@@ -64,8 +64,8 @@ project(':@textile_react-native-sdk').projectDir = new File(rootProject.projectD
 
 The iOS half of the React Native SDK will rely on Cocoapods to manage the library in your code. For now, we use Cocoapods to help keep the dependency management clear in client apps, in the future we will work to make it easy to link without Cocoapods.
 
-
 !!! Tip
+
     If your app isn't already setup for Cocoapods, we recommend this nice overview of using Cocoapods in React Native projects, [Demystifying react-native modules linking](https://engineering.brigad.co/demystifying-react-native-modules-linking-ae6c017a6b4a).
 
 Edit your podfile by opening up `ios/Podfile` and adding the following line,
@@ -92,6 +92,7 @@ We strongly recommend using [TypeScript](https://www.typescriptlang.org/) if you
 If you don't normally use TypeScript in your projects, never fear, it will be very familiar and only takes a few steps to setup.
 
 !!! tip
+
     We recommend [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html) as a good place to start if you are totally new to TypeScript.
 
 ## Getting Started
@@ -103,6 +104,7 @@ To start using the mobile Textile peer your app needs to initialize the local wa
 #### Creating wallet from scratch
 
 !!! Warning
+
     Mobile apps that use the React Native SDK (or one of our native libraries) run on-device Textile peers for their users. On-device peers require that the users pair the app with their primary account (see the [Tour of Textile](/a-tour-of-textile)). We recomment encouraging your users to pair with an external account during onboarding, as migrating their primary wallet out of an app later will be challenging (and is not supported yet!).
 
 ```JavaScript
@@ -130,7 +132,6 @@ Below are some basic examples to get you started. If you are interested in a mor
 ```
 
 ### Subscribe to file updates
-
 
 ```JavaScript
 {{subscribe.files.react_native.code}}

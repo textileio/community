@@ -12,7 +12,6 @@ The iOS is published as a [pod on CocoaPod.org](https://cocoapods.org/pods/Texti
 
 If you haven't already, you'll need to [setup CocoaPods in your project](https://guides.cocoapods.org/using/using-cocoapods.html). Next, add Textile to your project.
 
-
 ```cmd
 pod 'Textile'
 ```
@@ -28,7 +27,6 @@ github "textileio/ios-textile"
 ```
 
 There you'll need two dependencies that are the Protobuf library from Google and the Textile Core iOS library [available on our releases page](https://github.com/textileio/go-textile/releases). You can see how those are handled in our [CocoaPods setup](https://github.com/textileio/ios-textile/blob/master/Textile.podspec#L18).
-
 
 ## Getting Started
 
@@ -69,7 +67,6 @@ By default, the Textile instance will manage itself during app life-cycle events
 ```Swift tab="Swift"
 {{subscribe.files.swift.code}}
 ```
-
 
 ### Fetch chronological thread updates
 

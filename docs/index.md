@@ -10,13 +10,13 @@ We believe that future technology can be built around a new model of data owners
 
 ### Developers
 
-* Build decentralized storage and sharing applications. See [Textile Photos](https://github.com/textileio/photos).
-* Build better ways for users to manage their private information. See [AirSecure](https://github.com/airsecure/airsecure).
-* Build chat apps, website publishing services, health apps, family tools, and more. Got an idea, [get in touch](https://slack.textile.io/).
+-   Build decentralized storage and sharing applications. See [Textile Photos](https://github.com/textileio/photos).
+-   Build better ways for users to manage their private information. See [AirSecure](https://github.com/airsecure/airsecure).
+-   Build chat apps, website publishing services, health apps, family tools, and more. Got an idea, [get in touch](https://slack.textile.io/).
 
 ### Everyone
 
-* Choose or federate your own backup and service peer ([cafes](/concepts/cafes)) and still participate in the whole network.
+-   Choose or federate your own backup and service peer ([cafes](/concepts/cafes)) and still participate in the whole network.
 
 ## Take the tour
 
@@ -24,23 +24,23 @@ Whatever your use-case may be, the [tour of Textile](/a-tour-of-textile) is grea
 
 ## Install Textile apps
 
-* Photos: https://github.com/textileio/photos
-* Photos Desktop: https://github.com/textileio/photos-desktop
-* Notes: https://github.com/textileio/notes
-* Notes Desktop: https://github.com/textileio/notes-desktop
-* AirSecure: https://github.com/airsecure/airsecure
+-   Photos: https://github.com/textileio/photos
+-   Photos Desktop: https://github.com/textileio/photos-desktop
+-   Notes: https://github.com/textileio/notes
+-   Notes Desktop: https://github.com/textileio/notes-desktop
+-   AirSecure: https://github.com/airsecure/airsecure
 
 ## Integrate into your apps
 
 Client SDKs or HTTP clients available for integrating Textile into your mobile, desktop, and web applications:
 
-* [Core lib](https://github.com/textileio/go-textile)
-* [Command-line Client](/develop/clients/command-line)
-* [JavaScript](/develop/clients/javascript)
-* [React Native SDK](/develop/clients/react-native)
-* [iOS SDK](/develop/clients/ios)
-* [Android SDK](/develop/clients/android)
-* [Desktop](/install/desktop) (tray/taskbar app installer)
+-   [Core lib](https://github.com/textileio/go-textile)
+-   [Command-line Client](/develop/clients/command-line)
+-   [JavaScript](/develop/clients/javascript)
+-   [React Native SDK](/develop/clients/react-native)
+-   [iOS SDK](/develop/clients/ios)
+-   [Android SDK](/develop/clients/android)
+-   [Desktop](/install/desktop) (tray/taskbar app installer)
 
 ## Run a cafe peer
 

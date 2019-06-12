@@ -5,67 +5,67 @@ connectors:
         code: textile threads add "app notes" --schema-file=slate.json --type="public" --sharing="invite_only"
       js_http_client:
         code: |
-              const schema = require('slate.json')
-              await textile.threads.add("app notes", JSON.stringify(schema), "your.bundle.id.version.Notes", "public", "invite_only")
+          const schema = require('slate.json')
+          await textile.threads.add("app notes", JSON.stringify(schema), "your.bundle.id.version.Notes", "public", "invite_only")
       react_native:
         code: |
-              const schema = require('slate.json');
-              const threadKey = 'your.bundle.id.version.Notes'
-              const threadName = 'app notes'
-              const schema = {
-                id: '',
-                json: JSON.stringify(schema),
-                preset: AddThreadConfig.Schema.Preset.NONE
-              }
-              const config = {
-                key: threadKey,
-                name: threadName,
-                type: Thread.Type.PUBLIC,
-                sharing: Thread.Sharing.INVITE_ONLY,
-                schema: schema,
-                force: false,
-                members: []
-              }
-              const newTarget = await textile.threads.add(config)
+          const schema = require('slate.json');
+          const threadKey = 'your.bundle.id.version.Notes'
+          const threadName = 'app notes'
+          const schema = {
+            id: '',
+            json: JSON.stringify(schema),
+            preset: AddThreadConfig.Schema.Preset.NONE
+          }
+          const config = {
+            key: threadKey,
+            name: threadName,
+            type: Thread.Type.PUBLIC,
+            sharing: Thread.Sharing.INVITE_ONLY,
+            schema: schema,
+            force: false,
+            members: []
+          }
+          const newTarget = await textile.threads.add(config)
       objc:
         code: |
-              NSError *error;
-              AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
-              schema.json = slateStringJSON;
-              AddThreadConfig *config = [[AddThreadConfig alloc] init];
-              config.key = @"your.bundle.id.version.Notes";
-              config.name = @"app notes";
-              config.type = Thread_Type_Public;
-              config.sharing = Thread_Sharing_InviteOnly;
-              config.schema = schema;
-              Thread *thread = [Textile.instance.threads add:config error:&error];
-              if (error) {
-                // Do something with this error
-              } else {
-                // Success!
-              }
+          NSError *error;
+          AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
+          schema.json = slateStringJSON;
+          AddThreadConfig *config = [[AddThreadConfig alloc] init];
+          config.key = @"your.bundle.id.version.Notes";
+          config.name = @"app notes";
+          config.type = Thread_Type_Public;
+          config.sharing = Thread_Sharing_InviteOnly;
+          config.schema = schema;
+          Thread *thread = [Textile.instance.threads add:config error:&error];
+          if (error) {
+            // Do something with this error
+          } else {
+            // Success!
+          }
       swift:
         code: |
-              var error: NSError?
-              let schema = AddThreadConfig_Schema()
-              schema.json = slateStringJSON
-              let config = AddThreadConfig()
-              config.key = "your.bundle.id.version.Notes"
-              config.name = "app notes"
-              config.type = Thread_Type.public
-              config.sharing = Thread_Sharing.inviteOnly
-              config.schema = schema
-              let thread = Textile.instance().threads.add(config, error: &error)
-              if (error != nil) {
-                // Do something with this error
-              } else {
-                // Success!
-              }
+          var error: NSError?
+          let schema = AddThreadConfig_Schema()
+          schema.json = slateStringJSON
+          let config = AddThreadConfig()
+          config.key = "your.bundle.id.version.Notes"
+          config.name = "app notes"
+          config.type = Thread_Type.public
+          config.sharing = Thread_Sharing.inviteOnly
+          config.schema = schema
+          let thread = Textile.instance().threads.add(config, error: &error)
+          if (error != nil) {
+            // Do something with this error
+          } else {
+            // Success!
+          }
       android:
-        code: '@todo'
+        code: "@todo"
     add_slate_note:
       js_http_client:
         code: |
-              const title = "Note Title"
-              const json = slateNote.toJSON()
-              const block = await textile.files.add(json, title, "12D3KooWSYT0SUX7f415pwjHSVUsuymnixmRtPGySmFYtWE51z8")'
+          const title = "Note Title"
+          const json = slateNote.toJSON()
+          const block = await textile.files.add(json, title, "12D3KooWSYT0SUX7f415pwjHSVUsuymnixmRtPGySmFYtWE51z8")'

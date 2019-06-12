@@ -9,19 +9,19 @@ Join us on our [public Slack channel](https://slack.textile.io/) for news, discu
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-- [Maintainer](#maintainer)
-- [Contribute](#contribute)
-- [License](#license)
+-   [Getting Started](#getting-started)
+-   [Maintainer](#maintainer)
+-   [Contribute](#contribute)
+-   [License](#license)
 
 ## Getting Started
 
 ### Requirements
 
-- python >= 3.6.0
-- pip >= 19.0
-- wget >= 1.0
-- bash >= 3
+-   python >= 3.6.0
+-   pip >= 19.0
+-   wget >= 1.0
+-   bash >= 3
 
 ### Commands
 
@@ -53,11 +53,11 @@ Before you get started, be sure to read our [contributors guide](CONTRIBUTING.md
 
 ### Contributors
 
-* Carson Farmer <carson@textile.io>
-* Sander Pick <sander@textile.io>
-* Andrew Hill <andrew@textile.io>
-* Aaron Sutula <aaron@textile.io>
-* Benjamin Lupton <benjamin@textile.io>
+-   Carson Farmer <carson@textile.io>
+-   Sander Pick <sander@textile.io>
+-   Andrew Hill <andrew@textile.io>
+-   Aaron Sutula <aaron@textile.io>
+-   Benjamin Lupton <benjamin@textile.io>
 
 ## License
 

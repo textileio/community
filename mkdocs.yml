@@ -1,6 +1,6 @@
 # Project information
-site_name: 'Textile Documentation'
-site_description: 'Encrypted, recoverable, schema-based, cross-application data storage built on IPFS and LibP2P.'
+site_name: "Textile Documentation"
+site_description: "Encrypted, recoverable, schema-based, cross-application data storage built on IPFS and LibP2P."
 site_author: textile.io
 site_url: https://docs.textile.io/
 
@@ -9,7 +9,7 @@ repo_name: textileio/docs
 repo_url: https://github.com/textileio/docs
 
 # Copyright
-copyright: '&copy; Textile'
+copyright: "&copy; Textile"
 
 # Configuration
 theme:

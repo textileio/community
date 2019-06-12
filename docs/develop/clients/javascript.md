@@ -25,6 +25,7 @@ We strongly recommend using [TypeScript](https://www.typescriptlang.org/) if you
 If you don't normally use TypeScript in your projects, never fear, it will be very familiar and only takes a few steps to setup.
 
 !!! tip
+
     We recommend [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html) as a good place to start if you are totally new to TypeScript.
 
 ## Getting Started
@@ -46,7 +47,6 @@ Below are some basic examples to get you started. If you are interested in a mor
 ```
 
 ### Subscribe to file updates
-
 
 ```JavaScript
 {{subscribe.files.js_http_client.code}}
