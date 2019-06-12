@@ -73,15 +73,25 @@
 	<tr><td><code>&lt;block&gt;</code></td><td><pre>Block ID</pre></td></tr>
 </table>
 
-<h3>textile block files [&lt;flags&gt;] &lt;block&gt;</h3>
-<p><pre>Get the files, or a specific file, of a Files Block</pre></p>
+<h3>textile block files</h3>
+<p><pre>Commands to interact with File Blocks</pre></p>
+
+<h4>textile block files list &lt;block&gt;</h4>
+<p><pre>List all files within a File Block</pre></p>
+<table>
+	<tr><th>Argument</th><th>Description</th></tr>
+	<tr><td><code>&lt;block&gt;</code></td><td><pre>File Block ID</pre></td></tr>
+</table>
+
+<h4>textile block files get [&lt;flags&gt;] &lt;block&gt;</h4>
+<p><pre>Get a specific file within the File Block</pre></p>
 <table>
 	<tr><th>Flag</th><th>Description</th></tr>
-	<tr><td><code>--index=0</code></td><td><pre>If provided, the index of a specific file to retrieve</pre></td></tr>
-	<tr><td><code>--path=PATH</code></td><td><pre>If provided, the path of a specific file to retrieve</pre></td></tr>
-	<tr><td><code>--content</code></td><td><pre>If provided alongside a path, the content of the specific file is retrieved</pre></td></tr>
+	<tr><td><code>--index=0</code></td><td><pre>The index of the file to fetch</pre></td></tr>
+	<tr><td><code>--path=&#34;.&#34;</code></td><td><pre>The link path of the file to fetch</pre></td></tr>
+	<tr><td><code>--content</code></td><td><pre>If provided, the decrypted content of the file is retrieved</pre></td></tr>
 	<tr><th>Argument</th><th>Description</th></tr>
-	<tr><td><code>&lt;block&gt;</code></td><td><pre>Files Block ID</pre></td></tr>
+	<tr><td><code>&lt;block&gt;</code></td><td><pre>File Block ID</pre></td></tr>
 </table>
 
 <h2>textile cafe</h2>
@@ -180,7 +190,7 @@ An access token is required to register, and should be obtained separately from 
 <p><pre>List known contacts</pre></p>
 
 <h3>textile contact get &lt;address&gt;</h3>
-<p><pre>Gets a known contact</pre></p>
+<p><pre>Gets a known local contact</pre></p>
 <table>
 	<tr><th>Argument</th><th>Description</th></tr>
 	<tr><td><code>&lt;address&gt;</code></td><td><pre>Account Address</pre></td></tr>
@@ -257,22 +267,32 @@ Stacks may include:
 	<tr><td><code>[&lt;thread&gt;]</code></td><td><pre>Thread ID, omit for all</pre></td></tr>
 </table>
 
-<h4>textile file list block [&lt;flags&gt;] &lt;block&gt;</h4>
-<p><pre>Get the files, or a specific file, of a Files Block</pre></p>
+<h4>textile file list block</h4>
+<p><pre>Commands to interact with File Blocks</pre></p>
+
+<h5>textile file list block list &lt;block&gt;</h5>
+<p><pre>List all files within a File Block</pre></p>
 <table>
-	<tr><th>Flag</th><th>Description</th></tr>
-	<tr><td><code>--index=0</code></td><td><pre>If provided, the index of a specific file to retrieve</pre></td></tr>
-	<tr><td><code>--path=PATH</code></td><td><pre>If provided, the path of a specific file to retrieve</pre></td></tr>
-	<tr><td><code>--content</code></td><td><pre>If provided alongside a path, the content of the specific file is retrieved</pre></td></tr>
 	<tr><th>Argument</th><th>Description</th></tr>
-	<tr><td><code>&lt;block&gt;</code></td><td><pre>Files Block ID</pre></td></tr>
+	<tr><td><code>&lt;block&gt;</code></td><td><pre>File Block ID</pre></td></tr>
 </table>
 
-<h3>textile file keys &lt;target-block&gt;</h3>
-<p><pre>Shows file keys under the given target</pre></p>
+<h5>textile file list block get [&lt;flags&gt;] &lt;block&gt;</h5>
+<p><pre>Get a specific file within the File Block</pre></p>
+<table>
+	<tr><th>Flag</th><th>Description</th></tr>
+	<tr><td><code>--index=0</code></td><td><pre>The index of the file to fetch</pre></td></tr>
+	<tr><td><code>--path=&#34;.&#34;</code></td><td><pre>The link path of the file to fetch</pre></td></tr>
+	<tr><td><code>--content</code></td><td><pre>If provided, the decrypted content of the file is retrieved</pre></td></tr>
+	<tr><th>Argument</th><th>Description</th></tr>
+	<tr><td><code>&lt;block&gt;</code></td><td><pre>File Block ID</pre></td></tr>
+</table>
+
+<h3>textile file keys &lt;block-target&gt;</h3>
+<p><pre>Shows the encryption keys for each content/meta pair for the given block DAG target</pre></p>
 <table>
 	<tr><th>Argument</th><th>Description</th></tr>
-	<tr><td><code>&lt;target-block&gt;</code></td><td><pre>Files Block Target ID</pre></td></tr>
+	<tr><td><code>&lt;block-target&gt;</code></td><td><pre>Block Target ID</pre></td></tr>
 </table>
 
 <h3>textile file add [&lt;flags&gt;] &lt;thread&gt; [&lt;path&gt;]</h3>
@@ -639,6 +659,17 @@ shared      --&gt; initiator: Y, whitelist: Y</pre></p>
 	<tr><td><code>-l, --limit=5</code></td><td><pre>List page size</pre></td></tr>
 	<tr><th>Argument</th><th>Description</th></tr>
 	<tr><td><code>[&lt;thread&gt;]</code></td><td><pre>Thread ID, omit for all</pre></td></tr>
+</table>
+
+<h3>textile thread blocks [&lt;flags&gt;] &lt;thread&gt;</h3>
+<p><pre>Paginates blocks in a thread</pre></p>
+<table>
+	<tr><th>Flag</th><th>Description</th></tr>
+	<tr><td><code>-o, --offset=OFFSET</code></td><td><pre>Offset ID to start listing from</pre></td></tr>
+	<tr><td><code>-l, --limit=5</code></td><td><pre>List page size</pre></td></tr>
+	<tr><td><code>-d, --dots</code></td><td><pre>Return GraphViz dots instead of JSON</pre></td></tr>
+	<tr><th>Argument</th><th>Description</th></tr>
+	<tr><td><code>&lt;thread&gt;</code></td><td><pre>Thread ID</pre></td></tr>
 </table>
 
 <h2>textile token</h2>

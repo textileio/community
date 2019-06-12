@@ -20,8 +20,7 @@ tar xvfz go-textile_$VERSION_$OS-$ARCH.tar.gz
 Move `textile` anyplace in your `PATH` or run the install script, which puts it in `/usr/local/bin`:
 
 ```
-./install.sh
-
+./install
 ```
 
 ### Windows

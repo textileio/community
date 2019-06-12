@@ -878,7 +878,7 @@ What just happened? The peer created a new DAG node (a textile block) for the in
 
 - `meta`: A JSON object containing metadata about the input and how it was processed. Which is the success output of the previosu command.
 
-- `content`: The content of the file that was added, in the above command output, this is at `.files[0].hash`, and can be fetched via `textile file get <hash> --content`, or via `textile block file <blockid> --path=file --content`.
+- `content`: The content of the file that was added, in the above command output, this is at `.files[0].hash`, and can be fetched via `textile file get <hash> --content`, or via `textile file block get <blockid> --content`.
 
 The [_files_](/concepts/threads/files) guide covers these concepts in more detail.
 
