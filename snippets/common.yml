@@ -708,52 +708,6 @@ threads:
                 .build();
         Textile.instance().threads.add(config);
   add_open_shared:
-    success: |
-      {
-         "block_count": 1,
-         "id": "<thread-id>",
-         "initiator": "<peer-id>",
-         "key": "xxx",
-         "name": "Dogs",
-         "peer_count": 1,
-         "schema": "<schema-ipfs-hash>",
-         "schema_node": {
-           "links": {
-             "large": {
-               "mill": "/image/resize",
-               "opts": {
-                 "quality": "80",
-                 "width": "800"
-               },
-               "use": ":file"
-             },
-             "small": {
-               "mill": "/image/resize",
-               "opts": {
-                 "quality": "80",
-                 "width": "320"
-               },
-               "use": ":file"
-             },
-             "thumb": {
-               "mill": "/image/resize",
-               "opts": {
-                 "quality": "80",
-                 "width": "100"
-               },
-               "pin": true,
-               "use": "large"
-             }
-           },
-           "name": "media",
-           "pin": true
-         },
-         "sharing": "SHARED",
-         "sk": "xxx",
-         "state": "LOADED",
-         "type": "OPEN",
-         "whitelist": []
-       }
     notes: Dogs and params are set to match that of the Tour
     cmd:
       code: 'textile threads add "Dogs" --type="open" --sharing="shared" --media'
@@ -1115,45 +1069,6 @@ files:
         String hash = "some file hash";
         String base64 = Textile.instance().files.data(hash);
   add:
-    success: |
-      {
-        "block": "<block-id>",
-        "target": "<block-target>",
-        "date": "2019-06-11T06:44:05.535163Z",
-        "user": {
-            "address": "<peer-address>",
-            "name": "<peer-name>",
-            "avatar": "<peer-avatar>"
-        },
-        "files": [
-            {
-                "file": {
-                    "mill": "/blob",
-                    "checksum": "xxx",
-                    "source": "<source-ipfs-hash>",
-                    "opts": "xxx",
-                    "hash": "<result-ipfs-hash>",
-                    "key": "<encryption-key-for-result>",
-                    "media": "text/plain; charset=utf-8",
-                    "name": "stdin",
-                    "size": "14",
-                    "added": "2019-06-06T02:13:00.620280Z",
-                    "meta": {
-                        },
-                    "targets": [
-                        "<block-target>"
-                    ]
-                }
-            }
-        ],
-        "comments": [
-        ],
-        "likes": [
-        ],
-        "threads": [
-            "<thread-id>"
-        ]
-      }
     cmd:
       code: 'echo "mmm, bytes..." | textile files add <thread-id>'
     js_http_client:
@@ -1226,87 +1141,6 @@ files:
             }
         });
   add_media:
-    success: |
-      {
-        "block": "<block-id>",
-        "target": "<block-target>",
-        "date": "2019-06-12T12:48:50.548068Z",
-        "user": {
-          "address": "<peer-id>",
-          "name": "<peer-name>",
-          "avatar": "<peer-avatar>"
-        },
-        "caption": "Dog at work.",
-        "files": [
-          {
-            "links": {
-                "large": {
-                  "mill": "/image/resize",
-                  "checksum": "xxx",
-                  "source": "<source-ipfs-hash>",
-                  "opts": "xxx",
-                  "hash": "<result-ipfs-hash>",
-                  "key": "<encryption-key-for-result>",
-                  "media": "image/jpeg",
-                  "name": "william-milliot-510766-unsplash.jpg",
-                  "size": "106235",
-                  "added": "2019-06-12T12:48:49.990597Z",
-                  "meta": {
-                    "height": 534,
-                    "width": 800
-                  },
-                  "targets": [
-                    "<block-target>"
-                  ]
-                },
-                "small": {
-                  "mill": "/image/resize",
-                  "checksum": "xxx",
-                  "source": "<source-ipfs-hash>",
-                  "opts": "xxx",
-                  "hash": "<result-ipfs-hash>",
-                  "key": "<encryption-key-for-result>",
-                  "media": "image/jpeg",
-                  "name": "william-milliot-510766-unsplash.jpg",
-                  "size": "23789",
-                  "added": "2019-06-12T12:48:47.950855Z",
-                  "meta": {
-                    "height": 214,
-                    "width": 320
-                  },
-                  "targets": [
-                    "<block-target>"
-                  ]
-                },
-                "thumb": {
-                  "mill": "/image/resize",
-                  "checksum": "xxx",
-                  "source": "<source-ipfs-hash>",
-                  "opts": "xxx",
-                  "hash": "<result-ipfs-hash>",
-                  "key": "<encryption-key-for-result>",
-                  "media": "image/jpeg",
-                  "size": "3723",
-                  "added": "2019-06-12T12:48:50.093557Z",
-                  "meta": {
-                    "height": 67,
-                    "width": 100
-                  },
-                  "targets": [
-                    "<block-target>"
-                  ]
-                }
-            }
-          }
-        ],
-        "comments": [
-        ],
-        "likes": [
-        ],
-        "threads": [
-            "<thread-id>"
-        ]
-      }
     cmd:
       code: 'textile files add <thread-id> ~/Downloads/william-milliot-510766-unsplash.jpg --caption="Dog at work."'
     js_http_client:

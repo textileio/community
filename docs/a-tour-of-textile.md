@@ -852,27 +852,27 @@ Let's add some data. Be sure to use your own thread ID.
 {{files.add.android.code}}
 ```
 
-??? success
+???+ success
 
     ``` json
     {
-        "block": "QmUYxxx",
-        "target": "QmVxxx",
+        "block": "<block-id>",
+        "target": "<block-target>",
         "date": "2019-06-11T06:44:05.535163Z",
         "user": {
-            "address": "P9fbxxx",
-            "name": "Clyde",
-            "avatar": "QmRoJxxxx"
+            "address": "<peer-address>",
+            "name": "<peer-name>",
+            "avatar": "<peer-avatar>"
         },
         "files": [
             {
                 "file": {
                     "mill": "/blob",
-                    "checksum": "EPBRa7xxx",
-                    "source": "EPBRaxxx",
-                    "opts": "G7x9bfxxx",
-                    "hash": "QmVQD8xxxx",
-                    "key": "x5sa9ixxx",
+                    "checksum": "xxx",
+                    "source": "<source-ipfs-hash>",
+                    "opts": "xxx",
+                    "hash": "<result-ipfs-hash>",
+                    "key": "<encryption-key-for-result>",
                     "media": "text/plain; charset=utf-8",
                     "name": "stdin",
                     "size": "14",
@@ -880,7 +880,7 @@ Let's add some data. Be sure to use your own thread ID.
                     "meta": {
                         },
                     "targets": [
-                        "QmVikPYxxxxy"
+                        "<block-target>"
                     ]
                 }
             }
@@ -890,7 +890,7 @@ Let's add some data. Be sure to use your own thread ID.
         "likes": [
         ],
         "threads": [
-            "12D3Koxxxx"
+            "<thread-id>"
         ]
     }
     ```
@@ -901,7 +901,7 @@ What just happened? The peer created a new DAG node (a textile block) for the in
 
 - `meta`: A JSON object containing metadata about the input and how it was processed. Which is the success output of the previosu command.
 
-- `content`: The content of the file that was added, in the above command output, this is at `.files[0].hash`, and can be fetched via `textile file get <hash> --content`, or via `textile file block get <blockid> --content`.
+- `content`: The content of the file that was added, in the above command output, this is at `.files[0].hash`, and can be fetched via `textile file get <hash> --content`, or via `textile file block get <block-id> --content`.
 
 The [_files_](/concepts/threads/files) guide covers these concepts in more detail.
 
@@ -973,9 +973,45 @@ Let's try adding the _same_ data again:
 
 ??? success
 
-    ```
-    File target: QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5
-    Added 1 file in 138.218899ms
+    ``` json
+    {
+        "block": "<block-id>",
+        "target": "<block-target>",
+        "date": "2019-06-11T06:44:05.535163Z",
+        "user": {
+            "address": "<peer-address>",
+            "name": "<peer-name>",
+            "avatar": "<peer-avatar>"
+        },
+        "files": [
+            {
+                "file": {
+                    "mill": "/blob",
+                    "checksum": "xxx",
+                    "source": "<source-ipfs-hash>",
+                    "opts": "xxx",
+                    "hash": "<result-ipfs-hash>",
+                    "key": "<encryption-key-for-result>",
+                    "media": "text/plain; charset=utf-8",
+                    "name": "stdin",
+                    "size": "14",
+                    "added": "2019-06-06T02:13:00.620280Z",
+                    "meta": {
+                        },
+                    "targets": [
+                        "<block-target>"
+                    ]
+                }
+            }
+        ],
+        "comments": [
+        ],
+        "likes": [
+        ],
+        "threads": [
+            "<thread-id>"
+        ]
+    }
     ```
 
 Notice that the file target **did not change**. The peer was able to reuse the node from the prior addition because it detected that the same data was added via the same schema. This means that the input was _not_ duplicated on the peer, even though it was encrypted non-deterministically.
@@ -1016,29 +1052,15 @@ Let's create an _open_ and _shared_ thread for dog photos with the _media_ schem
 
 ??? success
 
-    ```JSON
+    ``` json
     {
         "block_count": 1,
-        "head": "QmR3nzxS5sSv3aasqZZFmAip1okF2YSmwSuzjNcvR7Erus",
-        "head_block": {
-            "author": "12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay",
-            "date": "2019-04-22T21:24:27.133890Z",
-            "id": "QmR3nzxS5sSv3aasqZZFmAip1okF2YSmwSuzjNcvR7Erus",
-            "parents": [],
-            "thread": "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq",
-            "type": "JOIN",
-            "user": {
-                "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
-                "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5",
-                "name": "Clyde"
-            }
-        },
-        "id": "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq",
-        "initiator": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
-        "key": "1KEsojQy4DW9t2rqqhP6len4fA0",
+        "id": "<thread-id>",
+        "initiator": "<peer-id>",
+        "key": "xxx",
         "name": "Dogs",
         "peer_count": 1,
-        "schema": "QmeVa8vUbyjHaYaeki8RZRshsn3JeYGi8QCnLCWXh6euEh",
+        "schema": "<schema-ipfs-hash>",
         "schema_node": {
             "links": {
                 "large": {
@@ -1071,7 +1093,7 @@ Let's create an _open_ and _shared_ thread for dog photos with the _media_ schem
             "pin": true
         },
         "sharing": "SHARED",
-        "sk": "CAESQBF...",
+        "sk": "xxx",
         "state": "LOADED",
         "type": "OPEN",
         "whitelist": []
@@ -1110,9 +1132,87 @@ Try adding the image above to your dogs thread:
 
 ??? success
 
-    ```
-    File target: QmT9Rj1wHosh1hL2kjVxm6RWtK3ZTSjb6b69qwdztVTkLR
-    Added 1 file in 5.978401883s
+    ``` json
+    {
+        "block": "<block-id>",
+        "target": "<block-target>",
+        "date": "2019-06-12T12:48:50.548068Z",
+        "user": {
+          "address": "<peer-id>",
+          "name": "<peer-name>",
+          "avatar": "<peer-avatar>"
+        },
+        "caption": "Dog at work.",
+        "files": [
+          {
+            "links": {
+                "large": {
+                  "mill": "/image/resize",
+                  "checksum": "xxx",
+                  "source": "<source-ipfs-hash>",
+                  "opts": "xxx",
+                  "hash": "<result-ipfs-hash>",
+                  "key": "<encryption-key-for-result>",
+                  "media": "image/jpeg",
+                  "name": "william-milliot-510766-unsplash.jpg",
+                  "size": "106235",
+                  "added": "2019-06-12T12:48:49.990597Z",
+                  "meta": {
+                    "height": 534,
+                    "width": 800
+                  },
+                  "targets": [
+                    "<block-target>"
+                  ]
+                },
+                "small": {
+                  "mill": "/image/resize",
+                  "checksum": "xxx",
+                  "source": "<source-ipfs-hash>",
+                  "opts": "xxx",
+                  "hash": "<result-ipfs-hash>",
+                  "key": "<encryption-key-for-result>",
+                  "media": "image/jpeg",
+                  "name": "william-milliot-510766-unsplash.jpg",
+                  "size": "23789",
+                  "added": "2019-06-12T12:48:47.950855Z",
+                  "meta": {
+                    "height": 214,
+                    "width": 320
+                  },
+                  "targets": [
+                    "<block-target>"
+                  ]
+                },
+                "thumb": {
+                  "mill": "/image/resize",
+                  "checksum": "xxx",
+                  "source": "<source-ipfs-hash>",
+                  "opts": "xxx",
+                  "hash": "<result-ipfs-hash>",
+                  "key": "<encryption-key-for-result>",
+                  "media": "image/jpeg",
+                  "size": "3723",
+                  "added": "2019-06-12T12:48:50.093557Z",
+                  "meta": {
+                    "height": 67,
+                    "width": 100
+                  },
+                  "targets": [
+                    "<block-target>"
+                  ]
+                }
+            }
+          }
+        ],
+        "comments": [
+        ],
+        "likes": [
+        ],
+        "threads": [
+            "<thread-id>"
+        ]
+    }
     ```
 
 The above image is fairly large (~3.5 MB). So, your peer took some time to encode all of the requested sizes.
@@ -1197,23 +1297,9 @@ Add a new thread to track your hypothetical runs:
     ```JSON
     {
         "block_count": 1,
-        "head": "QmV8HiBrgJvGx4mwVF8G8MDpyaiUcUX9YC52AjAjw3HHuV",
-        "head_block": {
-            "author": "12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay",
-            "date": "2019-04-23T19:29:57.858974Z",
-            "id": "QmV8HiBrgJvGx4mwVF8G8MDpyaiUcUX9YC52AjAjw3HHuV",
-            "parents": [],
-            "thread": "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw",
-            "type": "JOIN",
-            "user": {
-                "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
-                "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5",
-                "name": "Clyde"
-            }
-        },
-        "id": "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw",
-        "initiator": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
-        "key": "1KHU10LWw5Fc7NOcBcykhv085NF",
+        "id": "12D3KooWSfWsCbnC44CWfPSVw1VRJFSjJX567Yw269qqdhHq5CoY",
+        "initiator": "P9fbrHrPyQdtVJkG8MANiyF6W2ctCnyiB6sxA8tbT8zwPZ63",
+        "key": "1MY2NZFWM6kxKzvZGwbSRQPFmpc",
         "name": "My runs",
         "peer_count": 1,
         "schema": "QmeCxmcfiBANhLntPm5ceS6ragTnW4QjXEPednNa7R6o8p",
@@ -1223,16 +1309,16 @@ Add a new thread to track your hypothetical runs:
                 "$schema": "http://json-schema.org/draft-07/schema#",
                 "description": "A geographical coordinate.",
                 "properties": {
-                    "latitude": {
-                        "maximum": 90,
-                        "minimum": -90,
-                        "type": "number"
-                    },
-                    "longitude": {
-                        "maximum": 180,
-                        "minimum": -180,
-                        "type": "number"
-                    }
+                "latitude": {
+                    "maximum": 90,
+                    "minimum": -90,
+                    "type": "number"
+                },
+                "longitude": {
+                    "maximum": 180,
+                    "minimum": -180,
+                    "type": "number"
+                }
                 },
                 "required": [
                     "latitude",
@@ -1245,7 +1331,7 @@ Add a new thread to track your hypothetical runs:
             "name": "location"
         },
         "sharing": "INVITE_ONLY",
-        "sk": "CAESQDl...",
+        "sk": "CAESQBRiIC0dQOC3UgCqHlzO39OaxIib1IxP/BL97Dxs1T+w+lJI59SDqYtjLJthNW8Bro+KCwNthNqdqUz/fPBEzLc=",
         "state": "LOADED",
         "type": "PUBLIC",
         "whitelist": []
@@ -1280,9 +1366,37 @@ Next, add some locations to your thread:
 
 ??? success
 
-    ```
-    File target: QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk
-    Added 1 file in 534.774123ms
+    ``` json
+    {
+        "block": "QmTw4ZRigDgdpVcXHWfCC78Mk8jVUQHpRXcwVEVLUHPYtZ",
+        "target": "QmX5KGvJyYDKr9xhuTYRY92LWv4U1xNkrPmSYJVycwk9Dd",
+        "date": "2019-06-12T13:48:43.319450Z",
+        "user": {
+            "address": "P9fbrHrPyQdtVJkG8MANiyF6W2ctCnyiB6sxA8tbT8zwPZ63",
+            "name": "Clyde",
+            "avatar": "QmRoJsuGN1UyDT5jHWvBXYDHubMszmVwAsFZmkYiQbeKrM"
+        },
+        "files": [
+            {
+                "file": {
+                "mill": "/json",
+                "checksum": "HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S",
+                "source": "8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ",
+                "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
+                "hash": "QmWYcjZu28GR8p2gnwwUN5UcKAJgJEs1uvMqfwgM67hiKd",
+                "key": "pqrhTw495h5hrvBPrMxBvwDyamJEgEjYK5P99TJj3D3J9STBGCs5h1mM5xZo",
+                "media": "application/json",
+                "size": "43",
+                "added": "2019-06-12T13:48:43.109920Z",
+                "meta": {},
+                "targets": ["QmX5KGvJyYDKr9xhuTYRY92LWv4U1xNkrPmSYJVycwk9Dd"]
+                }
+            }
+        ],
+        "comments": [],
+        "likes": [],
+        "threads": ["12D3KooWSfWsCbnC44CWfPSVw1VRJFSjJX567Yw269qqdhHq5CoY"]
+    }
     ```
 
 !!! info
@@ -1316,6 +1430,7 @@ Your peer will validate the input against the thread's schema. The input will _a
 ```
 
 ???+ fail
+
     ```
     - latitude: Must be less than or equal to 90/1
     ```
@@ -1417,6 +1532,7 @@ Now that you have two peers running, invite the new account to your "My runs" th
     ```
 
 !!! Note
+
     You may have to make a couple attempts to send the invite because your second peer is probably not yet very well connected to the network.
 
 This new account is not an existing contact. So, your peer will ask the network for its contact info. You can confirm that, yes, you'd like to add this account to your local contacts and send it an invite to your thread.
@@ -1854,56 +1970,44 @@ Try listing the files in your "My runs" thread:
 
 ??? success
 
-    ```
+    ``` json
     {
-        "items": [
-            {
-                "block": "QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84",
-                "target": "QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk",
-                "date": "2019-04-23T20:08:51.686544Z",
+        "items": [{
+            "block": "QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84",
+            "target": "QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk",
+            "date": "2019-04-23T20:08:51.686544Z",
+            "user": {
+                "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
+                "name": "Clyde",
+                "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5"
+            },
+            "files": [{
+                "file": {
+                    "mill": "/json",
+                    "checksum": "HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S",
+                    "source": "8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ",
+                    "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
+                    "hash": "QmQHYPJDQAU8ZaGG8e4iW9bj65mr2T1cwygyfWb6AUaNio",
+                    "key": "AYCbcQf4YDBHr4NE2SnBgZYPfTD5riZgerujv3xFZgZ4RhDP3yZjcMnHSqXp",
+                    "media": "application/json",
+                    "size": "43",
+                    "added": "2019-04-23T20:08:51.294649Z",
+                    "meta": {},
+                    "targets": ["QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk"]
+                }
+            }],
+            "comments": [{
+                "id": "QmNx9j82vWLF6tEeMYWdFMBDJo89yBbMmScseJR4jVtML3",
+                "date": "2019-04-23T22:21:04.253734Z",
                 "user": {
-                    "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
-                    "name": "Clyde",
-                    "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5"
+                    "address": "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs",
+                    "name": "P7X3gZu"
                 },
-                "files": [
-                    {
-                        "file": {
-                            "mill": "/json",
-                            "checksum": "HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S",
-                            "source": "8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ",
-                            "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
-                            "hash": "QmQHYPJDQAU8ZaGG8e4iW9bj65mr2T1cwygyfWb6AUaNio",
-                            "key": "AYCbcQf4YDBHr4NE2SnBgZYPfTD5riZgerujv3xFZgZ4RhDP3yZjcMnHSqXp",
-                            "media": "application/json",
-                            "size": "43",
-                            "added": "2019-04-23T20:08:51.294649Z",
-                            "meta": {
-                                },
-                            "targets": [
-                                "QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk"
-                            ]
-                        }
-                    }
-                ],
-                "comments": [
-                    {
-                        "id": "QmNx9j82vWLF6tEeMYWdFMBDJo89yBbMmScseJR4jVtML3",
-                        "date": "2019-04-23T22:21:04.253734Z",
-                        "user": {
-                            "address": "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs",
-                            "name": "P7X3gZu"
-                        },
-                        "body": "Is this an outlier?"
-                    }
-                ],
-                "likes": [
-                ],
-                "threads": [
-                    "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
-                ]
-            }
-        ]
+                "body": "Is this an outlier?"
+            }],
+            "likes": [],
+            "threads": ["12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"]
+        }]
     }
     ```
 
@@ -1911,25 +2015,10 @@ You can also list files across all threads by omitting the `--thread` flag.
 
 #### The feed API
 
-The feed API provides a few different modes to drive feed-based UIs. Take a look at the usage text from the command-line client (`textile feed --help`):
+The feed API provides a few different modes to drive feed-based UIs. Take a look at the usage text from the command-line client:
 
-```
-Usage:
-  textile [OPTIONS] feed [feed-OPTIONS]
-
-Paginates post (join|leave|files|message) and annotation (comment|like) block types as a consumable feed.
-The --mode option dictates how the feed is displayed:
-
--  "chrono": All feed block types are shown. Annotations always nest their target post, i.e., the post a comment is about.
--  "annotated": Annotations are nested under post targets, but are not shown in the top-level feed.
--  "stacks": Related blocks are chronologically grouped into "stacks". A new stack is started if an unrelated block
-breaks continuity. This mode is used by Textile Photos. Stacks may include:
-
-*  The initial post with some nested annotations. Newer annotations may have already been listed.
-*  One or more annotations about a post. The newest annotation assumes the "top" position in the stack. Additional
-annotations are nested under the target. Newer annotations may have already been listed in the case as well.
-
-Omit the --thread option to paginate all files.
+``` bash
+textile feed --help
 ```
 
 Give the default `chrono` (for chronological) mode a try:
@@ -2172,9 +2261,37 @@ In another terminal, add a location to the "My runs" thread:
 
 ??? success
 
-    ```
-    File target: QmbkqtPBLH83opAAzjLdLszry55p8W4FZbc7HR1a1gbHK4
-    Added 1 file in 533.47ms
+    ``` json
+    {
+        "block": "QmTw4ZRigDgdpVcXHWfCC78Mk8jVUQHpRXcwVEVLUHPYtZ",
+        "target": "QmX5KGvJyYDKr9xhuTYRY92LWv4U1xNkrPmSYJVycwk9Dd",
+        "date": "2019-06-12T13:48:43.319450Z",
+        "user": {
+            "address": "P9fbrHrPyQdtVJkG8MANiyF6W2ctCnyiB6sxA8tbT8zwPZ63",
+            "name": "Clyde",
+            "avatar": "QmRoJsuGN1UyDT5jHWvBXYDHubMszmVwAsFZmkYiQbeKrM"
+        },
+        "files": [
+            {
+                "file": {
+                "mill": "/json",
+                "checksum": "HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S",
+                "source": "8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ",
+                "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
+                "hash": "QmWYcjZu28GR8p2gnwwUN5UcKAJgJEs1uvMqfwgM67hiKd",
+                "key": "pqrhTw495h5hrvBPrMxBvwDyamJEgEjYK5P99TJj3D3J9STBGCs5h1mM5xZo",
+                "media": "application/json",
+                "size": "43",
+                "added": "2019-06-12T13:48:43.109920Z",
+                "meta": {},
+                "targets": ["QmX5KGvJyYDKr9xhuTYRY92LWv4U1xNkrPmSYJVycwk9Dd"]
+                }
+            }
+        ],
+        "comments": [],
+        "likes": [],
+        "threads": ["12D3KooWSfWsCbnC44CWfPSVw1VRJFSjJX567Yw269qqdhHq5CoY"]
+    }
     ```
 
 Your first window will display the update:
@@ -2581,7 +2698,7 @@ const config = await textile.config.get()
 
 ??? success
 
-    ```
+    ``` json
     {
         "API": {
             "HTTPHeaders": {
