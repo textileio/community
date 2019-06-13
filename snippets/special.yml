@@ -2,15 +2,15 @@ special:
   sagas:
     add_thread:
       js_http_client:
-        code: | 
-              export function * createThread(name, key) {
-                const thread = yield call([textile.threads, "add"], name, key)
-                return thread
-              }
+        code: |
+          export function * createThread(name, key) {
+            const thread = yield call([textile.threads, "add"], name, key)
+            return thread
+          }
     get_file:
       js_http_client:
-        code: | 
-              export function * getFile(hash) {
-                const file = yield call([textile.file, "content"], hash)
-                return file
-              }
+        code: |
+          export function * getFile(hash) {
+            const file = yield call([textile.file, "content"], hash)
+            return file
+          }

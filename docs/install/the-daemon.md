@@ -5,6 +5,7 @@ The daemon can be used to run an [account peer](/concepts/#account-peers) or a [
 ![](/images/daemon.png)
 
 !!! info
+
     A _daemon_ is a program that operates as a long-running 'background' process (without a terminal or user interface). In most cases, the daemon exposes a network API (usually HTTP / TCP) that allows other programs to interact with it while it's running. Most daemons ship with a command-line client for this API.
 
 ## Install
@@ -20,8 +21,7 @@ tar xvfz go-textile_$VERSION_$OS-$ARCH.tar.gz
 Move `textile` anyplace in your `PATH` or run the install script, which puts it in `/usr/local/bin`:
 
 ```
-./install.sh
-
+./install
 ```
 
 ### Windows
@@ -44,9 +44,9 @@ Textile uses a hierarchical deterministic (HD) wallet to derive account keys fro
 
 Initialize a wallet with the command-line client (this will _not_ persist anything to your filesystem):
 
-    textile wallet init
+    textile wallet create
 
-This will output something like,
+This will output something like:
 
     --------------------------------------------------------------------------------
     | field speak xxx xxxxxxx xxxxxxx xxxxxxx xxxxx xxxxxxx xxxx xxxx xxxxxx xxxxx |
@@ -64,6 +64,7 @@ This will output something like,
 You may optionally specify a word count and password that will be required along with your mnemonic phrase when accessing the wallet's account keys (run with `--help` for usage).
 
 !!! info
+
     Every key "inside" an HD wallet can be derived from this mnemonic phrase. Effectively, the wallet _is_ the mnemonic phrase.
 
 The output contains information about the wallet's first account, or the keys at _index 0_. _Account seeds_ (private keys) always starts with an "S" for "secret" and _account addresses_ (public keys) always start with a "P" for "public".
@@ -89,42 +90,13 @@ See `textile wallet accounts --help` for more.
 
 Next, use an account seed from your wallet to initialize a new account peer. Here, we just grab the account seed from the first account above:
 
-    textile init --seed="SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    textile init "SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 !!! danger
+
     Use your own seed. Never share it or your wallet mnemonic phrase with anyone!
 
-There are a dozen or so additional options that are available when initializing. `textile init --help`:
-
-    usage: textile init --seed=SEED [<flags>]
-
-    Initialize the node repository and exit
-
-    Flags:
-      --help                     Show context-sensitive help (also try --help-long and --help-man).
-      --api="http://127.0.0.1:40600"
-                                 API Address to use
-      --api-version="v0"         API version to use
-      --debug                    Set the logging level to debug
-    -s, --seed=SEED                Account seed (run 'wallet' command to generate new seeds)
-    -p, --pin-code=PIN-CODE        Specify a pin code for datastore encryption
-    -r, --repo-dir=REPO-DIR        Specify a custom repository path
-      --server                   Apply IPFS server profile
-      --swarm-ports=SWARM-PORTS  Set the swarm ports (TCP,WS). A random TCP port is chosen by default
-      --log-files                If true, writes logs to rolling files, if false, writes logs to stdout
-      --api-bind-addr="127.0.0.1:40600"
-                                 Set the local API address
-      --cafe-bind-addr="0.0.0.0:40601"
-                                 Set the cafe REST API address
-      --gateway-bind-addr="127.0.0.1:5050"
-                                 Set the IPFS gateway address
-      --profile-bind-addr="127.0.0.1:6060"
-                                 Set the profiling address
-      --cafe-open                Open the p2p cafe service for other peers
-      --cafe-url=CAFE-URL        Specify a custom URL of this cafe, e.g., https://mycafe.com
-      --cafe-neighbor-url=CAFE-NEIGHBOR-URL
-                                 Specify the URL of a secondary cafe. Must return cafe info, e.g., via a Gateway:
-                                 https://my-gateway.yolo.com/cafe, or a cafe API: https://my-cafe.yolo.com
+There are a dozen or so additional options that are available when initializing, you can find them all via `textile init --help`.
 
 Anyone familiar with IPFS will recognize the similarities with these steps. Much like `ipfs init`, `textile init` creates an IPFS node repository on disk.
 
@@ -134,9 +106,7 @@ Anyone can run a cafe peer and offer services to the network. You do not need to
 
 [Cafe peers](/concepts/cafes) are initialized by adding some additional flags to `textile init`:
 
-```
-textile init --seed="SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" --server --cafe-open
-```
+    textile init <account-seed> --server --cafe-open
 
 **`--server`:** This flag applies the [IPFS server profile](https://github.com/ipfs/go-ipfs-config/blob/master/profile.go#L49) and is highly recommended for cafe peers.
 
@@ -145,6 +115,7 @@ textile init --seed="SSkyezjxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" --server 
 **`--cafe-url`:** Optional, `http://<SWARM_IP>:40601` by default. Set this value if your peer is behind a DNS-based load balancer and/or requires HTTPS. For example, [Textile's federated cafes](https://github.com/textileio/textile-opts#network) run behind EC2 load balancers with HTTPS listeners, which route traffic to the cafe API port (`--cafe-bind-addr`). See [`Cafe.CafeHost.URL`](/develop/peer-config-file/#cafecafehosturl) for details on how the default value of `SWARM_IP` is determined.
 
 !!! info
+
     Cafe service clients are issued JWT sessions used for authentication. These sessions contain the public URL of the cafe peer's service API so that it can be leveraged over HTTP.
 
 Later, when the peer is started, it's service info will be visible at the cafe URL, e.g., [https://us-west-1c.textile.cafe](https://us-west-1c.textile.cafe).
@@ -191,6 +162,7 @@ The docker images have internal logic that will fist initialize a peer if needed
 You may need to include `-e CAFE_HOST_URL="https://mycafe.com"` or similar if the cafe peer will behind a DNS-based load balancer or required HTTPS. See the [init section](/install/the-daemon/#initialize-a-cafe-peer) above for more.
 
 !!! success
+
     At last, your Textile peer is online. Now you're ready to start the [tour](/a-tour-of-textile)!
 
 <br>

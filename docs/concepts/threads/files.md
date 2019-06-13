@@ -13,7 +13,7 @@ To illustrate these functions, take a look at the builtin [_media_](#media) sche
 
 In addition to the transformed bytes, a mill will produce a file _metadata_ object for every input:
 
-```
+``` go
 message FileMeta {
     string mill                     = 1;  // Mill used to process the file (e.g., `/image/resize`, `/json`)
     string checksum                 = 2;  // Pre-milled (md5) checksum of the input file
@@ -43,6 +43,7 @@ Also, each link (`large`, `small`, etc.) will _always_ have the special `meta` a
 Below is a JSON representation of file indexes from a single image corresponding to say, file `0` above.
 
 ???+ example
+
     ```JSON
     {
         "links": {
@@ -141,6 +142,7 @@ There are several "preset" or builtin schemas, available for use from client lib
 > Used for posting media intended for sharing
 
 ???+ example
+
     ```JSON
     {
       "name": "media",
@@ -180,6 +182,7 @@ There are several "preset" or builtin schemas, available for use from client lib
 > Used for backing up a mobile phone camera roll
 
 ???+ example
+
     ```JSON
     {
       "name": "camera_roll",
@@ -211,6 +214,7 @@ There are several "preset" or builtin schemas, available for use from client lib
 > Used by the internal account thread for user avatar images
 
 ???+ example
+
     ```JSON
     {
       "name": "avatar",
@@ -245,12 +249,13 @@ There are several "preset" or builtin schemas, available for use from client lib
 JSON-based schemas are defined using the `json_schema` property:
 
 ???+ example
+
     ```JSON
     {
         "pin": true,
         "plaintext": true,
         "mill": "/json",
-        "json_schema": ...
+        "json_schema": /* ... */
     }
     ```
 
@@ -263,6 +268,7 @@ Simply embed your [JSON Schema](https://json-schema.org/) within the thread sche
 > The "Person" example from http://json-schema.org/learn/miscellaneous-examples.html
 
 ???+ example
+
     ```JSON
     {
       "pin": true,
@@ -296,6 +302,7 @@ Simply embed your [JSON Schema](https://json-schema.org/) within the thread sche
 > BSD syslog protocol (https://tools.ietf.org/html/rfc3164)
 
 ???+ example
+
     ```JSON
     {
       "pin": true,
@@ -353,6 +360,7 @@ A schema for tracking JSON document modifications can be built with the [JSON Pa
 The JSON schema store provides [one solution](http://json.schemastore.org/json-patch):
 
 ???+ example
+
     ```JSON
     {
       "pin": true,
@@ -447,6 +455,7 @@ The JSON schema store provides [one solution](http://json.schemastore.org/json-p
 > A [stream of forecasts from Dark Sky weather data](https://twitter.com/sanderpick/status/1068279840946585600)
 
 ???+ example
+
     ```JSON
     {
       "pin": true,
@@ -725,6 +734,7 @@ type Mill interface {
 ```
 
 !!! hint
+
     We have planned support for audio and video mills. Let us know if there are other mill types you need, e.g., PDF, XML, etc.
 
 <br>

@@ -48,36 +48,36 @@ The app posting new photos to this thread doesn't need to handle sampling raw im
 
 ```json
 {
-  "name": "camera_roll",
-  "pin": true,
-  "links": {
-    "raw": {
-      "use": ":file",
-      "mill": "/blob"
-    },
-    "exif": {
-      "use": "raw",
-      "mill": "/image/exif"
-    },
-    "thumb": {
-      "use": "raw",
-      "pin": true,
-      "mill": "/image/resize",
-      "opts": {
-        "width": "320",
-        "quality": "80"
-      }
+    "name": "camera_roll",
+    "pin": true,
+    "links": {
+        "raw": {
+            "use": ":file",
+            "mill": "/blob"
+        },
+        "exif": {
+            "use": "raw",
+            "mill": "/image/exif"
+        },
+        "thumb": {
+            "use": "raw",
+            "pin": true,
+            "mill": "/image/resize",
+            "opts": {
+                "width": "320",
+                "quality": "80"
+            }
+        }
     }
-  }
 }
 ```
 
 Here are the major ideas of the schema and how to think about them in your app.
 
-- Input photos will be transformed into 3 files: Raw, EXIF metadata, and thumbnail.
-- Thumbnails will be pinned locally for fast lookup.
-- Raw files will keep the input resolution.
-- Thumbnails will be max 320px wide and have JPEG quality reduction to save storage space.
+-   Input photos will be transformed into 3 files: Raw, EXIF metadata, and thumbnail.
+-   Thumbnails will be pinned locally for fast lookup.
+-   Raw files will keep the input resolution.
+-   Thumbnails will be max 320px wide and have JPEG quality reduction to save storage space.
 
 #### Sharable images
 
@@ -111,35 +111,35 @@ Like the CameraRoll thread types, Media thread types contain a local file mill t
 
 ```json
 {
-  "name": "media",
-  "pin": true,
-  "links": {
-    "large": {
-      "use": ":file",
-      "mill": "/image/resize",
-      "opts": {
-        "width": "800",
-        "quality": "80"
-      }
-    },
-    "small": {
-      "use": ":file",
-      "mill": "/image/resize",
-      "opts": {
-        "width": "320",
-        "quality": "80"
-      }
-    },
-    "thumb": {
-      "use": "large",
-      "pin": true,
-      "mill": "/image/resize",
-      "opts": {
-        "width": "100",
-        "quality": "80"
-      }
+    "name": "media",
+    "pin": true,
+    "links": {
+        "large": {
+            "use": ":file",
+            "mill": "/image/resize",
+            "opts": {
+                "width": "800",
+                "quality": "80"
+            }
+        },
+        "small": {
+            "use": ":file",
+            "mill": "/image/resize",
+            "opts": {
+                "width": "320",
+                "quality": "80"
+            }
+        },
+        "thumb": {
+            "use": "large",
+            "pin": true,
+            "mill": "/image/resize",
+            "opts": {
+                "width": "100",
+                "quality": "80"
+            }
+        }
     }
-  }
 }
 ```
 

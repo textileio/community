@@ -2,7 +2,7 @@ A JSON config file (`<repo-dir>/textile`) is used to control various peer settin
 
 The JSON config is marshaled from the Go [type definition](https://github.com/textileio/go-textile/blob/master/repo/config/init.go):
 
-```
+``` go
 type Config struct {
 	Account   Account   // local node's account (public info only)
 	Addresses Addresses // local node's addresses
@@ -18,13 +18,14 @@ type Config struct {
 These settings can be modified via the [command-line](/develop/clients/command-line) `config` command. For example, to allow CORS from all origins:
 
 ???+ example
+
     ```
     textile config API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
     ```
 
 ## `Account`
 
-```
+``` go
 // Account store public account info
 type Account struct {
 	Address string // public key (seed is stored in the _possibly_ encrypted datastore)
@@ -46,7 +47,7 @@ Address is the account-wide public key derived from a [wallet](/concepts/the-wal
 
 ## `Addresses`
 
-```
+``` go
 // Addresses stores the (string) bind addresses for the node.
 type Addresses struct {
 	API       string // bind address of the local REST API
@@ -64,7 +65,7 @@ This API is used to control the daemon through the command line (or via curl or 
 
 ### `Addresses.CafeAPI`
 
-Normally, only a designated *cafe* peer would enable this API, though any peer may operate as a cafe if desired. See the [cafes](/concepts/cafes) overview for more.
+Normally, only a designated _cafe_ peer would enable this API, though any peer may operate as a cafe if desired. See the [cafes](/concepts/cafes) overview for more.
 
 **Default**: `"127.0.0.1:40601"`
 
@@ -82,7 +83,7 @@ This API is used internally for obtaining memory and CPU profiles from a running
 
 ## `API`
 
-```
+``` go
 // API settings
 type API struct {
 	HTTPHeaders map[string][]string // HTTP headers to return with the API.
@@ -96,7 +97,7 @@ A map of [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Header
 
 **Default**:
 
-```
+``` go
 {
     "Access-Control-Allow-Headers": [
         "Content-Type",
@@ -126,7 +127,7 @@ Maximum file size limit to accept for POST requests in bytes. A zero value indic
 
 ## `Logs`
 
-```
+``` go
 // Logs settings
 type Logs struct {
 	LogToDisk bool // when true, sends all logs to rolling files on disk
@@ -143,7 +144,7 @@ Logs written to disk (`<repo-dir>/logs/textile.log`) can be monitored via `tail 
 
 ## `Threads`
 
-```
+``` go
 // Thread settings
 type Threads struct {
 	Defaults ThreadDefaults // default settings
@@ -152,7 +153,7 @@ type Threads struct {
 
 ### `Threads.Defaults`
 
-```
+``` go
 // ThreadDefaults settings
 type ThreadDefaults struct {
 	ID string // default thread ID for reads/writes
@@ -179,7 +180,7 @@ A boolean indicating whether or not to apply the [IPFS server profile](https://g
 
 ## `Cafe`
 
-```
+``` go
 type Cafe struct {
 	Host   CafeHost
 	Client CafeClient
@@ -192,7 +193,7 @@ The `Cafe` config entry is broken up into two sections, one for controlling how 
 
 ### `Cafe.CafeHost`
 
-```
+``` go
 type CafeHost struct {
 	Open        bool   // When true, other peers can register with this node for cafe services.
 	URL         string // Override the resolved URL of this cafe, useful for load HTTPS and/or load balancers
@@ -233,7 +234,7 @@ Maximum file size limit to accept for POST requests in bytes. A zero value indic
 
 ### `Cafe.CafeClient`
 
-```
+``` go
 // CafeClient settings
 type CafeClient struct {
 	Mobile MobileCafeClient
@@ -242,7 +243,7 @@ type CafeClient struct {
 
 #### `Cafe.CafeClient.MobileCafeClient`
 
-```
+``` go
 // MobileCafeClient settings
 type MobileCafeClient struct {
 	// messages w/ size less than limit will be handled by the p2p cafe service,

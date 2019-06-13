@@ -10,14 +10,17 @@ time as the team learns, listens and refines how we work with the community.
 #### Table Of Contents
 
 [What should I know before I get started?](#what-should-i-know-before-i-get-started)
-  * [Code of Conduct](#code-of-conduct)
+
+-   [Code of Conduct](#code-of-conduct)
 
 [How Can I Contribute?](#how-can-i-contribute)
-  * [Reporting Bugs](#reporting-bugs)
-  * [Suggesting Enhancements](#suggesting-enhancements)
+
+-   [Reporting Bugs](#reporting-bugs)
+-   [Suggesting Enhancements](#suggesting-enhancements)
 
 [Additional Notes](#additional-notes)
-  * [Issue Labels](#issue-labels)
+
+-   [Issue Labels](#issue-labels)
 
 ## What should I know before I get started?
 
@@ -39,16 +42,16 @@ Please report unacceptable behavior to [contact@textile.io](mailto:contact@texti
 
 **Step 3:** Install the Application with `yarn` or `npm i`
 
-
 #### How to Run App
 
 1. cd to the repo
 2. Run Build for either OS
-  * for iOS
-    * run `react-native run-ios`
-  * for Android
-    * Run Genymotion
-    * run `react-native run-android`
+
+-   for iOS
+    -   run `react-native run-ios`
+-   for Android
+    -   Run Genymotion
+    -   run `react-native run-android`
 
 ### Reporting Bugs
 
@@ -75,10 +78,10 @@ Simply create an issue on the [Textile issue tracker](https://github.com/textile
 
 The information we are interested in includes:
 
- - details about your environment - which build, which operating system
- - details about reproducing the issue - what steps to take, what happens, how
-   often it happens
- - other relevant information - log files, screenshots, etc.
+-   details about your environment - which build, which operating system
+-   details about reproducing the issue - what steps to take, what happens, how
+    often it happens
+-   other relevant information - log files, screenshots, etc.
 
 ### Suggesting Enhancements
 
@@ -107,16 +110,16 @@ Enhancement suggestions are tracked as [GitHub issues](https://guides.github.com
 Simply create an issue on the [Textile issue tracker](https://github.com/textileio/textile-mobile/issues)
 and provide the following information:
 
-* **Use a clear and descriptive title** for the issue to identify the
-  suggestion.
-* **Provide a step-by-step description of the suggested enhancement** in as
-  much detail as possible. This additional context helps the maintainers to
-  understand the enhancement from your perspective
-* **Explain why this enhancement would be useful** to Textile users.
-* **Include screenshots and animated GIFs** if relevant to help you demonstrate
-  the steps or point out the part of Textile which the suggestion is
-  related to.
-* **List some other applications where this enhancement exists, if applicable.**
+-   **Use a clear and descriptive title** for the issue to identify the
+    suggestion.
+-   **Provide a step-by-step description of the suggested enhancement** in as
+    much detail as possible. This additional context helps the maintainers to
+    understand the enhancement from your perspective
+-   **Explain why this enhancement would be useful** to Textile users.
+-   **Include screenshots and animated GIFs** if relevant to help you demonstrate
+    the steps or point out the part of Textile which the suggestion is
+    related to.
+-   **List some other applications where this enhancement exists, if applicable.**
 
 ## Additional Notes
 
@@ -125,12 +128,12 @@ and provide the following information:
 This section lists the labels we use to help us track and manage issues and
 pull requests.
 
-| Label name | :mag_right: | Description |
-| --- | --- | --- |
-| `enhancement` | [search](https://github.com/textileio/textile-mobile/labels/enhancement) | Feature requests. |
-| `bug` | [search](https://github.com/textileio/textile-mobile/labels/bug)  | Confirmed bugs or reports that are very likely to be bugs. |
-| `more-information-needed` | [search](https://github.com/textileio/textile-mobile/labels/more-information-needed) | More information needs to be collected about these problems or feature requests (e.g. steps to reproduce). |
-| `reviewer-needs-to-reproduce` | [search](https://github.com/textileio/textile-mobile/labels/reviewer-needs-to-reproduce)  | Likely bugs, but haven't been reliably reproduced by a reviewer. |
-| `stale` | [search](https://github.com/textileio/textile-mobile/labels/stale) | Issues that are inactive and marked to be closed. |
-| `iOS` | [search](https://github.com/textileio/textile-mobile/labels/iOS)  | Issues specific to iOS users. |
-| `Android` | [search](https://github.com/textileio/textile-mobile/labels/Android)  | Issues specific to Android users. |
+| Label name                    | :mag_right:                                                                              | Description                                                                                                |
+| ----------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `enhancement`                 | [search](https://github.com/textileio/textile-mobile/labels/enhancement)                 | Feature requests.                                                                                          |
+| `bug`                         | [search](https://github.com/textileio/textile-mobile/labels/bug)                         | Confirmed bugs or reports that are very likely to be bugs.                                                 |
+| `more-information-needed`     | [search](https://github.com/textileio/textile-mobile/labels/more-information-needed)     | More information needs to be collected about these problems or feature requests (e.g. steps to reproduce). |
+| `reviewer-needs-to-reproduce` | [search](https://github.com/textileio/textile-mobile/labels/reviewer-needs-to-reproduce) | Likely bugs, but haven't been reliably reproduced by a reviewer.                                           |
+| `stale`                       | [search](https://github.com/textileio/textile-mobile/labels/stale)                       | Issues that are inactive and marked to be closed.                                                          |
+| `iOS`                         | [search](https://github.com/textileio/textile-mobile/labels/iOS)                         | Issues specific to iOS users.                                                                              |
+| `Android`                     | [search](https://github.com/textileio/textile-mobile/labels/Android)                     | Issues specific to Android users.                                                                          |

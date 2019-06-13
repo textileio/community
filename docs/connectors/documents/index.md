@@ -130,7 +130,6 @@ If your app requires fully private notes, remove this option, or set it to `fals
 
 Here, let's look at how a Slate document can be converted into JSON and stored in our thread.
 
-
 ```JavaScript tab="JS HTTP"
 {{connectors.documents.add_slate_note.js_http_client.code}}
 ```

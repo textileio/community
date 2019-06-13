@@ -1,6 +1,6 @@
 # Project information
-site_name: 'Textile Documentation'
-site_description: 'Encrypted, recoverable, schema-based, cross-application data storage built on IPFS and LibP2P.'
+site_name: "Textile Documentation"
+site_description: "Encrypted, recoverable, schema-based, cross-application data storage built on IPFS and LibP2P."
 site_author: textile.io
 site_url: https://docs.textile.io/
 
@@ -9,7 +9,7 @@ repo_name: textileio/docs
 repo_url: https://github.com/textileio/docs
 
 # Copyright
-copyright: '&copy; Textile'
+copyright: "&copy; Textile"
 
 # Configuration
 theme:
@@ -76,6 +76,10 @@ markdown_extensions:
 # Page tree
 nav:
   - Welcome!: index.md
+  - Install:
+      - The Daemon: install/the-daemon.md
+      - Desktop: install/desktop.md
+      - Apps: install/apps.md
   - A Tour of Textile: a-tour-of-textile.md
   - Concepts:
       - Introduction: concepts/index.md
@@ -90,10 +94,6 @@ nav:
       - Introduction: connectors/index.md
       - Images & Media: connectors/images/index.md
       - Documents: connectors/documents/index.md
-  - Install:
-      - The Daemon: install/the-daemon.md
-      - Desktop: install/desktop.md
-      - Apps: install/apps.md
   - Develop:
       - Clients:
           - Command-line: develop/clients/command-line.md

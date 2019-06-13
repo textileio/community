@@ -1,11 +1,13 @@
 !!! Warning
-    The desktop tray is very new and should be considered unstable until further notice.
+
+The desktop tray is very new and should be considered unstable until further notice.
 
 Textile provides a "tray" (or taskbar) application, which can manage one or more account peers for your laptop or desktop. Using a [client library](/clients), other desktop or web applications can be quickly built on top of the running peer's localhost HTTP API.
 
 The tray will soon ship with [Photos Desktop](https://github.com/textileio/photos-desktop) pre-installed, as the first "app". Please [contact us](mailto:contact@textile.io) if you'd like to learn more about developing against Textile Desktop.
 
 !!! Tip
+
     The tray can be paired with your other account peers running on your other devices. After the initial pairing, your threads will auto-magically stay in sync.
 
 ## Install
@@ -14,9 +16,7 @@ Download and extract the [latest release](https://github.com/textileio/desktop/r
 
 ### macOS and Linux:
 
-```
-tar xvfz Textile_$VERSION_$OS-$ARCH.tar.gz
-```
+    tar xvfz Textile_$VERSION_$OS-$ARCH.tar.gz
 
 Move `Textile` into your application folder.
 
@@ -51,6 +51,7 @@ Lastly, registering your peer with an always-online cafe is highly recommended. 
 Click "Messages" to manually query your cafe(s) for new messages that may have been received from others when your peer was offline or otherwise unreachable. This is also automatically done on an interval.
 
 !!! success
+
     You're up and running with the desktop tray! Now you're ready to start the [tour](/a-tour-of-textile)!
 
 <br>

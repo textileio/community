@@ -18,6 +18,7 @@ The rest of this document assumes that you are somewhat familiar with the follow
 If you're using the command-line or JavaScript HTTP client, make sure your local [daemon](/install/the-daemon) is running.
 
 !!! Info
+
     Peer-to-peer (p2p) slang is notoriously confusing. Throughout these docs, we often use the words "peer" and "node". Generally speaking, they are interchangeable. However, a network _node_ refers to the actual connection point that sends and receives data. On a p2p network like IPFS, all nodes are also _peers_. The network is like a "homogeneous solution" of particles (nodes). Mother Nature gets it!
 
 #### Connecting your client
@@ -73,6 +74,7 @@ Now, with Textile ready, take a look at your peer profile:
 ```
 
 ???+ success
+
     ```JSON
     {
         "id": "12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay",
@@ -86,10 +88,16 @@ Now, with Textile ready, take a look at your peer profile:
 - `address`: Your wallet account's address (public key), which can be shared with other account peers
 
 !!! hint
+
     Addresses always start with a "P" for "public". Account _seeds_ (private keys) always start with an "S" for "secret", which should help you remember which one to keep secret.
 
 !!! info
+
     Textile uses an [ed25519](https://ed25519.cr.yp.to/) [HD wallet](https://en.bitcoinwiki.org/wiki/Deterministic_wallet) and IPFS peer IDs because they provide fast key generation, signing, and verification. These properties become important on less powerful devices like phones.
+
+!!! tip
+
+    If you got a `connection refused` error, be sure that your [textile daemon](/install/the-daemon) is running.
 
 #### Set a display name
 
@@ -120,6 +128,7 @@ You can set a display name for your peer. Interacting with other users is a lot 
 ```
 
 ??? success
+
     ```
     ok
     ```
@@ -153,6 +162,7 @@ Similarly, you can assign your peer a publicly visible avatar image:
 ```
 
 ??? success
+
     ```
     ok
     ```
@@ -186,6 +196,7 @@ Take another look at your peer profile and see what happened:
 ```
 
 ???+ success
+
     ```JSON
     {
         "id": "12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay",
@@ -234,6 +245,7 @@ Take a look at your account:
 ```
 
 ???+ success
+
     ```JSON
     {
         "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
@@ -283,6 +295,7 @@ Of course, your account seed (private key) is not included in the public-facing 
 ```
 
 ???+ success
+
     ```
     SXdGtLsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     ```
@@ -292,6 +305,7 @@ Of course, your account seed (private key) is not included in the public-facing 
 Periodically, your local peer will search the network for other peers that are part of the same account ([account peers](/concepts/#account-peers)). Technically, your local peer will search for thread [_snapshots_](/concepts/threads#snapshots) created by any peer with your account address. If it finds any, the snapshots are decrypted and traversed like normal thread updates, keeping all your peers in sync.
 
 !!! hint
+
     A thread [_snapshot_](/concepts/threads#snapshots) is an encrypted object containing metadata and a reference to the latest update block, from which all others can be found. A snapshot may be stored at rest on a cafe peer or constructed dynamically for an account peer.
 
 You can also manually run account sync:
@@ -321,6 +335,7 @@ You can also manually run account sync:
 ```
 
 ???+ success
+
     ```
     No snapshots were found
     ```
@@ -336,6 +351,7 @@ As we saw above in the accounts section, your peer has a [contact](/concepts/con
 In addition to your "self" contact, you can search for and add contacts to your local "address book".
 
 !!! info
+
     Search is handled by a publish-subscribe mechanism, where participants across the entire network stream results directly to the requester. In many cases, the search responders are cafe peers, serving indexes for their clients, but normal account peers can also participate in search.
 
 Try searching for "Andrew":
@@ -365,6 +381,7 @@ Try searching for "Andrew":
 ```
 
 ??? success
+
     ```JSON
     {
         "id": "P8FxdgZ1rWxaQ4DrmMBADuYTz4XGpQeThJYxfL2X4WN89hP8",
@@ -375,7 +392,7 @@ Try searching for "Andrew":
             "name": "devandrewwww",
             "avatar": "QmQwmPninpCRdkAhbPwKaf7hAUwkTb2wiwupcgnsMp5yW5",
             "peers": [
-                ...
+                /* ... */
             ]
         }
     }
@@ -388,13 +405,11 @@ Try searching for "Andrew":
             "name": "andrew knees and toes, knees and toes",
             "avatar": "QmRLnTHdvg4rAh1AKJaHydAZ42sgygLNdvvA7aMwaRY5SK",
             "peers": [
-                ...
+                /* ... */
             ]
         }
     }
-    ...
-    ...
-    ...
+    /* ... */
     ```
 
 With any luck, you should see a bunch of results. You can also search for a single account by its address:
@@ -424,6 +439,7 @@ With any luck, you should see a bunch of results. You can also search for a sing
 ```
 
 ??? success
+
     ```JSON
     {
         "id": "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG",
@@ -434,7 +450,7 @@ With any luck, you should see a bunch of results. You can also search for a sing
             "name": "andrew knees and toes, knees and toes",
             "avatar": "QmRLnTHdvg4rAh1AKJaHydAZ42sgygLNdvvA7aMwaRY5SK",
             "peers": [
-                ...
+                /* ... */
             ]
         }
     }
@@ -471,6 +487,7 @@ Try adding one of the contacts from above by address:
 ```
 
 ??? success
+
     ```
     Add 1 contact? [y/n]: y
     added P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG
@@ -505,6 +522,7 @@ We can now see the added contact contact in our "address book":
 ```
 
 ??? success
+
     ```JSON
     {
         "items": [
@@ -513,7 +531,7 @@ We can now see the added contact contact in our "address book":
                 "avatar": "QmRLnTHdvg4rAh1AKJaHydAZ42sgygLNdvvA7aMwaRY5SK",
                 "name": "andrew knees and toes, knees and toes",
                 "peers": [
-                    ...
+                    /* ... */
                 ]
             }
         ]
@@ -549,6 +567,7 @@ Removing contacts is done by address:
 ```
 
 ??? success
+
     ```
     ok
     ```
@@ -584,6 +603,7 @@ Let's ping one of Textile's federated cafes:
 ```
 
 ??? success
+
     ```
     online
     ```
@@ -616,6 +636,7 @@ shared      --> initiator: Y, whitelist: Y`
 Check out the comprehensive [threads overview](/concepts/threads) for more about how threads work.
 
 !!! info
+
     Access control will be moving to a more familiar, _roll-based_ design in a future release. See [this GitHub issue](https://github.com/textileio/go-textile/issues/694) for more.
 
 #### Create a basic thread
@@ -647,6 +668,7 @@ Create a thread and give it the name, "Basic". Note that thread names are _not_ 
 ```
 
 ??? success
+
     ```JSON
     {
         "block_count": 1,
@@ -706,6 +728,7 @@ Any thread can take a plain old text message. Later, we'll use these with an int
 ```
 
 ??? success
+
     ```JSON
     {
         "block": "QmZPWbydtcuZLtbd6cqrLuGSEzSs2C9P1f5nH3Ycu41UfS",
@@ -762,6 +785,7 @@ We can create a thread with this schema using the `--blob` flag:
 ```
 
 ??? success
+
     ```JSON
     {
         "block_count": 1,
@@ -799,6 +823,7 @@ We can create a thread with this schema using the `--blob` flag:
 Check out the other built-in schemas [here](/concepts/threads/files#built-in-schemas).
 
 !!! hint
+
     Any data added to a thread ends up as a [_file_](/concepts/threads/files), regardless of whether or not the source data was an actual file. For example, echoing a string into a thread results in a "file" containing that string.
 
 Let's add some data. Be sure to use your own thread ID.
@@ -827,35 +852,56 @@ Let's add some data. Be sure to use your own thread ID.
 {{files.add.android.code}}
 ```
 
-??? success
-    ```
-    File target: QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5
-    Added 1 file in 613.175326ms
+???+ success
+
+    ``` json
+    {
+        "block": "<block-id>",
+        "target": "<block-target>",
+        "date": "2019-06-11T06:44:05.535163Z",
+        "user": {
+            "address": "<peer-address>",
+            "name": "<peer-name>",
+            "avatar": "<peer-avatar>"
+        },
+        "files": [
+            {
+                "file": {
+                    "mill": "/blob",
+                    "checksum": "xxx",
+                    "source": "<source-ipfs-hash>",
+                    "opts": "xxx",
+                    "hash": "<result-ipfs-hash>",
+                    "key": "<encryption-key-for-result>",
+                    "media": "text/plain; charset=utf-8",
+                    "name": "stdin",
+                    "size": "14",
+                    "added": "2019-06-06T02:13:00.620280Z",
+                    "meta": {
+                        },
+                    "targets": [
+                        "<block-target>"
+                    ]
+                }
+            }
+        ],
+        "comments": [
+        ],
+        "likes": [
+        ],
+        "threads": [
+            "<thread-id>"
+        ]
+    }
     ```
 
-What just happened? The peer created a new DAG node for the input as defined by the schema. Every schema step adds a child node with two links:
+What just happened? The peer created a new DAG node (a textile block) for the input as defined by the schema. Every schema step adds a child node with two links:
 
 ![The `target` shown in the output is the root hash of the DAG.](/images/blob.png){: .center}
 
-- `meta`: A JSON object containing metadata about the input and how it was processed. Some of the values are used for de-duplicating encrypted data. Here's the value of `meta` in the node we just created:
+- `meta`: A JSON object containing metadata about the input and how it was processed. Which is the success output of the previosu command.
 
-```JSON
-{
-    "mill": "/blob",
-    "checksum": "EPBRa7eDzgoXyvDXqRYuXLkRoZqMizZ4R8QkZyF8n9DP",
-    "source": "EPBRa7eDzgoXyvDXqRYuXLkRoZqMizZ4R8QkZyF8n9DP",
-    "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
-    "hash": "QmTwQWfkR343HHxhdhTX7er6eHnYkgej7GNNsmbS6eZCyQ",
-    "key": "QQ3QUdkJ2LCH4ycDjEMHQVHkhnMRiZhkncMCN1i4pbYSXD1heeq2DuNrdm3F",
-    "media": "text/plain; charset=utf-8",
-    "name": "stdin",
-    "size": "14",
-    "added": "2019-04-20T22:46:19.976891Z",
-    "meta": {}
-}
-```
-
-- `content`: The output data of the schema step. Again, for our current example, this is just a passthrough (output is input).
+- `content`: The content of the file that was added, in the above command output, this is at `.files[0].hash`, and can be fetched via `textile file get <hash> --content`, or via `textile file block get <block-id> --content`.
 
 The [_files_](/concepts/threads/files) guide covers these concepts in more detail.
 
@@ -886,6 +932,7 @@ Unless a schema step specifies `"plaintext": true`, the value of `meta` and `con
 ```
 
 ???+ success
+
     ```JSON
     {
         "files": {
@@ -896,7 +943,7 @@ Unless a schema step specifies `"plaintext": true`, the value of `meta` and `con
 
 The output gives us the key for the node at index `0`. There's only one key because this target node only contains one file.
 
-To add an actual file or directory, just specify a path, e.g, `textile files add "path/to/something" --thread="..."`.
+To add an actual file or directory, just specify a path, e.g, `textile files add <thread> "path/to/something"`.
 
 Let's try adding the _same_ data again:
 
@@ -925,14 +972,52 @@ Let's try adding the _same_ data again:
 ```
 
 ??? success
-    ```
-    File target: QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5
-    Added 1 file in 138.218899ms
+
+    ``` json
+    {
+        "block": "<block-id>",
+        "target": "<block-target>",
+        "date": "2019-06-11T06:44:05.535163Z",
+        "user": {
+            "address": "<peer-address>",
+            "name": "<peer-name>",
+            "avatar": "<peer-avatar>"
+        },
+        "files": [
+            {
+                "file": {
+                    "mill": "/blob",
+                    "checksum": "xxx",
+                    "source": "<source-ipfs-hash>",
+                    "opts": "xxx",
+                    "hash": "<result-ipfs-hash>",
+                    "key": "<encryption-key-for-result>",
+                    "media": "text/plain; charset=utf-8",
+                    "name": "stdin",
+                    "size": "14",
+                    "added": "2019-06-06T02:13:00.620280Z",
+                    "meta": {
+                        },
+                    "targets": [
+                        "<block-target>"
+                    ]
+                }
+            }
+        ],
+        "comments": [
+        ],
+        "likes": [
+        ],
+        "threads": [
+            "<thread-id>"
+        ]
+    }
     ```
 
 Notice that the file target **did not change**. The peer was able to reuse the node from the prior addition because it detected that the same data was added via the same schema. This means that the input was _not_ duplicated on the peer, even though it was encrypted non-deterministically.
 
 !!! info
+
     Good encryption is always non-deterministic, which means that re-encrypting the same input will always result in a _different_ output.
 
 #### Make a photo album
@@ -966,29 +1051,16 @@ Let's create an _open_ and _shared_ thread for dog photos with the _media_ schem
 ```
 
 ??? success
-    ```JSON
+
+    ``` json
     {
         "block_count": 1,
-        "head": "QmR3nzxS5sSv3aasqZZFmAip1okF2YSmwSuzjNcvR7Erus",
-        "head_block": {
-            "author": "12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay",
-            "date": "2019-04-22T21:24:27.133890Z",
-            "id": "QmR3nzxS5sSv3aasqZZFmAip1okF2YSmwSuzjNcvR7Erus",
-            "parents": [],
-            "thread": "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq",
-            "type": "JOIN",
-            "user": {
-                "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
-                "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5",
-                "name": "Clyde"
-            }
-        },
-        "id": "12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq",
-        "initiator": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
-        "key": "1KEsojQy4DW9t2rqqhP6len4fA0",
+        "id": "<thread-id>",
+        "initiator": "<peer-id>",
+        "key": "xxx",
         "name": "Dogs",
         "peer_count": 1,
-        "schema": "QmeVa8vUbyjHaYaeki8RZRshsn3JeYGi8QCnLCWXh6euEh",
+        "schema": "<schema-ipfs-hash>",
         "schema_node": {
             "links": {
                 "large": {
@@ -1021,7 +1093,7 @@ Let's create an _open_ and _shared_ thread for dog photos with the _media_ schem
             "pin": true
         },
         "sharing": "SHARED",
-        "sk": "CAESQBF...",
+        "sk": "xxx",
         "state": "LOADED",
         "type": "OPEN",
         "whitelist": []
@@ -1059,14 +1131,94 @@ Try adding the image above to your dogs thread:
 ```
 
 ??? success
-    ```
-    File target: QmT9Rj1wHosh1hL2kjVxm6RWtK3ZTSjb6b69qwdztVTkLR
-    Added 1 file in 5.978401883s
+
+    ``` json
+    {
+        "block": "<block-id>",
+        "target": "<block-target>",
+        "date": "2019-06-12T12:48:50.548068Z",
+        "user": {
+          "address": "<peer-id>",
+          "name": "<peer-name>",
+          "avatar": "<peer-avatar>"
+        },
+        "caption": "Dog at work.",
+        "files": [
+          {
+            "links": {
+                "large": {
+                  "mill": "/image/resize",
+                  "checksum": "xxx",
+                  "source": "<source-ipfs-hash>",
+                  "opts": "xxx",
+                  "hash": "<result-ipfs-hash>",
+                  "key": "<encryption-key-for-result>",
+                  "media": "image/jpeg",
+                  "name": "william-milliot-510766-unsplash.jpg",
+                  "size": "106235",
+                  "added": "2019-06-12T12:48:49.990597Z",
+                  "meta": {
+                    "height": 534,
+                    "width": 800
+                  },
+                  "targets": [
+                    "<block-target>"
+                  ]
+                },
+                "small": {
+                  "mill": "/image/resize",
+                  "checksum": "xxx",
+                  "source": "<source-ipfs-hash>",
+                  "opts": "xxx",
+                  "hash": "<result-ipfs-hash>",
+                  "key": "<encryption-key-for-result>",
+                  "media": "image/jpeg",
+                  "name": "william-milliot-510766-unsplash.jpg",
+                  "size": "23789",
+                  "added": "2019-06-12T12:48:47.950855Z",
+                  "meta": {
+                    "height": 214,
+                    "width": 320
+                  },
+                  "targets": [
+                    "<block-target>"
+                  ]
+                },
+                "thumb": {
+                  "mill": "/image/resize",
+                  "checksum": "xxx",
+                  "source": "<source-ipfs-hash>",
+                  "opts": "xxx",
+                  "hash": "<result-ipfs-hash>",
+                  "key": "<encryption-key-for-result>",
+                  "media": "image/jpeg",
+                  "size": "3723",
+                  "added": "2019-06-12T12:48:50.093557Z",
+                  "meta": {
+                    "height": 67,
+                    "width": 100
+                  },
+                  "targets": [
+                    "<block-target>"
+                  ]
+                }
+            }
+          }
+        ],
+        "comments": [
+        ],
+        "likes": [
+        ],
+        "threads": [
+            "<thread-id>"
+        ]
+    }
     ```
 
 The above image is fairly large (~3.5 MB). So, your peer took some time to encode all of the requested sizes.
 
 !!! tip
+
     The `/image/resize` mill can take JPEG, PNG, and GIF images.
 
 Let's a look at the DAG node you just created. There will be three links, as defined by the schema:
@@ -1074,6 +1226,7 @@ Let's a look at the DAG node you just created. There will be three links, as def
 ![A DAG node created by the media schema.](/images/media.png){: .center}
 
 !!! info
+
     Notice that the media schema shown above only has `"pin": true` for the thumb node. In practice, this  means that _if_ you were registered with a cafe peer and were auto-syncing your threads, the other nodes (small and large) would be "released" and only the thumb node would remain stored locally. This functionality is similar to other cloud providers that only store low-res versions of your photos on device, but here you can define the behavior with a schema!
 
 By default, when you specify a directory path with the `files add` command, an update block will be added for each file. However, using the `--group` flag, we can create a single DAG "folder" and add it to the thread with a single update block.
@@ -1140,26 +1293,13 @@ Add a new thread to track your hypothetical runs:
 ```
 
 ??? success
+
     ```JSON
     {
         "block_count": 1,
-        "head": "QmV8HiBrgJvGx4mwVF8G8MDpyaiUcUX9YC52AjAjw3HHuV",
-        "head_block": {
-            "author": "12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay",
-            "date": "2019-04-23T19:29:57.858974Z",
-            "id": "QmV8HiBrgJvGx4mwVF8G8MDpyaiUcUX9YC52AjAjw3HHuV",
-            "parents": [],
-            "thread": "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw",
-            "type": "JOIN",
-            "user": {
-                "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
-                "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5",
-                "name": "Clyde"
-            }
-        },
-        "id": "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw",
-        "initiator": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
-        "key": "1KHU10LWw5Fc7NOcBcykhv085NF",
+        "id": "12D3KooWSfWsCbnC44CWfPSVw1VRJFSjJX567Yw269qqdhHq5CoY",
+        "initiator": "P9fbrHrPyQdtVJkG8MANiyF6W2ctCnyiB6sxA8tbT8zwPZ63",
+        "key": "1MY2NZFWM6kxKzvZGwbSRQPFmpc",
         "name": "My runs",
         "peer_count": 1,
         "schema": "QmeCxmcfiBANhLntPm5ceS6ragTnW4QjXEPednNa7R6o8p",
@@ -1169,16 +1309,16 @@ Add a new thread to track your hypothetical runs:
                 "$schema": "http://json-schema.org/draft-07/schema#",
                 "description": "A geographical coordinate.",
                 "properties": {
-                    "latitude": {
-                        "maximum": 90,
-                        "minimum": -90,
-                        "type": "number"
-                    },
-                    "longitude": {
-                        "maximum": 180,
-                        "minimum": -180,
-                        "type": "number"
-                    }
+                "latitude": {
+                    "maximum": 90,
+                    "minimum": -90,
+                    "type": "number"
+                },
+                "longitude": {
+                    "maximum": 180,
+                    "minimum": -180,
+                    "type": "number"
+                }
                 },
                 "required": [
                     "latitude",
@@ -1191,7 +1331,7 @@ Add a new thread to track your hypothetical runs:
             "name": "location"
         },
         "sharing": "INVITE_ONLY",
-        "sk": "CAESQDl...",
+        "sk": "CAESQBRiIC0dQOC3UgCqHlzO39OaxIib1IxP/BL97Dxs1T+w+lJI59SDqYtjLJthNW8Bro+KCwNthNqdqUz/fPBEzLc=",
         "state": "LOADED",
         "type": "PUBLIC",
         "whitelist": []
@@ -1225,12 +1365,42 @@ Next, add some locations to your thread:
 ```
 
 ??? success
-    ```
-    File target: QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk
-    Added 1 file in 534.774123ms
+
+    ``` json
+    {
+        "block": "QmTw4ZRigDgdpVcXHWfCC78Mk8jVUQHpRXcwVEVLUHPYtZ",
+        "target": "QmX5KGvJyYDKr9xhuTYRY92LWv4U1xNkrPmSYJVycwk9Dd",
+        "date": "2019-06-12T13:48:43.319450Z",
+        "user": {
+            "address": "P9fbrHrPyQdtVJkG8MANiyF6W2ctCnyiB6sxA8tbT8zwPZ63",
+            "name": "Clyde",
+            "avatar": "QmRoJsuGN1UyDT5jHWvBXYDHubMszmVwAsFZmkYiQbeKrM"
+        },
+        "files": [
+            {
+                "file": {
+                "mill": "/json",
+                "checksum": "HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S",
+                "source": "8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ",
+                "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
+                "hash": "QmWYcjZu28GR8p2gnwwUN5UcKAJgJEs1uvMqfwgM67hiKd",
+                "key": "pqrhTw495h5hrvBPrMxBvwDyamJEgEjYK5P99TJj3D3J9STBGCs5h1mM5xZo",
+                "media": "application/json",
+                "size": "43",
+                "added": "2019-06-12T13:48:43.109920Z",
+                "meta": {},
+                "targets": ["QmX5KGvJyYDKr9xhuTYRY92LWv4U1xNkrPmSYJVycwk9Dd"]
+                }
+            }
+        ],
+        "comments": [],
+        "likes": [],
+        "threads": ["12D3KooWSfWsCbnC44CWfPSVw1VRJFSjJX567Yw269qqdhHq5CoY"]
+    }
     ```
 
 !!! info
+
     On Windows, exclude the wrapping single quotes (`'`) on JSON objects when adding to a thread with the command-line client.
 
 Your peer will validate the input against the thread's schema. The input will _also_ be validated against its embedded JSON schema (schemas within schemas!). Try adding a location with latitude great than 90, which is invalid:
@@ -1260,6 +1430,7 @@ Your peer will validate the input against the thread's schema. The input will _a
 ```
 
 ???+ fail
+
     ```
     - latitude: Must be less than or equal to 90/1
     ```
@@ -1269,6 +1440,7 @@ Your peer will validate the input against the thread's schema. The input will _a
 Let's share this thread with another user. It was created with type, "public", meaning that other members will be able to read your updates, but not add new locations. Threads with an "open" type are writable by all members.
 
 !!! info
+
     "Writes" refer to messages and files, whereas "annotations" refer to comments and likes.
 
 For this tour, let's start another peer from a different wallet account. Below is a handy way to [initialize an account peer](/install/the-daemon/#initialize-an-account-peer) for testing. If you are using any of the client libraries for the tour, use the CMD example from your terminal to run your second peer.
@@ -1278,11 +1450,13 @@ For this tour, let's start another peer from a different wallet account. Below i
 ```
 
 ??? success
+
     ```
     Initialized account with address P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
     ```
 
 !!! hint
+
     We used non-default ports so that this peer won't collide with the first one.
 
 Start the daemon in a new terminal:
@@ -1292,6 +1466,7 @@ Start the daemon in a new terminal:
 ```
 
 ??? success
+
     ```
     23 Apr 19 14:02 PDT  P7X3gZu added JOIN update to Y6xBsPwB
     go-textile version: v0.1.12
@@ -1332,6 +1507,7 @@ Now that you have two peers running, invite the new account to your "My runs" th
 ```
 
 ???+ success
+
     ```
     Could not find contact locally, searching network...
     {
@@ -1356,11 +1532,13 @@ Now that you have two peers running, invite the new account to your "My runs" th
     ```
 
 !!! Note
+
     You may have to make a couple attempts to send the invite because your second peer is probably not yet very well connected to the network.
 
 This new account is not an existing contact. So, your peer will ask the network for its contact info. You can confirm that, yes, you'd like to add this account to your local contacts and send it an invite to your thread.
 
 !!! hint
+
     You just created an "account-to-account" invite, which is useful between existing account. "External" invites are useful when you want to invite a friend over another channel like SMS. See `textile invites create --help` for more.
 
 Next, we'll pretend that we are the second account and accept the invite. You should see a [notification](/a-tour-of-textile/#notifications) that you were invited to a thread in the daemon output.
@@ -1376,6 +1554,7 @@ Before you accept, list your pending invites and grab the invite's ID:
 ```
 
 ???+ success
+
     ```JSON
     {
         "items": [
@@ -1396,6 +1575,7 @@ Before you accept, list your pending invites and grab the invite's ID:
 As expected, it looks like Clyde invited us to "My runs". Notice that we had to supply the `--api` flag to tell the command-line client to list invites from the non-default peer API.
 
 !!! tip
+
     You can avoid the need to use the `--api` when interacting with non-default peer APIs by exporting an environment variable, e.g., `export API="http://127.0.0.1:41600"`.
 
 You _could_ ignore the invite with `textile invites ignore`. However, we like Clyde and want to support his running efforts!
@@ -1405,6 +1585,7 @@ You _could_ ignore the invite with `textile invites ignore`. However, we like Cl
 ```
 
 ??? success
+
     ```
     {
         "author": "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV",
@@ -1462,6 +1643,7 @@ Take a closer look at the "My runs" thread using the `blocks ls` command, which 
 ```
 
 ??? success
+
     ```JSON
     {
         "items": [
@@ -1544,6 +1726,7 @@ Using the output from `blocks ls`, add a comment to the one and only `FILES` upd
 ```
 
 ??? success
+
     ```JSON
     {
         "body": "Is this an outlier?",
@@ -1557,6 +1740,7 @@ Using the output from `blocks ls`, add a comment to the one and only `FILES` upd
     ```
 
 !!! tip
+
     If you don't set a display name for your peer, it will fallback to the first bit of your account address.
 
 Remember, this is a "public" type thread, meaning that all members can annotate (comment / like).
@@ -1590,6 +1774,7 @@ Likes are added in a similar fashion:
 ```
 
 ??? success
+
     ```JSON
     {
         "date": "2019-04-23T22:25:06.850779Z",
@@ -1637,6 +1822,7 @@ Create a new thread for chatting with your friend `P7X3gZu`:
 ```
 
 ??? success
+
     ```JSON
     {
         "block_count": 1,
@@ -1696,6 +1882,7 @@ The whitelist ensures the chat remains between the two of us. As before, we need
 ```
 
 ???+ success
+
     ```JSON
     {
         "id": "QmYzhyFhRGX3GBgsLMKoGrQqMWwPFKyPtsGmGbvma63zCf",
@@ -1711,6 +1898,7 @@ The only difference this time was that we didn't specify `--address`. Instead of
 ```
 
 ??? success
+
     ```JSON
     {
         "author": "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV",
@@ -1743,6 +1931,7 @@ Then start the same chat on your second peer:
 ```
 
 !!! tip
+
     Currently, the `chat` command doesn't work with Git Bash on Windows. To open an interactive thread session, run the aforementioned commands in the system shell (`cmd`) or Powershell instead.
 
 ![Clyde having a chat with a friend](/images/chat.png){: .center}
@@ -1780,56 +1969,45 @@ Try listing the files in your "My runs" thread:
 ```
 
 ??? success
-    ```
+
+    ``` json
     {
-        "items": [
-            {
-                "block": "QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84",
-                "target": "QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk",
-                "date": "2019-04-23T20:08:51.686544Z",
+        "items": [{
+            "block": "QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84",
+            "target": "QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk",
+            "date": "2019-04-23T20:08:51.686544Z",
+            "user": {
+                "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
+                "name": "Clyde",
+                "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5"
+            },
+            "files": [{
+                "file": {
+                    "mill": "/json",
+                    "checksum": "HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S",
+                    "source": "8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ",
+                    "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
+                    "hash": "QmQHYPJDQAU8ZaGG8e4iW9bj65mr2T1cwygyfWb6AUaNio",
+                    "key": "AYCbcQf4YDBHr4NE2SnBgZYPfTD5riZgerujv3xFZgZ4RhDP3yZjcMnHSqXp",
+                    "media": "application/json",
+                    "size": "43",
+                    "added": "2019-04-23T20:08:51.294649Z",
+                    "meta": {},
+                    "targets": ["QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk"]
+                }
+            }],
+            "comments": [{
+                "id": "QmNx9j82vWLF6tEeMYWdFMBDJo89yBbMmScseJR4jVtML3",
+                "date": "2019-04-23T22:21:04.253734Z",
                 "user": {
-                    "address": "P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j",
-                    "name": "Clyde",
-                    "avatar": "Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5"
+                    "address": "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs",
+                    "name": "P7X3gZu"
                 },
-                "files": [
-                    {
-                        "file": {
-                            "mill": "/json",
-                            "checksum": "HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S",
-                            "source": "8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ",
-                            "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
-                            "hash": "QmQHYPJDQAU8ZaGG8e4iW9bj65mr2T1cwygyfWb6AUaNio",
-                            "key": "AYCbcQf4YDBHr4NE2SnBgZYPfTD5riZgerujv3xFZgZ4RhDP3yZjcMnHSqXp",
-                            "media": "application/json",
-                            "size": "43",
-                            "added": "2019-04-23T20:08:51.294649Z",
-                            "meta": {
-                                },
-                            "targets": [
-                                "QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk"
-                            ]
-                        }
-                    }
-                ],
-                "comments": [
-                    {
-                        "id": "QmNx9j82vWLF6tEeMYWdFMBDJo89yBbMmScseJR4jVtML3",
-                        "date": "2019-04-23T22:21:04.253734Z",
-                        "user": {
-                            "address": "P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs",
-                            "name": "P7X3gZu"
-                        },
-                        "body": "Is this an outlier?"
-                    }
-                ],
-                "likes": [
-                ],
-                "threads": [
-                    "12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"
-                ]
-            }
-        ]
+                "body": "Is this an outlier?"
+            }],
+            "likes": [],
+            "threads": ["12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw"]
+        }]
     }
     ```
 
@@ -1837,25 +2015,10 @@ You can also list files across all threads by omitting the `--thread` flag.
 
 #### The feed API
 
-The feed API provides a few different modes to drive feed-based UIs. Take a look at the usage text from the command-line client (`textile feed --help`):
+The feed API provides a few different modes to drive feed-based UIs. Take a look at the usage text from the command-line client:
 
-```
-Usage:
-  textile [OPTIONS] feed [feed-OPTIONS]
-
-Paginates post (join|leave|files|message) and annotation (comment|like) block types as a consumable feed.
-The --mode option dictates how the feed is displayed:
-
--  "chrono": All feed block types are shown. Annotations always nest their target post, i.e., the post a comment is about.
--  "annotated": Annotations are nested under post targets, but are not shown in the top-level feed.
--  "stacks": Related blocks are chronologically grouped into "stacks". A new stack is started if an unrelated block
-breaks continuity. This mode is used by Textile Photos. Stacks may include:
-
-*  The initial post with some nested annotations. Newer annotations may have already been listed.
-*  One or more annotations about a post. The newest annotation assumes the "top" position in the stack. Additional
-annotations are nested under the target. Newer annotations may have already been listed in the case as well.
-
-Omit the --thread option to paginate all files.
+``` bash
+textile feed --help
 ```
 
 Give the default `chrono` (for chronological) mode a try:
@@ -1885,6 +2048,7 @@ Give the default `chrono` (for chronological) mode a try:
 ```
 
 ??? success
+
     ```JSON
     {
         "items": [
@@ -2096,14 +2260,44 @@ In another terminal, add a location to the "My runs" thread:
 ```
 
 ??? success
-    ```
-    File target: QmbkqtPBLH83opAAzjLdLszry55p8W4FZbc7HR1a1gbHK4
-    Added 1 file in 533.47ms
+
+    ``` json
+    {
+        "block": "QmTw4ZRigDgdpVcXHWfCC78Mk8jVUQHpRXcwVEVLUHPYtZ",
+        "target": "QmX5KGvJyYDKr9xhuTYRY92LWv4U1xNkrPmSYJVycwk9Dd",
+        "date": "2019-06-12T13:48:43.319450Z",
+        "user": {
+            "address": "P9fbrHrPyQdtVJkG8MANiyF6W2ctCnyiB6sxA8tbT8zwPZ63",
+            "name": "Clyde",
+            "avatar": "QmRoJsuGN1UyDT5jHWvBXYDHubMszmVwAsFZmkYiQbeKrM"
+        },
+        "files": [
+            {
+                "file": {
+                "mill": "/json",
+                "checksum": "HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S",
+                "source": "8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ",
+                "opts": "G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN",
+                "hash": "QmWYcjZu28GR8p2gnwwUN5UcKAJgJEs1uvMqfwgM67hiKd",
+                "key": "pqrhTw495h5hrvBPrMxBvwDyamJEgEjYK5P99TJj3D3J9STBGCs5h1mM5xZo",
+                "media": "application/json",
+                "size": "43",
+                "added": "2019-06-12T13:48:43.109920Z",
+                "meta": {},
+                "targets": ["QmX5KGvJyYDKr9xhuTYRY92LWv4U1xNkrPmSYJVycwk9Dd"]
+                }
+            }
+        ],
+        "comments": [],
+        "likes": [],
+        "threads": ["12D3KooWSfWsCbnC44CWfPSVw1VRJFSjJX567Yw269qqdhHq5CoY"]
+    }
     ```
 
 Your first window will display the update:
 
 ??? success
+
     ```JSON
     {
         "block": "QmaTUfyZGkQn6Wzo2FUSviDhEtE6Ezt5V7ot1tdVNR5gMg",
@@ -2151,10 +2345,11 @@ When you leave a thread, all associated data is deleted from your peer. Addition
 From your second peer, leave the "My runs" thread:
 
 ```tab="cmd"
-{{examples.my_runs.thread_leave.cmd.code}}
+{{examples.my_runs.thread_abandon.cmd.code}}
 ```
 
 ??? success
+
     ```
     ok
     ```
@@ -2192,6 +2387,7 @@ Let's see what kind of notifications your first peer (Clyde) has:
 ```
 
 ???+ success
+
     ```JSON
     {
         "items": [
@@ -2244,6 +2440,7 @@ Notifications have a `read` boolean status that is useful for some applications.
 ```
 
 ??? success
+
     ```
     ok
     ```
@@ -2277,6 +2474,7 @@ Display a summary of your peer's threads, files, and contacts:
 ```
 
 ???+ success
+
     ```JSON
     {
         "id": "12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay",
@@ -2302,6 +2500,7 @@ Take a look at the current log levels:
 ```
 
 ??? success
+
     ```JSON
     {
         "addrutil": "ERROR",
@@ -2390,6 +2589,7 @@ They should all be at their default value of "ERROR". Note that you have access 
 You can alter a peer's log levels even when it's running.
 
 !!! tip
+
     During development, start the daemon with `--debug`. This will set all of the "tex-" log systems to "DEBUG". You can then tail the logs, like: `tail -f "path/to/repo/logs/textile.log"`.
 
 Set all of the "tex-" log systems to "INFO":
@@ -2399,6 +2599,7 @@ Set all of the "tex-" log systems to "INFO":
 ```
 
 ???+ success
+
     ```JSON
     {
         "tex-broadcast": "INFO",
@@ -2436,6 +2637,7 @@ We can view the entire config or a specific value behind any JSON key. Try viewi
 ```
 
 ???+ success
+
     ```JSON
     {
         "API": "127.0.0.1:40600",
@@ -2459,6 +2661,7 @@ Changing values follows the same pattern. We can update our second peer's gatewa
 ```
 
 ???+ success
+
     ```
     Updated! Restart daemon for changes to take effect.
     ```
@@ -2470,6 +2673,7 @@ Restart the daemon (or your `Textile` instance for users of a mobile SDK):
 ```
 
 ??? success
+
     ```
     go-textile version: v0.1.12
     Repo version: 13
@@ -2493,7 +2697,8 @@ const config = await textile.config.get()
 ```
 
 ??? success
-    ```
+
+    ``` json
     {
         "API": {
             "HTTPHeaders": {
@@ -2568,6 +2773,7 @@ textile config "Cafe.Host.Open" true --api="http://127.0.0.1:41600"
 ```
 
 ??? success
+
     ```
     Updated! Restart daemon for changes to take effect.
     ```
@@ -2575,10 +2781,11 @@ textile config "Cafe.Host.Open" true --api="http://127.0.0.1:41600"
 Now, restart the daemon in debug mode:
 
 ```tab="cmd"
-textile daemon --repo-dir="/tmp/buddy" --debug
+textile daemon --repo="/tmp/buddy" --debug
 ```
 
 ??? success
+
     ```
     go-textile version: v0.1.12
     Repo version: 13
@@ -2599,6 +2806,7 @@ Note that `Cafe address: 0.0.0.0:40601` is now shown after restarting the daemon
 In order for clients to register with your cafe, they'll need one of its _client tokens_.
 
 !!! info
+
     Cafe client tokens are generated from cryptographically secure random bytes, salted, hashed, and stored locally. You can think of them as very strong passwords.
 
 Create a token as follows:
@@ -2612,6 +2820,7 @@ Create a token as follows:
 ```
 
 ???+ success
+
     ```
     bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG
     ```
@@ -2629,6 +2838,7 @@ View the cafe's client tokens with the `ls` command:
 ```
 
 ???+ success
+
     ```JSON
     [
         "2ZwjtRaFj6kMxnKm3BLnueqaT3WLXQS3evEZoJ87oZLUMhdNxr4sVKorUWSu3ZHgfBbyU726trkqSnsvLGmiJ8bpv5PEqqSf25f"
@@ -2642,6 +2852,7 @@ The value shown in the list is the salted and hashed token. The plaintext versio
 Cafes perform work for their _clients_, which are account peers. Account peers don't _need_ to be registered with a cafe, but doing so has advantages, like improving discovery of its content and providing an inbox for messages received offline. See the [cafe service](https://docs.textile.io/concepts/cafes/#services) section for more about how cafes assist other peers on the network.
 
 !!! tip
+
     Textile hosts a development cafe that you are free to use for non-production purposes. More details can be found [here](/concepts/cafes#try-one).
 
 #### Register with a cafe
@@ -2657,6 +2868,7 @@ Using the token created above, register with your locally running test cafe:
 ```
 
 ???+ success
+
     ```JSON
     {
         "access": "eyJhbGciOiJFZDI1NTE5IiwidHlwIjoiSldUIn0.eyJzY29wZXMiOiJhY2Nlc3MiLCJhdWQiOiIvdGV4dGlsZS9jYWZlLzEuMC4wIiwiZXhwIjoxNTU4OTk2NDcxLCJqdGkiOiIxS1luQ1doOXRkOU1abjVrdUtIYnJjR0NPRlkiLCJpYXQiOjE1NTY1NzcyNzEsImlzcyI6IjEyRDNLb29XOXlhQUx4eGszMW5uYVBaQjl0emp3eEZ5UFVCcndMdUNYWjNGbkFXZzhWeVYiLCJzdWIiOiIxMkQzS29vV0NNVkxmTVY4dXpZcEZOMzhxbjJlTXM0OHRBdUhkVlpkajNhRjZuZXg2emF5In0.j9N-AGVZhU5-eTSOm6fkZkKVsAeTSrPXjx3BmyZoB4gKG_T2G3g0iSB1n2Bz0ZWEre8gt6xRGA3yL0bMUw-dAw",
@@ -2680,6 +2892,7 @@ Using the token created above, register with your locally running test cafe:
 A new client account associated with the provided token was added to your cafe. Your account peer now has an active cafe _session_ which it can use to make authenticated requests. Cafe sessions are stateless [JWT](https://jwt.io) objects that can expire.
 
 !!! tip
+
     An account peer may be registered with more than one cafe, and account peers do not need to be registered to the same cafe(s). Additionally, peers can easily migrate from one cafe to another, simply be deregistering from one and registering with another.
 
 #### List cafe sessions
@@ -2707,6 +2920,7 @@ You can view your active cafe sessions with the `ls` command:
 ```
 
 ??? success
+
     ```JSON
     {
         "items": [
@@ -2753,6 +2967,7 @@ An account peer will periodically check each of its registered cafes for new mes
 ```
 
 ???+ success
+
     ```
     ok
     ```
@@ -2785,11 +3000,13 @@ You can leave a cafe at any time. Data associated with your client account will 
 
 
 ??? success
+
     ```
     ok
     ```
 
 !!! info
+
     Cafes are _anonymous_ and _disposable_ infrastructure, meaning that you can replace one cafe with another and still participate in the network as before.
 
 ### IPFS
@@ -2809,6 +3026,7 @@ At some point, you will want to view your IPFS peer ID. This is the same ID show
 ```
 
 ???+ success
+
     ```
     12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay
     ```
@@ -2830,6 +3048,7 @@ Your peer is always communicating, or "gossiping", with a changing sub-set of ot
 ```
 
 ??? success
+
     ```JSON
     {
         "Peers": [
@@ -3110,6 +3329,7 @@ Try connecting to one of Textile's federated cafe peers:
 ```
 
 ???+ success
+
     ```JSON
     [
         "connect 12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d success"
@@ -3143,6 +3363,7 @@ Downloading data behind a path is one of the most useful IPFS APIs. For example,
 ```
 
 ???+ success
+
     ![](/images/textile.png)
 
 See the [IPFS doc](https://docs.ipfs.io/reference/api/cli/#ipfs-cat) for more info.
@@ -3152,6 +3373,7 @@ See the [IPFS doc](https://docs.ipfs.io/reference/api/cli/#ipfs-cat) for more in
 All desktop and server peers host an IPFS gateway. Read more and see some examples [here](/develop/ipfs-gateway).
 
 !!! tip "A gateway to the gateways"
+
     Textile hosts a number of federated cafe peers around the globe, each with a public-facing gateway. A latency-based load balancer ties them all together at `https://gateway.textile.cafe`, which you are free to use in your applications.
 
 ![This is a dynamically decrypted image. Gateways will attempt to decrypt data with a key passed as a query parameter. Photo by Jan Tinneberg on Unsplash.](https://gateway.textile.cafe/ipfs/QmQ3Q8sSqgUNuvKm6HXM16cnFk4SX3N2C7tcMEoob6L16c/0/large/content.jpg/?key=2Ra1ACYaEgyQMe8qnETm8aU5T32TKhuudNywtG2nz4QEpRhpQNHsEWqHuUycB){: .center}

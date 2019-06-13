@@ -3,6 +3,7 @@ _Cafe peers_ (or just cafes) are _anonymous_ and _disposable_ infrastructure. Th
 Access to cafe services is granted via JWT-based sessions, and initial registration with a cafe requires an access token. Any peer can operate as a cafe, though they work best for always-on peers. Cafes run an 'extra' network API that handles client and host requests over libp2p or HTTP.
 
 !!! tip
+
     An account peer may be registered with more than one cafe, and account peers do not need to be registered to the same cafe(s). Additionally, peers can easily migrate from one cafe to another, simply be deregistering from one and registering with another.
 
 ## Services
@@ -42,12 +43,13 @@ Cafes are easy to deploy and manage (single executable, Docker). Start [here](/i
 Textile hosts a [development cafe](https://us-west-dev.textile.cafe/) that you are free to use for non-production purposes.
 
 !!! danger
+
     Use the dev cafe at your own risk. Your data may be deleted without notice.
 
 Connection details:
 
-| Peer ID | API | Gateway | Token |
-| --- | --- | --- | --- |
+| Peer ID                                                | API                                                                      | Gateway                                                                           | Token                                                          |
+| ------------------------------------------------------ | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | `12D3KooWGN8VAsPHsHeJtoTbbzsGjs2LTmQZ6wFKvuPich1TYmYY` | [`https://us-west-dev.textile.cafe/`](https://us-west-dev.textile.cafe/) | [`https://us-west-dev.textile.cafe/ipfs`](https://us-west-dev.textile.cafe/ipfs/) | `uggU4NcVGFSPchULpa2zG2NRjw2bFzaiJo3BYAgaFyzCUPRLuAgToE3HXPyo` |
 
 <br>
