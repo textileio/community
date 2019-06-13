@@ -256,6 +256,66 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Install
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Install
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../install/the-daemon/" title="The Daemon" class="md-nav__link">
+      The Daemon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../install/desktop/" title="Desktop" class="md-nav__link">
+      Desktop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../install/apps/" title="Apps" class="md-nav__link">
+      Apps
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item">
     <a href="../../a-tour-of-textile/" title="A Tour of Textile" class="md-nav__link">
       A Tour of Textile
@@ -272,13 +332,13 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Concepts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         Concepts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -329,13 +389,13 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4" checked>
     
-    <label class="md-nav__link" for="nav-3-4">
+    <label class="md-nav__link" for="nav-4-4">
       Threads
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
+      <label class="md-nav__title" for="nav-4-4">
         Threads
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -529,13 +589,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       Connectors
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         Connectors
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -573,66 +633,6 @@
   <li class="md-nav__item">
     <a href="../../connectors/documents/" title="Documents" class="md-nav__link">
       Documents
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      Install
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Install
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../install/the-daemon/" title="The Daemon" class="md-nav__link">
-      The Daemon
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../install/desktop/" title="Desktop" class="md-nav__link">
-      Desktop
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../install/apps/" title="Apps" class="md-nav__link">
-      Apps
     </a>
   </li>
 
@@ -1017,47 +1017,47 @@
 <p>Threads aim to be language and platform agnostic. For this reason, Textile uses <a href="https://developers.google.com/protocol-buffers/">protocol buffers</a> extensively because they are a "language-neutral, platform-neutral, extensible mechanism for serializing structured data".</p>
 </div>
 <h3 id="model">Model<a class="headerlink" href="#model" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>message Thread {
-    string id                 = 1;
-    string key                = 2;
-    bytes sk                  = 3;
-    string name               = 4;
-    string schema             = 5;
-    string initiator          = 6;
-    Type type                 = 7;
-    Sharing sharing           = 8;
-    repeated string whitelist = 9;
-    State state               = 10;
-    string head               = 11;
+<div class="codehilite"><pre><span></span><span class="nx">message</span> <span class="nx">Thread</span> <span class="p">{</span>
+    <span class="kt">string</span> <span class="nx">id</span>                 <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">key</span>                <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">bytes</span> <span class="nx">sk</span>                  <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">name</span>               <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">schema</span>             <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">initiator</span>          <span class="p">=</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="nx">Type</span> <span class="kd">type</span>                 <span class="p">=</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="nx">Sharing</span> <span class="nx">sharing</span>           <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
+    <span class="nx">repeated</span> <span class="kt">string</span> <span class="nx">whitelist</span> <span class="p">=</span> <span class="mi">9</span><span class="p">;</span>
+    <span class="nx">State</span> <span class="nx">state</span>               <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="nx">head</span>               <span class="p">=</span> <span class="mi">11</span><span class="p">;</span>
 
-    // Type controls read (R), annotate (A), and write (W) access
-    enum Type {
-        PRIVATE   = 0; // initiator: RAW, whitelist:
-        READ_ONLY = 1; // initiator: RAW, whitelist: R
-        PUBLIC    = 2; // initiator: RAW, whitelist: RA
-        OPEN      = 3; // initiator: RAW, whitelist: RAW
-    }
+    <span class="c1">// Type controls read (R), annotate (A), and write (W) access</span>
+    <span class="nx">enum</span> <span class="nx">Type</span> <span class="p">{</span>
+        <span class="nx">PRIVATE</span>   <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// initiator: RAW, whitelist:</span>
+        <span class="nx">READ_ONLY</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// initiator: RAW, whitelist: R</span>
+        <span class="nx">PUBLIC</span>    <span class="p">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// initiator: RAW, whitelist: RA</span>
+        <span class="nx">OPEN</span>      <span class="p">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// initiator: RAW, whitelist: RAW</span>
+    <span class="p">}</span>
 
-    // Sharing controls if (Y/N) a thread can be shared
-    enum Sharing {
-        NOT_SHARED  = 0; // initiator: N, whitelist: N
-        INVITE_ONLY = 1; // initiator: Y, whitelist: N
-        SHARED      = 2; // initiator: Y, whitelist: Y
-    }
+    <span class="c1">// Sharing controls if (Y/N) a thread can be shared</span>
+    <span class="nx">enum</span> <span class="nx">Sharing</span> <span class="p">{</span>
+        <span class="nx">NOT_SHARED</span>  <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// initiator: N, whitelist: N</span>
+        <span class="nx">INVITE_ONLY</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// initiator: Y, whitelist: N</span>
+        <span class="nx">SHARED</span>      <span class="p">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// initiator: Y, whitelist: Y</span>
+    <span class="p">}</span>
 
-    // State indicates the loading state
-    enum State {
-        LOADING_TAIL = 0; // tail blocks are being loaded
-        LOADED       = 1; // blocks are all loaded / paused
-        LOADING_HEAD = 2; // head block is being loaded
-    }
+    <span class="c1">// State indicates the loading state</span>
+    <span class="nx">enum</span> <span class="nx">State</span> <span class="p">{</span>
+        <span class="nx">LOADING_TAIL</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// tail blocks are being loaded</span>
+        <span class="nx">LOADED</span>       <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// blocks are all loaded / paused</span>
+        <span class="nx">LOADING_HEAD</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// head block is being loaded</span>
+    <span class="p">}</span>
 
-    // view info
-    Block head_block  = 101;
-    Node schema_node  = 102;
-    int32 block_count = 103;
-    int32 peer_count  = 104;
-}
+    <span class="c1">// view info</span>
+    <span class="nx">Block</span> <span class="nx">head_block</span>  <span class="p">=</span> <span class="mi">101</span><span class="p">;</span>
+    <span class="nx">Node</span> <span class="nx">schema_node</span>  <span class="p">=</span> <span class="mi">102</span><span class="p">;</span>
+    <span class="kt">int32</span> <span class="nx">block_count</span> <span class="p">=</span> <span class="mi">103</span><span class="p">;</span>
+    <span class="kt">int32</span> <span class="nx">peer_count</span>  <span class="p">=</span> <span class="mi">104</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
 <h3 id="orchestration">Orchestration<a class="headerlink" href="#orchestration" title="Permanent link">&para;</a></h3>
@@ -1102,7 +1102,7 @@ shared      --&gt; initiator: Y, whitelist: Y`
 
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Access control will be moving to a more familiar, <em>roll-based</em> design in a future release. See <a href="https://github.com/textileio/go-textile/issues/694">this GitHub issue</a> for more.</p>
+<p>Access control will be moving to a more familiar, <em>role-based</em> design in a future release. See <a href="https://github.com/textileio/go-textile/issues/694">this GitHub issue</a> for more.</p>
 </div>
 <h2 id="blocks">Blocks<a class="headerlink" href="#blocks" title="Permanent link">&para;</a></h2>
 <p>Blocks are the raw components of a thread. Think of them as an append-only log of thread updates where each one is hash-linked to its parent(s), forming a tree. New / recovering peers can sync history by merely traversing the hash tree.</p>

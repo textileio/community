@@ -256,6 +256,66 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Install
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Install
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../install/the-daemon/" title="The Daemon" class="md-nav__link">
+      The Daemon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../install/desktop/" title="Desktop" class="md-nav__link">
+      Desktop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../install/apps/" title="Apps" class="md-nav__link">
+      Apps
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item">
     <a href="../../../a-tour-of-textile/" title="A Tour of Textile" class="md-nav__link">
       A Tour of Textile
@@ -272,13 +332,13 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Concepts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         Concepts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -329,13 +389,13 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4" checked>
     
-    <label class="md-nav__link" for="nav-3-4">
+    <label class="md-nav__link" for="nav-4-4">
       Threads
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
+      <label class="md-nav__title" for="nav-4-4">
         Threads
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -609,13 +669,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       Connectors
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         Connectors
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -653,66 +713,6 @@
   <li class="md-nav__item">
     <a href="../../../connectors/documents/" title="Documents" class="md-nav__link">
       Documents
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      Install
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Install
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../install/the-daemon/" title="The Daemon" class="md-nav__link">
-      The Daemon
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../install/desktop/" title="Desktop" class="md-nav__link">
-      Desktop
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../install/apps/" title="Apps" class="md-nav__link">
-      Apps
     </a>
   </li>
 
@@ -1155,7 +1155,7 @@
                 
                 <p>Any data added to a thread ends up as a <em>file</em>. Most of the time, a <a href="#schemas">schema</a> is used to define one or more types of data in a thread such that other users and applications can understand it. Currently, the following input types are available: Raw data blobs, images, EXIF data, and JSON documents.</p>
 <h2 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h2>
-<p>Thread data is built into an <a href="https://ipld.io/">IPLD</a> merkle DAG structure (similar to a <a href="https://en.wikipedia.org/wiki/Merkle_tree">merkle tree</a>) and stored separately from update <a href="/concepts/threads#blocks">blocks</a> on IPFS. A <code>FILES</code> block points to the top-level hash of a files DAG node.</p>
+<p>Thread data is built into an <a href="https://ipld.io/">IPLD</a> merkle DAG structure (similar to a <a href="https://en.wikipedia.org/wiki/Merkle_tree">merkle tree</a>) and stored separately from update <a href="/concepts/threads#blocks">blocks</a> on IPFS. A <code>FILES</code> block points to the top-level hash of a file's DAG node.</p>
 <p>The structure of files DAG nodes are determined by, and validated against, a <a href="#schemas">schema</a>. <strong>A thread can have only one schema</strong>. It has two main functions:</p>
 <ol>
 <li>Define a Thread's data DAG structure</li>
@@ -1163,20 +1163,20 @@
 </ol>
 <p>To illustrate these functions, take a look at the builtin <a href="#media"><em>media</em></a> schema. Each link (<code>large</code>, <code>small</code>, <code>thumb</code>) produces a resized and encrypted image by leveraging the <a href="#imageresize">image/resize</a> mill. Notice that the <code>thumb</code> link uses the <code>large</code> as input. This means that <code>large</code> will need to milled before <code>thumb</code>. Once you understand how schemas and mills work, you can design complex workflows and structures for your applications.</p>
 <p>In addition to the transformed bytes, a mill will produce a file <em>metadata</em> object for every input:</p>
-<div class="codehilite"><pre><span></span>message FileMeta {
-    string mill                     = 1;  // Mill used to process the file (e.g., `/image/resize`, `/json`)
-    string checksum                 = 2;  // Pre-milled (md5) checksum of the input file
-    string source                   = 3;  // Source file CID
-    string opts                     = 4;  // md5 checksum of input mill options
-    string hash                     = 5;  // CID hash of milled file
-    string key                      = 6;  // AES encryption key
-    string media                    = 7;  // Media type (e.g., `&#39;application/json&#39;`, `&#39;image/jpeg&#39;`)
-    string name                     = 8;  // Name of the input file
-    int64 size                      = 9;  // Size of the milled file in bytes
-    google.protobuf.Timestamp added = 10; // Date the file was added to the thread
-    google.protobuf.Struct meta     = 11; // Additional metadata
-    repeated string targets         = 12; // DAG targets the file belongs to (kept only by the local peer)
-}
+<div class="codehilite"><pre><span></span><span class="nx">message</span> <span class="nx">FileMeta</span> <span class="p">{</span>
+    <span class="kt">string</span> <span class="nx">mill</span>                     <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>  <span class="c1">// Mill used to process the file (e.g., `/image/resize`, `/json`)</span>
+    <span class="kt">string</span> <span class="nx">checksum</span>                 <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// Pre-milled (md5) checksum of the input file</span>
+    <span class="kt">string</span> <span class="nx">source</span>                   <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>  <span class="c1">// Source file CID</span>
+    <span class="kt">string</span> <span class="nx">opts</span>                     <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>  <span class="c1">// md5 checksum of input mill options</span>
+    <span class="kt">string</span> <span class="nx">hash</span>                     <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>  <span class="c1">// CID hash of milled file</span>
+    <span class="kt">string</span> <span class="nx">key</span>                      <span class="p">=</span> <span class="mi">6</span><span class="p">;</span>  <span class="c1">// AES encryption key</span>
+    <span class="kt">string</span> <span class="nx">media</span>                    <span class="p">=</span> <span class="mi">7</span><span class="p">;</span>  <span class="c1">// Media type (e.g., `&#39;application/json&#39;`, `&#39;image/jpeg&#39;`)</span>
+    <span class="kt">string</span> <span class="nx">name</span>                     <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>  <span class="c1">// Name of the input file</span>
+    <span class="kt">int64</span> <span class="nx">size</span>                      <span class="p">=</span> <span class="mi">9</span><span class="p">;</span>  <span class="c1">// Size of the milled file in bytes</span>
+    <span class="nx">google</span><span class="p">.</span><span class="nx">protobuf</span><span class="p">.</span><span class="nx">Timestamp</span> <span class="nx">added</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// Date the file was added to the thread</span>
+    <span class="nx">google</span><span class="p">.</span><span class="nx">protobuf</span><span class="p">.</span><span class="nx">Struct</span> <span class="nx">meta</span>     <span class="p">=</span> <span class="mi">11</span><span class="p">;</span> <span class="c1">// Additional metadata</span>
+    <span class="nx">repeated</span> <span class="kt">string</span> <span class="nx">targets</span>         <span class="p">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1">// DAG targets the file belongs to (kept only by the local peer)</span>
+<span class="p">}</span>
 </pre></div>
 
 <p>File metadata objects are what most applications will interact with. They are the objects listed by the Files and Feed APIs. These objects are also used internally for various functions. For example, because good encryption is not deterministic, an input's checksum is used to de-duplicate encrypted data.</p>
@@ -1251,7 +1251,7 @@
 </details>
 <h2 id="schemas">Schemas<a class="headerlink" href="#schemas" title="Permanent link">&para;</a></h2>
 <p>Schemas are used to create and validate the structure of thread files, defining their type and purpose for consumers (users and applications). For example, a photos application may create photo-based threads, a health application my create threads with medical records, etc. By treating schemas as first-class citizens, other applications are also able to understand and make use of these threads.</p>
-<p>In practice, schemas have three distinct rolls:</p>
+<p>In practice, schemas have three distinct roles:</p>
 <ol>
 <li>Provide instructions for how to transform or "mill" an input, e.g., given a photo, create three different sizes and discard the raw input (this is the <a href="#media">media</a> schema).</li>
 <li>Define whether or not the resulting DAG nodes should be stored (pinned) on account peers.</li>
@@ -1377,7 +1377,7 @@
     <span class="nt">&quot;pin&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nt">&quot;plaintext&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="nt">&quot;mill&quot;</span><span class="p">:</span> <span class="s2">&quot;/json&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;json_schema&quot;</span><span class="p">:</span> <span class="err">...</span>
+    <span class="nt">&quot;json_schema&quot;</span><span class="p">:</span> <span class="err">/*</span> <span class="err">...</span> <span class="err">*/</span>
 <span class="p">}</span>
 </pre></div>
 

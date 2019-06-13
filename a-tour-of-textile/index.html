@@ -255,6 +255,66 @@
       
       
 
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Install
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Install
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/the-daemon/" title="The Daemon" class="md-nav__link">
+      The Daemon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/desktop/" title="Desktop" class="md-nav__link">
+      Desktop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/apps/" title="Apps" class="md-nav__link">
+      Apps
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -748,13 +808,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Concepts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         Concepts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -803,13 +863,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
     
-    <label class="md-nav__link" for="nav-3-4">
+    <label class="md-nav__link" for="nav-4-4">
       Threads
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
+      <label class="md-nav__title" for="nav-4-4">
         Threads
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -880,13 +940,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       Connectors
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         Connectors
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -924,66 +984,6 @@
   <li class="md-nav__item">
     <a href="../connectors/documents/" title="Documents" class="md-nav__link">
       Documents
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      Install
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Install
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../install/the-daemon/" title="The Daemon" class="md-nav__link">
-      The Daemon
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../install/desktop/" title="Desktop" class="md-nav__link">
-      Desktop
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../install/apps/" title="Apps" class="md-nav__link">
-      Apps
     </a>
   </li>
 
@@ -1834,12 +1834,16 @@
 <p class="admonition-title">Info</p>
 <p>Textile uses an <a href="https://ed25519.cr.yp.to/">ed25519</a> <a href="https://en.bitcoinwiki.org/wiki/Deterministic_wallet">HD wallet</a> and IPFS peer IDs because they provide fast key generation, signing, and verification. These properties become important on less powerful devices like phones.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you got a <code>connection refused</code> error, be sure that your <a href="/install/the-daemon">textile daemon</a> is running.</p>
+</div>
 <h4 id="set-a-display-name">Set a display name<a class="headerlink" href="#set-a-display-name" title="Permanent link">&para;</a></h4>
 <p>You can set a display name for your peer. Interacting with other users is a lot easier with display names. However, they are <em>not</em> unique on the network.</p>
 <div class="superfences-tabs">
 <input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
 <label for="__tab_3_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile profile set name &quot;Clyde&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile profile set --name=&quot;Clyde&quot;
 </pre></div></div>
 <input name="__tabs_3" type="radio" id="__tab_3_1" />
 <label for="__tab_3_1">JavaScript</label>
@@ -1883,7 +1887,7 @@
 <div class="superfences-tabs">
 <input name="__tabs_4" type="radio" id="__tab_4_0" checked="checked" />
 <label for="__tab_4_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile profile set avatar &quot;path/to/an/image&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile profile set --avatar=&quot;path/to/an/image&quot;
 </pre></div></div>
 <input name="__tabs_4" type="radio" id="__tab_4_1" />
 <label for="__tab_4_1">JavaScript</label>
@@ -2175,7 +2179,7 @@
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;devandrewwww&quot;</span><span class="p">,</span>
         <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;QmQwmPninpCRdkAhbPwKaf7hAUwkTb2wiwupcgnsMp5yW5&quot;</span><span class="p">,</span>
         <span class="nt">&quot;peers&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="err">...</span>
+            <span class="err">/*</span> <span class="err">...</span> <span class="err">*/</span>
         <span class="p">]</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -2188,13 +2192,11 @@
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;andrew knees and toes, knees and toes&quot;</span><span class="p">,</span>
         <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;QmRLnTHdvg4rAh1AKJaHydAZ42sgygLNdvvA7aMwaRY5SK&quot;</span><span class="p">,</span>
         <span class="nt">&quot;peers&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="err">...</span>
+            <span class="err">/*</span> <span class="err">...</span> <span class="err">*/</span>
         <span class="p">]</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="err">...</span>
-<span class="err">...</span>
-<span class="err">...</span>
+<span class="err">/*</span> <span class="err">...</span> <span class="err">*/</span>
 </pre></div>
 
 </details>
@@ -2264,7 +2266,7 @@
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;andrew knees and toes, knees and toes&quot;</span><span class="p">,</span>
         <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;QmRLnTHdvg4rAh1AKJaHydAZ42sgygLNdvvA7aMwaRY5SK&quot;</span><span class="p">,</span>
         <span class="nt">&quot;peers&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="err">...</span>
+            <span class="err">/*</span> <span class="err">...</span> <span class="err">*/</span>
         <span class="p">]</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -2326,7 +2328,7 @@ added P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG
 <div class="superfences-tabs">
 <input name="__tabs_12" type="radio" id="__tab_12_0" checked="checked" />
 <label for="__tab_12_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile contacts ls
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile contacts list
 </pre></div></div>
 <input name="__tabs_12" type="radio" id="__tab_12_1" />
 <label for="__tab_12_1">JavaScript</label>
@@ -2368,7 +2370,7 @@ added P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG
             <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;QmRLnTHdvg4rAh1AKJaHydAZ42sgygLNdvvA7aMwaRY5SK&quot;</span><span class="p">,</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;andrew knees and toes, knees and toes&quot;</span><span class="p">,</span>
             <span class="nt">&quot;peers&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="err">...</span>
+                <span class="err">/*</span> <span class="err">...</span> <span class="err">*/</span>
             <span class="p">]</span>
         <span class="p">}</span>
     <span class="p">]</span>
@@ -2381,7 +2383,7 @@ added P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG
 <div class="superfences-tabs">
 <input name="__tabs_13" type="radio" id="__tab_13_0" checked="checked" />
 <label for="__tab_13_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile contacts rm &quot;P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile contacts delete &quot;P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG&quot;
 </pre></div></div>
 <input name="__tabs_13" type="radio" id="__tab_13_1" />
 <label for="__tab_13_1">JavaScript</label>
@@ -2591,20 +2593,20 @@ shared      --&gt; initiator: Y, whitelist: Y`
 <div class="superfences-tabs">
 <input name="__tabs_16" type="radio" id="__tab_16_0" checked="checked" />
 <label for="__tab_16_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile messages add &quot;hello?&quot; --thread=&quot;12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile messages add &lt;thread-id&gt; &quot;hello?&quot;
 </pre></div></div>
 <input name="__tabs_16" type="radio" id="__tab_16_1" />
 <label for="__tab_16_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk&quot;</span><span class="p">,</span> <span class="s2">&quot;hello?&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;hello?&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_16" type="radio" id="__tab_16_2" />
 <label for="__tab_16_2">React Native</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk&quot;</span><span class="p">,</span> <span class="s2">&quot;hello?&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;hello?&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_16" type="radio" id="__tab_16_3" />
 <label for="__tab_16_3">Objective-C</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
-<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">messages</span> <span class="nl">add</span><span class="p">:</span><span class="s">@&quot;12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk&quot;</span> <span class="nl">body</span><span class="p">:</span><span class="s">@&quot;hello?&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">messages</span> <span class="nl">add</span><span class="p">:</span><span class="s">@&quot;&lt;thread-id&gt;&quot;</span> <span class="nl">body</span><span class="p">:</span><span class="s">@&quot;hello?&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Do something with this error</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -2614,7 +2616,7 @@ shared      --&gt; initiator: Y, whitelist: Y`
 <input name="__tabs_16" type="radio" id="__tab_16_4" />
 <label for="__tab_16_4">Swift</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
-<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">messages</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk&quot;</span><span class="p">,</span> <span class="n">body</span><span class="p">:</span> <span class="s">&quot;hello?&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">messages</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;&lt;thread-id&gt;&quot;</span><span class="p">,</span> <span class="n">body</span><span class="p">:</span> <span class="s">&quot;hello?&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Do something with this error</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -2623,7 +2625,7 @@ shared      --&gt; initiator: Y, whitelist: Y`
 </pre></div></div>
 <input name="__tabs_16" type="radio" id="__tab_16_5" />
 <label for="__tab_16_5">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">messages</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;12D3KooWMSvp3cisDyu88Smgub8vMcMYnwsk1KdmtwVbLip9fkGk&quot;</span><span class="o">,</span> <span class="s">&quot;hello?&quot;</span><span class="o">);</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">messages</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;&lt;thread-id&gt;&quot;</span><span class="o">,</span> <span class="s">&quot;hello?&quot;</span><span class="o">);</span>
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -2655,7 +2657,7 @@ shared      --&gt; initiator: Y, whitelist: Y`
 <div class="superfences-tabs">
 <input name="__tabs_17" type="radio" id="__tab_17_0" checked="checked" />
 <label for="__tab_17_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile threads add &quot;Any old data&quot; --blob --key=&quot;your.bundle.id.version.Blob&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile threads add &quot;Any old data&quot; --key=&quot;your.bundle.id.version.Blob&quot; --blob
 </pre></div></div>
 <input name="__tabs_17" type="radio" id="__tab_17_1" />
 <label for="__tab_17_1">JavaScript</label>
@@ -2775,21 +2777,21 @@ shared      --&gt; initiator: Y, whitelist: Y`
 <div class="superfences-tabs">
 <input name="__tabs_18" type="radio" id="__tab_18_0" checked="checked" />
 <label for="__tab_18_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &quot;mmm, bytes...&quot; | textile files add --thread=&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &quot;mmm, bytes...&quot; | textile files add &lt;thread-id&gt;
 </pre></div></div>
 <input name="__tabs_18" type="radio" id="__tab_18_1" />
 <label for="__tab_18_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;mmm, bytes...&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;mmm, bytes...&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_18" type="radio" id="__tab_18_2" />
 <label for="__tab_18_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="s2">&quot;mmm, bytes...&quot;</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;base64&#39;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_18" type="radio" id="__tab_18_3" />
 <label for="__tab_18_3">Objective-C</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;&lt;thread-id&gt;&quot;</span><span class="p">;</span>
 <span class="bp">NSString</span> <span class="o">*</span><span class="n">filePath</span> <span class="o">=</span> <span class="s">@&quot;/path/to/mmm-bytes....&quot;</span><span class="p">;</span>
 <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">prepareByPath</span><span class="p">:</span><span class="n">filePath</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MobilePreparedFiles</span> <span class="o">*</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
@@ -2807,7 +2809,7 @@ shared      --&gt; initiator: Y, whitelist: Y`
 </pre></div></div>
 <input name="__tabs_18" type="radio" id="__tab_18_4" />
 <label for="__tab_18_4">Swift</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;&lt;thread-id&gt;&quot;</span>
 <span class="kd">let</span> <span class="nv">filePath</span> <span class="p">=</span> <span class="s">&quot;/path/to/mmm-bytes....&quot;</span>
 <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">byPath</span><span class="p">:</span> <span class="n">filePath</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
   <span class="k">if</span> <span class="kd">let</span> <span class="nv">files</span> <span class="p">=</span> <span class="n">preparedFiles</span> <span class="p">{</span>
@@ -2825,7 +2827,7 @@ shared      --&gt; initiator: Y, whitelist: Y`
 </pre></div></div>
 <input name="__tabs_18" type="radio" id="__tab_18_5" />
 <label for="__tab_18_5">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">threadId</span> <span class="o">=</span> <span class="s">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="o">;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">threadId</span> <span class="o">=</span> <span class="s">&quot;&lt;thread-id&gt;&quot;</span><span class="o">;</span>
 <span class="n">String</span> <span class="n">filePath</span> <span class="o">=</span> <span class="s">&quot;/path/to/mmm-bytes....&quot;</span><span class="o">;</span>
 <span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">files</span><span class="o">.</span><span class="na">prepareByPath</span><span class="o">(</span><span class="n">filePath</span><span class="o">,</span> <span class="n">threadId</span><span class="o">,</span> <span class="k">new</span> <span class="n">PreparedFilesHandler</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -2844,44 +2846,67 @@ shared      --&gt; initiator: Y, whitelist: Y`
 <span class="o">});</span>
 </pre></div></div>
 </div>
-<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>File target: QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5
-Added 1 file in 613.175326ms
-</pre></div>
-
-</details>
-<p>What just happened? The peer created a new DAG node for the input as defined by the schema. Every schema step adds a child node with two links:</p>
-<p><figure alt="The target shown in the output is the root hash of the DAG." class="center"><img src="/images/blob.png" /><figcaption>The target shown in the output is the root hash of the DAG.</figcaption></figure></p>
-<ul>
-<li><code>meta</code>: A JSON object containing metadata about the input and how it was processed. Some of the values are used for de-duplicating encrypted data. Here's the value of <code>meta</code> in the node we just created:</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;mill&quot;</span><span class="p">:</span> <span class="s2">&quot;/blob&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;checksum&quot;</span><span class="p">:</span> <span class="s2">&quot;EPBRa7eDzgoXyvDXqRYuXLkRoZqMizZ4R8QkZyF8n9DP&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;EPBRa7eDzgoXyvDXqRYuXLkRoZqMizZ4R8QkZyF8n9DP&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;opts&quot;</span><span class="p">:</span> <span class="s2">&quot;G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;QmTwQWfkR343HHxhdhTX7er6eHnYkgej7GNNsmbS6eZCyQ&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;QQ3QUdkJ2LCH4ycDjEMHQVHkhnMRiZhkncMCN1i4pbYSXD1heeq2DuNrdm3F&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;media&quot;</span><span class="p">:</span> <span class="s2">&quot;text/plain; charset=utf-8&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stdin&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;14&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;added&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-04-20T22:46:19.976891Z&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;block&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;block-id&gt;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;block-target&gt;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-06-11T06:44:05.535163Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;peer-address&gt;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;peer-name&gt;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;peer-avatar&gt;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;files&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;file&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;mill&quot;</span><span class="p">:</span> <span class="s2">&quot;/blob&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;checksum&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;source-ipfs-hash&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;opts&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;result-ipfs-hash&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;encryption-key-for-result&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;media&quot;</span><span class="p">:</span> <span class="s2">&quot;text/plain; charset=utf-8&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stdin&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;14&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;added&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-06-06T02:13:00.620280Z&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="p">},</span>
+                <span class="nt">&quot;targets&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;&lt;block-target&gt;&quot;</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;threads&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;&lt;thread-id&gt;&quot;</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 
+</details>
+<p>What just happened? The peer created a new DAG node (a textile block) for the input as defined by the schema. Every schema step adds a child node with two links:</p>
+<p><figure alt="The target shown in the output is the root hash of the DAG." class="center"><img src="/images/blob.png" /><figcaption>The target shown in the output is the root hash of the DAG.</figcaption></figure></p>
 <ul>
-<li><code>content</code>: The output data of the schema step. Again, for our current example, this is just a passthrough (output is input).</li>
+<li>
+<p><code>meta</code>: A JSON object containing metadata about the input and how it was processed. Which is the success output of the previosu command.</p>
+</li>
+<li>
+<p><code>content</code>: The content of the file that was added, in the above command output, this is at <code>.files[0].hash</code>, and can be fetched via <code>textile file get &lt;hash&gt; --content</code>, or via <code>textile file block get &lt;block-id&gt; --content</code>.</p>
+</li>
 </ul>
 <p>The <a href="/concepts/threads/files"><em>files</em></a> guide covers these concepts in more detail.</p>
 <p>Unless a schema step specifies <code>"plaintext": true</code>, the value of <code>meta</code> and <code>content</code> are both encrypted with the <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">Advanced Encryption Standard</a> (AES) using their very own symmetric key. We can view the keys for each node in the DAG using the <code>keys</code> command:</p>
 <div class="superfences-tabs">
 <input name="__tabs_19" type="radio" id="__tab_19_0" checked="checked" />
 <label for="__tab_19_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile files keys &quot;QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile files keys &quot;&lt;block-target&gt;&quot;
 </pre></div></div>
 <input name="__tabs_19" type="radio" id="__tab_19_1" />
 <label for="__tab_19_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">keys</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="s2">&quot;QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">keys</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="s2">&quot;&lt;block-target&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_19" type="radio" id="__tab_19_2" />
 <label for="__tab_19_2">React Native</label>
@@ -2909,26 +2934,26 @@ Added 1 file in 613.175326ms
 
 </details>
 <p>The output gives us the key for the node at index <code>0</code>. There's only one key because this target node only contains one file.</p>
-<p>To add an actual file or directory, just specify a path, e.g, <code>textile files add "path/to/something" --thread="..."</code>.</p>
+<p>To add an actual file or directory, just specify a path, e.g, <code>textile files add &lt;thread&gt; "path/to/something"</code>.</p>
 <p>Let's try adding the <em>same</em> data again:</p>
 <div class="superfences-tabs">
 <input name="__tabs_20" type="radio" id="__tab_20_0" checked="checked" />
 <label for="__tab_20_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &quot;mmm, bytes...&quot; | textile files add --thread=&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &quot;mmm, bytes...&quot; | textile files add &lt;thread-id&gt;
 </pre></div></div>
 <input name="__tabs_20" type="radio" id="__tab_20_1" />
 <label for="__tab_20_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;mmm, bytes...&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;mmm, bytes...&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_20" type="radio" id="__tab_20_2" />
 <label for="__tab_20_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="s2">&quot;mmm, bytes...&quot;</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;base64&#39;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_20" type="radio" id="__tab_20_3" />
 <label for="__tab_20_3">Objective-C</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;&lt;thread-id&gt;&quot;</span><span class="p">;</span>
 <span class="bp">NSString</span> <span class="o">*</span><span class="n">filePath</span> <span class="o">=</span> <span class="s">@&quot;/path/to/mmm-bytes....&quot;</span><span class="p">;</span>
 <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">prepareByPath</span><span class="p">:</span><span class="n">filePath</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MobilePreparedFiles</span> <span class="o">*</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
@@ -2946,7 +2971,7 @@ Added 1 file in 613.175326ms
 </pre></div></div>
 <input name="__tabs_20" type="radio" id="__tab_20_4" />
 <label for="__tab_20_4">Swift</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;&lt;thread-id&gt;&quot;</span>
 <span class="kd">let</span> <span class="nv">filePath</span> <span class="p">=</span> <span class="s">&quot;/path/to/mmm-bytes....&quot;</span>
 <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">byPath</span><span class="p">:</span> <span class="n">filePath</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
   <span class="k">if</span> <span class="kd">let</span> <span class="nv">files</span> <span class="p">=</span> <span class="n">preparedFiles</span> <span class="p">{</span>
@@ -2964,7 +2989,7 @@ Added 1 file in 613.175326ms
 </pre></div></div>
 <input name="__tabs_20" type="radio" id="__tab_20_5" />
 <label for="__tab_20_5">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">threadId</span> <span class="o">=</span> <span class="s">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="o">;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">threadId</span> <span class="o">=</span> <span class="s">&quot;&lt;thread-id&gt;&quot;</span><span class="o">;</span>
 <span class="n">String</span> <span class="n">filePath</span> <span class="o">=</span> <span class="s">&quot;/path/to/mmm-bytes....&quot;</span><span class="o">;</span>
 <span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">files</span><span class="o">.</span><span class="na">prepareByPath</span><span class="o">(</span><span class="n">filePath</span><span class="o">,</span> <span class="n">threadId</span><span class="o">,</span> <span class="k">new</span> <span class="n">PreparedFilesHandler</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -2983,8 +3008,44 @@ Added 1 file in 613.175326ms
 <span class="o">});</span>
 </pre></div></div>
 </div>
-<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>File target: QmaLsi4cDq449qBfgsNereVezVppAYk8V53b9YvRUUyaY5
-Added 1 file in 138.218899ms
+<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;block&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;block-id&gt;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;block-target&gt;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-06-11T06:44:05.535163Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;peer-address&gt;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;peer-name&gt;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;peer-avatar&gt;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;files&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;file&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;mill&quot;</span><span class="p">:</span> <span class="s2">&quot;/blob&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;checksum&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;source-ipfs-hash&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;opts&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;result-ipfs-hash&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;encryption-key-for-result&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;media&quot;</span><span class="p">:</span> <span class="s2">&quot;text/plain; charset=utf-8&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stdin&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;14&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;added&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-06-06T02:13:00.620280Z&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="p">},</span>
+                <span class="nt">&quot;targets&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;&lt;block-target&gt;&quot;</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;threads&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;&lt;thread-id&gt;&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 
 </details>
@@ -3078,26 +3139,12 @@ Added 1 file in 138.218899ms
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;block_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">&quot;head&quot;</span><span class="p">:</span> <span class="s2">&quot;QmR3nzxS5sSv3aasqZZFmAip1okF2YSmwSuzjNcvR7Erus&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;head_block&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-04-22T21:24:27.133890Z&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;QmR3nzxS5sSv3aasqZZFmAip1okF2YSmwSuzjNcvR7Erus&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;parents&quot;</span><span class="p">:</span> <span class="p">[],</span>
-        <span class="nt">&quot;thread&quot;</span><span class="p">:</span> <span class="s2">&quot;12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;JOIN&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Clyde&quot;</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;initiator&quot;</span><span class="p">:</span> <span class="s2">&quot;P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;1KEsojQy4DW9t2rqqhP6len4fA0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiator&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;peer-id&gt;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Dogs&quot;</span><span class="p">,</span>
     <span class="nt">&quot;peer_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;QmeVa8vUbyjHaYaeki8RZRshsn3JeYGi8QCnLCWXh6euEh&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;schema-ipfs-hash&gt;&quot;</span><span class="p">,</span>
     <span class="nt">&quot;schema_node&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;large&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -3130,7 +3177,7 @@ Added 1 file in 138.218899ms
         <span class="nt">&quot;pin&quot;</span><span class="p">:</span> <span class="kc">true</span>
     <span class="p">},</span>
     <span class="nt">&quot;sharing&quot;</span><span class="p">:</span> <span class="s2">&quot;SHARED&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;sk&quot;</span><span class="p">:</span> <span class="s2">&quot;CAESQBF...&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;sk&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
     <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;LOADED&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;OPEN&quot;</span><span class="p">,</span>
     <span class="nt">&quot;whitelist&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -3144,23 +3191,23 @@ Added 1 file in 138.218899ms
 <div class="superfences-tabs">
 <input name="__tabs_22" type="radio" id="__tab_22_0" checked="checked" />
 <label for="__tab_22_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile files add ~/Downloads/william-milliot-510766-unsplash.jpg --caption=&quot;Dog at work.&quot; --thread=&quot;12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile files add &lt;thread-id&gt; ~/Downloads/william-milliot-510766-unsplash.jpg --caption=&quot;Dog at work.&quot;
 </pre></div></div>
 <input name="__tabs_22" type="radio" id="__tab_22_1" />
 <label for="__tab_22_1">JavaScript</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">()</span>
 <span class="nx">form</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="c1">// file is File object or raw Buffer/Blob or even fs.createReadStream() in Node.js</span>
-<span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">base64ImageString</span><span class="p">,</span> <span class="s2">&quot;Dog at work&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq&quot;</span><span class="p">)</span><span class="err">&#39;</span>
+<span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">base64ImageString</span><span class="p">,</span> <span class="s2">&quot;Dog at work&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span><span class="err">&#39;</span>
 </pre></div></div>
 <input name="__tabs_22" type="radio" id="__tab_22_2" />
 <label for="__tab_22_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">base64ImageString</span> <span class="o">=</span> <span class="s2">&quot;R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABA....&quot;</span>
-<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">base64ImageString</span><span class="p">,</span> <span class="s2">&quot;12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq&quot;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWNihfHDLsiJ36qQRQQ2vMcBZRHd2VBs3wTFtyGEk7zGeq&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">base64ImageString</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_22" type="radio" id="__tab_22_3" />
 <label for="__tab_22_3">Objective-C</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="p">;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;&lt;thread-id&gt;&quot;</span><span class="p">;</span>
 <span class="bp">NSString</span> <span class="o">*</span><span class="n">filePath</span> <span class="o">=</span> <span class="s">@&quot;/path/to/image&quot;</span><span class="p">;</span>
 <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">prepareByPath</span><span class="p">:</span><span class="n">filePath</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MobilePreparedFiles</span> <span class="o">*</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
@@ -3178,7 +3225,7 @@ Added 1 file in 138.218899ms
 </pre></div></div>
 <input name="__tabs_22" type="radio" id="__tab_22_4" />
 <label for="__tab_22_4">Swift</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;&lt;thread-id&gt;&quot;</span>
 <span class="kd">let</span> <span class="nv">filePath</span> <span class="p">=</span> <span class="s">&quot;/path/to/image&quot;</span>
 <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">prepare</span><span class="p">(</span><span class="n">byPath</span><span class="p">:</span> <span class="n">filePath</span><span class="p">,</span> <span class="n">threadId</span><span class="p">:</span> <span class="n">threadId</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
   <span class="k">if</span> <span class="kd">let</span> <span class="nv">files</span> <span class="p">=</span> <span class="n">preparedFiles</span> <span class="p">{</span>
@@ -3196,7 +3243,7 @@ Added 1 file in 138.218899ms
 </pre></div></div>
 <input name="__tabs_22" type="radio" id="__tab_22_5" />
 <label for="__tab_22_5">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">threadId</span> <span class="o">=</span> <span class="s">&quot;12D3KooWSYT6SUL9fx15pwjHSVUsuymnbixmRtPGySmFYtWE51Sc&quot;</span><span class="o">;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">threadId</span> <span class="o">=</span> <span class="s">&quot;&lt;thread-id&gt;&quot;</span><span class="o">;</span>
 <span class="n">String</span> <span class="n">filePath</span> <span class="o">=</span> <span class="s">&quot;/path/to/image&quot;</span><span class="o">;</span>
 <span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">files</span><span class="o">.</span><span class="na">prepareByPath</span><span class="o">(</span><span class="n">filePath</span><span class="o">,</span> <span class="n">threadId</span><span class="o">,</span> <span class="k">new</span> <span class="n">PreparedFilesHandler</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -3215,8 +3262,86 @@ Added 1 file in 138.218899ms
 <span class="o">});</span>
 </pre></div></div>
 </div>
-<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>File target: QmT9Rj1wHosh1hL2kjVxm6RWtK3ZTSjb6b69qwdztVTkLR
-Added 1 file in 5.978401883s
+<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;block&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;block-id&gt;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;block-target&gt;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-06-12T12:48:50.548068Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;peer-id&gt;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;peer-name&gt;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;peer-avatar&gt;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;caption&quot;</span><span class="p">:</span> <span class="s2">&quot;Dog at work.&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;files&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;links&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;large&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;mill&quot;</span><span class="p">:</span> <span class="s2">&quot;/image/resize&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;checksum&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;source-ipfs-hash&gt;&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;opts&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;result-ipfs-hash&gt;&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;encryption-key-for-result&gt;&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;media&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;william-milliot-510766-unsplash.jpg&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;106235&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;added&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-06-12T12:48:49.990597Z&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">534</span><span class="p">,</span>
+                <span class="nt">&quot;width&quot;</span><span class="p">:</span> <span class="mi">800</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;targets&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;&lt;block-target&gt;&quot;</span>
+              <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;small&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;mill&quot;</span><span class="p">:</span> <span class="s2">&quot;/image/resize&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;checksum&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;source-ipfs-hash&gt;&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;opts&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;result-ipfs-hash&gt;&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;encryption-key-for-result&gt;&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;media&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;william-milliot-510766-unsplash.jpg&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;23789&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;added&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-06-12T12:48:47.950855Z&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">214</span><span class="p">,</span>
+                <span class="nt">&quot;width&quot;</span><span class="p">:</span> <span class="mi">320</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;targets&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;&lt;block-target&gt;&quot;</span>
+              <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;thumb&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;mill&quot;</span><span class="p">:</span> <span class="s2">&quot;/image/resize&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;checksum&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;source-ipfs-hash&gt;&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;opts&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;result-ipfs-hash&gt;&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;encryption-key-for-result&gt;&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;media&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;3723&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;added&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-06-12T12:48:50.093557Z&quot;</span><span class="p">,</span>
+              <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;height&quot;</span><span class="p">:</span> <span class="mi">67</span><span class="p">,</span>
+                <span class="nt">&quot;width&quot;</span><span class="p">:</span> <span class="mi">100</span>
+              <span class="p">},</span>
+              <span class="nt">&quot;targets&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;&lt;block-target&gt;&quot;</span>
+              <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;threads&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;&lt;thread-id&gt;&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 
 </details>
@@ -3346,23 +3471,9 @@ Added 1 file in 5.978401883s
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;block_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">&quot;head&quot;</span><span class="p">:</span> <span class="s2">&quot;QmV8HiBrgJvGx4mwVF8G8MDpyaiUcUX9YC52AjAjw3HHuV&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;head_block&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;12D3KooWCMVLfMV8uzYpFN38qn2eMs48tAuHdVZdj3aF6nex6zay&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-04-23T19:29:57.858974Z&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;QmV8HiBrgJvGx4mwVF8G8MDpyaiUcUX9YC52AjAjw3HHuV&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;parents&quot;</span><span class="p">:</span> <span class="p">[],</span>
-        <span class="nt">&quot;thread&quot;</span><span class="p">:</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;JOIN&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Clyde&quot;</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;initiator&quot;</span><span class="p">:</span> <span class="s2">&quot;P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;1KHU10LWw5Fc7NOcBcykhv085NF&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;12D3KooWSfWsCbnC44CWfPSVw1VRJFSjJX567Yw269qqdhHq5CoY&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;initiator&quot;</span><span class="p">:</span> <span class="s2">&quot;P9fbrHrPyQdtVJkG8MANiyF6W2ctCnyiB6sxA8tbT8zwPZ63&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;1MY2NZFWM6kxKzvZGwbSRQPFmpc&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;My runs&quot;</span><span class="p">,</span>
     <span class="nt">&quot;peer_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;QmeCxmcfiBANhLntPm5ceS6ragTnW4QjXEPednNa7R6o8p&quot;</span><span class="p">,</span>
@@ -3372,16 +3483,16 @@ Added 1 file in 5.978401883s
             <span class="nt">&quot;$schema&quot;</span><span class="p">:</span> <span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
             <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A geographical coordinate.&quot;</span><span class="p">,</span>
             <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;latitude&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;maximum&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
-                    <span class="nt">&quot;minimum&quot;</span><span class="p">:</span> <span class="mi">-90</span><span class="p">,</span>
-                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
-                <span class="p">},</span>
-                <span class="nt">&quot;longitude&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;maximum&quot;</span><span class="p">:</span> <span class="mi">180</span><span class="p">,</span>
-                    <span class="nt">&quot;minimum&quot;</span><span class="p">:</span> <span class="mi">-180</span><span class="p">,</span>
-                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
-                <span class="p">}</span>
+            <span class="nt">&quot;latitude&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;maximum&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
+                <span class="nt">&quot;minimum&quot;</span><span class="p">:</span> <span class="mi">-90</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;longitude&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;maximum&quot;</span><span class="p">:</span> <span class="mi">180</span><span class="p">,</span>
+                <span class="nt">&quot;minimum&quot;</span><span class="p">:</span> <span class="mi">-180</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span>
+            <span class="p">}</span>
             <span class="p">},</span>
             <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
@@ -3394,7 +3505,7 @@ Added 1 file in 5.978401883s
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;location&quot;</span>
     <span class="p">},</span>
     <span class="nt">&quot;sharing&quot;</span><span class="p">:</span> <span class="s2">&quot;INVITE_ONLY&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;sk&quot;</span><span class="p">:</span> <span class="s2">&quot;CAESQDl...&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;sk&quot;</span><span class="p">:</span> <span class="s2">&quot;CAESQBRiIC0dQOC3UgCqHlzO39OaxIib1IxP/BL97Dxs1T+w+lJI59SDqYtjLJthNW8Bro+KCwNthNqdqUz/fPBEzLc=&quot;</span><span class="p">,</span>
     <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;LOADED&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;PUBLIC&quot;</span><span class="p">,</span>
     <span class="nt">&quot;whitelist&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -3406,21 +3517,21 @@ Added 1 file in 5.978401883s
 <div class="superfences-tabs">
 <input name="__tabs_24" type="radio" id="__tab_24_0" checked="checked" />
 <label for="__tab_24_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &#39;{ &quot;latitude&quot;: 48.858093, &quot;longitude&quot;: 2.294694 }&#39; | textile files add --thread=12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw
+<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &#39;{ &quot;latitude&quot;: 48.858093, &quot;longitude&quot;: 2.294694 }&#39; | textile files add &lt;thread-id&gt;
 </pre></div></div>
 <input name="__tabs_24" type="radio" id="__tab_24_1" />
 <label for="__tab_24_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span> <span class="nx">latitude</span><span class="o">:</span> <span class="mf">48.858093</span><span class="p">,</span> <span class="nx">longitude</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span> <span class="nx">latitude</span><span class="o">:</span> <span class="mf">48.858093</span><span class="p">,</span> <span class="nx">longitude</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_24" type="radio" id="__tab_24_2" />
 <label for="__tab_24_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="s2">&quot;latitude&quot;</span><span class="o">:</span> <span class="mf">48.858093</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">}).</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;base64&#39;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_24" type="radio" id="__tab_24_3" />
 <label for="__tab_24_3">Objective-C</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;&lt;thread-id&gt;&quot;</span><span class="p">;</span>
 <span class="bp">NSData</span> <span class="o">*</span><span class="n">jsonData</span> <span class="o">=</span> <span class="p">[</span><span class="s">@&quot;{ latitude: 48.858093, longitude: 2.294694 }&quot;</span> <span class="nl">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span>
 <span class="bp">NSString</span> <span class="o">*</span><span class="n">dataString</span> <span class="o">=</span> <span class="p">[</span><span class="n">jsonData</span> <span class="nl">base64EncodedStringWithOptions</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
 <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">prepare</span><span class="p">:</span><span class="n">dataString</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MobilePreparedFiles</span> <span class="o">*</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
@@ -3439,7 +3550,7 @@ Added 1 file in 5.978401883s
 </pre></div></div>
 <input name="__tabs_24" type="radio" id="__tab_24_4" />
 <label for="__tab_24_4">Swift</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;&lt;thread-id&gt;&quot;</span>
 <span class="kd">let</span> <span class="nv">jsonData</span> <span class="p">=</span> <span class="s">&quot;{ latitude: 48.858093, longitude: 2.294694 }&quot;</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">using</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">)</span>
 <span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">jsonData</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nv">dataString</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">base64EncodedString</span><span class="p">()</span>
@@ -3460,7 +3571,7 @@ Added 1 file in 5.978401883s
 </pre></div></div>
 <input name="__tabs_24" type="radio" id="__tab_24_5" />
 <label for="__tab_24_5">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">threadId</span> <span class="o">=</span> <span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="o">;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">threadId</span> <span class="o">=</span> <span class="s">&quot;&lt;thread-id&gt;&quot;</span><span class="o">;</span>
 <span class="kt">byte</span><span class="o">[]</span> <span class="n">jsonData</span> <span class="o">=</span> <span class="s">&quot;{ latitude: 48.858093, longitude: 2.294694 }&quot;</span><span class="o">.</span><span class="na">getBytes</span><span class="o">();</span>
 <span class="n">String</span> <span class="n">dataString</span> <span class="o">=</span> <span class="n">Base64</span><span class="o">.</span><span class="na">encodeToString</span><span class="o">(</span><span class="n">jsonData</span><span class="o">,</span> <span class="n">Base64</span><span class="o">.</span><span class="na">DEFAULT</span><span class="o">);</span>
 <span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">files</span><span class="o">.</span><span class="na">prepare</span><span class="o">(</span><span class="n">dataString</span><span class="o">,</span> <span class="n">threadId</span><span class="o">,</span> <span class="k">new</span> <span class="n">PreparedFilesHandler</span><span class="o">()</span> <span class="o">{</span>
@@ -3480,8 +3591,36 @@ Added 1 file in 5.978401883s
 <span class="o">});</span>
 </pre></div></div>
 </div>
-<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>File target: QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk
-Added 1 file in 534.774123ms
+<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;block&quot;</span><span class="p">:</span> <span class="s2">&quot;QmTw4ZRigDgdpVcXHWfCC78Mk8jVUQHpRXcwVEVLUHPYtZ&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;QmX5KGvJyYDKr9xhuTYRY92LWv4U1xNkrPmSYJVycwk9Dd&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-06-12T13:48:43.319450Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;P9fbrHrPyQdtVJkG8MANiyF6W2ctCnyiB6sxA8tbT8zwPZ63&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Clyde&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;QmRoJsuGN1UyDT5jHWvBXYDHubMszmVwAsFZmkYiQbeKrM&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;files&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;file&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;mill&quot;</span><span class="p">:</span> <span class="s2">&quot;/json&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;checksum&quot;</span><span class="p">:</span> <span class="s2">&quot;HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;opts&quot;</span><span class="p">:</span> <span class="s2">&quot;G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;QmWYcjZu28GR8p2gnwwUN5UcKAJgJEs1uvMqfwgM67hiKd&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;pqrhTw495h5hrvBPrMxBvwDyamJEgEjYK5P99TJj3D3J9STBGCs5h1mM5xZo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;media&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;43&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;added&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-06-12T13:48:43.109920Z&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="nt">&quot;targets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;QmX5KGvJyYDKr9xhuTYRY92LWv4U1xNkrPmSYJVycwk9Dd&quot;</span><span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="nt">&quot;threads&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;12D3KooWSfWsCbnC44CWfPSVw1VRJFSjJX567Yw269qqdhHq5CoY&quot;</span><span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 
 </details>
@@ -3493,21 +3632,21 @@ Added 1 file in 534.774123ms
 <div class="superfences-tabs">
 <input name="__tabs_25" type="radio" id="__tab_25_0" checked="checked" />
 <label for="__tab_25_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &#39;{ &quot;latitude&quot;: 91, &quot;longitude&quot;: 2.294694 }&#39; | textile files add --thread=&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;&#39;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &#39;{ &quot;latitude&quot;: 91, &quot;longitude&quot;: 2.294694 }&#39; | textile files add &lt;thread-id&gt;
 </pre></div></div>
 <input name="__tabs_25" type="radio" id="__tab_25_1" />
 <label for="__tab_25_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span> <span class="nx">latitude</span><span class="o">:</span> <span class="mi">91</span><span class="p">,</span> <span class="nx">longitude</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span> <span class="nx">latitude</span><span class="o">:</span> <span class="mi">91</span><span class="p">,</span> <span class="nx">longitude</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_25" type="radio" id="__tab_25_2" />
 <label for="__tab_25_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="s2">&quot;latitude&quot;</span><span class="o">:</span> <span class="mi">91</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">}).</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;base64&#39;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_25" type="radio" id="__tab_25_3" />
 <label for="__tab_25_3">Objective-C</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;&lt;thread-id&gt;&quot;</span><span class="p">;</span>
 <span class="bp">NSData</span> <span class="o">*</span><span class="n">jsonData</span> <span class="o">=</span> <span class="p">[</span><span class="s">@&quot;{ latitude: 91, longitude: 2.294694 }&quot;</span> <span class="nl">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span>
 <span class="bp">NSString</span> <span class="o">*</span><span class="n">dataString</span> <span class="o">=</span> <span class="p">[</span><span class="n">jsonData</span> <span class="nl">base64EncodedStringWithOptions</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
 <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">prepare</span><span class="p">:</span><span class="n">dataString</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MobilePreparedFiles</span> <span class="o">*</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
@@ -3526,7 +3665,7 @@ Added 1 file in 534.774123ms
 </pre></div></div>
 <input name="__tabs_25" type="radio" id="__tab_25_4" />
 <label for="__tab_25_4">Swift</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;&lt;thread-id&gt;&quot;</span>
 <span class="kd">let</span> <span class="nv">jsonData</span> <span class="p">=</span> <span class="s">&quot;{ latitude: 91, longitude: 2.294694 }&quot;</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">using</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">)</span>
 <span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">jsonData</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nv">dataString</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">base64EncodedString</span><span class="p">()</span>
@@ -3547,7 +3686,7 @@ Added 1 file in 534.774123ms
 </pre></div></div>
 <input name="__tabs_25" type="radio" id="__tab_25_5" />
 <label for="__tab_25_5">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">threadId</span> <span class="o">=</span> <span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="o">;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">threadId</span> <span class="o">=</span> <span class="s">&quot;&lt;thread-id&gt;&quot;</span><span class="o">;</span>
 <span class="kt">byte</span><span class="o">[]</span> <span class="n">jsonData</span> <span class="o">=</span> <span class="s">&quot;{ latitude: 91, longitude: 2.294694 }&quot;</span><span class="o">.</span><span class="na">getBytes</span><span class="o">();</span>
 <span class="n">String</span> <span class="n">dataString</span> <span class="o">=</span> <span class="n">Base64</span><span class="o">.</span><span class="na">encodeToString</span><span class="o">(</span><span class="n">jsonData</span><span class="o">,</span> <span class="n">Base64</span><span class="o">.</span><span class="na">DEFAULT</span><span class="o">);</span>
 <span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">files</span><span class="o">.</span><span class="na">prepare</span><span class="o">(</span><span class="n">dataString</span><span class="o">,</span> <span class="n">threadId</span><span class="o">,</span> <span class="k">new</span> <span class="n">PreparedFilesHandler</span><span class="o">()</span> <span class="o">{</span>
@@ -3581,7 +3720,7 @@ Added 1 file in 534.774123ms
 <div class="superfences-tabs">
 <input name="__tabs_26" type="radio" id="__tab_26_0" checked="checked" />
 <label for="__tab_26_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile init --seed=&quot;$(textile wallet init | tail -n1)&quot; --repo-dir=&quot;/tmp/buddy&quot; --swarm-ports=&quot;4101&quot; --api-bind-addr=&quot;127.0.0.1:41600&quot; --gateway-bind-addr=&quot;127.0.0.1:5150&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile init &quot;$(textile wallet init | tail -n1)&quot; --repo=&quot;/tmp/buddy&quot; --swarm-ports=&quot;4101&quot; --api-bind-addr=&quot;127.0.0.1:41600&quot; --gateway-bind-addr=&quot;127.0.0.1:5150&quot;
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>Initialized account with address P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
@@ -3596,7 +3735,7 @@ Added 1 file in 534.774123ms
 <div class="superfences-tabs">
 <input name="__tabs_27" type="radio" id="__tab_27_0" checked="checked" />
 <label for="__tab_27_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile daemon --repo-dir=&quot;/tmp/buddy&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile daemon --repo=&quot;/tmp/buddy&quot;
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>23 Apr 19 14:02 PDT  P7X3gZu added JOIN update to Y6xBsPwB
@@ -3616,7 +3755,7 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <div class="superfences-tabs">
 <input name="__tabs_28" type="radio" id="__tab_28_0" checked="checked" />
 <label for="__tab_28_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile invites create --thread=&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot; --address=&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile invite create &lt;thread-id&gt; --address=&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;
 </pre></div></div>
 <input name="__tabs_28" type="radio" id="__tab_28_1" />
 <label for="__tab_28_1">JavaScript</label>
@@ -3691,7 +3830,7 @@ ok
 <div class="superfences-tabs">
 <input name="__tabs_29" type="radio" id="__tab_29_0" checked="checked" />
 <label for="__tab_29_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile invites ls --api=&quot;http://127.0.0.1:41600&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile invites list --api=&quot;http://127.0.0.1:41600&quot;
 </pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -3753,11 +3892,11 @@ ok
 <div class="superfences-tabs">
 <input name="__tabs_31" type="radio" id="__tab_31_0" checked="checked" />
 <label for="__tab_31_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile blocks ls --thread=&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile blocks list &quot;&lt;thread-id&gt;&quot;
 </pre></div></div>
 <input name="__tabs_31" type="radio" id="__tab_31_1" />
 <label for="__tab_31_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">blocks</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">blocks</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_31" type="radio" id="__tab_31_2" />
 <label for="__tab_31_2">React Native</label>
@@ -3833,20 +3972,20 @@ ok
 <div class="superfences-tabs">
 <input name="__tabs_32" type="radio" id="__tab_32_0" checked="checked" />
 <label for="__tab_32_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile comments add &quot;Is this an outlier?&quot; --block=&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot; --api=&quot;http://127.0.0.1:41600&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile comments add &lt;block-id&gt; &quot;Is this an outlier?&quot; --api=&quot;http://127.0.0.1:41600&quot;
 </pre></div></div>
 <input name="__tabs_32" type="radio" id="__tab_32_1" />
 <label for="__tab_32_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">comments</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">,</span> <span class="s2">&quot;Is this an outlier?&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">comments</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;&lt;block-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;Is this an outlier?&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_32" type="radio" id="__tab_32_2" />
 <label for="__tab_32_2">React Native</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">comments</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">,</span> <span class="s2">&quot;Is this an outlier?&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">comments</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;&lt;block-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;Is this an outlier?&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_32" type="radio" id="__tab_32_3" />
 <label for="__tab_32_3">Objective-C</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
-<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">comments</span> <span class="nl">add</span><span class="p">:</span><span class="s">@&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span> <span class="nl">body</span><span class="p">:</span><span class="s">@&quot;Is this an outlier?&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">comments</span> <span class="nl">add</span><span class="p">:</span><span class="s">@&quot;&lt;block-id&gt;&quot;</span> <span class="nl">body</span><span class="p">:</span><span class="s">@&quot;Is this an outlier?&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Do something with this error</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -3865,7 +4004,7 @@ ok
 </pre></div></div>
 <input name="__tabs_32" type="radio" id="__tab_32_5" />
 <label for="__tab_32_5">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">comments</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="o">,</span> <span class="s">&quot;Is this an outlier?&quot;</span><span class="o">);</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">comments</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;&lt;block-id&gt;&quot;</span><span class="o">,</span> <span class="s">&quot;Is this an outlier?&quot;</span><span class="o">);</span>
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -3890,20 +4029,20 @@ ok
 <div class="superfences-tabs">
 <input name="__tabs_33" type="radio" id="__tab_33_0" checked="checked" />
 <label for="__tab_33_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile likes add --block=&quot;QmVoKpKsg5MkW11bK3LVmd3xMMaxTutVime32sV6EZWeLk&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile likes add &lt;block-id&gt;
 </pre></div></div>
 <input name="__tabs_33" type="radio" id="__tab_33_1" />
 <label for="__tab_33_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">likes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">likes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;&lt;block-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_33" type="radio" id="__tab_33_2" />
 <label for="__tab_33_2">React Native</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">likes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">likes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;&lt;block-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_33" type="radio" id="__tab_33_3" />
 <label for="__tab_33_3">Objective-C</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
-<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">likes</span> <span class="nl">add</span><span class="p">:</span><span class="s">@&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">likes</span> <span class="nl">add</span><span class="p">:</span><span class="s">@&quot;&lt;block-id&gt;&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Do something with this error</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -3913,7 +4052,7 @@ ok
 <input name="__tabs_33" type="radio" id="__tab_33_4" />
 <label for="__tab_33_4">Swift</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
-<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">likes</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">likes</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;&lt;block-id&gt;&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Do something with this error</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -3922,7 +4061,7 @@ ok
 </pre></div></div>
 <input name="__tabs_33" type="radio" id="__tab_33_5" />
 <label for="__tab_33_5">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">likes</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="o">);</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">likes</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;&lt;block-id&gt;&quot;</span><span class="o">);</span>
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -4045,22 +4184,22 @@ ok
 <div class="superfences-tabs">
 <input name="__tabs_35" type="radio" id="__tab_35_0" checked="checked" />
 <label for="__tab_35_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile invites create --thread=&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile invite create &quot;&lt;thread-id&gt;&quot;
 </pre></div></div>
 <input name="__tabs_35" type="radio" id="__tab_35_1" />
 <label for="__tab_35_1">JavaScript</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">// The below invite key can be sent securely to recipient in any way convenient</span>
-<span class="kr">const</span> <span class="nx">inviteKey</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">invites</span><span class="p">.</span><span class="nx">addExternal</span><span class="p">(</span><span class="s2">&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">inviteKey</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">invites</span><span class="p">.</span><span class="nx">addExternal</span><span class="p">(</span><span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_35" type="radio" id="__tab_35_2" />
 <label for="__tab_35_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="c1">// The below invite key can be sent securely to recipient in any way convenient</span>
-<span class="kr">const</span> <span class="nx">inviteKey</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">invites</span><span class="p">.</span><span class="nx">addExternal</span><span class="p">(</span><span class="s2">&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">inviteKey</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">invites</span><span class="p">.</span><span class="nx">addExternal</span><span class="p">(</span><span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_35" type="radio" id="__tab_35_3" />
 <label for="__tab_35_3">Objective-C</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
-<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">invites</span> <span class="nl">addExternal</span><span class="p">:</span><span class="s">@&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">invites</span> <span class="nl">addExternal</span><span class="p">:</span><span class="s">@&quot;&lt;thread-id&gt;&quot;</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Do something with this error</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -4070,7 +4209,7 @@ ok
 <input name="__tabs_35" type="radio" id="__tab_35_4" />
 <label for="__tab_35_4">Swift</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
-<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">invites</span><span class="p">.</span><span class="n">addExternal</span><span class="p">(</span><span class="s">&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">invites</span><span class="p">.</span><span class="n">addExternal</span><span class="p">(</span><span class="s">&quot;&lt;thread-id&gt;&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Do something with this error</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -4079,7 +4218,7 @@ ok
 </pre></div></div>
 <input name="__tabs_35" type="radio" id="__tab_35_5" />
 <label for="__tab_35_5">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">invites</span><span class="o">.</span><span class="na">addExternal</span><span class="o">(</span><span class="s">&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;</span><span class="o">);</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">invites</span><span class="o">.</span><span class="na">addExternal</span><span class="o">(</span><span class="s">&quot;&lt;thread-id&gt;&quot;</span><span class="o">);</span>
 </pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -4119,14 +4258,14 @@ ok
 <div class="superfences-tabs">
 <input name="__tabs_37" type="radio" id="__tab_37_0" checked="checked" />
 <label for="__tab_37_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile chat --thread=&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile chat &quot;&lt;thread-id&gt;&quot;
 </pre></div></div>
 </div>
 <p>Then start the same chat on your second peer:</p>
 <div class="superfences-tabs">
 <input name="__tabs_38" type="radio" id="__tab_38_0" checked="checked" />
 <label for="__tab_38_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile chat --thread=&quot;12D3KooWExn4ut4RV2qHXFSiWb3AfhL2whB8vJgYpnDcmVCG7UBv&quot; --api=&quot;http://127.0.0.1:41600&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile chat &quot;&lt;thread-id&gt;&quot; --api=&quot;http://127.0.0.1:41600&quot;
 </pre></div></div>
 </div>
 <div class="admonition tip">
@@ -4141,20 +4280,20 @@ ok
 <div class="superfences-tabs">
 <input name="__tabs_39" type="radio" id="__tab_39_0" checked="checked" />
 <label for="__tab_39_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile files ls --thread=&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile thread files &lt;thread-id&gt;
 </pre></div></div>
 <input name="__tabs_39" type="radio" id="__tab_39_1" />
 <label for="__tab_39_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_39" type="radio" id="__tab_39_2" />
 <label for="__tab_39_2">React Native</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_39" type="radio" id="__tab_39_3" />
 <label for="__tab_39_3">Objective-C</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
-<span class="n">FilesList</span> <span class="o">*</span><span class="n">filesList</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">list</span><span class="p">:</span><span class="s">@&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span> <span class="nl">offset</span><span class="p">:</span><span class="s">@&quot;&quot;</span> <span class="nl">limit</span><span class="p">:</span><span class="mi">5</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="n">FilesList</span> <span class="o">*</span><span class="n">filesList</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">list</span><span class="p">:</span><span class="s">@&quot;&lt;thread-id&gt;&quot;</span> <span class="nl">offset</span><span class="p">:</span><span class="s">@&quot;&quot;</span> <span class="nl">limit</span><span class="p">:</span><span class="mi">5</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Do something with this error</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -4164,7 +4303,7 @@ ok
 <input name="__tabs_39" type="radio" id="__tab_39_4" />
 <label for="__tab_39_4">Swift</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
-<span class="kd">let</span> <span class="nv">filesList</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">list</span><span class="p">(</span><span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">,</span> <span class="n">offset</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">filesList</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">files</span><span class="p">.</span><span class="n">list</span><span class="p">(</span><span class="s">&quot;&lt;thread-id&gt;&quot;</span><span class="p">,</span> <span class="n">offset</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Do something with this error</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -4173,101 +4312,74 @@ ok
 </pre></div></div>
 <input name="__tabs_39" type="radio" id="__tab_39_5" />
 <label for="__tab_39_5">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">FilesList</span> <span class="n">files</span> <span class="o">=</span> <span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">files</span><span class="o">.</span><span class="na">list</span><span class="o">(</span><span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">FilesList</span> <span class="n">files</span> <span class="o">=</span> <span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">files</span><span class="o">.</span><span class="na">list</span><span class="o">(</span><span class="s">&quot;&lt;thread-id&gt;&quot;</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
 </pre></div></div>
 </div>
-<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>{
-    &quot;items&quot;: [
-        {
-            &quot;block&quot;: &quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;,
-            &quot;target&quot;: &quot;QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk&quot;,
-            &quot;date&quot;: &quot;2019-04-23T20:08:51.686544Z&quot;,
-            &quot;user&quot;: {
-                &quot;address&quot;: &quot;P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j&quot;,
-                &quot;name&quot;: &quot;Clyde&quot;,
-                &quot;avatar&quot;: &quot;Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5&quot;
-            },
-            &quot;files&quot;: [
-                {
-                    &quot;file&quot;: {
-                        &quot;mill&quot;: &quot;/json&quot;,
-                        &quot;checksum&quot;: &quot;HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S&quot;,
-                        &quot;source&quot;: &quot;8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ&quot;,
-                        &quot;opts&quot;: &quot;G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN&quot;,
-                        &quot;hash&quot;: &quot;QmQHYPJDQAU8ZaGG8e4iW9bj65mr2T1cwygyfWb6AUaNio&quot;,
-                        &quot;key&quot;: &quot;AYCbcQf4YDBHr4NE2SnBgZYPfTD5riZgerujv3xFZgZ4RhDP3yZjcMnHSqXp&quot;,
-                        &quot;media&quot;: &quot;application/json&quot;,
-                        &quot;size&quot;: &quot;43&quot;,
-                        &quot;added&quot;: &quot;2019-04-23T20:08:51.294649Z&quot;,
-                        &quot;meta&quot;: {
-                            },
-                        &quot;targets&quot;: [
-                            &quot;QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk&quot;
-                        ]
-                    }
-                }
-            ],
-            &quot;comments&quot;: [
-                {
-                    &quot;id&quot;: &quot;QmNx9j82vWLF6tEeMYWdFMBDJo89yBbMmScseJR4jVtML3&quot;,
-                    &quot;date&quot;: &quot;2019-04-23T22:21:04.253734Z&quot;,
-                    &quot;user&quot;: {
-                        &quot;address&quot;: &quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;,
-                        &quot;name&quot;: &quot;P7X3gZu&quot;
-                    },
-                    &quot;body&quot;: &quot;Is this an outlier?&quot;
-                }
-            ],
-            &quot;likes&quot;: [
-            ],
-            &quot;threads&quot;: [
-                &quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;
-            ]
-        }
-    ]
-}
+<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;items&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="nt">&quot;block&quot;</span><span class="p">:</span> <span class="s2">&quot;QmUvWjstQzR6y7UctRJgVjcKsKzutZoiBsQw6WBXMnmg84&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-04-23T20:08:51.686544Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Clyde&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;Qmea7R7cCSSkRZ5Jammj8xvkE44YvjDWz3aBuWm4PNcyf5&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;files&quot;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="nt">&quot;file&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;mill&quot;</span><span class="p">:</span> <span class="s2">&quot;/json&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;checksum&quot;</span><span class="p">:</span> <span class="s2">&quot;HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;opts&quot;</span><span class="p">:</span> <span class="s2">&quot;G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;QmQHYPJDQAU8ZaGG8e4iW9bj65mr2T1cwygyfWb6AUaNio&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;AYCbcQf4YDBHr4NE2SnBgZYPfTD5riZgerujv3xFZgZ4RhDP3yZjcMnHSqXp&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;media&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;43&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;added&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-04-23T20:08:51.294649Z&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{},</span>
+                <span class="nt">&quot;targets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;QmQVstxooDH7yJJzTrQySTCt61s46RjcGACsEmcLGz2dCk&quot;</span><span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}],</span>
+        <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;QmNx9j82vWLF6tEeMYWdFMBDJo89yBbMmScseJR4jVtML3&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-04-23T22:21:04.253734Z&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;P7X3gZu&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;Is this an outlier?&quot;</span>
+        <span class="p">}],</span>
+        <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="nt">&quot;threads&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">]</span>
+    <span class="p">}]</span>
+<span class="p">}</span>
 </pre></div>
 
 </details>
 <p>You can also list files across all threads by omitting the <code>--thread</code> flag.</p>
 <h4 id="the-feed-api">The feed API<a class="headerlink" href="#the-feed-api" title="Permanent link">&para;</a></h4>
-<p>The feed API provides a few different modes to drive feed-based UIs. Take a look at the usage text from the command-line client (<code>textile feed --help</code>):</p>
-<div class="codehilite"><pre><span></span>Usage:
-  textile [OPTIONS] feed [feed-OPTIONS]
-
-Paginates post (join|leave|files|message) and annotation (comment|like) block types as a consumable feed.
-The --mode option dictates how the feed is displayed:
-
--  &quot;chrono&quot;: All feed block types are shown. Annotations always nest their target post, i.e., the post a comment is about.
--  &quot;annotated&quot;: Annotations are nested under post targets, but are not shown in the top-level feed.
--  &quot;stacks&quot;: Related blocks are chronologically grouped into &quot;stacks&quot;. A new stack is started if an unrelated block
-breaks continuity. This mode is used by Textile Photos. Stacks may include:
-
-*  The initial post with some nested annotations. Newer annotations may have already been listed.
-*  One or more annotations about a post. The newest annotation assumes the &quot;top&quot; position in the stack. Additional
-annotations are nested under the target. Newer annotations may have already been listed in the case as well.
-
-Omit the --thread option to paginate all files.
+<p>The feed API provides a few different modes to drive feed-based UIs. Take a look at the usage text from the command-line client:</p>
+<div class="codehilite"><pre><span></span>textile feed --help
 </pre></div>
 
 <p>Give the default <code>chrono</code> (for chronological) mode a try:</p>
 <div class="superfences-tabs">
 <input name="__tabs_40" type="radio" id="__tab_40_0" checked="checked" />
 <label for="__tab_40_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile feed --thread=&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile feed &quot;&lt;thread-id&gt;&quot;
 </pre></div></div>
 <input name="__tabs_40" type="radio" id="__tab_40_1" />
 <label for="__tab_40_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">feed</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">feed</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_40" type="radio" id="__tab_40_2" />
 <label for="__tab_40_2">React Native</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">feed</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">feed</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_40" type="radio" id="__tab_40_3" />
 <label for="__tab_40_3">Objective-C</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">FeedRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[[</span><span class="n">FeedRequest</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-<span class="n">request</span><span class="p">.</span><span class="kr">thread</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">;</span>
+<span class="n">request</span><span class="p">.</span><span class="kr">thread</span> <span class="o">=</span> <span class="s">@&quot;&lt;thread-id&gt;&quot;</span><span class="p">;</span>
 <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
 <span class="n">FeedItemList</span> <span class="o">*</span><span class="n">feedItemList</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">feed</span> <span class="nl">list</span><span class="p">:</span><span class="n">request</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
@@ -4291,7 +4403,7 @@ Omit the --thread option to paginate all files.
 <input name="__tabs_40" type="radio" id="__tab_40_5" />
 <label for="__tab_40_5">Android</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">FeedRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="n">FeedRequest</span><span class="o">.</span><span class="na">newBuilder</span><span class="o">()</span>
-      <span class="o">.</span><span class="na">setThread</span><span class="o">(</span><span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw\&quot;&quot;</span><span class="o">)</span>
+      <span class="o">.</span><span class="na">setThread</span><span class="o">(</span><span class="s">&quot;&lt;thread-id&gt;&quot;</span><span class="o">)</span>
       <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 <span class="n">FeedItemList</span> <span class="n">feedItemList</span> <span class="o">=</span> <span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">feed</span><span class="o">.</span><span class="na">list</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
 </pre></div></div>
@@ -4528,21 +4640,21 @@ Omit the --thread option to paginate all files.
 <div class="superfences-tabs">
 <input name="__tabs_42" type="radio" id="__tab_42_0" checked="checked" />
 <label for="__tab_42_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &#39;{ &quot;latitude&quot;: 48.858093, &quot;longitude&quot;: 2.294694 }&#39; | textile files add --thread=12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw
+<div class="superfences-content"><div class="codehilite"><pre><span></span>echo &#39;{ &quot;latitude&quot;: 48.858093, &quot;longitude&quot;: 2.294694 }&#39; | textile files add &lt;thread-id&gt;
 </pre></div></div>
 <input name="__tabs_42" type="radio" id="__tab_42_1" />
 <label for="__tab_42_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span> <span class="nx">latitude</span><span class="o">:</span> <span class="mf">48.858093</span><span class="p">,</span> <span class="nx">longitude</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span> <span class="nx">latitude</span><span class="o">:</span> <span class="mf">48.858093</span><span class="p">,</span> <span class="nx">longitude</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_42" type="radio" id="__tab_42_2" />
 <label for="__tab_42_2">React Native</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="s2">&quot;latitude&quot;</span><span class="o">:</span> <span class="mf">48.858093</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="o">:</span> <span class="mf">2.294694</span> <span class="p">}).</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;base64&#39;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">block</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">dir</span><span class="p">,</span> <span class="s2">&quot;&lt;thread-id&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 <input name="__tabs_42" type="radio" id="__tab_42_3" />
 <label for="__tab_42_3">Objective-C</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="p">;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="bp">NSString</span> <span class="o">*</span><span class="n">threadId</span> <span class="o">=</span> <span class="s">@&quot;&lt;thread-id&gt;&quot;</span><span class="p">;</span>
 <span class="bp">NSData</span> <span class="o">*</span><span class="n">jsonData</span> <span class="o">=</span> <span class="p">[</span><span class="s">@&quot;{ latitude: 48.858093, longitude: 2.294694 }&quot;</span> <span class="nl">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span>
 <span class="bp">NSString</span> <span class="o">*</span><span class="n">dataString</span> <span class="o">=</span> <span class="p">[</span><span class="n">jsonData</span> <span class="nl">base64EncodedStringWithOptions</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
 <span class="p">[</span><span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">files</span> <span class="nl">prepare</span><span class="p">:</span><span class="n">dataString</span> <span class="nl">threadId</span><span class="p">:</span><span class="n">threadId</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MobilePreparedFiles</span> <span class="o">*</span><span class="n">preparedFiles</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
@@ -4561,7 +4673,7 @@ Omit the --thread option to paginate all files.
 </pre></div></div>
 <input name="__tabs_42" type="radio" id="__tab_42_4" />
 <label for="__tab_42_4">Swift</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">threadId</span> <span class="p">=</span> <span class="s">&quot;&lt;thread-id&gt;&quot;</span>
 <span class="kd">let</span> <span class="nv">jsonData</span> <span class="p">=</span> <span class="s">&quot;{ latitude: 48.858093, longitude: 2.294694 }&quot;</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">using</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">)</span>
 <span class="k">if</span> <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="n">jsonData</span> <span class="p">{</span>
   <span class="kd">let</span> <span class="nv">dataString</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">base64EncodedString</span><span class="p">()</span>
@@ -4582,7 +4694,7 @@ Omit the --thread option to paginate all files.
 </pre></div></div>
 <input name="__tabs_42" type="radio" id="__tab_42_5" />
 <label for="__tab_42_5">Android</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">threadId</span> <span class="o">=</span> <span class="s">&quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot;</span><span class="o">;</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">threadId</span> <span class="o">=</span> <span class="s">&quot;&lt;thread-id&gt;&quot;</span><span class="o">;</span>
 <span class="kt">byte</span><span class="o">[]</span> <span class="n">jsonData</span> <span class="o">=</span> <span class="s">&quot;{ latitude: 48.858093, longitude: 2.294694 }&quot;</span><span class="o">.</span><span class="na">getBytes</span><span class="o">();</span>
 <span class="n">String</span> <span class="n">dataString</span> <span class="o">=</span> <span class="n">Base64</span><span class="o">.</span><span class="na">encodeToString</span><span class="o">(</span><span class="n">jsonData</span><span class="o">,</span> <span class="n">Base64</span><span class="o">.</span><span class="na">DEFAULT</span><span class="o">);</span>
 <span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">files</span><span class="o">.</span><span class="na">prepare</span><span class="o">(</span><span class="n">dataString</span><span class="o">,</span> <span class="n">threadId</span><span class="o">,</span> <span class="k">new</span> <span class="n">PreparedFilesHandler</span><span class="o">()</span> <span class="o">{</span>
@@ -4602,8 +4714,36 @@ Omit the --thread option to paginate all files.
 <span class="o">});</span>
 </pre></div></div>
 </div>
-<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>File target: QmbkqtPBLH83opAAzjLdLszry55p8W4FZbc7HR1a1gbHK4
-Added 1 file in 533.47ms
+<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;block&quot;</span><span class="p">:</span> <span class="s2">&quot;QmTw4ZRigDgdpVcXHWfCC78Mk8jVUQHpRXcwVEVLUHPYtZ&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;QmX5KGvJyYDKr9xhuTYRY92LWv4U1xNkrPmSYJVycwk9Dd&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-06-12T13:48:43.319450Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;P9fbrHrPyQdtVJkG8MANiyF6W2ctCnyiB6sxA8tbT8zwPZ63&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Clyde&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;QmRoJsuGN1UyDT5jHWvBXYDHubMszmVwAsFZmkYiQbeKrM&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;files&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;file&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;mill&quot;</span><span class="p">:</span> <span class="s2">&quot;/json&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;checksum&quot;</span><span class="p">:</span> <span class="s2">&quot;HoRmDDKwsQko2CWnrCoYHCw1rUaaPH3vW4EMcFMwtw3S&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;8XK5TuJcXmSQRGt1kfSoWXJtNhybpBLQsm4arMH9MpoQ&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;opts&quot;</span><span class="p">:</span> <span class="s2">&quot;G7x9bf74kcvU7aBVnToCMAeVhcsuxuHag8gKgav6cGcN&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;QmWYcjZu28GR8p2gnwwUN5UcKAJgJEs1uvMqfwgM67hiKd&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;pqrhTw495h5hrvBPrMxBvwDyamJEgEjYK5P99TJj3D3J9STBGCs5h1mM5xZo&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;media&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;43&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;added&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-06-12T13:48:43.109920Z&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;meta&quot;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="nt">&quot;targets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;QmX5KGvJyYDKr9xhuTYRY92LWv4U1xNkrPmSYJVycwk9Dd&quot;</span><span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="nt">&quot;likes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="nt">&quot;threads&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;12D3KooWSfWsCbnC44CWfPSVw1VRJFSjJX567Yw269qqdhHq5CoY&quot;</span><span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 
 </details>
@@ -4653,7 +4793,7 @@ Added 1 file in 533.47ms
 <div class="superfences-tabs">
 <input name="__tabs_43" type="radio" id="__tab_43_0" checked="checked" />
 <label for="__tab_43_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile threads rm &quot;12D3KooWBfdhD4tNMuTn5MHGof2bMZBKAUjFF3DBL3kuQQE5m1qw&quot; --api=&quot;http://127.0.0.1:41600&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile thread abandon &quot;&lt;thread-id&gt;&quot; --api=&quot;http://127.0.0.1:41600&quot;
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>ok
@@ -4985,7 +5125,7 @@ Added 1 file in 533.47ms
 <div class="superfences-tabs">
 <input name="__tabs_51" type="radio" id="__tab_51_0" checked="checked" />
 <label for="__tab_51_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile daemon --repo-dir=&quot;/tmp/buddy&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile daemon --repo=&quot;/tmp/buddy&quot;
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>go-textile version: v0.1.12
@@ -5011,65 +5151,65 @@ Account: P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
 </pre></div></div>
 </div>
-<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>{
-    &quot;API&quot;: {
-        &quot;HTTPHeaders&quot;: {
-            &quot;Access-Control-Allow-Headers&quot;: [
-                &quot;Content-Type&quot;,
-                &quot;Method&quot;,
-                &quot;X-Textile-Args&quot;,
-                &quot;X-Textile-Opts&quot;,
-                &quot;X-Requested-With&quot;
-            ],
-            &quot;Access-Control-Allow-Methods&quot;: [
-                &quot;GET&quot;,
-                &quot;POST&quot;,
-                &quot;DELETE&quot;,
-                &quot;OPTIONS&quot;
-            ],
-            &quot;Access-Control-Allow-Origin&quot;: [
-                &quot;http://localhost:*&quot;,
-                &quot;http://127.0.0.1:*&quot;
-            ],
-            &quot;Server&quot;: [
-                &quot;go-textile/0.1.12&quot;
-            ]
-        },
-        &quot;SizeLimit&quot;: 0
-    },
-    &quot;Account&quot;: {
-        &quot;Address&quot;: &quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;,
-        &quot;Thread&quot;: &quot;12D3KooWLMV52tB3kP7qeRwrwfHQpaZZFaMnAm2wEwroY6xBsPwB&quot;
-    },
-    &quot;Addresses&quot;: {
-        &quot;API&quot;: &quot;127.0.0.1:41600&quot;,
-        &quot;CafeAPI&quot;: &quot;127.0.0.1:40601&quot;,
-        &quot;Gateway&quot;: &quot;127.0.0.1:9090&quot;
-    },
-    &quot;Cafe&quot;: {
-        &quot;Client&quot;: {
-            &quot;Mobile&quot;: {
-                &quot;P2PWireLimit&quot;: 0
-            }
-        },
-        &quot;Host&quot;: {
-            &quot;NeighborURL&quot;: &quot;&quot;,
-            &quot;Open&quot;: false,
-            &quot;SizeLimit&quot;: 0,
-            &quot;URL&quot;: &quot;&quot;
-        }
-    },
-    &quot;IsMobile&quot;: false,
-    &quot;IsServer&quot;: false,
-    &quot;Logs&quot;: {
-        &quot;LogToDisk&quot;: true
-    },
-    &quot;Threads&quot;: {
-        &quot;Defaults&quot;: {
-            &quot;ID&quot;: &quot;&quot;
-        }
-    }
-}
+<details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;API&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;HTTPHeaders&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;Access-Control-Allow-Headers&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Content-Type&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Method&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;X-Textile-Args&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;X-Textile-Opts&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;X-Requested-With&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Access-Control-Allow-Methods&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;DELETE&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;OPTIONS&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Access-Control-Allow-Origin&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;http://localhost:*&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;http://127.0.0.1:*&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;Server&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;go-textile/0.1.12&quot;</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;SizeLimit&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;Account&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;Address&quot;</span><span class="p">:</span> <span class="s2">&quot;P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Thread&quot;</span><span class="p">:</span> <span class="s2">&quot;12D3KooWLMV52tB3kP7qeRwrwfHQpaZZFaMnAm2wEwroY6xBsPwB&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;Addresses&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;API&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1:41600&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;CafeAPI&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1:40601&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;Gateway&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1:9090&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;Cafe&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;Client&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;Mobile&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;P2PWireLimit&quot;</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;Host&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;NeighborURL&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;Open&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;SizeLimit&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;URL&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;IsMobile&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;IsServer&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;Logs&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;LogToDisk&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;Threads&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;Defaults&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;ID&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 </details>
@@ -5091,7 +5231,7 @@ Account: P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j
 <div class="superfences-tabs">
 <input name="__tabs_54" type="radio" id="__tab_54_0" checked="checked" />
 <label for="__tab_54_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile daemon --repo-dir=&quot;/tmp/buddy&quot; --debug
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile daemon --repo=&quot;/tmp/buddy&quot; --debug
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>go-textile version: v0.1.12
@@ -5159,12 +5299,12 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <div class="superfences-tabs">
 <input name="__tabs_57" type="radio" id="__tab_57_0" checked="checked" />
 <label for="__tab_57_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes add &quot;http://127.0.0.1:40601&quot; --token=&quot;bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes add &lt;cafe-peer-id&gt; --token=&quot;bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG&quot;
 </pre></div></div>
 <input name="__tabs_57" type="radio" id="__tab_57_1" />
 <label for="__tab_57_1">JavaScript</label>
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">&quot;bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG&quot;</span>
-<span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;http://127.0.0.1:40601&quot;</span><span class="p">,</span> <span class="nx">token</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;&lt;cafe-peer-id&gt;&quot;</span><span class="p">,</span> <span class="nx">token</span><span class="p">)</span>
 </pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -5718,7 +5858,7 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Welcome!" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../install/apps/" title="Apps" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -5727,7 +5867,7 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Welcome!
+                Apps
               </span>
             </div>
           </a>

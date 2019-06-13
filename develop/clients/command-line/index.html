@@ -252,6 +252,66 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Install
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Install
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../install/the-daemon/" title="The Daemon" class="md-nav__link">
+      The Daemon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../install/desktop/" title="Desktop" class="md-nav__link">
+      Desktop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../install/apps/" title="Apps" class="md-nav__link">
+      Apps
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item">
     <a href="../../../a-tour-of-textile/" title="A Tour of Textile" class="md-nav__link">
       A Tour of Textile
@@ -266,13 +326,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Concepts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         Concepts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -321,13 +381,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
     
-    <label class="md-nav__link" for="nav-3-4">
+    <label class="md-nav__link" for="nav-4-4">
       Threads
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
+      <label class="md-nav__title" for="nav-4-4">
         Threads
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -398,13 +458,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       Connectors
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         Connectors
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -442,66 +502,6 @@
   <li class="md-nav__item">
     <a href="../../../connectors/documents/" title="Documents" class="md-nav__link">
       Documents
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      Install
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Install
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../install/the-daemon/" title="The Daemon" class="md-nav__link">
-      The Daemon
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../install/desktop/" title="Desktop" class="md-nav__link">
-      Desktop
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../install/apps/" title="Apps" class="md-nav__link">
-      Apps
     </a>
   </li>
 
@@ -783,7 +783,7 @@
 </table>
 
 <h2>textile account</h2>
-<p><pre>Manage a wallet account</pre></p>
+<p><pre>Manage the account that the initialised textile repository is associated with</pre></p>
 
 <h3>textile account get</h3>
 
@@ -791,7 +791,7 @@
 
 <h3>textile account seed</h3>
 
-<p><pre>Shows the local peer&#39;s account seed</pre></p>
+<p><pre>Shows the local peer&#39;s account seed, treat this as top secret</pre></p>
 
 <h3>textile account address</h3>
 
@@ -808,15 +808,16 @@
 <h2>textile block</h2>
 <p><pre>Threads are composed of an append-only log of blocks, use these commands to manage them</pre></p>
 
-<h3>textile block list [&lt;flags&gt;]</h3>
+<h3>textile block list [&lt;flags&gt;] &lt;thread&gt;</h3>
 
 <p><pre>Paginates blocks in a thread</pre></p>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-t, --thread=&#34;default&#34;</code></td><td><pre>Thread ID</pre></td></tr>
     <tr><td><code>-o, --offset=OFFSET</code></td><td><pre>Offset ID to start listing from</pre></td></tr>
     <tr><td><code>-l, --limit=5</code></td><td><pre>List page size</pre></td></tr>
     <tr><td><code>-d, --dots</code></td><td><pre>Return GraphViz dots instead of JSON</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;thread&gt;</code></td><td><pre>Thread ID</pre></td></tr>
 </table>
 
 <h3>textile block meta &lt;block&gt;</h3>
@@ -833,15 +834,26 @@
     <tr><td><code>&lt;block&gt;</code></td><td><pre>Block ID</pre></td></tr>
 </table>
 
-<h3>textile block file [&lt;flags&gt;] &lt;files-block&gt;</h3>
-<p><pre>Get the files, or a specific file, of a Files Block</pre></p>
+<h3>textile block files</h3>
+<p><pre>Commands to interact with File Blocks</pre></p>
+
+<h4>textile block files list &lt;block&gt;</h4>
+
+<p><pre>List all files within a File Block</pre></p>
+<table>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;block&gt;</code></td><td><pre>File Block ID</pre></td></tr>
+</table>
+
+<h4>textile block files get [&lt;flags&gt;] &lt;block&gt;</h4>
+<p><pre>Get a specific file within the File Block</pre></p>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>--index=0</code></td><td><pre>If provided, the index of a specific file to retrieve</pre></td></tr>
-    <tr><td><code>--path=PATH</code></td><td><pre>If provided, the path of a specific file to retrieve</pre></td></tr>
-    <tr><td><code>--content</code></td><td><pre>If provided alongside a path, the content of the specific file is retrieved</pre></td></tr>
+    <tr><td><code>--index=0</code></td><td><pre>The index of the file to fetch</pre></td></tr>
+    <tr><td><code>--path=&#34;.&#34;</code></td><td><pre>The link path of the file to fetch</pre></td></tr>
+    <tr><td><code>--content</code></td><td><pre>If provided, the decrypted content of the file is retrieved</pre></td></tr>
     <tr><th>Argument</th><th>Description</th></tr>
-    <tr><td><code>&lt;files-block&gt;</code></td><td><pre>Files Block ID</pre></td></tr>
+    <tr><td><code>&lt;block&gt;</code></td><td><pre>File Block ID</pre></td></tr>
 </table>
 
 <h2>textile cafe</h2>
@@ -879,12 +891,12 @@ An access token is required to register, and should be obtained separately from 
 <h3>textile cafe messages</h3>
 <p><pre>Check for messages at all cafes. New messages are downloaded and processed opportunistically.</pre></p>
 
-<h2>textile chat [&lt;flags&gt;]</h2>
+<h2>textile chat &lt;thread&gt;</h2>
 
 <p><pre>Starts an interactive chat session in a thread</pre></p>
 <table>
-    <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-t, --thread=&#34;default&#34;</code></td><td><pre>Thread ID</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;thread&gt;</code></td><td><pre>Thread ID</pre></td></tr>
 </table>
 
 <h2>textile comment</h2>
@@ -946,7 +958,7 @@ An access token is required to register, and should be obtained separately from 
 
 <h3>textile contact get &lt;address&gt;</h3>
 
-<p><pre>Gets a known contact</pre></p>
+<p><pre>Gets a known local contact</pre></p>
 <table>
     <tr><th>Argument</th><th>Description</th></tr>
     <tr><td><code>&lt;address&gt;</code></td><td><pre>Account Address</pre></td></tr>
@@ -975,15 +987,15 @@ An access token is required to register, and should be obtained separately from 
 <p><pre>Start a node daemon session</pre></p>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-r, --repo-dir=REPO-DIR</code></td><td><pre>Specify a custom repository path</pre></td></tr>
-    <tr><td><code>-p, --pin-code=PIN-CODE</code></td><td><pre>Specify the pin code for datastore encryption (omit no pin code was used during init)</pre></td></tr>
+    <tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom repository path</pre></td></tr>
+    <tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify the pin code for datastore encryption (omit no pin code was used during init)</pre></td></tr>
     <tr><td><code>-s, --serve-docs</code></td><td><pre>Whether to serve the local REST API docs</pre></td></tr>
 </table>
 
 <h2>textile docs</h2>
 <p><pre>Prints the CLI help as HTML</pre></p>
 
-<h2>textile feed [&lt;flags&gt;]</h2>
+<h2>textile feed [&lt;flags&gt;] [&lt;thread&gt;]</h2>
 
 <p><pre>Paginates post (join|leave|files|message) and annotation (comment|like) block types as a consumable feed.
 
@@ -1001,42 +1013,70 @@ Stacks may include:
  annotations are nested under the target. Newer annotations may have already been listed in the case as well.</pre></p>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-t, --thread=THREAD</code></td><td><pre>Thread ID, omit for all</pre></td></tr>
     <tr><td><code>-o, --offset=OFFSET</code></td><td><pre>Offset ID to start listening from</pre></td></tr>
     <tr><td><code>-l, --limit=3</code></td><td><pre>List page size</pre></td></tr>
     <tr><td><code>-m, --mode=&#34;chrono&#34;</code></td><td><pre>Feed mode, one of: chrono, annotated, stacks</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>[&lt;thread&gt;]</code></td><td><pre>Thread ID, omit for all</pre></td></tr>
 </table>
 
 <h2>textile file</h2>
 <p><pre>Manage Textile Files Blocks</pre></p>
 
-<h3>textile file list [&lt;flags&gt;]</h3>
+<h3>textile file list</h3>
 
-<p><pre>Paginates thread files</pre></p>
+<p><pre>Get all the files, or just the files for a specific thread or block</pre></p>
+
+<h4>textile file list thread [&lt;flags&gt;] [&lt;thread&gt;]</h4>
+
+<p><pre>Paginates the files of a thread, or of all threads</pre></p>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-t, --thread=&#34;default&#34;</code></td><td><pre>Thread ID</pre></td></tr>
     <tr><td><code>-o, --offset=OFFSET</code></td><td><pre>Offset ID to start listing from</pre></td></tr>
     <tr><td><code>-l, --limit=5</code></td><td><pre>List page size</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>[&lt;thread&gt;]</code></td><td><pre>Thread ID, omit for all</pre></td></tr>
 </table>
 
-<h3>textile file keys &lt;target-block&gt;</h3>
-<p><pre>Shows file keys under the given target</pre></p>
+<h4>textile file list block</h4>
+<p><pre>Commands to interact with File Blocks</pre></p>
+
+<h5>textile file list block list &lt;block&gt;</h5>
+
+<p><pre>List all files within a File Block</pre></p>
 <table>
     <tr><th>Argument</th><th>Description</th></tr>
-    <tr><td><code>&lt;target-block&gt;</code></td><td><pre>Files Block Target ID</pre></td></tr>
+    <tr><td><code>&lt;block&gt;</code></td><td><pre>File Block ID</pre></td></tr>
 </table>
 
-<h3>textile file add [&lt;flags&gt;] [&lt;path&gt;]</h3>
+<h5>textile file list block get [&lt;flags&gt;] &lt;block&gt;</h5>
+<p><pre>Get a specific file within the File Block</pre></p>
+<table>
+    <tr><th>Flag</th><th>Description</th></tr>
+    <tr><td><code>--index=0</code></td><td><pre>The index of the file to fetch</pre></td></tr>
+    <tr><td><code>--path=&#34;.&#34;</code></td><td><pre>The link path of the file to fetch</pre></td></tr>
+    <tr><td><code>--content</code></td><td><pre>If provided, the decrypted content of the file is retrieved</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;block&gt;</code></td><td><pre>File Block ID</pre></td></tr>
+</table>
+
+<h3>textile file keys &lt;block-target&gt;</h3>
+<p><pre>Shows the encryption keys for each content/meta pair for the given block DAG target</pre></p>
+<table>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;block-target&gt;</code></td><td><pre>Block Target ID</pre></td></tr>
+</table>
+
+<h3>textile file add [&lt;flags&gt;] &lt;thread&gt; [&lt;path&gt;]</h3>
 <p><pre>Adds a file, directory, or hash to a thread. Files not supported by the thread schema are ignored</pre></p>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-t, --thread=&#34;default&#34;</code></td><td><pre>Thread ID</pre></td></tr>
     <tr><td><code>-c, --caption=CAPTION</code></td><td><pre>File(s) caption</pre></td></tr>
     <tr><td><code>-g, --group</code></td><td><pre>If provided, group a directory&#39;s files together into a single object, includes nested directories</pre></td></tr>
     <tr><td><code>-v, --verbose</code></td><td><pre>Prints files as they are milled</pre></td></tr>
     <tr><th>Argument</th><th>Description</th></tr>
-    <tr><td><code>[&lt;path&gt;]</code></td><td><pre>The path to the file or directory to add, can also be an existing hash</pre></td></tr>
+    <tr><td><code>&lt;thread&gt;</code></td><td><pre>Thread ID</pre></td></tr>
+    <tr><td><code>[&lt;path&gt;]</code></td><td><pre>The path to the file or directory to add, can also be an existing hash. If omitted, you must provide a stdin blob input.</pre></td></tr>
 </table>
 
 <h3>textile file ignore &lt;files-block&gt;</h3>
@@ -1055,13 +1095,12 @@ Stacks may include:
     <tr><td><code>&lt;hash&gt;</code></td><td><pre>File Hash</pre></td></tr>
 </table>
 
-<h2>textile init --seed=SEED [&lt;flags&gt;]</h2>
-<p><pre>Initialize the node repository and exit</pre></p>
+<h2>textile init [&lt;flags&gt;] &lt;account-seed&gt;</h2>
+<p><pre>Configure textile to use the account by creating a local repository to house its data</pre></p>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-s, --seed=SEED</code></td><td><pre>Account seed (run &#39;wallet&#39; command to generate new seeds)</pre></td></tr>
-    <tr><td><code>-p, --pin-code=PIN-CODE</code></td><td><pre>Specify a pin code for datastore encryption</pre></td></tr>
-    <tr><td><code>-r, --repo-dir=REPO-DIR</code></td><td><pre>Specify a custom repository path</pre></td></tr>
+    <tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify a pin for datastore encryption</pre></td></tr>
+    <tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom repository path</pre></td></tr>
     <tr><td><code>--server</code></td><td><pre>Apply IPFS server profile</pre></td></tr>
     <tr><td><code>--swarm-ports=SWARM-PORTS</code></td><td><pre>Set the swarm ports (TCP,WS). A random TCP port is chosen by default</pre></td></tr>
     <tr><td><code>--log-files</code></td><td><pre>If true, writes logs to rolling files, if false, writes logs to stdout</pre></td></tr>
@@ -1072,6 +1111,8 @@ Stacks may include:
     <tr><td><code>--cafe-open</code></td><td><pre>Open the p2p cafe service for other peers</pre></td></tr>
     <tr><td><code>--cafe-url=CAFE-URL</code></td><td><pre>Specify a custom URL of this cafe, e.g., https://mycafe.com</pre></td></tr>
     <tr><td><code>--cafe-neighbor-url=CAFE-NEIGHBOR-URL</code></td><td><pre>Specify the URL of a secondary cafe. Must return cafe info, e.g., via a Gateway: https://my-gateway.yolo.com/cafe, or a cafe API: https://my-cafe.yolo.com</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;account-seed&gt;</code></td><td><pre>The account seed to use, if you do not have one, refer to: textile wallet --help</pre></td></tr>
 </table>
 
 <h2>textile invite</h2>
@@ -1082,14 +1123,15 @@ There are two types of invites, direct account-to-account and external:
 - Account-to-account invites are encrypted with the invitee&#39;s account address (public key).
 - External invites are encrypted with a single-use key and are useful for onboarding new users.</pre></p>
 
-<h3>textile invite create [&lt;flags&gt;]</h3>
+<h3>textile invite create [&lt;flags&gt;] &lt;thread&gt;</h3>
 
 <p><pre>Creates a direct account-to-account or external invite to a thread</pre></p>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-t, --thread=&#34;default&#34;</code></td><td><pre>Thread ID</pre></td></tr>
     <tr><td><code>-a, --address=ADDRESS</code></td><td><pre>Account Address, omit to create an external invite</pre></td></tr>
     <tr><td><code>--wait=2</code></td><td><pre>Stops searching after [wait] seconds have elapsed (max 30s)</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;thread&gt;</code></td><td><pre>Thread ID</pre></td></tr>
 </table>
 
 <h3>textile invite list</h3>
@@ -1158,14 +1200,14 @@ There are two types of invites, direct account-to-account and external:
 <p><pre>Attach a like to a block</pre></p>
 <table>
     <tr><th>Argument</th><th>Description</th></tr>
-    <tr><td><code>&lt;block&gt;</code></td><td><pre>Block ID, usually a file&#39;s block</pre></td></tr>
+    <tr><td><code>&lt;block&gt;</code></td><td><pre>Block ID to like, usually a file&#39;s block</pre></td></tr>
 </table>
 
 <h3>textile like list &lt;block&gt;</h3>
 <p><pre>Get likes that are attached to a block</pre></p>
 <table>
     <tr><th>Argument</th><th>Description</th></tr>
-    <tr><td><code>&lt;block&gt;</code></td><td><pre>Block ID, usually a file&#39;s block</pre></td></tr>
+    <tr><td><code>&lt;block&gt;</code></td><td><pre>Block ID to like, usually a file&#39;s block</pre></td></tr>
 </table>
 
 <h3>textile like get &lt;like-block&gt;</h3>
@@ -1194,23 +1236,23 @@ There are two types of invites, direct account-to-account and external:
 <h2>textile message</h2>
 <p><pre>Manage Textile Messages</pre></p>
 
-<h3>textile message add [&lt;flags&gt;] [&lt;body&gt;]</h3>
+<h3>textile message add &lt;thread&gt; &lt;body&gt;</h3>
 
 <p><pre>Adds a message to a thread</pre></p>
 <table>
-    <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-t, --thread=&#34;default&#34;</code></td><td><pre>Thread ID</pre></td></tr>
     <tr><th>Argument</th><th>Description</th></tr>
-    <tr><td><code>[&lt;body&gt;]</code></td><td><pre>The message to add the thread</pre></td></tr>
+    <tr><td><code>&lt;thread&gt;</code></td><td><pre>Thread ID</pre></td></tr>
+    <tr><td><code>&lt;body&gt;</code></td><td><pre>The message to add the thread</pre></td></tr>
 </table>
 
-<h3>textile message list [&lt;flags&gt;]</h3>
+<h3>textile message list [&lt;flags&gt;] [&lt;thread&gt;]</h3>
 <p><pre>Paginates thread messages</pre></p>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-t, --thread=THREAD</code></td><td><pre>Thread ID, omit to paginate all messages</pre></td></tr>
     <tr><td><code>-o, --offset=OFFSET</code></td><td><pre>Offset ID to start the listing from</pre></td></tr>
     <tr><td><code>-l, --limit=10</code></td><td><pre>List page size</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>[&lt;thread&gt;]</code></td><td><pre>Thread ID, omit to paginate all messages</pre></td></tr>
 </table>
 
 <h3>textile message get [&lt;message-block&gt;]</h3>
@@ -1231,8 +1273,8 @@ There are two types of invites, direct account-to-account and external:
 <p><pre>Migrate the node repository and exit</pre></p>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-r, --repo-dir=REPO-DIR</code></td><td><pre>Specify a custom repository path</pre></td></tr>
-    <tr><td><code>-p, --pin-code=PIN-CODE</code></td><td><pre>Specify the pin code for datastore encryption (omit of none was used during init)</pre></td></tr>
+    <tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom repository path</pre></td></tr>
+    <tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify the pin for datastore encryption, omit if no pin was used during init</pre></td></tr>
 </table>
 
 <h2>textile notification</h2>
@@ -1287,12 +1329,13 @@ There are two types of invites, direct account-to-account and external:
     <tr><td><code>&lt;value&gt;</code></td><td><pre>The value (as an image path: JPEG, PNG, GIF) to set the profile avatar to</pre></td></tr>
 </table>
 
-<h2>textile subscribe [&lt;flags&gt;]</h2>
-<p><pre>Subscribes to updates in a thread or all threads. An update is generated when a new block is added to a thread.</pre></p>
+<h2>textile observe [&lt;flags&gt;] [&lt;thread&gt;]</h2>
+<p><pre>Observe updates in a thread or all threads. An update is generated when a new block is added to a thread.</pre></p>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-t, --thread=THREAD</code></td><td><pre>Thread ID, omit for all</pre></td></tr>
     <tr><td><code>-k, --type=TYPE ...</code></td><td><pre>Only be alerted to specific type of updates, possible values: merge, ignore, flag, join, announce, leave, text, files comment, like. Can be used multiple times, e.g., --type files --type comment</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>[&lt;thread&gt;]</code></td><td><pre>Thread ID, omit for all</pre></td></tr>
 </table>
 
 <h2>textile summary</h2>
@@ -1350,28 +1393,23 @@ shared      --&gt; initiator: Y, whitelist: Y</pre></p>
     <tr><td><code>&lt;thread&gt;</code></td><td><pre>Thread ID</pre></td></tr>
 </table>
 
-<h3>textile thread default</h3>
-<p><pre>Gets and displays info about the default thread (if selected</pre></p>
-
-<h3>textile thread peer [&lt;flags&gt;]</h3>
-
+<h3>textile thread peer &lt;thread&gt;</h3>
 <p><pre>Lists all peers in a thread</pre></p>
 <table>
-    <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-t, --thread=&#34;default&#34;</code></td><td><pre>Thread ID</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;thread&gt;</code></td><td><pre>Thread ID</pre></td></tr>
 </table>
 
-<h3>textile thread rename [&lt;flags&gt;] &lt;name&gt;</h3>
+<h3>textile thread rename &lt;thread&gt; &lt;name&gt;</h3>
 <p><pre>Renames a thread. Only the initiator of a thread can rename it.</pre></p>
 <table>
-    <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-t, --thread=&#34;default&#34;</code></td><td><pre>Thread ID</pre></td></tr>
     <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;thread&gt;</code></td><td><pre>Thread ID</pre></td></tr>
     <tr><td><code>&lt;name&gt;</code></td><td><pre>The name to rename the thread to</pre></td></tr>
 </table>
 
-<h3>textile thread unsubscribe &lt;thread&gt;</h3>
-<p><pre>Unsubscribes from the thread, and if no one else remains subscribed, deletes it</pre></p>
+<h3>textile thread abandon &lt;thread&gt;</h3>
+<p><pre>Abandon a thread. If no one is else remains participating, the thread dissipates.</pre></p>
 <table>
     <tr><th>Argument</th><th>Description</th></tr>
     <tr><td><code>&lt;thread&gt;</code></td><td><pre>Thread ID</pre></td></tr>
@@ -1401,10 +1439,31 @@ shared      --&gt; initiator: Y, whitelist: Y</pre></p>
     <tr><td><code>&lt;snapshot&gt;</code></td><td><pre>The ID of the snapshot to apply</pre></td></tr>
 </table>
 
+<h3>textile thread files [&lt;flags&gt;] [&lt;thread&gt;]</h3>
+<p><pre>Paginates the files of a thread, or of all threads</pre></p>
+<table>
+    <tr><th>Flag</th><th>Description</th></tr>
+    <tr><td><code>-o, --offset=OFFSET</code></td><td><pre>Offset ID to start listing from</pre></td></tr>
+    <tr><td><code>-l, --limit=5</code></td><td><pre>List page size</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>[&lt;thread&gt;]</code></td><td><pre>Thread ID, omit for all</pre></td></tr>
+</table>
+
+<h3>textile thread blocks [&lt;flags&gt;] &lt;thread&gt;</h3>
+<p><pre>Paginates blocks in a thread</pre></p>
+<table>
+    <tr><th>Flag</th><th>Description</th></tr>
+    <tr><td><code>-o, --offset=OFFSET</code></td><td><pre>Offset ID to start listing from</pre></td></tr>
+    <tr><td><code>-l, --limit=5</code></td><td><pre>List page size</pre></td></tr>
+    <tr><td><code>-d, --dots</code></td><td><pre>Return GraphViz dots instead of JSON</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;thread&gt;</code></td><td><pre>Thread ID</pre></td></tr>
+</table>
+
 <h2>textile token</h2>
 <p><pre>Tokens allow other peers to register with a cafe peer</pre></p>
 
-<h3>textile token create [&lt;flags&gt;]</h3>
+<h3>textile token add [&lt;flags&gt;]</h3>
 
 <p><pre>Generates an access token (44 random bytes) and saves a bcrypt hashed version for future lookup.
 The response contains a base58 encoded version of the random bytes token.</pre></p>
@@ -1440,26 +1499,27 @@ The response contains a base58 encoded version of the random bytes token.</pre><
 </table>
 
 <h2>textile wallet</h2>
-<p><pre>Initialize a new wallet, or view accounts from an existing wallet</pre></p>
+<p><pre>Create a new wallet, or list its available accounts</pre></p>
 
-<h3>textile wallet init [&lt;flags&gt;]</h3>
+<h3>textile wallet create [&lt;flags&gt;] [&lt;passphrase&gt;]</h3>
 
-<p><pre>Initializes a new account wallet backed by a mnemonic phrase</pre></p>
+<p><pre>Generate a hierarchical deterministic wallet and output the first child account. A wallet is a seed that deterministically generates child accounts. Child accounts are used to interact with textile. Formula: Autogenerated Mnemonic + Optionally Specified Passphrase = Generated Seed. The seed, mnemonic, and passphrase must be kept top secret. The mnemonic and passphrase must be remembered by you.</pre></p>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-w, --word-count=12</code></td><td><pre>Number of mnemonic phrase words: 12,15,18,21,24</pre></td></tr>
-    <tr><td><code>-p, --password=PASSWORD</code></td><td><pre>Mnemonic password (omit if none)</pre></td></tr>
+    <tr><td><code>-w, --words=12</code></td><td><pre>How many words to use for the autogenerated mnemonic? 12, 15, 18, 21, 24</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>[&lt;passphrase&gt;]</code></td><td><pre>If provided, the resultant wallet seed will be salted with this passphrase, resulting in a different (and more unique) wallet seed than if just the mnemonic was used.</pre></td></tr>
 </table>
 
-<h3>textile wallet accounts [&lt;flags&gt;] &lt;mnemonic&gt;</h3>
-<p><pre>Shows the derived accounts (address/seed pairs) in a wallet</pre></p>
+<h3>textile wallet accounts [&lt;flags&gt;] &lt;mnemonic&gt; [&lt;passphrase&gt;]</h3>
+<p><pre>List the available accounts (within a specific range) within the wallet&#39;s deterministic bounds. Formula: Account = Account Index + Parent Private Key from Parent Seed. Parent Seed = Wallet Mnemonic + Passphrase.</pre></p>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-p, --password=PASSWORD</code></td><td><pre>Mnemonic password (omit if none)</pre></td></tr>
     <tr><td><code>-d, --depth=1</code></td><td><pre>Number of accounts to show</pre></td></tr>
     <tr><td><code>-o, --offset=0</code></td><td><pre>Account depth to start from</pre></td></tr>
     <tr><th>Argument</th><th>Description</th></tr>
-    <tr><td><code>&lt;mnemonic&gt;</code></td><td><pre>An existing mnemonic phrase</pre></td></tr>
+    <tr><td><code>&lt;mnemonic&gt;</code></td><td><pre>The autogenerated mnemonic of the wallet</pre></td></tr>
+    <tr><td><code>[&lt;passphrase&gt;]</code></td><td><pre>If the wallet was generated with a passphrase, specify it here to ensure the accounts you are listing are for the same wallet</pre></td></tr>
 </table>
                 
                   
@@ -1481,7 +1541,7 @@ The response contains a base58 encoded version of the random bytes token.</pre><
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../../install/apps/" title="Apps" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../../connectors/documents/" title="Documents" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1490,7 +1550,7 @@ The response contains a base58 encoded version of the random bytes token.</pre><
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Apps
+                Documents
               </span>
             </div>
           </a>

@@ -256,6 +256,66 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Install
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Install
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../install/the-daemon/" title="The Daemon" class="md-nav__link">
+      The Daemon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../install/desktop/" title="Desktop" class="md-nav__link">
+      Desktop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../install/apps/" title="Apps" class="md-nav__link">
+      Apps
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item">
     <a href="../../a-tour-of-textile/" title="A Tour of Textile" class="md-nav__link">
       A Tour of Textile
@@ -270,13 +330,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Concepts
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         Concepts
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -325,13 +385,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
     
-    <label class="md-nav__link" for="nav-3-4">
+    <label class="md-nav__link" for="nav-4-4">
       Threads
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
+      <label class="md-nav__title" for="nav-4-4">
         Threads
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -402,13 +462,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       Connectors
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         Connectors
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -446,66 +506,6 @@
   <li class="md-nav__item">
     <a href="../../connectors/documents/" title="Documents" class="md-nav__link">
       Documents
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      Install
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Install
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../install/the-daemon/" title="The Daemon" class="md-nav__link">
-      The Daemon
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../install/desktop/" title="Desktop" class="md-nav__link">
-      Desktop
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../install/apps/" title="Apps" class="md-nav__link">
-      Apps
     </a>
   </li>
 
@@ -1299,16 +1299,16 @@
                 
                 <p>A JSON config file (<code>&lt;repo-dir&gt;/textile</code>) is used to control various peer settings. This file lives alongside the <a href="https://github.com/ipfs/go-ipfs/blob/master/docs/config.md">IPFS config</a> file (named <code>config</code>) and has a similar structure and functionality. Both of these files are read once at node instantiation, either for an offline command, or when starting the daemon. Commands that execute on a running daemon <em>do not</em> read the config file at runtime.</p>
 <p>The JSON config is marshaled from the Go <a href="https://github.com/textileio/go-textile/blob/master/repo/config/init.go">type definition</a>:</p>
-<div class="codehilite"><pre><span></span>type Config struct {
-    Account   Account   // local node&#39;s account (public info only)
-    Addresses Addresses // local node&#39;s addresses
-    API       API       // local node&#39;s API settings
-    Logs      Logs      // local node&#39;s log settings
-    Threads   Threads   // local node&#39;s thread settings
-    IsMobile  bool      // local node is setup for mobile
-    IsServer  bool      // local node is setup for a server w/ a public IP
-    Cafe      Cafe      // local node cafe settings
-}
+<div class="codehilite"><pre><span></span><span class="kd">type</span> <span class="nx">Config</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Account</span>   <span class="nx">Account</span>   <span class="c1">// local node&#39;s account (public info only)</span>
+    <span class="nx">Addresses</span> <span class="nx">Addresses</span> <span class="c1">// local node&#39;s addresses</span>
+    <span class="nx">API</span>       <span class="nx">API</span>       <span class="c1">// local node&#39;s API settings</span>
+    <span class="nx">Logs</span>      <span class="nx">Logs</span>      <span class="c1">// local node&#39;s log settings</span>
+    <span class="nx">Threads</span>   <span class="nx">Threads</span>   <span class="c1">// local node&#39;s thread settings</span>
+    <span class="nx">IsMobile</span>  <span class="kt">bool</span>      <span class="c1">// local node is setup for mobile</span>
+    <span class="nx">IsServer</span>  <span class="kt">bool</span>      <span class="c1">// local node is setup for a server w/ a public IP</span>
+    <span class="nx">Cafe</span>      <span class="nx">Cafe</span>      <span class="c1">// local node cafe settings</span>
+<span class="p">}</span>
 </pre></div>
 
 <p>These settings can be modified via the <a href="/develop/clients/command-line">command-line</a> <code>config</code> command. For example, to allow CORS from all origins:</p>
@@ -1317,11 +1317,11 @@
 
 </details>
 <h2 id="account"><code>Account</code><a class="headerlink" href="#account" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>// Account store public account info
-type Account struct {
-    Address string // public key (seed is stored in the _possibly_ encrypted datastore)
-    Thread  string // thread id of the default account thread used for sync between account peers
-}
+<div class="codehilite"><pre><span></span><span class="c1">// Account store public account info</span>
+<span class="kd">type</span> <span class="nx">Account</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Address</span> <span class="kt">string</span> <span class="c1">// public key (seed is stored in the _possibly_ encrypted datastore)</span>
+    <span class="nx">Thread</span>  <span class="kt">string</span> <span class="c1">// thread id of the default account thread used for sync between account peers</span>
+<span class="p">}</span>
 </pre></div>
 
 <h3 id="accountaddress"><code>Account.Address</code><a class="headerlink" href="#accountaddress" title="Permanent link">&para;</a></h3>
@@ -1331,13 +1331,13 @@ type Account struct {
 <p><code>Thread</code> is currently a <a href="https://github.com/libp2p/go-libp2p-peer">libp2p peer</a> ID derived from the account seed. <strong>This will be changed to the hash of a symmetric key in the next version of threads.</strong></p>
 <p><strong>Default</strong>: <em>Populated upon repository initialization</em></p>
 <h2 id="addresses"><code>Addresses</code><a class="headerlink" href="#addresses" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>// Addresses stores the (string) bind addresses for the node.
-type Addresses struct {
-    API       string // bind address of the local REST API
-    CafeAPI   string // bind address of the cafe REST API
-    Gateway   string // bind address of the IPFS object gateway
-    Profiling string // bind address of the profiling API
-}
+<div class="codehilite"><pre><span></span><span class="c1">// Addresses stores the (string) bind addresses for the node.</span>
+<span class="kd">type</span> <span class="nx">Addresses</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">API</span>       <span class="kt">string</span> <span class="c1">// bind address of the local REST API</span>
+    <span class="nx">CafeAPI</span>   <span class="kt">string</span> <span class="c1">// bind address of the cafe REST API</span>
+    <span class="nx">Gateway</span>   <span class="kt">string</span> <span class="c1">// bind address of the IPFS object gateway</span>
+    <span class="nx">Profiling</span> <span class="kt">string</span> <span class="c1">// bind address of the profiling API</span>
+<span class="p">}</span>
 </pre></div>
 
 <h3 id="addressesapi"><code>Addresses.API</code><a class="headerlink" href="#addressesapi" title="Permanent link">&para;</a></h3>
@@ -1353,45 +1353,45 @@ type Addresses struct {
 <p>This API is used internally for obtaining memory and CPU profiles from a running peer.</p>
 <p><strong>Default</strong>: <code>"127.0.0.1:6060"</code></p>
 <h2 id="api"><code>API</code><a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>// API settings
-type API struct {
-    HTTPHeaders map[string][]string // HTTP headers to return with the API.
-    SizeLimit   int64               // Maximum file size limit to accept for POST requests in bytes (a zero value means no limit)
-}
+<div class="codehilite"><pre><span></span><span class="c1">// API settings</span>
+<span class="kd">type</span> <span class="nx">API</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">HTTPHeaders</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">][]</span><span class="kt">string</span> <span class="c1">// HTTP headers to return with the API.</span>
+    <span class="nx">SizeLimit</span>   <span class="kt">int64</span>               <span class="c1">// Maximum file size limit to accept for POST requests in bytes (a zero value means no limit)</span>
+<span class="p">}</span>
 </pre></div>
 
 <h3 id="apihttpheaders"><code>API.HTTPHeaders</code><a class="headerlink" href="#apihttpheaders" title="Permanent link">&para;</a></h3>
 <p>A map of <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">HTTP headers</a> for responses from the API. You might want to edit these settings if you need to allow additional access control methods, or <a href="https://github.com/ipfs/js-ipfs-api/pull/741">require authorization headers</a>, etc. For example, you may want to enable <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">CORS</a> for your API; this can be done by modifying your <code>"Access-Control-Allow-Origin"</code> header. See <a href="https://medium.com/textileio/tutorial-setting-up-an-ipfs-peer-part-iii-f5f43506874c">this blog post</a> for a discussion of similar IPFS gateway settings.</p>
 <p><strong>Default</strong>:</p>
-<div class="codehilite"><pre><span></span>{
-    &quot;Access-Control-Allow-Headers&quot;: [
-        &quot;Content-Type&quot;,
-        &quot;Method&quot;,
-        &quot;X-Textile-Args&quot;,
-        &quot;X-Textile-Opts&quot;,
-        &quot;X-Requested-With&quot;
-    ],
-    &quot;Access-Control-Allow-Methods&quot;: [
-        &quot;GET&quot;,
-        &quot;POST&quot;,
-        &quot;DELETE&quot;,
-        &quot;OPTIONS&quot;
-    ],
-    &quot;Access-Control-Allow-Origin&quot;: [],
-    &quot;Server&quot;: [
-        &quot;textile-go/&lt;version&gt;&quot;
-    ]
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="s">&quot;Access-Control-Allow-Headers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">&quot;Content-Type&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Method&quot;</span><span class="p">,</span>
+        <span class="s">&quot;X-Textile-Args&quot;</span><span class="p">,</span>
+        <span class="s">&quot;X-Textile-Opts&quot;</span><span class="p">,</span>
+        <span class="s">&quot;X-Requested-With&quot;</span>
+    <span class="p">],</span>
+    <span class="s">&quot;Access-Control-Allow-Methods&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">&quot;GET&quot;</span><span class="p">,</span>
+        <span class="s">&quot;POST&quot;</span><span class="p">,</span>
+        <span class="s">&quot;DELETE&quot;</span><span class="p">,</span>
+        <span class="s">&quot;OPTIONS&quot;</span>
+    <span class="p">],</span>
+    <span class="s">&quot;Access-Control-Allow-Origin&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s">&quot;Server&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">&quot;textile-go/&lt;version&gt;&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 
 <h3 id="apisizelimit"><code>API.SizeLimit</code><a class="headerlink" href="#apisizelimit" title="Permanent link">&para;</a></h3>
 <p>Maximum file size limit to accept for POST requests in bytes. A zero value indicates no limit should be enforced.</p>
 <p><strong>Default</strong>: <code>0</code></p>
 <h2 id="logs"><code>Logs</code><a class="headerlink" href="#logs" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>// Logs settings
-type Logs struct {
-    LogToDisk bool // when true, sends all logs to rolling files on disk
-}
+<div class="codehilite"><pre><span></span><span class="c1">// Logs settings</span>
+<span class="kd">type</span> <span class="nx">Logs</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">LogToDisk</span> <span class="kt">bool</span> <span class="c1">// when true, sends all logs to rolling files on disk</span>
+<span class="p">}</span>
 </pre></div>
 
 <h3 id="logslogtodisk"><code>Logs.LogToDisk</code><a class="headerlink" href="#logslogtodisk" title="Permanent link">&para;</a></h3>
@@ -1399,17 +1399,17 @@ type Logs struct {
 <p>Logs written to disk (<code>&lt;repo-dir&gt;/logs/textile.log</code>) can be monitored via <code>tail -f &lt;repo-dir&gt;/logs/textile.log</code> or similar. The verbosity of these logs can be controlled at run-time via the <code>logs</code> command (see <code>textile logs --help</code> for details).</p>
 <p><strong>Default</strong>: <code>true</code></p>
 <h2 id="threads"><code>Threads</code><a class="headerlink" href="#threads" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>// Thread settings
-type Threads struct {
-    Defaults ThreadDefaults // default settings
-}
+<div class="codehilite"><pre><span></span><span class="c1">// Thread settings</span>
+<span class="kd">type</span> <span class="nx">Threads</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Defaults</span> <span class="nx">ThreadDefaults</span> <span class="c1">// default settings</span>
+<span class="p">}</span>
 </pre></div>
 
 <h3 id="threadsdefaults"><code>Threads.Defaults</code><a class="headerlink" href="#threadsdefaults" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>// ThreadDefaults settings
-type ThreadDefaults struct {
-    ID string // default thread ID for reads/writes
-}
+<div class="codehilite"><pre><span></span><span class="c1">// ThreadDefaults settings</span>
+<span class="kd">type</span> <span class="nx">ThreadDefaults</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">ID</span> <span class="kt">string</span> <span class="c1">// default thread ID for reads/writes</span>
+<span class="p">}</span>
 </pre></div>
 
 <h4 id="threadsdefaultsid"><code>Threads.Defaults.ID</code><a class="headerlink" href="#threadsdefaultsid" title="Permanent link">&para;</a></h4>
@@ -1422,21 +1422,21 @@ type ThreadDefaults struct {
 <p>A boolean indicating whether or not to apply the <a href="https://github.com/ipfs/go-ipfs-config/blob/master/profile.go#L49">IPFS server profile</a>, among other optimizations.</p>
 <p><strong>Default</strong>: <code>false</code></p>
 <h2 id="cafe"><code>Cafe</code><a class="headerlink" href="#cafe" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>type Cafe struct {
-    Host   CafeHost
-    Client CafeClient
-}
+<div class="codehilite"><pre><span></span><span class="kd">type</span> <span class="nx">Cafe</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Host</span>   <span class="nx">CafeHost</span>
+    <span class="nx">Client</span> <span class="nx">CafeClient</span>
+<span class="p">}</span>
 </pre></div>
 
 <p>For more information about configuring and running a cafe peer, see the <a href="/install/the-daemon/#initialize-a-cafe-peer">daemon installation guide</a>.</p>
 <p>The <code>Cafe</code> config entry is broken up into two sections, one for controlling how a cafe <code>Host</code> behaves, and one for controlling how a <code>Client</code> interacts with a host peer.</p>
 <h3 id="cafecafehost"><code>Cafe.CafeHost</code><a class="headerlink" href="#cafecafehost" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>type CafeHost struct {
-    Open        bool   // When true, other peers can register with this node for cafe services.
-    URL         string // Override the resolved URL of this cafe, useful for load HTTPS and/or load balancers
-    NeighborURL string // Specifies the URL of a secondary cafe. Must return cafe info.
-    SizeLimit   int64  // Maximum file size limit to accept for POST requests in bytes.
-}
+<div class="codehilite"><pre><span></span><span class="kd">type</span> <span class="nx">CafeHost</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Open</span>        <span class="kt">bool</span>   <span class="c1">// When true, other peers can register with this node for cafe services.</span>
+    <span class="nx">URL</span>         <span class="kt">string</span> <span class="c1">// Override the resolved URL of this cafe, useful for load HTTPS and/or load balancers</span>
+    <span class="nx">NeighborURL</span> <span class="kt">string</span> <span class="c1">// Specifies the URL of a secondary cafe. Must return cafe info.</span>
+    <span class="nx">SizeLimit</span>   <span class="kt">int64</span>  <span class="c1">// Maximum file size limit to accept for POST requests in bytes.</span>
+<span class="p">}</span>
 </pre></div>
 
 <h4 id="cafecafehostopen"><code>Cafe.CafeHost.Open</code><a class="headerlink" href="#cafecafehostopen" title="Permanent link">&para;</a></h4>
@@ -1458,20 +1458,20 @@ type ThreadDefaults struct {
 <p>Maximum file size limit to accept for POST requests in bytes. A zero value indicates no limit should be enforced.</p>
 <p><strong>Default</strong>: <code>0</code></p>
 <h3 id="cafecafeclient"><code>Cafe.CafeClient</code><a class="headerlink" href="#cafecafeclient" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>// CafeClient settings
-type CafeClient struct {
-    Mobile MobileCafeClient
-}
+<div class="codehilite"><pre><span></span><span class="c1">// CafeClient settings</span>
+<span class="kd">type</span> <span class="nx">CafeClient</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Mobile</span> <span class="nx">MobileCafeClient</span>
+<span class="p">}</span>
 </pre></div>
 
 <h4 id="cafecafeclientmobilecafeclient"><code>Cafe.CafeClient.MobileCafeClient</code><a class="headerlink" href="#cafecafeclientmobilecafeclient" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>// MobileCafeClient settings
-type MobileCafeClient struct {
-    // messages w/ size less than limit will be handled by the p2p cafe service,
-    // messages w/ size greater than limit will be handled by the mobile OS&#39;s background
-    // upload service and the cafe HTTP API
-    P2PWireLimit int
-}
+<div class="codehilite"><pre><span></span><span class="c1">// MobileCafeClient settings</span>
+<span class="kd">type</span> <span class="nx">MobileCafeClient</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="c1">// messages w/ size less than limit will be handled by the p2p cafe service,</span>
+    <span class="c1">// messages w/ size greater than limit will be handled by the mobile OS&#39;s background</span>
+    <span class="c1">// upload service and the cafe HTTP API</span>
+    <span class="nx">P2PWireLimit</span> <span class="kt">int</span>
+<span class="p">}</span>
 </pre></div>
 
 <h5 id="cafemobilecafeclientp2pwirelimit"><code>Cafe.MobileCafeClient.P2PWireLimit</code><a class="headerlink" href="#cafemobilecafeclientp2pwirelimit" title="Permanent link">&para;</a></h5>
