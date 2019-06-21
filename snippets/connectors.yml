@@ -11,7 +11,7 @@ connectors:
         code: |
           const schema = require('tag_game.json');
           const threadKey = 'your.bundle.id.version.Tag'
-          const threadName = 'app notes'
+          const threadName = 'game-of-tag'
           const schema = {
             id: '',
             json: JSON.stringify(schema),
