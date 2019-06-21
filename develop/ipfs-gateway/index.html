@@ -510,6 +510,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../connectors/games/" title="Games" class="md-nav__link">
+      Games
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -829,7 +841,7 @@
                 
                 <p>All desktop and server peers host an IPFS gateway. A gateway is useful for light-clients which are unable to directly traverse the network, and/or want to request data from where they know it's stored.</p>
 <p>For the most part, the gateway functions exactly like an IPFS gateway:</p>
-<div class="codehilite"><pre><span></span>https://gateway.textile.cafe/ipfs|ipns/&lt;path&gt;
+<div class="codehilite"><pre><span></span>https://gateway.textile.cafe/ipfs|ipns/&amp;lt;path&amp;gt;
 </pre></div>
 
 
@@ -841,7 +853,7 @@
 <h2 id="navigate-thread-files">Navigate thread files<a class="headerlink" href="#navigate-thread-files" title="Permanent link">&para;</a></h2>
 <p>Threads store <a href="/concepts/threads/files">files</a> in structured DAG nodes. Web applications or light-clients will often want to use a gateway to navigate these thread file "directories".</p>
 <p>You can explore a file DAG node by referencing its <code>target</code> hash:</p>
-<div class="codehilite"><pre><span></span>https://gateway.textile.cafe/ipfs/&lt;target&gt;
+<div class="codehilite"><pre><span></span>https://gateway.textile.cafe/ipfs/&amp;lt;target&amp;gt;
 </pre></div>
 
 
@@ -853,7 +865,7 @@
 <h2 id="decrypt-thread-files">Decrypt thread files<a class="headerlink" href="#decrypt-thread-files" title="Permanent link">&para;</a></h2>
 <p>Gateways are primarily useful for sharing unencrypted data or in cases where the client can efficiently decrypt data locally. However, in many cases, it may be acceptable to let a gateway decrypt a file before serving it to a client.</p>
 <p>We can ask this cafe's gateway to decrypt an image by appending the key as a query parameter:</p>
-<div class="codehilite"><pre><span></span>https://gateway.textile.cafe/ipfs/&lt;path&gt;?key=&lt;key&gt;
+<div class="codehilite"><pre><span></span>https://gateway.textile.cafe/ipfs/&amp;lt;path&amp;gt;?key=&amp;lt;key&amp;gt;
 </pre></div>
 
 
