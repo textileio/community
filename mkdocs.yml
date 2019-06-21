@@ -94,6 +94,7 @@ nav:
       - Introduction: connectors/index.md
       - Images & Media: connectors/images/index.md
       - Documents: connectors/documents/index.md
+      - Games: connectors/games/index.md
   - Develop:
       - Clients:
           - Command-line: develop/clients/command-line.md

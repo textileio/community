@@ -1,4 +1,68 @@
 connectors:
+  games:
+    add_tag:
+      cmd:
+        code: textile threads add "app notes" --schema-file=tag_game.json --type="public" --sharing="invite_only"
+      js_http_client:
+        code: |
+          const schema = require('tag_game.json')
+          await textile.threads.add("app notes", JSON.stringify(schema), "your.bundle.id.version.Tag", "public", "invite_only")
+      react_native:
+        code: |
+          const schema = require('tag_game.json');
+          const threadKey = 'your.bundle.id.version.Tag'
+          const threadName = 'game-of-tag'
+          const schema = {
+            id: '',
+            json: JSON.stringify(schema),
+            preset: AddThreadConfig.Schema.Preset.NONE
+          }
+          const config = {
+            key: threadKey,
+            name: threadName,
+            type: Thread.Type.PUBLIC,
+            sharing: Thread.Sharing.INVITE_ONLY,
+            schema: schema,
+            force: false,
+            members: []
+          }
+          const newTarget = await textile.threads.add(config)
+      objc:
+        code: |
+          NSError *error;
+          AddThreadConfig_Schema *schema = [[AddThreadConfig_Schema alloc] init];
+          schema.json = tagStringJSON;
+          AddThreadConfig *config = [[AddThreadConfig alloc] init];
+          config.key = @"your.bundle.id.version.Notes";
+          config.name = @"app notes";
+          config.type = Thread_Type_Public;
+          config.sharing = Thread_Sharing_InviteOnly;
+          config.schema = schema;
+          Thread *thread = [Textile.instance.threads add:config error:&error];
+          if (error) {
+            // Do something with this error
+          } else {
+            // Success!
+          }
+      swift:
+        code: |
+          var error: NSError?
+          let schema = AddThreadConfig_Schema()
+          schema.json = tagStringJSON
+          let config = AddThreadConfig()
+          config.key = "your.bundle.id.version.Notes"
+          config.name = "app notes"
+          config.type = Thread_Type.public
+          config.sharing = Thread_Sharing.inviteOnly
+          config.schema = schema
+          let thread = Textile.instance().threads.add(config, error: &error)
+          if (error != nil) {
+            // Do something with this error
+          } else {
+            // Success!
+          }
+      android:
+        code: "@todo"
   documents:
     add_slate:
       cmd:
