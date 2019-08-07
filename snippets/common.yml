@@ -13,48 +13,77 @@ core:
       code: |
         // Early on in the app lifecycle, usually in AppDelegate
         // Initialize a new Textile wallet for the user.
-        NSError *error;
-        NSString *recoveryPhrase = [Textile initializeWithDebug:FALSE logToDisk:FALSE error:&error];
-        if (recoveryPhrase) {
+        NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *repoPath = [documents stringByAppendingPathComponent:@"textile-repo"];
+
+        if (![Textile isInitialized:repoPath]) {
+          NSError *error;
+          NSString *recoveryPhrase = [Textile initializeCreatingNewWalletAndAccount:repoPath debug:NO logToDisk:NO error:&error];
+          if (!recoveryPhrase) {
+            NSLog(@"init error: %@", error.localizedDescription);
+          }
           // Return phrase to the user for secure, out of app, storage
         }
-        if (error) {
-          NSLog(@"initialize error: %@", error.localizedDescription);
+
+        NSError *error;
+        BOOL launched = [Textile launch:repoPath debug:NO error:&error];
+        if (!launched) {
+          NSLog(@"launch error: %@", error.localizedDescription);
         }
+
         // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
-        Textile.instance.delegate = delegate;
+        Textile.instance.delegate = self;
     swift:
       code: |
-        do {
-          // recoveryPhrase should be optional here, fix coming asap
-          let recoveryPhrase = try Textile.initialize(withDebug: false, logToDisk: false)
-          // Return phrase to the user for secure, out of app, storage
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let repoPath = (documentsPath as NSString).appendingPathComponent("textile-repo")
 
-          // Set the Textile delegate to self so we can make use of events such nodeStarted
-          Textile.instance().delegate = self
-        } catch {
-          print("Unexpected error: \(error).")
+        if(!Textile.isInitialized(repoPath)) {
+          var error: NSError?
+          let recoveryPhrase = Textile.initializeCreatingNewWalletAndAccount(repoPath, debug: false, logToDisk: false, error: &error)
+          // Return phrase to the user for secure, out of app, storage
         }
+
+        do {
+          try Textile.launch(repoPath, debug: false)
+        } catch {
+          // handle launch error
+        }
+
+        // Set the Textile delegate to self so we can make use of events such nodeStarted
+        Textile.instance().delegate = self
     android:
       code: |
-        String recoveryPhrase = Textile.initialize(this.getApplicationContext(), false, false);
-        if (recoveryPhrase != nil) {
-            // Return phrase to the user for secure, out of app, storage
-        }
+        try {
+            Context ctx = getApplicationContext();
 
-        class MyEventListener extends BaseTextileEventListener {
-            // ...
-        }
+            final File filesDir = ctx.getFilesDir();
+            final String path = new File(filesDir, "textile-repo").getAbsolutePath();
 
-        Textile.instance().addEventListener(new MyEventListener());
+            if (!Textile.isInitialized(path)) {
+                String phrase = Textile.initializeCreatingNewWalletAndAccount(path, true, false);
+                System.out.println(phrase);
+                // Return phrase to the user for secure, out of app, storage
+            }
+
+            Textile.launch(ctx, path, true);
+
+            class MyEventListener extends BaseTextileEventListener {
+                // ...
+            }
+
+            Textile.instance().addEventListener(new MyEventListener());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
   daemon:
     cmd:
       code: 'textile daemon --repo="/tmp/buddy"'
   logs:
     cmd:
-      code: "textile logs"
+      code: 'textile logs'
     js_http_client:
-      code: "const levels = await textile.logs.get()"
+      code: 'const levels = await textile.logs.get()'
   logs_text_only:
     cmd:
       code: 'textile logs --level="info" --tex-only'
@@ -72,57 +101,82 @@ core:
       code: |
         // Early on in the app lifecycle, usually in AppDelegate
         // Initialize a new Textile wallet for the user.
-        NSError *error;
-        NSString *recoveryPhrase = [Textile initializeWithDebug:FALSE logToDisk:FALSE error:&error];
-        if (recoveryPhrase) {
+        NSString *documents = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *repoPath = [documents stringByAppendingPathComponent:@"textile-repo"];
+
+        if (![Textile isInitialized:repoPath]) {
+          NSError *error;
+          NSString *recoveryPhrase = [Textile initializeCreatingNewWalletAndAccount:repoPath debug:NO logToDisk:NO error:&error];
+          if (!recoveryPhrase) {
+            NSLog(@"init error: %@", error.localizedDescription);
+          }
           // Return phrase to the user for secure, out of app, storage
         }
-        if (error) {
-          NSLog(@"initialize error: %@", error.localizedDescription);
+
+        NSError *error;
+        BOOL launched = [Textile launch:repoPath debug:NO error:&error];
+        if (!launched) {
+          NSLog(@"launch error: %@", error.localizedDescription);
         }
+
         // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
-        Textile.instance.delegate = delegate;
+        Textile.instance.delegate = self;
     swift:
       code: |
-        // Early on in the app lifecycle, usually in AppDelegate
-        // Initialize a new Textile wallet for the user.
-        do {
-          // recoveryPhrase should be optional here, fix coming asap
-          let recoveryPhrase = try Textile.initialize(withDebug: false, logToDisk: false)
-          // Return phrase to the user for secure, out of app, storage
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let repoPath = (documentsPath as NSString).appendingPathComponent("textile-repo")
 
-          // Set the Textile delegate to self so we can make use of events such nodeStarted
-          Textile.instance().delegate = self
-        } catch {
-          print("Unexpected error: \(error).")
+        if(!Textile.isInitialized(repoPath)) {
+          var error: NSError?
+          let recoveryPhrase = Textile.initializeCreatingNewWalletAndAccount(repoPath, debug: false, logToDisk: false, error: &error)
+          // Return phrase to the user for secure, out of app, storage
         }
+
+        do {
+          try Textile.launch(repoPath, debug: false)
+        } catch {
+          // handle launch error
+        }
+
+        // Set the Textile delegate to self so we can make use of events such nodeStarted
+        Textile.instance().delegate = self
     android:
       code: |
-        // Early on in the app lifecycle, usually in MainActivity
-        // Initialize a new Textile wallet for the user.
-        String recoveryPhrase = Textile.initialize(this.getApplicationContext(), false, false);
-        if (recoveryPhrase != nil) {
-            // Return phrase to the user for secure, out of app, storage
-        }
+        try {
+            Context ctx = getApplicationContext();
 
-        class MyEventListener extends BaseTextileEventListener {
-            // ...
-        }
+            final File filesDir = ctx.getFilesDir();
+            final String path = new File(filesDir, "textile-repo").getAbsolutePath();
 
-        Textile.instance().addEventListener(new MyEventListener());
+            if (!Textile.isInitialized(path)) {
+                String phrase = Textile.initializeCreatingNewWalletAndAccount(path, true, false);
+                System.out.println(phrase);
+                // Return phrase to the user for secure, out of app, storage
+            }
+
+            Textile.launch(ctx, path, true);
+
+            class MyEventListener extends BaseTextileEventListener {
+                // ...
+            }
+
+            Textile.instance().addEventListener(new MyEventListener());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
   reinit:
     react_native:
-      code: "@todo"
+      code: '@todo'
   pair:
     react_native:
-      code: "@todo"
+      code: '@todo'
   summary:
     cmd:
-      code: "textile summary"
+      code: 'textile summary'
     js_http_client:
-      code: "const summary = await textile.utils.summary()"
+      code: 'const summary = await textile.utils.summary()'
     react_native:
-      code: "const summary = await textile.summary()"
+      code: 'const summary = await textile.summary()'
     objc:
       code: |
         NSError *error;
@@ -142,20 +196,20 @@ core:
           // Success!
         }
     android:
-      code: "Summary summary = Textile.instance().summary();"
+      code: 'Summary summary = Textile.instance().summary();'
   ping:
     cmd:
-      code: "textile ping 12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d"
+      code: 'textile ping 12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d'
     js_http_client:
       code: 'await textile.utils.ping("12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d")'
     react_native:
-      code: "@todo"
+      code: '@todo'
     objc:
-      code: "@todo"
+      code: '@todo'
     swift:
-      code: "@todo"
+      code: '@todo'
     android:
-      code: "@todo"
+      code: '@todo'
   config:
     cmd:
       code: 'textile config "Addresses"'
@@ -234,11 +288,11 @@ subscribe:
 notifications:
   ls:
     cmd:
-      code: "textile notifications ls"
+      code: 'textile notifications ls'
     js_http_client:
-      code: "await textile.notifications.list()"
+      code: 'await textile.notifications.list()'
     react_native:
-      code: "const notifications = await textile.notifications.list()"
+      code: 'const notifications = await textile.notifications.list()'
     objc:
       code: |
         NSError *error;
@@ -289,11 +343,11 @@ notifications:
 profile:
   get_:
     cmd:
-      code: "textile profile get"
+      code: 'textile profile get'
     js_http_client:
-      code: "const profile = await textile.profile.get()"
+      code: 'const profile = await textile.profile.get()'
     react_native:
-      code: "const profile = await textile.profile.get()"
+      code: 'const profile = await textile.profile.get()'
     objc:
       code: |
         NSError *error;
@@ -313,12 +367,12 @@ profile:
           // Success!
         }
     android:
-      code: "Peer profile = Textile.instance().profile.get();"
+      code: 'Peer profile = Textile.instance().profile.get();'
   name:
     cmd:
-      code: "textile profile get name "
+      code: 'textile profile get name '
     js_http_client:
-      code: "const name = await textile.profile.name()"
+      code: 'const name = await textile.profile.name()'
     react_native:
       code: |
         const profile = await textile.profile.get()
@@ -342,7 +396,7 @@ profile:
           // Success!
         }
     android:
-      code: "String name = Textile.instance().profile.name();"
+      code: 'String name = Textile.instance().profile.name();'
   set_name:
     notes: Name should equal 'Clyde' as it is used in Tour
     cmd:
@@ -380,49 +434,49 @@ profile:
         form.append('file', file, file.name) // file is File object or raw Buffer/Blob
         await textile.profile.setAvatar(form)
     react_native:
-      code: "@todo"
+      code: '@todo'
     objc:
-      code: "@todo"
+      code: '@todo'
     swift:
-      code: "@todo"
+      code: '@todo'
     android:
-      code: "@todo"
+      code: '@todo'
 account:
   get_:
     cmd:
-      code: "textile account get"
+      code: 'textile account get'
     js_http_client:
-      code: "const account = await textile.account.get()"
+      code: 'const account = await textile.account.get()'
     react_native:
       code: |
         // React native has endpoints for each component of the account
         const address = await textile.account.address()
     objc:
-      code: "NSString *address = [Textile.instance.account address];"
+      code: 'NSString *address = [Textile.instance.account address];'
     swift:
-      code: "let adress = Textile.instance().account.address()"
+      code: 'let adress = Textile.instance().account.address()'
     android:
-      code: "String address = Textile.instance().account.address();"
+      code: 'String address = Textile.instance().account.address();'
   seed:
     cmd:
-      code: "textile account seed"
+      code: 'textile account seed'
     js_http_client:
-      code: "const seed = await textile.account.seed()"
+      code: 'const seed = await textile.account.seed()'
     react_native:
-      code: "const seed = await textile.account.seed()"
+      code: 'const seed = await textile.account.seed()'
     objc:
-      code: "NSString *seed = [Textile.instance.account seed];"
+      code: 'NSString *seed = [Textile.instance.account seed];'
     swift:
-      code: "let seed = Textile.instance().account.seed()"
+      code: 'let seed = Textile.instance().account.seed()'
     android:
-      code: "String seed = Textile.instance().account.seed();"
+      code: 'String seed = Textile.instance().account.seed();'
   sync:
     cmd:
-      code: "textile account sync"
+      code: 'textile account sync'
     js_http_client:
-      code: "await textile.account.sync()"
+      code: 'await textile.account.sync()'
     react_native:
-      code: "await textile.account.sync()"
+      code: 'await textile.account.sync()'
     objc:
       code: |
         NSError *error;
@@ -458,7 +512,7 @@ contacts:
         // See https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream for details
         const stream = await textile.contacts.search("Andrew")
     react_native:
-      code: "@todo"
+      code: '@todo'
     objc:
       code: |
         NSError *error;
@@ -506,7 +560,7 @@ contacts:
         // Again, `stream` is a `ReadableStream` to be accessed by the caller
         const stream = await textile.contacts.search(undefined, "P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG")
     react_native:
-      code: "@todo"
+      code: '@todo'
     objc:
       code: |
         NSError *error;
@@ -554,7 +608,7 @@ contacts:
         const contact = ... // Should be a Contact object, as returned by `search` `ReadableStream`
         await textile.contacts.add("P8rW2RCMn75Dcb96Eiyg8mirb8nL4ruCumvJxKZRfAdpE5fG", contact)
     react_native:
-      code: "@todo"
+      code: '@todo'
     objc:
       code: |
         Contact *searchResult = // Should be a Contact object as returned by contact search
@@ -581,11 +635,11 @@ contacts:
         Textile.instance().contacts.add(searchResult);
   ls:
     cmd:
-      code: "textile contacts list"
+      code: 'textile contacts list'
     js_http_client:
-      code: "const contacts = await textile.contacts.list()"
+      code: 'const contacts = await textile.contacts.list()'
     react_native:
-      code: "const contacts = await textile.contacts.list()"
+      code: 'const contacts = await textile.contacts.list()'
     objc:
       code: |
         NSError *error;
@@ -605,7 +659,7 @@ contacts:
           // Success!
         }
     android:
-      code: "ContactList contacts = Textile.instance().contacts.list();"
+      code: 'ContactList contacts = Textile.instance().contacts.list();'
   rm:
     notes: Address is set to match that of the Tour
     cmd:
@@ -1212,24 +1266,24 @@ files:
     js_http_client:
       code: 'const keys = await textile.files.keys("<block-target>")'
     react_native:
-      code: "@todo"
+      code: '@todo'
     objc:
-      code: "@todo"
+      code: '@todo'
     swift:
-      code: "@todo"
+      code: '@todo'
     android:
-      code: "@todo"
+      code: '@todo'
 cafes:
   tokens_create:
     cmd:
       code: 'textile tokens create --api="http://127.0.0.1:41600"'
     js_http_client:
-      code: "const token = await textile.tokens.create()"
+      code: 'const token = await textile.tokens.create()'
   tokens_list:
     cmd:
       code: 'textile tokens ls --api="http://127.0.0.1:41600"'
     js_http_client:
-      code: "const tokens = await textile.tokens.list()"
+      code: 'const tokens = await textile.tokens.list()'
   add:
     cmd:
       code: 'textile cafes add <cafe-peer-id> --token="bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"'
@@ -1267,9 +1321,9 @@ cafes:
         Textile.instance().cafes.register("<cafe-peer-id>", token);
   list:
     cmd:
-      code: "textile cafes ls"
+      code: 'textile cafes ls'
     js_http_client:
-      code: "const sessions = await textile.cafes.list()"
+      code: 'const sessions = await textile.cafes.list()'
     objc:
       code: |
         NSError *error;
@@ -1289,12 +1343,12 @@ cafes:
           // Success!
         }
     android:
-      code: "CafeSessionList sessions = Textile.instance().cafes.sessions();"
+      code: 'CafeSessionList sessions = Textile.instance().cafes.sessions();'
   messages:
     cmd:
-      code: "textile cafes messages"
+      code: 'textile cafes messages'
     js_http_client:
-      code: "const success = await textile.cafes.messages()"
+      code: 'const success = await textile.cafes.messages()'
     objc:
       code: |
         NSError *error;
@@ -1314,7 +1368,7 @@ cafes:
           // Success!
         }
     android:
-      code: "Textile.instance().cafes.checkMessages();"
+      code: 'Textile.instance().cafes.checkMessages();'
   remove:
     cmd:
       code: 'textile cafes rm "12D3KooW9yaALxxk31nnaPZB9tzjwxFyPUBrwLuCXZ3FnAWg8VyV"'
@@ -1343,11 +1397,11 @@ cafes:
 ipfs:
   peer_id:
     cmd:
-      code: "textile ipfs id"
+      code: 'textile ipfs id'
     js_http_client:
-      code: "const id = await textile.ipfs.id()"
+      code: 'const id = await textile.ipfs.id()'
     react_native:
-      code: "const id = await textile.ipfs.peerId()"
+      code: 'const id = await textile.ipfs.peerId()'
     objc:
       code: |
         NSError *error;
@@ -1367,12 +1421,12 @@ ipfs:
           // Success!
         }
     android:
-      code: "String peerId = Textile.instance().ipfs.peerId();"
+      code: 'String peerId = Textile.instance().ipfs.peerId();'
   swarm_peers:
     cmd:
-      code: "textile ipfs swarm peers"
+      code: 'textile ipfs swarm peers'
     js_http_client:
-      code: "const peers = await textile.ipfs.peers()"
+      code: 'const peers = await textile.ipfs.peers()'
   swarm_connect:
     cmd:
       code: 'textile ipfs swarm connect "/ip4/18.224.173.65/tcp/4001/ipfs/12D3KooWLh9Gd4C3knv4XqCyCuaNddfEoSLXgekVJzRyC5vsjv5d"'
