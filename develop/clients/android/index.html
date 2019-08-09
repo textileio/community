@@ -1058,16 +1058,28 @@
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <h3 id="initialize-textile">Initialize Textile<a class="headerlink" href="#initialize-textile" title="Permanent link">&para;</a></h3>
 <p>Then, in your application’s <code>MainActivity.java</code>, setup Textile as follows,</p>
-<div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">recoveryPhrase</span> <span class="o">=</span> <span class="n">Textile</span><span class="o">.</span><span class="na">initialize</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getApplicationContext</span><span class="o">(),</span> <span class="kc">false</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
-<span class="k">if</span> <span class="o">(</span><span class="n">recoveryPhrase</span> <span class="o">!=</span> <span class="n">nil</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// Return phrase to the user for secure, out of app, storage</span>
-<span class="o">}</span>
+<div class="codehilite"><pre><span></span><span class="k">try</span> <span class="o">{</span>
+    <span class="n">Context</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">getApplicationContext</span><span class="o">();</span>
 
-<span class="kd">class</span> <span class="nc">MyEventListener</span> <span class="kd">extends</span> <span class="n">BaseTextileEventListener</span> <span class="o">{</span>
-    <span class="c1">// ...</span>
-<span class="o">}</span>
+    <span class="kd">final</span> <span class="n">File</span> <span class="n">filesDir</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">getFilesDir</span><span class="o">();</span>
+    <span class="kd">final</span> <span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">filesDir</span><span class="o">,</span> <span class="s">&quot;textile-repo&quot;</span><span class="o">).</span><span class="na">getAbsolutePath</span><span class="o">();</span>
 
-<span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">addEventListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MyEventListener</span><span class="o">());</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="n">Textile</span><span class="o">.</span><span class="na">isInitialized</span><span class="o">(</span><span class="n">path</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">String</span> <span class="n">phrase</span> <span class="o">=</span> <span class="n">Textile</span><span class="o">.</span><span class="na">initializeCreatingNewWalletAndAccount</span><span class="o">(</span><span class="n">path</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">phrase</span><span class="o">);</span>
+        <span class="c1">// Return phrase to the user for secure, out of app, storage</span>
+    <span class="o">}</span>
+
+    <span class="n">Textile</span><span class="o">.</span><span class="na">launch</span><span class="o">(</span><span class="n">ctx</span><span class="o">,</span> <span class="n">path</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+
+    <span class="kd">class</span> <span class="nc">MyEventListener</span> <span class="kd">extends</span> <span class="n">BaseTextileEventListener</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+    <span class="o">}</span>
+
+    <span class="n">Textile</span><span class="o">.</span><span class="na">instance</span><span class="o">().</span><span class="na">addEventListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MyEventListener</span><span class="o">());</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+<span class="o">}</span>
 </pre></div>
 
 <p>By default, the Textile instance will manage itself during app life-cycle events as long as you initialize it correctly in your app, meaning your app will be connected to the IPFS network whenever your app requires it.</p>

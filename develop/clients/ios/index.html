@@ -1108,29 +1108,46 @@
 <p>Then in your application delegate’s - application:didFinishLaunchingWithOptions: method, setup Textile as follows,</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Early on in the app lifecycle, usually in AppDelegate</span>
 <span class="c1">// Initialize a new Textile wallet for the user.</span>
-<span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
-<span class="bp">NSString</span> <span class="o">*</span><span class="n">recoveryPhrase</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span> <span class="nl">initializeWithDebug</span><span class="p">:</span><span class="nb">FALSE</span> <span class="nl">logToDisk</span><span class="p">:</span><span class="nb">FALSE</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">recoveryPhrase</span><span class="p">)</span> <span class="p">{</span>
+<span class="bp">NSString</span> <span class="o">*</span><span class="n">documents</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSSearchPathForDirectoriesInDomains</span><span class="p">(</span><span class="n">NSDocumentDirectory</span><span class="p">,</span> <span class="n">NSUserDomainMask</span><span class="p">,</span> <span class="nb">YES</span><span class="p">)</span> <span class="nl">objectAtIndex</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+<span class="bp">NSString</span> <span class="o">*</span><span class="n">repoPath</span> <span class="o">=</span> <span class="p">[</span><span class="n">documents</span> <span class="nl">stringByAppendingPathComponent</span><span class="p">:</span><span class="s">@&quot;textile-repo&quot;</span><span class="p">];</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">Textile</span> <span class="nl">isInitialized</span><span class="p">:</span><span class="n">repoPath</span><span class="p">])</span> <span class="p">{</span>
+  <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+  <span class="bp">NSString</span> <span class="o">*</span><span class="n">recoveryPhrase</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span> <span class="nl">initializeCreatingNewWalletAndAccount</span><span class="p">:</span><span class="n">repoPath</span> <span class="nl">debug</span><span class="p">:</span><span class="nb">NO</span> <span class="nl">logToDisk</span><span class="p">:</span><span class="nb">NO</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">recoveryPhrase</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;init error: %@&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">.</span><span class="n">localizedDescription</span><span class="p">);</span>
+  <span class="p">}</span>
   <span class="c1">// Return phrase to the user for secure, out of app, storage</span>
 <span class="p">}</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;initialize error: %@&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">.</span><span class="n">localizedDescription</span><span class="p">);</span>
+
+<span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="kt">BOOL</span> <span class="n">launched</span> <span class="o">=</span> <span class="p">[</span><span class="n">Textile</span> <span class="nl">launch</span><span class="p">:</span><span class="n">repoPath</span> <span class="nl">debug</span><span class="p">:</span><span class="nb">NO</span> <span class="nl">error</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">launched</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;launch error: %@&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">.</span><span class="n">localizedDescription</span><span class="p">);</span>
 <span class="p">}</span>
+
 <span class="c1">// Set the Textile delegate to any object that conforms to the TextileDelegate protocol</span>
-<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">delegate</span><span class="p">;</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
 </pre></div>
 
 <h4 id="swift">Swift<a class="headerlink" href="#swift" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="k">do</span> <span class="p">{</span>
-  <span class="c1">// recoveryPhrase should be optional here, fix coming asap</span>
-  <span class="kd">let</span> <span class="nv">recoveryPhrase</span> <span class="p">=</span> <span class="k">try</span> <span class="n">Textile</span><span class="p">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">withDebug</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="n">logToDisk</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
-  <span class="c1">// Return phrase to the user for secure, out of app, storage</span>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">documentsPath</span> <span class="p">=</span> <span class="n">NSSearchPathForDirectoriesInDomains</span><span class="p">(.</span><span class="n">documentDirectory</span><span class="p">,</span> <span class="p">.</span><span class="n">userDomainMask</span><span class="p">,</span> <span class="kc">true</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nv">repoPath</span> <span class="p">=</span> <span class="p">(</span><span class="n">documentsPath</span> <span class="k">as</span> <span class="bp">NSString</span><span class="p">).</span><span class="n">appendingPathComponent</span><span class="p">(</span><span class="s">&quot;textile-repo&quot;</span><span class="p">)</span>
 
-  <span class="c1">// Set the Textile delegate to self so we can make use of events such nodeStarted</span>
-  <span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">delegate</span> <span class="p">=</span> <span class="kc">self</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
-  <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Unexpected error: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">.&quot;</span><span class="p">)</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">Textile</span><span class="p">.</span><span class="n">isInitialized</span><span class="p">(</span><span class="n">repoPath</span><span class="p">))</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nv">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="p">?</span>
+  <span class="kd">let</span> <span class="nv">recoveryPhrase</span> <span class="p">=</span> <span class="n">Textile</span><span class="p">.</span><span class="n">initializeCreatingNewWalletAndAccount</span><span class="p">(</span><span class="n">repoPath</span><span class="p">,</span> <span class="n">debug</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="n">logToDisk</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">error</span><span class="p">)</span>
+  <span class="c1">// Return phrase to the user for secure, out of app, storage</span>
 <span class="p">}</span>
+
+<span class="k">do</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="n">Textile</span><span class="p">.</span><span class="n">launch</span><span class="p">(</span><span class="n">repoPath</span><span class="p">,</span> <span class="n">debug</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+  <span class="c1">// handle launch error</span>
+<span class="p">}</span>
+
+<span class="c1">// Set the Textile delegate to self so we can make use of events such nodeStarted</span>
+<span class="n">Textile</span><span class="p">.</span><span class="n">instance</span><span class="p">().</span><span class="n">delegate</span> <span class="p">=</span> <span class="kc">self</span>
 </pre></div>
 
 <p>By default, the Textile instance will manage itself during app life-cycle events as long as you initialize it correctly in your app, meaning your app will be connected to the IPFS network whenever your app requires it.</p>
