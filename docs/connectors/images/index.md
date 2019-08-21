@@ -163,6 +163,6 @@ When a user joins your app, either new or by linking their existing Textile wall
 
 ## Apps & demos
 
-There are a couple of apps already using the images & media connector. We recommend downloading the [Textile Photos](https://textile.photos/) mobile (iOS and Android) app or the [desktop](https://github.com/textileio/desktop-photos) app. You can also browse the source code for both of those apps to understand how they connect to and create a user's photo streams.
+There are a couple of apps already using the images & media connector. We recommend downloading the [Textile Photos](https://textile.photos/) mobile (iOS and Android) app or the [desktop](https://github.com/textileio/photos-desktop) app. You can also browse the source code for both of those apps to understand how they connect to and create a user's photo streams.
 
 <br>
