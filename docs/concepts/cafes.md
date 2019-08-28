@@ -54,7 +54,7 @@ Connection details:
 
 ### Community Hosted Cafes
 
-[RTrade](https://www.rtradetechnologies.com/) hosts a number of cafes as part of [Temporal](https://temporal.cloud) for companies and individuals to use. You can try RTrade's [development cafe](https://us-west-dev.textile.cafe/) for non-production purposes.
+[RTrade](https://www.rtradetechnologies.com/) hosts several cafes for companies and individuals to use as part of their developer platform, [Temporal](https://temporal.cloud). You can try one of RTrade's [development cafe](https://us-west-dev.textile.cafe/) for non-production purposes.
 
 !!! danger
 
