@@ -1276,9 +1276,11 @@ files:
 cafes:
   tokens_create:
     cmd:
-      code: 'textile tokens create --api="http://127.0.0.1:41600"'
+      code: 'textile tokens add --api="http://127.0.0.1:41600"'
     js_http_client:
-      code: 'const token = await textile.tokens.create()'
+      code: |
+        const cafe = Textile.create({ url: "http://127.0.0.1", port: "41600" })
+        const token = await cafe.tokens.add()
   tokens_list:
     cmd:
       code: 'textile tokens ls --api="http://127.0.0.1:41600"'
@@ -1286,15 +1288,13 @@ cafes:
       code: 'const tokens = await textile.tokens.list()'
   add:
     cmd:
-      code: 'textile cafes add <cafe-peer-id> --token="bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"'
+      code: 'textile cafes add <cafe-peer-id> --token="<token-string>"'
     js_http_client:
       code: |
-        const token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
-        const success = await textile.cafes.add("<cafe-peer-id>", token)
+        const success = await textile.cafes.add("<cafe-peer-id>", "<token-string>")
     react_native:
       code: |
-        const token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
-        await textile.cafes.register("<cafe-peer-id>", token)
+        await textile.cafes.register("<cafe-peer-id>", "<token-string>")
     objc:
       code: |
         NSString *token = @"bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG";
@@ -1307,7 +1307,7 @@ cafes:
         }
     swift:
       code: |
-        let token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG"
+        let token = "<token-string>"
         var error: NSError?
         Textile.instance().cafes .register("<cafe-peer-id>", token: token, error: &error)
         if (error != nil) {
@@ -1317,7 +1317,7 @@ cafes:
         }
     android:
       code: |
-        String token = "bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG";
+        String token = "<token-string>";
         Textile.instance().cafes.register("<cafe-peer-id>", token);
   list:
     cmd:
