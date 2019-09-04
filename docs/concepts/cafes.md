@@ -52,4 +52,18 @@ Connection details:
 | ------------------------------------------------------ | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | `12D3KooWGN8VAsPHsHeJtoTbbzsGjs2LTmQZ6wFKvuPich1TYmYY` | [`https://us-west-dev.textile.cafe/`](https://us-west-dev.textile.cafe/) | [`https://us-west-dev.textile.cafe/ipfs`](https://us-west-dev.textile.cafe/ipfs/) | `uggU4NcVGFSPchULpa2zG2NRjw2bFzaiJo3BYAgaFyzCUPRLuAgToE3HXPyo` |
 
+### Community Hosted Cafes
+
+[RTrade](https://www.rtradetechnologies.com/) hosts several cafes for companies and individuals to use as part of their developer platform, [Temporal](https://temporal.cloud). You can try one of RTrade's [development cafes](https://us-west-dev.textile.cafe/) freely for non-production purposes.
+
+!!! danger
+
+    Use the RTrade cafe at your own risk. Your data may be deleted without notice.
+
+Connection details:
+
+| Peer ID                                                | API                                                                      | Gateway                                                                           | Token                                                          |
+| ------------------------------------------------------ | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| `12D3KooWGN8VAsPHsHeJtoTbbzsGjs2LTmQZ6wFKvuPich1TYmYY` | [`https://cafe1.temporal.cloud/`](https://cafe1.temporal.cloud/) [`https://cafe2.temporal.cloud/`](https://cafe2.temporal.cloud/) | [`https://textile.gateway.temporal.cloud/ipfs/`](https://textile.gateway.temporal.cloud/ipfs/) | `2MHxDxNaJot3aP7Q1V2emJA5D5iKwEnSKRdh3gM1wPBz1jwhDearLCRJfhopR` |
+
 <br>
