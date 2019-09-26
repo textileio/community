@@ -219,7 +219,8 @@ An access token is required to register, and should be obtained separately from 
 <pre>Start a node daemon session</pre>
 <table>
 	<tr><th>Flag</th><th>Description</th></tr>
-	<tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom repository path</pre></td></tr>
+	<tr><td><code>-b, --base-repo=REPO</code></td><td><pre>Optionally specify a custom base repository path</pre></td></tr>
+	<tr><td><code>-r, --account-seed=SEED</code></td><td><pre>Optionally specify the seed of the account you'd like to run</pre></td></tr>
 	<tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify the pin code for datastore encryption (omit no pin code was used during init)</pre></td></tr>
 	<tr><td><code>-s, --serve-docs</code></td><td><pre>Whether to serve the local REST API docs</pre></td></tr>
 </table>
@@ -328,7 +329,7 @@ Stacks may include:
 <table>
 	<tr><th>Flag</th><th>Description</th></tr>
 	<tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify a pin for datastore encryption</pre></td></tr>
-	<tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom repository path</pre></td></tr>
+	<tr><td><code>-b, --base-repo=REPO</code></td><td><pre>Optionally specify a custom base repository path</pre></td></tr>
 	<tr><td><code>--server</code></td><td><pre>Apply IPFS server profile</pre></td></tr>
 	<tr><td><code>--swarm-ports=SWARM-PORTS</code></td><td><pre>Set the swarm ports (TCP,WS). A random TCP port is chosen by default</pre></td></tr>
 	<tr><td><code>--log-files</code></td><td><pre>If true, writes logs to rolling files, if false, writes logs to stdout</pre></td></tr>
@@ -495,7 +496,8 @@ There are two types of invites, direct account-to-account and external:
 <pre>Migrate the node repository and exit</pre>
 <table>
 	<tr><th>Flag</th><th>Description</th></tr>
-	<tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom repository path</pre></td></tr>
+	<tr><td><code>-b, --base-repo=REPO</code></td><td><pre>Optionally specify a custom base repository path</pre></td></tr>
+	<tr><td><code>-a, --account-seed=SEED</code></td><td><pre>Optionally specify the seed of the account you'd like to migrate</pre></td></tr>
 	<tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify the pin for datastore encryption, omit if no pin was used during init</pre></td></tr>
 </table>
 

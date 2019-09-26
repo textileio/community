@@ -2677,7 +2677,7 @@ Restart the daemon (or your `Textile` instance for users of a mobile SDK):
     ```
     go-textile version: v0.1.12
     Repo version: 13
-    Repo path: /Users/sander/.textile/repo
+    Repo path: /Users/sander/.textile/repo/P8wW5FYs2ANDan2DV8D45XWKtFFYNTMY8RgLCRcQHjyPZe5j
     API address: 127.0.0.1:40600
     Gateway address: 127.0.0.1:5050
     System version: amd64/darwin
@@ -2781,7 +2781,7 @@ textile config "Cafe.Host.Open" true --api="http://127.0.0.1:41600"
 Now, restart the daemon in debug mode:
 
 ```tab="cmd"
-textile daemon --repo="/tmp/buddy" --debug
+textile daemon --base-repo="/tmp/buddy" --debug
 ```
 
 ??? success
