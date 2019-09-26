@@ -220,7 +220,7 @@ An access token is required to register, and should be obtained separately from 
 <table>
 	<tr><th>Flag</th><th>Description</th></tr>
 	<tr><td><code>-b, --base-repo=REPO</code></td><td><pre>Optionally specify a custom base repository path</pre></td></tr>
-	<tr><td><code>-r, --account-seed=SEED</code></td><td><pre>Optionally specify the seed of the account you'd like to run</pre></td></tr>
+	<tr><td><code>-r, --account-address=ADDRESS</code></td><td><pre>Optionally specify the address of the account you'd like to run</pre></td></tr>
 	<tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify the pin code for datastore encryption (omit no pin code was used during init)</pre></td></tr>
 	<tr><td><code>-s, --serve-docs</code></td><td><pre>Whether to serve the local REST API docs</pre></td></tr>
 </table>
@@ -497,7 +497,7 @@ There are two types of invites, direct account-to-account and external:
 <table>
 	<tr><th>Flag</th><th>Description</th></tr>
 	<tr><td><code>-b, --base-repo=REPO</code></td><td><pre>Optionally specify a custom base repository path</pre></td></tr>
-	<tr><td><code>-a, --account-seed=SEED</code></td><td><pre>Optionally specify the seed of the account you'd like to migrate</pre></td></tr>
+	<tr><td><code>-a, --account-address=ADDRESS</code></td><td><pre>Optionally specify the address of the account you'd like to migrate</pre></td></tr>
 	<tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify the pin for datastore encryption, omit if no pin was used during init</pre></td></tr>
 </table>
 
