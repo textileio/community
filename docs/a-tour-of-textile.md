@@ -899,7 +899,7 @@ What just happened? The peer created a new DAG node (a textile block) for the in
 
 ![The `target` shown in the output is the root hash of the DAG.](/images/blob.png){: .center}
 
-- `meta`: A JSON object containing metadata about the input and how it was processed. Which is the success output of the previosu command.
+- `meta`: A JSON object containing metadata about the input and how it was processed. Which is the success output of the previous command.
 
 - `content`: The content of the file that was added, in the above command output, this is at `.files[0].hash`, and can be fetched via `textile file get <hash> --content`, or via `textile file block get <block-id> --content`.
 
