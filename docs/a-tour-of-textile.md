@@ -637,7 +637,7 @@ Check out the comprehensive [threads overview](/concepts/threads) for more about
 
 !!! info
 
-    Access control will be moving to a more familiar, _roll-based_ design in a future release. See [this GitHub issue](https://github.com/textileio/go-textile/issues/694) for more.
+    Access control will be moving to a more familiar, _role-based_ design in a future release. See [this GitHub issue](https://github.com/textileio/go-textile/issues/694) for more.
 
 #### Create a basic thread
 
@@ -857,7 +857,7 @@ Let's add some data. Be sure to use your own thread ID.
     ``` json
     {
         "block": "<block-id>",
-        "target": "<block-target>",
+        "data": "<data-cid>",
         "date": "2019-06-11T06:44:05.535163Z",
         "user": {
             "address": "<peer-address>",
@@ -2444,6 +2444,8 @@ Notifications have a `read` boolean status that is useful for some applications.
     ```
     ok
     ```
+
+Notice that the `read` attribute is omitted when its value is `false`.
 
 ### Summary
 
