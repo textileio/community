@@ -137,6 +137,12 @@ Below are some basic examples to get you started. If you are interested in a mor
 {{subscribe.files.react_native.code}}
 ```
 
+### Subscribe to raw ipfs pubsub topic
+
+```JavaScript
+{{ipfs.pubsub_sub.react_native.code}}
+```
+
 ### Create a thread
 
 ```JavaScript

@@ -52,6 +52,12 @@ Below are some basic examples to get you started. If you are interested in a mor
 {{subscribe.files.js_http_client.code}}
 ```
 
+### Subscribe to raw ipfs pubsub topic
+
+```JavaScript
+{{ipfs.pubsub_sub.js_http_client.code}}
+```
+
 ### Fetch chronological thread updates
 
 ```JavaScript
