@@ -91,7 +91,7 @@ core:
       code: 'const levels = await textile.logs.set("info", undefined, true)'
   init:
     cmd:
-      code: 'textile init "$(textile wallet init | tail -n1)" --repo="/tmp/buddy" --swarm-ports="4101" --api-bind-addr="127.0.0.1:41600" --gateway-bind-addr="127.0.0.1:5150"'
+      code: 'textile init "$(textile wallet init | tail -n1)" --repo="/tmp/buddy" --swarm-ports="4101" --api-bind-addr="127.0.0.1:41600" --gateway-bind-addr="127.0.0.1:5150 --profile-bind-addr="127.0.0.1:6061""'
     react_native:
       code: |
         // This is the user's new Textile wallet seed. They must keep it secure and never share it. Your production app should not keep a copy long term and should never share it with any API.
