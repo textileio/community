@@ -718,6 +718,47 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#textile-bots" title="textile bots" class="md-nav__link">
+    textile bots
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#textile-bots-list" title="textile bots list" class="md-nav__link">
+    textile bots list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textile-bots-disable-id" title="textile bots disable &lt;id&gt;" class="md-nav__link">
+    textile bots disable &lt;id&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textile-bots-enable-flags-id" title="textile bots enable [&lt;flags&gt;] &lt;id&gt;" class="md-nav__link">
+    textile bots enable [&lt;flags&gt;] &lt;id&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textile-bots-create-name" title="textile bots create &lt;name&gt;" class="md-nav__link">
+    textile bots create &lt;name&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#textile-cafe" title="textile cafe" class="md-nav__link">
     textile cafe
   </a>
@@ -1205,6 +1246,13 @@
         <li class="md-nav__item">
   <a href="#textile-ping-address" title="textile ping &lt;address&gt;" class="md-nav__link">
     textile ping &lt;address&gt;
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#textile-publish-topic" title="textile publish &lt;topic&gt;" class="md-nav__link">
+    textile publish &lt;topic&gt;
   </a>
   
 </li>
@@ -1742,6 +1790,47 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#textile-bots" title="textile bots" class="md-nav__link">
+    textile bots
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#textile-bots-list" title="textile bots list" class="md-nav__link">
+    textile bots list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textile-bots-disable-id" title="textile bots disable &lt;id&gt;" class="md-nav__link">
+    textile bots disable &lt;id&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textile-bots-enable-flags-id" title="textile bots enable [&lt;flags&gt;] &lt;id&gt;" class="md-nav__link">
+    textile bots enable [&lt;flags&gt;] &lt;id&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textile-bots-create-name" title="textile bots create &lt;name&gt;" class="md-nav__link">
+    textile bots create &lt;name&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#textile-cafe" title="textile cafe" class="md-nav__link">
     textile cafe
   </a>
@@ -2234,6 +2323,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#textile-publish-topic" title="textile publish &lt;topic&gt;" class="md-nav__link">
+    textile publish &lt;topic&gt;
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#textile-profile" title="textile profile" class="md-nav__link">
     textile profile
   </a>
@@ -2489,6 +2585,8 @@
     <tr><td><code>--api="<a href="http://127.0.0.1:40600">http://127.0.0.1:40600</a>"</code></td><td><pre>API Address to use</pre></td></tr>
     <tr><td><code>--api-version="v0"</code></td><td><pre>API version to use</pre></td></tr>
     <tr><td><code>--debug</code></td><td><pre>Set the logging level to debug</pre></td></tr>
+    <tr><td><code>--username=USERNAME</code></td><td><pre>Specify the username (address) if required for Basic Auth</pre></td></tr>
+    <tr><td><code>--password=PASSWORD</code></td><td><pre>Specify the password (pincode) used for datastore encryption and Basic Auth (omit if no auth/encryption is used)</pre></td></tr>
 </table></p>
 <h2 id="textile-help-command">textile help [&lt;command&gt;]<a class="headerlink" href="#textile-help-command" title="Permanent link">&para;</a></h2>
 <p><pre>Show help.</pre>
@@ -2551,6 +2649,30 @@
     <tr><td><code>--content</code></td><td><pre>If provided, the decrypted content of the file is retrieved</pre></td></tr>
     <tr><th>Argument</th><th>Description</th></tr>
     <tr><td><code>&lt;block&gt;</code></td><td><pre>File Block ID</pre></td></tr>
+</table></p>
+<h2 id="textile-bots">textile bots<a class="headerlink" href="#textile-bots" title="Permanent link">&para;</a></h2>
+<p><pre>Commands to manage bots</pre></p>
+<h3 id="textile-bots-list">textile bots list<a class="headerlink" href="#textile-bots-list" title="Permanent link">&para;</a></h3>
+<p><pre>List info about all active bots</pre></p>
+<h3 id="textile-bots-disable-id">textile bots disable &lt;id&gt;<a class="headerlink" href="#textile-bots-disable-id" title="Permanent link">&para;</a></h3>
+<p><pre>Disable a bot</pre>
+<table>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;id&gt;</code></td><td><pre>ID of the bot</pre></td></tr>
+</table></p>
+<h3 id="textile-bots-enable-flags-id">textile bots enable [&lt;flags&gt;] &lt;id&gt;<a class="headerlink" href="#textile-bots-enable-flags-id" title="Permanent link">&para;</a></h3>
+<p><pre>Enable a bot</pre>
+<table>
+    <tr><th>Flag</th><th>Description</th></tr>
+    <tr><td><code>-c, --cafe-api</code></td><td><pre>Whether to serve bot on the Cafe API (public)</pre></td></tr>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;id&gt;</code></td><td><pre>ID of the bot</pre></td></tr>
+</table></p>
+<h3 id="textile-bots-create-name">textile bots create &lt;name&gt;<a class="headerlink" href="#textile-bots-create-name" title="Permanent link">&para;</a></h3>
+<p><pre>Initialize a new bot for development</pre>
+<table>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;name&gt;</code></td><td><pre>Name of the bot</pre></td></tr>
 </table></p>
 <h2 id="textile-cafe">textile cafe<a class="headerlink" href="#textile-cafe" title="Permanent link">&para;</a></h2>
 <p><pre>Commands to manage cafes</pre></p>
@@ -2658,7 +2780,9 @@ An access token is required to register, and should be obtained separately from 
 <p><pre>Start a node daemon session</pre>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom repository path</pre></td></tr>
+    <tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom path to the repo directory</pre></td></tr>
+    <tr><td><code>-b, --base-repo=BASE-REPO</code></td><td><pre>Specify a custom path to the base repo directory</pre></td></tr>
+    <tr><td><code>-a, --account-address=ACCOUNT-ADDRESS</code></td><td><pre>Specify an existing account address</pre></td></tr>
     <tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify the pin code for datastore encryption (omit no pin code was used during init)</pre></td></tr>
     <tr><td><code>-s, --serve-docs</code></td><td><pre>Whether to serve the local REST API docs</pre></td></tr>
 </table></p>
@@ -2753,8 +2877,9 @@ An access token is required to register, and should be obtained separately from 
 <p><pre>Configure textile to use the account by creating a local repository to house its data</pre>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
+    <tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom path to the repo directory</pre></td></tr>
+    <tr><td><code>-b, --base-repo=BASE-REPO</code></td><td><pre>Specify a custom path to the base repo directory</pre></td></tr>
     <tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify a pin for datastore encryption</pre></td></tr>
-    <tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom repository path</pre></td></tr>
     <tr><td><code>--server</code></td><td><pre>Apply IPFS server profile</pre></td></tr>
     <tr><td><code>--swarm-ports=SWARM-PORTS</code></td><td><pre>Set the swarm ports (TCP,WS). A random TCP port is chosen by default</pre></td></tr>
     <tr><td><code>--log-files</code></td><td><pre>If true, writes logs to rolling files, if false, writes logs to stdout</pre></td></tr>
@@ -2898,8 +3023,9 @@ An access token is required to register, and should be obtained separately from 
 <p><pre>Migrate the node repository and exit</pre>
 <table>
     <tr><th>Flag</th><th>Description</th></tr>
-    <tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom repository path</pre></td></tr>
-    <tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify the pin for datastore encryption, omit if no pin was used during init</pre></td></tr>
+    <tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom path to the repo directory</pre></td></tr>
+    <tr><td><code>-b, --base-repo=BASE-REPO</code></td><td><pre>Specify a custom path to the base repo directory</pre></td></tr>
+    <tr><td><code>-a, --account-address=ACCOUNT-ADDRESS</code></td><td><pre>Specify an existing account address</pre></td></tr>
 </table></p>
 <h2 id="textile-notification">textile notification<a class="headerlink" href="#textile-notification" title="Permanent link">&para;</a></h2>
 <p><pre>Manage notifications that have been generated by thread and account activity</pre></p>
@@ -2916,6 +3042,12 @@ An access token is required to register, and should be obtained separately from 
 <table>
     <tr><th>Argument</th><th>Description</th></tr>
     <tr><td><code>&lt;address&gt;</code></td><td><pre>The address of the other peer on the network</pre></td></tr>
+</table></p>
+<h2 id="textile-publish-topic">textile publish &lt;topic&gt;<a class="headerlink" href="#textile-publish-topic" title="Permanent link">&para;</a></h2>
+<p><pre>Publishes stdin to a topic on the network</pre>
+<table>
+    <tr><th>Argument</th><th>Description</th></tr>
+    <tr><td><code>&lt;topic&gt;</code></td><td><pre>The topic to publish to</pre></td></tr>
 </table></p>
 <h2 id="textile-profile">textile profile<a class="headerlink" href="#textile-profile" title="Permanent link">&para;</a></h2>
 <p><pre>Manage the profile for your Textile Account, each peer will have its own profile</pre></p>

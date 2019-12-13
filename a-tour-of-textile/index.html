@@ -1713,6 +1713,11 @@
                 
                 <p><figure alt="Photo by Andrew Neel on Unsplash"><img src="/images/andrew-neel-133200-unsplash.jpg" /><figcaption>Photo by Andrew Neel on Unsplash</figcaption></figure></p>
 <p>Welcome to Textile! This is a great place to start if you're a developer interested in using Textile's decentralized tooling in your mobile, desktop, or web applications. However, anyone interested in learning how to run and interact with a Textile peer will also find this tour useful.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Threads v1 are being deprecated. Please follow our ongoing work on v2 on both the <a href="https://github.com/textileio/go-textile-threads">go-textile-threads repo</a> and the <a href="https://paper.dropbox.com/doc/Threads-v2-Early-Preview-X8fKsMiTyztuQ1L8CnUng">early preview</a>. </p>
+<p>Until Threads v2 release please follow this tour for experimentation purposes only.</p>
+</div>
 <h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
 <p>The rest of this document assumes that you are somewhat familiar with the following concepts:</p>
 <ul>
@@ -2516,7 +2521,7 @@ shared      --&gt; initiator: Y, whitelist: Y`
 <p>Check out the comprehensive <a href="/concepts/threads">threads overview</a> for more about how threads work.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Access control will be moving to a more familiar, <em>roll-based</em> design in a future release. See <a href="https://github.com/textileio/go-textile/issues/694">this GitHub issue</a> for more.</p>
+<p>Access control will be moving to a more familiar, <em>role-based</em> design in a future release. See <a href="https://github.com/textileio/go-textile/issues/694">this GitHub issue</a> for more.</p>
 </div>
 <h4 id="create-a-basic-thread">Create a basic thread<a class="headerlink" href="#create-a-basic-thread" title="Permanent link">&para;</a></h4>
 <p>Create a thread and give it the name, "Basic". Note that thread names are <em>not</em> unique.</p>
@@ -2889,7 +2894,7 @@ shared      --&gt; initiator: Y, whitelist: Y`
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;block&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;block-id&gt;&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;block-target&gt;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;data-cid&gt;&quot;</span><span class="p">,</span>
     <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-06-11T06:44:05.535163Z&quot;</span><span class="p">,</span>
     <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;peer-address&gt;&quot;</span><span class="p">,</span>
@@ -2932,7 +2937,7 @@ shared      --&gt; initiator: Y, whitelist: Y`
 <p><figure alt="The target shown in the output is the root hash of the DAG." class="center"><img src="/images/blob.png" /><figcaption>The target shown in the output is the root hash of the DAG.</figcaption></figure></p>
 <ul>
 <li>
-<p><code>meta</code>: A JSON object containing metadata about the input and how it was processed. Which is the success output of the previosu command.</p>
+<p><code>meta</code>: A JSON object containing metadata about the input and how it was processed. Which is the success output of the previous command.</p>
 </li>
 <li>
 <p><code>content</code>: The content of the file that was added, in the above command output, this is at <code>.files[0].hash</code>, and can be fetched via <code>textile file get &lt;hash&gt; --content</code>, or via <code>textile file block get &lt;block-id&gt; --content</code>.</p>
@@ -3761,7 +3766,7 @@ shared      --&gt; initiator: Y, whitelist: Y`
 <div class="superfences-tabs">
 <input name="__tabs_26" type="radio" id="__tab_26_0" checked="checked" />
 <label for="__tab_26_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile init &quot;$(textile wallet init | tail -n1)&quot; --repo=&quot;/tmp/buddy&quot; --swarm-ports=&quot;4101&quot; --api-bind-addr=&quot;127.0.0.1:41600&quot; --gateway-bind-addr=&quot;127.0.0.1:5150&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile init &quot;$(textile wallet init | tail -n1)&quot; --repo=&quot;/tmp/buddy&quot; --swarm-ports=&quot;4101&quot; --api-bind-addr=&quot;127.0.0.1:41600&quot; --gateway-bind-addr=&quot;127.0.0.1:5150 --profile-bind-addr=&quot;127.0.0.1:6061&quot;&quot;
 </pre></div></div>
 </div>
 <details class="success"><summary>Success</summary><div class="codehilite"><pre><span></span>Initialized account with address P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
@@ -4949,6 +4954,7 @@ ok
 </pre></div>
 
 </details>
+<p>Notice that the <code>read</code> attribute is omitted when its value is <code>false</code>.</p>
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
 <p>Display a summary of your peer's threads, files, and contacts:</p>
 <div class="superfences-tabs">
@@ -5299,11 +5305,12 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <div class="superfences-tabs">
 <input name="__tabs_55" type="radio" id="__tab_55_0" checked="checked" />
 <label for="__tab_55_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile tokens create --api=&quot;http://127.0.0.1:41600&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile tokens add --api=&quot;http://127.0.0.1:41600&quot;
 </pre></div></div>
 <input name="__tabs_55" type="radio" id="__tab_55_1" />
 <label for="__tab_55_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">tokens</span><span class="p">.</span><span class="nx">create</span><span class="p">()</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">cafe</span> <span class="o">=</span> <span class="nx">Textile</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span> <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;http://127.0.0.1&quot;</span><span class="p">,</span> <span class="nx">port</span><span class="o">:</span> <span class="s2">&quot;41600&quot;</span> <span class="p">})</span>
+<span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">cafe</span><span class="p">.</span><span class="nx">tokens</span><span class="p">.</span><span class="nx">add</span><span class="p">()</span>
 </pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span>bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG
@@ -5340,12 +5347,11 @@ Account: P7X3gZus5H15tWCxk4oP6EVsgAM9vwUfCyepAKw49QuRyPYs
 <div class="superfences-tabs">
 <input name="__tabs_57" type="radio" id="__tab_57_0" checked="checked" />
 <label for="__tab_57_0">cmd</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes add &lt;cafe-peer-id&gt; --token=&quot;bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG&quot;
+<div class="superfences-content"><div class="codehilite"><pre><span></span>textile cafes add &lt;cafe-peer-id&gt; --token=&quot;&lt;token-string&gt;&quot;
 </pre></div></div>
 <input name="__tabs_57" type="radio" id="__tab_57_1" />
 <label for="__tab_57_1">JavaScript</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="s2">&quot;bYJLFjHsRsZjdzEwC2pJwQthmfYb3DPYyBCcU49Dkfqd5xGHk5NR77X8GDKG&quot;</span>
-<span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;&lt;cafe-peer-id&gt;&quot;</span><span class="p">,</span> <span class="nx">token</span><span class="p">)</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">success</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">cafes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;&lt;cafe-peer-id&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;token-string&gt;&quot;</span><span class="p">)</span>
 </pre></div></div>
 </div>
 <details class="success" open="open"><summary>Success</summary><div class="codehilite"><pre><span></span><span class="p">{</span>

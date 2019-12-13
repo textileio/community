@@ -673,6 +673,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#subscribe-to-raw-ipfs-pubsub-topic" title="Subscribe to raw ipfs pubsub topic" class="md-nav__link">
+    Subscribe to raw ipfs pubsub topic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#fetch-chronological-thread-updates" title="Fetch chronological thread updates" class="md-nav__link">
     Fetch chronological thread updates
   </a>
@@ -1019,6 +1026,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#subscribe-to-raw-ipfs-pubsub-topic" title="Subscribe to raw ipfs pubsub topic" class="md-nav__link">
+    Subscribe to raw ipfs pubsub topic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#fetch-chronological-thread-updates" title="Fetch chronological thread updates" class="md-nav__link">
     Fetch chronological thread updates
   </a>
@@ -1188,6 +1202,40 @@
   <span class="nx">read</span><span class="p">(</span><span class="nx">await</span> <span class="nx">reader</span><span class="p">.</span><span class="nx">read</span><span class="p">())</span>
 <span class="p">}</span>
 <span class="nx">read</span><span class="p">(</span><span class="nx">await</span> <span class="nx">reader</span><span class="p">.</span><span class="nx">read</span><span class="p">())</span>
+</pre></div>
+
+<h3 id="subscribe-to-raw-ipfs-pubsub-topic">Subscribe to raw ipfs pubsub topic<a class="headerlink" href="#subscribe-to-raw-ipfs-pubsub-topic" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">useEventSource</span> <span class="o">=</span> <span class="nx">EventSource</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">;</span>
+<span class="kd">let</span> <span class="p">{</span>
+    <span class="nx">queryId</span><span class="p">,</span>
+    <span class="nx">queryHandle</span><span class="p">,</span>
+<span class="p">}</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">ipfs</span><span class="p">.</span><span class="nx">pubsubSub</span><span class="p">(</span><span class="s1">&#39;SomeTopicEgThreadId&#39;</span><span class="p">,</span> <span class="nx">useEventSource</span><span class="p">);</span>
+<span class="c1">// note: The second param of js_http_client pubsubSub() is optional, so all code here is</span>
+<span class="nx">also</span> <span class="nx">can</span> <span class="nx">be</span> <span class="nx">used</span> <span class="k">in</span> <span class="nx">react_native</span>
+
+<span class="kd">let</span> <span class="nx">allEventsAndQueryHandle</span> <span class="o">=</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">addPubsubQueryResultListener</span><span class="p">((</span><span class="nx">queryId</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">messageId</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="nx">queryId</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">messageId</span><span class="p">);</span>
+<span class="p">},</span> <span class="nx">queryId</span><span class="p">,</span> <span class="nx">queryHandle</span><span class="p">);</span>
+<span class="c1">// note: For easy to use, allEventsAndQueryHandle.cancel() will remove all events added in</span>
+<span class="c1">//           addPubsubQueryResultListener()</span>
+<span class="c1">//           addQueryDoneListener()</span>
+<span class="c1">//           addQueryErrorListener()</span>
+<span class="c1">//      and cancel queryHandle automatically</span>
+
+<span class="nx">doneEvent</span> <span class="o">=</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">addQueryDoneListener</span><span class="p">((</span><span class="nx">queryId</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">&#39;doneEvent&#39;</span><span class="p">,</span> <span class="nx">queryId</span><span class="p">);</span>
+    <span class="c1">// For easy to use, it&#39;s no need to run allEventsAndQueryHandle.cancel() or doneEvent.cancel()</span>
+    <span class="c1">// here, because they are already canceled automatically when this event happend and</span>
+    <span class="c1">// finally call this callback function of QueryDoneListener</span>
+<span class="p">},</span> <span class="nx">queryId</span><span class="p">);</span>
+<span class="c1">// note: User can use doneEvent.cancel() at any other place as wish to just cancel QueryDoneListener</span>
+
+<span class="k">this</span><span class="p">.</span><span class="nx">errorEvent</span> <span class="o">=</span> <span class="nx">textile</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">addQueryErrorListener</span><span class="p">((</span><span class="nx">queryId</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s1">&#39;errorEvent&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+    <span class="c1">// It&#39;s up to user to determin what to do (e.g. allEventsAndQueryHandle.cancel() or just continue?)</span>
+    <span class="c1">// when error happend</span>
+<span class="p">},</span> <span class="nx">queryId</span><span class="p">);</span>
+<span class="c1">// note: User can use errorEvent.cancel() at any other place as wish to just cancel QueryErrorListener</span>
 </pre></div>
 
 <h3 id="fetch-chronological-thread-updates">Fetch chronological thread updates<a class="headerlink" href="#fetch-chronological-thread-updates" title="Permanent link">&para;</a></h3>

@@ -1002,6 +1002,11 @@
                   <h1>Cafes</h1>
                 
                 <p><em>Cafe peers</em> (or just cafes) are <em>anonymous</em> and <em>disposable</em> infrastructure. They provide services on behalf of users and applications.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Threads v1 are being deprecated. Please follow our ongoing work on v2 on both the <a href="https://github.com/textileio/go-textile-threads">go-textile-threads repo</a> and the <a href="https://paper.dropbox.com/doc/Threads-v2-Early-Preview-X8fKsMiTyztuQ1L8CnUng">early preview</a>. </p>
+<p>Until Threads v2 release, Cafe APIs should be used for experimental purposes only.</p>
+</div>
 <p>Access to cafe services is granted via JWT-based sessions, and initial registration with a cafe requires an access token. Any peer can operate as a cafe, though they work best for always-on peers. Cafes run an 'extra' network API that handles client and host requests over libp2p or HTTP.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
