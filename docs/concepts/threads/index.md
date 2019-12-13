@@ -1,5 +1,11 @@
 _Threads_ are the backbone of Textile's _encrypted, recoverable, schema-based, and cross-application data storage_. Think of a thread as a decentralized database of encrypted files and messages, shared between specific participants.
 
+!!! danger
+
+    Threads v1 are being deprecated. Please follow our ongoing work on v2 on both the [go-textile-threads repo](https://github.com/textileio/go-textile-threads) and the [early preview](https://paper.dropbox.com/doc/Threads-v2-Early-Preview-X8fKsMiTyztuQ1L8CnUng). 
+
+    Until Threads v2 release, Threads should be used for experimental purposes only.
+
 At the core of every thread is a secret. Only peers that possess the secret can decrypt thread content or follow linkages.
 
 !!! hint

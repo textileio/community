@@ -2,6 +2,12 @@
 
 Welcome to Textile! This is a great place to start if you're a developer interested in using Textile's decentralized tooling in your mobile, desktop, or web applications. However, anyone interested in learning how to run and interact with a Textile peer will also find this tour useful.
 
+!!! danger
+
+    Threads v1 are being deprecated. Please follow our ongoing work on v2 on both the [go-textile-threads repo](https://github.com/textileio/go-textile-threads) and the [early preview](https://paper.dropbox.com/doc/Threads-v2-Early-Preview-X8fKsMiTyztuQ1L8CnUng). 
+
+    Until Threads v2 release please follow this tour for experimentation purposes only.
+
 ## Concepts
 
 The rest of this document assumes that you are somewhat familiar with the following concepts:

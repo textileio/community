@@ -17,6 +17,8 @@
 	<tr><td><code>--api="http://127.0.0.1:40600"</code></td><td><pre>API Address to use</pre></td></tr>
 	<tr><td><code>--api-version="v0"</code></td><td><pre>API version to use</pre></td></tr>
 	<tr><td><code>--debug</code></td><td><pre>Set the logging level to debug</pre></td></tr>
+	<tr><td><code>--username=USERNAME</code></td><td><pre>Specify the username (address) if required for Basic Auth</pre></td></tr>
+	<tr><td><code>--password=PASSWORD</code></td><td><pre>Specify the password (pincode) used for datastore encryption and Basic Auth (omit if no auth/encryption is used)</pre></td></tr>
 </table>
 
 ## textile help [&lt;command&gt;]
@@ -92,6 +94,35 @@
 	<tr><td><code>--content</code></td><td><pre>If provided, the decrypted content of the file is retrieved</pre></td></tr>
 	<tr><th>Argument</th><th>Description</th></tr>
 	<tr><td><code>&lt;block&gt;</code></td><td><pre>File Block ID</pre></td></tr>
+</table>
+
+## textile bots
+<pre>Commands to manage bots</pre>
+
+### textile bots list
+<pre>List info about all active bots</pre>
+
+### textile bots disable &lt;id&gt;
+<pre>Disable a bot</pre>
+<table>
+	<tr><th>Argument</th><th>Description</th></tr>
+	<tr><td><code>&lt;id&gt;</code></td><td><pre>ID of the bot</pre></td></tr>
+</table>
+
+### textile bots enable [&lt;flags&gt;] &lt;id&gt;
+<pre>Enable a bot</pre>
+<table>
+	<tr><th>Flag</th><th>Description</th></tr>
+	<tr><td><code>-c, --cafe-api</code></td><td><pre>Whether to serve bot on the Cafe API (public)</pre></td></tr>
+	<tr><th>Argument</th><th>Description</th></tr>
+	<tr><td><code>&lt;id&gt;</code></td><td><pre>ID of the bot</pre></td></tr>
+</table>
+
+### textile bots create &lt;name&gt;
+<pre>Initialize a new bot for development</pre>
+<table>
+	<tr><th>Argument</th><th>Description</th></tr>
+	<tr><td><code>&lt;name&gt;</code></td><td><pre>Name of the bot</pre></td></tr>
 </table>
 
 ## textile cafe
@@ -219,7 +250,9 @@ An access token is required to register, and should be obtained separately from 
 <pre>Start a node daemon session</pre>
 <table>
 	<tr><th>Flag</th><th>Description</th></tr>
-	<tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom repository path</pre></td></tr>
+	<tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom path to the repo directory</pre></td></tr>
+	<tr><td><code>-b, --base-repo=BASE-REPO</code></td><td><pre>Specify a custom path to the base repo directory</pre></td></tr>
+	<tr><td><code>-a, --account-address=ACCOUNT-ADDRESS</code></td><td><pre>Specify an existing account address</pre></td></tr>
 	<tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify the pin code for datastore encryption (omit no pin code was used during init)</pre></td></tr>
 	<tr><td><code>-s, --serve-docs</code></td><td><pre>Whether to serve the local REST API docs</pre></td></tr>
 </table>
@@ -327,8 +360,9 @@ Stacks may include:
 <pre>Configure textile to use the account by creating a local repository to house its data</pre>
 <table>
 	<tr><th>Flag</th><th>Description</th></tr>
+	<tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom path to the repo directory</pre></td></tr>
+	<tr><td><code>-b, --base-repo=BASE-REPO</code></td><td><pre>Specify a custom path to the base repo directory</pre></td></tr>
 	<tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify a pin for datastore encryption</pre></td></tr>
-	<tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom repository path</pre></td></tr>
 	<tr><td><code>--server</code></td><td><pre>Apply IPFS server profile</pre></td></tr>
 	<tr><td><code>--swarm-ports=SWARM-PORTS</code></td><td><pre>Set the swarm ports (TCP,WS). A random TCP port is chosen by default</pre></td></tr>
 	<tr><td><code>--log-files</code></td><td><pre>If true, writes logs to rolling files, if false, writes logs to stdout</pre></td></tr>
@@ -495,8 +529,9 @@ There are two types of invites, direct account-to-account and external:
 <pre>Migrate the node repository and exit</pre>
 <table>
 	<tr><th>Flag</th><th>Description</th></tr>
-	<tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom repository path</pre></td></tr>
-	<tr><td><code>-p, --pin=PIN</code></td><td><pre>Specify the pin for datastore encryption, omit if no pin was used during init</pre></td></tr>
+	<tr><td><code>-r, --repo=REPO</code></td><td><pre>Specify a custom path to the repo directory</pre></td></tr>
+	<tr><td><code>-b, --base-repo=BASE-REPO</code></td><td><pre>Specify a custom path to the base repo directory</pre></td></tr>
+	<tr><td><code>-a, --account-address=ACCOUNT-ADDRESS</code></td><td><pre>Specify an existing account address</pre></td></tr>
 </table>
 
 ## textile notification
@@ -517,6 +552,13 @@ There are two types of invites, direct account-to-account and external:
 <table>
 	<tr><th>Argument</th><th>Description</th></tr>
 	<tr><td><code>&lt;address&gt;</code></td><td><pre>The address of the other peer on the network</pre></td></tr>
+</table>
+
+## textile publish &lt;topic&gt;
+<pre>Publishes stdin to a topic on the network</pre>
+<table>
+	<tr><th>Argument</th><th>Description</th></tr>
+	<tr><td><code>&lt;topic&gt;</code></td><td><pre>The topic to publish to</pre></td></tr>
 </table>
 
 ## textile profile
