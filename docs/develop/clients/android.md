@@ -56,6 +56,12 @@ By default, the Textile instance will manage itself during app life-cycle events
 {{subscribe.files.android.code}}
 ```
 
+### Subscribe to raw ipfs pubsub topic
+
+```Java tab="Android"
+{{ipfs.pubsub_sub.android.code}}
+```
+
 ### Fetch chronological thread updates
 
 ```Java tab="Android"

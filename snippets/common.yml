@@ -1457,3 +1457,106 @@ ipfs:
         }
     android:
       code: 'byte[] data = Textile.instance().ipfs.dataAtPath("QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d");'
+  pubsub_sub:
+    cmd:
+      code: 'textile ipfs pubsub sub SomeTopicEgThreadId'
+    js_http_client:
+      code: |
+        let useEventSource = EventSource !== undefined;
+        let {
+            queryId,
+            queryHandle,
+        } = await textile.ipfs.pubsubSub('SomeTopicEgThreadId', useEventSource);
+        // note: The second param of js_http_client pubsubSub() is optional, so all code here is
+        also can be used in react_native
+
+        let allEventsAndQueryHandle = textile.events.addPubsubQueryResultListener((queryId, message, messageId) => {
+          console.warn(queryId, message, messageId);
+        }, queryId, queryHandle);
+        // note: For easy to use, allEventsAndQueryHandle.cancel() will remove all events added in
+        //           addPubsubQueryResultListener()
+        //           addQueryDoneListener()
+        //           addQueryErrorListener()
+        //      and cancel queryHandle automatically
+
+        doneEvent = textile.events.addQueryDoneListener((queryId) => {
+            console.warn('doneEvent', queryId);
+            // For easy to use, it's no need to run allEventsAndQueryHandle.cancel() or doneEvent.cancel()
+            // here, because they are already canceled automatically when this event happend and
+            // finally call this callback function of QueryDoneListener
+        }, queryId);
+        // note: User can use doneEvent.cancel() at any other place as wish to just cancel QueryDoneListener
+
+        this.errorEvent = textile.events.addQueryErrorListener((queryId, error) => {
+            console.warn('errorEvent', error);
+            // It's up to user to determin what to do (e.g. allEventsAndQueryHandle.cancel() or just continue?)
+            // when error happend
+        }, queryId);
+        // note: User can use errorEvent.cancel() at any other place as wish to just cancel QueryErrorListener
+    react_native:
+      code: |
+        let {
+            queryId,
+            queryHandle,
+        } = await textile.ipfs.pubsubSub('SomeTopicEgThreadId');
+        // note: The second param of js_http_client pubsubSub() is optional, so all code here is
+        also can be used in react_native
+
+        let allEventsAndQueryHandle = textile.events.addPubsubQueryResultListener((queryId, message, messageId) => {
+          console.warn(queryId, message, messageId);
+        }, queryId, queryHandle);
+        // note: For easy to use, allEventsAndQueryHandle.cancel() will remove all events added in
+        //           addPubsubQueryResultListener()
+        //           addQueryDoneListener()
+        //           addQueryErrorListener()
+        //      and cancel queryHandle automatically
+
+        doneEvent = textile.events.addQueryDoneListener((queryId) => {
+            console.warn('doneEvent', queryId);
+            // For easy to use, it's no need to run allEventsAndQueryHandle.cancel() or doneEvent.cancel()
+            // here, because they are already canceled automatically when this event happend and
+            // finally call this callback function of QueryDoneListener
+        }, queryId);
+        // note: User can use doneEvent.cancel() at any other place as wish to just cancel QueryDoneListener
+
+        this.errorEvent = textile.events.addQueryErrorListener((queryId, error) => {
+            console.warn('errorEvent', error);
+            // It's up to user to determin what to do (e.g. allEventsAndQueryHandle.cancel() or just continue?)
+            // when error happend
+        }, queryId);
+        // note: User can use errorEvent.cancel() at any other place as wish to just cancel QueryErrorListener
+    objc:
+      code: |
+        NSError *error;
+        NSString *queryId = [Textile.instance.ipfs pubsubSub:@"SomeTopicEgThreadId" error:&error];
+
+        // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
+        Textile.instance.delegate = delegate;
+
+        // The delegate can receive callbacks for any event it is interested in, for example
+        - (void)pubsubQueryResult:(NSString *)queryId message:(NSString *)message messageId:(NSString *)messageId {
+          // new ipfs pubsub message!
+        }
+    swift:
+      code: |
+        var queryId = Textile.instance().ipfs.pubsubSub(topic: "SomeTopicEgThreadId", error: SomeUserDefinedNSError);
+
+        // Set the Textile delegate to any object that conforms to the TextileDelegate protocol
+        Textile.instance().delegate = delegate
+
+        // The delegate can receive callbacks for any event it is interested in, for example
+        func pubsubQueryResult(_ queryId: String, _ message: String, _ messageId: String) {
+          // new ipfs pubsub message!
+        }
+    android:
+      code: |
+        String queryId = Textile.instance().ipfs.pubsubSub("SomeTopicEgThreadId");
+
+        // Add an event listener that conforms to TextileEventListener
+        class MyEventListener extends BaseTextileEventListener {
+            @Override
+            public void pubsubQueryResult(final String queryId, final String message, final String messageId) {
+                // new ipfs pubsub message!
+            }
+        }
+        Textile.instance().addEventListener(new MyEventListener());

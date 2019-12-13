@@ -68,6 +68,16 @@ By default, the Textile instance will manage itself during app life-cycle events
 {{subscribe.files.swift.code}}
 ```
 
+### Subscribe to raw ipfs pubsub topic
+
+```Objective-C tab="Objective-C"
+{{ipfs.pubsub_sub.objc.code}}
+```
+
+```Swift tab="Swift"
+{{ipfs.pubsub_sub.swift.code}}
+```
+
 ### Fetch chronological thread updates
 
 ```Objective-C tab="Objective-C"
