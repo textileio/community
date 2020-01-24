@@ -1459,7 +1459,7 @@ ipfs:
       code: 'byte[] data = Textile.instance().ipfs.dataAtPath("QmarZwQEri4g2s8aw9CWKhxAzmg6rnLawGuSGYLSASEow6/0/d");'
   pubsub_sub:
     cmd:
-      code: 'textile ipfs pubsub sub SomeTopicEgThreadId'
+      code: "textile ipfs pubsub sub SomeTopicEgThreadId"
     js_http_client:
       code: |
         let useEventSource = EventSource !== undefined;
