@@ -4,6 +4,14 @@ Apps running the iOS SDK run an on device Textile peer (including a managed [IPF
 
 Below are some basic examples to get you started. If you are interested in a more thorough walk-through, check out the [Tour of Textile's](/a-tour-of-textile) examples using Swift or Objective-C or jump to the full API documentation if you are ready.
 
+!!! danger
+
+    **Deprecation Warning**
+
+    Textile Threads v1 are being deprecated. Please follow our ongoing work on v2 on both the [go-threads repo](https://github.com/textileio/go-threads).
+
+    To follow the development of Threads v2 and the new iOS client, [see here](https://github.com/textileio/go-threads#libraries).
+
 ## Installation
 
 The iOS is published as a [pod on CocoaPod.org](https://cocoapods.org/pods/Textile). The library is also [published on GitHub](https://github.com/textileio/ios-textile).

@@ -1,5 +1,15 @@
 Textile's React Native SDK is designed to work on iOS and Android devices in app's built with [React Native](https://facebook.github.io/react-native/).
 
+!!! danger
+
+    **Deprecation Warning**
+
+    Textile Threads v1 are being deprecated. Please follow our ongoing work on v2 on both the [go-threads repo](https://github.com/textileio/go-threads).
+
+    Until Threads v2 release and integration into the React Native SDK, this client should be used for experimental purposes only.
+
+    For instructions on running the v2 development library in React Native, [see here](https://github.com/textileio/js-threads-client/#react-native).
+
 ## Installation
 
 The React Native SDK is published as an [NPM Package](https://www.npmjs.com/package/@textile/react-native-sdk). You are free to use the [source code](https://github.com/textileio/react-native-sdk) directly or use a package manager to install the official release.
