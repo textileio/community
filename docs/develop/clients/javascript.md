@@ -2,6 +2,14 @@ The JS HTTP Client was designed to work in the browser, using Node.js, or in Ele
 
 To use the JS HTTP Client, you'll need either a locally running [Daemon](/install/the-daemon) or a locally running [Desktop Tray](/install/desktop) instance containing a Textile account and available on `localhost` with default ports for both the `API` and `Gateway`.
 
+!!! danger
+
+    **Deprecation Warning**
+
+    Textile Threads v1 are being deprecated. Please follow our ongoing work on v2 on both the [go-threads repo](https://github.com/textileio/go-threads).
+
+    For instructions on running the v2 JavaScript client library, [see here](https://github.com/textileio/js-threads-client).
+
 ## Installation
 
 The JS HTTP Client is published as an [NPM Package](https://www.npmjs.com/package/@textile/js-http-client). You are free to use the [source code](https://github.com/textileio/js-http-client) directly or use a package manager to install the official release.
