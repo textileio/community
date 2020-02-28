@@ -1,5 +1,9 @@
 # Accounts
 
+!!! warning
+
+    This section is still a work in progress. Libraries are under active development, and this material may not reflect the latest changes. Please view the primary code-repositories and look out for our release announcements soon. 
+
 To start using remote services such as IPFS pinning, Bucket sharing, and Thread APIs, you'll need an account on Textile. Textile provides a simple, password-less account setup. You can create a new account by logging in with your valid email address for the first time.
 
 ##### Login

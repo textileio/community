@@ -1,5 +1,9 @@
 # Buckets
 
+!!! warning
+
+    This section is still a work in progress. Libraries are under active development, and this material may not reflect the latest changes. Please view the primary code-repositories and look out for our release announcements soon. 
+
 Textile accounts can use Buckets, a tool that makes it simple for you to pin files to IFPS. The files you pin can be used as part or all of the interface to your dApp. You can think of `buckets` much like you might already think of buckets on S3 (or if you aren't familiar, just think of them as folders). As an extra bonus, if any bucket you create contains an `index.html` file, Textile will host the bucket as a web site at `https://<bucket-name>.textile.cafe`. Read on to see an example.
 
 #### Push files

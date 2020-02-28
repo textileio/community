@@ -1,7 +1,11 @@
 # Threads
 
 > A scalable, secure, multi-user, database for developers
- 
+
+!!! warning
+
+    This section is still a work in progress. Libraries are under active development, and this material may not reflect the latest changes. Please view the primary code-repositories and look out for our release announcements soon. 
+
 Want simple Filebase or MongoDB type functionality in your app? Textile provides Threads - A decentralized database built on IPFS. Threads give your app a way to store private data for one user or synchronize data across many peers. For a deep dive over breakfast, read the [Threads Whitepaper](https://blog.textile.io/introducing-textiles-threads-protocol/). For now, here's a quick tour. 
 
 The Threads Whitepaper outlines a number of new innovations, some highlights include:
