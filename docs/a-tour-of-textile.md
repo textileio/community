@@ -224,7 +224,7 @@ The Threads Whitepaper outlines a number of new innovations, some highlights inc
 
 Technically,
 
-* Each thread is contains a store (where data is kept) and models (the data structures you store and update).
+* Each thread contains a store (where data is kept) and models (the data structures you store and update).
 * Threads are collaborative, for one to many users. By default, each thread your app creates for a user is private (fully encrypted) but can then be shared with other users who can then have access to just read or read & write to the same Thread.
 * Data is transferred over IPFS, but it is encrypted by keys only available to people invited to the thread.
 
