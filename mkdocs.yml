@@ -76,35 +76,11 @@ markdown_extensions:
 # Page tree
 nav:
   - Welcome!: index.md
-  - Install:
-      - The Daemon: install/the-daemon.md
-      - Desktop: install/desktop.md
-      - Apps: install/apps.md
   - A Tour of Textile: a-tour-of-textile.md
   - Concepts:
-      - Introduction: concepts/index.md
-      - The Wallet: concepts/the-wallet.md
-      - Contacts: concepts/contacts.md
-      - Threads:
-          - Introduction: concepts/threads/index.md
-          - Files: concepts/threads/files.md
-      - Cafes: concepts/cafes.md
-      - Search: concepts/search.md
-  - Connectors:
-      - Introduction: connectors/index.md
-      - Images & Media: connectors/images/index.md
-      - Documents: connectors/documents/index.md
-      - Games: connectors/games/index.md
-  - Develop:
-      - Clients:
-          - Command-line: develop/clients/command-line.md
-          - JavaScript: develop/clients/javascript.md
-          - React Native: develop/clients/react-native.md
-          - iOS: develop/clients/ios.md
-          - Android: develop/clients/android.md
-      - The HTTP API: develop/the-http-api.md
-      - IPFS Gateway: develop/ipfs-gateway.md
-      - Peer Config File: develop/peer-config-file.md
+      - Threads: concepts/threads.md
+      - Buckets: concepts/buckets.md
+      - Accounts: concepts/accounts.md
   - Policies:
       - Code of Conduct: policies/code-of-conduct.md
       - Privacy Policy: policies/privacy-policy.md
