@@ -47,9 +47,9 @@
       {% if page and page.meta and page.meta.title %}
         <title>{{ page.meta.title }}</title>
       {% elif page and page.title and not page.is_homepage %}
-        <title>{{ page.title }} - {{ config.site_name }}</title>
+        <title>{{ page.title }} | {{ config.site_title }}</title>
       {% else %}
-        <title>{{ config.site_name }}</title>
+        <title>{{ config.site_title }}</title>
       {% endif %}
     {% endblock %}
     {% block styles %}

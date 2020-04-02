@@ -1,6 +1,7 @@
 # Project information
-site_name: "Textile Documentation"
-site_description: "Encrypted, recoverable, schema-based, cross-application data storage built on IPFS and LibP2P."
+site_title: "Documentation | Textile"
+site_name: "Documentation"
+site_description: "Cross-application data storage built on IPFS, LibP2P, and Filecoin."
 site_author: textile.io
 site_url: https://docs.textile.io/
 
@@ -25,7 +26,7 @@ theme:
     text: Roboto
     code: Roboto Mono
   favicon: images/favicon.ico
-  logo: images/logo_pink.svg
+  logo: images/hex.svg
   static_templates:
     - 404.html
 
@@ -77,15 +78,24 @@ markdown_extensions:
 nav:
   - Welcome!: index.md
   - A Tour of Textile: a-tour-of-textile.md
-  - Concepts:
-      - Threads: concepts/threads.md
-      - Buckets: concepts/buckets.md
-      - Accounts: concepts/accounts.md
-  - Policies:
-      - Code of Conduct: policies/code-of-conduct.md
-      - Privacy Policy: policies/privacy-policy.md
-      - Terms of Service: policies/terms-of-service.md
-      - License: policies/license.md
+  - Cloud:
+      - How it works: cloud/getting-started.md
+      - Accounts & Teams: cloud/accounts.md
+      - Using Buckets: cloud/buckets.md
+      - Thread Services: cloud/threads.md
+      - CLI Docs: cloud/cli.md
+      - SDKs: cloud/sdks.md
+  - ThreadsDB:
+      - Getting Started: threads/getting-started.md
+      - JavaScript: https://textileio.github.io/js-threads
+      - Golang: https://textileio.github.io/go-threads
+      - Dart: https://textileio.github.io/dart-threads-client
+  - Filecoin:
+      - Powergate: https://github.com/textileio/powergate/#powergate
+  - Tutorials:
+      - Create an Account: tutorials/create-an-account.md
+      - Publish a Website: tutorials/host-a-website.md
+      - Create a Database: tutorials/create-a-thread-database.md
 
 # Customization
 extra:
@@ -97,7 +107,7 @@ extra:
     - type: twitter
       link: https://twitter.com/textileio
     - type: medium
-      link: https://medium.com/textileio
+      link: https://blog.textile.io/
     - type: slack
       link: https://slack.textile.io
   go_textile:
