@@ -80,13 +80,13 @@ nav:
   - A Tour of Textile: a-tour-of-textile.md
   - Cloud:
       - How it works: cloud/getting-started.md
-      - Accounts & Teams: cloud/accounts.md
-      - Using Buckets: cloud/buckets.md
-      - Thread Services: cloud/threads.md
+      - Accounts: cloud/accounts.md
+      - Buckets: cloud/buckets.md
+      - Threads: cloud/threads.md
       - CLI Docs: cloud/cli.md
       - SDKs: cloud/sdks.md
   - ThreadsDB:
-      - Getting Started: threads/getting-started.md
+      - Getting started: threads/getting-started.md
       - JavaScript: https://textileio.github.io/js-threads
       - Golang: https://textileio.github.io/go-threads
       - Dart: https://textileio.github.io/dart-threads-client
@@ -95,7 +95,7 @@ nav:
   - Tutorials:
       - Create an Account: tutorials/create-an-account.md
       - Publish a Website: tutorials/host-a-website.md
-      - Create a Database: tutorials/create-a-thread-database.md
+      - Create a Database: tutorials/create-a-threads-database.md
 
 # Customization
 extra:

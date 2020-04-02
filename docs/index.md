@@ -32,12 +32,12 @@ Use Textile's managed services to persist your data on the IPFS network. Textile
 <div class="txtl-options">
   <a href="./cloud/cli" class="box">
     <h5>CLI</h5>
-    <p>You used shared resources on Textile by creating a team.</p>
+    <p>Use hosted resources on Textile through the cloud CLI.</p>
   </a>
   <span class="box-space"> </span>
   <a href="https://textileio.github.io/js-textile/" target="_blank" class="box">
     <h5>JavaScript SDK</h5>
-    <p>Start using hosted services by creating your free account.</p>
+    <p>Use Thread & Bucket APIs from your JavaScript app.</p>
   </a>
   <span class="box-space"> </span>
   <span class="box-fill">
@@ -53,7 +53,7 @@ Developers use ThreadsDB so they can spend less time configuring encryption or m
 <div class="txtl-options">
   <a href="https://github.com/textileio/js-todo-demo#threads-todo-demo" target="_blank" class="box">
     <h5>JS Todo App</h5>
-    <p>Build a Todo app using ThreadsDB and Textile pinning services.</p>
+    <p>Build a Todo app with Textile Thread pinning services.</p>
   </a>
   <span class="box-space"> </span>
   <a href="https://github.com/textileio/go-threads/tree/master/examples/chat" target="_blank" class="box">
