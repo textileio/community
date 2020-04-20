@@ -1,10 +1,12 @@
-# Documentation
+---
+hero_img: /images/hero.jpg
+---
 
 Welcome to the Textile documentation. Whether you are an expert or an absolute beginner, you'll find your answers here. Pick a starting point below, or use the search box to find documents matching your keywords.
 
 If you don't know where to start, the [Tour of Textile](./a-tour-of-textile.md) is a good intro.
 
-## Cloud
+## The Hub
 
 Use Textile's managed services to persist your data on the IPFS network. Textile Buckets provide persistent, mutable, data storage on IPFS. Host websites or public data in Buckets. Invite your team to Buckets to share sync and admin capabilities.
 
@@ -30,9 +32,9 @@ Use Textile's managed services to persist your data on the IPFS network. Textile
 #### Read the docs
 
 <div class="txtl-options">
-  <a href="./cloud/cli" class="box">
+  <a href="./hub/cli" class="box">
     <h5>CLI</h5>
-    <p>Use hosted resources on Textile through the cloud CLI.</p>
+    <p>Use hosted resources on Textile through the Hub CLI.</p>
   </a>
   <span class="box-space"> </span>
   <a href="https://textileio.github.io/js-textile/" target="_blank" class="box">
@@ -46,9 +48,9 @@ Use Textile's managed services to persist your data on the IPFS network. Textile
 
 ## ThreadsDB
 
-Developers use ThreadsDB so they can spend less time configuring encryption or managing content addresses, instead ThreadsDB allows them to start building right away. A familiar MongoDB/Mongoose API and a available data hosting services make dynamic data on the Dweb easy!
+Developers use ThreadsDB so they can spend less time configuring encryption or managing content addresses, instead ThreadsDB allows them to start building right away. A familiar MongoDB/Mongoose API and simple data hosting services make dynamic data on the DWeb easy!
 
-#### Clone a project
+#### Clone an example app
 
 <div class="txtl-options">
   <a href="https://github.com/textileio/js-todo-demo#threads-todo-demo" target="_blank" class="box">

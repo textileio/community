@@ -74,23 +74,25 @@ markdown_extensions:
   - pymdownx.tilde
   - markdown_captions
 
-# Page tree
 nav:
-  - Welcome!: index.md
-  - A Tour of Textile: a-tour-of-textile.md
-  - Cloud:
-      - How it works: cloud/getting-started.md
-      - Accounts: cloud/accounts.md
-      - Buckets: cloud/buckets.md
-      - Threads: cloud/threads.md
-      - CLI Docs: cloud/cli.md
-      - SDKs: cloud/sdks.md
+  - Home: index.md
+  - Tour of Textile: a-tour-of-textile.md
+  - The Hub:
+      - Introduction: hub/introduction.md
+      - Accounts: hub/accounts.md
+      - Bucket Hosting: hub/buckets.md
+      - ThreadsDB Services: hub/threadsdb.md
+      - CLI Docs: hub/cli.md
+      - SDKs: hub/sdks.md
   - ThreadsDB:
-      - Getting started: threads/getting-started.md
+      - Introduction: threads/introduction.md
+      - Running the Daemon: threads/threadsd.md
+      - Hosted: hub/threads.md
       - JavaScript: https://textileio.github.io/js-threads
       - Golang: https://textileio.github.io/go-threads
       - Dart: https://textileio.github.io/dart-threads-client
   - Filecoin:
+      - Introduction: powergate/introduction.md
       - Powergate: https://github.com/textileio/powergate/#powergate
   - Tutorials:
       - Create an Account: tutorials/create-an-account.md

@@ -154,12 +154,16 @@
             {% endif %}
           {% endblock %}
           <div class="md-content">
+
             <article class="md-content__inner md-typeset">
               {% block content %}
-                {% if page.edit_url %}
+                {% if page and page.meta and page.meta.hero_img %}
+                  <img class="center" src="{{page.meta.hero_img}}" />
+                {% endif %}
+                {% if page.edit_url and not page.is_homepage %}
                   <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-icon md-content__icon">&#xE3C9;</a>
                 {% endif %}
-                {% if not "\x3ch1" in page.content %}
+                {% if not "\x3ch1" in page.content and not page.is_homepage %}
                   <h1>{{ page.title | default(config.site_name, true)}}</h1>
                 {% endif %}
                 {{ page.content }}

@@ -1,4 +1,6 @@
-![Photo by Andrew Neel on Unsplash](/images/andrew-neel-133200-unsplash.jpg)
+---
+hero_img: /images/tour-hero.jpg
+---
 
 Welcome to Textile! This is a great place to start if you're a developer interested in using Textile's decentralized tooling in your mobile, desktop, or web applications.
 

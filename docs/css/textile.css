@@ -9,6 +9,10 @@
 	flex-wrap: nowrap;
 }
 
+.txtl-options.center {
+	justify-content: space-around;
+}
+
 
 .txtl-options .box {
 	display: flex;
@@ -23,6 +27,10 @@
   border: 1px solid #eee;
 	background: #fff;
 	color: #222;
+}
+
+.txtl-options.center .box {
+	width: 100%;
 }
 
 .txtl-options .box:hover {
