@@ -80,14 +80,13 @@ nav:
   - The Hub:
       - Introduction: hub/introduction.md
       - Accounts: hub/accounts.md
-      - Bucket Hosting: hub/buckets.md
-      - ThreadsDB Services: hub/threadsdb.md
+      - Bucket Hosting: hub/bucket-hosting.md
+      - Threads Services: hub/threads-services.md
+      - App Libraries: hub/app-libraries.md
       - CLI Docs: hub/cli.md
-      - SDKs: hub/sdks.md
   - ThreadsDB:
       - Introduction: threads/introduction.md
       - Running the Daemon: threads/threadsd.md
-      - Hosted: hub/threads.md
       - JavaScript: https://textileio.github.io/js-threads
       - Golang: https://textileio.github.io/go-threads
       - Dart: https://textileio.github.io/dart-threads-client
