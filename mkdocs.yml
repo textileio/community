@@ -90,7 +90,7 @@ nav:
       - JavaScript: https://textileio.github.io/js-threads
       - Golang: https://textileio.github.io/go-threads
       - Dart: https://textileio.github.io/dart-threads-client
-  - Filecoin:
+  - Filecoin Powergate:
       - Introduction: powergate/introduction.md
       - Powergate: https://github.com/textileio/powergate/#powergate
   - Tutorials:
