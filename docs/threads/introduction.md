@@ -2,169 +2,238 @@
 hero_img: /images/threads-hero.png
 ---
 
-# Threads
+# Getting Started
 
-> A scalable, secure, multi-user, database for developers
+Together, the Threads Protocol and Database provide an alternative architecture for data on the web. Threads aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data (IPLD), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.
 
-!!! warning
+### Developer API
 
-    This section is still a work in progress. Libraries are under active development, and this material may not reflect the latest changes. Please view the primary code-repositories and look out for our release announcements soon. 
+ThreadsDB is designed to be simple enough for any developer to start using. The API will feel familiar to developers who have worked with technologies like MongoDB or Mongoose.
 
-Want simple Firebase or MongoDB type functionality in your app? Textile provides Threads - A decentralized database built on IPFS. Threads give your app a way to store private data for one user or synchronize data across many peers. For a deep dive over breakfast, read the [Threads Whitepaper](https://blog.textile.io/introducing-textiles-threads-protocol/). For now, here's a quick tour. 
+The first three concepts a developer will encounter with ThreadsDB are [Databases](#databases), [Collections](#collections), and [Instances](#instances). The organization is simple. Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections.
 
-The Threads Whitepaper outlines a number of new innovations, some highlights include:
-
-* Standardized key management for securing data created in your apps
-* An easy interface to create and update models (think MongoDB)
-* A simple way for data owners to invite new members to their database
-
-Technically,
-
-* Each thread contains a store (where data is kept) and models (the data structures you store and update).
-* Threads are collaborative, for one to many users. By default, each thread your app creates for a user is private (fully encrypted) but can then be shared with other users who can then have access to just read or read & write to the same Thread.
-* Data is transferred over IPFS, but it is encrypted by keys only available to people invited to the thread.
-
-If you would like to start testing Threads v2 you can use any of the following libraries.
-
-| Name | Status | Platforms | Description |
-| ---------|---------|---------|--------- |
-| **Implementations** |
-| [`go-threads`](//github.com/textileio/go-threads) | [![](https://img.shields.io/github/v/release/textileio/go-threads?color=3529ff&sort=semver&style=popout-square)](https://github.com/textileio/go-threads) [![](https://img.shields.io/github/workflow/status/textileio/go-threads/Tests/master.svg?style=popout-square)](https://github.com/textileio/go-threads/actions?query=branch%3Amaster) | [![](https://img.shields.io/badge/golang-blueviolet.svg?style=popout-square)](https://github.com/textileio/go-threads) | Threads reference implementation. |
-| [`js-threads`](//github.com/textileio/js-threads) | [![](https://img.shields.io/github/v/release/textileio/js-threads?color=3529ff&sort=semver&style=popout-square)](https://github.com/textileio/js-threads) [![](https://img.shields.io/github/workflow/status/textileio/go-threads/Tests/master.svg?style=popout-square)](https://github.com/textileio/js-threads/actions?query=branch%3Amaster) | [![](https://img.shields.io/badge/javascript-blueviolet.svg?style=popout-square)](https://github.com/textileio/go-threads) | _Work in Progress._ JavaScript implementation. |
-| **Clients** |
-| [`js-threads-client`](//github.com/textileio/js-threads-client) | [![](https://img.shields.io/badge/dynamic/json.svg?style=popout-square&color=3527ff&label=go-threads&prefix=v&query=%24.dependencies%5B%27%40textile%2Fthreads-client-grpc%27%5D.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Ftextileio%2Fjs-threads-client%2Fmaster%2Fpackage-lock.json)](https://github.com/textileio/go-threads) [![](https://img.shields.io/github/workflow/status/textileio/js-threads-client/lint_test/master.svg?style=popout-square)](https://github.com/textileio/js-threads-client/actions?query=branch%3Amaster) | [![](https://img.shields.io/badge/nodejs-blueviolet.svg?style=popout-square)](https://github.com/textileio/js-threads-client) [![](https://img.shields.io/badge/web-blueviolet.svg?style=popout-square)](https://github.com/textileio/js-threads-client) [![](https://img.shields.io/badge/react%20native-blueviolet.svg?style=popout-square)](https://github.com/textileio/js-threads-client) | A JavaScript client for the threads daemon. |
-| [`dart-threads-client`](//github.com/textileio/dart-threads-client) | [![](https://img.shields.io/badge/dynamic/yaml?style=popout-square&color=3527ff&label=go-threads&prefix=v&query=packages.threads_client_grpc.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Ftextileio%2Fdart-threads-client%2Fmaster%2Fpubspec.lock)](https://github.com/textileio/go-threads) [![](https://img.shields.io/github/workflow/status/textileio/dart-threads-client/test/master.svg?style=popout-square)](https://github.com/textileio/dart-threads-client/actions?query=branch%3Amaster) | [![](https://img.shields.io/badge/dart-blueviolet.svg?style=popout-square)](https://github.com/textileio/dart-threads-client) [![](https://img.shields.io/badge/flutter-blueviolet.svg?style=popout-square)](https://github.com/textileio/dart-threads-client) | A Dart client for the threads daemon. |
-| **Examples** |
-| [`go-foldersync`](//github.com/textileio/go-foldersync) | [![](https://img.shields.io/github/v/release/textileio/go-threads?color=3529ff&label=go-threads&style=popout-square)](https://github.com/textileio/go-threads) [![](https://img.shields.io/github/workflow/status/textileio/go-foldersync/Tests/master.svg?style=popout-square)](https://github.com/textileio/js-threads-client/actions?query=branch%3Amaster) | [![](https://img.shields.io/badge/golang-blueviolet.svg?style=popout-square)](https://github.com/textileio/go-foldersync) | An e2e demo to sync data between two golang clients. |
-| [`js-foldersync`](//github.com/textileio/js-foldersync) | [![](https://img.shields.io/badge/dynamic/json.svg?style=popout-square&color=3527ff&label=go-threads&prefix=v&query=%24.dependencies%5B%27%40textile%2Fthreads-client-grpc%27%5D.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Ftextileio%2Fjs-foldersync%2Fmaster%2Fpackage-lock.json)](https://github.com/textileio/go-threads) [![](https://img.shields.io/github/workflow/status/textileio/js-foldersync/Test/master.svg?style=popout-square)](https://github.com/textileio/js-foldersync/actions?query=branch%3Amaster) | [![](https://img.shields.io/badge/web-blueviolet.svg?style=popout-square)](https://github.com/textileio/js-foldersync) | A demo of writing and reading models with the js-threads-client. |
-| **Planned** |
-| [`andoroid-threads-client`](//github.com/textileio/android-threads-client) | [![](https://img.shields.io/github/v/release/textileio/android-threads-client?color=3529ff&sort=semver&style=popout-square)](https://github.com/textileio/android-threads-client) | [![](https://img.shields.io/badge/android-blueviolet.svg?style=popout-square)](https://github.com/textileio/android-threads-client) | An Android client for the threads daemon. |
-| [`ios-threads-client`](//github.com/textileio/ios-threads-client) | [![](https://img.shields.io/github/v/release/textileio/ios-threads-client?color=3529ff&sort=semver&style=popout-square)](https://github.com/textileio/ios-threads-client) | [![](https://img.shields.io/badge/ios-blueviolet.svg?style=popout-square)](https://github.com/textileio/android-threads-client) | An iOS client for the threads daemon. |
-
-### Hosted Threads
-
-The easiest way to get started with Threads is through Textile's hosted service. In this case, Threads can leverage your team's Textile resources (buckets, pinning, and networking). First, you'll need to create a Textile app token using the `textile` CLI.
-
-#### Create an app token
-
-App tokens allow you to access Textile resources from within apps you build. You can create new app tokens in your project in just a few seconds.
-
-```sh
-textile project tokens add
-> Selected ethden
-> Success! Added new token <your new token>
-```
-
-#### Use the token in your app
-
-To use your token with your app, simply follow the instructions available in either of the Textile client libraries here (support for other languages and platfirms coming soon!):
-
-* [js-textile](https://github.com/textileio/js-textile): a library to authenticate your textile app token and use
-* [dart-textile](https://github.com/textileio/dart-textile): a library to authenticate your textile app token and use dart-threads-client in your app.
-
-
-Voila, now you have an app running a Threads database over IPFS with Textile ensuring that database content is pinned to the network no matter when or if your users remain online.
-
-#### App example
-
-The best way to learn how to use Threads is by checkout out our [todo list](https://github.com/textileio/js-todo-demo) and [folder sync](https://github.com/textileio/js-foldersync) example apps.
-
-### Local debugging
-
-The preceding instructions have you set up to use Textile's hosted Threads server. Sometimes when developing with Threads, it can be helpful to use a local Threads server called `threadsd` instead. You can connect an app using any of the Threads client libraries to the local `threadsd`, and then use the `threads` shell to view models, data, and watch events as they change data in real-time. 
-
-#### Install the daemon and shell
-
-1. Visit the threads releases page. https://github.com/textileio/go-threads/releases
-2. Download the latest release for your platform, Linux, Windows, or Mac (darwin).
-3. Install`threadsd` and `threads` (or the `.exe`s on Windows) application.
-4. Run the `threadsd` application without any parameters.
-
-```sh
-tar -xzvf go-threads_v0.1.9_darwin-amd64.tar.gz
-x install-threads/
-x install-threads/install
-x install-threads/threadsd
-x install-threads/LICENSE
-x install-threads/README.md
-x install-threads/threads
-
-cd install-threads/
-
-./install 
-Moved ./threads to /usr/local/bin
-Moved ./threadsd to /usr/local/bin
-
-threadsd 
-Welcome to Threads!
-Your peer ID is 12D3KooWFFCiJt6B8Dog9ECpt7KGfqxjUxNktzpTK4e4mzQ51WPG
-```
-
-**Note for MacOS:** By default, MacOS will prevent `threadsd` from running. After trying and failing once, you'll have to visit System Preferences > Security & Privacy > General, choose to allow `threadsd` to run, and then run `threadsd` again.
-
-##### Update your project to use local daemon
-
-
-Updating your project to use the locally running `threadsd` is as simple as setting the `dev` flag in the `Textile.API` constructor. Here's an example in Javascript:
+ThreadsDB supports Mongodb/Mongoose style search. In the JavaScript library, you might write queries like the following.
 
 ```js
-import {API} from '@textile/textile'
-import {Client} from '@textile/threads-client'
+Players.find(
+  { 
+    $and: [
+      { points: { $gt: 10 } },
+      { points: { $lt: 20 } },
+      { team: 'Astronauts' }
+    ]
+  }, 
+  { sort: { points: -1 }}
+)
+```
 
-const api = new API({
-  token: "<textile project token>",
-  deviceId: "<user id>",
-  dev: true // causes the below client to use the local threadsd
+### Multi-user Databases
+
+Everything above just looks like a Database, so what's a Thread? ThreadsDB combines the storage and management of data (the Database) with networking, access control, and replication over IPFS using the Threads Protocol. The Threads protocol has been extensively documented in the [whitepaper], but in short, Threads use private-key encryption to manage both security and identity among multiple parties that can access or edit the same Database.
+
+Jump to [Thread Networking]() to read more.
+
+## Replication with the Hub
+
+ThreadsDB has been designed to support trustless peers on the network to provide services that improve or enhance performance and experience for end-users. [The Hub](../hub/introduction.md) offers Thread Services for relay, replication, and backup that you can add for your users in a couple of minutes. 
+
+### Connect to the Hub
+
+1. [Create an Account]()
+2. [Create an App Token]()
+3. [Add the Textile Library to your App]()
+
+## ThreadsDB
+
+### Basic Usage
+
+#### Databases
+
+A Thread-based Database is tied to a single Thread (with associated Thread ID). A Database is an Event Emitter (in the Nodejs sense), and Listeners can subscribe to Events using 'wildcard' syntax via the [EventEmitter2](https://github.com/EventEmitter2/EventEmitter2) library.
+
+To start an empty database is simple.
+
+```typescript
+import { Database } from '@textile/threads-database'
+const db = new Database(...)
+```
+
+#### Collections
+
+To handle different data structures, a Database contains Collections, each of which are defined by a [json-schema.org](https://json-schema.org) schema. These schemas define the 'shape' of Collection Instances. Collections implement a Store with [JSON Patch](https://github.com/Starcounter-Jack/JSON-Patch) semantics by default, but will be made to support other types (CRDT-driven documents for instance) in the future (some of which are already under active development). Ultimately, a Collection is a Store with a set of APIs to make it feel like a *local database table*.
+
+```typescript
+import { Database } from '@textile/threads-database'
+const db = new Database(...)
+const Collection = await db.newCollectionFromObject('Players', {
+  ID: '',
+  team: '',
+  name: '',
+  points: 0,
 })
-await api.start()
-const threadsClient = new Client(api.threadsConfig)
+
+// This will listen to any and all event types on Players
+db.on('Players.**', update => {
+  console.log(update)
+})
 ```
 
-#### Use `threads` shell to monitor data updates
+#### Instances
 
-Start up the `threads` shell which will connect to your local `threadsd`:
+Instances are the objects you store in your Collection. Instances are JSON documents with schemas that match those defined in your Collection. Creating and manipulating them is simple.
 
-```sh
-threads
-Successfully connected.
->>>
+```typescript
+const beth = new Collection({ ID: 'id-i1', name: 'Beth' }) // This is not yet persisted
+await beth.save() // Save changes
+
+// Modify the `beth` instance
+beth.points = 1
+await beth.save() // Save changes
+
+// Modify it again
+beth.team = 'Astronauts'
+beth.points = 2
+
+// Save it from the Collection
+await Collection.save(i1)
+
+// Delete it from the Collection
+await Collection.delete(i1.ID)
 ```
 
-You first need to specify a store id to operate on using the `use` command:
+#### Query
 
-```sh
->>> use <store id>
-Switched to <store id>
->>>
-```
-**Note:** You can find your store id by logging it or setting a breakpoint in your app when you create a Theads store. 
+Each Threads implementation supports query and look-up capabilities such as `insert`, `findOne`, `has`, and more. Threads also supports Mongodb/Mongoose style search, `find`.
 
-**Another note:** In reality, you'll want to keep track of store ids you app creates so you can access those stores at a later time.
+```typescript
+const Players = new Collection<Player>('players', {}) // Anything goes schema
+await Players.insert(
+  { ID: '', points: 11, team: 'Astronauts': name: 'beth'},
+  { ID: '', points: 1, team: 'Astronauts': name: 'jim'},
+  { ID: '', points: 18, team: 'Astronauts': name: 'issac'},
+  { ID: '', points: 7, team: 'Astronauts': name: 'beth'},
+)
 
-View all updates to the data in the current store using the `listen` command:
-
-```sh
->>> listen
-<enter> to cancel
-{
-  "ID": "5389d030-22b4-4327-aed5-10ae1f1f14d8",
-  "files": [],
-  "owner": "myFolder"
+const all = Players.find({ $or: [{ points: { $gt: 10 } }, { name: 'jim' }] }, { sort: { points: -1 } })
+for await (const { key, value } of all) {
+    console.log(value)
 }
-{
-  "ID": "5389d030-22b4-4327-aed5-10ae1f1f14d8",
-  "files": [
-    {
-      "ID": "25ea5bc5-cbef-4619-9380-9725388f873b",
-      "cid": "",
-      "files": [],
-      "isDirectory": false,
-      "name": "filecoin.pdf"
-    }
-  ],
-  "owner": "myFolder"
-}
 ```
 
-Explore data using the `modelFind` and `modelFindById` commands.
+#### Transactions
 
+Collections support (basic) read and write Transactions. These are lockable, key-based 'states' that you can put the Collection into, so that anything else that wants to write to the Collection must _await_ for the Transaction to complete. Transactions do not yet provide isolation, though they do provide atomic update semantics.
+
+#### Subscriptions
+
+Subscriptions can be created on the different forms of updates on a Collection (CREATE, SAVE, DELETE, ALL). These events will trigger for both local changes and changes that occur from network based peers with access to the Database.
+
+### Networking
+
+#### Multiuser Threads
+
+The following end-to-end example of exchanging data between two peers provides a good idea of the APIs that developers can use to connect multiple users to the same database. Behind the scenes, ThreadsDB uses a combination of protocols to help connect and syncronize users on the network under most conditions.
+
+```typescript
+import { Multiaddr, ThreadID, Variant } from '@textile/threads-core'
+import { Database } from '@textile/threads-database'
+import { DomainDatastore } from '@textile/threads-store'
+import { MemoryDatastore, Key } from 'interface-datastore'
+import LevelDatastore from 'datastore-level'
+
+interface DummyEntity {
+  ID: string
+  name: string
+  counter: number
+}
+
+// Peer 1: Create db1, register a collection, create and update an instance.
+const d1 = new Database(...)
+await d1.open()
+const id1 = d1.threadID
+if (id1 === undefined) {
+throw new Error('should not be invalid thread id')
+}
+// Create a new collection
+const Dummy1 = await d1.newCollectionFromObject<DummyEntity>('dummy', {
+  ID: '',
+  name: '',
+  counter: 0,
+})
+
+// Get peer1 database information (addr, id, keys, etc)
+const dbInfo = await d1.dbInfo()
+
+// Peer 2: Create a completely parallel db2, which will sync with the previous one and should
+// have the same state of dummy. This one will be manually 'built' from sub-components,
+// just to show how it can be done!
+const info = await d1.service.getThread(id1)
+const datastore = new MemoryDatastore()
+const client = new Client({ host: 'http://127.0.0.1:6207' })
+const service = new Network(new DomainDatastore(datastore, new Key('service')), client)
+const test = await service.getHostID()
+const d2 = await Database.fromAddress(dbInfo.addr, info.key, datastore, {
+  service,
+})
+// Create parallel collection
+const Dummy2 = await d2.newCollectionFromObject<DummyEntity>('dummy', {
+    ID: '',
+    name: '',
+    counter: 0,
+})
+
+const dummy1 = new Dummy1({ name: 'Textile', counter: 0 })
+dummy1.counter += 42
+await dummy1.save()
+
+// wait about 5 seconds?
+
+const dummy2 = await Dummy2.findById(dummy1.ID)
+console.log(dummy2.name === dummy1.name)
+console.log(dummy2.counter === dummy1.counter)
+await d1.close()
+await d2.close()
+```
+
+That's it! Two completely separate database instances, syncing encrypted and signed data across the network!
+
+#### Access-control
+
+Add an update note here
+
+#### Identity
+
+Add 3box etc here.
+
+#### Pinning, Relay, and Replication
+
+Thread Services (e.g. pinning encrypted data on IPFS and helping multiple peers relay updates across the network) can be built and deployed to the network using [go-threads](https://github.com/textileio/go-threads). Textile offers a number of these functions through the Hub. Attaching the Hub to your databases will allow you to deliver a high-quality user-experience. [See more](#replication-with-the-hub)
+
+#### Local Daemon
+
+The Threads Daemon may be helpful to developers that aim to build their own Thread services, host replication services, or test advanced Thread usage. The Threads Daemon (`threadsd`) is provided as an installable binary with every [release of Threads](https://github.com/textileio/go-threads/releases).
+
+## Installation
+
+ThreadsDB can be used from many different languages and has libraries written in Javascript, Go, and Dart. Find documentatin on each of those Libraries below. 
+
+<div class="txtl-options">
+  <a href="./hub/cli" class="box">
+    <h5>JavaScript</h5>
+    <p>Add Threads to NodeJS, React Native or browser apps.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="./hub/app-libraries" class="box">
+    <h5>Golang</h5>
+    <p>Use Threads in Go or compile to many other platforms.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="./hub/app-libraries" class="box">
+    <h5>Dart</h5>
+    <p>Use a lightweight client library in Dart and Flutter.</p>
+  </a>
+</div>
+
+## Advanced Details
+
+The protocols and design of ThreadsDB can be explored in detail in the whitepaper: [A protocol & event-sourced database for decentralized user-siloed data](https://docsend.com/view/gu3ywqi). For futher technical details. the reference implementation of Threads is written in Go and the full implementation details can be found [on godocs](https://godoc.org/github.com/textileio/go-threads).

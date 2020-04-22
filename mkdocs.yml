@@ -86,7 +86,6 @@ nav:
       - CLI Docs: hub/cli.md
   - ThreadsDB:
       - Introduction: threads/introduction.md
-      - Running the Daemon: threads/threadsd.md
       - JavaScript: https://textileio.github.io/js-threads
       - Golang: https://textileio.github.io/go-threads
       - Dart: https://textileio.github.io/dart-threads-client
