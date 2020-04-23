@@ -80,10 +80,10 @@ nav:
   - The Hub:
       - Introduction: hub/introduction.md
       - Accounts: hub/accounts.md
-      - Bucket Hosting: hub/bucket-hosting.md
+      - Buckets: hub/buckets.md
       - Threads Services: hub/threads-services.md
       - App Libraries: hub/app-libraries.md
-      - CLI Docs: hub/cli.md
+      - CLI Docs: hub/cli/tt.md
   - ThreadsDB:
       - Introduction: threads/introduction.md
       - JavaScript: https://textileio.github.io/js-threads
@@ -96,6 +96,11 @@ nav:
       - Create an Account: tutorials/create-an-account.md
       - Publish a Website: tutorials/host-a-website.md
       - Create a Database: tutorials/create-a-threads-database.md
+  - Hub CLI:
+      - cli: hub/cli/tt.md
+      - login: hub/cli/tt_login.md
+      - buckets: hub/cli/tt_buckets.md
+      - keys: hub/cli/tt_keys.md
 
 # Customization
 extra:

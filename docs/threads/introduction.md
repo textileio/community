@@ -4,7 +4,7 @@ hero_img: /images/threads-hero.png
 
 # Getting Started
 
-Together, the Threads Protocol and Database provide an alternative architecture for data on the web. Threads aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data (IPLD), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.
+ThreadsDB is a serverless p2p database built on [IPFS](https://ipfs.io) and [Libp2p](https://libp2p.io). Together, the Threads Protocol and Database provide an alternative architecture for data on the web. ThreadsDB aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data ([IPLD](https://ipld.io)), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.
 
 ### Developer API
 
@@ -31,7 +31,7 @@ Players.find(
 
 Everything above just looks like a Database, so what's a Thread? ThreadsDB combines the storage and management of data (the Database) with networking, access control, and replication over IPFS using the Threads Protocol. The Threads protocol has been extensively documented in the [whitepaper], but in short, Threads use private-key encryption to manage both security and identity among multiple parties that can access or edit the same Database.
 
-Jump to [Thread Networking]() to read more.
+Jump to [Thread Networking](#networking) to read more.
 
 ## Replication with the Hub
 

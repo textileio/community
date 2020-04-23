@@ -1,88 +1,48 @@
-# Accounts
+# Getting Started
 
-!!! warning
+## Installation
 
-    This section is still a work in progress. Libraries are under active development, and this material may not reflect the latest changes. Please view the primary code-repositories and look out for our release announcements soon. 
+To access and manage Hub resources, you need to install the Textile CLI. First, download the Textile CLI binary for your platform from the latest releases.
 
-To start using remote services such as IPFS pinning, Bucket sharing, and Thread APIs, you'll need an account on Textile. Textile provides a simple, password-less account setup. You can create a new account by logging in with your valid email address for the first time.
+[Textile CLI Latest Release](https://github.com/textileio/textile/releases/latest).
 
-##### Login
+![](/images/tt-cli/tt_help.png)
 
-```sh
-textile login
-Enter your email: you@domain.app█
-> We sent an email to you@domain.app. Please follow the steps provided inside it.
-```
+Open the contents of the downloaded archive and run the `install` script. This should install the `tt` tool on your computer. You can verify with `tt --help`.
 
-Go to your inbox and look for the verification email and follow the instructions inside. After complete, your terminal should output a confirmation:
+## Initialize
 
+![](/images/tt-cli/tt_init.png)
 
-```sh
-✔ Email confirmed
-> Success! You are now logged in. Initialize a new project directory with `textile init`.
-```
-
-That's it, you can now start using Textile, IPFS, and Threads.
-
-##### Create a Team
-
-By default, you'll be on your own in Textile, you'll probably want to create (or join) a team before you start building.
+To start using remote services such as IPFS pinning, Bucket sharing, and Thread APIs, you'll need an account on the Hub. Textile provides a simple, password-less account setup. You can create a new account and username with just an email address.
 
 ```sh
-textile teams add <new team name>
+tt init
 ```
 
-##### Switch to Team
+## Whoami
 
-To use your new team, you need to use the `switch` command to select your newly created team.
+![](/images/tt-cli/tt_whoami.png)
+
+You can always verify that you have an active session on the Hub and that you are using the correct account by running the `tt whoami` command.
+
+
+## Login
+
+![](/images/tt-cli/tt_login.png)
+
+If you've just initialized your account successfully, there is no need to login. However, if you are returning to the Hub and need to re-login, simply use the login command.
 
 ```sh
-textile switch
-Use the arrow keys to navigate: ↓ ↑ → ← 
-? Switch to: 
-  ▸ you@domain.app (current)
-  <new team name> 
+tt login
 ```
 
-##### Invite another member to your team
+## Organizations
+
+![](/images/tt-cli/tt_orgs_help.png)
+
+The Hub provides some really helpful tools for you to collaborate with teams of developers. On the Hub, these are called `orgs` and you can easily create, join, or invite others to your own orgs. 
 
 ```sh
-textile teams invite
-Enter email to invite: other@domain.app█
-> Success! We sent other@domain.app an invitation to the new team.
+tt orgs --help
 ```
-
-##### Join a team
-
-If someone else has already created a team for you to join, you'll receive an invite email. Simply follow the instructions in the email to join and use the new team.
-
-##### List your teams
-
-```sh
-textile teams ls
-NAME  	        	ID
-<new team name> 	f62cdc2b-9404-40ed-8467-ea804fcc35f1
-
-> Found 2 teams
-
-```
-
-##### Create a Project
-
-Teams on Textile may create different Projects. Projects are useful to organize resources or user groups in your app. Creating a new one is simple.
-
-First, navigate to the directory where you'd like to build your project,
-
-```sh
-mkdir txtl-project
-cd txtl-project/
-```
-
-Next, tell Textile to create a project in this directory. Similar to Git, Textile will create a simple config file in this directly under, `.textile/config.yaml`.
-
-```sh
-textile projects init my-new-project
-> Success! Initialized empty project in /Users/me/txtl-project/.textile
-```
-
-Because you are have switched to your team, this project should now be available to other members of your team also.
