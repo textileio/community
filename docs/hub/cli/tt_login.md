@@ -1,11 +1,5 @@
 # Login
 
-## tt login
-
-Login
-
-### Synopsis
-
 Login to Textile.
 
 ```

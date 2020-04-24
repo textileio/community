@@ -1,10 +1,4 @@
-# Buckets List
-
-## tt buckets ls
-
-List bucket path contents
-
-### Synopsis
+# List a Bucket
 
 List files and directories under a bucket path.
 

@@ -1,6 +1,4 @@
-# Keys Create
-
-## tt keys create
+# Create an API Key
 
 Create an API key and secret
 

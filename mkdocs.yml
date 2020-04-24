@@ -97,10 +97,13 @@ nav:
       - Publish a Website: tutorials/host-a-website.md
       - Create a Database: tutorials/create-a-threads-database.md
   - Hub CLI:
-      - cli: hub/cli/tt.md
-      - login: hub/cli/tt_login.md
-      - buckets: hub/cli/tt_buckets.md
-      - keys: hub/cli/tt_keys.md
+      - Login: hub/cli/tt_login.md
+      - Logout: hub/cli/tt_logout.md
+      - Whoami: hub/cli/tt_whoami.md
+      - Orgs: hub/cli/tt_orgs.md
+      - Buckets: hub/cli/tt_buckets.md
+      - Threads: hub/cli/tt_threads.md
+      - API Keys: hub/cli/tt_keys.md
 
 # Customization
 extra:

@@ -1,10 +1,4 @@
-# Keys List
-
-## tt keys ls
-
-List your keys
-
-### Synopsis
+## List your keys
 
 List all of your keys.
 

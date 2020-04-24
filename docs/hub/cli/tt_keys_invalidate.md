@@ -1,10 +1,4 @@
-# Keys Invalidate
-
-## tt keys invalidate
-
-Invalidate a key
-
-### Synopsis
+# Invalidate a key
 
 Invalidate a key. Invalidated keys cannot be used to create new threads.
 

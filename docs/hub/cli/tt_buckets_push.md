@@ -1,6 +1,4 @@
-# Buckets Push
-
-## tt buckets push
+# Push a Bucket
 
 Push to a bucket path (interactive)
 

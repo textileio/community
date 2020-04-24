@@ -1,6 +1,4 @@
-# Buckets Pull
-
-## tt buckets pull
+# Pull a Bucket
 
 Pull a bucket path
 
@@ -45,6 +43,7 @@ tt buckets pull [path] [destination] [flags]
 ```
   -h, --help   help for pull
 ```
+
 ### SEE ALSO
 
 * [tt buckets](tt_buckets.md)	 - Manage buckets

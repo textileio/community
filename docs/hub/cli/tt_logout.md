@@ -1,11 +1,5 @@
 # Logout
 
-## tt logout
-
-Logout
-
-### Synopsis
-
 Logout of Textile.
 
 ```

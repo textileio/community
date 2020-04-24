@@ -1,10 +1,4 @@
-## Init Account
-
-## tt init
-
-Initialize account
-
-### Synopsis
+# Initialize account
 
 Initialize a new Textile account (interactive).
 
@@ -21,3 +15,4 @@ tt init [flags]
 ### SEE ALSO
 
 * [tt](tt.md)	 - Textile Client
+

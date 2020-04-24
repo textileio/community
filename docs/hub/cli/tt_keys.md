@@ -1,10 +1,4 @@
-# Keys
-
-## tt keys
-
-Key management
-
-### Synopsis
+# Key management
 
 Manage your keys.
 

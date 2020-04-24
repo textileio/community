@@ -1,10 +1,4 @@
-# Buckets Remove
-
-## tt buckets rm
-
-Remove bucket path contents
-
-### Synopsis
+# Remove bucket
 
 Remove files and directories under a bucket path.
 

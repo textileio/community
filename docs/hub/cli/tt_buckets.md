@@ -1,8 +1,4 @@
-## Buckets
-
-## tt buckets
-
-Manage buckets
+# Manage buckets
 
 ### Synopsis
 

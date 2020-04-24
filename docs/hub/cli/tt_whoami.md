@@ -1,7 +1,5 @@
 # Whoami
 
-## tt whoami
-
 Show current user
 
 ### Synopsis
@@ -17,7 +15,5 @@ tt whoami [flags]
 ```
   -h, --help   help for whoami
 ```
-
-### SEE ALSO
 
 * [tt](tt.md)	 - Textile Client
