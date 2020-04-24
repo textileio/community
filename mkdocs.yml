@@ -81,8 +81,7 @@ nav:
       - Introduction: hub/introduction.md
       - Accounts: hub/accounts.md
       - Buckets: hub/buckets.md
-      - Threads Services: hub/threads-services.md
-      - App Libraries: hub/app-libraries.md
+      - App Hosting: hub/app-hosting.md
       - CLI Docs: hub/cli/tt.md
   - ThreadsDB:
       - Introduction: threads/introduction.md
@@ -93,7 +92,6 @@ nav:
       - Introduction: powergate/introduction.md
       - Powergate: https://github.com/textileio/powergate/#powergate
   - Tutorials:
-      - Create an Account: tutorials/create-an-account.md
       - Publish a Website: tutorials/host-a-website.md
       - Create a Database: tutorials/create-a-threads-database.md
   - Hub CLI:

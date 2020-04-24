@@ -2,11 +2,15 @@
 hero_img: /images/tour-hero.png
 ---
 
+!!! warning
+
+    This section is still a work in progress. Libraries are under active development, and this material may not reflect the latest changes. Please view the primary code-repositories and look out for our release announcements soon. 
+    
 Welcome to Textile! This is a great place to start if you're a developer interested in using Textile's decentralized tooling in your mobile, desktop, or web applications.
 
 ## Introduction
 
-Textile is a set of tools to help you and your team build decentralized apps, fast. Textile is primarily built on [IPFS](https://ipfs.ip/) and makes it easy for you or your application to store and distribute data over the IPFS network. Some features of Textile you may find useful include:
+Textile is a set of tools to help you and your team build decentralized apps, fast. Textile is primarily built on [IPFS](https://ipfs.io/) and makes it easy for you or your application to store and distribute data over the IPFS network. Some features of Textile you may find useful include:
 
 * Push files, directories, and websites to the IPFS network. Textile's Buckets are an intuitive way for you to host and manage data on IPFS. Buckets run on IPFS and Threads, but you don't have to remember content addresses to use them!
 * Collaboratively update and manage Buckets with your team through simple collaborative projects and access control. Your organization can quickly host app assets or entire webpages on IPFS. Integration with CI tools makes this a breeze.

@@ -27,10 +27,13 @@ Once you have your Hub account, you can start using the Hub to host your data on
 Another thing you can do with your account on the Hub, is create an app token that will allow you to use the Hub for persisting user Thread data. Think of it as a trustless service that your app's database can rely on to keep data on IPFS fast!
 
 <div class="txtl-options half">
-  <a href="/hub/thread-services" class="box">
+  <a href="/hub/app-hosting#thread-services" class="box">
     <h5>Thread Services</h5>
     <p>Persist and relay Thread updates for your app users.</p>
   </a>
+  <span class="box-space"> </span>
+  <span class="box-fill">
+  </span>
 </div>
 
 ## Other Documentation
@@ -39,24 +42,23 @@ Another thing you can do with your account on the Hub, is create an app token th
 
 <div class="txtl-options">
   <a href="/hub/cli/tt" class="box">
-    <h5>CLI</h5>
+    <h5>Hub CLI</h5>
     <p>Read the full CLI documentation.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="/hub/app-libraries" class="box">
+  <a href="/hub/app-hosting" class="box">
     <h5>App SDKs</h5>
-    <p>Learn how to use the Hub's APIs from your app.</p>
+    <p>Learn how to use the Hub's APIs in your app.</p>
   </a>
   <span class="box-space"> </span>
   <span class="box-fill">
   </span>
 </div>
 
-
-### Tutorials
+### Start building
 
 <div class="txtl-options">
-  <a href="./tutorials/create-an-account" class="box">
+  <a href="./accounts" class="box">
     <h5>Create an Account</h5>
     <p>Start using hosted services by creating your free account.</p>
   </a>

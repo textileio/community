@@ -4,9 +4,11 @@
 
 The Textile Hub Client.
 
+[See installation instructions here](/hub/accounts#installation).
+
 `tt --help`
 
-[See installation instructions here](/hub/accounts#installation).
+![](/images/tt-cli/tt_help.png)
 
 ### SEE ALSO
 

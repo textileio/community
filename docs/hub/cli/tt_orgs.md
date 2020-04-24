@@ -6,6 +6,8 @@ Org management
 
 Manage your Organizations.
 
+![](/images/tt-cli/tt_orgs_help.png)
+
 ```
 tt orgs [flags]
 ```

@@ -39,10 +39,12 @@ tt login
 
 ## Organizations
 
-![](/images/tt-cli/tt_orgs_help.png)
-
-The Hub provides some really helpful tools for you to collaborate with teams of developers. On the Hub, these are called `orgs` and you can easily create, join, or invite others to your own orgs. 
+The Hub allows you to create Organizations easily. Organizations can be one or many collaborators. Members of an Org can share access to read & write the same [Buckets](./buckets), add or remove [app keys](./app-hosting#app-keys), and more.
 
 ```sh
 tt orgs --help
 ```
+
+You can [create](./cli/tt_orgs_create), [invite](./cli/tt_orgs_invite), and [leave](./cli/tt_orgs_leave) organizations easily.
+
+Get started on the [CLI Orgs help](./cli/tt_orgs).
