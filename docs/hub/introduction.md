@@ -10,7 +10,7 @@ The Hub is API driven and available through the command-line tool and developer 
 
 <div class="txtl-options half">
   <a href="/hub/accounts" class="box">
-    <h5>Hub Accounts</h5>
+    <h5>Textile Hub Accounts</h5>
     <p>Download the CLI and create your free Hub account.</p>
   </a>
 </div>
@@ -38,12 +38,12 @@ Another thing you can do with your account on the Hub, is create an app token th
 ### Tools & Resources
 
 <div class="txtl-options">
-  <a href="./hub/cli" class="box">
+  <a href="/hub/cli/tt" class="box">
     <h5>CLI</h5>
     <p>Read the full CLI documentation.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./hub/app-libraries" class="box">
+  <a href="/hub/app-libraries" class="box">
     <h5>App SDKs</h5>
     <p>Learn how to use the Hub's APIs from your app.</p>
   </a>
