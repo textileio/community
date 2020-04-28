@@ -2,7 +2,7 @@
 {% if nav_item.active %}
   {% set class = "md-nav__item md-nav__item--active" %}
 {% endif %}
-{% if nav_item.children %}
+{% if nav_item.children and nav_item.title != "Links" %}
   <li class="{{ class }} md-nav__item--nested">
     {% if nav_item.active %}
       <input class="md-toggle md-nav__toggle" data-md-toggle="{{ path }}" type="checkbox" id="{{ path }}" checked>
@@ -45,9 +45,19 @@
       {% include "partials/toc.html" %}
     {% endif %}
   </li>
+{% elif nav_item.title == "Links" %}
+  <!-- Added the Links filter so we could do target=_blank for a bit better ux -->
+  {% set base = path %}
+  {% set target = "_blank" %}
+  {% for nav_item in nav_item.children %}
+    {% set path = base + "-" + loop.index | string %}
+    {% set level = level + 1 %}
+    {% include "partials/nav-item.html"  %}
+  {% endfor %}
+  {% set target = "" %}
 {% else %}
   <li class="{{ class }}">
-    <a href="{{ nav_item.url | url }}" title="{{ nav_item.title }}" class="md-nav__link">
+    <a href="{{ nav_item.url | url }}" title="{{ nav_item.title }}" target="{{ target }}" class="md-nav__link">
       {{ nav_item.title }}
     </a>
   </li>

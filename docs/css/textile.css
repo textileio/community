@@ -23,7 +23,7 @@
 	flex-direction: column;
 	justify-content: space-around;
 	transition: box-shadow .3s;
-	width: 30%;
+	width: 32%;
 	min-width: 180px;
   height: 100px;
 	padding: 10px;
@@ -60,11 +60,11 @@
 }
 .txtl-options .box-space {
   height: 100px;
-	margin: 0px 4px;
+	margin: 0px 2px;
 }
 .txtl-options .box-fill {
 	display: flex;
-	width: 30%;
+	width: 32%;
 	min-width: 180px;
   height: 100px;
 	padding: 10px;

@@ -4,9 +4,9 @@
 
 Create an empty bucket
 
-### Synopsis
+![](/images/tt-cli/tt_bucket_init.png)
 
-Create an empty bucket. 
+### Synopsis
 
 A .textile directory and config file will be created in the current working directory.
 Existing configs will not be overwritten.

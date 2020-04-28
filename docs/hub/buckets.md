@@ -1,84 +1,157 @@
 # Buckets
 
-!!! warning
+## Getting Started
 
-    This section is still a work in progress. Libraries are under active development, and this material may not reflect the latest changes. Please view the primary code-repositories and look out for our release announcements soon. 
+If you've used cloud storage before, you'll find Buckets easy to understand. Unlike traditional cloud services, Buckets are built on open, decentralized protocols including the IPFS and Libp2p. You can serve websites, data, and apps from Buckets.
 
-Textile accounts can use Buckets, a tool that makes it simple for you to pin files to IFPS. The files you pin can be used as part or all of the interface to your dApp. You can think of `buckets` much like you might already think of buckets on S3 (or if you aren't familiar, just think of them as folders). As an extra bonus, if any bucket you create contains an `index.html` file, Textile will host the bucket as a web site at `https://<bucket-name>.textile.cafe`. Read on to see an example.
+Buckets are packed with useful features, including:
 
-#### Push files
+- Explore your Buckets on the [Hub gateway](#explore-on-the-gateway).
+- Render web content in your Bucket on a persistent [website](#render-on-a-website).
+- Automatically distribute your updates [on IPFS using IPNS](#render-on-ipfs-gateways).
+- Collaboratively manage Buckets as an [organization](#organization-buckets).
+- Create private Buckets where your [app users can store data](#app-user-buckets).
 
-To start pinning files in your Textile project, use the `push` sub command. You can `push` a single file to a bucket or an entire directory, in which case all contained files and directories are pushed recursively. All paths will be created if they don't exist and you can use `push` repeatedly to keep adding more files to a bucket.
+## Initialize a Bucket
 
-Here, we push files for a static web site to a bucket called `aaron`:
+When working on your local machine, Buckets are mapped to working directories. Once you initialize a Bucket in a directory, anytime you return to the directory, the Textile CLI will automatically detect the Bucket you are interacting with. To start a Bucket in your current working directory, you must first initialize the Bucket.
 
-```shell
-textile buckets push public/* aaron
-Add 44 files? Press ENTER to confirm: █
-> Pushing mySite/public/404/index.html to aaron/404/index.html
-9.87 kB / 9.87 kB [--------------------------------] 100.00% 78.69 kB p/s 0s
-> Pushing mySite/public/404.html to aaron/404.html
-9.88 kB / 9.88 kB [--------------------------------] 100.00% 260.14 kB p/s 1s
-> Pushing mySite/public/app-b1262bbd5ce4afcb17ea.js to aaron/app-b1262bbd5ce4afcb17ea.js
-98.14 kB / 98.14 kB [--------------------------------] 100.00% 307.59 kB p/s 0s
-> Pushing mySite/public/app-b1262bbd5ce4afcb17ea.js.map to aaron/app-b1262bbd5ce4afcb17ea.js.map
-390.09 kB / 390.09 kB [--------------------------------] 100.00% 376.47 kB p/s 1s
-> Pushing mySite/public/chunk-map.json to aaron/chunk-map.json
+![[Read CLI docs for Buckets](/hub/cli/tt_buckets).](/images/tt-cli/tt_bucket_init.png)
 
-...
+### Shared Buckets
 
-> Success! Pushed 44 files to aaron
+You can create Buckets to share with all members of an organization. To do so, simply initialize an Org in first and then initialize a Bucket _within_ the Org's home directory. So all Buckets inside of an Org directory will be owned by the Org and shared with all members of the Org. [Read more about creating Orgs](/hub/accounts#organizations).
+
+## Publishing content
+
+### Push new files
+
+![[View the Bucket push CLI docs](/hub/cli/tt_buckets_push).](/images/tt-cli/tt_bucket_push.png)
+
+@todo when push/pull updated
+
+## Retrieving content
+
+### Pull files
+
+@todo when push/pull updated
+
+### Explore on the gateway
+
+![](/images/buckets/bucket_gateway.png)
+
+The Hub gateway gives you a static URL where you can explore, download, and share your latest Bucket content.
+
+### Render on a website
+
+![](/images/buckets/bucket_website.png)
+
+If your Bucket contains web content, the Bucket website endpoint will provide you a static URL that will always render the latest content from your Bucket.
+
+### Render on IPFS gateways
+
+Buckets are dynamic folders distributed over IPFS using ThreadsDB. Each Bucket has a unique [IPNS](https://docs.ipfs.io/guides/concepts/ipns/) address that will allow you to render or fetch your Bucket on any IPFS peer or gateway that supports IPNS (including [ipfs.io](https://ipfs.io) and [Cloudflare](https://cloudflare.com)).
+
+Buckets can't change the speed that IPNS propogates through the network, but we recommend you explore and try for yourself. The [Hub gateway](#explore-on-the-gateway) will always render the latest data right away.
+
+## Buckets CLI
+
+![[Visit Textile Hub CLI docs for Buckets](/hub/cli/tt_buckets).](/images/tt-cli/tt_bucket_init.png)
+
+## Learn more about Buckets
+
+### Bucket Permissions
+
+#### Developer Buckets
+
+All Buckets you create are scoped to your developer account. You can always find your currently logged in account with `tt whoami`. 
+
+#### Organization Buckets
+
+Any Buckets you create under an Org directory will also be shared with Org members. Here are the steps to create Org, create a new Bucket in the Org, and invite a collaborator to the Org:
+
+##### Create a new Org
+
+![](/images/tt-cli/tt_org_create.png)
+
+```bash
+mkdir nasa
+cd nasa
+tt org create
 ```
 
-#### Inspecting a bucket
+You have now created a new Org inside of the `nasa` directory.
 
-You can list the files in a bucket or at any depth in the bucket, similar to listing files locally on your computer:
+##### Create a new Bucket
 
-```shell
-textile buckets ls aaron/icons
-NAME             	SIZE  	DIR   	ITEMS 	PATH                                                                         
-icon-144x144.png	9130 	false	n/a  	/ipfs/QmSe8nSJsAW7eJXvMP5gYM6TCkuyJKeU8MusHs2kVBdFMZ/icons/icon-144x144.png	
-icon-192x192.png	12422	false	n/a  	/ipfs/QmSe8nSJsAW7eJXvMP5gYM6TCkuyJKeU8MusHs2kVBdFMZ/icons/icon-192x192.png	
-icon-256x256.png	16837	false	n/a  	/ipfs/QmSe8nSJsAW7eJXvMP5gYM6TCkuyJKeU8MusHs2kVBdFMZ/icons/icon-256x256.png	
-icon-384x384.png	29004	false	n/a  	/ipfs/QmSe8nSJsAW7eJXvMP5gYM6TCkuyJKeU8MusHs2kVBdFMZ/icons/icon-384x384.png	
-icon-48x48.png  	2813 	false	n/a  	/ipfs/QmSe8nSJsAW7eJXvMP5gYM6TCkuyJKeU8MusHs2kVBdFMZ/icons/icon-48x48.png  	
-icon-512x512.png	22446	false	n/a  	/ipfs/QmSe8nSJsAW7eJXvMP5gYM6TCkuyJKeU8MusHs2kVBdFMZ/icons/icon-512x512.png	
-icon-72x72.png  	4425 	false	n/a  	/ipfs/QmSe8nSJsAW7eJXvMP5gYM6TCkuyJKeU8MusHs2kVBdFMZ/icons/icon-72x72.png  	
-icon-96x96.png  	5926 	false	n/a  	/ipfs/QmSe8nSJsAW7eJXvMP5gYM6TCkuyJKeU8MusHs2kVBdFMZ/icons/icon-96x96.png  	
-
-> Found 8 items
+```bash
+mkdir launchpad
+cd launchpad
+tt bucket init
 ```
 
-#### Pulling files
+You have now created a new Bucket inside of the `launchpad` directory and owned by your `nasa` organization.
 
-Use the `buckets pull` command to download files from a bucket to your computer. You can pull an entire bucket, a sub tree of a bucket, or a single file.
+##### Invite a collaborator
 
-```sh
-textile buckets pull aaron/icons/icon-512x512.png ./
-> Pulling aaron/icons/icon-512x512.png to icon-512x512.png
-22.45 kB / 22.45 kB [--------------------------------] 100.00% 818.35 kB p/s 0s
-> Success! Pulled 1 files to ./
+```bash
+tt org invite
 ```
 
-#### Removing files
+The final step it to invite your collaborator to your Org. Once they accept the invite, they will be able to [list](/hub/cli/tt_buckets_ls), [pull](/hub/cli/tt_buckets_pull), and update Buckets from the shared Org.
 
-The `buckets rm` command is used to remove files or directories from a bucket. Once a bucket is empty, the root bucket directory is deleted and will no longer appear in the list of buckets output from `textile buckets ls`.
+#### App user Buckets
 
-```sh
-textile buckets rm aaron/aaron.txt
-> Success! Removed aaron/aaron.txt
-```
+If you are building an app using one of our [developer libraries](/hub/app-apis/#app-libraries) you can use Buckets from inside yoru apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
 
-#### Accessing on cloud.textile.io
+<div class="txtl-options">
+  <a href="https://textileio.github.com/js-textile" target="_blank" class="box">
+    <h5>JS Textile Docs</h5>
+    <p>Create user Buckets in your JS app.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb" target="_blank" class="box">
+    <h5>3Box example</h5>
+    <p>See how to use 3Box identities to own Threads and Buckets.</p>
+  </a>
+  <span class="box-space"> </span>
+  <span class="box-fill">
+  </span>
+</div>
 
-You can access the latest version of the files in your bucket (without needing to know any CID!) at `https://cloud.textile.io/dashboard/<project name>/<bucket name>`. Of course since the data is all stored in IPFS, it's also available over `https://gateway.ipfs.io/ipfs/<CID>`. The CID for any Textile bucket or bucket sub directory is listed at the top of the corresponding `cloud.textile.io/dahsboard` page and in the output from `textile buckets ls`.
+### Bucket Protocols
 
-#### Hosting web sites in Buckets
+Buckets are designed to be interoperable across protocols and services. Here are a few examples.
 
-Any bucket that contains an `index.html` file will be hosted as a web site at `https://<bucket-name>.textile.cafe`. In the `textile buckets push` example above, we pushed files that make up a static web site to a bucket named `aaron`. That web site is automatically available (with TLS!) at [https://aaron.textile.cafe](https://aaron.textile.cafe).
+#### Buckets and Threads
 
-[Read more about hosting websites in Buckets here](https://blog.textile.io/first-look-at-textile-buckets-dynamic-ipfs-folders/).
+Buckets are built on [ThreadsDB](/threads/introduction). In fact, in their most basic form, Buckets are just a document in a Thread that is updated each time the directory of data is updated. Since Buckets run on Threads, it opens the door to many new integrations that can be built on Buckets! 
 
-#### Updating Buckets with CI
+#### Buckets and HTTP
 
-Buckets can be managed as part of your CI workflows. [Read more about updating your Buckets in CI here](https://blog.textile.io/first-look-at-textile-buckets-dynamic-ipfs-folders/).
+Buckets can be rendered over HTTP through either the [Hub Gateway](#explore-on-the-gateway), the [Bucket subdomains](#render-on-a-website), or on any IPFS gateway supporting IPNS (see below).
+
+#### Buckets and IPFS
+
+Data in a Bucket is stored as IPLD and pinned on IPFS. You can use the underlying content addresses to pin new Bucket content on additional pinning services such as [Pinata](https://pinata.cloud) or [Infura](https://infura.io/). This can be useful if you want additinal replication of your content on the IPFS network.
+
+#### Buckets and IPNS
+
+Every Bucket you create has a unique ID associated with it. The Bucket ID is an [IPNS](https://docs.ipfs.io/guides/concepts/ipns/) address that you can also use to fetch the latest Bucket content from any IFPS peer or view it over IPFS gateways that support the IPNS protocol.
+
+### More resources
+
+<div class="txtl-options">
+  <a href="/hub/cli/tt" class="box">
+    <h5>Textile Hub CLI</h5>
+    <p>Read the full CLI documentation.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="https://textileio.github.io/js-textile" target="_blank" class="box">
+    <h5>Textile JavaScript SDK</h5>
+    <p>Create Buckets from your JavaScript app.</p>
+  </a>
+  <span class="box-space"> </span>
+  <span class="box-fill">
+  </span>
+</div>

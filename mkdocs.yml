@@ -1,7 +1,7 @@
 # Project information
 site_title: "Documentation | Textile"
 site_name: "Documentation"
-site_description: "Cross-application data storage built on IPFS, LibP2P, and Filecoin."
+site_description: "Textile makes it easy for you or your application to store and distribute data over the IPFS network."
 site_author: textile.io
 site_url: https://docs.textile.io/
 
@@ -76,24 +76,31 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Tour of Textile: a-tour-of-textile.md
   - The Hub:
       - Introduction: hub/introduction.md
       - Accounts: hub/accounts.md
       - Buckets: hub/buckets.md
-      - App Hosting: hub/app-hosting.md
+      - App APIs: hub/app-apis.md
       - CLI Docs: hub/cli/tt.md
   - ThreadsDB:
       - Introduction: threads/introduction.md
-      - JavaScript: https://textileio.github.io/js-threads
-      - Golang: https://textileio.github.io/go-threads
-      - Dart: https://textileio.github.io/dart-threads-client
+      - Links:
+          - JavaScript: https://textileio.github.io/js-threads
+          - Golang: https://textileio.github.io/go-threads
+          - Dart: https://godoc.org/github.com/textileio/go-threads
   - Filecoin Powergate:
       - Introduction: powergate/introduction.md
       - Powergate: https://github.com/textileio/powergate/#powergate
-  - Tutorials:
-      - Publish a Website: tutorials/host-a-website.md
-      - Create a Database: tutorials/create-a-threads-database.md
+  - Examples:
+      - ThreadsDB:
+          - Links:
+              - React App: https://github.com/textileio/js-examples/tree/master/react-todo
+              - 3Box Identities: https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
+              - React Native App: https://github.com/textileio/js-examples/tree/master/react-native-client-app
+      - Buckets:
+          - Links:
+              - Host Static Websites: https://github.com/textileio/jekyll-ipfs-blog
+              - Store 3Box User Data: https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
   - Hub CLI:
       - Login: hub/cli/tt_login.md
       - Logout: hub/cli/tt_logout.md

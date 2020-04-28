@@ -203,6 +203,8 @@ Add an update note here
 
 #### Identity
 
+@todo more details here
+
 Add 3box etc here.
 
 #### Pinning, Relay, and Replication
@@ -223,12 +225,12 @@ ThreadsDB can be used from many different languages and has libraries written in
     <p>Add Threads to NodeJS, React Native or browser apps.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./hub/app-hosting" class="box">
+  <a href="./hub/app-apis" class="box">
     <h5>Golang</h5>
     <p>Use Threads in Go or compile to many other platforms.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./hub/app-hosting" class="box">
+  <a href="./hub/app-apis" class="box">
     <h5>Dart</h5>
     <p>Use a lightweight client library in Dart and Flutter.</p>
   </a>
