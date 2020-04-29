@@ -10,29 +10,15 @@ Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](ht
 
 The Hub is a portal to the IPFS network. Use Textile's managed services to persist your data on the IPFS network, enhance the speed and availability of your decentralized databases, and more. The Hub has APIs for developers and teams to push data to the network and it has developer libraries to provide remote IPFS pinning in your apps or simplify the deployment of our decentralized database, ThreadsDB.
 
-#### Explore the tutorials
+#### Start building
 
 <div class="txtl-options">
-  <a href="./hub/accounts" class="box">
-    <h5>Create an Account</h5>
-    <p>Start using hosted services by creating your free account.</p>
+  <a href="/hub/introduction" class="box">
+    <h5>Introduction</h5>
+    <p>Learn more about using the Textile Hub.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./tutorials/host-a-website" class="box">
-    <h5>Host a Website</h5>
-    <p>Publish a website using IPFS with persistent Buckets.</p>
-  </a>
-  <span class="box-space"> </span>
-  <a href="./tutorials/create-a-threads-database" class="box">
-    <h5>Start using Threads</h5>
-    <p>Create your first database in ThreadsDB.</p>
-  </a>
-</div>
-
-#### Read the docs
-
-<div class="txtl-options">
-  <a href="./hub/cli" class="box">
+  <a href="/hub/cli/tt" class="box">
     <h5>Hub CLI</h5>
     <p>Use hosted resources on Textile through the Hub CLI.</p>
   </a>
@@ -41,9 +27,6 @@ The Hub is a portal to the IPFS network. Use Textile's managed services to persi
     <h5>JavaScript SDK</h5>
     <p>Use Thread & Bucket APIs from your JavaScript app.</p>
   </a>
-  <span class="box-space"> </span>
-  <span class="box-fill">
-  </span>
 </div>
 
 ## ThreadsDB
@@ -75,7 +58,7 @@ ThreadsDB is a secure, decentralized, p2p database built on IFPS and Libp2p. Dev
     <p>Start using the ThreadsDB in your NodeJS and browser apps.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://textileio.github.io/go-threads/" target="_blank" class="box">
+  <a href="https://godoc.org/github.com/textileio/go-threads" target="_blank" class="box">
     <h5>Golang Docs</h5>
     <p>Build apps and Thread services using Go.</p>
   </a>

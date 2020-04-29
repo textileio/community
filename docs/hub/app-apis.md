@@ -42,7 +42,7 @@ Something about
 - Your app can create or link users to your app, those users can then use storage resources on your Hub instance
 - If using X or Y type identity, users can maintain ownership of the data the create.
 
-Read more on [Threads Identity](/hub/threads/introduction#identity)
+Read more on [Threads Identity](/threads/introduction#identity)
 
 ## App libraries
 
@@ -53,8 +53,8 @@ Here are the libraries you will find useful to start building today.
 |                         | ThreadsDB           | Threads APIs & User Buckets      |
 |-------------------------|:---------------------:|:-------------------:|
 | Browser, React Native, & NodeJS | [js-threads](https://textileio.github.io/js-threads) | [js-textile](https://textileio.github.io/js-textile) |
-| Dart & Flutter Apps     | [dart-threads-client](https://textileio.github.io/dart-textile) | [dart-textile](https://textileio.github.io/dart-textile) |
+| Dart & Flutter Apps     | [dart-threads-client](https://textileio.github.io/dart-threads-client) | [dart-textile](https://textileio.github.io/dart-textile) |
 | Golang Libraries        | [go-threads](https://godoc.org/github.com/textileio/go-threads)          | |
-| Command-line | _thread-shell_       | [Hub CLI](../cli)         |
+| Command-line | _thread-shell_       | [Hub CLI](/hub/cli/tt)         |
 
 _* coming_

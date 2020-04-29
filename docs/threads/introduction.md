@@ -35,7 +35,7 @@ Jump to [Thread Networking](#networking) to read more.
 
 ## Replication with the Hub
 
-ThreadsDB has been designed to support trustless peers on the network to provide services that improve or enhance performance and experience for end-users. [The Hub](../hub/introduction.md) offers Thread Services for relay, replication, and backup that you can add for your users in a couple of minutes. 
+ThreadsDB has been designed to support trustless peers on the network to provide services that improve or enhance performance and experience for end-users. [The Hub](/hub/introduction.md) offers Thread Services for relay, replication, and backup that you can add for your users in a couple of minutes. 
 
 ### Connect to the Hub
 
@@ -220,17 +220,17 @@ The Threads Daemon may be helpful to developers that aim to build their own Thre
 ThreadsDB can be used from many different languages and has libraries written in Javascript, Go, and Dart. Find documentatin on each of those Libraries below. 
 
 <div class="txtl-options">
-  <a href="./hub/cli" class="box">
+  <a href="/hub/cli/tt" class="box">
     <h5>JavaScript</h5>
     <p>Add Threads to NodeJS, React Native or browser apps.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./hub/app-apis" class="box">
+  <a href="/hub/app-apis" class="box">
     <h5>Golang</h5>
     <p>Use Threads in Go or compile to many other platforms.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./hub/app-apis" class="box">
+  <a href="/hub/app-apis" class="box">
     <h5>Dart</h5>
     <p>Use a lightweight client library in Dart and Flutter.</p>
   </a>

@@ -36,10 +36,10 @@ tt login
 
 ## Organizations
 
-The Hub allows you to create organizations easily. Organizations can be one or many collaborators. Members of an Org have management access to the [Buckets](./buckets) and [App Keys](./app-apis#app-keys) created while in an Org's directory.
+The Hub allows you to create organizations easily. Organizations can be one or many collaborators. Members of an Org have management access to the [Buckets](/hub/buckets) and [App Keys](/hub/app-apis#app-keys) created while in an Org's directory.
 
 !!! info
   
-    You can [create](./cli/tt_orgs_create), [invite](./cli/tt_orgs_invite), and [leave](./cli/tt_orgs_leave) organizations easily. Read more about all Org methods on the [CLI docs](./cli/tt_orgs).
+    You can [create](/hub/cli/tt_orgs_create), [invite](/hub/cli/tt_orgs_invite), and [leave](/hub/cli/tt_orgs_leave) organizations easily. Read more about all Org methods on the [CLI docs](/hub/cli/tt_orgs).
 
 To learn more about sharing Buckets with an organization, read the intro on [Organization Buckets](/hub/buckets#organization-buckets).
