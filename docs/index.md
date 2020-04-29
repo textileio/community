@@ -4,7 +4,9 @@ hero_img: /images/hero.jpg
 
 Welcome to the Textile documentation. Whether you are an expert or an absolute beginner, you'll find your answers here. Pick a starting point below, or use the search box to find documents matching your keywords.
 
-If you don't know where to start, the [Tour of Textile](./a-tour-of-textile.md) is a good intro.
+_The LIFT Stack_
+
+Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](https://ipfs.io), and [Filecoin](https://filecoin.io). Below, you'll find the three products that make up Textile, the Hub, ThreadsDB, and the Powergate.
 
 ## The Hub
 

@@ -6,15 +6,23 @@ Apps you build can leverage resources on the Hub including IPFS data & [Buckets]
 * Backup, replicate, and relay ThreadDB data for your users.
 * Build front-end applications that can persist data on IPFS via domain whitelisting.
 
-## App Keys
+## API Keys
 
-![Read more on the [CLI commands](./cli/tt_keys) for app keys.](/images/tt-cli/tt_keys_create.png)
+![Read more on the [CLI commands](./cli/tt_keys) for api keys.](/images/tt-cli/tt_keys_create.png)
 
 You can create and replace keys using the Hub CLI. Keys should not be shared with your users. Keys allow you to provide services to users on your app that will allow your app to run fast, scale efficiently, and still allow your users to control their own data.
 
-### Domain Whitelisting
+### Account keys
 
-App keys should never be shared with your users as you and your organization will remain responsible for how your users access the Hub's APIs. Therefore, if you are building a web application, you can use domain whitelisting to access the same resources without embedding keys in your application.
+Account keys make it possible to build apps (using the libraries below) that have full access to developer or organization Buckets. You can use account keys to integrate your Buckets into dashboards, team messaging integration, etc. You can select the `account` option when you create a new key in the CLI.
+
+### Users keys
+
+User keys make it possible to build apps (using the libraries below) that create Buckets and Threads on behalf of the app users. Buckets and Threads created with user keys are owned by the app user but can use services from your developer or organization account. You can select the `user` option when you create a new key in the CLI.
+
+### Domain whitelisting
+
+App keys should never be shared with your users as you and your organization will remain responsible for how your users access the Hub's APIs. Therefore, if you are building a web application, you can use domain whitelisting to access the same resources without embedding keys in your application. We haven't enabled whitelisting yet, but stay tuned for the release soon.
 
 ## App users
 
