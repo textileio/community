@@ -14,7 +14,7 @@ You can create and replace keys using the Hub CLI. Keys should not be shared wit
 
 ### Account keys
 
-Account keys make it possible to build apps (using the libraries below) that have full access to developer or organization Buckets. You can use account keys to integrate your Buckets into dashboards, team messaging integration, etc. You can select the `account` option when you create a new key in the CLI.
+Account keys make it possible to build apps (using the libraries below) that have full access to developer or organization Buckets. You can use account keys to integrate your Buckets into CI, dashboards, team messaging integration, etc. You can select the `account` option when you create a new key in the CLI.
 
 ### Users keys
 

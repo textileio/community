@@ -35,7 +35,7 @@ Jump to [Thread Networking](#networking) to read more.
 
 ## Replication with the Hub
 
-ThreadsDB has been designed to support trustless peers on the network to provide services that improve or enhance performance and experience for end-users. [The Hub](/hub/introduction.md) offers Thread Services for relay, replication, and backup that you can add for your users in a couple of minutes. 
+ThreadsDB has been designed to support trustless peers on the network to provide services that improve or enhance performance and experience for end-users. [The Hub](/hub/introduction) offers Thread Services for relay, replication, and backup that you can add for your users in a couple of minutes. 
 
 ### Connect to the Hub
 

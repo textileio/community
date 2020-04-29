@@ -26,8 +26,6 @@ You can always verify that you have an active session on the Hub and that you ar
 
 ### Login
 
-![](/images/tt-cli/tt_login.png)
-
 If you've just initialized your account successfully, there is no need to login. However, if you are returning to the Hub and need to re-login, simply use the login command.
 
 ```sh
