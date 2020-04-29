@@ -1,6 +1,6 @@
 # Getting Started
 
-Apps you build can leverage resources on the Hub including IPFS data & [Buckets](./buckets), [ThreadsDB](../threads/introduction) and replication services. To use the Hub APIs from your app you need to either generate a secure API Key (private applications) or you can whitelist your domain (public applications). With an API Key you can do many things, including,
+Apps you build can leverage resources on the Hub including IPFS data & [Buckets](/hub/buckets), [ThreadsDB](/threads/introduction) and replication services. To use the Hub APIs from your app you need to either generate a secure API Key (private applications) or you can whitelist your domain (public applications). With an API Key you can do many things, including,
 
 * Provide IPFS persistence to your users with Buckets.
 * Backup, replicate, and relay ThreadDB data for your users.
