@@ -8,7 +8,7 @@ Apps you build can leverage resources on the Hub including IPFS data & [Buckets]
 
 ## API Keys
 
-![Read more on the [CLI commands](./cli/tt_keys) for api keys.](/images/tt-cli/tt_keys_create.png)
+![Read more on the [CLI commands](/hub/cli/tt_keys) for api keys.](/images/tt-cli/tt_keys_create.png)
 
 You can create and replace keys using the Hub CLI. Keys should not be shared with your users. Keys allow you to provide services to users on your app that will allow your app to run fast, scale efficiently, and still allow your users to control their own data.
 

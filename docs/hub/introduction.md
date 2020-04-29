@@ -2,7 +2,7 @@
 hero_img: /images/cloud-hero.png
 ---
 
-The Hub is a portal where teams and individual developers can access IPFS and *soon* Filecoin resources easily. The Hub makes it simple to manage and update [Buckets](./buckets.md) on IPFS, persist data for your users on IPFS, deploy and scale [Threads databases](../threads/) for your app users, and collaborate on all of it with your team!
+The Hub is a portal where teams and individual developers can access IPFS and *soon* Filecoin resources easily. The Hub makes it simple to manage and update [Buckets](/hub/buckets) on IPFS, persist data for your users on IPFS, deploy and scale [Threads databases](/threads/) for your app users, and collaborate on all of it with your team!
 
 ## Getting Started
 
