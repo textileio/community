@@ -86,20 +86,20 @@ nav:
       - Introduction: threads/introduction.md
       - Links:
           - JavaScript: https://textileio.github.io/js-threads
-          - Golang: https://textileio.github.io/go-threads
-          - Dart: https://godoc.org/github.com/textileio/go-threads
+          - Golang: https://godoc.org/github.com/textileio/go-threads
+          - Dart: https://textileio.github.io/dart-threads-client
   - Filecoin Powergate:
       - Introduction: powergate/introduction.md
       - Powergate: https://github.com/textileio/powergate/#powergate
-  - Examples:
+  - Learn:
       - ThreadsDB:
           - Links:
               - React App: https://github.com/textileio/js-examples/tree/master/react-todo
               - 3Box Identities: https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
               - React Native App: https://github.com/textileio/js-examples/tree/master/react-native-client-app
       - Buckets:
+          - Website Hosting: tutorials/static-websites.md
           - Links:
-              - Host Static Websites: https://github.com/textileio/jekyll-ipfs-blog
               - Store 3Box User Data: https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
   - Hub CLI:
       - Login: hub/cli/tt_login.md

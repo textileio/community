@@ -2,7 +2,7 @@
 hero_img: /images/cloud-hero.png
 ---
 
-The Hub is a portal where teams and individual developers can access IPFS and *soon* Filecoin resources easily. The Hub makes it simple to manage and update [Buckets](./buckets.md) on IPFS, persist data for your users on IPFS, deploy and scale [Threads databases](/threads/introduction/) for your app users, and collaborate on all of it with your team!
+The Hub is a portal where teams and individual developers can access IPFS and *soon* Filecoin resources easily. The Hub makes it simple to manage and update [Buckets](/hub/buckets) on IPFS, persist data for your users on IPFS, deploy and scale [Threads databases](/threads/introduction) for your app users, and collaborate on all of it with your team!
 
 ## Getting Started
 
@@ -38,12 +38,12 @@ Another thing you can do with your account on the Hub, is create an app token th
 
 ## Other Documentation
 
-### Tools & Resources
+### Next steps
 
 <div class="txtl-options">
-  <a href="/hub/cli/tt" class="box">
-    <h5>Hub CLI</h5>
-    <p>Read the full CLI documentation.</p>
+  <a href="/hub/accounts" class="box">
+    <h5>Create an Account</h5>
+    <p>Start using hosted services by creating your free account.</p>
   </a>
   <span class="box-space"> </span>
   <a href="/hub/app-apis" class="box">
@@ -51,25 +51,8 @@ Another thing you can do with your account on the Hub, is create an app token th
     <p>Learn how to use the Hub's APIs in your app.</p>
   </a>
   <span class="box-space"> </span>
-  <span class="box-fill">
-  </span>
-</div>
-
-### Start building
-
-<div class="txtl-options">
-  <a href="../accounts" class="box">
-    <h5>Create an Account</h5>
-    <p>Start using hosted services by creating your free account.</p>
-  </a>
-  <span class="box-space"> </span>
-  <a href="./tutorials/host-a-website" class="box">
-    <h5>Host a Website</h5>
-    <p>Publish a website using IPFS with persistent Buckets.</p>
-  </a>
-  <span class="box-space"> </span>
-  <a href="./tutorials/create-a-threads-database" class="box">
-    <h5>Start using Threads</h5>
-    <p>Create your first database in ThreadsDB.</p>
+  <a href="/hub/cli/tt" class="box">
+    <h5>Hub CLI</h5>
+    <p>Read the full CLI documentation.</p>
   </a>
 </div>

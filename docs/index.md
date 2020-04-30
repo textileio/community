@@ -10,47 +10,49 @@ Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](ht
 
 The Hub is a portal to the IPFS network. Use Textile's managed services to persist your data on the IPFS network, enhance the speed and availability of your decentralized databases, and more. The Hub has APIs for developers and teams to push data to the network and it has developer libraries to provide remote IPFS pinning in your apps or simplify the deployment of our decentralized database, ThreadsDB.
 
-#### Explore the tutorials
+#### Start building
 
 <div class="txtl-options">
-  <a href="./hub/accounts" class="box">
-    <h5>Create an Account</h5>
-    <p>Start using hosted services by creating your free account.</p>
+  <a href="/hub/introduction" class="box">
+    <h5>Introduction</h5>
+    <p>Learn more about using the Textile Hub.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./tutorials/host-a-website" class="box">
-    <h5>Host a Website</h5>
-    <p>Publish a website using IPFS with persistent Buckets.</p>
+  <a href="/hub/buckets" class="box">
+    <h5>Buckets</h5>
+    <p>Persist your data on remote IPFS peers.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./tutorials/create-a-threads-database" class="box">
-    <h5>Start using Threads</h5>
-    <p>Create your first database in ThreadsDB.</p>
+  <a href="/hub/app-apis" target="_blank" class="box">
+    <h5>App APIs</h5>
+    <p>Use Threads & Buckets to persist data on IPFS from your apps.</p>
   </a>
-</div>
-
-#### Read the docs
-
-<div class="txtl-options">
-  <a href="./hub/cli" class="box">
-    <h5>Hub CLI</h5>
-    <p>Use hosted resources on Textile through the Hub CLI.</p>
-  </a>
-  <span class="box-space"> </span>
-  <a href="https://textileio.github.io/js-textile/" target="_blank" class="box">
-    <h5>JavaScript SDK</h5>
-    <p>Use Thread & Bucket APIs from your JavaScript app.</p>
-  </a>
-  <span class="box-space"> </span>
-  <span class="box-fill">
-  </span>
 </div>
 
 ## ThreadsDB
 
 ThreadsDB is a secure, decentralized, p2p database built on IFPS and Libp2p. Developers use ThreadsDB so they can spend less time configuring encryption or managing content addresses, instead ThreadsDB allows them to start building right away. A familiar MongoDB/Mongoose API and simple data hosting services make dynamic data on the DWeb easy!
 
-#### Clone an example app
+#### Learn more
+
+<div class="txtl-options">
+  <a href="/threads/introduction" class="box">
+    <h5>Introduction</h5>
+    <p>Learn about ThreadsDB and how to use them in your app.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="/hub/app-apis" class="box">
+    <h5>App APIs</h5>
+    <p>Use the Hub to help persist and scale your user's databases.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="https://textileio.github.io/js-threads/" target="_blank" class="box">
+    <h5>JavaScript Docs</h5>
+    <p>Start using the ThreadsDB in your NodeJS and browser apps.</p>
+  </a>
+</div>
+
+#### Start building
 
 <div class="txtl-options">
   <a href="https://github.com/textileio/js-todo-demo#threads-todo-demo" target="_blank" class="box">
@@ -65,25 +67,6 @@ ThreadsDB is a secure, decentralized, p2p database built on IFPS and Libp2p. Dev
   <span class="box-space"> </span>
   <span class="box-fill">
   </span>
-</div>
-
-#### Read the docs
-
-<div class="txtl-options">
-  <a href="https://textileio.github.io/js-threads/" target="_blank" class="box">
-    <h5>JavaScript Docs</h5>
-    <p>Start using the ThreadsDB in your NodeJS and browser apps.</p>
-  </a>
-  <span class="box-space"> </span>
-  <a href="https://textileio.github.io/go-threads/" target="_blank" class="box">
-    <h5>Golang Docs</h5>
-    <p>Build apps and Thread services using Go.</p>
-  </a>
-  <span class="box-space"> </span>
-  <a href="https://textileio.github.io/dart-threads-client/" target="_blank" class="box">
-    <h5>Dart Docs</h5>
-    <p>Use this lightweight client library in Dart and Flutter.</p>
-  </a>
 </div>
 
 ## Filecoin Powergate

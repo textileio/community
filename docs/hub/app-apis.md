@@ -1,6 +1,6 @@
 # Getting Started
 
-Apps you build can leverage resources on the Hub including IPFS data & [Buckets](./buckets), [ThreadsDB](../threads/introduction) and replication services. To use the Hub APIs from your app you need to either generate a secure API Key (private applications) or you can whitelist your domain (public applications). With an API Key you can do many things, including,
+Apps you build can leverage resources on the Hub including IPFS data & [Buckets](/hub/buckets), [ThreadsDB](/threads/introduction) and replication services. To use the Hub APIs from your app you need to either generate a secure API Key (private applications) or you can whitelist your domain (public applications). With an API Key you can do many things, including,
 
 * Provide IPFS persistence to your users with Buckets.
 * Backup, replicate, and relay ThreadDB data for your users.
@@ -8,13 +8,13 @@ Apps you build can leverage resources on the Hub including IPFS data & [Buckets]
 
 ## API Keys
 
-![Read more on the [CLI commands](./cli/tt_keys) for api keys.](/images/tt-cli/tt_keys_create.png)
+![Read more on the [CLI commands](/hub/cli/tt_keys) for api keys.](/images/tt-cli/tt_keys_create.png)
 
 You can create and replace keys using the Hub CLI. Keys should not be shared with your users. Keys allow you to provide services to users on your app that will allow your app to run fast, scale efficiently, and still allow your users to control their own data.
 
 ### Account keys
 
-Account keys make it possible to build apps (using the libraries below) that have full access to developer or organization Buckets. You can use account keys to integrate your Buckets into dashboards, team messaging integration, etc. You can select the `account` option when you create a new key in the CLI.
+Account keys make it possible to build apps (using the libraries below) that have full access to developer or organization Buckets. You can use account keys to integrate your Buckets into CI, dashboards, team messaging integration, etc. You can select the `account` option when you create a new key in the CLI.
 
 ### Users keys
 
@@ -42,7 +42,7 @@ Something about
 - Your app can create or link users to your app, those users can then use storage resources on your Hub instance
 - If using X or Y type identity, users can maintain ownership of the data the create.
 
-Read more on [Threads Identity](/hub/threads/introduction#identity)
+Read more on [Threads Identity](/threads/introduction#identity)
 
 ## App libraries
 
@@ -53,8 +53,8 @@ Here are the libraries you will find useful to start building today.
 |                         | ThreadsDB           | Threads APIs & User Buckets      |
 |-------------------------|:---------------------:|:-------------------:|
 | Browser, React Native, & NodeJS | [js-threads](https://textileio.github.io/js-threads) | [js-textile](https://textileio.github.io/js-textile) |
-| Dart & Flutter Apps     | [dart-threads-client](https://textileio.github.io/dart-textile) | [dart-textile](https://textileio.github.io/dart-textile) |
+| Dart & Flutter Apps     | [dart-threads-client](https://textileio.github.io/dart-threads-client) | [dart-textile](https://textileio.github.io/dart-textile) |
 | Golang Libraries        | [go-threads](https://godoc.org/github.com/textileio/go-threads)          | |
-| Command-line | _thread-shell_       | [Hub CLI](../cli)         |
+| Command-line | _thread-shell_       | [Hub CLI](/hub/cli/tt)         |
 
 _* coming_
