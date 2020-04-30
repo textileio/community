@@ -20,7 +20,7 @@ When working on your local machine, Buckets are mapped to working directories. O
 
 ### Shared Buckets
 
-You can create Buckets to share with all members of an organization. To do so, simply initialize an Org in first and then initialize a Bucket _within_ the Org's home directory. So all Buckets inside of an Org directory will be owned by the Org and shared with all members of the Org. [Read more about creating Orgs](/hub/accounts#organizations).
+You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the `--org` flag, specifying the name of the Org you want to share the bucket with. All members of the Org will be able to push and pull files to and from the shared Bucket. [Read more about creating Orgs](/hub/accounts#organizations).
 
 ## Publishing content
 
@@ -68,26 +68,29 @@ All Buckets you create are scoped to your developer account. You can always find
 
 #### Organization Buckets
 
-Any Buckets you create under an Org directory will also be shared with Org members. Here are the steps to create Org, create a new Bucket in the Org, and invite a collaborator to the Org:
+Any Buckets you create using the `--org` flag will also be shared with Org members. Here are the steps to create Org, create a new Bucket in the Org, and invite a collaborator to the Org:
 
 ##### Create a new Org
 
 ![](/images/tt-cli/tt_org_create.png)
 
 ```bash
-mkdir nasa
-cd nasa
 tt org create
+Choose an Org name: nasa█
+> The name of your account on Textile will be nasa
+> Your URL will be http://hub.textile.io/nasa
+Please confirm: y█
+> Success! Created new org nasa with URL http://hub.textile.io/nasa
 ```
 
-You have now created a new Org inside of the `nasa` directory.
+You have now created the `nasa` Org.
 
-##### Create a new Bucket
+##### Create a new Bucket shared with an Org
 
 ```bash
 mkdir launchpad
 cd launchpad
-tt bucket init
+tt bucket init --org nasa
 ```
 
 You have now created a new Bucket inside of the `launchpad` directory and owned by your `nasa` organization.
@@ -98,7 +101,7 @@ You have now created a new Bucket inside of the `launchpad` directory and owned 
 tt org invite
 ```
 
-The final step it to invite your collaborator to your Org. Once they accept the invite, they will be able to [list](/hub/cli/tt_buckets_ls), [pull](/hub/cli/tt_buckets_pull), and update Buckets from the shared Org.
+The final step is to invite collaborators to your Org. Once they accept the invite, they will be able to interact with Buckets associated with the Org.
 
 #### App user Buckets
 

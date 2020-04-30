@@ -56,8 +56,8 @@ Before you get started, be sure to read our [contributors guide](CONTRIBUTING.md
 -   Carson Farmer <carson@textile.io>
 -   Sander Pick <sander@textile.io>
 -   Andrew Hill <andrew@textile.io>
+-   Ignacio Hagopian <ignacio@textile.io>
 -   Aaron Sutula <aaron@textile.io>
--   Benjamin Lupton <benjamin@textile.io>
 
 ## License
 
