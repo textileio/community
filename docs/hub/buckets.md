@@ -110,7 +110,7 @@ The final step is to invite collaborators to your Org. Once they accept the invi
 If you are building an app using one of our [developer libraries](/hub/app-apis#libraries) you can use Buckets from inside yoru apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
 
 <div class="txtl-options">
-  <a href="https://textileio.github.com/js-textile" target="_blank" class="box">
+  <a href="https://textileio.github.io/js-textile" target="_blank" class="box">
     <h5>JS Textile Docs</h5>
     <p>Create user Buckets in your JS app.</p>
   </a>
