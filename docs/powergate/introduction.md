@@ -10,10 +10,6 @@ The Powergate allows you to do magical things with Filecoin. Look out for update
 
 ### Preview
 
-<video controls width="780" style="margin: 0 auto; padding: 10px;">
-    <source src="https://powergate-public.textile.cafe/screencaps/embed-ffs-demo-50.mp4"
-            type="video/mp4">
-    Sorry, your browser doesn't support embedded videos.
-</video>
+<iframe src="https://player.vimeo.com/video/411596107?quality=2k" width="640" height="355" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 The above video shows the Powergate startup including IPFS and Lotus nodes. Next, the admin uses the Powergate CLI to create a deal on the Filecoin network.
