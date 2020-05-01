@@ -199,13 +199,11 @@ That's it! Two completely separate database instances, syncing encrypted and sig
 
 #### Access-control
 
-Add an update note here
+ThreadsDB has a modular ACL system that will allow ACLs to be declared in a wide-variety of ways. ACLs are in active development and you can follow [the development here](https://github.com/textileio/go-threads/issues/295).
 
 #### Identity
 
-@todo more details here
-
-Add 3box etc here.
+ThreadsDB allows you to handle user identities in the best way for your app and your users. We include examples here that use private-key identities from Libp2p as well as 3Box identities.
 
 #### Pinning, Relay, and Replication
 

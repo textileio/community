@@ -100,7 +100,7 @@ nav:
       - Buckets:
           - Website Hosting: tutorials/static-websites.md
           - Links:
-              - Store 3Box User Data: https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
+              - 3Box User Buckets: https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
   - Hub CLI:
       - Login: hub/cli/tt_login.md
       - Logout: hub/cli/tt_logout.md

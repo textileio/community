@@ -28,13 +28,15 @@ You can create Buckets to share with all members of an organization. To do so, s
 
 ![[View the Bucket push CLI docs](/hub/cli/tt_buckets_push).](/images/tt-cli/tt_bucket_push.png)
 
-@todo when push/pull updated
+`tt bucket push site/ .`
 
 ## Retrieving content
 
 ### Pull files
 
-@todo when push/pull updated
+`tt bucket init --existing`
+
+By using the `--existing` flag, you can list Buckets already pushed by you or, when using `--org`, your collaborators.
 
 ### Explore on the gateway
 
@@ -105,7 +107,7 @@ The final step is to invite collaborators to your Org. Once they accept the invi
 
 #### App user Buckets
 
-If you are building an app using one of our [developer libraries](/hub/app-apis/#app-libraries) you can use Buckets from inside yoru apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
+If you are building an app using one of our [developer libraries](/hub/app-apis#libraries) you can use Buckets from inside yoru apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
 
 <div class="txtl-options">
   <a href="https://textileio.github.com/js-textile" target="_blank" class="box">
