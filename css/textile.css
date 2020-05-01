@@ -1,3 +1,82 @@
+.md-header{
+	/* background: #222; */
+}
+
+/* gets rid of that hidden sidebar ux issues */
+.md-sidebar.md-sidebar--primary {
+	padding-bottom: 2px
+}
+
+.txtl-options {
+	display: flex;
+	justify-content: space-between;
+	text-decoration: none;
+	flex-wrap: nowrap;
+}
+
+.txtl-options.center {
+	justify-content: space-around;
+}
+
+.txtl-options .box {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	transition: box-shadow .3s;
+	width: 32%;
+	min-width: 180px;
+  height: 100px;
+	padding: 10px;
+  border-radius:4px;
+  border: 1px solid #eee;
+	background: #fff;
+	color: #222;
+}
+
+.txtl-options.center .box {
+	width: 100%;
+}
+
+.txtl-options.half .box {
+	width: 48%;
+	min-width: 300px;
+	padding: 10px;
+}
+
+.txtl-options .box:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+	color: #222;
+}
+
+.txtl-options .box h5 {
+	color: rgb(41, 53, 255);;
+	flex:1;
+	padding: 0; margin: 0;
+}
+.txtl-options .box p {
+	flex:1;
+	padding: 0; margin: 0;
+	font-size: 0.8em;
+}
+.txtl-options .box-space {
+  height: 100px;
+	margin: 0px 2px;
+}
+.txtl-options .box-fill {
+	display: flex;
+	width: 32%;
+	min-width: 180px;
+  height: 100px;
+	padding: 10px;
+}
+.txtl-options.half .box-fill {
+	display: flex;
+	width: 48%;
+	min-width: 300px;
+  height: 100px;
+	padding: 10px;
+}
+
 .superfences-tabs {
 	display: flex;
 	position: relative;

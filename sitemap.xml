@@ -1,48 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://docs.textile.io/</loc>
-     <lastmod>2020-03-04</lastmod>
+     <lastmod>2020-05-01</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://docs.textile.io/a-tour-of-textile/</loc>
-     <lastmod>2020-03-04</lastmod>
+    </url><url>
+     <loc>https://docs.textile.io/hub/introduction/</loc>
+     <lastmod>2020-05-01</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://docs.textile.io/concepts/threads/</loc>
-     <lastmod>2020-03-04</lastmod>
+    </url><url>
+     <loc>https://docs.textile.io/hub/accounts/</loc>
+     <lastmod>2020-05-01</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://docs.textile.io/concepts/buckets/</loc>
-     <lastmod>2020-03-04</lastmod>
+    </url><url>
+     <loc>https://docs.textile.io/hub/buckets/</loc>
+     <lastmod>2020-05-01</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://docs.textile.io/concepts/accounts/</loc>
-     <lastmod>2020-03-04</lastmod>
+    </url><url>
+     <loc>https://docs.textile.io/hub/app-apis/</loc>
+     <lastmod>2020-05-01</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://docs.textile.io/policies/code-of-conduct/</loc>
-     <lastmod>2020-03-04</lastmod>
+    </url><url>
+     <loc>https://docs.textile.io/hub/cli/tt/</loc>
+     <lastmod>2020-05-01</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://docs.textile.io/policies/privacy-policy/</loc>
-     <lastmod>2020-03-04</lastmod>
+    </url><url>
+     <loc>https://docs.textile.io/threads/introduction/</loc>
+     <lastmod>2020-05-01</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://docs.textile.io/policies/terms-of-service/</loc>
-     <lastmod>2020-03-04</lastmod>
+    </url><url>
+     <loc>https://docs.textile.io/powergate/introduction/</loc>
+     <lastmod>2020-05-01</lastmod>
      <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://docs.textile.io/policies/license/</loc>
-     <lastmod>2020-03-04</lastmod>
+    </url><url>
+     <loc>https://docs.textile.io/hub/cli/tt_login/</loc>
+     <lastmod>2020-05-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.textile.io/hub/cli/tt_logout/</loc>
+     <lastmod>2020-05-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.textile.io/hub/cli/tt_whoami/</loc>
+     <lastmod>2020-05-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.textile.io/hub/cli/tt_orgs/</loc>
+     <lastmod>2020-05-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.textile.io/hub/cli/tt_buckets/</loc>
+     <lastmod>2020-05-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.textile.io/hub/cli/tt_threads/</loc>
+     <lastmod>2020-05-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.textile.io/hub/cli/tt_keys/</loc>
+     <lastmod>2020-05-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.textile.io/tutorials/static-websites/</loc>
+     <lastmod>2020-05-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
