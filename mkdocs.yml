@@ -91,7 +91,15 @@ nav:
   - Filecoin Powergate:
       - Introduction: powergate/introduction.md
       - Powergate: https://github.com/textileio/powergate/#powergate
-  - Learn:
+  - Hub CLI:
+      - Login: hub/cli/tt_login.md
+      - Logout: hub/cli/tt_logout.md
+      - Whoami: hub/cli/tt_whoami.md
+      - Orgs: hub/cli/tt_orgs.md
+      - Buckets: hub/cli/tt_buckets.md
+      - Threads: hub/cli/tt_threads.md
+      - API Keys: hub/cli/tt_keys.md
+  - Resources:
       - ThreadsDB:
           - Links:
               - React App: https://github.com/textileio/js-examples/tree/master/react-todo
@@ -101,14 +109,6 @@ nav:
           - Website Hosting: tutorials/static-websites.md
           - Links:
               - 3Box User Buckets: https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
-  - Hub CLI:
-      - Login: hub/cli/tt_login.md
-      - Logout: hub/cli/tt_logout.md
-      - Whoami: hub/cli/tt_whoami.md
-      - Orgs: hub/cli/tt_orgs.md
-      - Buckets: hub/cli/tt_buckets.md
-      - Threads: hub/cli/tt_threads.md
-      - API Keys: hub/cli/tt_keys.md
 
 # Customization
 extra:
