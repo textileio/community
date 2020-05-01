@@ -165,6 +165,8 @@
                 {% endif %}
                 {% if not "\x3ch1" in page.content and not page.is_homepage %}
                   <h1>{{ page.title | default(config.site_name, true)}}</h1>
+                {% elif not "\x3ch1" in page.content and page.is_homepage %}
+                  <h1></h1>
                 {% endif %}
                 {{ page.content }}
                 {% block source %}
