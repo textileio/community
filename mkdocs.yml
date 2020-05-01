@@ -1,6 +1,7 @@
 # Project information
-site_name: "Textile Documentation"
-site_description: "Encrypted, recoverable, schema-based, cross-application data storage built on IPFS and LibP2P."
+site_title: "Documentation | Textile"
+site_name: "Documentation"
+site_description: "Textile makes it easy for you or your application to store and distribute data over the IPFS network."
 site_author: textile.io
 site_url: https://docs.textile.io/
 
@@ -25,7 +26,7 @@ theme:
     text: Roboto
     code: Roboto Mono
   favicon: images/favicon.ico
-  logo: images/logo_pink.svg
+  logo: images/hex.svg
   static_templates:
     - 404.html
 
@@ -73,19 +74,41 @@ markdown_extensions:
   - pymdownx.tilde
   - markdown_captions
 
-# Page tree
 nav:
-  - Welcome!: index.md
-  - A Tour of Textile: a-tour-of-textile.md
-  - Concepts:
-      - Threads: concepts/threads.md
-      - Buckets: concepts/buckets.md
-      - Accounts: concepts/accounts.md
-  - Policies:
-      - Code of Conduct: policies/code-of-conduct.md
-      - Privacy Policy: policies/privacy-policy.md
-      - Terms of Service: policies/terms-of-service.md
-      - License: policies/license.md
+  - Home: index.md
+  - The Hub:
+      - Introduction: hub/introduction.md
+      - Accounts: hub/accounts.md
+      - Buckets: hub/buckets.md
+      - App APIs: hub/app-apis.md
+      - CLI Docs: hub/cli/tt.md
+  - ThreadsDB:
+      - Introduction: threads/introduction.md
+      - Links:
+          - JavaScript: https://textileio.github.io/js-threads
+          - Golang: https://godoc.org/github.com/textileio/go-threads
+          - Dart: https://textileio.github.io/dart-threads-client
+  - Filecoin Powergate:
+      - Introduction: powergate/introduction.md
+      - Powergate: https://github.com/textileio/powergate/#powergate
+  - Hub CLI:
+      - Login: hub/cli/tt_login.md
+      - Logout: hub/cli/tt_logout.md
+      - Whoami: hub/cli/tt_whoami.md
+      - Orgs: hub/cli/tt_orgs.md
+      - Buckets: hub/cli/tt_buckets.md
+      - Threads: hub/cli/tt_threads.md
+      - API Keys: hub/cli/tt_keys.md
+  - Resources:
+      - ThreadsDB:
+          - Links:
+              - React App: https://github.com/textileio/js-examples/tree/master/react-todo
+              - 3Box Identities: https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
+              - React Native App: https://github.com/textileio/js-examples/tree/master/react-native-client-app
+      - Buckets:
+          - Website Hosting: tutorials/static-websites.md
+          - Links:
+              - 3Box User Buckets: https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
 
 # Customization
 extra:
@@ -97,7 +120,7 @@ extra:
     - type: twitter
       link: https://twitter.com/textileio
     - type: medium
-      link: https://medium.com/textileio
+      link: https://blog.textile.io/
     - type: slack
       link: https://slack.textile.io
   go_textile:
