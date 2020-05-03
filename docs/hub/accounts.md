@@ -4,9 +4,26 @@
 
 To access and manage Hub resources, you need to install the Textile CLI. First, [download the Textile CLI binary](https://github.com/textileio/textile/releases/latest) for your platform from the latest releases.
 
+### Download 
+
 ![[Download the Textile CLI Latest Release](https://github.com/textileio/textile/releases/latest).](/images/tt-cli/tt_help.png)
 
-Open the contents of the downloaded archive and run the `install` script. This should install the `tt` tool on your computer. You can verify with `tt --help`.
+### Install
+
+![Open the contents of the downloaded archive and run the `install` script. This should install the `tt` tool on your computer. You can verify with `tt --help`.](/images/install/install.png)
+
+#### Mac Installation
+
+On MacOS you will need to confirm that it is okay to run the `tt` binary before it will run successfully. You will see this warning:
+
+![Select 'Cancel'](/images/install/install_warn.png)
+
+![Go to 'System Settings' => 'General' where you will be able to click, 'Always Allow'](/images/install/install_allow.png)
+
+
+![Run `tt --help` again and this time select, 'Open` when promted.](/images/install/install_confirm.png)
+
+You will now be able to continue using the CLI without issue. When you update the binary, you may need to repeat the above steps. We will add developer signing to our MacOS binaries soon.
 
 ## Account setup
 
