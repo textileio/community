@@ -1,6 +1,6 @@
 Buckets make it simple to publish websites using IPFS. If you are using a static site builder such as [Jekyll](https://jekyllrb.com/), [Gatsby](https://www.gatsbyjs.org/), [Hugo](https://gohugo.io/), or [Mkdocs](https://www.mkdocs.org/) you can add Buckets to your build steps for both staging and production site hosting.
 
-## Static site builders
+## Site builder tutorials
 
 If you are using one of these static site builders, jump to the specific tutorials.
 
@@ -18,6 +18,46 @@ If you are using one of these static site builders, jump to the specific tutoria
   <a href="/tutorials/static-hugo-site" class="box">
     <h5>Hugo Site</h5>
     <p>An example Hugo site published in a Bucket.</p>
+  </a>
+</div>
+
+## Resources
+
+### Domain Name Management
+
+<div class="txtl-options">
+  <a href="https://fleek.co/" target="_blank" class="box">
+    <h5>Fleek</h5>
+    <p>Fleek offers domain management tools and soon, Bucket support.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="https://blog.cloudflare.com/distributed-web-gateway/" target="_blank" class="box">
+    <h5>Cloudflare</h5>
+    <p>Easily add your Bucket IPNS address to Cloudflare with DNSLink.</p>
+  </a>
+  <span class="box-space"> </span>
+  <span class="box-fill">
+  </span>
+</div>
+
+### Network Replication
+
+Your website may be one of your most important assets on IPFS. Why not pin it on multiple infrastructure providers for added network speed.
+
+<div class="txtl-options">
+  <a href="https://pinata.cloud/" target="_blank" class="box">
+    <h5>Pinata</h5>
+    <p>Simple and easy to use, Pinata offers a great pinning API for IPFS.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="https://infura.io/" target="_blank" class="box">
+    <h5>Infura</h5>
+    <p>Seasoned builders of API portals for the dWeb, pin with confidence on Infura.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="https://temporal.cloud/" target="_blank" class="box">
+    <h5>Temporal</h5>
+    <p>Get the stopwatch out, Temporal is your pinning service with speed on the brain  .</p>
   </a>
 </div>
 
