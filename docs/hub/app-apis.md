@@ -14,7 +14,7 @@ _[See CLI options](/hub/cli/tt_keys)_
 
 ### User Key
 
-Account keys make it possible to build apps that have full access to developer or organization Buckets. You can use account keys to integrate your Buckets into CI, dashboards, team messaging integration, etc. To create a new Account Key using `tt key create` and selecting the `user` option.  
+User keys make it possible to build apps that use developer resources on behalf of users. Apps can create Buckets for users or persist and replicate ThreadsDB for users. have full access to developer or organization Buckets. A single user key can be added to your app to authenticate many users to your Hub resources. To create a new User Key using `tt key create` and selecting the `user` option. Also see Identity section and how to use identity providers such as 3Box with user keys.
 
 _[See CLI commands](/hub/cli/tt_keys)_
 
