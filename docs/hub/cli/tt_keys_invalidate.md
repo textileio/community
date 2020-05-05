@@ -1,4 +1,4 @@
-# Invalidate a key
+# keys invalidate
 
 Invalidate a key. Invalidated keys cannot be used to create new threads.
 

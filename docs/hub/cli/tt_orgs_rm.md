@@ -1,8 +1,6 @@
-# Remove an Org
+# orgs rm
 
-### Synopsis
-
-Remove an Organization (interactive). You must be the Org owner.
+Remove an organization (interactive). You must be the Org owner.
 
 ```
 tt orgs rm [flags]

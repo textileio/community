@@ -1,4 +1,4 @@
-# Logout
+# logout
 
 Logout of Textile.
 
@@ -14,4 +14,4 @@ tt logout [flags]
 
 ### SEE ALSO
 
-* [tt](tt.md)	 - Textile Client
+* [tt](tt.md)	 - Textile Hub Client

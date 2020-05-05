@@ -1,8 +1,6 @@
-# List Org Members
+# orgs members
 
-### Synopsis
-
-List current Organization members (interactive).
+List current organization members (interactive).
 
 ```
 tt orgs members [flags]

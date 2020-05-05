@@ -1,9 +1,9 @@
-# List a Bucket
+# bucket ls
 
 List files and directories under a bucket path.
 
 ```
-tt buckets ls [path] [flags]
+tt bucket ls [path] [flags]
 ```
 
 ### Options
@@ -14,4 +14,4 @@ tt buckets ls [path] [flags]
 
 ### SEE ALSO
 
-* [tt buckets](tt_buckets.md)	 - Manage buckets
+* [tt bucket](tt_bucket.md)	 - Manage a bucket

@@ -1,31 +1,26 @@
-# Buckets Init
+# bucket init
 
-## tt buckets init
-
-Create an empty bucket
-
-![](/images/tt-cli/tt_bucket_init.png)
-
-### Synopsis
+Create an empty bucket.
 
 A .textile directory and config file will be created in the current working directory.
 Existing configs will not be overwritten.
 
 
 ```
-tt buckets init [flags]
+tt bucket init [flags]
 ```
 
 ### Options
 
 ```
+      --existing        If set, initalizes from an existing remote Bucket
   -h, --help            help for init
-      --name string     Bucket name
-      --org string      Org name
+      --key string      Bucket key
+      --org string      Org username
       --public          Allow public access
       --thread string   Thread ID
 ```
 
 ### SEE ALSO
 
-* [tt buckets](tt_buckets.md)	 - Manage buckets
+* [tt bucket](tt_bucket.md)	 - Manage a bucket

@@ -1,4 +1,4 @@
-# Login
+# login
 
 Login to Textile.
 
@@ -14,4 +14,4 @@ tt login [flags]
 
 ### SEE ALSO
 
-* [tt](tt.md)	 - Textile Client
+* [tt](tt.md)	 - Textile Hub Client

@@ -1,6 +1,6 @@
-# Leave an Org
+# orgs leave
 
-Leave an Organization (interactive).
+Leave an organization (interactive).
 
 ```
 tt orgs leave [flags]

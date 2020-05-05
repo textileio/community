@@ -1,6 +1,6 @@
-# Create an Org
+# orgs create
 
-Create a new Organization (interactive).
+Create a new organization (interactive).
 
 ```
 tt orgs create [flags]

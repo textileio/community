@@ -1,6 +1,6 @@
-# Org Invite
+# orgs invite
 
-Invite a new member to an Organization.
+Invite a new member to an organization.
 
 ```
 tt orgs invite [flags]
