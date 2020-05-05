@@ -13,7 +13,7 @@
         <meta name="description" content="Textile makes it easy for you or your application to store and distribute data over the IPFS network.">
       
       
-        <link rel="canonical" href="https://docs.textile.io/hub/cli/tt_buckets_init/">
+        <link rel="canonical" href="https://docs.textile.io/hub/cli/tt_bucket_rm/">
       
       
         <meta name="author" content="textile.io">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Buckets Init | Documentation | Textile</title>
+        <title>bucket rm | Documentation | Textile</title>
       
     
     
@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#buckets-init" tabindex="1" class="md-skip">
+      <a href="#bucket-rm" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              Buckets Init
+              bucket rm
             </span>
           
         </div>
@@ -541,7 +541,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tt_buckets/" title="Buckets" target="" class="md-nav__link">
+    <a href="../tt_buckets.md" title="Buckets" target="" class="md-nav__link">
       Buckets
     </a>
   </li>
@@ -753,36 +753,16 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tt-buckets-init" title="tt buckets init" class="md-nav__link">
-    tt buckets init
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#synopsis" title="Synopsis" class="md-nav__link">
-    Synopsis
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#options" title="Options" class="md-nav__link">
     Options
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#see-also" title="SEE ALSO" class="md-nav__link">
     SEE ALSO
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -804,30 +784,21 @@
               
                 
                 
-                  <a href="https://github.com/textileio/docs/edit/master/docs/hub/cli/tt_buckets_init.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/textileio/docs/edit/master/docs/hub/cli/tt_bucket_rm.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="buckets-init">Buckets Init<a class="headerlink" href="#buckets-init" title="Permanent link">&para;</a></h1>
-<h2 id="tt-buckets-init">tt buckets init<a class="headerlink" href="#tt-buckets-init" title="Permanent link">&para;</a></h2>
-<p>Create an empty bucket</p>
-<p><img alt="" src="/images/tt-cli/tt_bucket_init.png" /></p>
-<h3 id="synopsis">Synopsis<a class="headerlink" href="#synopsis" title="Permanent link">&para;</a></h3>
-<p>A .textile directory and config file will be created in the current working directory.
-Existing configs will not be overwritten.</p>
-<div class="highlight"><pre><span></span><code>tt buckets init [flags]
+                <h1 id="bucket-rm">bucket rm<a class="headerlink" href="#bucket-rm" title="Permanent link">&para;</a></h1>
+<p>Remove files and directories under a bucket path.</p>
+<div class="highlight"><pre><span></span><code>tt bucket rm [path] [flags]
 </code></pre></div>
 
 <h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>  -h, --help            help for init
-      --name string     Bucket name
-      --org string      Org name
-      --public          Allow public access
-      --thread string   Thread ID
+<div class="highlight"><pre><span></span><code>  -h, --help   help for rm
 </code></pre></div>
 
 <h3 id="see-also">SEE ALSO<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../tt_buckets/">tt buckets</a>    - Manage buckets</li>
+<li><a href="../tt_bucket/">tt bucket</a>  - Manage a bucket</li>
 </ul>
                 
                   

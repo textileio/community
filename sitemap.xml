@@ -1,67 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://docs.textile.io/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/introduction/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/accounts/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/buckets/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/app-apis/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/tt/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/threads/introduction/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/powergate/introduction/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/tt_login/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/tt_logout/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/tt_whoami/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/tt_orgs/</loc>
-     <lastmod>2020-05-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.textile.io/hub/cli/tt_buckets/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/tt_threads/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/tt_keys/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/tutorials/static-websites/</loc>
-     <lastmod>2020-05-04</lastmod>
+     <lastmod>2020-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
