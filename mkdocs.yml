@@ -96,7 +96,7 @@ nav:
       - Logout: hub/cli/tt_logout.md
       - Whoami: hub/cli/tt_whoami.md
       - Orgs: hub/cli/tt_orgs.md
-      - Buckets: hub/cli/tt_buckets.md
+      - Bucket: hub/cli/tt_bucket.md
       - Threads: hub/cli/tt_threads.md
       - API Keys: hub/cli/tt_keys.md
   - Resources:
@@ -126,11 +126,5 @@ extra:
   go_textile:
     - version: v0.1.11
   yamls:
-    - name: common
-      yaml: snippets/common
     - name: a_tour_of_textile
       yaml: snippets/a_tour_of_textile
-    - name: connectors
-      yaml: snippets/connectors
-    - name: special
-      yaml: snippets/special

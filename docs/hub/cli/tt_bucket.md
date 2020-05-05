@@ -1,6 +1,6 @@
 # bucket
 
-Init a bucket and push and pull files and folders.
+Init new buckets and push and pull files and folders.
 
 ```
 tt bucket [flags]
