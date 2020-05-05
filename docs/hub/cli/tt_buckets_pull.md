@@ -35,7 +35,7 @@ These 'pull' commands result in the following local structures.
 
 
 ```
-tt buckets pull [path] [destination] [flags]
+tt bucket pull [path] [destination] [flags]
 ```
 
 ### Options
@@ -46,4 +46,4 @@ tt buckets pull [path] [destination] [flags]
 
 ### SEE ALSO
 
-* [tt buckets](tt_buckets.md)	 - Manage buckets
+* [tt bucket](tt_buckets.md)	 - Manage buckets

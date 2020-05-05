@@ -17,7 +17,7 @@ The Textile Hub Client.
 * [tt login](tt_login.md)	 - Login
 * [tt logout](tt_logout.md)	 - Logout
 * [tt orgs](tt_orgs.md)	 - Org management
-* [tt buckets](tt_buckets.md)	 - Manage buckets
+* [tt bucket](tt_buckets.md)	 - Manage buckets
 * [tt threads](tt_threads.md)	 - Thread management
 * [tt keys](tt_keys.md)	 - Key management
 

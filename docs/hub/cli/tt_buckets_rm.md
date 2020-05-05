@@ -3,7 +3,7 @@
 Remove files and directories under a bucket path.
 
 ```
-tt buckets rm [path] [flags]
+tt bucket rm [path] [flags]
 ```
 
 ### Options
@@ -14,4 +14,4 @@ tt buckets rm [path] [flags]
 
 ### SEE ALSO
 
-* [tt buckets](tt_buckets.md)	 - Manage buckets
+* [tt bucket](tt_buckets.md)	 - Manage buckets

@@ -1,6 +1,6 @@
 # Buckets Init
 
-## tt buckets init
+## tt bucket init
 
 Create an empty bucket
 
@@ -13,7 +13,7 @@ Existing configs will not be overwritten.
 
 
 ```
-tt buckets init [flags]
+tt bucket init [flags]
 ```
 
 ### Options
@@ -28,4 +28,4 @@ tt buckets init [flags]
 
 ### SEE ALSO
 
-* [tt buckets](tt_buckets.md)	 - Manage buckets
+* [tt bucket](tt_buckets.md)	 - Manage buckets

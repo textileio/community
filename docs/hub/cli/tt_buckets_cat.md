@@ -1,6 +1,6 @@
 # Buckets Cat
 
-## tt buckets cat
+## tt bucket cat
 
 Cat a bucket path file
 
@@ -9,7 +9,7 @@ Cat a bucket path file
 Cat a file at a bucket path.
 
 ```
-tt buckets cat [path] [flags]
+tt bucket cat [path] [flags]
 ```
 
 ### Options
@@ -20,4 +20,4 @@ tt buckets cat [path] [flags]
 
 ### SEE ALSO
 
-* [tt buckets](tt_buckets.md)	 - Manage buckets
+* [tt bucket](tt_buckets.md)	 - Manage buckets

@@ -38,7 +38,7 @@ These 'push' commands result in the following bucket structures.
 
 
 ```
-tt buckets push [target] [path] [flags]
+tt bucket push [target] [path] [flags]
 ```
 
 ### Options
@@ -49,4 +49,4 @@ tt buckets push [target] [path] [flags]
 
 ### SEE ALSO
 
-* [tt buckets](tt_buckets.md)	 - Manage buckets
+* [tt bucket](tt_buckets.md)	 - Manage buckets
