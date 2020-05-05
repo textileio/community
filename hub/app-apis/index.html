@@ -757,8 +757,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../cli/tt_buckets.md" title="Buckets" target="" class="md-nav__link">
-      Buckets
+    <a href="../cli/tt_bucket/" title="Bucket" target="" class="md-nav__link">
+      Bucket
     </a>
   </li>
 
@@ -1177,10 +1177,10 @@
 <h2 id="api-access">API Access<a class="headerlink" href="#api-access" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="/images/tt-cli/tt_account_create_select.png" /></p>
 <h3 id="account-key">Account Key<a class="headerlink" href="#account-key" title="Permanent link">&para;</a></h3>
-<p>Account keys make it possible to build apps that have full access to developer or organization Buckets. You can use account keys to integrate your Buckets into CI, dashboards, team messaging integration, etc. To create a new Account Key using <code>tt key create</code> and selecting the <code>account</code> option.</p>
+<p>Account keys provide direct access to developer and org account Buckets and Threads. Account keys make it possible to build apps that have full access to developer or organization Buckets. You can use account keys to integrate your Buckets into CI, dashboards, team messaging integration, etc. To create a new Account Key using <code>tt key create</code> and selecting the <code>account</code> option.</p>
 <p><em><a href="/hub/cli/tt_keys">See CLI options</a></em></p>
 <h3 id="user-key">User Key<a class="headerlink" href="#user-key" title="Permanent link">&para;</a></h3>
-<p>User keys make it possible to build apps that use developer resources on behalf of users. Apps can create Buckets for users or persist and replicate ThreadsDB for users. have full access to developer or organization Buckets. A single user key can be added to your app to authenticate many users to your Hub resources. To create a new User Key using <code>tt key create</code> and selecting the <code>user</code> option. Also see Identity section and how to use identity providers such as 3Box with user keys.</p>
+<p>User keys provide existing external identities (users) access to their own buckets and threads, under the custodianship of the parent account. Apps can create Buckets for users or persist and replicate ThreadsDB for users. A single <em>user key</em> can be added to your app to authenticate many users to your Hub resources. To create a new User Key using <code>tt key create</code> and selecting the <code>user</code> option. Also see Identity section and how to use identity providers such as 3Box with user keys.</p>
 <p><em><a href="/hub/cli/tt_keys">See CLI commands</a></em></p>
 <h3 id="domain-whitelisting">Domain whitelisting<a class="headerlink" href="#domain-whitelisting" title="Permanent link">&para;</a></h3>
 <p>If you are building a web application, you can use domain whitelisting to access the same resources without embedding keys in your application. You can track the release of <a href="https://github.com/textileio/textile/issues/109">domain whitelisting here</a>.</p>
