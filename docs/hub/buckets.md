@@ -16,7 +16,7 @@ Buckets are packed with useful features, including:
 
 When working on your local machine, Buckets are mapped to working directories. Once you initialize a Bucket in a directory, anytime you return to the directory, the Textile CLI will automatically detect the Bucket you are interacting with. To start a Bucket in your current working directory, you must first initialize the Bucket.
 
-![[Read CLI docs for Buckets](/hub/cli/tt_buckets).](/images/tt-cli/tt_bucket_init.png)
+![[Read CLI docs for Buckets](/hub/cli/tt_bucket).](/images/tt-cli/tt_bucket_init.png)
 
 ### Shared Buckets
 
@@ -26,7 +26,7 @@ You can create Buckets to share with all members of an organization. To do so, s
 
 ### Push new files
 
-![[View the Bucket push CLI docs](/hub/cli/tt_buckets_push).](/images/tt-cli/tt_bucket_push.png)
+![[View the Bucket push CLI docs](/hub/cli/tt_bucket_push).](/images/tt-cli/tt_bucket_push.png)
 
 `tt bucket push site/ .`
 
@@ -58,7 +58,7 @@ Buckets can't change the speed that IPNS propogates through the network, but we 
 
 ## Buckets CLI
 
-![[Visit Textile Hub CLI docs for Buckets](/hub/cli/tt_buckets).](/images/tt-cli/tt_bucket_init.png)
+![[Visit Textile Hub CLI docs for Buckets](/hub/cli/tt_bucket).](/images/tt-cli/tt_bucket_init.png)
 
 ## Learn more about Buckets
 

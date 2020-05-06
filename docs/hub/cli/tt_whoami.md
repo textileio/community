@@ -1,8 +1,4 @@
-# Whoami
-
-Show current user
-
-### Synopsis
+# whoami
 
 Show the user for the current session.
 
@@ -16,4 +12,6 @@ tt whoami [flags]
   -h, --help   help for whoami
 ```
 
-* [tt](tt.md)	 - Textile Client
+### SEE ALSO
+
+* [tt](tt.md)	 - Textile Hub Client

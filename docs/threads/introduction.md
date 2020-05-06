@@ -29,7 +29,7 @@ Players.find(
 
 ### Multi-user Databases
 
-Everything above just looks like a Database, so what's a Thread? ThreadsDB combines the storage and management of data (the Database) with networking, access control, and replication over IPFS using the Threads Protocol. The Threads protocol has been extensively documented in the [whitepaper], but in short, Threads use private-key encryption to manage both security and identity among multiple parties that can access or edit the same Database.
+Everything above just looks like a Database, so what's a Thread? ThreadsDB combines the storage and management of data (the Database) with networking, access control, and replication over IPFS using the Threads Protocol. The Threads protocol has been extensively documented in the [whitepaper](https://docsend.com/view/gu3ywqi), but in short, Threads use private-key encryption to manage both security and identity among multiple parties that can access or edit the same Database.
 
 Jump to [Thread Networking](#networking) to read more.
 

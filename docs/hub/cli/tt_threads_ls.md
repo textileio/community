@@ -1,8 +1,4 @@
-# Threads List
-
-List your threads
-
-### Synopsis
+# threads ls
 
 List all of your threads.
 

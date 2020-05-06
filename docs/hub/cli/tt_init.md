@@ -1,4 +1,4 @@
-# Initialize account
+# init
 
 Initialize a new Textile account (interactive).
 
@@ -14,5 +14,4 @@ tt init [flags]
 
 ### SEE ALSO
 
-* [tt](tt.md)	 - Textile Client
-
+* [tt](tt.md)	 - Textile Hub Client

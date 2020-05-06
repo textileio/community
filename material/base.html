@@ -85,11 +85,10 @@
     {% for path in config["extra_css"] %}
       <link rel="stylesheet" href="{{ path | url }}">
     {% endfor %}
-    {% block analytics %}
-      {% if config.google_analytics %}
-        {% include "partials/integrations/analytics.html" %}
-      {% endif %}
-    {% endblock %}
+    <script src="https://cdn.usefathom.com/3.js" site="TEBMKXIY"></script>
+    <script>
+        window.fathom || document.write('<script src="https://grouse.textile.io/core.js"><\/script>');
+    </script>
     {% block extrahead %}{% endblock %}
   </head>
   {% if palette.primary or palette.accent %}

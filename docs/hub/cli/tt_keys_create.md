@@ -1,12 +1,14 @@
-# Create an API Key
+# keys create
 
-Create an API key and secret
+Create a new API key and secret. Keys are used by apps and services that leverage buckets or threads.
 
-### Synopsis
+Using the '--org' flag will create a new key under the Organization's account.
 
-Create a new API key and secret. Keys are used by apps and services that leverage buckets and/or threads.
+There are two types of API keys:
+1. 'Account' keys provide direct access to developer/org account buckets and threads.
+2. 'User' keys provide existing external identities (users) access to their own buckets and threads, under the custodianship of the parent account.  
 
-API secrets should be kept safely on a backend server, not in publicly readable client code.  
+API secrets should be kept safely on a backend server, not in publicly readable client code.
 
 
 ```

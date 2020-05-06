@@ -1,10 +1,6 @@
-# List Orgs
+# orgs ls
 
-List Orgs you're a member of
-
-### Synopsis
-
-List all the Organizations that you're a member of.
+List all the organizations that you're a member of.
 
 ```
 tt orgs ls [flags]
