@@ -39,9 +39,9 @@ ThreadsDB has been designed to support trustless peers on the network to provide
 
 ### Connect to the Hub
 
-1. [Create an Account]()
-2. [Create an App Token]()
-3. [Add the Textile Library to your App]()
+1. [Create an Account](/hub/accounts#account-setup)
+2. [Create an App Token](/hub/app-apis#api-access)
+3. <a href="https://textileio.github.io/js-textile" target="_blank">Add the Textile Library to your App</a>
 
 ## ThreadsDB
 

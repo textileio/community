@@ -18,6 +18,8 @@ When working on your local machine, Buckets are mapped to working directories. O
 
 ![[Read CLI docs for Buckets](/hub/cli/tt_bucket).](/images/tt-cli/tt_bucket_init.png)
 
+**Bucket names are unique to a developer and within an Org. They are not globally unique.**
+
 ### Shared Buckets
 
 You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the `--org` flag, specifying the name of the Org you want to share the bucket with. All members of the Org will be able to push and pull files to and from the shared Bucket. [Read more about creating Orgs](/hub/accounts#organizations).
