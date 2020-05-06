@@ -18,11 +18,18 @@ When working on your local machine, Buckets are mapped to working directories. O
 
 ![[Read CLI docs for Buckets](/hub/cli/tt_bucket).](/images/tt-cli/tt_bucket_init.png)
 
-**Bucket names are unique to a developer and within an Org. They are not globally unique.**
+!!! info
+    Bucket names are unique to a developer and within an Org. They are not globally unique.**
+
+!!! warning
+    Be careful creating a bucket in a root directory, because all children directories will linked to that bucket. To move or remove a bucket's link to a directory, edit, move or delete the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory)
 
 ### Shared Buckets
 
-You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the `--org` flag, specifying the name of the Org you want to share the bucket with. All members of the Org will be able to push and pull files to and from the shared Bucket. [Read more about creating Orgs](/hub/accounts#organizations).
+You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the `--org` flag, specifying the name of the Org you want to share the bucket with. For example `tt bucket init --org nasa`. All members of the Org will be able to push and pull files to and from the shared Bucket. [Read more about creating Orgs](/hub/accounts#organizations).
+
+!!! info
+    to check which org a bucket is registered with, examine the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory)
 
 ## Publishing content
 
@@ -38,9 +45,14 @@ You can create Buckets to share with all members of an organization. To do so, s
 
 `tt bucket init --existing`
 
-By using the `--existing` flag, you can list Buckets already pushed by you or, when using `--org`, your collaborators.
+!!!info
+    By using the `--existing` flag, you can list Buckets already pushed by you or, when using `--org`, your collaborators.
 
 ### Explore on the gateway
+
+To inspect your pushed files, exlore on the gateway:
+`tt bucket links`
+then open the first result 'Thread links' in your browser.
 
 ![](/images/buckets/bucket_gateway.png)
 
@@ -58,10 +70,6 @@ Buckets are dynamic folders distributed over IPFS using ThreadsDB. Each Bucket h
 
 Buckets can't change the speed that IPNS propogates through the network, but we recommend you explore and try for yourself. The [Hub gateway](#explore-on-the-gateway) will always render the latest data right away.
 
-## Buckets CLI
-
-![[Visit Textile Hub CLI docs for Buckets](/hub/cli/tt_bucket).](/images/tt-cli/tt_bucket_init.png)
-
 ## Learn more about Buckets
 
 ### Bucket Permissions
@@ -72,7 +80,7 @@ All Buckets you create are scoped to your developer account. You can always find
 
 #### Organization Buckets
 
-Any Buckets you create using the `--org` flag will also be shared with Org members. Here are the steps to create Org, create a new Bucket in the Org, and invite a collaborator to the Org:
+Any Buckets you create using the `--org` flag will also be shared with Org members. Here are the steps to create an Org, create a new Bucket in the Org, and invite a collaborator to the Org:
 
 ##### Create a new Org
 
@@ -109,7 +117,7 @@ The final step is to invite collaborators to your Org. Once they accept the invi
 
 #### App user Buckets
 
-If you are building an app using one of our [developer libraries](/hub/app-apis#libraries) you can use Buckets from inside yoru apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
+If you are building an app using one of our [developer libraries](/hub/app-apis#libraries) you can use Buckets from inside your apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
 
 <div class="txtl-options">
   <a href="https://textileio.github.io/js-textile" target="_blank" class="box">
