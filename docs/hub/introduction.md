@@ -24,7 +24,7 @@ Once you have your Hub account, you can start using the Hub to host your data on
   </a>
 </div>
 
-Another thing you can do with your account on the Hub, is create an app token that will allow you to use the Hub for persisting user Thread data. Think of it as a trustless service that your app's database can rely on to keep data on IPFS fast!
+Another thing you can do with your account on the Hub, is create an app token that will allow you to use the Hub for persisting user Thread data. Think of it as a trustless service that your app's database can rely on to quickly store and access data on IPFS!
 
 <div class="txtl-options half">
   <a href="/hub/app-apis#thread-services" class="box">

@@ -32,7 +32,7 @@ The [js-textile](#libraries) library allows you to create and edit Buckets owned
 
 ### ThreadsDB
 
-[ThreadsDB](/threads/introduction) is a mongo-like database that runs on IPFS. You can use it in combination with [js-textile](#libraries) to add replication and relay to your user's databases. When combined, `js-threads` and `js-textile` allow you to embed private, p2p databases in yoru app that use remote IFPS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.
+[ThreadsDB](/threads/introduction) is a mongo-like database that runs on IPFS. You can use it in combination with [js-textile](#libraries) to add replication and relay to your user's databases. When combined, `js-threads` and `js-textile` allow you to embed private, p2p databases in your app that use remote IFPS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.
 
 ## Identity & data ownership
 
@@ -54,7 +54,7 @@ Here are the libraries you will find useful to start building today.
 
 |                         | ThreadsDB           | Threads APIs & Buckets      |
 |-------------------------|:---------------------:|:-------------------:|
-| Browser, React Native, & NodeJS | [js-threads](https://textileio.github.io/js-threads) <br/> [js-threads-client](https://textileio.github.io/js-threads-client) | [js-textile](https://textileio.github.io/js-textile) |
+| Browser, React Native, & NodeJS | [js-threads](https://textileio.github.io/js-threads) | [js-textile](https://textileio.github.io/js-textile) |
 | Dart & Flutter Apps ([pending release](https://github.com/textileio/dart-textile/issues/5))    | [dart-threads-client](https://textileio.github.io/dart-threads-client) | [dart-textile](https://textileio.github.io/dart-textile) |
 | Golang Libraries        | [go-threads](https://godoc.org/github.com/textileio/go-threads)          | |
 | Command-line | _thread-shell (coming)_       | [Hub CLI](/hub/cli/tt)         |
@@ -145,7 +145,7 @@ const buckets = new Buckets(ctx)
 const buck = await buckets.init('images', ctx)
 ```
 
-##### Push a files to the bucket
+##### Push files to the bucket
 
 ```typescript
 const pth = path.join(__dirname, '..', 'testdata')
