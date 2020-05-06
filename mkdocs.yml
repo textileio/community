@@ -102,9 +102,12 @@ nav:
   - Resources:
       - ThreadsDB:
           - Links:
-              - React App: https://github.com/textileio/js-examples/tree/master/react-todo
-              - 3Box Identities: https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
-              - React Native App: https://github.com/textileio/js-examples/tree/master/react-native-client-app
+              - JS Todo App (JavaScript): https://github.com/textileio/js-examples/tree/master/react-todo
+              - 3Box Identities (JavaScript): https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
+              - Simple App (React Native): https://github.com/textileio/js-examples/tree/master/react-native-client-app
+              - Chat App (Golang): https://github.com/textileio/go-threads/blob/master/examples/chat/main.go
+              - Event Store (Golang): https://github.com/textileio/go-threads/tree/master/examples/local_eventstore
+              - P2P Counter (Golang): https://github.com/textileio/go-threads/tree/master/examples/e2e_counter
       - Buckets:
           - Website Hosting: tutorials/static-websites.md
           - Links:

@@ -58,3 +58,7 @@ The Hub allows you to create organizations easily. Organizations can be one or m
     You can [create](/hub/cli/tt_orgs_create), [invite](/hub/cli/tt_orgs_invite), and [leave](/hub/cli/tt_orgs_leave) organizations easily. Read more about all Org methods on the [CLI docs](/hub/cli/tt_orgs).
 
 To learn more about sharing Buckets with an organization, read the intro on [Organization Buckets](/hub/buckets#organization-buckets).
+
+### Enterprise users
+
+If you are interested in enterprise support from Textile, please email us at [support@textile.io](mailto:support@textile.io).
