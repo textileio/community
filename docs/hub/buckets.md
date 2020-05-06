@@ -18,12 +18,18 @@ When working on your local machine, Buckets are mapped to working directories. O
 
 ![[Read CLI docs for Buckets](/hub/cli/tt_bucket).](/images/tt-cli/tt_bucket_init.png)
 
-> *Be careful creating a bucket in a root directory, because all children directories will linked to that bucket. To move or remove a bucket's link to a directory, edit, move or delete the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory)*
+!!! info
+    Bucket names are unique to a developer and within an Org. They are not globally unique.**
+
+!!! warning
+    Be careful creating a bucket in a root directory, because all children directories will linked to that bucket. To move or remove a bucket's link to a directory, edit, move or delete the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory)
 
 ### Shared Buckets
 
 You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the `--org` flag, specifying the name of the Org you want to share the bucket with. For example `tt bucket init --org nasa`. All members of the Org will be able to push and pull files to and from the shared Bucket. [Read more about creating Orgs](/hub/accounts#organizations).
-> *to check which org a bucket is registered with, examine the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory)*
+
+!!! info
+    to check which org a bucket is registered with, examine the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory)
 
 ## Publishing content
 
@@ -39,7 +45,8 @@ You can create Buckets to share with all members of an organization. To do so, s
 
 `tt bucket init --existing`
 
-By using the `--existing` flag, you can list Buckets already pushed by you or, when using `--org`, your collaborators.
+!!!info
+    By using the `--existing` flag, you can list Buckets already pushed by you or, when using `--org`, your collaborators.
 
 ### Explore on the gateway
 

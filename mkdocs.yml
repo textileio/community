@@ -111,7 +111,7 @@ nav:
       - Buckets:
           - Website Hosting: tutorials/static-websites.md
           - Links:
-              - 3Box User Buckets: https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
+              - 3Box User Buckets (JavaScript): https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
 
 # Customization
 extra:
