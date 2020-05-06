@@ -508,8 +508,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#push-a-files-to-the-bucket" title="Push a files to the bucket" class="md-nav__link">
-    Push a files to the bucket
+  <a href="#push-files-to-the-bucket" title="Push files to the bucket" class="md-nav__link">
+    Push files to the bucket
   </a>
   
 </li>
@@ -965,8 +965,8 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb" title="3Box User Buckets" target="_blank" class="md-nav__link">
-      3Box User Buckets
+    <a href="https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb" title="3Box User Buckets (JavaScript)" target="_blank" class="md-nav__link">
+      3Box User Buckets (JavaScript)
     </a>
   </li>
 
@@ -1171,8 +1171,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#push-a-files-to-the-bucket" title="Push a files to the bucket" class="md-nav__link">
-    Push a files to the bucket
+  <a href="#push-files-to-the-bucket" title="Push files to the bucket" class="md-nav__link">
+    Push files to the bucket
   </a>
   
 </li>
@@ -1225,7 +1225,7 @@
 <p><a href="/hub/buckets">Buckets</a> provide S3-like data storage on IPFS. Just as you can create Buckets with the <a href="/hub/cli/tt">Hub CLI</a>, you can create Buckets using JavaScript with <a href="#libraries">js-textile</a>. </p>
 <p>The <a href="#libraries">js-textile</a> library allows you to create and edit Buckets owned by you or your organization using an <a href="#account-key">account key</a>. Alternatively, you can use Buckets to store your user's data using a <a href="#user-key">user key</a>.</p>
 <h3 id="threadsdb">ThreadsDB<a class="headerlink" href="#threadsdb" title="Permanent link">&para;</a></h3>
-<p><a href="/threads/introduction">ThreadsDB</a> is a mongo-like database that runs on IPFS. You can use it in combination with <a href="#libraries">js-textile</a> to add replication and relay to your user's databases. When combined, <code>js-threads</code> and <code>js-textile</code> allow you to embed private, p2p databases in yoru app that use remote IFPS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.</p>
+<p><a href="/threads/introduction">ThreadsDB</a> is a mongo-like database that runs on IPFS. You can use it in combination with <a href="#libraries">js-textile</a> to add replication and relay to your user's databases. When combined, <code>js-threads</code> and <code>js-textile</code> allow you to embed private, p2p databases in your app that use remote IFPS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.</p>
 <h2 id="identity-data-ownership">Identity &amp; data ownership<a class="headerlink" href="#identity-data-ownership" title="Permanent link">&para;</a></h2>
 <p>The databases and Buckets you create over the API are owned in one of three ways.</p>
 <ol>
@@ -1249,7 +1249,7 @@
 <tbody>
 <tr>
 <td>Browser, React Native, &amp; NodeJS</td>
-<td align="center"><a href="https://textileio.github.io/js-threads">js-threads</a> <br/> <a href="https://textileio.github.io/js-threads-client">js-threads-client</a></td>
+<td align="center"><a href="https://textileio.github.io/js-threads">js-threads</a></td>
 <td align="center"><a href="https://textileio.github.io/js-textile">js-textile</a></td>
 </tr>
 <tr>
@@ -1333,7 +1333,7 @@
 <span class="kr">const</span> <span class="nx">buck</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="s1">&#39;images&#39;</span><span class="p">,</span> <span class="nx">ctx</span><span class="p">)</span>
 </code></pre></div>
 
-<h5 id="push-a-files-to-the-bucket">Push a files to the bucket<a class="headerlink" href="#push-a-files-to-the-bucket" title="Permanent link">&para;</a></h5>
+<h5 id="push-files-to-the-bucket">Push files to the bucket<a class="headerlink" href="#push-files-to-the-bucket" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">pth</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;testdata&#39;</span><span class="p">)</span>
 <span class="kr">const</span> <span class="nx">stream</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">pth</span><span class="p">,</span> <span class="s1">&#39;file1.jpg&#39;</span><span class="p">))</span>
 <span class="kr">const</span> <span class="nx">rootKey</span> <span class="o">=</span> <span class="nx">buck</span><span class="p">.</span><span class="nx">root</span><span class="o">?</span><span class="p">.</span><span class="nx">key</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span>

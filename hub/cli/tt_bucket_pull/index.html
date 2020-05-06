@@ -749,8 +749,8 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb" title="3Box User Buckets" target="_blank" class="md-nav__link">
-      3Box User Buckets
+    <a href="https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb" title="3Box User Buckets (JavaScript)" target="_blank" class="md-nav__link">
+      3Box User Buckets (JavaScript)
     </a>
   </li>
 
@@ -824,30 +824,68 @@
                 
                 
                 <h1 id="bucket-pull">bucket pull<a class="headerlink" href="#bucket-pull" title="Permanent link">&para;</a></h1>
-<p>Pull files and directories from a bucket path. Existing paths will be overwritten. Non-existing paths will be created.</p>
-<p>Bucket structure is mirrored locally. For example, given the bucket:
-    foo/one.txt
-    foo/bar/two.txt
-    foo/bar/baz/three.txt</p>
-<p>These 'pull' commands result in the following local structures.</p>
-<p>'tt bucket pull foo mydir':
-    mydir/foo/one.txt
-    mydir/foo/bar/two.txt
-    mydir/foo/bar/baz/three.txt</p>
-<p>'tt bucket pull foo/bar mydir':
-    mydir/bar/two.txt
-    mydir/bar/baz/three.txt</p>
-<p>'tt bucket pull foo/bar/baz mydir':
-    mydir/baz/three.txt</p>
-<p>'tt bucket pull foo/bar/baz/three.txt mydir':
-    mydir/three.txt</p>
-<p>'tt bucket pull foo .':
-    foo/one.txt
-    foo/bar/two.txt
-    foo/bar/baz/three.txt</p>
+<p>Pull files and directories from a <strong>bucket path</strong> <code>[path]</code> to a <strong>local destination</strong> <code>[destination]</code>. Existing paths will be overwritten. Non-existing paths will be created.</p>
 <div class="highlight"><pre><span></span><code>tt bucket pull [path] [destination] [flags]
 </code></pre></div>
 
+<p>Bucket structure is mirrored locally. For example, given the <strong>bucket</strong>:
+<div class="highlight"><pre><span></span><code>foo
+│   one.txt
+│
+└───bar
+    │   two.txt
+    │
+    └───baz
+        │   three.txt
+</code></pre></div></p>
+<p>These <code>pull</code> commands result in the following <strong>local structures</strong>, given we are in the parent directory of 'mydir/':</p>
+<p><code>tt bucket pull foo mydir</code>:
+<div class="highlight"><pre><span></span><code>mydir
+│   one.txt
+│
+└───bar
+    │   two.txt
+    │
+    └───baz
+        │   three.txt
+</code></pre></div></p>
+<p><code>tt bucket pull foo/bar mydir</code>:
+<div class="highlight"><pre><span></span><code>mydir
+│
+└───bar
+    │   two.txt
+    │
+    └───baz
+        │   three.txt
+</code></pre></div></p>
+<p><code>tt bucket pull foo/bar/baz mydir</code>:
+<div class="highlight"><pre><span></span><code>mydir
+│
+└───baz
+    │   three.txt
+</code></pre></div></p>
+<p><code>tt bucket pull foo/bar/baz/three.txt mydir</code>:
+<div class="highlight"><pre><span></span><code>mydir
+│   three.txt
+</code></pre></div></p>
+<p><code>tt bucket pull foo .</code> will pull directly into the working directory:
+<div class="highlight"><pre><span></span><code>one.txt
+bar
+│   two.txt
+│
+└───baz
+    │   three.txt
+</code></pre></div></p>
+<p><code>tt bucket pull . .</code> will pull the whole bucket directly into the working directory:
+<div class="highlight"><pre><span></span><code>foo
+│   one.txt
+│
+└───bar
+    │   two.txt
+    │
+    └───baz
+        │   three.txt
+</code></pre></div></p>
 <h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>  -h, --help   help for pull
 </code></pre></div>

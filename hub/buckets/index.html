@@ -418,13 +418,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#buckets-cli" title="Buckets CLI" class="md-nav__link">
-    Buckets CLI
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#learn-more-about-buckets" title="Learn more about Buckets" class="md-nav__link">
     Learn more about Buckets
   </a>
@@ -999,8 +992,8 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb" title="3Box User Buckets" target="_blank" class="md-nav__link">
-      3Box User Buckets
+    <a href="https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb" title="3Box User Buckets (JavaScript)" target="_blank" class="md-nav__link">
+      3Box User Buckets (JavaScript)
     </a>
   </li>
 
@@ -1123,13 +1116,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#buckets-cli" title="Buckets CLI" class="md-nav__link">
-    Buckets CLI
-  </a>
   
 </li>
       
@@ -1293,8 +1279,20 @@
 <figure><img src="/images/tt-cli/tt_bucket_init.png" /><figcaption><a href="/hub/cli/tt_bucket">Read CLI docs for Buckets</a>.</figcaption>
 </figure>
 </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Bucket names are unique to a developer and within an Org. They are not globally unique.**</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful creating a bucket in a root directory, because all children directories will linked to that bucket. To move or remove a bucket's link to a directory, edit, move or delete the <code>.textile/config.yml</code> file (it will be a hidden folder in the bucket's directory)</p>
+</div>
 <h3 id="shared-buckets">Shared Buckets<a class="headerlink" href="#shared-buckets" title="Permanent link">&para;</a></h3>
-<p>You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the <code>--org</code> flag, specifying the name of the Org you want to share the bucket with. All members of the Org will be able to push and pull files to and from the shared Bucket. <a href="/hub/accounts#organizations">Read more about creating Orgs</a>.</p>
+<p>You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the <code>--org</code> flag, specifying the name of the Org you want to share the bucket with. For example <code>tt bucket init --org nasa</code>. All members of the Org will be able to push and pull files to and from the shared Bucket. <a href="/hub/accounts#organizations">Read more about creating Orgs</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>to check which org a bucket is registered with, examine the <code>.textile/config.yml</code> file (it will be a hidden folder in the bucket's directory)</p>
+</div>
 <h2 id="publishing-content">Publishing content<a class="headerlink" href="#publishing-content" title="Permanent link">&para;</a></h2>
 <h3 id="push-new-files">Push new files<a class="headerlink" href="#push-new-files" title="Permanent link">&para;</a></h3>
 <p>
@@ -1305,8 +1303,14 @@
 <h2 id="retrieving-content">Retrieving content<a class="headerlink" href="#retrieving-content" title="Permanent link">&para;</a></h2>
 <h3 id="pull-files">Pull files<a class="headerlink" href="#pull-files" title="Permanent link">&para;</a></h3>
 <p><code>tt bucket init --existing</code></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>By using the <code>--existing</code> flag, you can list Buckets already pushed by you or, when using <code>--org</code>, your collaborators.</p>
+</div>
 <h3 id="explore-on-the-gateway">Explore on the gateway<a class="headerlink" href="#explore-on-the-gateway" title="Permanent link">&para;</a></h3>
+<p>To inspect your pushed files, exlore on the gateway:
+<code>tt bucket links</code>
+then open the first result 'Thread links' in your browser.</p>
 <p><img alt="" src="/images/buckets/bucket_gateway.png" /></p>
 <p>The Hub gateway gives you a static URL where you can explore, download, and share your latest Bucket content.</p>
 <h3 id="render-on-a-website">Render on a website<a class="headerlink" href="#render-on-a-website" title="Permanent link">&para;</a></h3>
@@ -1315,17 +1319,12 @@
 <h3 id="render-on-ipfs-gateways">Render on IPFS gateways<a class="headerlink" href="#render-on-ipfs-gateways" title="Permanent link">&para;</a></h3>
 <p>Buckets are dynamic folders distributed over IPFS using ThreadsDB. Each Bucket has a unique <a href="https://docs.ipfs.io/guides/concepts/ipns/">IPNS</a> address that will allow you to render or fetch your Bucket on any IPFS peer or gateway that supports IPNS (including <a href="https://ipfs.io">ipfs.io</a> and <a href="https://cloudflare.com">Cloudflare</a>).</p>
 <p>Buckets can't change the speed that IPNS propogates through the network, but we recommend you explore and try for yourself. The <a href="#explore-on-the-gateway">Hub gateway</a> will always render the latest data right away.</p>
-<h2 id="buckets-cli">Buckets CLI<a class="headerlink" href="#buckets-cli" title="Permanent link">&para;</a></h2>
-<p>
-<figure><img src="/images/tt-cli/tt_bucket_init.png" /><figcaption><a href="/hub/cli/tt_bucket">Visit Textile Hub CLI docs for Buckets</a>.</figcaption>
-</figure>
-</p>
 <h2 id="learn-more-about-buckets">Learn more about Buckets<a class="headerlink" href="#learn-more-about-buckets" title="Permanent link">&para;</a></h2>
 <h3 id="bucket-permissions">Bucket Permissions<a class="headerlink" href="#bucket-permissions" title="Permanent link">&para;</a></h3>
 <h4 id="developer-buckets">Developer Buckets<a class="headerlink" href="#developer-buckets" title="Permanent link">&para;</a></h4>
 <p>All Buckets you create are scoped to your developer account. You can always find your currently logged in account with <code>tt whoami</code>. </p>
 <h4 id="organization-buckets">Organization Buckets<a class="headerlink" href="#organization-buckets" title="Permanent link">&para;</a></h4>
-<p>Any Buckets you create using the <code>--org</code> flag will also be shared with Org members. Here are the steps to create Org, create a new Bucket in the Org, and invite a collaborator to the Org:</p>
+<p>Any Buckets you create using the <code>--org</code> flag will also be shared with Org members. Here are the steps to create an Org, create a new Bucket in the Org, and invite a collaborator to the Org:</p>
 <h5 id="create-a-new-org">Create a new Org<a class="headerlink" href="#create-a-new-org" title="Permanent link">&para;</a></h5>
 <p><img alt="" src="/images/tt-cli/tt_org_create.png" /></p>
 <div class="highlight"><pre><span></span><code>tt org create
@@ -1350,7 +1349,7 @@ tt bucket init --org nasa
 
 <p>The final step is to invite collaborators to your Org. Once they accept the invite, they will be able to interact with Buckets associated with the Org.</p>
 <h4 id="app-user-buckets">App user Buckets<a class="headerlink" href="#app-user-buckets" title="Permanent link">&para;</a></h4>
-<p>If you are building an app using one of our <a href="/hub/app-apis#libraries">developer libraries</a> you can use Buckets from inside yoru apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.</p>
+<p>If you are building an app using one of our <a href="/hub/app-apis#libraries">developer libraries</a> you can use Buckets from inside your apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.</p>
 <div class="txtl-options">
   <a href="https://textileio.github.io/js-textile" target="_blank" class="box">
     <h5>JS Textile Docs</h5>
