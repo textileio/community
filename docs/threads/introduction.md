@@ -215,7 +215,7 @@ The Threads Daemon may be helpful to developers that aim to build their own Thre
 
 ## Installation
 
-ThreadsDB can be used from many different languages and has libraries written in Javascript, Go, and Dart. Find documentatin on each of those Libraries below. 
+ThreadsDB can be used from many different languages and has libraries written in Javascript and Go. Find documentation on each of those Libraries below. 
 
 <div class="txtl-options">
   <a href="/hub/cli/tt" class="box">
@@ -228,10 +228,8 @@ ThreadsDB can be used from many different languages and has libraries written in
     <p>Use Threads in Go or compile to many other platforms.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="/hub/app-apis" class="box">
-    <h5>Dart</h5>
-    <p>Use a lightweight client library in Dart and Flutter.</p>
-  </a>
+  <span class="box-fill">
+  </span>
 </div>
 
 ## Advanced Details
