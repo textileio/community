@@ -152,7 +152,7 @@ Data in a Bucket is stored as IPLD and pinned on IPFS. You can use the underlyin
 
 #### Buckets and IPNS
 
-Every Bucket you create has a unique ID associated with it. The Bucket ID is an [IPNS](https://docs.ipfs.io/guides/concepts/ipns/) address that you can also use to fetch the latest Bucket content from any IFPS peer or view it over IPFS gateways that support the IPNS protocol.
+Every Bucket you create has a unique ID associated with it. The Bucket ID is an [IPNS](https://docs.ipfs.io/guides/concepts/ipns/) address that you can also use to fetch the latest Bucket content from any IPFS peer or view it over IPFS gateways that support the IPNS protocol.
 
 ### More resources
 
