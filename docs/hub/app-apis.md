@@ -1,6 +1,6 @@
 # Getting Started
 
-Use the Hub to help scale your applications on IPFS. The Hub APIs are available for your apps and your app users. You can use the Hub APIs with a privileged [Account API Key](#account-key) or with a [User Key](#user-key). Both have the ability to push new data to Buckets, persist ThreadsDB data, and relay ThreadsDB updates.
+Use the Hub to help scale your applications on IPFS. The Hub APIs are available for your apps and your app users. You can use the Hub APIs with a privileged [Account API Key](#account-key) or with a [User Key](#user-key). Both have the ability to push new data to Buckets, persist ThreadDB data, and relay ThreadDB updates (among other things). Attaching the Hub to your users' data will allow you to deliver high-quality user-experiences. In order to make this as straightforward as possible, you need to understand a few additional basic concepts.
 
 ## API Access
 
@@ -14,7 +14,7 @@ _[See CLI options](/hub/cli/tt_keys)_
 
 ### User Key
 
-User keys provide existing external identities (users) access to their own buckets and threads, under the custodianship of the parent account. Apps can create Buckets for users or persist and replicate ThreadsDB for users. A single _user key_ can be added to your app to authenticate many users to your Hub resources. To create a new User Key using `tt key create` and selecting the `user` option. Also see Identity section and how to use identity providers such as 3Box with user keys.
+User keys provide existing external identities (users) access to their own buckets and threads, under the custodianship of the parent account. Apps can create Buckets for users or persist and replicate ThreadDB for users. A single _user key_ can be added to your app to authenticate many users to your Hub resources. To create a new User Key using `tt key create` and selecting the `user` option. Also see Identity section and how to use identity providers such as 3Box with user keys.
 
 _[See CLI commands](/hub/cli/tt_keys)_
 
@@ -30,21 +30,204 @@ If you are building a web application, you can use domain whitelisting to access
 
 The [js-textile](#libraries) library allows you to create and edit Buckets owned by you or your organization using an [account key](#account-key). Alternatively, you can use Buckets to store your user's data using a [user key](#user-key).
 
-### ThreadsDB
+### ThreadDB
 
-[ThreadsDB](/threads/introduction) is a mongo-like database that runs on IPFS. You can use it in combination with [js-textile](#libraries) to add replication and relay to your user's databases. When combined, `js-threads` and `js-textile` allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.
+[ThreadDB](/threads/introduction) is a mongo-like database that runs on IPFS. You can use it in combination with [js-textile](#libraries) to add replication and relay to your user's databases. When combined, `js-threads` and `js-textile` allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.
 
-## Identity & data ownership
+### Data Ownership
 
-The databases and Buckets you create over the API are owned in one of three ways.
+The databases and buckets you create over the APIs are owned in one of three ways.
 
-1. Developer owned. If you use an `account key` with the Buckets or ThreadsDB APIs, the data will be linked directly to your account.
-2. Org owned. If you create an `account key` using the `--org` flag, the Buckets and Threads will be linked to the organization.
-3. User owned. If you create a `user key`, Textile allows your app to provision new Buckets and Threads on behalf of your users. This data will be signed and owned by your end-users and only accessible to them. Read more on [Threads Identity](/threads/introduction#identity)
+1. Developer owned. If you use an account key with the Buckets or ThreadDB APIs, the data will be linked directly to your account.
+2. Org owned. If you create an account key using the --org flag, the Buckets and Threads will be linked to the organization.
+3. User owned. If you create a user key, Textile allows your app to provision new Buckets and Threads on behalf of your users. This data will be signed and owned by your end-users and only accessible to them. 
 
-### User identities
+Developers can specify the *context* to customize exactly *how* resources (e.g., storage, networking, etc) are used/allocated within their own apps, and which of the three above ownership strategies are applied. This Conext API allows a developer to shift what role they are using to access the remote Hub APIs. This is interesting because a developer is able to access Hub resources as themselves (i.e., the developer), with all the administrative capabilities that entails, or as users of their app, which are sandboxed but able to create Threads (and Buckets) of their own *within* that user-scoped sandbox.
 
-User identities are flexible and can be defined in a way most suitable for your application. In the [examples](#examples) below we use private-key based identities exactly how Libp2p does. You can also use external identity providers or custom user identities. 
+This is a very powerful framework for accessing and allocating developer resources on behalf of users, while still providing the control and quality user-experience that apps built on Threads should provide.
+
+### Identity
+
+Related to data ownership is the concept of identity. Textile's Hub and Buckets/ThreadDB APIs are flexible when it comes to user identity, allowing you to handle user identities (for access control and security/encryption) in the best way for your app and your users. In order to handle *multiple* peers collaborating on a single database, as well as the ability to handle storage *on behalf* of a user, Hub APIs expect a simple Identity interface for singing and validating updates.
+
+```typescript
+interface Public {
+  verify(data: Buffer, sig: Buffer): Promise<boolean>
+}
+
+interface Identity {
+  sign(data: Buffer): Promise<Buffer>
+  public: Public
+}
+```
+
+Identity here represents any entity capable of signing a message. This is a simple [public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure) inspired interface that similarly requires the implementer to be capable of returning an associated public key for verification. In many cases, the Identity will just be a private key, but callers can use any setup that suits their needs. A default implementation based on [Libp2p's crypto library](https://github.com/libp2p/js-libp2p-crypto/blob/master/src/index.d.ts#L82) is provided for convinience (and is also used by default if no identity is provided), however, many developers will want to use alternative identity provides, such as [3box/Ceramic](https://www.ceramic.network), [Fortmatic](https://fortmatic.com), and existing private/public keypair, or a web3 provider such as [Metamask](https://metamask.io). Textile Hub also provides email-based identities.
+
+Identities also provide a way for developers to allocate resources (i.e., storage) for a particular user, and in fact, is a key component in ensuring that a user *controls their own data*.
+
+### Example: User Owned Database
+
+To illustrate the utility of Identity and Context, in the following example, we will create a user owned ThreadDB within a "user context". This should provide a useful example for getting started with Textile's Hub APIs in the context of a database. We'll also interact with our remote database using the Threads Client library (see also additional examples using the [local-first database](https://github.com/textileio/js-threads/tree/master/packages/database) in the [ThreadDB introduction](https://docs.textile.io/threads/introduction/)).
+
+To get started with Textile's Context API, follow the instructions in our [getting started guide](https://docs.textile.io/hub/introduction/). Once you have downloaded and installed the command-line tools, be sure to create a developer account.
+
+Next, create a new `user` key using `tt key create` command line tool. After some steps to create an account, you can create the keys.
+
+
+```bash
+➜ tt key create # select the 'user' option
+```
+
+
+This should produce output similar to the following. Make note of these values, but do not share them! For a Node app, it is a good idea to use a tool such as [dotenv](https://github.com/motdotla/dotenv) to reference them in your apps, which is what we will assume below. So create a simple `.env` file with `USER_API_KEY` and `USER_API_SECRET` keys.
+
+```bash
+✔ user
+
+  KEY                          SECRET                          TYPE  
+  bqab5csdh...no6jjezox4       bm2tk476yivwlw...3a4cayll7ztha  user  
+
+> Success! Created new API key and secret
+```
+
+
+Once you have the key information handy, let's jump to some code. We'll start with the required imports, and initialize a basic default `Context`.
+
+```typescript
+import { Context } from '@textile/context'
+import { Libp2pCryptoIdentity } from '@textile/threads-core'
+import { Client } from '@textile/threads-client'
+import { config } from 'dotenv'
+
+// Load your .env into process.env
+const parsed = config()
+```
+
+### Prepare Identity & Token
+
+The `Context` module provides a useful set of methods for managing and using developer keys and signatures on the client side, abstracting away some of the complexity of developer key management and communication with Textile's remote Hub gRPC APIs.
+
+For example, to create a new basic Context that will connect to Textile's remote Hub, you can initialize a Context with all defaults.
+
+While we're at it, we'll also create a default identity for our user, using the `Libp2pCryptoIdentity` object. In practice, you might have your own identity provider, or you might want to use a hierarchical key/wallet or mnemonic phrase to help store a users keys for them. Whatever you decide, Textile's generic identity interface should be able to support it.
+
+```typescript
+const ctx = new Context()
+const identity = await Libp2pCryptoIdentity.fromRandom() // Random identity
+```
+
+The next step is to authenticate the user with your User Key and Secret. This will allow the user to store threads and buckets using your developer resources on the Hub.
+
+```typescript
+// Update the context WITH the user key information
+await ctx.withUserKey({
+   key: process.env.USER_API_KEY,
+   secret: process.env.USER_API_SECRET,
+   type: 1, // User key type
+ })
+// This will also return a promise with your updated context:
+```
+
+### Setup ThreadDB
+
+Now we will connect to our remote ThreadDB client. This will allow us to connect to a remote ThreadDB on the Textile Hub. This is an alternative to a local-first database where keys and data are stored _locally_ on the device.
+
+```typescript
+const db = new Client(ctx)
+// API calls will now include the credentials created above
+```
+
+With the ThreadDB instance ready to connect to the remote database, it is time to generate a user token. This allows us (the developer) to allocate user-scoped resources without our remote database. The app user (defined by their Identity created above) needs an API token to perform database operations. The API will give you one based on ID plus your developer credentials. The token will be added to the existing db.context. The token can also be stored/cached for future use by the same user identity (and then manually be added to a context later).
+
+```typescript
+const token = await db.getToken(identity)
+```
+
+Note that this operation updates the database's context in place. This updated context can be stored in a session or however your app stores app state.
+
+```typescript
+console.log(JSON.stringify(db.context.toJSON()))
+```
+
+An app should create a minimal number of Threads per user to avoid creating unnecessary storage. A single Thread can contain a large number of distinct Collections for different types of data. Here, we create a new Thread for a user, but you could similarly store this ThreadID in (say) a local database or your app state and restore it using `ThreadID.fromString()`.
+
+```typescript
+import { ThreadID } from '@textile/threads-id'
+const id = ThreadID.fromRandom()
+
+await db.newDB(id) // Updates the context to include the thread id
+// Or, do it manually
+// db.context.withThread(id)
+```
+
+For this example, we're going to be working with a Collection of Astronauts. The schema looks like this.
+
+```typescript
+const astronautSchema = {
+   $id: 'https://example.com/astronaut.schema.json',
+   $schema: 'http://json-schema.org/draft-07/schema#',
+   title: 'Astronauts',
+   type: 'object',
+   required: ['_id'],
+   properties: {
+     _id: {
+       type: 'string',
+     },
+     firstName: {
+       type: 'string',
+     },
+     lastName: {
+       type: 'string',
+     },
+     missions: {
+       type: 'integer',
+       minimum: 0,
+     },
+   },
+ }
+ ```
+
+ Using that schema, we'll create a new collection. See [our ThreadDB introduction](https://docs.textile.io/threads/introduction/) for details about Collections, Schemas, and Instances.
+
+ ```typescript
+ await db.newCollection(id, 'Astronaut', astronautSchema)
+ ```
+
+ ### Add Instance to Collection
+
+Now that our ThreadDB contains the Astronaut Collection, you just need to add a new astronaut that matches the expected schema. If you run the following code many times, you'll notice many Buzz Aldrin entries in your ThreadDB, each with a unique ID.
+
+```typescript
+const ids = await db.create(id, 'Astronaut', [
+  {
+    _id: '', // Leave empty to auto-generate
+    firstName: 'Buzz',
+    lastName: 'Aldrin',
+    missions: 2,
+  }
+])
+```
+
+### Query from our Collection
+
+You can search all your existing Buzz Aldrins pretty easily. You can also clean up our entries (just delete them all!), modify them, or perform various transactions.
+
+```typescript
+import { Where } from '@textile/threads-client'
+
+const q = new Where('firstName').eq('Buzz')
+const r = await db.find(id, 'Astronaut', q)
+
+// Extract just the ids
+const ids = r.instancesList.map((instance: any) => instance._id)
+
+console.log(`Found ${ids.length} entries`)
+
+// Cleanup!
+await db.delete(id, 'Astronaut', ids)
+```
+
+We leave the remaining operations as an exercise for the reader. Have fun, explore, and let us know what you think!
 
 ## Libraries
 
@@ -52,104 +235,9 @@ You can find all remote Thread and Bucket APIs in the `textile` libraries below.
 
 Here are the libraries you will find useful to start building today.
 
-|                         | ThreadsDB           | Threads APIs & Buckets      |
+|                         | ThreadDB           | Threads APIs & Buckets      |
 |-------------------------|:---------------------:|:-------------------:|
 | Browser, React Native, & NodeJS | [js-threads](https://textileio.github.io/js-threads) | [js-textile](https://textileio.github.io/js-textile) |
 | Dart & Flutter Apps ([pending release](https://github.com/textileio/dart-textile/issues/5))    | [dart-threads-client](https://github.com/textileio/dart-textile/issues/5) | [dart-textile](https://github.com/textileio/dart-textile/issues/5) |
 | Golang Libraries        | [go-threads](https://godoc.org/github.com/textileio/go-threads)          | |
 | Command-line | _thread-shell (coming)_       | [Hub CLI](/hub/cli/tt)         |
-
-## Examples
-
-### Create a user owned ThreadsDB
-
-##### Create a new user session
-
-```typescript
-import { Context } from '@textile/textile'
-import { Client } from '@textile/threads-client'
-
-let ctx: Context = new Context()
-
-// `USER_KEY` comes from `tt key create`
-ctx = ctx.withAPIKey(USER_KEY)
-```
-
-##### Create a db with the user identity
-
-Your users can be defined by any available identity provider or use any private-key based identity, such as Libp2p's identities.
-
-```typescript
-const identity = await Libp2pCryptoIdentity.fromRandom()
-
-const db = new Client(ctx)
-const tok = await db.getToken(identity)
-ctx = ctx.withToken(tok)
-```
-
-##### Create a user owned thread for their buckets
-
-Buckets run on Threads, so your user will need a ThreadDB setup for thier own Buckets.
-
-```typescript
-ctx = ctx.withThreadName('private-chat-0')
-const id = ThreadID.fromRandom()
-const db = new Client(ctx)
-await db.newDB(id.toBytes())
-```
-
-See the [js-threads](https://textileio.github.io/js-threads) documentation to learn more about using threads in your app.
-
-### Create a user owned Bucket
-
-##### Create a new user session
-
-```typescript
-import { Context } from '@textile/textile'
-import { Client } from '@textile/threads-client'
-
-let ctx: Context = new Context()
-
-// `USER_KEY` comes from `tt key create`
-ctx = ctx.withAPIKey(USER_KEY)
-```
-
-##### Create a db with the user identity
-
-Your users can be defined by any available identity provider or use any private-key based identity, such as Libp2p's identities.
-
-```typescript
-const identity = await Libp2pCryptoIdentity.fromRandom()
-
-const db = new Client(ctx)
-const tok = await db.getToken(identity)
-ctx = ctx.withToken(tok)
-```
-
-##### Create a user owned thread for their buckets
-
-Buckets run on Threads, so your user will need a ThreadDB setup for thier own Buckets.
-
-```typescript
-ctx = ctx.withThreadName('my-buckets')
-const id = ThreadID.fromRandom()
-const db = new Client(ctx)
-await db.newDB(id.toBytes())
-ctx = ctx.withThread(id)
-```
-
-##### Initialize a new bucket in the db
-
-```typescript
-const buckets = new Buckets(ctx)
-const buck = await buckets.init('images', ctx)
-```
-
-##### Push files to the bucket
-
-```typescript
-const pth = path.join(__dirname, '..', 'testdata')
-const stream = fs.createReadStream(path.join(pth, 'file1.jpg'))
-const rootKey = buck.root?.key || ''
-const { root } = await buckets.pushPath(rootKey, 'dir1/file1.jpg', stream, ctx)
-```
