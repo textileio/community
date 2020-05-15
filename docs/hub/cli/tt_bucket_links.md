@@ -1,6 +1,6 @@
 # bucket links
 
-Print links to where this Bucket can be accessed.
+Print links to where this bucket can be accessed.
 
 ```
 tt bucket links [flags]
@@ -12,6 +12,6 @@ tt bucket links [flags]
   -h, --help   help for links
 ```
 
-## SEE ALSO
+### SEE ALSO
 
 * [tt bucket](tt_bucket.md)	 - Manage a bucket

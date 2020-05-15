@@ -1,6 +1,6 @@
 # Getting Started
 
-Use the Hub to help scale your applications on IFPS. The Hub APIs are available for your apps and your app users. You can use the Hub APIs with a privileged [Account API Key](#account-key) or with a [User Key](#user-key). Both have the ability to push new data to Buckets, persist ThreadDB data, and relay ThreadDB updates (among other things). Attaching the Hub to your users' data will allow you to deliver high-quality user-experiences. In order to make this as straightforward as possible, you need to understand a few additional basic concepts.
+Use the Hub to help scale your applications on IPFS. The Hub APIs are available for your apps and your app users. You can use the Hub APIs with a privileged [Account API Key](#account-key) or with a [User Key](#user-key). Both have the ability to push new data to Buckets, persist ThreadDB data, and relay ThreadDB updates (among other things). Attaching the Hub to your users' data will allow you to deliver high-quality user-experiences. In order to make this as straightforward as possible, you need to understand a few additional basic concepts.
 
 ## API Access
 
@@ -32,7 +32,7 @@ The [js-textile](#libraries) library allows you to create and edit Buckets owned
 
 ### ThreadDB
 
-[ThreadDB](/threads/introduction) is a mongo-like database that runs on IPFS. You can use it in combination with [js-textile](#libraries) to add replication and relay to your user's databases. When combined, `js-threads` and `js-textile` allow you to embed private, p2p databases in your app that use remote IFPS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.
+[ThreadDB](/threads/introduction) is a mongo-like database that runs on IPFS. You can use it in combination with [js-textile](#libraries) to add replication and relay to your user's databases. When combined, `js-threads` and `js-textile` allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.
 
 ### Data Ownership
 
