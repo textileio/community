@@ -4,7 +4,7 @@ hero_img: /images/threads-hero.png
 
 # Getting Started
 
-ThreadDB is a serverless p2p database built on [IPFS](https://ipfs.io) and [Libp2p](https://libp2p.io). Together, the Threads Protocol and Database provide an alternative architecture for data on the web. ThreadDB aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data ([IPLD](https://ipld.io)), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.
+ThreadDB is a p2p database built on [IPFS](https://ipfs.io) and [Libp2p](https://libp2p.io). Together, the Threads Protocol and Database provide an alternative architecture for data on the web. ThreadDB aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data ([IPLD](https://ipld.io)), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.
 
 ### Developer API
 
@@ -201,4 +201,4 @@ ThreadDB can be used from many different languages and has libraries written in 
 
 ## Advanced Details
 
-The protocols and design of ThreadDB can be explored in detail in the whitepaper: [A protocol & event-sourced database for decentralized user-siloed data](https://docsend.com/view/gu3ywqi). For futher technical details. the reference implementation of Threads is written in Go and the full implementation details can be found [on godocs](https://godoc.org/github.com/textileio/go-threads).
+The protocols and design of ThreadDB can be explored in detail in the whitepaper: [A protocol & event-sourced database for decentralized user-siloed data](https://docsend.com/view/gu3ywqi). For further technical details. the reference implementation of Threads is written in Go and the full implementation details can be found [on godocs](https://godoc.org/github.com/textileio/go-threads).
