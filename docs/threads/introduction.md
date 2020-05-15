@@ -10,7 +10,7 @@ ThreadDB is a p2p database built on [IPFS](https://ipfs.io) and [Libp2p](https:/
 
 ThreadDB is designed to be simple enough for any developer to start using. The API will feel familiar to developers who have worked with technologies like MongoDB.
 
-The first three concepts a developer will encounter with ThreadDB are [Databases](#databases), [Collections](#collections), and [Instances](#instances). The organization is simple. Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections.
+The first three concepts a developer will encounter with ThreadDB are [Databases](#databases), [Collections](#collections), and [Instances](#instances). The organization is simple. Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections. Collections are similar to Tables in other databases.
 
 A Thread-based Database is tied to a single Thread (with associated Thread ID).
 
@@ -42,7 +42,7 @@ console.log(db.threadID.toString())
 
 ### Collections
 
-To handle different data structures, a Database contains Collections, each of which are defined by a [json-schema.org schema](https://json-schema.org/). These schemas define the 'shape' of Collection Instances. Collections implement a Store with [JSON Patch](https://github.com/Starcounter-Jack/JSON-Patch) semantics by default, but will be made to support other types (CRDT-driven documents for instance) in the future (some of which are already under active development). Ultimately, a Collection is a single document store with a set of APIs to make it feel like a *local database table*.
+To handle different data structures, a Database contains Collections, each of which are defined by a [json-schema.org schema](https://json-schema.org/). These schemas define the 'shape' of Collection Instances. Collections are similar to Tables in other databases. Ultimately, a Collection is a single document store with a set of APIs to make it feel like a *local database table*.
 
 Collections can be created from an existing Schema.
 
@@ -81,7 +81,7 @@ const Player = await db.newCollectionFromObject('Player', obj)
 
 ### Instances
 
-Instances are the objects you store in your Collection. Instances are JSON documents with schemas that match those defined in your Collection. Creating and manipulating them is simple.
+Instances are the objects you store in your Collection. Instances are JSON documents with schemas that match those defined in your Collection. Updates to an Instance are driven by [JSON Patch](https://github.com/Starcounter-Jack/JSON-Patch) semantics by default, but will be made to support other types (CRDT-driven documents for instance) in the future (some of which are already under active development). Creating and manipulating them is simple.
 
 
 ```typescript
