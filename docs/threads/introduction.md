@@ -4,87 +4,89 @@ hero_img: /images/threads-hero.png
 
 # Getting Started
 
-ThreadsDB is a serverless p2p database built on [IPFS](https://ipfs.io) and [Libp2p](https://libp2p.io). Together, the Threads Protocol and Database provide an alternative architecture for data on the web. ThreadsDB aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data ([IPLD](https://ipld.io)), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.
+ThreadDB is a serverless p2p database built on [IPFS](https://ipfs.io) and [Libp2p](https://libp2p.io). Together, the Threads Protocol and Database provide an alternative architecture for data on the web. ThreadDB aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data ([IPLD](https://ipld.io)), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.
 
 ### Developer API
 
-ThreadsDB is designed to be simple enough for any developer to start using. The API will feel familiar to developers who have worked with technologies like MongoDB or Mongoose.
+ThreadDB is designed to be simple enough for any developer to start using. The API will feel familiar to developers who have worked with technologies like MongoDB.
 
-The first three concepts a developer will encounter with ThreadsDB are [Databases](#databases), [Collections](#collections), and [Instances](#instances). The organization is simple. Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections.
+The first three concepts a developer will encounter with ThreadDB are [Databases](#databases), [Collections](#collections), and [Instances](#instances). The organization is simple. Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections.
 
-ThreadsDB supports Mongodb/Mongoose style search. In the JavaScript library, you might write queries like the following.
+A Thread-based Database is tied to a single Thread (with associated Thread ID).
 
-```js
-Players.find(
-  { 
-    $and: [
-      { points: { $gt: 10 } },
-      { points: { $lt: 20 } },
-      { team: 'Astronauts' }
-    ]
-  }, 
-  { sort: { points: -1 }}
-)
-```
-
-### Multi-user Databases
-
-Everything above just looks like a Database, so what's a Thread? ThreadsDB combines the storage and management of data (the Database) with networking, access control, and replication over IPFS using the Threads Protocol. The Threads protocol has been extensively documented in the [whitepaper](https://docsend.com/view/gu3ywqi), but in short, Threads use private-key encryption to manage both security and identity among multiple parties that can access or edit the same Database.
-
-Jump to [Thread Networking](#networking) to read more.
-
-## Replication with the Hub
-
-ThreadsDB has been designed to support trustless peers on the network to provide services that improve or enhance performance and experience for end-users. [The Hub](/hub/introduction) offers Thread Services for relay, replication, and backup that you can add for your users in a couple of minutes. 
-
-### Connect to the Hub
-
-1. [Create an Account](/hub/accounts#account-setup)
-2. [Create an App Token](/hub/app-apis#api-access)
-3. <a href="https://textileio.github.io/js-textile" target="_blank">Add the Textile Library to your App</a>
-
-## ThreadsDB
-
-### Basic Usage
-
-#### Databases
-
-A Thread-based Database is tied to a single Thread (with associated Thread ID). A Database is an Event Emitter (in the Nodejs sense), and Listeners can subscribe to Events using 'wildcard' syntax via the [EventEmitter2](https://github.com/EventEmitter2/EventEmitter2) library.
-
-To start an empty database is simple.
 
 ```typescript
-import { Database } from '@textile/threads-database'
-const db = new Database(...)
+import { Database, JSONSchema, FilterQuery } from '@textile/threads-database'
+import { ThreadID } from '@textile/threads-id'
 ```
 
-#### Collections
+To start a new, empty database is simple. A new [Level Datastore](https://github.com/ipfs/js-datastore-level) is used as the backing store by default if no datastore is explicitly supplied. See the doc-strings for the `Database.constructor` for further options.
 
-To handle different data structures, a Database contains Collections, each of which are defined by a [json-schema.org](https://json-schema.org) schema. These schemas define the 'shape' of Collection Instances. Collections implement a Store with [JSON Patch](https://github.com/Starcounter-Jack/JSON-Patch) semantics by default, but will be made to support other types (CRDT-driven documents for instance) in the future (some of which are already under active development). Ultimately, a Collection is a Store with a set of APIs to make it feel like a *local database table*.
+By default, a ThreadDB will connect with a local `go-threads` Threads Daemon. See the [`go-threads`](https://github.com/textileio/go-threads) for details on getting started with local development. The Threads Daemon may be helpful to developers that aim to build their own Thread Services, host replication services, or test advanced Thread usage. The Threads Daemon (`threadsd`) is provided as an installable binary with every [release of Threads](https://github.com/textileio/go-threads/releases).
+
+Alternatively, it is possible to connect with a remote daemon by specifying the networking component of the Database ([See more](#replication-with-the-hub) for details on connecting to hosted remote services).
+
 
 ```typescript
-import { Database } from '@textile/threads-database'
-const db = new Database(...)
-const Collection = await db.newCollectionFromObject('Players', {
-  ID: '',
+const db = new Database() // Uses a level datastore by default
+```
+
+Next, we simply start the database, and we are ready to take action. Here, we are explicitly providing an 'existing' ThreadID. But default, a random ThreadID will be used. See the doc-strings for `Database.open` for further options.
+
+
+```typescript
+const threadID = ThreadID.fromRandom()
+await db.open({ threadID })
+console.log(db.threadID.toString())
+```
+
+### Collections
+
+To handle different data structures, a Database contains Collections, each of which are defined by a [json-schema.org schema](https://json-schema.org/). These schemas define the 'shape' of Collection Instances. Collections implement a Store with [JSON Patch](https://github.com/Starcounter-Jack/JSON-Patch) semantics by default, but will be made to support other types (CRDT-driven documents for instance) in the future (some of which are already under active development). Ultimately, a Collection is a single document store with a set of APIs to make it feel like a *local database table*.
+
+Collections can be created from an existing Schema.
+
+
+```typescript
+// Define a simple person schema
+const schema: JSONSchema = {
+  $schema: 'http://json-schema.org/draft-07/schema#',
+  title: 'Person',
+  type: 'object',
+  properties: {
+    _id: { type: 'string' },
+    name: { type: 'string' },
+    age: {
+      type: 'number',
+      minimum: 0,
+      exclusiveMaximum: 100,
+    },
+  },
+}
+const Person = await db.newCollection('Person', schema)
+```
+
+Or from an existing object/instance.
+
+
+```typescript
+const obj = {
+  _id: '', // All collections have an _id field
   team: '',
   name: '',
   points: 0,
-})
-
-// This will listen to any and all event types on Players
-db.on('Players.**', update => {
-  console.log(update)
-})
+}
+const Player = await db.newCollectionFromObject('Player', obj)
 ```
 
-#### Instances
+### Instances
 
 Instances are the objects you store in your Collection. Instances are JSON documents with schemas that match those defined in your Collection. Creating and manipulating them is simple.
 
+
 ```typescript
-const beth = new Collection({ ID: 'id-i1', name: 'Beth' }) // This is not yet persisted
-await beth.save() // Save changes
+const beth = new Player({ _id: '', name: 'beth' }) // Not yet persisted
+await beth.save() // Persist changes to db
 
 // Modify the `beth` instance
 beth.points = 1
@@ -95,127 +97,92 @@ beth.team = 'Astronauts'
 beth.points = 2
 
 // Save it from the Collection
-await Collection.save(i1)
+await Player.save(beth)
 
 // Delete it from the Collection
-await Collection.delete(i1.ID)
+await Player.delete(beth._id)
+
+// etc!
 ```
 
-#### Query
+### Query
 
-Each Threads implementation supports query and look-up capabilities such as `insert`, `findOne`, `has`, and more. Threads also supports Mongodb/Mongoose style search, `find`.
+Each Threads implementation supports query and look-up capabilities such as `insert`, `findOne`, `has`, and more. ThreadDB also supports the [MongoDB query language](https://github.com/kofrasa/mingo). In the JavaScript library, you might write queries like the following.
+
 
 ```typescript
-const Players = new Collection<Player>('players', {}) // Anything goes schema
-await Players.insert(
-  { ID: '', points: 11, team: 'Astronauts': name: 'beth'},
-  { ID: '', points: 1, team: 'Astronauts': name: 'jim'},
-  { ID: '', points: 18, team: 'Astronauts': name: 'issac'},
-  { ID: '', points: 7, team: 'Astronauts': name: 'beth'},
+await Player.insert(
+  { _id: '', points: 11, team: 'Astronauts', name: 'beth'},
+  { _id: '', points: 1, team: 'Astronauts', name: 'jim'},
+  { _id: '', points: 18, team: 'Astronauts', name: 'issac'},
+  { _id: '', points: 7, team: 'Astronauts', name: 'beth'},
 )
-
-const all = Players.find({ $or: [{ points: { $gt: 10 } }, { name: 'jim' }] }, { sort: { points: -1 } })
-for await (const { key, value } of all) {
-    console.log(value)
-}
 ```
 
-#### Transactions
-
-Collections support (basic) read and write Transactions. These are lockable, key-based 'states' that you can put the Collection into, so that anything else that wants to write to the Collection must _await_ for the Transaction to complete. Transactions do not yet provide isolation, though they do provide atomic update semantics.
-
-#### Subscriptions
-
-Subscriptions can be created on the different forms of updates on a Collection (CREATE, SAVE, DELETE, ALL). These events will trigger for both local changes and changes that occur from network based peers with access to the Database.
-
-### Networking
-
-#### Multiuser Threads
-
-The following end-to-end example of exchanging data between two peers provides a good idea of the APIs that developers can use to connect multiple users to the same database. Behind the scenes, ThreadsDB uses a combination of protocols to help connect and syncronize users on the network under most conditions.
 
 ```typescript
-import { Multiaddr, ThreadID, Variant } from '@textile/threads-core'
-import { Database } from '@textile/threads-database'
-import { DomainDatastore } from '@textile/threads-store'
-import { MemoryDatastore, Key } from 'interface-datastore'
-import LevelDatastore from 'datastore-level'
-
-interface DummyEntity {
-  ID: string
-  name: string
-  counter: number
+// Setup a query
+const query = {
+  $or: [
+    { points: { $gt: 10 } },
+    { name: 'jim' },
+  ]
 }
 
-// Peer 1: Create db1, register a collection, create and update an instance.
-const d1 = new Database(...)
-await d1.open()
-const id1 = d1.threadID
-if (id1 === undefined) {
-throw new Error('should not be invalid thread id')
-}
-// Create a new collection
-const Dummy1 = await d1.newCollectionFromObject<DummyEntity>('dummy', {
-  ID: '',
-  name: '',
-  counter: 0,
-})
-
-// Get peer1 database information (addr, id, keys, etc)
-const dbInfo = await d1.dbInfo()
-
-// Peer 2: Create a completely parallel db2, which will sync with the previous one and should
-// have the same state of dummy. This one will be manually 'built' from sub-components,
-// just to show how it can be done!
-const info = await d1.service.getThread(id1)
-const datastore = new MemoryDatastore()
-const client = new Client({ host: 'http://127.0.0.1:6207' })
-const service = new Network(new DomainDatastore(datastore, new Key('service')), client)
-const test = await service.getHostID()
-const d2 = await Database.fromAddress(dbInfo.addr, info.key, datastore, {
-  service,
-})
-// Create parallel collection
-const Dummy2 = await d2.newCollectionFromObject<DummyEntity>('dummy', {
-    ID: '',
-    name: '',
-    counter: 0,
-})
-
-const dummy1 = new Dummy1({ name: 'Textile', counter: 0 })
-dummy1.counter += 42
-await dummy1.save()
-
-// wait about 5 seconds?
-
-const dummy2 = await Dummy2.findById(dummy1.ID)
-console.log(dummy2.name === dummy1.name)
-console.log(dummy2.counter === dummy1.counter)
-await d1.close()
-await d2.close()
+const all = Player.find(query, { sort: { points: -1 } })
 ```
 
-That's it! Two completely separate database instances, syncing encrypted and signed data across the network!
+Queries return `AsyncIterableIterators`, so you can loop over them and take appropriate action.
 
-#### Access-control
 
-ThreadsDB has a modular ACL system that will allow ACLs to be declared in a wide-variety of ways. ACLs are in active development and you can follow [the development here](https://github.com/textileio/go-threads/issues/295).
+```typescript
+import { collect } from 'streaming-iterables'
 
-#### Identity
+for (const { key, value } of await collect(all)) {
+  console.log(`${key.toString()}: ${value.name}`)
+}
+```
 
-ThreadsDB allows you to handle user identities in the best way for your app and your users. We include examples here that use private-key identities from Libp2p as well as 3Box identities.
+### Listen
 
-#### Pinning, Relay, and Replication
+A Database is also an [Event Emitter](https://github.com/EventEmitter2/EventEmitter2), and listeners can subscribe to events using 'wildcard' syntax. The following database manipulations could be observed via the following simple listener.
 
-Thread Services (e.g. pinning encrypted data on IPFS and helping multiple peers relay updates across the network) can be built and deployed to the network using [go-threads](https://github.com/textileio/go-threads). Textile offers a number of these functions through the Hub. Attaching the Hub to your databases will allow you to deliver a high-quality user-experience. [See more](#replication-with-the-hub)
 
-#### Local Daemon
+```typescript
+const _ = db.on('**', (update: any) => {
+  console.log(update)
+})
+```
 
-The Threads Daemon may be helpful to developers that aim to build their own Thread services, host replication services, or test advanced Thread usage. The Threads Daemon (`threadsd`) is provided as an installable binary with every [release of Threads](https://github.com/textileio/go-threads/releases).
+## Multi-user Databases
+
+Everything above just looks like a database, so what's a Thread? ThreadDB combines the storage and management of data (the *Database*) with networking, access control, and replication over IPFS using the Threads *Protocol*. The Threads protocol has been extensively documented in the [whitepaper](https://docsend.com/view/gu3ywqi), but in short, Threads use private-key encryption to manage both security and identity among multiple parties that can access or edit the same Database.
+
+### Access-control
+
+ThreadDB uses a modular role-based access control system that will allow access control lists (ACLs) to be declared in a wide-variety of ways. ACLs are in active development and you can [follow the development here](https://github.com/textileio/go-threads/issues/295).
+
+### Identity
+
+ThreadDB allows you to handle user identities (for access control and security/encryption) in the best way for your app and your users. In order to handle *multiple* peers collaborating on a single database, as well as the ability to handle storage *on behalf* of a user, ThreadDB expects a simple Identity interface for singing and validating database updates. See the Hub documentation on [user identities](/hub/app-apis#user-identities) for details.
+
+## Replication with the Hub
+
+ThreadDB has been designed to support trustless peers on the network to provide services that improve or enhance performance and experience for end-users. [The Hub](/hub/introduction) offers Thread Services for relay, replication, and backup that you can add for your users in a couple of minutes. You can learn more about Identity, Access Control, and other advanced topics, in the Hub documentation.
+
+### Connect to the Hub
+
+1. [Create an Account](/hub/accounts#account-setup)
+2. [Create an App Token](/hub/app-apis#api-access)
+3. <a href="https://textileio.github.io/js-textile" target="_blank">Add the Textile Library to your App</a>
+
+### Pinning, Relay, and Replication
+
+Thread Services (e.g. pinning encrypted data on IPFS and helping multiple peers relay updates across the network) can be built and deployed to the network using [go-threads](https://github.com/textileio/go-threads). Textile offers a number of these functions through the Hub. Attaching the Hub to your databases will allow you to deliver a high-quality user-experience.
 
 ## Installation
 
-ThreadsDB can be used from many different languages and has libraries written in Javascript and Go. Find documentation on each of those Libraries below. 
+ThreadDB can be used from many different languages and has libraries written in Javascript and Go. Find documentation on each of those Libraries below. 
 
 <div class="txtl-options">
   <a href="/hub/cli/tt" class="box">
@@ -234,4 +201,4 @@ ThreadsDB can be used from many different languages and has libraries written in
 
 ## Advanced Details
 
-The protocols and design of ThreadsDB can be explored in detail in the whitepaper: [A protocol & event-sourced database for decentralized user-siloed data](https://docsend.com/view/gu3ywqi). For futher technical details. the reference implementation of Threads is written in Go and the full implementation details can be found [on godocs](https://godoc.org/github.com/textileio/go-threads).
+The protocols and design of ThreadDB can be explored in detail in the whitepaper: [A protocol & event-sourced database for decentralized user-siloed data](https://docsend.com/view/gu3ywqi). For futher technical details. the reference implementation of Threads is written in Go and the full implementation details can be found [on godocs](https://godoc.org/github.com/textileio/go-threads).
