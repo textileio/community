@@ -13,7 +13,7 @@ tt bucket init [flags]
 ### Options
 
 ```
-      --existing        If set, initalizes from an existing remote Bucket
+      --existing        If set, initializes from an existing remote bucket
   -h, --help            help for init
       --key string      Bucket key
       --org string      Org username
