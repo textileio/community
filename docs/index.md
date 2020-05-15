@@ -31,7 +31,7 @@ The Hub is a portal to the IPFS network. Use Textile's managed services to persi
 
 ## ThreadsDB
 
-ThreadsDB is a secure, decentralized, p2p database built on IFPS and Libp2p. Developers use ThreadsDB so they can spend less time configuring encryption or managing content addresses, instead ThreadsDB allows them to start building right away. A familiar MongoDB/Mongoose API and simple data hosting services make dynamic data on the DWeb easy!
+ThreadsDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Developers use ThreadsDB so they can spend less time configuring encryption or managing content addresses, instead ThreadsDB allows them to start building right away. A familiar MongoDB/Mongoose API and simple data hosting services make dynamic data on the DWeb easy!
 
 #### Learn more
 
