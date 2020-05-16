@@ -121,7 +121,7 @@ Here we are just using a Libp2p helper to generate a private-key identity for th
 
 !!!Warning
     #### Identity caching & recovery
-    Your app should hang-on to the user identity in a persistant way. It should be stored in your user model or given to the user for recovery.
+    Your app should hang-on to the user identity in a persistent way. It should be stored in your user model or given to the user for recovery.
 
 ### Generate user Token
 
