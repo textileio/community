@@ -4,11 +4,11 @@ hero_img: /images/hero.jpg
 
 Welcome to the Textile documentation. Whether you are an expert or an absolute beginner, you'll find your answers here. Pick a starting point below, or use the search box to find documents matching your keywords.
 
-Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](https://ipfs.io), and [Filecoin](https://filecoin.io). Below, you'll find the three technologies that makeup Textile: the Hub, ThreadsDB, and the Powergate. Together, these tools should help you build apps that are only limited by your imagination!
+Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](https://ipfs.io), and [Filecoin](https://filecoin.io). Below, you'll find the three technologies that makeup Textile: the Hub, ThreadDB, and the Powergate. Together, these tools should help you build apps that are only limited by your imagination!
 
 ## The Hub
 
-The Hub is a portal to the IPFS network. Use Textile's managed services to persist your data on the IPFS network, enhance the speed and availability of your decentralized databases, and more. The Hub has APIs for developers and teams to push data to the network and it has developer libraries to provide remote IPFS pinning in your apps or simplify the deployment of our decentralized database, ThreadsDB.
+The Hub is a portal to the IPFS network. Use Textile's managed services to persist your data on the IPFS network, enhance the speed and availability of your decentralized databases, and more. The Hub has APIs for developers and teams to push data to the network and it has developer libraries to provide remote IPFS pinning in your apps or simplify the deployment of our decentralized database, ThreadDB.
 
 #### Start building
 
@@ -29,16 +29,16 @@ The Hub is a portal to the IPFS network. Use Textile's managed services to persi
   </a>
 </div>
 
-## ThreadsDB
+## ThreadDB
 
-ThreadsDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Developers use ThreadsDB so they can spend less time configuring encryption or managing content addresses, instead ThreadsDB allows them to start building right away. A familiar MongoDB/Mongoose API and simple data hosting services make dynamic data on the DWeb easy!
+ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Developers use ThreadDB so they can spend less time configuring encryption or managing content addresses, instead ThreadDB allows them to start building right away. A familiar MongoDB/Mongoose API and simple data hosting services make dynamic data on the DWeb easy!
 
 #### Learn more
 
 <div class="txtl-options">
   <a href="/threads/introduction" class="box">
     <h5>Introduction</h5>
-    <p>Learn about ThreadsDB and how to use them in your app.</p>
+    <p>Learn about ThreadDB and how to use them in your app.</p>
   </a>
   <span class="box-space"> </span>
   <a href="/hub/app-apis" class="box">
@@ -48,7 +48,7 @@ ThreadsDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Dev
   <span class="box-space"> </span>
   <a href="https://textileio.github.io/js-threads/" target="_blank" class="box">
     <h5>JavaScript Docs</h5>
-    <p>Start using the ThreadsDB in your NodeJS and browser apps.</p>
+    <p>Start using the ThreadDB in your NodeJS and browser apps.</p>
   </a>
 </div>
 

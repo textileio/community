@@ -82,7 +82,7 @@ nav:
       - Buckets: hub/buckets.md
       - App APIs: hub/app-apis.md
       - CLI Docs: hub/cli/tt.md
-  - ThreadsDB:
+  - ThreadDB: 
       - Introduction: threads/introduction.md
       - Links:
           - JavaScript: https://textileio.github.io/js-threads
@@ -101,7 +101,7 @@ nav:
   - Tutorials:
     - User Buckets & Threads (React Native): tutorials/react-native-buckets.md
   - Resources:
-    - ThreadsDB:
+    - ThreadDB:
         - Links:
             - JS Todo App (JavaScript): https://github.com/textileio/js-examples/tree/master/react-todo
             - 3Box Identities (JavaScript): https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
