@@ -82,7 +82,7 @@ nav:
       - Buckets: hub/buckets.md
       - App APIs: hub/app-apis.md
       - CLI Docs: hub/cli/tt.md
-  - ThreadsDB:
+  - ThreadDB: 
       - Introduction: threads/introduction.md
       - Links:
           - JavaScript: https://textileio.github.io/js-threads
@@ -98,19 +98,20 @@ nav:
       - Bucket: hub/cli/tt_bucket.md
       - Threads: hub/cli/tt_threads.md
       - API Keys: hub/cli/tt_keys.md
+  - Tutorials:
+    - User Buckets & Threads (React Native): tutorials/react-native-buckets.md
   - Resources:
-      - ThreadsDB:
-          - Links:
-              - User Buckets (React Native): https://github.com/textileio/js-examples/tree/master/react-native-hub-app
-              - JS Todo App (JavaScript): https://github.com/textileio/js-examples/tree/master/react-todo
-              - 3Box Identities (JavaScript): https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
-              - Chat App (Golang): https://github.com/textileio/go-threads/blob/master/examples/chat/main.go
-              - Event Store (Golang): https://github.com/textileio/go-threads/tree/master/examples/local_eventstore
-              - P2P Counter (Golang): https://github.com/textileio/go-threads/tree/master/examples/e2e_counter
-      - Buckets:
-          - Website Hosting: tutorials/static-websites.md
-          - Links:
-              - 3Box User Buckets (JavaScript): https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
+    - ThreadDB:
+        - Links:
+            - JS Todo App (JavaScript): https://github.com/textileio/js-examples/tree/master/react-todo
+            - 3Box Identities (JavaScript): https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
+            - Chat App (Golang): https://github.com/textileio/go-threads/blob/master/examples/chat/main.go
+            - Event Store (Golang): https://github.com/textileio/go-threads/tree/master/examples/local_eventstore
+            - P2P Counter (Golang): https://github.com/textileio/go-threads/tree/master/examples/e2e_counter
+    - Buckets:
+        - Website Hosting: tutorials/static-websites.md
+        - Links:
+            - 3Box User Buckets (JavaScript): https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
 
 # Customization
 extra:

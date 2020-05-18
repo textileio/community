@@ -8,7 +8,7 @@ Certain information (e.g. a user email, public keys, encrypted data content addr
 
 -   The identifier you register with.
 -   The email contact address of any developer you invite to an organization.
--   Encrypted or decrypted contents of ThreadsDB.
+-   Encrypted or decrypted contents of ThreadDB.
 -   Encrypted or decrypted contents of Buckets.
 
 1. Transient information
@@ -37,6 +37,8 @@ Please contact us with any questions at contact@textile.io
 
 ## Changelog
 
-05.04.20: Finalize TOS for new Textile Hub, Buckets, and ThreadsDB services.
+05.04.20: Finalize TOS for new Textile Hub, Buckets, and ThreadDB services.
+
+05.15.20: Corrected ThreadsDB => ThreadDB
 
 <br>

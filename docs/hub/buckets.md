@@ -66,7 +66,7 @@ If your Bucket contains web content, the Bucket website endpoint will provide yo
 
 ### Render on IPFS gateways
 
-Buckets are dynamic folders distributed over IPFS using ThreadsDB. Each Bucket has a unique [IPNS](https://docs.ipfs.io/guides/concepts/ipns/) address that will allow you to render or fetch your Bucket on any IPFS peer or gateway that supports IPNS (including [ipfs.io](https://ipfs.io) and [Cloudflare](https://cloudflare.com)).
+Buckets are dynamic folders distributed over IPFS using ThreadDB. Each Bucket has a unique [IPNS](https://docs.ipfs.io/guides/concepts/ipns/) address that will allow you to render or fetch your Bucket on any IPFS peer or gateway that supports IPNS (including [ipfs.io](https://ipfs.io) and [Cloudflare](https://cloudflare.com)).
 
 Buckets can't change the speed that IPNS propogates through the network, but we recommend you explore and try for yourself. The [Hub gateway](#explore-on-the-gateway) will always render the latest data right away.
 
@@ -140,7 +140,7 @@ Buckets are designed to be interoperable across protocols and services. Here are
 
 #### Buckets and Threads
 
-Buckets are built on [ThreadsDB](/threads/introduction). In fact, in their most basic form, Buckets are just a document in a Thread that is updated each time the directory of data is updated. Since Buckets run on Threads, it opens the door to many new integrations that can be built on Buckets! 
+Buckets are built on [ThreadDB](/threads/introduction). In fact, in their most basic form, Buckets are just a document in a Thread that is updated each time the directory of data is updated. Since Buckets run on Threads, it opens the door to many new integrations that can be built on Buckets! 
 
 #### Buckets and HTTP
 
