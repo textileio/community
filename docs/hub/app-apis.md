@@ -2,6 +2,21 @@
 
 Use the Hub to help scale your applications on IPFS. The Hub APIs are available for your apps and your app users. You can use the Hub APIs with a privileged [Account API Key](#account-key) or with a [User Key](#user-key). Both have the ability to push new data to Buckets, persist ThreadDB data, and relay ThreadDB updates (among other things). Attaching the Hub to your users' data will allow you to deliver high-quality user-experiences. In order to make this as straightforward as possible, you need to understand a few additional basic concepts.
 
+<center>
+
+|                      |     Owner    |       CLI      |   Account Key  |    User Key    |
+|----------------------|:------------:|:--------------:|:--------------:|:--------------:|
+| Developer Threads    |   Hub Login  | create, access | create, access |                |
+| Developer Buckets    |   Hub Login  | create, access | create, access |                |
+| Organization Threads |   Hub Login  | create, access | create, access |                |
+| Organization Buckets |   Hub Login  | create, access | create, access |                |
+| App User Threads     | PKI Identity |                |                | create, access |
+| App User Buckets     | PKI Identity |                |                | create, access |
+
+</center>
+
+The above table gives an overview of the different roles that can create or manage Threads and Buckets. In short, there are developer identities on the Hub and then a developer's app users represented as [private-key identities](#identity) originating in their app. Each can use resources on the Hub, and below we will walk through the details of each.
+
 ## API Access
 
 ![](/images/tt-cli/tt_account_create_select.png)
