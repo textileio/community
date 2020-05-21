@@ -1076,6 +1076,64 @@
                 
                 <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
 <p>Use the Hub to help scale your applications on IPFS. The Hub APIs are available for your apps and your app users. You can use the Hub APIs with a privileged <a href="#account-key">Account API Key</a> or with a <a href="#user-key">User Key</a>. Both have the ability to push new data to Buckets, persist ThreadDB data, and relay ThreadDB updates (among other things). Attaching the Hub to your users' data will allow you to deliver high-quality user-experiences. In order to make this as straightforward as possible, you need to understand a few additional basic concepts.</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Owner</th>
+<th align="center">CLI</th>
+<th align="center">Account Key</th>
+<th align="center">User Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Developer Threads</td>
+<td align="center">Hub Login</td>
+<td align="center">create, access</td>
+<td align="center">create, access</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>Developer Buckets</td>
+<td align="center">Hub Login</td>
+<td align="center">create, access</td>
+<td align="center">create, access</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>Organization Threads</td>
+<td align="center">Hub Login</td>
+<td align="center">create, access</td>
+<td align="center">create, access</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>Organization Buckets</td>
+<td align="center">Hub Login</td>
+<td align="center">create, access</td>
+<td align="center">create, access</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>App User Threads</td>
+<td align="center">PKI Identity</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">create, access</td>
+</tr>
+<tr>
+<td>App User Buckets</td>
+<td align="center">PKI Identity</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">create, access</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<p>The above table gives an overview of the different roles that can create or manage Threads and Buckets. In short, there are developer identities on the Hub and then a developer's app users represented as <a href="#identity">private-key identities</a> originating in their app. Each can use resources on the Hub, and below we will walk through the details of each.</p>
 <h2 id="api-access">API Access<a class="headerlink" href="#api-access" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="/images/tt-cli/tt_account_create_select.png" /></p>
 <h3 id="account-key">Account Key<a class="headerlink" href="#account-key" title="Permanent link">&para;</a></h3>
