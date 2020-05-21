@@ -39,7 +39,6 @@ extra_css:
 # Plugins
 plugins:
   - search
-  - codeyaml
 
 # Extensions
 markdown_extensions:
@@ -112,6 +111,7 @@ nav:
           - Website Hosting: tutorials/static-websites.md
           - Links:
               - 3Box User Buckets (JavaScript): https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
+              - Github Action (CI): https://github.com/marketplace/actions/textile-buckets
 
 # Customization
 extra:
@@ -128,6 +128,3 @@ extra:
       link: https://slack.textile.io
   go_textile:
     - version: v0.1.11
-  yamls:
-    - name: a_tour_of_textile
-      yaml: snippets/a_tour_of_textile

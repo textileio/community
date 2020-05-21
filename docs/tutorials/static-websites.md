@@ -21,6 +21,10 @@ If you are using one of these static site builders, jump to the specific tutoria
   </a>
 </div>
 
+## Automated Deployment
+
+Buckets can be used in continuous integration of any variety. If you are using GitHub to host your website, you can include the Bucket Action [on the GitHub Marketplace](https://github.com/marketplace/actions/textile-buckets) to automatically push updates to your Bucket whenever your website changes.
+
 ## Resources
 
 ### Domain Name Management
