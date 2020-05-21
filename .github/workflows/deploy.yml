@@ -22,6 +22,8 @@ jobs:
           ./scripts/build
       - name: setup node
         uses: actions/setup-node@v1
+        with:
+          node-version: 12
       - name: push # push to a known bucket
         id: bucket
         uses: textileio/github-action-buckets@v11
