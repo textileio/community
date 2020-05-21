@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-pip install mkdocs mkdocs-material mkdocs-codeyaml-plugin markdown-captions
+pip install mkdocs mkdocs-material markdown-captions
