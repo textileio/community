@@ -39,7 +39,6 @@ extra_css:
 # Plugins
 plugins:
   - search
-  - codeyaml
 
 # Extensions
 markdown_extensions:
@@ -128,6 +127,3 @@ extra:
       link: https://slack.textile.io
   go_textile:
     - version: v0.1.11
-  yamls:
-    - name: a_tour_of_textile
-      yaml: snippets/a_tour_of_textile
