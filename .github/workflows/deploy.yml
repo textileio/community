@@ -15,8 +15,8 @@ jobs:
     - name: build
       run: |
         echo $(python --version)
-        make ./scripts/setup
-        make ./scripts/build
+        ./scripts/setup
+        ./scripts/build
     - name: push # push to a known bucket
       id: bucket
       uses: textileio/github-action-buckets@v11
