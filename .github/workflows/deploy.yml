@@ -1,0 +1,33 @@
+name: "Textile Bucket - Deploy"
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  deploy: # make sure the action works on a clean machine without building
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Build
+      uses: jnanadarshan/mkdocs-build-action@v1
+    - name: push # push to a known bucket
+      id: bucket
+      uses: textileio/github-action-buckets@v11
+      with: 
+        key: ${{ secrets.TEXTILE_ORG_ACCOUNT_KEY }}
+        secret: ${{ secrets.TEXTILE_ORG_ACCOUNT_SECRET }}
+        bucket: 'docs'
+        thread: ${{ secrets.TEXTILE_ORG_BUCKET_THREAD }}
+        path: 'site'
+        pattern: '**/*'
+    - run: echo "bucket - ${{ steps.bucket.outputs.key }}"
+    - run: echo "ipfs - ${{ steps.bucket.outputs.ipfs }}"
+    - run: echo "ipfs link - ${{ steps.bucket.outputs.ipfsUrl }}"
+    - run: echo "ipns - ${{ steps.bucket.outputs.ipns }}"
+    - run: echo "ipns link - ${{ steps.bucket.outputs.ipnsUrl }}"
+    - run: echo "hub - ${{ steps.bucket.outputs.hub }}"
+    - run: echo "www - ${{ steps.bucket.outputs.www }}"
