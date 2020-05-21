@@ -167,6 +167,8 @@ Every Bucket you create has a unique ID associated with it. The Bucket ID is an 
     <p>Create Buckets from your JavaScript app.</p>
   </a>
   <span class="box-space"> </span>
-  <span class="box-fill">
-  </span>
+  <a href="https://github.com/marketplace/actions/textile-buckets" target="_blank" class="box">
+    <h5>GitHub Action for Buckets</h5>
+    <p>Push and updates from your GitHub repos.</p>
+  </a>
 </div>

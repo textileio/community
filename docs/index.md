@@ -77,4 +77,9 @@ The Powergate is just warming up! We are building an API driven solution to depl
 
 Join our public [Slack](https://slack.textile.io), visit our [GitHub](https://github.com/textileio), follow us on [Twitter](https://twitter.com/textileio), and check out the [Blog](https://blog.textile.io/)!
 
+
+<i>
+<a href="https://bafzbeicijsxazzszfhoqcmm4z76p54w56bazq4aaobwafbdkmq2beyn5ai.ipns.hub.textile.io/" target="_blank" style="text-decoration:none;color:grey">This site is on /ipns/bafzbeicijsxazzszfhoqcmm4z76p54w56bazq4aaobwafbdkmq2beyn5a</a>
+</i>
+
 <br>
