@@ -20,6 +20,8 @@ jobs:
         run: |
           ./scripts/setup
           ./scripts/build
+      - name: setup node
+        uses: actions/setup-node@v1
       - name: push # push to a known bucket
         id: bucket
         uses: textileio/github-action-buckets@v11
