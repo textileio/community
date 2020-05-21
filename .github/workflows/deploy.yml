@@ -12,8 +12,11 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: Build
-      uses: jnanadarshan/mkdocs-build-action@v0.23
+    - name: build
+      run: |
+        echo $(python --version)
+        make ./scripts/setup
+        make ./scripts/build
     - name: push # push to a known bucket
       id: bucket
       uses: textileio/github-action-buckets@v11
