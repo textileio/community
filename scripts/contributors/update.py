@@ -11,6 +11,7 @@ repos = [
   'textileio/js-foldersync',
   'textileio/js-ipfs-lite',
   'textileio/js-examples',
+  'textileio/js-powergate-client',
   'textileio/js-textile',
   'textileio/grpc-ipfs-lite',
   'textileio/dart-threads-client',
