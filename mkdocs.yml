@@ -98,7 +98,7 @@ nav:
     - Threads: hub/cli/tt_threads.md
     - API Keys: hub/cli/tt_keys.md
   - How-tos:
-    - Host Websites from Buckets: tutorials/static-websites.md
+    - Host a Website in a Bucket: tutorials/static-websites.md
     - Create User Buckets & Threads in React Native: tutorials/react-native-buckets.md
   - Examples:
     - ThreadDB:

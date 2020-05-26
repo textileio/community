@@ -21,9 +21,13 @@ If you are using one of these static site builders, jump to the specific tutoria
   </a>
 </div>
 
-## Automated Deployment
+## Automation and deployment (CI/CD)
 
-Buckets can be used in continuous integration of any variety. If you are using GitHub to host your website, you can include the Bucket Action [on the GitHub Marketplace](https://github.com/marketplace/actions/textile-buckets) to automatically push updates to your Bucket whenever your website changes.
+Buckets are an ideal tool for persisting your website, source code, or documentation on IPFS using continuous integration. Tools like Travis CI, CircleCI, and GitHub Actions all make it possible to do very easily.
+
+If you kepe your website source code on GitHub, we have provided a configurable [GitHub Action](https://github.com/marketplace/actions/textile-buckets) that allows you to automatically push updates to your Bucket whenever your website changes.
+
+View the [Textile Buckets GitHub Action](https://github.com/marketplace/actions/textile-buckets).
 
 ## Resources
 
