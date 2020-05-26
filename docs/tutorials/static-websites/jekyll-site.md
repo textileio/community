@@ -1,4 +1,4 @@
-[Jekyll](https://jekyllrb.com) is one of the most popular static website building frameworks around. Bonus, Jekyll is also open-source and free. Jekyll allows you to write your content in Markdown and then compile it to HTML with a command-line tool. When you compile your website, Jekyll will create a single folder containing your final website. This folder is what you'll want to add to a Textile Bucket.
+[Jekyll](https://jekyllrb.com) is one of the most popular static website building frameworks around. Bonus, Jekyll is also open-source and free. Jekyll allows you to write your content in Markdown and then compile it to HTML with a command-line tool. When you compile your website, Jekyll will create a single folder containing your final website. When you add that folder to a Textile Bucket, you can simultaneously publishing your Jekyll site to [IPFS](https://ipfs.io/), [IPNS](https://docs.ipfs.io/guides/concepts/ipns/), and HTTP.
 
 ## Getting started
 
