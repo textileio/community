@@ -70,7 +70,19 @@ Buckets are dynamic folders distributed over IPFS using ThreadDB. Each Bucket ha
 
 Buckets can't change the speed that IPNS propogates through the network, but we recommend you explore and try for yourself. The [Hub gateway](#explore-on-the-gateway) will always render the latest data right away.
 
-## Learn more about Buckets
+## Bucket Automation (CI/CD)
+
+Buckets are an ideal tool for persisting your website, source code, or documentation on IPFS using continuous integration. Tools like Travis CI, CircleCI, and GitHub Actions all make it possible to do very easily.
+
+We have provided a configurable [GitHub Action](https://github.com/marketplace/actions/textile-buckets) that allows you to:
+
+* Push or update your Bucket based on pull requests, commits, and merges.
+* Generate IPNS, IPFS, and HTTP addresses for every Bucket creation or update.
+* Create temporary Buckets for staging or review that can be removed automatically when content is merged or pull requests are closed.
+
+![Example output from [Textile Bucket GitHub Action](https://github.com/marketplace/actions/textile-buckets)](../images/buckets/github-action.png)
+
+## Learn more
 
 ### Bucket Permissions
 
