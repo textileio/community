@@ -84,7 +84,7 @@ Join our public [Slack](https://slack.textile.io), visit our [GitHub](https://gi
 
 ## Thanks!
 
-To all of the great people who have contributed to the Textile projects recently.
+To all of the great people who have contributed to the [Textile projects](https://github.com/textileio) recently.
 
 <div class='txtl-community'>
   <a href='https://github.com/100ideas' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/57006?v=4'/></a>

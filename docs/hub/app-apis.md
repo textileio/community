@@ -1,10 +1,10 @@
 # Getting Started
 
-Use the Hub to help scale your applications on IPFS. The Hub APIs are available for your apps and your app users. You can use the Hub APIs with a privileged [Account API Key](#account-key) or with a [User Key](#user-key). Both have the ability to push new data to Buckets, persist ThreadDB data, and relay ThreadDB updates (among other things). Attaching the Hub to your users' data will allow you to deliver high-quality user-experiences. In order to make this as straightforward as possible, you need to understand a few additional basic concepts.
+Use the Hub to help scale your applications on IPFS. The Hub APIs are available for your apps and your app users. You can use the Hub APIs with a privileged [Account API Key](#account-key) or with a [User Group Key](#user-group-key). Both have the ability to push new data to Buckets, persist ThreadDB data, and relay ThreadDB updates (among other things). Attaching the Hub to your users' data will allow you to deliver high-quality user-experiences. In order to make this as straightforward as possible, you need to understand a few additional basic concepts.
 
 <center>
 
-|                      |     Owner    |       CLI      |   Account Key  |    User Key    |
+|                      |     Owner    |       CLI      |   Account Key  |    User Group Key    |
 |----------------------|:------------:|:--------------:|:--------------:|:--------------:|
 | Developer Threads    |   Hub Login  | create, access | create, access |                |
 | Developer Buckets    |   Hub Login  | create, access | create, access |                |
@@ -27,9 +27,17 @@ Account keys provide direct access to developer and org account Buckets and Thre
 
 _[See CLI options](/hub/cli/tt_keys)_
 
-### User Key
+### User Group Key
 
-User keys provide existing external identities (users) access to their own buckets and threads, under the custodianship of the parent account. Apps can create Buckets for users or persist and replicate ThreadDB for users. A single _user key_ can be added to your app to authenticate many users to your Hub resources. To create a new User Key using `tt key create` and selecting the `user` option. Also see Identity section and how to use identity providers such as 3Box with user keys.
+User groups are non-admin groups of users (e.g. app users or beta users) that you want to provide restricted access to your Hub APIs. For each user group you want, you create a single _user group key_ that will be used by all members of the group to access your API endpoint (developer or organization). Optionally, you can allow users to access your API endpoint using their own private-key identity (and soon additional identity types) and can therefor maintain greater ownership and control of their data in the system. For example, your app can create Buckets and Threads on behalf of your user that they sign on device with their own identity.
+
+#### Managing User Group Keys
+
+To create a new _user group key_ using `tt key create` and selecting the `user group` option. If you are buiding an app in an organization, use `tt key create --org=<name>` to link a new key to the organization not your personal account. There is currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see [Organizations](../hub/accounts.md))
+
+You can replace your keys in your app at any time and the user will still have access to their Threads and Buckets as long as the key is connected to the same developer or organization. If you fully delete your account or organization, data replicated on IPFS through the _user group key_ will **also be removed**. So if you remove your account, we highly encourage you to replicate the data on an external IPFS node, provide tools for your users to export or replicate their own account data, or host external Thread Services to migrate your user Thread replication to.
+
+Also see Identity section and how to use identity providers such as 3Box with user group keys.
 
 _[See CLI commands](/hub/cli/tt_keys)_
 
@@ -43,7 +51,7 @@ If you are building a web application, you can use domain whitelisting to access
 
 [Buckets](/hub/buckets) provide S3-like data storage on IPFS. Just as you can create Buckets with the [Hub CLI](/hub/cli/tt), you can create Buckets using JavaScript with [js-textile](#libraries). 
 
-The [js-textile](#libraries) library allows you to create and edit Buckets owned by you or your organization using an [account key](#account-key). Alternatively, you can use Buckets to store your user's data using a [user key](#user-key).
+The [js-textile](#libraries) library allows you to create and edit Buckets owned by you or your organization using an [account key](#account-key). Alternatively, you can use Buckets to store your user's data using a [user group key](#user-group-key).
 
 ### ThreadDB
 
@@ -55,7 +63,7 @@ The databases and buckets you create over the APIs are owned in one of three way
 
 1. Developer owned. If you use an account key with the Buckets or ThreadDB APIs, the data will be linked directly to your account.
 2. Org owned. If you create an account key using the --org flag, the Buckets and Threads will be linked to the organization.
-3. User owned. If you create a user key, Textile allows your app to provision new Buckets and Threads on behalf of your users. This data will be signed and owned by your end-users and only accessible to them. 
+3. User owned. If you create a user group key, Textile allows your app to provision new Buckets and Threads on behalf of your users. This data will be signed and owned by your end-users and only accessible to them. 
 
 Developers can specify the *context* to customize exactly *how* resources (e.g., storage, networking, etc) are used/allocated within their own apps, and which of the three above ownership strategies are applied. This Conext API allows a developer to shift what role they are using to access the remote Hub APIs. This is interesting because a developer is able to access Hub resources as themselves (i.e., the developer), with all the administrative capabilities that entails, or as users of their app, which are sandboxed but able to create Threads (and Buckets) of their own *within* that user-scoped sandbox.
 
@@ -131,14 +139,14 @@ const ctx = new Context()
 const identity = await Libp2pCryptoIdentity.fromRandom() // Random identity
 ```
 
-The next step is to authenticate the user with your User Key and Secret. This will allow the user to store threads and buckets using your developer resources on the Hub.
+The next step is to authenticate the user with your _user group key_ and Secret. This will allow the user to store threads and buckets using your developer resources on the Hub.
 
 ```typescript
-// Update the context WITH the user key information
+// Update the context WITH the user group key information
 await ctx.withUserKey({
    key: process.env.USER_API_KEY,
    secret: process.env.USER_API_SECRET,
-   type: 1, // User key type
+   type: 1, // User group key type
  })
 // This will also return a promise with your updated context:
 ```
