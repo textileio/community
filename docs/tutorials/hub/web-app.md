@@ -1,6 +1,6 @@
 # Build a Web App using the Hub
 
-In this tutorial, you'll learn how to generate user tokens so that your app users can leverage your Hub APIs. With this token, your users will be able to leverge Thread Services, create and edit Buckets, and use IPFS persistance right from the browser. You'll build it using a [_user group key_](../hub/app-apis.md) so that every user can use your API while maintaining their own ownership over the data they create.
+In this tutorial, you'll learn how to generate user tokens so that your app users can leverage your Hub APIs. With this token, your users will be able to leverge Thread Services, create and edit Buckets, and use IPFS persistence right from the browser. You'll build it using a [_user group key_](../hub/app-apis.md) so that every user can use your API while maintaining their own ownership over the data they create.
 
 ## Getting Started
 
