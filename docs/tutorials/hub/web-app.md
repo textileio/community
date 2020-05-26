@@ -62,7 +62,7 @@ const token = await generateToken(identity)
 
 To start creating Buckets or Threads for your user, you need setup your app to use the new token for API requests.
 
-***Install dependencies***
+**Install dependencies**
 
 ```bash
 # Textile libraries
