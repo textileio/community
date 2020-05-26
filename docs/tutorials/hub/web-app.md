@@ -38,13 +38,13 @@ const identity = getIdentity();
 
 API tokens need to be generated for every new user. Additionally, well designed tokens expire quickly, so new tokens will need to be generated for user's each time their token expires. There is two ways to handle token generate. The first is using the `getToken` method and the second is using the `getTokenChallenge`, both available in `@textile/threads-client`. Both of those methods require Hub API key and secret, so should be executed by a service only accessible to your app.
 
-##### When to use the getToken method
+**When to use the getToken method**
 
 The `getToken` method should only be used in rare cases where the application has access to the user's private key _outside of the app_. Examples might include cases where private key identities are generated server-side.
 
 [Read the tutorial on creating a token provider using getToken](gettoken-provider.md)
 
-##### When to use the getTokenChallenge method
+**When to use the getTokenChallenge method**
 
 The `getTokenChallenge` allows your app to generate tokens for your user without requiring them to send a private key to any service or endpoint. This should be used by most applications. If you are integrating with a 3rd party identity provider where your app wont have any access to the private keys of users, as long as the identity provider has a signing method, this API will work.
 
