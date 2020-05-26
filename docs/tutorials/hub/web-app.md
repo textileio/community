@@ -69,7 +69,7 @@ To start creating Buckets or Threads for your user, you need setup your app to u
 npm install --save @textile/textile @textile/context
 ```
 
-***Connect to the API**
+**Connect to the API**
 
 Now, you just need to use the new token to connect to the API.
 
