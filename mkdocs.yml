@@ -76,43 +76,43 @@ markdown_extensions:
 nav:
   - Home: index.md
   - The Hub:
-    - Introduction: hub/introduction.md
-    - Accounts: hub/accounts.md
-    - Buckets: hub/buckets.md
-    - App APIs: hub/app-apis.md
-    - CLI Docs: hub/cli/tt.md
+      - Introduction: hub/introduction.md
+      - Accounts: hub/accounts.md
+      - Buckets: hub/buckets.md
+      - App APIs: hub/app-apis.md
+      - CLI Docs: hub/cli/tt.md
   - ThreadDB:
-    - Introduction: threads/introduction.md
-    - Links:
-      - JavaScript: https://textileio.github.io/js-threads
-      - Golang: https://godoc.org/github.com/textileio/go-threads
+      - Introduction: threads/introduction.md
+      - Links:
+          - JavaScript: https://textileio.github.io/js-threads
+          - Golang: https://godoc.org/github.com/textileio/go-threads
   - Filecoin Powergate:
-    - Introduction: powergate/introduction.md
-    - Powergate: https://github.com/textileio/powergate/#powergate
+      - Introduction: powergate/introduction.md
+      - Powergate: https://github.com/textileio/powergate/#powergate
   - Hub CLI:
-    - Login: hub/cli/tt_login.md
-    - Logout: hub/cli/tt_logout.md
-    - Whoami: hub/cli/tt_whoami.md
-    - Orgs: hub/cli/tt_orgs.md
-    - Bucket: hub/cli/tt_bucket.md
-    - Threads: hub/cli/tt_threads.md
-    - API Keys: hub/cli/tt_keys.md
+      - Login: hub/cli/tt_login.md
+      - Logout: hub/cli/tt_logout.md
+      - Whoami: hub/cli/tt_whoami.md
+      - Orgs: hub/cli/tt_orgs.md
+      - Bucket: hub/cli/tt_bucket.md
+      - Threads: hub/cli/tt_threads.md
+      - API Keys: hub/cli/tt_keys.md
   - How-tos:
-    - Build a Web App using Hub APIs: tutorials/hub/web-app.md
-    - Host a Website in a Bucket: tutorials/static-websites.md
-    - Create User Buckets & Threads in React Native: tutorials/react-native-buckets.md
+      - Build a Web App using Hub APIs: tutorials/hub/web-app.md
+      - Host a Website in a Bucket: tutorials/static-websites.md
+      - Create User Buckets & Threads in React Native: tutorials/react-native-buckets.md
   - Examples:
-    - ThreadDB:
-      - Links:
-        - JS Todo App (JavaScript): https://github.com/textileio/js-examples/tree/master/react-todo
-        - 3Box Identities (JavaScript): https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
-        - Chat App (Golang): https://github.com/textileio/go-threads/blob/master/examples/chat/main.go
-        - Event Store (Golang): https://github.com/textileio/go-threads/tree/master/examples/local_eventstore
-        - P2P Counter (Golang): https://github.com/textileio/go-threads/tree/master/examples/e2e_counter
-    - Buckets:
-      - Links:
-        - 3Box User Buckets (JavaScript): https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
-        - Buckets from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app
+      - ThreadDB:
+          - Links:
+              - JS Todo App (JavaScript): https://github.com/textileio/js-examples/tree/master/react-todo
+              - 3Box Identities (JavaScript): https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
+              - Chat App (Golang): https://github.com/textileio/go-threads/blob/master/examples/chat/main.go
+              - Event Store (Golang): https://github.com/textileio/go-threads/tree/master/examples/local_eventstore
+              - P2P Counter (Golang): https://github.com/textileio/go-threads/tree/master/examples/e2e_counter
+      - Buckets:
+          - Links:
+              - 3Box User Buckets (JavaScript): https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb
+              - Buckets from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app
 
 # Customization
 extra:
@@ -127,5 +127,3 @@ extra:
       link: https://blog.textile.io/
     - type: slack
       link: https://slack.textile.io
-  go_textile:
-    - version: v0.1.11
