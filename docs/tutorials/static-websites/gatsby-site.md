@@ -1,4 +1,6 @@
-[Gatsby](https://www.gatsbyjs.org/) is an open source, free, and easy to use static site builder. Gatsby uses React and helps you deploy your website or app as a [progressive web app](https://web.dev/progressive-web-apps/) with the smallest amount of effort. Gatsby allows you to write your content in Markdown and then compile it to HTML with a command-line tool. When you compile your website, Gatsby will create a single folder containing your final website. This folder is what you'll want to add to a Textile Bucket. Here's how.
+[Gatsby](https://www.gatsbyjs.org/) is an open source, free, and easy to use static site builder. Gatsby uses React and helps you deploy your website or app as a [progressive web app](https://web.dev/progressive-web-apps/) with the smallest amount of effort. 
+
+Gatsby allows you to write your content in Markdown and then compile it to HTML with a command-line tool. When you compile your website, Gatsby will create a single folder containing your final website. When you add that folder to a Textile Bucket, you can simultaneously publishing your Gatsby site to [IPFS](https://ipfs.io/), [IPNS](https://docs.ipfs.io/guides/concepts/ipns/), and HTTP.
 
 ## Getting started
 

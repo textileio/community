@@ -5,25 +5,29 @@ Buckets make it simple to publish websites using IPFS. If you are using a static
 If you are using one of these static site builders, jump to the specific tutorials.
 
 <div class="txtl-options">
-  <a href="/tutorials/static-jekyll-site" class="box">
+  <a href="/tutorials/static-websites/jekyll-site" class="box">
     <h5>Jekyll Site</h5>
     <p>An example Jekyll site published in a Bucket.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="/tutorials/static-gatsby-site" class="box">
+  <a href="/tutorials/static-websites/gatsby-site" class="box">
     <h5>Gatsby Site</h5>
     <p>An example Gatsby site published in a Bucket.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="/tutorials/static-hugo-site" class="box">
+  <a href="/tutorials/static-websites/hugo-site" class="box">
     <h5>Hugo Site</h5>
     <p>An example Hugo site published in a Bucket.</p>
   </a>
 </div>
 
-## Automated Deployment
+## Automation and deployment (CI/CD)
 
-Buckets can be used in continuous integration of any variety. If you are using GitHub to host your website, you can include the Bucket Action [on the GitHub Marketplace](https://github.com/marketplace/actions/textile-buckets) to automatically push updates to your Bucket whenever your website changes.
+Buckets are an ideal tool for persisting your website, source code, or documentation on IPFS using continuous integration. Tools like Travis CI, CircleCI, and GitHub Actions all make it possible to do very easily.
+
+If you kepe your website source code on GitHub, we have provided a configurable [GitHub Action](https://github.com/marketplace/actions/textile-buckets) that allows you to automatically push updates to your Bucket whenever your website changes.
+
+View the [Textile Buckets GitHub Action](https://github.com/marketplace/actions/textile-buckets).
 
 ## Resources
 

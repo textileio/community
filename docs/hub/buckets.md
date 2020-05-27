@@ -62,15 +62,35 @@ The Hub gateway gives you a static URL where you can explore, download, and shar
 
 ![](/images/buckets/bucket_website.png)
 
-If your Bucket contains web content, the Bucket website endpoint will provide you a static URL that will always render the latest content from your Bucket.
+If your Bucket contains web content, the Bucket website endpoint will provide you a static URL that will always render the latest content from your Bucket. [See HTTP Domains](#http-domain).
 
 ### Render on IPFS gateways
 
-Buckets are dynamic folders distributed over IPFS using ThreadDB. Each Bucket has a unique [IPNS](https://docs.ipfs.io/guides/concepts/ipns/) address that will allow you to render or fetch your Bucket on any IPFS peer or gateway that supports IPNS (including [ipfs.io](https://ipfs.io) and [Cloudflare](https://cloudflare.com)).
+Buckets are dynamic folders distributed over IPFS using ThreadDB. Each time you **create** a new Bucket, you will receive a new [IPNS Address](#ipns-address) that you can use on the IPFS address to fetch the latest Bucket content. The IPNS address will not change, but the content will update each time you push changes to your Bucket. Each time you **update** your Bucket, you will receive a new IPFS address to fetch that version of your Bucket content.
 
-Buckets can't change the speed that IPNS propogates through the network, but we recommend you explore and try for yourself. The [Hub gateway](#explore-on-the-gateway) will always render the latest data right away.
+## HTTP Domain
 
-## Learn more about Buckets
+All public Buckets are automatically provided a subdomain on `textile.space` that will reflect the latest changes in to your Bucket. Your Bucket's IPNS address is used as the subdomain, such that your Bucket URL will always be: `<ipns-address>.textile.space`. This is designed to further enhance the interoperability of protocols using Textile Buckets.
+
+## IPNS Address
+
+Each Bucket has a unique [IPNS](https://docs.ipfs.io/guides/concepts/ipns/) address that will allow you to render or fetch your Bucket on any IPFS peer or gateway that supports IPNS (including [ipfs.io](https://ipfs.io) and [Cloudflare](https://cloudflare.com)).
+
+Buckets can't change the speed of IPNS propagation through the network, but we recommend you explore and try for yourself. The [Hub gateway](#explore-on-the-gateway) will always render the latest data right away.
+
+## Bucket Automation (CI/CD)
+
+Buckets are an ideal tool for persisting your website, source code, or documentation on IPFS using continuous integration. Tools like Travis CI, CircleCI, and GitHub Actions all make it possible to do very easily.
+
+We have provided a configurable [GitHub Action](https://github.com/marketplace/actions/textile-buckets) that allows you to:
+
+* Push or update your Bucket based on pull requests, commits, and merges.
+* Generate IPNS, IPFS, and HTTP addresses for every Bucket creation or update.
+* Create temporary Buckets for staging or review that can be removed automatically when content is merged or pull requests are closed.
+
+![Example output from [Textile Bucket GitHub Action](https://github.com/marketplace/actions/textile-buckets)](../images/buckets/github-action.png)
+
+## Learn more
 
 ### Bucket Permissions
 

@@ -27,9 +27,9 @@ jobs:
         with:
           key: ${{ secrets.TEXTILE_ORG_ACCOUNT_KEY }}
           secret: ${{ secrets.TEXTILE_ORG_ACCOUNT_SECRET }}
-          bucket: 'docs'
+          bucket: "docs"
           thread: ${{ secrets.TEXTILE_ORG_BUCKET_THREAD }}
-          path: 'site'
+          path: "site"
       - run: echo "bucket - ${{ steps.bucket.outputs.key }}"
       - run: echo "ipfs - ${{ steps.bucket.outputs.ipfs }}"
       - run: echo "ipfs link - ${{ steps.bucket.outputs.ipfsUrl }}"
