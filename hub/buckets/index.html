@@ -418,8 +418,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#learn-more-about-buckets" title="Learn more about Buckets" class="md-nav__link">
-    Learn more about Buckets
+  <a href="#http-domain" title="HTTP Domain" class="md-nav__link">
+    HTTP Domain
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipns-address" title="IPNS Address" class="md-nav__link">
+    IPNS Address
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucket-automation-cicd" title="Bucket Automation (CI/CD)" class="md-nav__link">
+    Bucket Automation (CI/CD)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" title="Learn more" class="md-nav__link">
+    Learn more
   </a>
   
     <nav class="md-nav">
@@ -817,11 +838,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
-      Tutorials
+      How-tos
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
-        Tutorials
+        How-tos
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -832,8 +853,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorials/react-native-buckets/" title="User Buckets & Threads (React Native)" target="" class="md-nav__link">
-      User Buckets & Threads (React Native)
+    <a href="../../tutorials/hub/web-app/" title="Build a Web App using Hub APIs" target="" class="md-nav__link">
+      Build a Web App using Hub APIs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/static-websites/" title="Host a Website in a Bucket" target="" class="md-nav__link">
+      Host a Website in a Bucket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/react-native-buckets/" title="Create User Buckets & Threads in React Native" target="" class="md-nav__link">
+      Create User Buckets & Threads in React Native
     </a>
   </li>
 
@@ -853,11 +898,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
-      Resources
+      Examples
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
-        Resources
+        Examples
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -982,18 +1027,6 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../../tutorials/static-websites/" title="Website Hosting" target="" class="md-nav__link">
-      Website Hosting
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
   <!-- Added the Links filter so we could do target=_blank for a bit better ux -->
   
   
@@ -1016,8 +1049,8 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/marketplace/actions/textile-buckets" title="Github Action (CI)" target="_blank" class="md-nav__link">
-      Github Action (CI)
+    <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app" title="Buckets from React Native (JavaScript)" target="_blank" class="md-nav__link">
+      Buckets from React Native (JavaScript)
     </a>
   </li>
 
@@ -1144,8 +1177,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#learn-more-about-buckets" title="Learn more about Buckets" class="md-nav__link">
-    Learn more about Buckets
+  <a href="#http-domain" title="HTTP Domain" class="md-nav__link">
+    HTTP Domain
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipns-address" title="IPNS Address" class="md-nav__link">
+    IPNS Address
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucket-automation-cicd" title="Bucket Automation (CI/CD)" class="md-nav__link">
+    Bucket Automation (CI/CD)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" title="Learn more" class="md-nav__link">
+    Learn more
   </a>
   
     <nav class="md-nav">
@@ -1339,11 +1393,27 @@ then open the first result 'Thread links' in your browser.</p>
 <p>The Hub gateway gives you a static URL where you can explore, download, and share your latest Bucket content.</p>
 <h3 id="render-on-a-website">Render on a website<a class="headerlink" href="#render-on-a-website" title="Permanent link">&para;</a></h3>
 <p><img alt="" src="/images/buckets/bucket_website.png" /></p>
-<p>If your Bucket contains web content, the Bucket website endpoint will provide you a static URL that will always render the latest content from your Bucket.</p>
+<p>If your Bucket contains web content, the Bucket website endpoint will provide you a static URL that will always render the latest content from your Bucket. <a href="#http-domain">See HTTP Domains</a>.</p>
 <h3 id="render-on-ipfs-gateways">Render on IPFS gateways<a class="headerlink" href="#render-on-ipfs-gateways" title="Permanent link">&para;</a></h3>
-<p>Buckets are dynamic folders distributed over IPFS using ThreadDB. Each Bucket has a unique <a href="https://docs.ipfs.io/guides/concepts/ipns/">IPNS</a> address that will allow you to render or fetch your Bucket on any IPFS peer or gateway that supports IPNS (including <a href="https://ipfs.io">ipfs.io</a> and <a href="https://cloudflare.com">Cloudflare</a>).</p>
-<p>Buckets can't change the speed that IPNS propogates through the network, but we recommend you explore and try for yourself. The <a href="#explore-on-the-gateway">Hub gateway</a> will always render the latest data right away.</p>
-<h2 id="learn-more-about-buckets">Learn more about Buckets<a class="headerlink" href="#learn-more-about-buckets" title="Permanent link">&para;</a></h2>
+<p>Buckets are dynamic folders distributed over IPFS using ThreadDB. Each time you <strong>create</strong> a new Bucket, you will receive a new <a href="#ipns-address">IPNS Address</a> that you can use on the IPFS address to fetch the latest Bucket content. The IPNS address will not change, but the content will update each time you push changes to your Bucket. Each time you <strong>update</strong> your Bucket, you will receive a new IPFS address to fetch that version of your Bucket content.</p>
+<h2 id="http-domain">HTTP Domain<a class="headerlink" href="#http-domain" title="Permanent link">&para;</a></h2>
+<p>All public Buckets are automatically provided a subdomain on <code>textile.space</code> that will reflect the latest changes in to your Bucket. Your Bucket's IPNS address is used as the subdomain, such that your Bucket URL will always be: <code>&lt;ipns-address&gt;.textile.space</code>. This is designed to further enhance the interoperability of protocols using Textile Buckets.</p>
+<h2 id="ipns-address">IPNS Address<a class="headerlink" href="#ipns-address" title="Permanent link">&para;</a></h2>
+<p>Each Bucket has a unique <a href="https://docs.ipfs.io/guides/concepts/ipns/">IPNS</a> address that will allow you to render or fetch your Bucket on any IPFS peer or gateway that supports IPNS (including <a href="https://ipfs.io">ipfs.io</a> and <a href="https://cloudflare.com">Cloudflare</a>).</p>
+<p>Buckets can't change the speed of IPNS propagation through the network, but we recommend you explore and try for yourself. The <a href="#explore-on-the-gateway">Hub gateway</a> will always render the latest data right away.</p>
+<h2 id="bucket-automation-cicd">Bucket Automation (CI/CD)<a class="headerlink" href="#bucket-automation-cicd" title="Permanent link">&para;</a></h2>
+<p>Buckets are an ideal tool for persisting your website, source code, or documentation on IPFS using continuous integration. Tools like Travis CI, CircleCI, and GitHub Actions all make it possible to do very easily.</p>
+<p>We have provided a configurable <a href="https://github.com/marketplace/actions/textile-buckets">GitHub Action</a> that allows you to:</p>
+<ul>
+<li>Push or update your Bucket based on pull requests, commits, and merges.</li>
+<li>Generate IPNS, IPFS, and HTTP addresses for every Bucket creation or update.</li>
+<li>Create temporary Buckets for staging or review that can be removed automatically when content is merged or pull requests are closed.</li>
+</ul>
+<p>
+<figure><img src="../../images/buckets/github-action.png" /><figcaption>Example output from <a href="https://github.com/marketplace/actions/textile-buckets">Textile Bucket GitHub Action</a></figcaption>
+</figure>
+</p>
+<h2 id="learn-more">Learn more<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
 <h3 id="bucket-permissions">Bucket Permissions<a class="headerlink" href="#bucket-permissions" title="Permanent link">&para;</a></h3>
 <h4 id="developer-buckets">Developer Buckets<a class="headerlink" href="#developer-buckets" title="Permanent link">&para;</a></h4>
 <p>All Buckets you create are scoped to your developer account. You can always find your currently logged in account with <code>tt whoami</code>. </p>

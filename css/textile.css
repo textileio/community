@@ -2,6 +2,28 @@
 	/* background: #222; */
 }
 
+
+.txtl-community {
+	display: flex;
+	justify-content: space-between;
+	text-decoration: none;
+	flex-wrap: wrap;
+}
+
+.txtl-community .txtl-member {
+  flex: 10%;
+  max-width: 10%;
+  padding: 0 1px;
+}
+
+@media screen and (max-width: 800px) {
+	.txtl-community .txtl-member {
+		flex: 20%;
+		max-width: 20%;
+		padding: 0 1px;
+	}
+}
+
 /* gets rid of that hidden sidebar ux issues */
 .md-sidebar.md-sidebar--primary {
 	padding-bottom: 2px

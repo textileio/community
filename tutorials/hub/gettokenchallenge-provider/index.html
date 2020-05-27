@@ -1,0 +1,1187 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Textile makes it easy for you or your application to store and distribute data over the IPFS network.">
+      
+      
+        <link rel="canonical" href="https://docs.textile.io/tutorials/hub/gettokenchallenge-provider/">
+      
+      
+        <meta name="author" content="textile.io">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>Create a token provider using getTokenChallenge | Documentation | Textile</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.86c34351.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../css/textile.css">
+    
+    <script src="https://cdn.usefathom.com/3.js" site="TEBMKXIY"></script>
+    <script>
+        window.fathom || document.write('<script src="https://grouse.textile.io/core.js"><\/script>');
+    </script>
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="default" data-md-color-accent="default">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#create-a-token-provider-using-gettokenchallenge" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://docs.textile.io/" title="Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../../images/hex.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              Create a token provider using getTokenChallenge
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/textileio/docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    textileio/docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://docs.textile.io/" title="Documentation" class="md-nav__button md-logo">
+      
+        <img src="../../../images/hex.svg" width="48" height="48">
+      
+    </a>
+    Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/textileio/docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    textileio/docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" target="" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      The Hub
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        The Hub
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hub/introduction/" title="Introduction" target="" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hub/accounts/" title="Accounts" target="" class="md-nav__link">
+      Accounts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hub/buckets/" title="Buckets" target="" class="md-nav__link">
+      Buckets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hub/app-apis/" title="App APIs" target="" class="md-nav__link">
+      App APIs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hub/cli/tt/" title="CLI Docs" target="" class="md-nav__link">
+      CLI Docs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      ThreadDB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        ThreadDB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../threads/introduction/" title="Introduction" target="" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <!-- Added the Links filter so we could do target=_blank for a bit better ux -->
+  
+  
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://textileio.github.io/js-threads" title="JavaScript" target="_blank" class="md-nav__link">
+      JavaScript
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://godoc.org/github.com/textileio/go-threads" title="Golang" target="_blank" class="md-nav__link">
+      Golang
+    </a>
+  </li>
+
+  
+  
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Filecoin Powergate
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Filecoin Powergate
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../powergate/introduction/" title="Introduction" target="" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/powergate/#powergate" title="Powergate" target="" class="md-nav__link">
+      Powergate
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Hub CLI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Hub CLI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hub/cli/tt_login/" title="Login" target="" class="md-nav__link">
+      Login
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hub/cli/tt_logout/" title="Logout" target="" class="md-nav__link">
+      Logout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hub/cli/tt_whoami/" title="Whoami" target="" class="md-nav__link">
+      Whoami
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hub/cli/tt_orgs/" title="Orgs" target="" class="md-nav__link">
+      Orgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hub/cli/tt_bucket/" title="Bucket" target="" class="md-nav__link">
+      Bucket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hub/cli/tt_threads/" title="Threads" target="" class="md-nav__link">
+      Threads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hub/cli/tt_keys/" title="API Keys" target="" class="md-nav__link">
+      API Keys
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      How-tos
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        How-tos
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../web-app/" title="Build a Web App using Hub APIs" target="" class="md-nav__link">
+      Build a Web App using Hub APIs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../static-websites/" title="Host a Website in a Bucket" target="" class="md-nav__link">
+      Host a Website in a Bucket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../react-native-buckets/" title="Create User Buckets & Threads in React Native" target="" class="md-nav__link">
+      Create User Buckets & Threads in React Native
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      ThreadDB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        ThreadDB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <!-- Added the Links filter so we could do target=_blank for a bit better ux -->
+  
+  
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/react-todo" title="JS Todo App (JavaScript)" target="_blank" class="md-nav__link">
+      JS Todo App (JavaScript)
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb" title="3Box Identities (JavaScript)" target="_blank" class="md-nav__link">
+      3Box Identities (JavaScript)
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/go-threads/blob/master/examples/chat/main.go" title="Chat App (Golang)" target="_blank" class="md-nav__link">
+      Chat App (Golang)
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/go-threads/tree/master/examples/local_eventstore" title="Event Store (Golang)" target="_blank" class="md-nav__link">
+      Event Store (Golang)
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/go-threads/tree/master/examples/e2e_counter" title="P2P Counter (Golang)" target="_blank" class="md-nav__link">
+      P2P Counter (Golang)
+    </a>
+  </li>
+
+  
+  
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      Buckets
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        Buckets
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <!-- Added the Links filter so we could do target=_blank for a bit better ux -->
+  
+  
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb" title="3Box User Buckets (JavaScript)" target="_blank" class="md-nav__link">
+      3Box User Buckets (JavaScript)
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app" title="Buckets from React Native (JavaScript)" target="_blank" class="md-nav__link">
+      Buckets from React Native (JavaScript)
+    </a>
+  </li>
+
+  
+  
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" title="Environment variables" class="md-nav__link">
+    Environment variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-server" title="Create the server" class="md-nav__link">
+    Create the server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-token-websocket-handler" title="Add a token websocket handler" class="md-nav__link">
+    Add a token websocket handler
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-client" title="Create a client" class="md-nav__link">
+    Create a client
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <a href="https://github.com/textileio/docs/edit/master/docs/tutorials/hub/gettokenchallenge-provider.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="create-a-token-provider-using-gettokenchallenge">Create a token provider using getTokenChallenge<a class="headerlink" href="#create-a-token-provider-using-gettokenchallenge" title="Permanent link">&para;</a></h1>
+<p>The <code>getTokenChallenge</code> provides a helper for generating API tokens for your app users based on their private-key identity. The <code>getTokenChallenge</code> method only requires your user's public key and is therefore a more secure and friendly way to manage token generation than <code>getToken</code>. However, it does require that the user sign a challenge to prove they are the owner of the identity private key and so requires multistep communication between the token provider and the identity holder (an app).</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<p>There are a few resources you'll need before you start writing code.</p>
+<ul>
+<li><a href="../hub/accounts.md">An account</a>. This is your developer account on the Hub.</li>
+<li><a href="../hub/app-apis.md">A user group key</a>. This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.</li>
+<li><a href="https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript">A new Typescript project</a>. We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.</li>
+<li>A server framework. The example below uses <a href="https://koajs.com/">KoaJS</a> but could just as easily be written for <a href="https://expressjs.com/">Express</a> or the basic Node server.</li>
+</ul>
+<p><strong>Install dependencies</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Textile libraries</span>
+npm install --save @textile/threads-client @textile/context
+
+<span class="c1"># Other utilities use in example</span>
+npm install --save dotenv emittery isomorphic-ws
+
+<span class="c1"># Libraries specific to our server framework, koajs</span>
+npm install --save koa koa-router koa-logger koa-json koa-bodyparser koa-route koa-websocket
+</code></pre></div>
+
+<h3 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
+<p>We'll use a <code>.env</code> file in the root of our project repo where you'll add your Hub API key and secret. The <code>.env</code> file should be added to your <code>.gitignore</code> so that your key and secret are never shared.</p>
+<p>Contents of <code>.env</code>.</p>
+<div class="highlight"><pre><span></span><code>USER_API_KEY=&lt;insert user group key&gt;
+USER_API_SECRET=&lt;insert user group secret&gt;
+</code></pre></div>
+
+<h2 id="create-the-server">Create the server<a class="headerlink" href="#create-the-server" title="Permanent link">&para;</a></h2>
+<p>In our project setup, our main server is defined in <code>src/index.ts</code>. Unlike the <code>getToken</code> example, our server needs to handle two-way communication with the client during token generation. First, the client will make a request, next the server will initiate the request with the Hub and receive an identity challenge. Next, the server will pass the challenge to the client to prove they the owner of the private-key. The client will provide a challenge signature back to the server which passes it on to the Hub. If successful, a token is generated for the user.</p>
+<p>In the example below, we use <code>websockets</code> to enable this multi-step communication between the server and the client.</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/** Provides nodejs access to a global Websocket value, required by Hub API */</span>
+<span class="p">;(</span><span class="nx">global</span> <span class="kr">as</span> <span class="nx">any</span><span class="p">).</span><span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;isomorphic-ws&#39;</span><span class="p">)</span>
+<span class="kr">import</span> <span class="nx">koa</span> <span class="nx">from</span> <span class="s2">&quot;koa&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Router</span> <span class="nx">from</span> <span class="s2">&quot;koa-router&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">logger</span> <span class="nx">from</span> <span class="s2">&quot;koa-logger&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">json</span> <span class="nx">from</span> <span class="s2">&quot;koa-json&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">bodyParser</span> <span class="nx">from</span> <span class="s2">&quot;koa-bodyparser&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">route</span> <span class="nx">from</span> <span class="s2">&quot;koa-route&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">websockify</span> <span class="nx">from</span> <span class="s2">&quot;koa-websocket&quot;</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="nx">Emittery</span> <span class="nx">from</span> <span class="s2">&quot;emittery&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">dotenv</span> <span class="nx">from</span> <span class="s2">&quot;dotenv&quot;</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-client&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Provider</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/context&#39;</span><span class="p">;</span>
+
+<span class="cm">/** Read the values of .env into the environment */</span>
+<span class="nx">dotenv</span><span class="p">.</span><span class="nx">config</span><span class="p">();</span>
+
+<span class="cm">/** Port our server will run */</span>
+<span class="kr">const</span> <span class="nx">PORT</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
+
+<span class="cm">/** Init Koa with Websocket support */</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">websockify</span><span class="p">(</span><span class="k">new</span> <span class="nx">koa</span><span class="p">());</span>
+
+<span class="cm">/** Middlewares */</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">json</span><span class="p">()</span> <span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">logger</span><span class="p">()</span> <span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">bodyParser</span><span class="p">()</span> <span class="p">);</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Start API Routes</span>
+<span class="cm"> * </span>
+<span class="cm"> * All prefixed with `/api/`</span>
+<span class="cm"> */</span>
+<span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Router</span><span class="p">({</span>
+    <span class="nx">prefix</span><span class="o">:</span> <span class="s1">&#39;/api&#39;</span>
+<span class="p">});</span>
+
+
+<span class="cm">/**</span>
+<span class="cm"> * Basic foo-bar endpoint</span>
+<span class="cm"> * </span>
+<span class="cm"> * https://localhost:3000/api/foo</span>
+<span class="cm"> */</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span> <span class="s1">&#39;/foo&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">ctx</span>: <span class="kt">koa.Context</span><span class="p">,</span> <span class="nx">next</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">body</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span> <span class="p">}</span>
+  <span class="nx">await</span> <span class="nx">next</span><span class="p">();</span>
+<span class="p">})</span>
+
+
+<span class="cm">/**</span>
+<span class="cm"> * Add token websocket endpoint</span>
+<span class="cm"> */</span>
+
+
+<span class="cm">/** Tell Koa to use the REST API routes we generated */</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">api</span><span class="p">.</span><span class="nx">routes</span><span class="p">()</span> <span class="p">).</span><span class="nx">use</span><span class="p">(</span> <span class="nx">api</span><span class="p">.</span><span class="nx">allowedMethods</span><span class="p">()</span> <span class="p">);</span>
+
+<span class="cm">/** Start the server! */</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span> <span class="nx">PORT</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">&quot;Server started.&quot;</span> <span class="p">)</span> <span class="p">);</span>
+</code></pre></div>
+
+<h2 id="add-a-token-websocket-handler">Add a token websocket handler<a class="headerlink" href="#add-a-token-websocket-handler" title="Permanent link">&para;</a></h2>
+<p>Next, we'll add a token websocket endpoint to our server. Note the <code>Add token websocket endpoint</code> location in the server code above.</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Add token websocket endpoint</span>
+<span class="cm"> */</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">ws</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">route</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="s1">&#39;/ws/token&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="cm">/** Emittery allows us to wait for the challenge response event */</span>
+  <span class="kr">const</span> <span class="nx">emitter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Emittery</span><span class="p">();</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">websocket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="cm">/** All messages from client contain {type: string} */</span>
+      <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+      <span class="k">switch</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/** The first type is a new token request */</span>
+        <span class="k">case</span> <span class="s1">&#39;token&#39;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="cm">/** A new token request will contain the user&#39;s public key */</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">.</span><span class="nx">pub</span><span class="p">)</span> <span class="p">{</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;missing public key (pub)&#39;</span><span class="p">)</span> <span class="p">}</span>
+
+          <span class="cm">/** Hub API access metadata */</span>
+          <span class="kr">const</span> <span class="nx">context</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Provider</span><span class="p">();</span>
+          <span class="cm">/** Add your key and secret from .env to the metadata */</span>
+          <span class="nx">await</span> <span class="nx">context</span><span class="p">.</span><span class="nx">withUserKey</span><span class="p">({</span>
+            <span class="nx">key</span>: <span class="kt">process.env.USER_API_KEY</span><span class="p">,</span>
+            <span class="nx">secret</span>: <span class="kt">process.env.USER_API_SECRET</span><span class="p">,</span>
+            <span class="nx">type</span>: <span class="kt">1</span><span class="p">,</span> <span class="c1">// User Group Key</span>
+          <span class="p">})</span>
+          <span class="cm">/** Init new Hub API Client */</span>
+          <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Client</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+
+          <span class="cm">/** Request a token from the Hub based on the user public key */</span>
+          <span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">getTokenChallenge</span><span class="p">(</span>
+            <span class="nx">data</span><span class="p">.</span><span class="nx">pub</span><span class="p">,</span> 
+            <span class="cm">/** The callback passes the challenge back to the client */</span>
+            <span class="p">(</span><span class="nx">challenge</span>: <span class="kt">Buffer</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+              <span class="cm">/** Pass the challenge to the client */</span>
+              <span class="nx">ctx</span><span class="p">.</span><span class="nx">websocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;challenge&#39;</span><span class="p">,</span>
+                <span class="nx">value</span>: <span class="kt">challenge.toJSON</span><span class="p">(),</span>
+              <span class="p">}))</span>
+              <span class="cm">/** Wait for the challenge event from our event emitter */</span>
+              <span class="nx">emitter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;challenge&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">sig</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="cm">/** Resolve the promise with the challenge response */</span>
+                <span class="nx">resolve</span><span class="p">(</span><span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">sig</span><span class="p">))</span>
+              <span class="p">});</span>
+              <span class="cm">/** Give client a reasonable timeout to respond to the challenge */</span>
+              <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="nx">reject</span><span class="p">()</span>
+              <span class="p">},</span> <span class="mi">1500</span><span class="p">);</span>
+
+            <span class="p">})</span>
+          <span class="p">})</span>
+
+          <span class="cm">/** </span>
+<span class="cm">           * The challenge was successfully completed by the client .</span>
+<span class="cm">           * Send the token back to the client.</span>
+<span class="cm">           */</span>
+          <span class="nx">ctx</span><span class="p">.</span><span class="nx">websocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;token&#39;</span><span class="p">,</span>
+            <span class="nx">value</span>: <span class="kt">token</span><span class="p">,</span>
+          <span class="p">}))</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="cm">/** The second type is a challenge response */</span>
+        <span class="k">case</span> <span class="s1">&#39;challenge&#39;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="cm">/** A new challenge response will contain a signature */</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">.</span><span class="nx">sig</span><span class="p">)</span> <span class="p">{</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;missing signature (sig)&#39;</span><span class="p">)</span> <span class="p">}</span>
+
+          <span class="cm">/** </span>
+<span class="cm">           * If the timeout hasn&#39;t passed there is a waiting promise.</span>
+<span class="cm">           * Emit the challenge signature for the waiting listener above.</span>
+<span class="cm">           * */</span>
+          <span class="nx">await</span> <span class="nx">emitter</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;challenge&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">.</span><span class="nx">sig</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="cm">/** Notify our client of any errors */</span>
+      <span class="nx">ctx</span><span class="p">.</span><span class="nx">websocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;error&#39;</span><span class="p">,</span>
+        <span class="nx">value</span>: <span class="kt">error.message</span><span class="p">,</span>
+      <span class="p">}))</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">}));</span>
+</code></pre></div>
+
+<p>Now when you refresh your locally running server you should have a websocket endpoint for client token creation.</p>
+<h2 id="create-a-client">Create a client<a class="headerlink" href="#create-a-client" title="Permanent link">&para;</a></h2>
+<p>Back in the browser, you can now make requests to your token provider through websockets. A basic client might make a request like the following.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">generateToken</span> <span class="o">=</span> <span class="p">(</span><span class="nx">identity</span>: <span class="kt">Libp2pCryptoIdentity</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="cm">/** Configured for our development server */</span>
+    <span class="kr">const</span> <span class="nx">socketUrl</span> <span class="o">=</span> <span class="sb">`ws://localhost:3000/ws/token`</span>
+
+    <span class="cm">/** Initialize our websocket connection */</span>
+    <span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="nx">socketUrl</span><span class="p">)</span>
+
+    <span class="cm">/** Wait for our socket to open successfully */</span>
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">onopen</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+      <span class="cm">/** Send a new token request */</span>
+      <span class="nx">socket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+        <span class="nx">pub</span>: <span class="kt">publicKey</span><span class="p">,</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;token&#39;</span>
+      <span class="p">}));</span>
+
+      <span class="cm">/** Listen for messages from the server */</span>
+      <span class="nx">socket</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+          <span class="cm">/** Error never happen :) */</span>
+          <span class="k">case</span> <span class="s1">&#39;error&#39;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
+            <span class="nx">reject</span><span class="p">()</span>
+          <span class="p">}</span>
+          <span class="cm">/** The server issued a new challenge */</span>
+          <span class="k">case</span> <span class="s1">&#39;challenge&#39;</span><span class="o">:</span><span class="p">{</span>
+            <span class="cm">/** Convert the challenge json to a Buffer */</span>
+            <span class="kr">const</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
+            <span class="cm">/** User our identity to sign the challenge */</span>
+            <span class="kr">const</span> <span class="nx">signed</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">identity</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">buf</span><span class="p">)</span>
+            <span class="cm">/** Send the signed challenge back to the server */</span>
+            <span class="nx">socket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+              <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;challenge&#39;</span><span class="p">,</span>
+              <span class="nx">sig</span>: <span class="kt">signed.toJSON</span><span class="p">(),</span>
+              <span class="nx">pub</span>: <span class="kt">publicKey</span>
+            <span class="p">}));</span> 
+          <span class="p">}</span>
+          <span class="cm">/** New token generated */</span>
+          <span class="k">case</span> <span class="s1">&#39;token&#39;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><br /></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; Textile
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://textile.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/textileio" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/textileio" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://blog.textile.io/" class="md-footer-social__link fa fa-medium"></a>
+    
+      <a href="https://slack.textile.io" class="md-footer-social__link fa fa-slack"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.12aa63bf.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
+      
+        <script src="../../../js/sidebar.js"></script>
+      
+        <script src="../../../search/main.js"></script>
+      
+    
+  </body>
+</html>

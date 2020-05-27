@@ -13,7 +13,7 @@
         <meta name="description" content="Textile makes it easy for you or your application to store and distribute data over the IPFS network.">
       
       
-        <link rel="canonical" href="https://docs.textile.io/hub/cli/tt_keys/">
+        <link rel="canonical" href="https://docs.textile.io/tutorials/hub/gettoken-provider/">
       
       
         <meta name="author" content="textile.io">
@@ -42,7 +42,7 @@
     
     
       
-        <title>API Keys | Documentation | Textile</title>
+        <title>Create a token provider using getToken | Documentation | Textile</title>
       
     
     
@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#keys" tabindex="1" class="md-skip">
+      <a href="#create-a-token-provider-using-gettoken" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              API Keys
+              Create a token provider using getToken
             </span>
           
         </div>
@@ -277,7 +277,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../introduction/" title="Introduction" target="" class="md-nav__link">
+    <a href="../../../hub/introduction/" title="Introduction" target="" class="md-nav__link">
       Introduction
     </a>
   </li>
@@ -289,7 +289,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../accounts/" title="Accounts" target="" class="md-nav__link">
+    <a href="../../../hub/accounts/" title="Accounts" target="" class="md-nav__link">
       Accounts
     </a>
   </li>
@@ -301,7 +301,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../buckets/" title="Buckets" target="" class="md-nav__link">
+    <a href="../../../hub/buckets/" title="Buckets" target="" class="md-nav__link">
       Buckets
     </a>
   </li>
@@ -313,7 +313,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../app-apis/" title="App APIs" target="" class="md-nav__link">
+    <a href="../../../hub/app-apis/" title="App APIs" target="" class="md-nav__link">
       App APIs
     </a>
   </li>
@@ -325,7 +325,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tt/" title="CLI Docs" target="" class="md-nav__link">
+    <a href="../../../hub/cli/tt/" title="CLI Docs" target="" class="md-nav__link">
       CLI Docs
     </a>
   </li>
@@ -460,12 +460,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       Hub CLI
@@ -483,7 +481,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tt_login/" title="Login" target="" class="md-nav__link">
+    <a href="../../../hub/cli/tt_login/" title="Login" target="" class="md-nav__link">
       Login
     </a>
   </li>
@@ -495,7 +493,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tt_logout/" title="Logout" target="" class="md-nav__link">
+    <a href="../../../hub/cli/tt_logout/" title="Logout" target="" class="md-nav__link">
       Logout
     </a>
   </li>
@@ -507,7 +505,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tt_whoami/" title="Whoami" target="" class="md-nav__link">
+    <a href="../../../hub/cli/tt_whoami/" title="Whoami" target="" class="md-nav__link">
       Whoami
     </a>
   </li>
@@ -519,7 +517,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tt_orgs/" title="Orgs" target="" class="md-nav__link">
+    <a href="../../../hub/cli/tt_orgs/" title="Orgs" target="" class="md-nav__link">
       Orgs
     </a>
   </li>
@@ -531,7 +529,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tt_bucket/" title="Bucket" target="" class="md-nav__link">
+    <a href="../../../hub/cli/tt_bucket/" title="Bucket" target="" class="md-nav__link">
       Bucket
     </a>
   </li>
@@ -543,7 +541,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tt_threads/" title="Threads" target="" class="md-nav__link">
+    <a href="../../../hub/cli/tt_threads/" title="Threads" target="" class="md-nav__link">
       Threads
     </a>
   </li>
@@ -553,56 +551,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        API Keys
-      </label>
-    
-    <a href="./" title="API Keys" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../../hub/cli/tt_keys/" title="API Keys" target="" class="md-nav__link">
       API Keys
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#options" title="Options" class="md-nav__link">
-    Options
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" title="SEE ALSO" class="md-nav__link">
-    SEE ALSO
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -636,7 +589,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../tutorials/hub/web-app/" title="Build a Web App using Hub APIs" target="" class="md-nav__link">
+    <a href="../web-app/" title="Build a Web App using Hub APIs" target="" class="md-nav__link">
       Build a Web App using Hub APIs
     </a>
   </li>
@@ -648,7 +601,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../tutorials/static-websites/" title="Host a Website in a Bucket" target="" class="md-nav__link">
+    <a href="../../static-websites/" title="Host a Website in a Bucket" target="" class="md-nav__link">
       Host a Website in a Bucket
     </a>
   </li>
@@ -660,7 +613,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../tutorials/react-native-buckets/" title="Create User Buckets & Threads in React Native" target="" class="md-nav__link">
+    <a href="../../react-native-buckets/" title="Create User Buckets & Threads in React Native" target="" class="md-nav__link">
       Create User Buckets & Threads in React Native
     </a>
   </li>
@@ -872,15 +825,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#options" title="Options" class="md-nav__link">
-    Options
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" title="Environment variables" class="md-nav__link">
+    Environment variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-server" title="Create the server" class="md-nav__link">
+    Create the server
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#see-also" title="SEE ALSO" class="md-nav__link">
-    SEE ALSO
+  <a href="#add-a-token-endpoint" title="Add a token endpoint" class="md-nav__link">
+    Add a token endpoint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-client" title="Create a client" class="md-nav__link">
+    Create a client
   </a>
   
 </li>
@@ -903,26 +883,169 @@
               
                 
                 
-                  <a href="https://github.com/textileio/docs/edit/master/docs/hub/cli/tt_keys.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/textileio/docs/edit/master/docs/tutorials/hub/gettoken-provider.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="keys">keys<a class="headerlink" href="#keys" title="Permanent link">&para;</a></h1>
-<p>Manage your keys.</p>
-<div class="highlight"><pre><span></span><code>tt keys [flags]
-</code></pre></div>
-
-<h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>  -h, --help         help for keys
-      --org string   Org username
-</code></pre></div>
-
-<h3 id="see-also">SEE ALSO<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h3>
+                <h1 id="create-a-token-provider-using-gettoken">Create a token provider using getToken<a class="headerlink" href="#create-a-token-provider-using-gettoken" title="Permanent link">&para;</a></h1>
+<p>The <code>getToken</code> provides a helper for generating API tokens for your app users based on their private-key identity. The <code>getToken</code> method takes the user's private-key and then requests a token and signs a challenge (to prove identity ownership) from the API. The method does not share the private-key with the API.</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<p>There are a few resources you'll need before you start writing code.</p>
 <ul>
-<li><a href="../tt/">tt</a>    - Textile Hub Client</li>
-<li><a href="../tt_keys_create/">tt keys create</a>    - Create an API key and secret</li>
-<li><a href="../tt_keys_invalidate/">tt keys invalidate</a>    - Invalidate a key</li>
-<li><a href="../tt_keys_ls/">tt keys ls</a>    - List your keys</li>
+<li><a href="../hub/accounts.md">An account</a>. This is your developer account on the Hub.</li>
+<li><a href="../hub/app-apis.md">A user group key</a>. This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.</li>
+<li><a href="https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript">A new Typescript project</a>. We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.</li>
+<li>A server framework. The example below uses <a href="https://koajs.com/">KoaJS</a> but could just as easily be written for <a href="https://expressjs.com/">Express</a> or the basic Node server.</li>
 </ul>
+<p><strong>Install dependencies</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Textile libraries</span>
+npm install --save @textile/threads-core @textile/threads-client @textile/context
+
+<span class="c1"># Other utilities use in example</span>
+npm install --save dotenv isomorphic-ws
+
+<span class="c1"># Libraries specific to our server framework, koajs</span>
+npm install --save koa koa-router koa-logger koa-json koa-bodyparser
+</code></pre></div>
+
+<h3 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
+<p>We'll use a <code>.env</code> file in the root of our project repo where you'll add your Hub API key and secret. The <code>.env</code> file should be added to your <code>.gitignore</code> so that your key and secret are never shared.</p>
+<p>Contents of <code>.env</code>.</p>
+<div class="highlight"><pre><span></span><code>USER_API_KEY=alk3rlkjvl323r09fqpoweruw34
+USER_API_SECRET=balkweop3jflk9f43lkjs9df2jlght94nzlkv93s
+</code></pre></div>
+
+<p><em>Replace the example key and secret values with values you create usint the CLI</em></p>
+<h2 id="create-the-server">Create the server<a class="headerlink" href="#create-the-server" title="Permanent link">&para;</a></h2>
+<p>In our project setup, our main server is defined in <code>src/index.ts</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/** Provides nodejs access to a global Websocket value, required by Hub API */</span>
+<span class="p">;(</span><span class="nx">global</span> <span class="kr">as</span> <span class="nx">any</span><span class="p">).</span><span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;isomorphic-ws&#39;</span><span class="p">)</span>
+
+<span class="cm">/** Import our server libraries */</span>
+<span class="kr">import</span> <span class="nx">koa</span> <span class="nx">from</span> <span class="s2">&quot;koa&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Router</span> <span class="nx">from</span> <span class="s2">&quot;koa-router&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">logger</span> <span class="nx">from</span> <span class="s2">&quot;koa-logger&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">json</span> <span class="nx">from</span> <span class="s2">&quot;koa-json&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">bodyParser</span> <span class="nx">from</span> <span class="s2">&quot;koa-bodyparser&quot;</span><span class="p">;</span>
+
+<span class="cm">/** For using values in our .env */</span>
+<span class="kr">import</span> <span class="nx">dotenv</span> <span class="nx">from</span> <span class="s2">&quot;dotenv&quot;</span><span class="p">;</span>
+
+<span class="cm">/** Textile libraries */</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-client&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Provider</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/context&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Libp2pCryptoIdentity</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span><span class="p">;</span>
+
+<span class="cm">/** Read the values of .env into the environment */</span>
+<span class="nx">dotenv</span><span class="p">.</span><span class="nx">config</span><span class="p">();</span>
+
+<span class="cm">/** Port our server will run */</span>
+<span class="kr">const</span> <span class="nx">PORT</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
+
+<span class="cm">/** Init Koa */</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">koa</span><span class="p">()</span>
+
+<span class="cm">/** Middlewares */</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">json</span><span class="p">()</span> <span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">logger</span><span class="p">()</span> <span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">bodyParser</span><span class="p">()</span> <span class="p">);</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Start API Routes</span>
+<span class="cm"> * </span>
+<span class="cm"> * All prefixed with `/api/`</span>
+<span class="cm"> */</span>
+ <span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Router</span><span class="p">({</span>
+    <span class="nx">prefix</span><span class="o">:</span> <span class="s1">&#39;/api&#39;</span>
+<span class="p">});</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Basic foo-bar endpoint</span>
+<span class="cm"> * </span>
+<span class="cm"> * https://localhost:3000/api/foo</span>
+<span class="cm"> */</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span> <span class="s1">&#39;/foo&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">ctx</span>: <span class="kt">koa.Context</span><span class="p">,</span> <span class="nx">next</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">body</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span> <span class="p">}</span>
+  <span class="nx">await</span> <span class="nx">next</span><span class="p">();</span>
+<span class="p">})</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Add token API here</span>
+<span class="cm"> */</span>
+
+<span class="cm">/** Tell Koa to use the API routes we generate */</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">api</span><span class="p">.</span><span class="nx">routes</span><span class="p">()</span> <span class="p">).</span><span class="nx">use</span><span class="p">(</span> <span class="nx">api</span><span class="p">.</span><span class="nx">allowedMethods</span><span class="p">()</span> <span class="p">);</span>
+
+<span class="cm">/** Start the server! */</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span> <span class="nx">PORT</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">&quot;Server started.&quot;</span> <span class="p">)</span> <span class="p">);</span>
+</code></pre></div>
+
+<p>We now have our basic server setup, we can run it and visit <a href="http://localhost:3000/api/foo"><code>http://localhost/api/foo</code></a>.</p>
+<div class="highlight"><pre><span></span><code>ts-node src/index.ts
+</code></pre></div>
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Follow your Typescript setup guide for specific ways of launching the server.</p>
+</div>
+<h2 id="add-a-token-endpoint">Add a token endpoint<a class="headerlink" href="#add-a-token-endpoint" title="Permanent link">&para;</a></h2>
+<p>Next, we'll add a token endpoint to our server. Note the <code>Add token API here</code> location in the server code above.</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Add token API here</span>
+<span class="cm"> */</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span> <span class="s1">&#39;/token&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">ctx</span>: <span class="kt">koa.Context</span><span class="p">,</span> <span class="nx">next</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="cm">/** Identity provided as the &#39;id&#39; parameter in the request */</span>
+  <span class="kr">const</span> <span class="p">{</span><span class="nx">id</span><span class="p">}</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">query</span>
+  <span class="cm">/** Generate a Libp2pCryptoIdentity from the string  */</span>
+  <span class="kr">const</span> <span class="nx">identity</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Libp2pCryptoIdentity</span><span class="p">.</span><span class="nx">fromString</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+
+  <span class="cm">/** Hub API access metadata */</span>
+  <span class="kr">const</span> <span class="nx">context</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Provider</span><span class="p">();</span>
+  <span class="cm">/** Add your key and secret from .env to the metadata */</span>
+  <span class="nx">await</span> <span class="nx">context</span><span class="p">.</span><span class="nx">withUserKey</span><span class="p">({</span>
+    <span class="nx">key</span>: <span class="kt">process.env.USER_API_KEY</span><span class="p">,</span>
+    <span class="nx">secret</span>: <span class="kt">process.env.USER_API_SECRET</span><span class="p">,</span>
+    <span class="nx">type</span>: <span class="kt">1</span><span class="p">,</span> <span class="c1">// User Group Key</span>
+  <span class="p">})</span>
+  <span class="cm">/** Init new Hub API Client */</span>
+  <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Client</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+  <span class="cm">/** Request a token from the API */</span>
+  <span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">getToken</span><span class="p">(</span><span class="nx">identity</span><span class="p">);</span>
+
+  <span class="cm">/** Return the token in a JSON object */</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">body</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">message</span><span class="o">:</span> <span class="s2">&quot;Success: new API token&quot;</span><span class="p">,</span>
+      <span class="nx">token</span>: <span class="kt">token</span><span class="p">,</span>
+  <span class="p">};</span>
+
+  <span class="nx">await</span> <span class="nx">next</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<p>Now when you refresh your locally running server you should be able to visit the following and receive a valid token.</p>
+<p><code>http://localhost:3000/api/token?id=&lt;User Identity&gt;</code></p>
+<p>Response:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="err">message:</span> <span class="nt">&quot;Success: new API token&quot;</span><span class="p">,</span>
+  <span class="err">token:</span> <span class="err">&lt;valid</span> <span class="err">api</span> <span class="err">token&gt;,</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="create-a-client">Create a client<a class="headerlink" href="#create-a-client" title="Permanent link">&para;</a></h2>
+<p>Back in the browser, you can now make requests to your token provider endpoint.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">generateToken</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">identity</span>: <span class="kt">Libp2pCryptoIdentity</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="cm">/** Get a new API Token from server/index.ts */</span>
+  <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="sb">`/api/token?ident=</span><span class="si">${</span><span class="nx">identity</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+  <span class="p">})</span>
+
+  <span class="cm">/** Parse token response */</span>
+  <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+
+  <span class="k">return</span> <span class="nx">data</span><span class="p">.</span><span class="nx">token</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><br /></p>
                 
                   
                 
@@ -939,41 +1062,6 @@
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../tt_threads/" title="Threads" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Threads
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../../../tutorials/hub/web-app/" title="Build a Web App using Hub APIs" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Build a Web App using Hub APIs
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

@@ -42,7 +42,7 @@
     
     
       
-        <title>User Buckets & Threads (React Native) | Documentation | Textile</title>
+        <title>Create User Buckets & Threads in React Native | Documentation | Textile</title>
       
     
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              User Buckets & Threads (React Native)
+              Create User Buckets & Threads in React Native
             </span>
           
         </div>
@@ -576,14 +576,38 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
-      Tutorials
+      How-tos
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
-        Tutorials
+        How-tos
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hub/web-app/" title="Build a Web App using Hub APIs" target="" class="md-nav__link">
+      Build a Web App using Hub APIs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../static-websites/" title="Host a Website in a Bucket" target="" class="md-nav__link">
+      Host a Website in a Bucket
+    </a>
+  </li>
+
         
           
           
@@ -600,11 +624,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        User Buckets & Threads (React Native)
+        Create User Buckets & Threads in React Native
       </label>
     
-    <a href="./" title="User Buckets & Threads (React Native)" class="md-nav__link md-nav__link--active">
-      User Buckets & Threads (React Native)
+    <a href="./" title="Create User Buckets & Threads in React Native" class="md-nav__link md-nav__link--active">
+      Create User Buckets & Threads in React Native
     </a>
     
       
@@ -732,11 +756,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
-      Resources
+      Examples
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
-        Resources
+        Examples
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -861,18 +885,6 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../static-websites/" title="Website Hosting" target="" class="md-nav__link">
-      Website Hosting
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
   <!-- Added the Links filter so we could do target=_blank for a bit better ux -->
   
   
@@ -895,8 +907,8 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/marketplace/actions/textile-buckets" title="Github Action (CI)" target="_blank" class="md-nav__link">
-      Github Action (CI)
+    <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app" title="Buckets from React Native (JavaScript)" target="_blank" class="md-nav__link">
+      Buckets from React Native (JavaScript)
     </a>
   </li>
 
@@ -1085,10 +1097,10 @@
 <p>Next, create a <code>.env</code> file in the root of your project. You can find an example <code>.env</code> in our <a href="https://github.com/textileio/js-examples/blob/master/react-native-hub-app/example.env">example project here</a>. Be <strong>certain</strong> that the <code>.env</code> is added to your <code>.gitignore</code> and note checked in with your code. </p>
 <p>The contents of <code>.env</code> will be, </p>
 <div class="highlight"><pre><span></span><code><span class="nv">USER_API_SECRET</span><span class="o">=</span>textile-hub-user-secret
-<span class="nv">USER_API_KEY</span><span class="o">=</span>textile-hub-user-key
+<span class="nv">USER_API_KEY</span><span class="o">=</span>textile-hub-user-group-key
 </code></pre></div>
 
-<p>You can follow the instructions to generate a <strong>User Key</strong> and <strong>Secret</strong> here, <a href="http://localhost:8000/hub/app-apis/#api-access">API Access</a>. If you have already generated keys, you can list them by executing <code>tt keys ls</code>. You'll add the values to your <code>.env</code> file on the right side of the equality sign.</p>
+<p>You can follow the instructions to generate a <strong>User Group Key</strong> and <strong>Secret</strong> here, <a href="http://localhost:8000/hub/app-apis/#api-access">API Access</a>. If you have already generated keys, you can list them by executing <code>tt keys ls</code>. You'll add the values to your <code>.env</code> file on the right side of the equality sign.</p>
 <p><strong>Typescript</strong></p>
 <p>The rest of the JavaScript portions of the tutorial will be in TypeScript. You do not need to use TypeScript, but if you don't be sure to strip the typings from any code you copy below.</p>
 <h2 id="build-your-app">Build your app<a class="headerlink" href="#build-your-app" title="Permanent link">&para;</a></h2>
@@ -1220,7 +1232,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../hub/cli/tt_keys/" title="API Keys" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../static-websites/" title="Host a Website in a Bucket" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1229,25 +1241,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                API Keys
+                Host a Website in a Bucket
               </span>
             </div>
           </a>
         
-        
-          <a href="../static-websites/" title="Website Hosting" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Website Hosting
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
