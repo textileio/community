@@ -40,7 +40,7 @@ API tokens need to be generated for every new user. Additionally, well designed 
 
 **When to use the getToken method**
 
-The `getToken` method should only be used in cases where the service making the `getToken` request has access to enough user information to sign messages on their behalf. This could include browser extentions, mobile apps, or desktop apps, but not likely browser apps at this time.
+The `getToken` method should only be used in cases where the service making the `getToken` request has access to enough user information to sign messages on their behalf. This could include browser extensions, mobile apps, or desktop apps, but not likely browser apps at this time.
 
 [Read the tutorial on creating a token provider using getToken](gettoken-provider.md)
 
