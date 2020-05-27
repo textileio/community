@@ -24,7 +24,7 @@ npm install --save dotenv isomorphic-ws
 npm install --save koa koa-router koa-logger koa-json koa-bodyparser
 ```
 
-### Environmental variables
+### Environment variables
 
 We'll use a `.env` file in the root of our project repo where you'll add your Hub API key and secret. The `.env` file should be added to your `.gitignore` so that your key and secret are never shared.
 

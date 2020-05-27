@@ -29,7 +29,7 @@ _[See CLI options](/hub/cli/tt_keys)_
 
 ### User Group Key
 
-User groups are non-admin groups of users (e.g. app users or beta users) that you want to provide restricted access to your Hub APIs. For each user group you want, you create a single _user group key_ that will be used by all members of the group to access your API endpoint (developer or organization). Optionally, you can allow users to access your API endpoint using their own private-key identity (and soon additional identity types) and can therefor maintain greater ownership and control of their data in the system. For example, your app can create Buckets and Threads on behalf of your user that they sign on device with their own identity.
+User groups are non-admin groups of users (e.g. app users or beta users) that you want to provide restricted access to your Hub APIs. For each user group you want, you create a single _user group key_ that will be used by all members of the group to access your API endpoint (developer or organization). For example, your app can create Buckets and Threads on behalf of your user that they sign on device with their own identity.
 
 #### Managing User Group Keys
 

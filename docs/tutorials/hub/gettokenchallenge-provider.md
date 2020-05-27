@@ -25,18 +25,16 @@ npm install --save dotenv emittery isomorphic-ws
 npm install --save koa koa-router koa-logger koa-json koa-bodyparser koa-route koa-websocket
 ```
 
-### Environmental variables
+### Environment variables
 
 We'll use a `.env` file in the root of our project repo where you'll add your Hub API key and secret. The `.env` file should be added to your `.gitignore` so that your key and secret are never shared.
 
 Contents of `.env`.
 
 ```txt
-USER_API_KEY=alk3rlkjvl323r09fqpoweruw34
-USER_API_SECRET=balkweop3jflk9f43lkjs9df2jlght94nzlkv93s
+USER_API_KEY=<insert user group key>
+USER_API_SECRET=<insert user group secret>
 ```
-
-_Replace the example key and secret values with values you create usint the CLI_
 
 ## Create the server
 

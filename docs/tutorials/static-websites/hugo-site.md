@@ -1,4 +1,4 @@
-[Hugo](https://gohugo.io/) is a static website development framework written in Go, meaning it's fast. In fact, Hugo claims to be the fastest framework for building websites. Like many of the popular static website frameworks, Hugo allows you to write your content in Markdown and then compile it to HTML with a command-line tool. When you compile your website, Hugo will create a single folder containing your final website. This folder is what you'll want to add to a Textile Bucket. Here's how.
+[Hugo](https://gohugo.io/) is a static website development framework written in Go, meaning it's fast. In fact, Hugo claims to be the fastest framework for building websites. Like many of the popular static website frameworks, Hugo allows you to write your content in Markdown and then compile it to HTML with a command-line tool. When you compile your website, Hugo will create a single folder containing your final website. When you add that folder to a Textile Bucket, you can simultaneously publishing your Hugo site to [IPFS](https://ipfs.io/), [IPNS](https://docs.ipfs.io/guides/concepts/ipns/), and HTTP. Here's how.
 
 ## Getting started
 
