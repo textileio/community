@@ -111,6 +111,7 @@ To all of the great people who have contributed to the [Textile projects](https:
   <a href='https://github.com/hacdias' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/5447088?v=4'/></a>
   <a href='https://github.com/jorishermans' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/184018?v=4'/></a>
   <a href='https://github.com/jsign' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/6136245?v=4'/></a>
+  <a href='https://github.com/jsonsivar' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/18757934?v=4'/></a>
   <a href='https://github.com/kanej' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/24030?v=4'/></a>
   <a href='https://github.com/novocodev' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/16430708?v=4'/></a>
   <a href='https://github.com/pcowgill' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/2731712?v=4'/></a>
@@ -124,7 +125,7 @@ To all of the great people who have contributed to the [Textile projects](https:
   <a href='https://github.com/viddo' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/978461?v=4'/></a>
   <a href='https://github.com/warren-bank' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/6810270?v=4'/></a>
   <a href='https://github.com/winwisely99' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/56028033?v=4'/></a>
-  <a href='https://github.com/ystyle' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/4478635?v=4'/></a>
+  <a href='https://github.com/yoannmtr' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/1032577?v=4'/></a>
 </div>
 
 <br>
