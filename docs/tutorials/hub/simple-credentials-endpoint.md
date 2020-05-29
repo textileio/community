@@ -1,6 +1,6 @@
 # Create a simple credentials endpoint
 
-The simple credentials endpoint requires no user-identity to be sent to the server. It simply receives a request for new API credentials, uses the key and secret, and then returns the credentials to the client. 
+The simple credentials endpoint requires no user-identity to be sent to the server. It simply receives a request for new API credentials, uses the key and secret, and then returns the credentials to the client. This type of flow is useful for developers or apps with an existing user-validation flow, or who are able to utilize domain whitelisting and/or are hosting their own app.
 
 ## Setup
 
