@@ -55,7 +55,7 @@ The [js-textile](#libraries) library allows you to create and edit Buckets owned
 
 ### ThreadDB
 
-[ThreadDB](/threads/introduction) is a mongo-like database that runs on IPFS. You can use it in combination with [js-textile](#libraries) to add replication and relay to your user's databases. When combined, `js-threads` and `js-textile` allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.
+[ThreadDB](/threads/) is a mongo-like database that runs on IPFS. You can use it in combination with [js-textile](#libraries) to add replication and relay to your user's databases. When combined, `js-threads` and `js-textile` allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.
 
 ### Data Ownership
 
@@ -90,9 +90,9 @@ Identities also provide a way for developers to allocate resources (i.e., storag
 
 ### Example: User Owned Database
 
-To illustrate the utility of Identity and Context, in the following example, we will create a user owned ThreadDB within a "user context". This should provide a useful example for getting started with Textile's Hub APIs in the context of a database. We'll also interact with our remote database using the Threads Client library (see also additional examples using the [local-first database](https://github.com/textileio/js-threads/tree/master/packages/database) in the [ThreadDB introduction](https://docs.textile.io/threads/introduction/)).
+To illustrate the utility of Identity and Context, in the following example, we will create a user owned ThreadDB within a "user context". This should provide a useful example for getting started with Textile's Hub APIs in the context of a database. We'll also interact with our remote database using the Threads Client library (see also additional examples using the [local-first database](https://github.com/textileio/js-threads/tree/master/packages/database) in the [ThreadDB introduction](https://docs.textile.io/threads/)).
 
-To get started with Textile's Context API, follow the instructions in our [getting started guide](https://docs.textile.io/hub/introduction/). Once you have downloaded and installed the command-line tools, be sure to create a developer account.
+To get started with Textile's Context API, follow the instructions in our [getting started guide](https://docs.textile.io/hub/). Once you have downloaded and installed the command-line tools, be sure to create a developer account.
 
 Next, create a new `user` key using `tt key create` command line tool. After some steps to create an account, you can create the keys.
 
@@ -210,7 +210,7 @@ const astronautSchema = {
  }
  ```
 
- Using that schema, we'll create a new collection. See [our ThreadDB introduction](https://docs.textile.io/threads/introduction/) for details about Collections, Schemas, and Instances.
+ Using that schema, we'll create a new collection. See [our ThreadDB introduction](https://docs.textile.io/threads/) for details about Collections, Schemas, and Instances.
 
  ```typescript
  await db.newCollection(id, 'Astronaut', astronautSchema)
