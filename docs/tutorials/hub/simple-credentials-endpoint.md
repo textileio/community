@@ -122,6 +122,8 @@ Next, we'll add an endpoint so the client can get new or refreshed credentials. 
  * Add credentials API here
  */
 api.get( '/credentials', async (ctx: koa.Context, next: () => Promise<any>) => {
+  // Custom validation could be done here...
+  
   /** Get API authorization for the user */
   const auth = await getAPISig()
 
