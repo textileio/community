@@ -38,7 +38,7 @@ const identity = getIdentity();
 
 ### Creating a credentials & login endpoint
 
-API credentials need to be generated for every new user. Additionally, credentials expire quickly, so new credentials need to be generated for a user each often. Below, we'll show you two ways to you can setup an endpoint to provide Hub credentials to your app.
+API credentials need to be generated for each time a user/client needs to access Hub APIs. Additionally, developers should ensure their credentials expire relatively quickly, so credentials need to be (re)generated relatively often. Below, we'll show you two ways to you can setup an endpoint to provide Hub credentials to your app.
 
 Both examples keep the _user group secret_ private on the server.
 
