@@ -1,6 +1,8 @@
-# Create a token provider using getTokenChallenge
+# Create a login system for user public keys
 
-The `getTokenChallenge` provides a helper for generating API tokens for your app users based on their private-key identity. The `getTokenChallenge` method only requires your user's public key and is therefore a more secure and friendly way to manage token generation than `getToken`. However, it does require that the user sign a challenge to prove they are the owner of the identity private key and so requires multistep communication between the token provider and the identity holder (an app).
+The login example shows you how to setup a simple server that will accept a user's public key, verify that they also own the private key (via a challenge), and then provide that users credentials to use the Hub APIs.
+
+With the verification step, your server can now build a user model around the user's public key, create user discovery or search in your app, or link a user's account to other services away from the Hub.
 
 ## Setup
 
@@ -16,7 +18,7 @@ There are a few resources you'll need before you start writing code.
 
 ```bash
 # Textile libraries
-npm install --save @textile/threads-client @textile/context
+npm install --save @textile/textile
 
 # Other utilities use in example
 npm install --save dotenv emittery isomorphic-ws
@@ -38,9 +40,18 @@ USER_API_SECRET=<insert user group secret>
 
 ## Create the server
 
-In our project setup, our main server is defined in `src/index.ts`. Unlike the `getToken` example, our server needs to handle two-way communication with the client during token generation. First, the client will make a request, next the server will initiate the request with the Hub and receive an identity challenge. Next, the server will pass the challenge to the client to prove they the owner of the private-key. The client will provide a challenge signature back to the server which passes it on to the Hub. If successful, a token is generated for the user.
+In our project setup, our main server is defined in `src/index.ts`. Unlike the [simple credentials example](simple-credentials-endpoint.md), our server needs to handle two-way communication with the client during identity verification. The flow is as follows:
 
-In the example below, we use `websockets` to enable this multi-step communication between the server and the client.
+* First, the **client** will make a request login.
+* The **server** will initiate the request with the Hub and get back an identity challenge.
+* The **server** will pass the challenge to the **client**.
+* The **client** will confirm they own their private key by signing the challenge and passing it back to the **server**
+* The **server** which passes it on to the Hub. 
+* If successful, a token is generated for the user.
+* If successful, the **server* generates API credentials and passes credentials, token, and API key back to the **client**.
+* Now, the **client** can use the Hub APIs directly!
+
+It sounds complicated, but you'll see it happens very fast with only a few lines of code. In our example, we use `websockets` to enable the multi-step communication between the server and the client.
 
 ```typescript
 /** Provides nodejs access to a global Websocket value, required by Hub API */
@@ -74,47 +85,22 @@ app.use( logger() );
 app.use( bodyParser() );
 
 /**
- * Start API Routes
- * 
- * All prefixed with `/api/`
+ * Add websocket login endpoint
  */
-const api = new Router({
-    prefix: '/api'
-});
-
-
-/**
- * Basic foo-bar endpoint
- * 
- * https://localhost:3000/api/foo
- */
-api.get( '/foo', async (ctx: koa.Context, next: () => Promise<any>) => {
-  ctx.body = { foo: 'bar' }
-  await next();
-})
-
-
-/**
- * Add token websocket endpoint
- */
-
-
-/** Tell Koa to use the REST API routes we generated */
-app.use( api.routes() ).use( api.allowedMethods() );
 
 /** Start the server! */
 app.listen( PORT, () => console.log( "Server started." ) );
 ```
 
-## Add a token websocket handler
+## Add a websocket login handler
 
-Next, we'll add a token websocket endpoint to our server. Note the `Add token websocket endpoint` location in the server code above.
+Next, we'll add a websocket endpoint to our server. Note the `Add websocket login endpoint` location in the server code above.
 
 ```typescript
 /**
  * Add token websocket endpoint
  */
-app.ws.use(route.all('/ws/token', (ctx) => {
+app.ws.use(route.all('/ws/login', (ctx) => {
   /** Emittery allows us to wait for the challenge response event */
   const emitter = new Emittery();
   ctx.websocket.on('message', async (msg) => {
@@ -125,22 +111,18 @@ app.ws.use(route.all('/ws/token', (ctx) => {
         /** The first type is a new token request */
         case 'token': {
           /** A new token request will contain the user's public key */
-          if (!data.pub) { throw new Error('missing public key (pub)') }
+          if (!data.pubkey) { throw new Error('missing pubkey') }
 
-          /** Hub API access metadata */
-          const context = new Provider();
-          /** Add your key and secret from .env to the metadata */
-          await context.withUserKey({
-            key: process.env.USER_API_KEY,
-            secret: process.env.USER_API_SECRET,
-            type: 1, // User Group Key
-          })
-          /** Init new Hub API Client */
-          const db = new Client(context);
+          /** 
+           * Init new Hub API Client 
+           * 
+           * see ./hub.ts
+           */
+          const db = await newClientDB()
 
           /** Request a token from the Hub based on the user public key */
           const token = await db.getTokenChallenge(
-            data.pub, 
+            data.pubkey, 
             /** The callback passes the challenge back to the client */
             (challenge: Buffer) => {
             return new Promise((resolve, reject) => {
@@ -158,17 +140,28 @@ app.ws.use(route.all('/ws/token', (ctx) => {
               setTimeout(() => {
                 reject()
               }, 1500);
-      
+
             })
           })
 
           /** 
-           * The challenge was successfully completed by the client .
-           * Send the token back to the client.
+           * The challenge was successfully completed by the client
            */
+
+          /** Get API authorization for the user */
+          const auth = await getAPISig()
+
+          /** Include the token in the auth payload */
+          const payload = {
+            ...auth,
+            token: token,
+            key: process.env.USER_API_KEY,
+          };
+          
+          /** Return the result to the client */
           ctx.websocket.send(JSON.stringify({
             type: 'token',
-            value: token,
+            value: payload,
           }))
           break;
         }
@@ -193,34 +186,46 @@ app.ws.use(route.all('/ws/token', (ctx) => {
       }))
     }
   });
-}));
+});
 ```
 
 
 
 Now when you refresh your locally running server you should have a websocket endpoint for client token creation.
 
+### Server notes
+
+- Now that the user is verified in your system, you can keep their public key as a reference to them without any security issues.
+- However, you should never trust an API call only by the public key, the challlenge step is critical.
+- The token provided in the response should be considered a secret that only should be shared with a single user. It does not expire.
+
 ## Create a client
 
-Back in the browser, you can now make requests to your token provider through websockets. A basic client might make a request like the following.
+Back in the browser, you can now make requests to your login endpoint using a websocket. A basic client might make a request like the following.
 
 ```typescript
-const generateToken = (identity: Libp2pCryptoIdentity): Promise<string> => {
+const loginWithChallenge = async (id: Libp2pCryptoIdentity): Promise<UserAuth> => {  
   return new Promise((resolve, reject) => {
-    /** Configured for our development server */
-    const socketUrl = `ws://localhost:3000/ws/token`
-
+    /** 
+     * Configured for our development server
+     * 
+     * Note: this should be upgraded to wss for production environments.
+     */
+    const socketUrl = `ws://localhost:3000/ws/login`
+    
     /** Initialize our websocket connection */
     const socket = new WebSocket(socketUrl)
 
     /** Wait for our socket to open successfully */
     socket.onopen = () => {
+      /** Get public key string */
+      const publicKey = id.public.toString();
 
       /** Send a new token request */
       socket.send(JSON.stringify({
-        pub: publicKey,
+        pubkey: publicKey,
         type: 'token'
-      }));
+      })); 
 
       /** Listen for messages from the server */
       socket.onmessage = async (event) => {
@@ -228,31 +233,43 @@ const generateToken = (identity: Libp2pCryptoIdentity): Promise<string> => {
         switch (data.type) {
           /** Error never happen :) */
           case 'error': {
-            console.log(data.value)
-            reject()
+            reject(data.value);
+            break;
           }
           /** The server issued a new challenge */
           case 'challenge':{
             /** Convert the challenge json to a Buffer */
             const buf = Buffer.from(data.value)
             /** User our identity to sign the challenge */
-            const signed = await identity.sign(buf)
+            const signed = await id.sign(buf)
             /** Send the signed challenge back to the server */
             socket.send(JSON.stringify({
               type: 'challenge',
-              sig: signed.toJSON(),
-              pub: publicKey
+              sig: signed.toJSON()
             })); 
+            break;
           }
           /** New token generated */
           case 'token': {
             resolve(data.value)
+            break;
           }
         }
       }
     }
-  }
-}
+  });
+};
 ```
+
+## GitHub Example
+
+If you'd like to explore the examples explained above more, we've provided a fully working example on GitHub. The login endpoint is part of a more complete example, you can see it here.
+
+<div class="txtl-options half">
+  <a href="https://github.com/textileio/js-examples/blob/master/hub-browser-auth-app/src/server/wss.ts" class="box">
+    <h5>Login API</h5>
+    <p>Source code for login and Hub credentials endpoint.</p>
+  </a>
+</div>
 
 <br />

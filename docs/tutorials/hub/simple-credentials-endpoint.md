@@ -1,6 +1,6 @@
-# Create a token provider using getToken
+# Create a simple credentials endpoint
 
-The `getToken` provides a helper for generating API tokens for your app users based on their private-key identity. The `getToken` method takes the user's private-key and then requests a token and signs a challenge (to prove identity ownership) from the API. The method does not share the private-key with the API.
+The simple credentials endpoint requires no user-identity to be sent to the server. It simply receives a request for new API credentials, uses the key and secret, and then returns the credentials to the client. This type of flow is useful for developers or apps with an existing user-validation flow, or who are able to utilize domain whitelisting and/or are hosting their own app.
 
 ## Setup
 
@@ -15,7 +15,7 @@ There are a few resources you'll need before you start writing code.
 
 ```bash
 # Textile libraries
-npm install --save @textile/threads-core @textile/threads-client @textile/context
+npm install --save @textile/textile @textile/threads-core
 
 # Other utilities use in example
 npm install --save dotenv isomorphic-ws
@@ -94,7 +94,7 @@ api.get( '/foo', async (ctx: koa.Context, next: () => Promise<any>) => {
 })
 
 /**
- * Add token API here
+ * Add credentials API here
  */
 
 /** Tell Koa to use the API routes we generate */
@@ -113,73 +113,71 @@ ts-node src/index.ts
 !!!info
     Follow your Typescript setup guide for specific ways of launching the server.
 
-## Add a token endpoint
+## Add the credentials endpoint
 
-Next, we'll add a token endpoint to our server. Note the `Add token API here` location in the server code above.
+Next, we'll add an endpoint so the client can get new or refreshed credentials. Note the `Add credentials API here` location in the server code above.
 
 ```typescript
 /**
- * Add token API here
+ * Add credentials API here
  */
-api.get( '/token', async (ctx: koa.Context, next: () => Promise<any>) => {
-  /** Identity provided as the 'id' parameter in the request */
-  const {id} = ctx.query
-  /** Generate a Libp2pCryptoIdentity from the string  */
-  const identity = await Libp2pCryptoIdentity.fromString(id);
+api.get( '/credentials', async (ctx: koa.Context, next: () => Promise<any>) => {
+  // Custom validation could be done here...
+  
+  /** Get API authorization for the user */
+  const auth = await getAPISig()
 
-  /** Hub API access metadata */
-  const context = new Provider();
-  /** Add your key and secret from .env to the metadata */
-  await context.withUserKey({
+  /** Include the API KEY in the auth payload */
+  const credentials = {
+    ...auth,
     key: process.env.USER_API_KEY,
-    secret: process.env.USER_API_SECRET,
-    type: 1, // User Group Key
-  })
-  /** Init new Hub API Client */
-  const db = new Client(context);
-  /** Request a token from the API */
-  const token = await db.getToken(identity);
-
-  /** Return the token in a JSON object */
-  ctx.body = {
-      message: "Success: new API token",
-      token: token,
   };
+  
+  /** Return the credentials in a JSON object */
+  ctx.body = credentials
   
   await next();
 });
 ```
 
-Now when you refresh your locally running server you should be able to visit the following and receive a valid token.
+Now when you refresh your locally running server you should be able to visit the following and receive valid credentials.
 
-`http://localhost:3000/api/token?id=<User Identity>`
+`http://localhost:3000/api/credentials`
 
 
 Response:
 
 ```json
 {
-  message: "Success: new API token",
-  token: <valid api token>,
+  key: "<your user group api key>",
+  msg: "<your credentials expiration>",
+  sig: "<the api signature>"
 }
 ```
 
 ## Create a client
 
-Back in the browser, you can now make requests to your token provider endpoint.
+Back in the browser, you can now make requests to your credentials endpoint.
 
 ```typescript
-const generateToken = async (identity: Libp2pCryptoIdentity) => {
-  /** Get a new API Token from server/index.ts */
-  const response = await fetch(`/api/token?ident=${identity.toString()}`, {
+const createCredentials = async (): Promise<UserAuth> => {
+  const response = await fetch(`/api/credentials`, {
     method: 'GET',
   })
-
-  /** Parse token response */
-  const data = await response.json()
-  
-  return data.token;
+  const userAuth = await response.json()
+  return userAuth;
 }
 ```
+
+## GitHub Example
+
+If you'd like to explore the examples explained above more, we've provided a fully working example on GitHub. The simple credentials endpoint is part of a more complete example, you can see it here.
+
+<div class="txtl-options half">
+  <a href="https://github.com/textileio/js-examples/blob/master/hub-browser-auth-app/src/server/api.ts" class="box">
+    <h5>Simple Credentials API</h5>
+    <p>Source code for simple Hub credentials endpoint.</p>
+  </a>
+</div>
 
 <br />
