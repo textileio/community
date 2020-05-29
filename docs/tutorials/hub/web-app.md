@@ -34,7 +34,7 @@ const identity = getIdentity();
 ```
 
 !!!info
-    In the future we will support email-based identities, allowing you to more easily use the Hub APIs with common email-based user models. [Follow progress here](https://github.com/textileio/textile/issues/216).
+    Textile is relatively agnostic to identity providers. In the future, we will also support email-based identities, allowing you to more easily use the Hub APIs with common email-based user models. [Follow progress here](https://github.com/textileio/textile/issues/216).
 
 ### Creating a credentials & login endpoint
 
