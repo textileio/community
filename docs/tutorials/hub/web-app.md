@@ -50,7 +50,7 @@ In this example, we'll show a simple endpoint that will provide credentials to a
 
 **Option 2. Build a credentials and login endpoint**
 
-In this example, we'll show you how to use the user's public key to let the _login_ to your app. This endpoint will use the Hub to issue the user a challenge (where they prove they also own the corresponding private key). After the user passes the challenge, the endpoint will give them Hub credentials.
+In this example, we'll show you how to use the user's public key to let them _login_ to your app. This endpoint will use the Hub to issue the user a challenge (where they prove they own their private key). After the user passes the challenge, the endpoint will give them Hub credentials. This is a more restrictive flow, but is useful for developers who don't want to design their own user-validation flow.
 
 [Read the section on building a login system.](user-login-endpoint.md)
 
