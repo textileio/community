@@ -16,7 +16,7 @@ If you require more realistic scenarios (e.g. during product demos), you can cha
 
 **Production compatible storage**
 
-The devnet is designed so that you can build and test your system quickly but function (except faster) the exact same way as the production Filecoin network. The devnet supports both 2KiB and 512MiB sectors, and the speed of block production is configurable. For advanced features, refer to the [devnet Readme](https://github.com/textileio/lotus-devnet).
+The devnet is designed so that you can build and test your system quickly but function the exact same way as the production Filecoin network, except faster and entirely local. The devnet supports both 2KiB and 512MiB sectors, and the speed of block production is configurable. For advanced features, refer to the [devnet Readme](https://github.com/textileio/lotus-devnet).
 
 ## Getting Started
 
@@ -156,9 +156,9 @@ Finally, you can verify that the file was stored on the devnet by making a reque
     Success! Data written to myfile2
     ```
 
-## Devnet as stand-alone Lotus node
+## Devnet with Lotus Client
 
-You can run the devnet to make use of the [Lotus CLI](https://lotu.sh/)with all the benefits described in the introduction but no Powergate or IPFS components.
+You can run the devnet to make use of the [Lotus Client](https://lotu.sh/)with all the benefits described in the introduction but no Powergate or IPFS components.
 
 ### Run from Docker image
 
