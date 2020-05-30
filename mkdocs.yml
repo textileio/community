@@ -39,6 +39,11 @@ extra_css:
 # Plugins
 plugins:
   - search
+  - redirects:
+      redirect_maps:
+        'hub/introduction.md': 'hub/index.md'
+        'threads/introduction.md': 'threads/index.md'
+        'powergate/introduction.md': 'powergate/index.md'
 
 # Extensions
 markdown_extensions:
@@ -76,18 +81,20 @@ markdown_extensions:
 nav:
   - Home: index.md
   - The Hub:
-      - Introduction: hub/introduction.md
+      - Introduction: hub/index.md
       - Accounts: hub/accounts.md
       - Buckets: hub/buckets.md
       - App APIs: hub/app-apis.md
       - CLI Docs: hub/cli/tt.md
   - ThreadDB:
-      - Introduction: threads/introduction.md
+      - Introduction: threads/index.md
       - Links:
           - JavaScript: https://textileio.github.io/js-threads
           - Golang: https://godoc.org/github.com/textileio/go-threads
   - Filecoin Powergate:
-      - Introduction: powergate/introduction.md
+      - Introduction: powergate/index.md
+      - Devnet: powergate/devnet.md
+      - FFS: powergate/ffs.md
       - Powergate: https://github.com/textileio/powergate/#powergate
   - Hub CLI:
       - Login: hub/cli/tt_login.md

@@ -160,7 +160,7 @@ Buckets are designed to be interoperable across protocols and services. Here are
 
 #### Buckets and Threads
 
-Buckets are built on [ThreadDB](/threads/introduction). In fact, in their most basic form, Buckets are just a document in a Thread that is updated each time the directory of data is updated. Since Buckets run on Threads, it opens the door to many new integrations that can be built on Buckets! 
+Buckets are built on [ThreadDB](/threads/). In fact, in their most basic form, Buckets are just a document in a Thread that is updated each time the directory of data is updated. Since Buckets run on Threads, it opens the door to many new integrations that can be built on Buckets! 
 
 #### Buckets and HTTP
 
