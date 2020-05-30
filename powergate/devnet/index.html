@@ -13,7 +13,7 @@
         <meta name="description" content="Textile makes it easy for you or your application to store and distribute data over the IPFS network.">
       
       
-        <link rel="canonical" href="https://docs.textile.io/tutorials/react-native-buckets/">
+        <link rel="canonical" href="https://docs.textile.io/powergate/devnet/">
       
       
         <meta name="author" content="textile.io">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Create User Buckets & Threads in React Native | Documentation | Textile</title>
+        <title>Devnet | Documentation | Textile</title>
       
     
     
@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#user-buckets-from-react-native" tabindex="1" class="md-skip">
+      <a href="#filecoin-local-devnet" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              Create User Buckets & Threads in React Native
+              Devnet
             </span>
           
         </div>
@@ -412,10 +412,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       Filecoin Powergate
@@ -433,7 +435,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../powergate/" title="Introduction" target="" class="md-nav__link">
+    <a href="../" title="Introduction" target="" class="md-nav__link">
       Introduction
     </a>
   </li>
@@ -443,11 +445,130 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../powergate/devnet/" title="Devnet" target="" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Devnet
+      </label>
+    
+    <a href="./" title="Devnet" class="md-nav__link md-nav__link--active">
       Devnet
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" title="Getting Started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devnet-with-powergate" title="Devnet with Powergate" class="md-nav__link">
+    Devnet with Powergate
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-deal-and-store-a-file" title="Create a deal and store a file" class="md-nav__link">
+    Create a deal and store a file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devnet-as-stand-alone-lotus-node" title="Devnet as stand-alone Lotus node" class="md-nav__link">
+    Devnet as stand-alone Lotus node
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-from-docker-image" title="Run from Docker image" class="md-nav__link">
+    Run from Docker image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-from-source-code" title="Run from source code" class="md-nav__link">
+    Run from source code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup_1" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -457,7 +578,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../powergate/ffs/" title="FFS" target="" class="md-nav__link">
+    <a href="../ffs/" title="FFS" target="" class="md-nav__link">
       FFS
     </a>
   </li>
@@ -592,12 +713,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       How-tos
@@ -615,7 +734,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../hub/web-app/" title="Build a Web App using Hub APIs" target="" class="md-nav__link">
+    <a href="../../tutorials/hub/web-app/" title="Build a Web App using Hub APIs" target="" class="md-nav__link">
       Build a Web App using Hub APIs
     </a>
   </li>
@@ -627,7 +746,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../static-websites/" title="Host a Website in a Bucket" target="" class="md-nav__link">
+    <a href="../../tutorials/static-websites/" title="Host a Website in a Bucket" target="" class="md-nav__link">
       Host a Website in a Bucket
     </a>
   </li>
@@ -637,131 +756,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Create User Buckets & Threads in React Native
-      </label>
-    
-    <a href="./" title="Create User Buckets & Threads in React Native" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../tutorials/react-native-buckets/" title="Create User Buckets & Threads in React Native" target="" class="md-nav__link">
       Create User Buckets & Threads in React Native
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#preview-video" title="Preview video" class="md-nav__link">
-    Preview video
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-libraries" title="Install libraries" class="md-nav__link">
-    Install libraries
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#build-your-app" title="Build your app" class="md-nav__link">
-    Build your app
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#register-with-remote-api" title="Register with remote API" class="md-nav__link">
-    Register with remote API
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate-an-identity" title="Generate an Identity" class="md-nav__link">
-    Generate an Identity
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#identity-caching-recovery" title="Identity caching &amp; recovery" class="md-nav__link">
-    Identity caching &amp; recovery
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate-user-token" title="Generate user Token" class="md-nav__link">
-    Generate user Token
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connect-buckets" title="Connect Buckets" class="md-nav__link">
-    Connect Buckets
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#push-files-to-user-bucket" title="Push files to user Bucket" class="md-nav__link">
-    Push files to user Bucket
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-the-bucket-links" title="List the Bucket links" class="md-nav__link">
-    List the Bucket links
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code" title="Code" class="md-nav__link">
-    Code
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -971,78 +970,37 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#preview-video" title="Preview video" class="md-nav__link">
-    Preview video
+  <a href="#getting-started" title="Getting Started" class="md-nav__link">
+    Getting Started
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-libraries" title="Install libraries" class="md-nav__link">
-    Install libraries
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#build-your-app" title="Build your app" class="md-nav__link">
-    Build your app
+  <a href="#devnet-with-powergate" title="Devnet with Powergate" class="md-nav__link">
+    Devnet with Powergate
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#register-with-remote-api" title="Register with remote API" class="md-nav__link">
-    Register with remote API
+  <a href="#installation" title="Installation" class="md-nav__link">
+    Installation
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#generate-an-identity" title="Generate an Identity" class="md-nav__link">
-    Generate an Identity
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#identity-caching-recovery" title="Identity caching &amp; recovery" class="md-nav__link">
-    Identity caching &amp; recovery
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate-user-token" title="Generate user Token" class="md-nav__link">
-    Generate user Token
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#connect-buckets" title="Connect Buckets" class="md-nav__link">
-    Connect Buckets
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#push-files-to-user-bucket" title="Push files to user Bucket" class="md-nav__link">
-    Push files to user Bucket
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-the-bucket-links" title="List the Bucket links" class="md-nav__link">
-    List the Bucket links
+  <a href="#create-a-deal-and-store-a-file" title="Create a deal and store a file" class="md-nav__link">
+    Create a deal and store a file
   </a>
   
 </li>
@@ -1053,9 +1011,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#code" title="Code" class="md-nav__link">
-    Code
+  <a href="#devnet-as-stand-alone-lotus-node" title="Devnet as stand-alone Lotus node" class="md-nav__link">
+    Devnet as stand-alone Lotus node
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-from-docker-image" title="Run from Docker image" class="md-nav__link">
+    Run from Docker image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-from-source-code" title="Run from source code" class="md-nav__link">
+    Run from source code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup_1" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1077,165 +1075,153 @@
               
                 
                 
-                  <a href="https://github.com/textileio/docs/edit/master/docs/tutorials/react-native-buckets.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/textileio/docs/edit/master/docs/powergate/devnet.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="user-buckets-from-react-native">User Buckets from React Native<a class="headerlink" href="#user-buckets-from-react-native" title="Permanent link">&para;</a></h1>
-<p><a href="/hub/">The Hub</a> gets really powerful when you allow your app users to leverage IPFS, IPNS, and ThreadDB from inside your applications. In this tutorial, we'll look at how you can let users author, own, and manage buckets right from a mobile app built in React Native.</p>
-<p><a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app">Click here to see an example app built with this tutorial</a>.</p>
-<h2 id="preview-video">Preview video<a class="headerlink" href="#preview-video" title="Permanent link">&para;</a></h2>
-<iframe width="480" height="270" src="https://www.youtube.com/embed/9x73t9tFdms?feature=oembed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<h2 id="install-libraries">Install libraries<a class="headerlink" href="#install-libraries" title="Permanent link">&para;</a></h2>
-<p><strong>Textile Libraries</strong></p>
-<div class="highlight"><pre><span></span><code>npm install --save @textile/textile @textile/threads-client @textile/threads-core @textile/threads-id
-</code></pre></div>
-
-<p>We'll use the above combination of Textile libraries in our app below.</p>
-<p><strong>rn-nodify</strong></p>
-<div class="highlight"><pre><span></span><code>npm install -D rn-nodeify
-</code></pre></div>
-
-<p>We are going to use <code>rn-nodify</code> and a few other libraries it will install to manage adding <code>Buffer</code>, <code>crypto</code>, and some other tools to our JavaScript environment in React Native.</p>
-<p>Read about <a href="https://github.com/tradle/rn-nodeify">rn-nodify here</a>.</p>
-<p>Next, you need to run,</p>
-<div class="highlight"><pre><span></span><code>./node_modules/.bin/rn-nodeify --install
-</code></pre></div>
-
-<p>This will install a <code>shim.js</code> into the root of your file. You need to import <code>shim.js</code> at the top of your app's root file (typically <code>index.js</code>),</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="s1">&#39;./shim&#39;</span><span class="p">;</span>
-</code></pre></div>
-
-<p>This may need to be updated on future package changes, you can make this easier on yourself by adding a <code>postinstall</code> step to your <code>package.json</code>, as follows,</p>
-<div class="highlight"><pre><span></span><code><span class="s2">&quot;scripts&quot;</span><span class="err">:</span> <span class="p">{</span>
-  <span class="err">...</span>
-  <span class="nt">&quot;postinstall&quot;</span><span class="p">:</span> <span class="s2">&quot;./node_modules/.bin/rn-nodeify --install fs,path,process,buffer,crypto,stream,vm --hack&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p><strong>Dot env</strong></p>
-<p>You will need to add API keys to your app. If you plan to store your sourcecode anywhere public, you <strong>should not</strong> store those keys publicly. In our example app, we use <code>react-native-dotenv</code> to manage our secrets. </p>
-<div class="highlight"><pre><span></span><code>npm install --save react-native-dotenv
-</code></pre></div>
-
-<p>Next, create a <code>.env</code> file in the root of your project. You can find an example <code>.env</code> in our <a href="https://github.com/textileio/js-examples/blob/master/react-native-hub-app/example.env">example project here</a>. Be <strong>certain</strong> that the <code>.env</code> is added to your <code>.gitignore</code> and note checked in with your code. </p>
-<p>The contents of <code>.env</code> will be, </p>
-<div class="highlight"><pre><span></span><code><span class="nv">USER_API_SECRET</span><span class="o">=</span>textile-hub-user-secret
-<span class="nv">USER_API_KEY</span><span class="o">=</span>textile-hub-user-group-key
-</code></pre></div>
-
-<p>You can follow the instructions to generate a <strong>User Group Key</strong> and <strong>Secret</strong> here, <a href="http://localhost:8000/hub/app-apis/#api-access">API Access</a>. If you have already generated keys, you can list them by executing <code>tt keys ls</code>. You'll add the values to your <code>.env</code> file on the right side of the equality sign.</p>
-<p><strong>Typescript</strong></p>
-<p>The rest of the JavaScript portions of the tutorial will be in TypeScript. You do not need to use TypeScript, but if you don't be sure to strip the typings from any code you copy below.</p>
-<h2 id="build-your-app">Build your app<a class="headerlink" href="#build-your-app" title="Permanent link">&para;</a></h2>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>In the example app, we put all the ThreadDB and Bucket logic into a single component called <a href="https://github.com/textileio/js-examples/blob/master/react-native-hub-app/src/checklist.tsx">checklist.ts</a>. You can view that file for reference. </p>
-</div>
-<p><strong>Import Textile</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Our secrets</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">USER_API_SECRET</span><span class="p">,</span> <span class="nx">USER_API_KEY</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-native-dotenv&#39;</span><span class="p">;</span>
-<span class="c1">// Database and Query method</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">Where</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-client&#39;</span><span class="p">;</span>
-<span class="c1">// Common Thread ID type</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">ThreadID</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-id&#39;</span><span class="p">;</span>
-<span class="c1">// Buckets client and an API Context helper</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Buckets</span><span class="p">,</span> <span class="nx">Context</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/textile&#39;</span><span class="p">;</span>
-<span class="c1">// A basic Identity provider (PKI from Libp2p)</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Libp2pCryptoIdentity</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span><span class="p">;</span>
-</code></pre></div>
-
-<h3 id="register-with-remote-api">Register with remote API<a class="headerlink" href="#register-with-remote-api" title="Permanent link">&para;</a></h3>
-<p>Next, we'll connect to the remote API using our Key and Secret. We do this so that the user can later push their bucket for remote persistence on IPFS and publishing on IPNS.</p>
-<div class="highlight"><pre><span></span><code>  <span class="kr">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Context</span><span class="p">();</span>
-
-  <span class="nx">await</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">withUserKey</span><span class="p">({</span>
-    <span class="nx">key</span>: <span class="kt">USER_API_KEY</span><span class="p">,</span>
-    <span class="nx">secret</span>: <span class="kt">USER_API_SECRET</span><span class="p">,</span>
-    <span class="nx">type</span>: <span class="kt">1</span><span class="p">,</span>
-  <span class="p">})</span>
-
-  <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Client</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span>
-</code></pre></div>
-
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Read more about the Context tool in the <a href="/threads/">Threads Introduction</a>.</p>
-</div>
-<h3 id="generate-an-identity">Generate an Identity<a class="headerlink" href="#generate-an-identity" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Libp2pCryptoIdentity</span><span class="p">.</span><span class="nx">fromRandom</span><span class="p">();</span>
-</code></pre></div>
-
-<p>Here we are just using a Libp2p helper to generate a private-key identity for the user. You could use an identity provider to achieve the same result! Or, if you are already using a key-based identity in your app, just use it instead.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<h4 id="identity-caching-recovery">Identity caching &amp; recovery<a class="headerlink" href="#identity-caching-recovery" title="Permanent link">&para;</a></h4>
-<p>Your app should hang-on to the user identity in a persistent way. It should be stored in your user model or given to the user for recovery.</p>
-</div>
-<h3 id="generate-user-token">Generate user Token<a class="headerlink" href="#generate-user-token" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">getToken</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
-</code></pre></div>
-
-<p>This will register the user with your remote Hub account, granting them the ability to push data to IPFS through Threads and Buckets.</p>
-<h3 id="connect-buckets">Connect Buckets<a class="headerlink" href="#connect-buckets" title="Permanent link">&para;</a></h3>
-<p>Now that your user is setup and connected to your API on the Hub, you can start creating Buckets. First, setup a Bucket Client instance.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">buckets</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Buckets</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">context</span><span class="p">);</span>
-</code></pre></div>
-
-<p>In the above, we reuse the Context we already created in our ThreadDB Client because it contains the token, API keys, etc.</p>
-<p><strong>List all Buckets</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">roots</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span>
-<span class="kr">const</span> <span class="nx">existing</span> <span class="o">=</span> <span class="nx">roots</span><span class="p">.</span><span class="nx">find</span><span class="p">((</span><span class="nx">bucket</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">bucket</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="s1">&#39;files&#39;</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Here, we list all the user's Buckets and determine if one exists called <code>files</code>. If it exists, we'll use its <em>key</em> if not, we'll create a new Bucket and key.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">bucketKey</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">existing</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">bucketKey</span> <span class="o">=</span> <span class="nx">existing</span><span class="p">.</span><span class="nx">key</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">created</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">);</span>
-  <span class="nx">bucketKey</span> <span class="o">=</span> <span class="nx">created</span><span class="p">.</span><span class="nx">root</span><span class="o">!</span><span class="p">.</span><span class="nx">key</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<h3 id="push-files-to-user-bucket">Push files to user Bucket<a class="headerlink" href="#push-files-to-user-bucket" title="Permanent link">&para;</a></h3>
-<p>Finally, let's push a simple file to the user's Bucket. In this example, we'll just create a simple <code>HTML</code> file that says, <code>Hello world</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">file</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/index.html&#39;</span><span class="p">,</span> <span class="nx">content</span>: <span class="kt">Buffer.from</span><span class="p">(</span><span class="nx">webpage</span><span class="p">)</span> <span class="p">}</span>
-
-<span class="kr">const</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">pushPath</span><span class="p">(</span><span class="nx">bucketKey</span><span class="o">!</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
-</code></pre></div>
-
-<h3 id="list-the-bucket-links">List the Bucket links<a class="headerlink" href="#list-the-bucket-links" title="Permanent link">&para;</a></h3>
-<p>Finally, you can list the links to the file on IPFS, IPNS, ThreadDB, and HTTP. Now that the Bucket is created, keep in mind, each time you update the same Bucket for a user:</p>
+                <h1 id="filecoin-local-devnet">Filecoin Local Devnet<a class="headerlink" href="#filecoin-local-devnet" title="Permanent link">&para;</a></h1>
+<p>Having a fully synced <a href="https://lotu.sh/">Lotus</a> node can take a considerable amount of time and effort to maintain. The required effort is normal on live blockchain networks, but isn't ideal in some scenarios. Scenarios such as application development, testing, and continuous integration can be enhanced by having access to Lotus nodes and APIs that don't require connection to the live network. For those cases, we have built the <a href="https://github.com/textileio/lotus-devnet"><strong>devnet</strong></a>.</p>
+<p><strong>Speed</strong></p>
+<p>The devnet is tuned for speed. After you have the docker instances installed, starting the devnet should take under a minute and storing a file in a new deal should take about a minute with the default settings and faster with custom settings.</p>
+<p>The devnet runs a local devnet with a <em>mock</em> sector-builder. This enables fast deployment of a <em>development Filecoin network</em> containing miners with mocked sealing but the rest of the network logic remaining the same as that of the production Filecoin network. The miners are configured to accept and store all incoming deals.</p>
+<p><strong>Configurable</strong></p>
+<p>Depending on your use case you can change settings such as block generation speed and sector sizes. For CI environments you may set block production speeds to the order of <em>~100ms</em> and disable <code>--bigsectors</code>. This devnet setup would be optimized for minimum CPU usage and very fast chain progress, which can confirm deals in seconds.</p>
+<p>If you require more realistic scenarios (e.g. during product demos), you can change to block production speed to <em>~1s</em> and enable <code>--bigsectors</code>. This would progress deal slow enough that you can observe updates in the status of confirmed deals at the rate of <em>~1 minute</em> and also store larger files if required.</p>
+<p><strong>Production compatible storage</strong></p>
+<p>The devnet is designed so that you can build and test your system quickly but function (except faster) the exact same way as the production Filecoin network. The devnet supports both 2KiB and 512MiB sectors, and the speed of block production is configurable. For advanced features, refer to the <a href="https://github.com/textileio/lotus-devnet">devnet Readme</a>.</p>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<p>There are a few resources you'll need before you start running any nodes.</p>
 <ul>
-<li>replace the HTTP content.</li>
-<li>the Bucket head will get a new IPFS address.</li>
-<li>replace the IPNS content.</li>
-<li>be appended to the ThreadDB history.</li>
+<li><a href="https://www.docker.com/products/docker-desktop">Docker Desktop</a>. In the examples below, you'll run node instances using local Docker containers. You can do the same with any Docker enabled system, but to get started we recommend Docker Desktop and the default configurations we provide.</li>
+<li><a href="https://github.com/textileio/powergate">Powergate</a>. If you run the devnet as part of the Powergate, you should get the latest version of the Powergate source code. </li>
+<li>
+<ul>
+<li><a href="https://golang.org/">Golang</a>. Building the Powergate CLI from code requires that you can run commands with Go. Other sections of the tutorials below don't have any Go requirement.</li>
 </ul>
-<p>This give you a lot of options for how you build apps, deliver content, and do cool things for your users with their data.</p>
-<p>You can get each of the protocol addresses as follows.</p>
-<p><strong>HTTP Address</strong></p>
-<p>Textile give you and your users a public address for each Bucket created. They are created using the Bucket key and you can generate those as follows:</p>
-<p><code>https://${bucket-key}.textile.space</code></p>
-<p><strong>IPFS Address</strong></p>
-<p>The IPFS address is contained in the result of <code>pushPath</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">pushPath</span><span class="p">(</span><span class="nx">bucketKey</span><span class="o">!</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">raw</span><span class="p">.</span><span class="nx">root</span><span class="p">)</span>
+</li>
+</ul>
+<h2 id="devnet-with-powergate">Devnet with Powergate<a class="headerlink" href="#devnet-with-powergate" title="Permanent link">&para;</a></h2>
+<p>If you're interested in running Powergate to experiment with the CLI or APIs, the fastest way is to replace the Lotus client dependency with a running devnet. This will run the Powergate on a Lotus client connected to an embedded network of miners.</p>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<p>Clone the Powergate and <code>cd</code> into the project</p>
+<div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/powergate.git
+<span class="nb">cd</span> powergate
 </code></pre></div>
 
-<p><strong>IPNS Address</strong></p>
-<p>The IPNS Address is always the same and is the Bucket key! If you want to see the Bucket over IPNS from a gateway, you can use the Textile gateway as follows:</p>
-<p><code>https://${bucket-key}.ipns.hub.textile.io/</code></p>
-<p><strong>ThreadDB Address</strong></p>
-<p>You can generate a link to the Bucket with the user thread as follows:</p>
-<p><code>https://${thread-id}.thread.hub.textile.io/buckets/${this.state.bucket-key}</code></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Remember that at this point in time, Buckets are entirely open, data is available to be viewed or downloaded by anyone your app or user share the link with.</p>
-</div>
-<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
-<p>Check out a complete <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app">React Native project on GitHub</a> that generates a user identity, Thread, and Bucket.</p>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
+<p>A default setup is available in a <code>docker-compose</code> configuration shipped with the Powergate. With the default setup, you will run Powergate connected to a local devnet with 512Mib sectors and instantly available gRPC API or CLI that don't require any extra config flags 🎊</p>
+<p><strong>Run the docker-compose</strong></p>
+<p>Docker files for the Powergate are all contained in the folder, <code>/docker</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> docker
+make devnet
+</code></pre></div>
+
+<p>If this is your first time running the Powergate, Docker will download the required instances before any Powergate setup begins. Downloads are dependent on your bandwidth and may take <strong>a few minutes</strong>, but wont be required for subsequent runs of the Powergate.</p>
+<p>Once running, you will begin to see log outputs, including those of the embedded miner.</p>
+<div class="highlight"><pre><span></span><code>lotus_1      <span class="p">|</span> <span class="m">2020</span>-05-29T20:35:08.644Z WARN    miner   miner/miner.go:177<span class="se">\</span>
+mined block in the past <span class="o">{</span><span class="s2">&quot;block-time&quot;</span>: <span class="s2">&quot;2009-01-01T04:44:30.000Z&quot;</span>,<span class="se">\</span>
+<span class="s2">&quot;time&quot;</span>: <span class="s2">&quot;2020-05-29T20:35:08.644Z&quot;</span>, <span class="s2">&quot;duration&quot;</span>: <span class="m">359999438</span>.64444387<span class="o">}</span>
+</code></pre></div>
+
+<p>When complete, you will have a fully functional Powergate (<code>powd</code>), a Lotus devnet, and an IPFS node wired correctly together to start using.</p>
+<h3 id="create-a-deal-and-store-a-file">Create a deal and store a file<a class="headerlink" href="#create-a-deal-and-store-a-file" title="Permanent link">&para;</a></h3>
+<p>Now that your Powergate is running on devnet, all the CLI and API commands are the same as using it in production mode, just your deals will store faster (and disappear when you delete the devnet).</p>
+<p><strong>Install the CLI</strong></p>
+<p>From the root of the <code>powergate</code> repo, you can build the CLI from the latest code. This will install the Powergate CLI, <code>pow</code>, on your machine.</p>
+<div class="highlight"><pre><span></span><code>make build
+</code></pre></div>
+
+<p>Test your installation.</p>
+<div class="highlight"><pre><span></span><code>pow --help
+</code></pre></div>
+
+<p><strong>Create an FFS instance</strong></p>
+<p>FFS is the most common API for interacting with the Powergate. To use the API, you must first create an empty FFS instance, which will,</p>
+<ul>
+<li>Create a new wallet address on Lotus. You can configure the Powergate to automatically fund new wallets from a master address.</li>
+<li>Track and manage deals associated with that address in the Powergate FFS.</li>
+<li>Create an API token for using that FFS (and address) over the Powergate API.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>pow ffs create
+</code></pre></div>
+
+<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Instance created with id 0ac0fb4d-581c-4276-bd90-a9aa30dd4cb4 and token 883f57b1-4e66-47f8-b291-7cf8b10f6370
+</code></pre></div>
+
+</details>
+<p><strong>Generate a CID for your file on IPFS</strong></p>
+<p>To store data on the cold layer (Filecoin), you first need to make it available on IPFS. You can do that quickly by using the Powergate to temporarily add it to the embedded IPFS node.</p>
+<div class="highlight"><pre><span></span><code>pow ffs addToHot -t 883f57b1-4e66-47f8-b291-7cf8b10f6370 myfile
+</code></pre></div>
+
+<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Success! Added file to FFS hot storage with cid: QmYaAK8SSsKJsJdtahCbUe7MZzQdkPBybFCcQJJ3dKZpfm
+</code></pre></div>
+
+</details>
+<p>Note: <code>addToHot</code> does not store your data in the Powergate FFS. It simply caches your data in the IPFS node in preparation for being stored in the Powergate FFS in the following steps. This is technically equivalent to <code>ipfs add</code>, which is adding data without pinning it.</p>
+<p><strong>Add environmental variable (optional)</strong></p>
+<p>For the rest of the commands, the <code>--token</code> is used to scope the requests to the FFS instance we created. You can skip setting the <code>--token</code> flag on every command by adding your new token as an environmental variable. We won't do this and our following examples will continue to use the <code>--token</code> flag.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">POW_TOKEN</span><span class="o">=</span>883f57b1-4e66-47f8-b291-7cf8b10f6370
+</code></pre></div>
+
+<p><strong>Push a CidConfig</strong></p>
+<p>How the Powergate manages each file stored in the FFS is defined by a <em>CidConfig</em>. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must push a new CidConfig for the CID we generated above.</p>
+<p>Every FFS instance has a default <code>CidConfig</code> that will be used for every new deal unless overridden.</p>
+<div class="highlight"><pre><span></span><code>❯ pow ffs push --watch --token 883f57b1-4e66-47f8-b291-7cf8b10f6370 QmYaAK8SSsKJsJdtahCbUe7MZzQdkPBybFCcQJJ3dKZpfm
+</code></pre></div>
+
+<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Success! Pushed cid config <span class="k">for</span> QmYaAK8SSsKJsJdtahCbUe7MZzQdkPBybFCcQJJ3dKZpfm to FFS with job id: 966dcb44-9ef4-4d2a-9c90-a8103c77c354
+           JOB ID                   STATUS
+966dcb44-9ef4-4d2a-9c90-a8103c77c354    Success
+</code></pre></div>
+
+</details>
+<p><strong>Retrieve file from network</strong></p>
+<p>Finally, you can verify that the file was stored on the devnet by making a request to get it back out. </p>
+<div class="highlight"><pre><span></span><code>❯ pow ffs get  -t 883f57b1-4e66-47f8-b291-7cf8b10f6370 QmYaAK8SSsKJsJdtahCbUe7MZzQdkPBybFCcQJJ3dKZpfm myfile2
+</code></pre></div>
+
+<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Success! Data written to myfile2
+</code></pre></div>
+
+</details>
+<h2 id="devnet-as-stand-alone-lotus-node">Devnet as stand-alone Lotus node<a class="headerlink" href="#devnet-as-stand-alone-lotus-node" title="Permanent link">&para;</a></h2>
+<p>You can run the devnet to make use of the <a href="https://lotu.sh/">Lotus CLI</a>with all the benefits described in the introduction but no Powergate or IPFS components.</p>
+<h3 id="run-from-docker-image">Run from Docker image<a class="headerlink" href="#run-from-docker-image" title="Permanent link">&para;</a></h3>
+<p>You can run devnet with the Docker image we maintain. Running the image is just a single line.</p>
+<div class="highlight"><pre><span></span><code>docker run --name texdevnet -e <span class="nv">TEXLOTUSDEVNET_SPEED</span><span class="o">=</span><span class="m">1500</span><span class="se">\</span>
+-e <span class="nv">TEXLOTUSDEVNET_BIGSECTORS</span><span class="o">=</span><span class="nb">true</span> -p <span class="m">1234</span>:7777 textile/lotus-devnet
+</code></pre></div>
+
+<p><strong>Configuration parameters</strong> </p>
+<p>In the above we use the environmental variables to set the <code>speed</code> and <code>bigsectors</code> flags_. The complete mapping of options is,</p>
+<ul>
+<li>TEXLOTUSDEVNET_SPEED: speed</li>
+<li>TEXLOTUSDEVNET_BIGSECTORS: bigsectors</li>
+<li>TEXLOTUSDEVNET_NUMMINERS: numminers</li>
+<li>TEXLOTUSDEVNET_IPFSADDR: ipfsaddr</li>
+</ul>
+<h3 id="run-from-source-code">Run from source code<a class="headerlink" href="#run-from-source-code" title="Permanent link">&para;</a></h3>
+<p><strong>Requirements</strong></p>
+<ul>
+<li><a href="https://github.com/textileio/lotus-devnet">Devnet</a>. If you run the devnet with a stand-alone Lotus node, you should get the latest version of the devnet source code.</li>
+</ul>
+<h4 id="installation_1">Installation<a class="headerlink" href="#installation_1" title="Permanent link">&para;</a></h4>
+<p>Clone the <code>lotus-devnet</code> repo and <code>cd</code> into the project</p>
+<div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/lotus-devnet.git
+<span class="nb">cd</span> lotus-devnet
+</code></pre></div>
+
+<h4 id="setup_1">Setup<a class="headerlink" href="#setup_1" title="Permanent link">&para;</a></h4>
+<p>Install the dependencies:</p>
+<div class="highlight"><pre><span></span><code>make build
+</code></pre></div>
+
+<p>Run the devnet with:</p>
+<div class="highlight"><pre><span></span><code>go run main.go
+</code></pre></div>
+
+<p>For full configuration options, <a href="https://github.com/textileio/lotus-devnet#run">see the project Readme</a></p>
+<p><br/></p>
                 
                   
                 
@@ -1256,7 +1242,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../static-websites/" title="Host a Website in a Bucket" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1265,11 +1251,25 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Host a Website in a Bucket
+                Introduction
               </span>
             </div>
           </a>
         
+        
+          <a href="../ffs/" title="FFS" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                FFS
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>

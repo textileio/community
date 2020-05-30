@@ -279,7 +279,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../introduction/" title="Introduction" target="" class="md-nav__link">
+    <a href="../" title="Introduction" target="" class="md-nav__link">
       Introduction
     </a>
   </li>
@@ -517,7 +517,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../threads/introduction/" title="Introduction" target="" class="md-nav__link">
+    <a href="../../threads/" title="Introduction" target="" class="md-nav__link">
       Introduction
     </a>
   </li>
@@ -589,8 +589,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../powergate/introduction/" title="Introduction" target="" class="md-nav__link">
+    <a href="../../powergate/" title="Introduction" target="" class="md-nav__link">
       Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/devnet/" title="Devnet" target="" class="md-nav__link">
+      Devnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/ffs/" title="FFS" target="" class="md-nav__link">
+      FFS
     </a>
   </li>
 
@@ -1203,7 +1227,7 @@
 <p><a href="/hub/buckets">Buckets</a> provide S3-like data storage on IPFS. Just as you can create Buckets with the <a href="/hub/cli/tt">Hub CLI</a>, you can create Buckets using JavaScript with <a href="#libraries">js-textile</a>. </p>
 <p>The <a href="#libraries">js-textile</a> library allows you to create and edit Buckets owned by you or your organization using an <a href="#account-key">account key</a>. Alternatively, you can use Buckets to store your user's data using a <a href="#user-group-key">user group key</a>.</p>
 <h3 id="threaddb">ThreadDB<a class="headerlink" href="#threaddb" title="Permanent link">&para;</a></h3>
-<p><a href="/threads/introduction">ThreadDB</a> is a mongo-like database that runs on IPFS. You can use it in combination with <a href="#libraries">js-textile</a> to add replication and relay to your user's databases. When combined, <code>js-threads</code> and <code>js-textile</code> allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.</p>
+<p><a href="/threads/">ThreadDB</a> is a mongo-like database that runs on IPFS. You can use it in combination with <a href="#libraries">js-textile</a> to add replication and relay to your user's databases. When combined, <code>js-threads</code> and <code>js-textile</code> allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.</p>
 <h3 id="data-ownership">Data Ownership<a class="headerlink" href="#data-ownership" title="Permanent link">&para;</a></h3>
 <p>The databases and buckets you create over the APIs are owned in one of three ways.</p>
 <ol>
@@ -1228,8 +1252,8 @@
 <p>Identity here represents any entity capable of signing a message. This is a simple <a href="https://en.wikipedia.org/wiki/Public_key_infrastructure">public key infrastructure</a> inspired interface that similarly requires the implementer to be capable of returning an associated public key for verification. In many cases, the Identity will just be a private key, but callers can use any setup that suits their needs. A default implementation based on <a href="https://github.com/libp2p/js-libp2p-crypto/blob/master/src/index.d.ts#L82">Libp2p's crypto library</a> is provided for convinience (and is also used by default if no identity is provided), however, many developers will want to use alternative identity provides, such as <a href="https://www.ceramic.network">3box/Ceramic</a>, <a href="https://fortmatic.com">Fortmatic</a>, and existing private/public keypair, or a web3 provider such as <a href="https://metamask.io">Metamask</a>. Textile Hub also provides email-based identities.</p>
 <p>Identities also provide a way for developers to allocate resources (i.e., storage) for a particular user, and in fact, is a key component in ensuring that a user <em>controls their own data</em>.</p>
 <h3 id="example-user-owned-database">Example: User Owned Database<a class="headerlink" href="#example-user-owned-database" title="Permanent link">&para;</a></h3>
-<p>To illustrate the utility of Identity and Context, in the following example, we will create a user owned ThreadDB within a "user context". This should provide a useful example for getting started with Textile's Hub APIs in the context of a database. We'll also interact with our remote database using the Threads Client library (see also additional examples using the <a href="https://github.com/textileio/js-threads/tree/master/packages/database">local-first database</a> in the <a href="https://docs.textile.io/threads/introduction/">ThreadDB introduction</a>).</p>
-<p>To get started with Textile's Context API, follow the instructions in our <a href="https://docs.textile.io/hub/introduction/">getting started guide</a>. Once you have downloaded and installed the command-line tools, be sure to create a developer account.</p>
+<p>To illustrate the utility of Identity and Context, in the following example, we will create a user owned ThreadDB within a "user context". This should provide a useful example for getting started with Textile's Hub APIs in the context of a database. We'll also interact with our remote database using the Threads Client library (see also additional examples using the <a href="https://github.com/textileio/js-threads/tree/master/packages/database">local-first database</a> in the <a href="https://docs.textile.io/threads/">ThreadDB introduction</a>).</p>
+<p>To get started with Textile's Context API, follow the instructions in our <a href="https://docs.textile.io/hub/">getting started guide</a>. Once you have downloaded and installed the command-line tools, be sure to create a developer account.</p>
 <p>Next, create a new <code>user</code> key using <code>tt key create</code> command line tool. After some steps to create an account, you can create the keys.</p>
 <div class="highlight"><pre><span></span><code>➜ tt key create <span class="c1"># select the &#39;user&#39; option</span>
 </code></pre></div>
@@ -1319,7 +1343,7 @@
  <span class="p">}</span>
  <span class="sb">```</span>
 
-<span class="sb"> Using that schema, we&#39;ll create a new collection. See [our ThreadDB introduction](https://docs.textile.io/threads/introduction/) for details about Collections, Schemas, and Instances.</span>
+<span class="sb"> Using that schema, we&#39;ll create a new collection. See [our ThreadDB introduction](https://docs.textile.io/threads/) for details about Collections, Schemas, and Instances.</span>
 
 <span class="sb"> ```</span><span class="nx">typescript</span>
  <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">newCollection</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="s1">&#39;Astronaut&#39;</span><span class="p">,</span> <span class="nx">astronautSchema</span><span class="p">)</span>
