@@ -515,8 +515,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#devnet-as-stand-alone-lotus-node" title="Devnet as stand-alone Lotus node" class="md-nav__link">
-    Devnet as stand-alone Lotus node
+  <a href="#devnet-with-lotus-client" title="Devnet with Lotus Client" class="md-nav__link">
+    Devnet with Lotus Client
   </a>
   
     <nav class="md-nav">
@@ -1011,8 +1011,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#devnet-as-stand-alone-lotus-node" title="Devnet as stand-alone Lotus node" class="md-nav__link">
-    Devnet as stand-alone Lotus node
+  <a href="#devnet-with-lotus-client" title="Devnet with Lotus Client" class="md-nav__link">
+    Devnet with Lotus Client
   </a>
   
     <nav class="md-nav">
@@ -1087,7 +1087,7 @@
 <p>Depending on your use case you can change settings such as block generation speed and sector sizes. For CI environments you may set block production speeds to the order of <em>~100ms</em> and disable <code>--bigsectors</code>. This devnet setup would be optimized for minimum CPU usage and very fast chain progress, which can confirm deals in seconds.</p>
 <p>If you require more realistic scenarios (e.g. during product demos), you can change to block production speed to <em>~1s</em> and enable <code>--bigsectors</code>. This would progress deal slow enough that you can observe updates in the status of confirmed deals at the rate of <em>~1 minute</em> and also store larger files if required.</p>
 <p><strong>Production compatible storage</strong></p>
-<p>The devnet is designed so that you can build and test your system quickly but function (except faster) the exact same way as the production Filecoin network. The devnet supports both 2KiB and 512MiB sectors, and the speed of block production is configurable. For advanced features, refer to the <a href="https://github.com/textileio/lotus-devnet">devnet Readme</a>.</p>
+<p>The devnet is designed so that you can build and test your system quickly but function the exact same way as the production Filecoin network, except faster and entirely local. The devnet supports both 2KiB and 512MiB sectors, and the speed of block production is configurable. For advanced features, refer to the <a href="https://github.com/textileio/lotus-devnet">devnet Readme</a>.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <p>There are a few resources you'll need before you start running any nodes.</p>
 <ul>
@@ -1184,8 +1184,8 @@ mined block in the past <span class="o">{</span><span class="s2">&quot;block-tim
 </code></pre></div>
 
 </details>
-<h2 id="devnet-as-stand-alone-lotus-node">Devnet as stand-alone Lotus node<a class="headerlink" href="#devnet-as-stand-alone-lotus-node" title="Permanent link">&para;</a></h2>
-<p>You can run the devnet to make use of the <a href="https://lotu.sh/">Lotus CLI</a>with all the benefits described in the introduction but no Powergate or IPFS components.</p>
+<h2 id="devnet-with-lotus-client">Devnet with Lotus Client<a class="headerlink" href="#devnet-with-lotus-client" title="Permanent link">&para;</a></h2>
+<p>You can run the devnet to make use of the <a href="https://lotu.sh/">Lotus Client</a>with all the benefits described in the introduction but no Powergate or IPFS components.</p>
 <h3 id="run-from-docker-image">Run from Docker image<a class="headerlink" href="#run-from-docker-image" title="Permanent link">&para;</a></h3>
 <p>You can run devnet with the Docker image we maintain. Running the image is just a single line.</p>
 <div class="highlight"><pre><span></span><code>docker run --name texdevnet -e <span class="nv">TEXLOTUSDEVNET_SPEED</span><span class="o">=</span><span class="m">1500</span><span class="se">\</span>
