@@ -10,7 +10,7 @@ The Powergate is an API driven solution for deploying multitiered storage across
 
 Powergate is a collection of libraries, modules, and configurations that can used independently, and composed together to integrate Filecoin into your application or storage system. The Powergate is designed to manage one or many Filecoin wallet addresses. Each address in Powergate can be independently managed through the [FFS API](#api) (or grouped together into a single _FFS instance_).
 
-Some benefits of using the Powergate include,
+Some benefits of using the Powergate include:
 
 - Ensure data stored on Filecoin is available on the IPFS network easily.
 - Handle long-term storage deal management, including automated renew and repair.
@@ -124,7 +124,7 @@ You can run the Powergate on the Filecoin testnet or using an embedded devnet we
 
 #### Devnet
 
-The devnet provides a fast, fully functional, embedded Filecoin network that can be used for testing, building, or running continuous integratin. [Read more about running the Powergate on devnet or running the devnet with a standalone Lotus node](devnet.md).
+The devnet provides a fast, fully functional, embedded Filecoin network that can be used for testing, building, or running continuous integratin. [Read more about running the Powergate on devnet or running the devnet to use the Lotus client directly](devnet.md).
 
 #### Testnet
 
