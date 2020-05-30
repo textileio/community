@@ -497,8 +497,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#multi-tired-storage" title="Multi-tired storage" class="md-nav__link">
-    Multi-tired storage
+  <a href="#multi-tiered-storage" title="Multi-tiered storage" class="md-nav__link">
+    Multi-tiered storage
   </a>
   
 </li>
@@ -1053,8 +1053,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#multi-tired-storage" title="Multi-tired storage" class="md-nav__link">
-    Multi-tired storage
+  <a href="#multi-tiered-storage" title="Multi-tiered storage" class="md-nav__link">
+    Multi-tiered storage
   </a>
   
 </li>
@@ -1197,24 +1197,26 @@
   </a>
   <span class="box-space"> </span>
   <a href="https://github.com/textileio/js-powergate-client" class="box" target="_blank">
-    <h5>Powergate JS Client</h5>
+    <h5>POW JS Client</h5>
     <p>Typescript/Javascript client for Textile's Powergate .</p>
   </a>
   <span class="box-space"> </span>
   <a href="https://godoc.org/github.com/textileio/powergate/api/client" class="box" target="_blank">
-    <h5>Golang Client</h5>
+    <h5>POW Golang Client</h5>
     <p>Golang client for the Powergate.</p>
   </a>
 </div>
 
 <div class="txtl-options">
+  <a href="#command-line-interface" class="box">
+    <h5>POW CLI</h5>
+    <p>A command-line interface to work directly with a running Powergate.</p>
+  </a>
+  <span class="box-space"> </span>
   <a href="/powergate/devnet" class="box">
     <h5>Filecoin Local Devnet</h5>
     <p>A fast development node for working with Filecoin APIs.</p>
   </a>
-  <span class="box-space"> </span>
-  <span class="box-fill">
-  </span>
   <span class="box-space"> </span>
   <span class="box-fill">
   </span>
@@ -1233,7 +1235,7 @@ make build
 <p><strong>Using the CLI</strong></p>
 <p>Powergate CLI commands are just <code>pow</code>.</p>
 <p><img alt="" src="../images/powergate/help.png" /></p>
-<h3 id="multi-tired-storage">Multi-tired storage<a class="headerlink" href="#multi-tired-storage" title="Permanent link">&para;</a></h3>
+<h3 id="multi-tiered-storage">Multi-tiered storage<a class="headerlink" href="#multi-tiered-storage" title="Permanent link">&para;</a></h3>
 <p>The workhorse of APIs in the Powergate is called, the <a href="ffs/">FFS</a> (Filecoin File System). This module provides a multi-tiered file storage API built on Filecoin and IPFS. Storing data on IPFS and Filecoin is as easy as expressing your desired configuration for storing a Cid.</p>
 <p>The FFS is where the Powergate handles Filecoin wallet addresses, long-term deal management, and connecting Filecoin to IPFS. Access to the FFS is enabled through a basic token, allowing you to create many FFS Instances, and map Powergate API access to user(s) in your system.</p>
 <p><a href="ffs/">Read about the FFS here</a>.</p>
