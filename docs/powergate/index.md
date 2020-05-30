@@ -33,7 +33,7 @@ Some benefits of using the Powergate include,
   </a>
   <span class="box-space"> </span>
   <a href="/powergate/devnet" class="box">
-    <h5>Lotus Devnet</h5>
+    <h5>Filecoin Local Devnet</h5>
     <p>A fast development node for working with Filecoin APIs.</p>
   </a>
 </div>

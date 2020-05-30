@@ -1,4 +1,4 @@
-# Filecoin Devnet
+# Filecoin Local Devnet
 
 Having a fully synced [Lotus](https://lotu.sh/) node can take a considerable amount of time and effort to maintain. The required effort is normal on live blockchain networks, but isn't ideal in some scenarios. Scenarios such as application development, testing, and continuous integration can be enhanced by having access to Lotus nodes and APIs that don't require connection to the live network. For those cases, we have built the [**lotus-devnet**](https://github.com/textileio/lotus-devnet).
 
@@ -36,7 +36,7 @@ cd powergate
 
 ### Setup
 
-A default setup is available in a `docker-compose` configuration shipped with the Powergate. With the default setup, you will run Powergate connected to a Lotus devnet with 512Mib sectors and instantly available gRPC API or CLI that don't require any extra config flags 🎊
+A default setup is available in a `docker-compose` configuration shipped with the Powergate. With the default setup, you will run Powergate connected to a local devnet with 512Mib sectors and instantly available gRPC API or CLI that don't require any extra config flags 🎊
 
 **Run the docker-compose**
 
