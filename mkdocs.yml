@@ -93,6 +93,8 @@ nav:
           - Golang: https://godoc.org/github.com/textileio/go-threads
   - Filecoin Powergate:
       - Introduction: powergate/index.md
+      - Devnet: powergate/devnet.md
+      - FFS: powergate/ffs.md
       - Powergate: https://github.com/textileio/powergate/#powergate
   - Hub CLI:
       - Login: hub/cli/tt_login.md
