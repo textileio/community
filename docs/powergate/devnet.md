@@ -10,7 +10,7 @@ The lotus-devnet runs a local devnet with a _mock_ sector-builder. This enables 
 
 **Production compatible storage**
 
-The lotus-devnet is designed so that you can build and test your system quickly but function (except faster) the exact same way as the production Filecoin network. The devnet supports both 2Kb and 512Kb sectors, and the speed of block production is configurable. For advanced features, refer to the [lotus-devnet Readme](https://github.com/textileio/lotus-devnet).
+The lotus-devnet is designed so that you can build and test your system quickly but function (except faster) the exact same way as the production Filecoin network. The devnet supports both 2KiB and 512MiB sectors, and the speed of block production is configurable. For advanced features, refer to the [lotus-devnet Readme](https://github.com/textileio/lotus-devnet).
 
 ## Getting Started
 
