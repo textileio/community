@@ -110,7 +110,7 @@ You can run the Powergate on the Filecoin testnet or using the embedded devnet. 
 
 #### Devnet
 
-Read more the devnet tutorial to learn how to [run devnet as part of Powergate or with a stand-alone Lotus node](devnet.md).
+The devnet provides a fast, fully functional, embedded Filecoin network that can be used for testing, building, or running continuous integratin. [Read more about running the Powergate on devnet or running the devnet with a standalone Lotus node](devnet.md).
 
 #### Testnet
 
