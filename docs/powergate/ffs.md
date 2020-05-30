@@ -10,7 +10,7 @@ The FFS API is scoped to one or a set of Filecoin wallet addresses. So to start 
 2. Create a new API token linked to the FFS Instance.
 3. Enable access to the FFS API through the use of the supplied token.
 
-Anytime you use the FFS API (including use through the CLI), you will supply the _token_ to indicate which _FFS Instance_ your requests are targetting. Since each FFS Instance has its own address, it has its own balance and therefor limits on the Filecoin network.
+Anytime you use the FFS API (including use through the CLI), you will supply the _token_ to indicate which _FFS Instance_ your requests are targeting. Since each FFS Instance has its own address, it has its own balance and therefor limits on the Filecoin network.
 
 **Create an FFS Instance**
 
