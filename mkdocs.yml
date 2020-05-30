@@ -41,9 +41,9 @@ plugins:
   - search
   - redirects:
       redirect_maps:
-        'hub/introduction.md': 'hub/index.md'
-        'threads/introduction.md': 'threads/index.md'
-        'powergate/introduction.md': 'powergate/index.md'
+        "hub/introduction.md": "hub/index.md"
+        "threads/introduction.md": "threads/index.md"
+        "powergate/introduction.md": "powergate/index.md"
 
 # Extensions
 markdown_extensions:

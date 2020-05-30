@@ -28,24 +28,26 @@ Some benefits of using the Powergate include,
   </a>
   <span class="box-space"> </span>
   <a href="https://github.com/textileio/js-powergate-client" class="box" target="_blank">
-    <h5>Powergate JS Client</h5>
+    <h5>POW JS Client</h5>
     <p>Typescript/Javascript client for Textile's Powergate .</p>
   </a>
   <span class="box-space"> </span>
   <a href="https://godoc.org/github.com/textileio/powergate/api/client" class="box" target="_blank">
-    <h5>Golang Client</h5>
+    <h5>POW Golang Client</h5>
     <p>Golang client for the Powergate.</p>
   </a>
 </div>
 
 <div class="txtl-options">
+  <a href="#command-line-interface" class="box">
+    <h5>POW CLI</h5>
+    <p>A command-line interface to work directly with a running Powergate.</p>
+  </a>
+  <span class="box-space"> </span>
   <a href="/powergate/devnet" class="box">
     <h5>Filecoin Local Devnet</h5>
     <p>A fast development node for working with Filecoin APIs.</p>
   </a>
-  <span class="box-space"> </span>
-  <span class="box-fill">
-  </span>
   <span class="box-space"> </span>
   <span class="box-fill">
   </span>
@@ -73,9 +75,7 @@ Powergate CLI commands are just `pow`.
 
 ![](images/powergate/../../../images/powergate/help.png)
 
-
-
-### Multi-tired storage
+### Multi-tiered storage
 
 The workhorse of APIs in the Powergate is called, the [FFS](ffs.md) (Filecoin File System). This module provides a multi-tiered file storage API built on Filecoin and IPFS. Storing data on IPFS and Filecoin is as easy as expressing your desired configuration for storing a Cid.
 
