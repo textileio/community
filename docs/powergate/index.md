@@ -114,7 +114,15 @@ The devnet provides a fast, fully functional, embedded Filecoin network that can
 
 #### Testnet
 
-Once you are ready to start using the Powergate with the Filecoin Testnet, [read the production setup instructions](https://github.com/textileio/powergate/#production-setup).
+Once you are ready to start using the Powergate with the Filecoin Testnet, it's just a single line.  
+
+```bash
+git clone git@github.com:textileio/powergate.git
+cd powergate/docker
+make up
+```
+
+[Read the latest setup instructions](https://github.com/textileio/powergate/#production-setup).
 
 #### Mainnet
 
