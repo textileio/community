@@ -1,18 +1,18 @@
 # Build a Web App using the Hub
 
-In this tutorial, you'll learn how to generate API credentials that can be shared with with web apps so that app users can leverage the Hub. With credentials, your users will be able to access Thread Services, create and edit Buckets, and use IPFS persistence right from the browser. You'll build it using a [_user group key_](../hub/app-apis.md) so that every user can use your API while maintaining their own ownership over the data they create.
+In this tutorial, you'll learn how to generate API credentials that can be shared with with web apps so that app users can leverage the Hub. With credentials, your users will be able to access Thread Services, create and edit Buckets, and use IPFS persistence right from the browser. You'll build it using a [_user group key_](/hub/app-apis.md) so that every user can use your API while maintaining their own ownership over the data they create.
 
 ## Getting Started
 
 There are a few resources you'll need before you start writing code.
 
-- [An account](../hub/accounts.md). This is your developer account on the Hub.
-- [A user group key](../hub/app-apis.md). This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.
+- [An account](/hub/accounts.md). This is your developer account on the Hub.
+- [A user group key](/hub/app-apis.md). This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.
 - [A new Typescript web app](https://webpack.js.org/guides/typescript/). We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.
 
 ### API Access
 
-A [_user group key_](../hub/app-apis.md) consists of a _key_ and a _secret_. You can expose your _key_ but you *never want to expose your _secret_* to users or outside of secure environments. So to use the Hub APIs in your web app, you have two options:
+A [_user group key_](/hub/app-apis.md) consists of a _key_ and a _secret_. You can expose your _key_ but you *never want to expose your _secret_* to users or outside of secure environments. So to use the Hub APIs in your web app, you have two options:
 
 * Build a light-weight login endpoint accessible only by your app that will generate Hub credentials for users. ([See below](#creating-a-login-endpoint)).
 * Use the domain whitelisting to skip token generation. ([In development](https://github.com/textileio/textile/issues/109))
