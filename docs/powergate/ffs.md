@@ -4,9 +4,9 @@ The FFS the manages all the necessary state and capabilities to provide multi-ti
 
 ## FFS Instance
 
-The FFS API is scoped to one or a set of Filecoin wallet addresses. So to start accessing the FFS API, you must init a new instance at which time the Powergate will:
+The FFS API is scoped to one or more Filecoin wallet addresses. So to start accessing the FFS API, you must init a new instance at which time the Powergate will:
 
-1. Create a new default wallet address for the FFS Instance.
+1. Create a new default wallet address for the FFS Instance. You can configure the Powergate to automatically fund new wallets from a master address.
 2. Create a new API token linked to the FFS Instance.
 3. Enable access to the FFS API through the use of the supplied token.
 
@@ -30,15 +30,15 @@ pow ffs create
 
 Powergate provides you API access to a multi-tiered storage system built on IPFS and Filecoin. In many places, we refer to these two tiers of storage as Hot (IFPS) and Cold (Filecoin). Data stored in the Powergate Hot layer is available to the IPFS network (or private network). Data stored only in the Cold layer can be available to the IPFS network, but will require a retrieval deal to pull it from Cold and _add_ it to Hot. This mirrors multi-tiered storage often deployed with a hot storage layer in _memory_ and a cold storage layer on _disk_.
 
-You have a lot of control over how each file is managed on Hot and Cold storage through the user of the [Storage Config](#storage-config).
+You have a lot of control over how each file is managed on Hot and Cold storage through the use of the [Storage CidConfig](#storage-cidconfig).
 
-### Storage Config
+### Storage CidConfig
 
-Every FFS instance ([detailed below](#ffs)) can manage how data is stored on IPFS and Filecoin using the Storage Config. Each FFS instance has a default config and every new storage request can use or override the default. Additionally, FFS owners can update the storage configuration by pushing a new config file. When that happens, Powergate does all the work to comply with the new configuration.
+Every FFS instance ([detailed below](#ffs)) can manage how data is stored on IPFS and Filecoin using the CidConfig (see below). Each FFS instance has a default config and every new storage request can use or override the default. Additionally, FFS owners can update the storage configuration (CidConfig) by pushing a new config file. When that happens, Powergate does all the work to comply with the new configuration.
 
-The Storage Config defines how data will be stored in Hot and Cold storage. A lot of the _power_ of the Powergate can be harnessed in how you setup and use storage configs. 
+The CidConfig defines how data will be stored in Hot and Cold storage. A lot of the _power_ of the Powergate can be harnessed in how you setup and use these configurations.
 
-Here is an example of the _default storage config_.
+Here is an example of the _default CidConfig_.
 
 ```JSON
 {
