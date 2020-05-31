@@ -43,6 +43,20 @@ Join us on our [public Slack channel](https://slack.textile.io/) for news, discu
 
     ./scripts/deploy
 
+#### Update contributors
+
+```
+cd scripts/contributors/
+./update.py
+```
+
+#### Update CLI Docs
+
+```
+cd scripts/cli/
+./build
+```
+
 ## Maintainer
 
 [Carson Farmer](https://github.com/carsonfarmer)

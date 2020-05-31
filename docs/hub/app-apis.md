@@ -19,13 +19,13 @@ The above table gives an overview of the different roles that can create or mana
 
 ## API Access
 
-![](/images/tt-cli/tt_account_create_select.png)
+![](/images/hub-cli/hub_keys_create.png)
 
 ### Account Key
 
-Account keys provide direct access to developer and org account Buckets and Threads. Account keys make it possible to build apps that have full access to developer or organization Buckets. You can use account keys to integrate your Buckets into CI, dashboards, team messaging integration, etc. To create a new Account Key using `tt key create` and selecting the `account` option.
+Account keys provide direct access to developer and org account Buckets and Threads. Account keys make it possible to build apps that have full access to developer or organization Buckets. You can use account keys to integrate your Buckets into CI, dashboards, team messaging integration, etc. To create a new Account Key using `hub key create` and selecting the `account` option.
 
-_[See CLI options](/hub/cli/tt_keys)_
+_[See CLI options](/hub/cli/hub_keys)_
 
 ### User Group Key
 
@@ -33,13 +33,13 @@ User groups are non-admin groups of users (e.g. app users or beta users) that yo
 
 #### Managing User Group Keys
 
-To create a new _user group key_ using `tt key create` and selecting the `user group` option. If you are buiding an app in an organization, use `tt key create --org=<name>` to link a new key to the organization not your personal account. There is currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see [Organizations](../hub/accounts.md))
+To create a new _user group key_ using `hub key create` and selecting the `user group` option. If you are buiding an app in an organization, use `hub key create --org=<name>` to link a new key to the organization not your personal account. There is currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see [Organizations](../hub/accounts.md))
 
 You can replace your keys in your app at any time and the user will still have access to their Threads and Buckets as long as the key is connected to the same developer or organization. If you fully delete your account or organization, data replicated on IPFS through the _user group key_ will **also be removed**. So if you remove your account, we highly encourage you to replicate the data on an external IPFS node, provide tools for your users to export or replicate their own account data, or host external Thread Services to migrate your user Thread replication to.
 
 Also see Identity section and how to use identity providers such as 3Box with user group keys.
 
-_[See CLI commands](/hub/cli/tt_keys)_
+_[See CLI commands](/hub/cli/hub_keys)_
 
 ### Domain whitelisting
 
@@ -94,11 +94,11 @@ To illustrate the utility of Identity and Context, in the following example, we 
 
 To get started with Textile's Context API, follow the instructions in our [getting started guide](https://docs.textile.io/hub/). Once you have downloaded and installed the command-line tools, be sure to create a developer account.
 
-Next, create a new `user` key using `tt key create` command line tool. After some steps to create an account, you can create the keys.
+Next, create a new `user` key using `hub key create` command line tool. After some steps to create an account, you can create the keys.
 
 
 ```bash
-➜ tt key create # select the 'user' option
+➜ hub key create # select the 'user' option
 ```
 
 

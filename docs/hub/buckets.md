@@ -16,7 +16,7 @@ Buckets are packed with useful features, including:
 
 When working on your local machine, Buckets are mapped to working directories. Once you initialize a Bucket in a directory, anytime you return to the directory, the Textile CLI will automatically detect the Bucket you are interacting with. To start a Bucket in your current working directory, you must first initialize the Bucket.
 
-![[Read CLI docs for Buckets](/hub/cli/tt_bucket).](/images/tt-cli/tt_bucket_init.png)
+![[Read CLI docs for Buckets](/hub/cli/hub_buck).](/images/hub-cli/hub_bucket_init.png)
 
 !!! info
     Bucket names are unique to a developer and within an Org. They are not globally unique.**
@@ -26,7 +26,7 @@ When working on your local machine, Buckets are mapped to working directories. O
 
 ### Shared Buckets
 
-You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the `--org` flag, specifying the name of the Org you want to share the bucket with. For example `tt bucket init --org nasa`. All members of the Org will be able to push and pull files to and from the shared Bucket. [Read more about creating Orgs](/hub/accounts#organizations).
+You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the `--org` flag, specifying the name of the Org you want to share the bucket with. For example `hub bucket init --org nasa`. All members of the Org will be able to push and pull files to and from the shared Bucket. [Read more about creating Orgs](/hub/accounts#organizations).
 
 !!! info
     to check which org a bucket is registered with, examine the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory)
@@ -35,15 +35,15 @@ You can create Buckets to share with all members of an organization. To do so, s
 
 ### Push new files
 
-![[View the Bucket push CLI docs](/hub/cli/tt_bucket_push).](/images/tt-cli/tt_bucket_push.png)
+![[View the Bucket push CLI docs](/hub/cli/hub_buck_push).](/images/hub-cli/hub_bucket_push.png)
 
-`tt bucket push site/ .`
+`hub bucket push site/ .`
 
 ## Retrieving content
 
 ### Pull files
 
-`tt bucket init --existing`
+`hub bucket init --existing`
 
 !!!info
     By using the `--existing` flag, you can list Buckets already pushed by you or, when using `--org`, your collaborators.
@@ -51,7 +51,7 @@ You can create Buckets to share with all members of an organization. To do so, s
 ### Explore on the gateway
 
 To inspect your pushed files, exlore on the gateway:
-`tt bucket links`
+`hub bucket links`
 then open the first result 'Thread links' in your browser.
 
 ![](/images/buckets/bucket_gateway.png)
@@ -96,7 +96,7 @@ We have provided a configurable [GitHub Action](https://github.com/marketplace/a
 
 #### Developer Buckets
 
-All Buckets you create are scoped to your developer account. You can always find your currently logged in account with `tt whoami`. 
+All Buckets you create are scoped to your developer account. You can always find your currently logged in account with `hub whoami`. 
 
 #### Organization Buckets
 
@@ -104,10 +104,10 @@ Any Buckets you create using the `--org` flag will also be shared with Org membe
 
 ##### Create a new Org
 
-![](/images/tt-cli/tt_org_create.png)
+![](/images/hub-cli/hub_org_create.png)
 
 ```bash
-tt org create
+hub org create
 Choose an Org name: nasa█
 > The name of your account on Textile will be nasa
 > Your URL will be http://hub.textile.io/nasa
@@ -122,7 +122,7 @@ You have now created the `nasa` Org.
 ```bash
 mkdir launchpad
 cd launchpad
-tt bucket init --org nasa
+hub bucket init --org nasa
 ```
 
 You have now created a new Bucket inside of the `launchpad` directory and owned by your `nasa` organization.
@@ -130,7 +130,7 @@ You have now created a new Bucket inside of the `launchpad` directory and owned 
 ##### Invite a collaborator
 
 ```bash
-tt org invite
+hub org invite
 ```
 
 The final step is to invite collaborators to your Org. Once they accept the invite, they will be able to interact with Buckets associated with the Org.
