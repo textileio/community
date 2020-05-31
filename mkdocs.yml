@@ -85,7 +85,7 @@ nav:
       - Accounts: hub/accounts.md
       - Buckets: hub/buckets.md
       - App APIs: hub/app-apis.md
-      - CLI Docs: hub/cli/tt.md
+      - CLI Docs: hub/cli/hub.md
   - ThreadDB:
       - Introduction: threads/index.md
       - Links:
@@ -97,13 +97,13 @@ nav:
       - FFS: powergate/ffs.md
       - Powergate: https://github.com/textileio/powergate/#powergate
   - Hub CLI:
-      - Login: hub/cli/tt_login.md
-      - Logout: hub/cli/tt_logout.md
-      - Whoami: hub/cli/tt_whoami.md
-      - Orgs: hub/cli/tt_orgs.md
-      - Bucket: hub/cli/tt_bucket.md
-      - Threads: hub/cli/tt_threads.md
-      - API Keys: hub/cli/tt_keys.md
+      - Login: hub/cli/hub_login.md
+      - Logout: hub/cli/hub_logout.md
+      - Whoami: hub/cli/hub_whoami.md
+      - Orgs: hub/cli/hub_orgs.md
+      - Bucket: hub/cli/hub_buck.md
+      - Threads: hub/cli/hub_threads.md
+      - API Keys: hub/cli/hub_keys.md
   - How-tos:
       - Build a Web App using Hub APIs: tutorials/hub/web-app.md
       - Host a Website in a Bucket: tutorials/static-websites.md

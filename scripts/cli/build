@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# adapted from @ adgitate1: https://github.com/textileio/docs/pull/137
+set -Eeuo pipefail
+
+# Clone the latest CLI (use commit # if released needed)
+git clone https://github.com/textileio/textile.git
+
+# Copy our doc builders into the CLI
+cp util.go ./textile/cmd/hub
+cp md_docs.go ./textile/cmd/hub
+
+# Remove the old CLI docs
+rm -rf ../../docs/hub/cli/*
+
+# Modify the CLI to output MD in the CLI folder of docs.
+cd textile/cmd/hub
+perl -0777 -pi.bak -e 's/(.+)("time")/$1$2\n$1"log"/' main.go
+# Generate docs directly to CLI folder in markdown
+perl -0777 -pi.bak -e 's[(func main.+?)^}][$1\terr := GenMarkdownTree(rootCmd, "../../../../../docs/hub/cli")\n\tif err != nil {log.Fatal(err)}\n}]sm' main.go
+
+# Run the code to generate docs
+go run .
+
+cd ../../../
+
+rm -rf textile
