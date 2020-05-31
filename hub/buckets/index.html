@@ -589,7 +589,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cli/tt/" title="CLI Docs" target="" class="md-nav__link">
+    <a href="../cli/hub/" title="CLI Docs" target="" class="md-nav__link">
       CLI Docs
     </a>
   </li>
@@ -769,7 +769,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cli/tt_login/" title="Login" target="" class="md-nav__link">
+    <a href="../cli/hub_login/" title="Login" target="" class="md-nav__link">
       Login
     </a>
   </li>
@@ -781,7 +781,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cli/tt_logout/" title="Logout" target="" class="md-nav__link">
+    <a href="../cli/hub_logout/" title="Logout" target="" class="md-nav__link">
       Logout
     </a>
   </li>
@@ -793,7 +793,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cli/tt_whoami/" title="Whoami" target="" class="md-nav__link">
+    <a href="../cli/hub_whoami/" title="Whoami" target="" class="md-nav__link">
       Whoami
     </a>
   </li>
@@ -805,7 +805,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cli/tt_orgs/" title="Orgs" target="" class="md-nav__link">
+    <a href="../cli/hub_orgs/" title="Orgs" target="" class="md-nav__link">
       Orgs
     </a>
   </li>
@@ -817,7 +817,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cli/tt_bucket/" title="Bucket" target="" class="md-nav__link">
+    <a href="../cli/hub_buck/" title="Bucket" target="" class="md-nav__link">
       Bucket
     </a>
   </li>
@@ -829,7 +829,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cli/tt_threads/" title="Threads" target="" class="md-nav__link">
+    <a href="../cli/hub_threads/" title="Threads" target="" class="md-nav__link">
       Threads
     </a>
   </li>
@@ -841,7 +841,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cli/tt_keys/" title="API Keys" target="" class="md-nav__link">
+    <a href="../cli/hub_keys/" title="API Keys" target="" class="md-nav__link">
       API Keys
     </a>
   </li>
@@ -1378,7 +1378,7 @@
 <h2 id="initialize-a-bucket">Initialize a Bucket<a class="headerlink" href="#initialize-a-bucket" title="Permanent link">&para;</a></h2>
 <p>When working on your local machine, Buckets are mapped to working directories. Once you initialize a Bucket in a directory, anytime you return to the directory, the Textile CLI will automatically detect the Bucket you are interacting with. To start a Bucket in your current working directory, you must first initialize the Bucket.</p>
 <p>
-<figure><img src="/images/tt-cli/tt_bucket_init.png" /><figcaption><a href="/hub/cli/tt_bucket">Read CLI docs for Buckets</a>.</figcaption>
+<figure><img src="/images/hub-cli/hub_bucket_init.png" /><figcaption><a href="/hub/cli/hub_buck">Read CLI docs for Buckets</a>.</figcaption>
 </figure>
 </p>
 <div class="admonition info">
@@ -1390,7 +1390,7 @@
 <p>Be careful creating a bucket in a root directory, because all children directories will linked to that bucket. To move or remove a bucket's link to a directory, edit, move or delete the <code>.textile/config.yml</code> file (it will be a hidden folder in the bucket's directory)</p>
 </div>
 <h3 id="shared-buckets">Shared Buckets<a class="headerlink" href="#shared-buckets" title="Permanent link">&para;</a></h3>
-<p>You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the <code>--org</code> flag, specifying the name of the Org you want to share the bucket with. For example <code>tt bucket init --org nasa</code>. All members of the Org will be able to push and pull files to and from the shared Bucket. <a href="/hub/accounts#organizations">Read more about creating Orgs</a>.</p>
+<p>You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the <code>--org</code> flag, specifying the name of the Org you want to share the bucket with. For example <code>hub bucket init --org nasa</code>. All members of the Org will be able to push and pull files to and from the shared Bucket. <a href="/hub/accounts#organizations">Read more about creating Orgs</a>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>to check which org a bucket is registered with, examine the <code>.textile/config.yml</code> file (it will be a hidden folder in the bucket's directory)</p>
@@ -1398,20 +1398,20 @@
 <h2 id="publishing-content">Publishing content<a class="headerlink" href="#publishing-content" title="Permanent link">&para;</a></h2>
 <h3 id="push-new-files">Push new files<a class="headerlink" href="#push-new-files" title="Permanent link">&para;</a></h3>
 <p>
-<figure><img src="/images/tt-cli/tt_bucket_push.png" /><figcaption><a href="/hub/cli/tt_bucket_push">View the Bucket push CLI docs</a>.</figcaption>
+<figure><img src="/images/hub-cli/hub_bucket_push.png" /><figcaption><a href="/hub/cli/hub_buck_push">View the Bucket push CLI docs</a>.</figcaption>
 </figure>
 </p>
-<p><code>tt bucket push site/ .</code></p>
+<p><code>hub bucket push site/ .</code></p>
 <h2 id="retrieving-content">Retrieving content<a class="headerlink" href="#retrieving-content" title="Permanent link">&para;</a></h2>
 <h3 id="pull-files">Pull files<a class="headerlink" href="#pull-files" title="Permanent link">&para;</a></h3>
-<p><code>tt bucket init --existing</code></p>
+<p><code>hub bucket init --existing</code></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>By using the <code>--existing</code> flag, you can list Buckets already pushed by you or, when using <code>--org</code>, your collaborators.</p>
 </div>
 <h3 id="explore-on-the-gateway">Explore on the gateway<a class="headerlink" href="#explore-on-the-gateway" title="Permanent link">&para;</a></h3>
 <p>To inspect your pushed files, exlore on the gateway:
-<code>tt bucket links</code>
+<code>hub bucket links</code>
 then open the first result 'Thread links' in your browser.</p>
 <p><img alt="" src="/images/buckets/bucket_gateway.png" /></p>
 <p>The Hub gateway gives you a static URL where you can explore, download, and share your latest Bucket content.</p>
@@ -1440,12 +1440,12 @@ then open the first result 'Thread links' in your browser.</p>
 <h2 id="learn-more">Learn more<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
 <h3 id="bucket-permissions">Bucket Permissions<a class="headerlink" href="#bucket-permissions" title="Permanent link">&para;</a></h3>
 <h4 id="developer-buckets">Developer Buckets<a class="headerlink" href="#developer-buckets" title="Permanent link">&para;</a></h4>
-<p>All Buckets you create are scoped to your developer account. You can always find your currently logged in account with <code>tt whoami</code>. </p>
+<p>All Buckets you create are scoped to your developer account. You can always find your currently logged in account with <code>hub whoami</code>. </p>
 <h4 id="organization-buckets">Organization Buckets<a class="headerlink" href="#organization-buckets" title="Permanent link">&para;</a></h4>
 <p>Any Buckets you create using the <code>--org</code> flag will also be shared with Org members. Here are the steps to create an Org, create a new Bucket in the Org, and invite a collaborator to the Org:</p>
 <h5 id="create-a-new-org">Create a new Org<a class="headerlink" href="#create-a-new-org" title="Permanent link">&para;</a></h5>
-<p><img alt="" src="/images/tt-cli/tt_org_create.png" /></p>
-<div class="highlight"><pre><span></span><code>tt org create
+<p><img alt="" src="/images/hub-cli/hub_org_create.png" /></p>
+<div class="highlight"><pre><span></span><code>hub org create
 Choose an Org name: nasa█
 &gt; The name of your account on Textile will be nasa
 &gt; Your URL will be http://hub.textile.io/nasa
@@ -1457,12 +1457,12 @@ Please confirm: y█
 <h5 id="create-a-new-bucket-shared-with-an-org">Create a new Bucket shared with an Org<a class="headerlink" href="#create-a-new-bucket-shared-with-an-org" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code>mkdir launchpad
 <span class="nb">cd</span> launchpad
-tt bucket init --org nasa
+hub bucket init --org nasa
 </code></pre></div>
 
 <p>You have now created a new Bucket inside of the <code>launchpad</code> directory and owned by your <code>nasa</code> organization.</p>
 <h5 id="invite-a-collaborator">Invite a collaborator<a class="headerlink" href="#invite-a-collaborator" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code>tt org invite
+<div class="highlight"><pre><span></span><code>hub org invite
 </code></pre></div>
 
 <p>The final step is to invite collaborators to your Org. Once they accept the invite, they will be able to interact with Buckets associated with the Org.</p>
