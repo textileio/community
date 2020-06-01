@@ -164,16 +164,16 @@ ThreadDB uses a modular role-based access control system that will allow access 
 
 ### Identity
 
-ThreadDB allows you to handle user identities (for access control and security/encryption) in the best way for your app and your users. In order to handle *multiple* peers collaborating on a single database, as well as the ability to handle storage *on behalf* of a user, ThreadDB expects a simple Identity interface for singing and validating database updates. See the Hub documentation on [user identities](/hub/app-apis#user-identities) for details.
+ThreadDB allows you to handle user identities (for access control and security/encryption) in the best way for your app and your users. In order to handle *multiple* peers collaborating on a single database, as well as the ability to handle storage *on behalf* of a user, ThreadDB expects a simple Identity interface for singing and validating database updates. See the Hub documentation on [user identities](../hub/app-apis.md#user-identities) for details.
 
 ## Replication with the Hub
 
-ThreadDB has been designed to support trustless peers on the network to provide services that improve or enhance performance and experience for end-users. [The Hub](/hub/) offers Thread Services for relay, replication, and backup that you can add for your users in a couple of minutes. You can learn more about Identity, Access Control, and other advanced topics, in the Hub documentation.
+ThreadDB has been designed to support trustless peers on the network to provide services that improve or enhance performance and experience for end-users. [The Hub](../hub/index.md) offers Thread Services for relay, replication, and backup that you can add for your users in a couple of minutes. You can learn more about Identity, Access Control, and other advanced topics, in the Hub documentation.
 
 ### Connect to the Hub
 
-1. [Create an Account](/hub/accounts#account-setup)
-2. [Create an App Token](/hub/app-apis#api-access)
+1. [Create an Account](../hub/accounts.md#account-setup)
+2. [Create an App Token](../hub/app-apis.md#api-access)
 3. <a href="https://textileio.github.io/js-textile" target="_blank">Add the Textile Library to your App</a>
 
 ### Pinning, Relay, and Replication

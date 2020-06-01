@@ -1,1 +1,1 @@
-[The tour has moved, start here](/).
+[The tour has moved, start here](../).

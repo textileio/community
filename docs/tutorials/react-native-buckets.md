@@ -1,6 +1,6 @@
 # User Buckets from React Native
 
-[The Hub](/hub/) gets really powerful when you allow your app users to leverage IPFS, IPNS, and ThreadDB from inside your applications. In this tutorial, we'll look at how you can let users author, own, and manage buckets right from a mobile app built in React Native.
+[The Hub](../hub/index.md) gets really powerful when you allow your app users to leverage IPFS, IPNS, and ThreadDB from inside your applications. In this tutorial, we'll look at how you can let users author, own, and manage buckets right from a mobile app built in React Native.
 
 [Click here to see an example app built with this tutorial](https://github.com/textileio/js-examples/tree/master/react-native-hub-app).
 
@@ -109,7 +109,7 @@ Next, we'll connect to the remote API using our Key and Secret. We do this so th
 ```
 
 !!!Hint
-    Read more about the Context tool in the [Threads Introduction](/threads/).
+    Read more about the Context tool in the [Threads Introduction](../threads/index.md).
 
 ### Generate an Identity
 

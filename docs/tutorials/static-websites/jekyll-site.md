@@ -12,8 +12,8 @@ When you run your Jekyll site on your computer, Jekyll will dynamically render H
 
 First, you'll need to login to Textile and initialize a Project in the root of your Jekyll folder.
 
-1. Download and install Textile CLI (see [installation](/hub/accounts)).
-2. Init and login to Textile (see [account intro](/hub/accounts)).
+1. Download and install Textile CLI (see [installation](../../hub/accounts.md)).
+2. Init and login to Textile (see [account intro](../../hub/accounts.md)).
 3. CD into your Jekyll directory and initialize a Bucket with `textile bucket init`.
 4. Build your site with Jekyll build.
 

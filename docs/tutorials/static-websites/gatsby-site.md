@@ -12,10 +12,10 @@ When you run your website on your computer, Gatsby will dynamically render HTML 
 
 ## Publish your Bucket
 
-First, you'll need to login to Textile and initialize a Project in the root of your Gatsby folder. 
+First, you'll need to login to Textile and initialize a Project in the root of your Gatsby folder.
 
-1. Download and install Textile CLI (see [installation](/hub/accounts)).
-2. Init and login to Textile (see [account intro](/hub/accounts)).
+1. Download and install Textile CLI (see [installation](../../hub/accounts.md)).
+2. Init and login to Textile (see [account intro](../../hub/accounts.md)).
 3. CD into your Jekyll directory and initialize a Bucket with `textile bucket init`.
 4. Build your site with `gatsby build`.
 

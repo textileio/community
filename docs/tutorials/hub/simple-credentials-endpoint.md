@@ -6,8 +6,8 @@ The simple credentials endpoint requires no user-identity to be sent to the serv
 
 There are a few resources you'll need before you start writing code.
 
-- [An account](/hub/accounts.md). This is your developer account on the Hub.
-- [A user group key](/hub/app-apis.md). This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.
+- [An account](../../hub/accounts.md). This is your developer account on the Hub.
+- [A user group key](../../hub/app-apis.md). This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.
 - [A new Typescript project](https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript). We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.
 - A server framework. The example below uses [KoaJS](https://koajs.com/) but could just as easily be written for [Express](https://expressjs.com/) or the basic Node server.
 

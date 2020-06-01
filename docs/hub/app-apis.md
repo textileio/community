@@ -19,13 +19,13 @@ The above table gives an overview of the different roles that can create or mana
 
 ## API Access
 
-![](/images/hub-cli/hub_keys_create.png)
+![](../images/hub-cli/hub_keys_create.png)
 
 ### Account Key
 
 Account keys provide direct access to developer and org account Buckets and Threads. Account keys make it possible to build apps that have full access to developer or organization Buckets. You can use account keys to integrate your Buckets into CI, dashboards, team messaging integration, etc. To create a new Account Key using `hub key create` and selecting the `account` option.
 
-_[See CLI options](/hub/cli/hub_keys)_
+_[See CLI options](../hub/cli/hub_keys.md)_
 
 ### User Group Key
 
@@ -39,7 +39,7 @@ You can replace your keys in your app at any time and the user will still have a
 
 Also see Identity section and how to use identity providers such as 3Box with user group keys.
 
-_[See CLI commands](/hub/cli/hub_keys)_
+_[See CLI commands](../hub/cli/hub_keys.md)_
 
 ### Domain whitelisting
 
@@ -49,13 +49,13 @@ If you are building a web application, you can use domain whitelisting to access
 
 ### Buckets
 
-[Buckets](/hub/buckets) provide S3-like data storage on IPFS. Just as you can create Buckets with the [Hub CLI](/hub/cli/tt), you can create Buckets using JavaScript with [js-textile](#libraries). 
+[Buckets](../hub/buckets.md) provide S3-like data storage on IPFS. Just as you can create Buckets with the [Hub CLI](../hub/cli/hub.md), you can create Buckets using JavaScript with [js-textile](#libraries).
 
 The [js-textile](#libraries) library allows you to create and edit Buckets owned by you or your organization using an [account key](#account-key). Alternatively, you can use Buckets to store your user's data using a [user group key](#user-group-key).
 
 ### ThreadDB
 
-[ThreadDB](/threads/) is a mongo-like database that runs on IPFS. You can use it in combination with [js-textile](#libraries) to add replication and relay to your user's databases. When combined, `js-threads` and `js-textile` allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.
+[ThreadDB](../threads/index.md) is a mongo-like database that runs on IPFS. You can use it in combination with [js-textile](#libraries) to add replication and relay to your user's databases. When combined, `js-threads` and `js-textile` allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.
 
 ### Data Ownership
 
@@ -263,4 +263,4 @@ Here are the libraries you will find useful to start building today.
 | Browser, React Native, & NodeJS | [js-threads](https://textileio.github.io/js-threads) | [js-textile](https://textileio.github.io/js-textile) |
 | Dart & Flutter Apps ([pending release](https://github.com/textileio/dart-textile/issues/5))    | [dart-threads-client](https://github.com/textileio/dart-textile/issues/5) | [dart-textile](https://github.com/textileio/dart-textile/issues/5) |
 | Golang Libraries        | [go-threads](https://godoc.org/github.com/textileio/go-threads/api/client)          | |
-| Command-line | _thread-shell (coming)_       | [Hub CLI](/hub/cli/tt)         |
+| Command-line | _thread-shell (coming)_       | [Hub CLI](../hub/cli/hub.md)         |

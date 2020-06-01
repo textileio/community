@@ -16,7 +16,7 @@ Buckets are packed with useful features, including:
 
 When working on your local machine, Buckets are mapped to working directories. Once you initialize a Bucket in a directory, anytime you return to the directory, the Textile CLI will automatically detect the Bucket you are interacting with. To start a Bucket in your current working directory, you must first initialize the Bucket.
 
-![[Read CLI docs for Buckets](/hub/cli/hub_buck).](/images/hub-cli/hub_bucket_init.png)
+![[Read CLI docs for Buckets](../hub/cli/hub_buck.md).](../images/hub-cli/hub_bucket_init.png)
 
 !!! info
     Bucket names are unique to a developer and within an Org. They are not globally unique.**
@@ -26,7 +26,7 @@ When working on your local machine, Buckets are mapped to working directories. O
 
 ### Shared Buckets
 
-You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the `--org` flag, specifying the name of the Org you want to share the bucket with. For example `hub bucket init --org nasa`. All members of the Org will be able to push and pull files to and from the shared Bucket. [Read more about creating Orgs](/hub/accounts#organizations).
+You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the `--org` flag, specifying the name of the Org you want to share the bucket with. For example `hub bucket init --org nasa`. All members of the Org will be able to push and pull files to and from the shared Bucket. [Read more about creating Orgs](../hub/accounts.md#organizations).
 
 !!! info
     to check which org a bucket is registered with, examine the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory)
@@ -35,7 +35,7 @@ You can create Buckets to share with all members of an organization. To do so, s
 
 ### Push new files
 
-![[View the Bucket push CLI docs](/hub/cli/hub_buck_push).](/images/hub-cli/hub_bucket_push.png)
+![[View the Bucket push CLI docs](../hub/cli/hub_buck_push.md).](../images/hub-cli/hub_bucket_push.png)
 
 `hub bucket push site/ .`
 
@@ -54,13 +54,13 @@ To inspect your pushed files, exlore on the gateway:
 `hub bucket links`
 then open the first result 'Thread links' in your browser.
 
-![](/images/buckets/bucket_gateway.png)
+![](../images/buckets/bucket_gateway.png)
 
 The Hub gateway gives you a static URL where you can explore, download, and share your latest Bucket content.
 
 ### Render on a website
 
-![](/images/buckets/bucket_website.png)
+![](../images/buckets/bucket_website.png)
 
 If your Bucket contains web content, the Bucket website endpoint will provide you a static URL that will always render the latest content from your Bucket. [See HTTP Domains](#http-domain).
 
@@ -104,7 +104,7 @@ Any Buckets you create using the `--org` flag will also be shared with Org membe
 
 ##### Create a new Org
 
-![](/images/hub-cli/hub_org_create.png)
+![](../images/hub-cli/hub_org_create.png)
 
 ```bash
 hub org create
@@ -137,7 +137,7 @@ The final step is to invite collaborators to your Org. Once they accept the invi
 
 #### App user Buckets
 
-If you are building an app using one of our [developer libraries](/hub/app-apis#libraries) you can use Buckets from inside your apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
+If you are building an app using one of our [developer libraries](../hub/app-apis.md#libraries) you can use Buckets from inside your apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
 
 <div class="txtl-options">
   <a href="https://textileio.github.io/js-textile" target="_blank" class="box">
@@ -160,7 +160,7 @@ Buckets are designed to be interoperable across protocols and services. Here are
 
 #### Buckets and Threads
 
-Buckets are built on [ThreadDB](/threads/). In fact, in their most basic form, Buckets are just a document in a Thread that is updated each time the directory of data is updated. Since Buckets run on Threads, it opens the door to many new integrations that can be built on Buckets! 
+Buckets are built on [ThreadDB](../threads/index.md). In fact, in their most basic form, Buckets are just a document in a Thread that is updated each time the directory of data is updated. Since Buckets run on Threads, it opens the door to many new integrations that can be built on Buckets! 
 
 #### Buckets and HTTP
 
