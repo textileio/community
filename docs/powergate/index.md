@@ -6,6 +6,9 @@ hero_img: /images/powergate-hero.png
 
 The Powergate is an API driven solution for deploying multitiered storage across [Filecoin](https://filecoin.io/) and [IPFS](https://ipfs.io/). Persistent storage on Filecoin allows rich storage configuration for data such as replication factor, miner selection, deal renewal, and repair. Network available storage is configurable and provided through a connected IPFS peer or pinning network.
 
+!!!Warning
+    The Powergate will remain in rapid development until close to the Filecoin Mainnet launch. During this time, will likely encounter bugs and unannounced API changes. Do not run the Powergate in production systems.
+
 ## Overview
 
 Powergate is a collection of libraries, modules, and configurations that can used independently, and composed together to integrate Filecoin into your application or storage system. The Powergate is designed to manage one or many Filecoin wallet addresses. Each address in Powergate can be independently managed through the [FFS API](#api) (or grouped together into a single _FFS instance_).
