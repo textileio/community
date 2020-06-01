@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#ffs" tabindex="1" class="md-skip">
+      <a href="#storing-data-with-the-ffs" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -394,7 +394,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://godoc.org/github.com/textileio/go-threads" title="Golang" target="_blank" class="md-nav__link">
+    <a href="https://godoc.org/github.com/textileio/go-threads/api/client" title="Golang" target="_blank" class="md-nav__link">
       Golang
     </a>
   </li>
@@ -970,8 +970,8 @@
                   <a href="https://github.com/textileio/docs/edit/master/docs/powergate/ffs.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="ffs">FFS<a class="headerlink" href="#ffs" title="Permanent link">&para;</a></h1>
-<p>The FFS the manages all the necessary state and capabilities to provide multi-tiered file storage through the Powergate. The FFS is the primary API for storing and retrieving data, tracking long-term deals on Filecoin, and allowing data persisted on Filecoin to be available on IPFS. To start using the FFS APIs you must first create an <em>FFS Instance</em>.</p>
+                <h1 id="storing-data-with-the-ffs">Storing Data with the FFS<a class="headerlink" href="#storing-data-with-the-ffs" title="Permanent link">&para;</a></h1>
+<p>The Filecoin File System API (FFS) manages all the necessary state and capabilities to provide multi-tiered file storage through the Powergate. The FFS is the primary API for storing and retrieving data, tracking long-term deals on Filecoin, and allowing data persisted on Filecoin to be available on IPFS. To start using the FFS APIs you must first create an <em>FFS Instance</em>.</p>
 <h2 id="ffs-instance">FFS Instance<a class="headerlink" href="#ffs-instance" title="Permanent link">&para;</a></h2>
 <p>The FFS API is scoped to one or more Filecoin wallet addresses. So to start accessing the FFS API, you must init a new instance at which time the Powergate will:</p>
 <ol>
