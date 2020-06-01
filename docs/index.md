@@ -13,17 +13,17 @@ The Hub is a portal to the IPFS network. Use Textile's managed services to persi
 #### Start building
 
 <div class="txtl-options">
-  <a href="/hub/" class="box">
+  <a href="./hub/" class="box">
     <h5>Introduction</h5>
     <p>Learn more about using the Textile Hub.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="/hub/buckets" class="box">
+  <a href="./hub/buckets" class="box">
     <h5>Buckets</h5>
     <p>Persist your data on remote IPFS peers.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="/hub/app-apis" target="_blank" class="box">
+  <a href="./hub/app-apis" target="_blank" class="box">
     <h5>App APIs</h5>
     <p>Use Threads & Buckets to persist data on IPFS from your apps.</p>
   </a>
@@ -36,12 +36,12 @@ ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Deve
 #### Learn more
 
 <div class="txtl-options">
-  <a href="/threads/" class="box">
+  <a href="./threads/" class="box">
     <h5>Introduction</h5>
     <p>Learn about ThreadDB and how to use them in your app.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="/hub/app-apis" class="box">
+  <a href="./hub/app-apis" class="box">
     <h5>App APIs</h5>
     <p>Use the Hub to help persist and scale your user's databases.</p>
   </a>

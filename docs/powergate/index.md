@@ -47,7 +47,7 @@ Some benefits of using the Powergate include:
     <p>A command-line interface to work directly with a running Powergate.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="/powergate/devnet" class="box">
+  <a href="./devnet" class="box">
     <h5>Filecoin Local Devnet</h5>
     <p>A fast development node for working with Filecoin APIs.</p>
   </a>

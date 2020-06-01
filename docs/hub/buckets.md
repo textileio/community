@@ -177,7 +177,7 @@ Every Bucket you create has a unique ID associated with it. The Bucket ID is an 
 ### More resources
 
 <div class="txtl-options">
-  <a href="/hub/cli/tt" class="box">
+  <a href="../../hub/cli/hub" class="box">
     <h5>Textile Hub CLI</h5>
     <p>Read the full CLI documentation.</p>
   </a>

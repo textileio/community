@@ -185,12 +185,12 @@ Thread Services (e.g. pinning encrypted data on IPFS and helping multiple peers 
 ThreadDB can be used from many different languages and has libraries written in Javascript and Go. Find documentation on each of those Libraries below. 
 
 <div class="txtl-options">
-  <a href="/hub/cli/tt" class="box">
+  <a href="https://textileio.github.io/js-threads/" class="box">
     <h5>JavaScript</h5>
     <p>Add Threads to NodeJS, React Native or browser apps.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="/hub/app-apis" class="box">
+  <a href="https://godoc.org/github.com/textileio/go-threads/api/client" class="box">
     <h5>Golang</h5>
     <p>Use Threads in Go or compile to many other platforms.</p>
   </a>
