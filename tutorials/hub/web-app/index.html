@@ -1039,16 +1039,16 @@
                 
                 
                 <h1 id="build-a-web-app-using-the-hub">Build a Web App using the Hub<a class="headerlink" href="#build-a-web-app-using-the-hub" title="Permanent link">&para;</a></h1>
-<p>In this tutorial, you'll learn how to generate API credentials that can be shared with with web apps so that app users can leverage the Hub. With credentials, your users will be able to access Thread Services, create and edit Buckets, and use IPFS persistence right from the browser. You'll build it using a <a href="/hub/app-apis.md"><em>user group key</em></a> so that every user can use your API while maintaining their own ownership over the data they create.</p>
+<p>In this tutorial, you'll learn how to generate API credentials that can be shared with with web apps so that app users can leverage the Hub. With credentials, your users will be able to access Thread Services, create and edit Buckets, and use IPFS persistence right from the browser. You'll build it using a <a href="../../../hub/app-apis/"><em>user group key</em></a> so that every user can use your API while maintaining their own ownership over the data they create.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <p>There are a few resources you'll need before you start writing code.</p>
 <ul>
-<li><a href="/hub/accounts.md">An account</a>. This is your developer account on the Hub.</li>
-<li><a href="/hub/app-apis.md">A user group key</a>. This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.</li>
+<li><a href="../../../hub/accounts/">An account</a>. This is your developer account on the Hub.</li>
+<li><a href="../../../hub/app-apis/">A user group key</a>. This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.</li>
 <li><a href="https://webpack.js.org/guides/typescript/">A new Typescript web app</a>. We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.</li>
 </ul>
 <h3 id="api-access">API Access<a class="headerlink" href="#api-access" title="Permanent link">&para;</a></h3>
-<p>A <a href="/hub/app-apis.md"><em>user group key</em></a> consists of a <em>key</em> and a <em>secret</em>. You can expose your <em>key</em> but you <em>never want to expose your <em>secret</em></em> to users or outside of secure environments. So to use the Hub APIs in your web app, you have two options:</p>
+<p>A <a href="../../../hub/app-apis/"><em>user group key</em></a> consists of a <em>key</em> and a <em>secret</em>. You can expose your <em>key</em> but you <em>never want to expose your <em>secret</em></em> to users or outside of secure environments. So to use the Hub APIs in your web app, you have two options:</p>
 <ul>
 <li>Build a light-weight login endpoint accessible only by your app that will generate Hub credentials for users. (<a href="#creating-a-login-endpoint">See below</a>).</li>
 <li>Use the domain whitelisting to skip token generation. (<a href="https://github.com/textileio/textile/issues/109">In development</a>)</li>

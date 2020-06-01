@@ -1378,7 +1378,7 @@
 <h2 id="initialize-a-bucket">Initialize a Bucket<a class="headerlink" href="#initialize-a-bucket" title="Permanent link">&para;</a></h2>
 <p>When working on your local machine, Buckets are mapped to working directories. Once you initialize a Bucket in a directory, anytime you return to the directory, the Textile CLI will automatically detect the Bucket you are interacting with. To start a Bucket in your current working directory, you must first initialize the Bucket.</p>
 <p>
-<figure><img src="/images/hub-cli/hub_bucket_init.png" /><figcaption><a href="/hub/cli/hub_buck">Read CLI docs for Buckets</a>.</figcaption>
+<figure><img src="../../images/hub-cli/hub_bucket_init.png" /><figcaption><a href="../cli/hub_buck/">Read CLI docs for Buckets</a>.</figcaption>
 </figure>
 </p>
 <div class="admonition info">
@@ -1390,7 +1390,7 @@
 <p>Be careful creating a bucket in a root directory, because all children directories will linked to that bucket. To move or remove a bucket's link to a directory, edit, move or delete the <code>.textile/config.yml</code> file (it will be a hidden folder in the bucket's directory)</p>
 </div>
 <h3 id="shared-buckets">Shared Buckets<a class="headerlink" href="#shared-buckets" title="Permanent link">&para;</a></h3>
-<p>You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the <code>--org</code> flag, specifying the name of the Org you want to share the bucket with. For example <code>hub bucket init --org nasa</code>. All members of the Org will be able to push and pull files to and from the shared Bucket. <a href="/hub/accounts#organizations">Read more about creating Orgs</a>.</p>
+<p>You can create Buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the <code>--org</code> flag, specifying the name of the Org you want to share the bucket with. For example <code>hub bucket init --org nasa</code>. All members of the Org will be able to push and pull files to and from the shared Bucket. <a href="../accounts/#organizations">Read more about creating Orgs</a>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>to check which org a bucket is registered with, examine the <code>.textile/config.yml</code> file (it will be a hidden folder in the bucket's directory)</p>
@@ -1398,7 +1398,7 @@
 <h2 id="publishing-content">Publishing content<a class="headerlink" href="#publishing-content" title="Permanent link">&para;</a></h2>
 <h3 id="push-new-files">Push new files<a class="headerlink" href="#push-new-files" title="Permanent link">&para;</a></h3>
 <p>
-<figure><img src="/images/hub-cli/hub_bucket_push.png" /><figcaption><a href="/hub/cli/hub_buck_push">View the Bucket push CLI docs</a>.</figcaption>
+<figure><img src="../../images/hub-cli/hub_bucket_push.png" /><figcaption><a href="../cli/hub_buck_push/">View the Bucket push CLI docs</a>.</figcaption>
 </figure>
 </p>
 <p><code>hub bucket push site/ .</code></p>
@@ -1413,10 +1413,10 @@
 <p>To inspect your pushed files, exlore on the gateway:
 <code>hub bucket links</code>
 then open the first result 'Thread links' in your browser.</p>
-<p><img alt="" src="/images/buckets/bucket_gateway.png" /></p>
+<p><img alt="" src="../../images/buckets/bucket_gateway.png" /></p>
 <p>The Hub gateway gives you a static URL where you can explore, download, and share your latest Bucket content.</p>
 <h3 id="render-on-a-website">Render on a website<a class="headerlink" href="#render-on-a-website" title="Permanent link">&para;</a></h3>
-<p><img alt="" src="/images/buckets/bucket_website.png" /></p>
+<p><img alt="" src="../../images/buckets/bucket_website.png" /></p>
 <p>If your Bucket contains web content, the Bucket website endpoint will provide you a static URL that will always render the latest content from your Bucket. <a href="#http-domain">See HTTP Domains</a>.</p>
 <h3 id="render-on-ipfs-gateways">Render on IPFS gateways<a class="headerlink" href="#render-on-ipfs-gateways" title="Permanent link">&para;</a></h3>
 <p>Buckets are dynamic folders distributed over IPFS using ThreadDB. Each time you <strong>create</strong> a new Bucket, you will receive a new <a href="#ipns-address">IPNS Address</a> that you can use on the IPFS address to fetch the latest Bucket content. The IPNS address will not change, but the content will update each time you push changes to your Bucket. Each time you <strong>update</strong> your Bucket, you will receive a new IPFS address to fetch that version of your Bucket content.</p>
@@ -1444,7 +1444,7 @@ then open the first result 'Thread links' in your browser.</p>
 <h4 id="organization-buckets">Organization Buckets<a class="headerlink" href="#organization-buckets" title="Permanent link">&para;</a></h4>
 <p>Any Buckets you create using the <code>--org</code> flag will also be shared with Org members. Here are the steps to create an Org, create a new Bucket in the Org, and invite a collaborator to the Org:</p>
 <h5 id="create-a-new-org">Create a new Org<a class="headerlink" href="#create-a-new-org" title="Permanent link">&para;</a></h5>
-<p><img alt="" src="/images/hub-cli/hub_org_create.png" /></p>
+<p><img alt="" src="../../images/hub-cli/hub_org_create.png" /></p>
 <div class="highlight"><pre><span></span><code>hub org create
 Choose an Org name: nasa█
 &gt; The name of your account on Textile will be nasa
@@ -1467,7 +1467,7 @@ hub bucket init --org nasa
 
 <p>The final step is to invite collaborators to your Org. Once they accept the invite, they will be able to interact with Buckets associated with the Org.</p>
 <h4 id="app-user-buckets">App user Buckets<a class="headerlink" href="#app-user-buckets" title="Permanent link">&para;</a></h4>
-<p>If you are building an app using one of our <a href="/hub/app-apis#libraries">developer libraries</a> you can use Buckets from inside your apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.</p>
+<p>If you are building an app using one of our <a href="../app-apis/#libraries">developer libraries</a> you can use Buckets from inside your apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.</p>
 <div class="txtl-options">
   <a href="https://textileio.github.io/js-textile" target="_blank" class="box">
     <h5>JS Textile Docs</h5>
@@ -1486,7 +1486,7 @@ hub bucket init --org nasa
 <h3 id="bucket-protocols">Bucket Protocols<a class="headerlink" href="#bucket-protocols" title="Permanent link">&para;</a></h3>
 <p>Buckets are designed to be interoperable across protocols and services. Here are a few examples.</p>
 <h4 id="buckets-and-threads">Buckets and Threads<a class="headerlink" href="#buckets-and-threads" title="Permanent link">&para;</a></h4>
-<p>Buckets are built on <a href="/threads/">ThreadDB</a>. In fact, in their most basic form, Buckets are just a document in a Thread that is updated each time the directory of data is updated. Since Buckets run on Threads, it opens the door to many new integrations that can be built on Buckets! </p>
+<p>Buckets are built on <a href="../../threads/">ThreadDB</a>. In fact, in their most basic form, Buckets are just a document in a Thread that is updated each time the directory of data is updated. Since Buckets run on Threads, it opens the door to many new integrations that can be built on Buckets! </p>
 <h4 id="buckets-and-http">Buckets and HTTP<a class="headerlink" href="#buckets-and-http" title="Permanent link">&para;</a></h4>
 <p>Buckets can be rendered over HTTP through either the <a href="#explore-on-the-gateway">Hub Gateway</a>, the <a href="#render-on-a-website">Bucket subdomains</a>, or on any IPFS gateway supporting IPNS (see below).</p>
 <h4 id="buckets-and-ipfs">Buckets and IPFS<a class="headerlink" href="#buckets-and-ipfs" title="Permanent link">&para;</a></h4>
