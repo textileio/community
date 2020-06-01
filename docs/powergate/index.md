@@ -1,5 +1,5 @@
 ---
-hero_img: /images/powergate-hero.png
+hero_img: ../images/powergate-hero.png
 ---
 
 # Introduction to the Powergate

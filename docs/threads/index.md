@@ -1,5 +1,5 @@
 ---
-hero_img: /images/threads-hero.png
+hero_img: ../images/threads-hero.png
 ---
 
 # Getting Started

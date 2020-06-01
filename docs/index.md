@@ -1,5 +1,5 @@
 ---
-hero_img: /images/hero.jpg
+hero_img: ./images/hero.jpg
 ---
 
 Welcome to the Textile documentation. Whether you are an expert or an absolute beginner, you'll find your answers here. Pick a starting point below, or use the search box to find documents matching your keywords.
