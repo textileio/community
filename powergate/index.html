@@ -614,8 +614,8 @@
 
 
   <li class="md-nav__item">
-    <a href="devnet/" title="Devnet" target="" class="md-nav__link">
-      Devnet
+    <a href="devnet/" title="Run Devnet" target="" class="md-nav__link">
+      Run Devnet
     </a>
   </li>
 
@@ -626,8 +626,8 @@
 
 
   <li class="md-nav__item">
-    <a href="ffs/" title="FFS" target="" class="md-nav__link">
-      FFS
+    <a href="ffs/" title="Store Data" target="" class="md-nav__link">
+      Store Data
     </a>
   </li>
 
@@ -1178,6 +1178,10 @@
                 
                 <h1 id="introduction-to-the-powergate">Introduction to the Powergate<a class="headerlink" href="#introduction-to-the-powergate" title="Permanent link">&para;</a></h1>
 <p>The Powergate is an API driven solution for deploying multitiered storage across <a href="https://filecoin.io/">Filecoin</a> and <a href="https://ipfs.io/">IPFS</a>. Persistent storage on Filecoin allows rich storage configuration for data such as replication factor, miner selection, deal renewal, and repair. Network available storage is configurable and provided through a connected IPFS peer or pinning network.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Powergate will remain in rapid development until close to the Filecoin Mainnet launch. During this time, will likely encounter bugs and unannounced API changes. Do not run the Powergate in production systems.</p>
+</div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Powergate is a collection of libraries, modules, and configurations that can used independently, and composed together to integrate Filecoin into your application or storage system. The Powergate is designed to manage one or many Filecoin wallet addresses. Each address in Powergate can be independently managed through the <a href="#api">FFS API</a> (or grouped together into a single <em>FFS instance</em>).</p>
 <p>Some benefits of using the Powergate include:</p>
@@ -1328,13 +1332,13 @@ make up
           </a>
         
         
-          <a href="devnet/" title="Devnet" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="devnet/" title="Run Devnet" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Devnet
+                Run Devnet
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
