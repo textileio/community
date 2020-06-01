@@ -90,7 +90,7 @@ nav:
       - Introduction: threads/index.md
       - Links:
           - JavaScript: https://textileio.github.io/js-threads
-          - Golang: https://godoc.org/github.com/textileio/go-threads
+          - Golang: https://godoc.org/github.com/textileio/go-threads/api/client
   - Filecoin Powergate:
       - Introduction: powergate/index.md
       - Run Devnet: powergate/devnet.md

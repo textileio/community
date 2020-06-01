@@ -1,6 +1,6 @@
-# FFS
+# Storing Data with the FFS
 
-The FFS the manages all the necessary state and capabilities to provide multi-tiered file storage through the Powergate. The FFS is the primary API for storing and retrieving data, tracking long-term deals on Filecoin, and allowing data persisted on Filecoin to be available on IPFS. To start using the FFS APIs you must first create an _FFS Instance_.
+The Filecoin File System API (FFS) manages all the necessary state and capabilities to provide multi-tiered file storage through the Powergate. The FFS is the primary API for storing and retrieving data, tracking long-term deals on Filecoin, and allowing data persisted on Filecoin to be available on IPFS. To start using the FFS APIs you must first create an _FFS Instance_.
 
 ## FFS Instance
 

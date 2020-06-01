@@ -262,5 +262,5 @@ Here are the libraries you will find useful to start building today.
 |-------------------------|:---------------------:|:-------------------:|
 | Browser, React Native, & NodeJS | [js-threads](https://textileio.github.io/js-threads) | [js-textile](https://textileio.github.io/js-textile) |
 | Dart & Flutter Apps ([pending release](https://github.com/textileio/dart-textile/issues/5))    | [dart-threads-client](https://github.com/textileio/dart-textile/issues/5) | [dart-textile](https://github.com/textileio/dart-textile/issues/5) |
-| Golang Libraries        | [go-threads](https://godoc.org/github.com/textileio/go-threads)          | |
+| Golang Libraries        | [go-threads](https://godoc.org/github.com/textileio/go-threads/api/client)          | |
 | Command-line | _thread-shell (coming)_       | [Hub CLI](/hub/cli/tt)         |
