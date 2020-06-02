@@ -57,7 +57,6 @@ import dotenv from "dotenv";
 
 /** Textile libraries */
 import {Client} from '@textile/threads-client';
-import {Provider} from '@textile/context';
 import {Libp2pCryptoIdentity} from '@textile/threads-core';
 
 /** Read the values of .env into the environment */
