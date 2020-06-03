@@ -30,7 +30,7 @@ Some benefits of using the Powergate include:
     <p>Multitiered file storage API built on Filecoin and IPFS.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://github.com/textileio/js-powergate-client" class="box" target="_blank">
+  <a href="https://textileio.github.io/js-powergate-client/" class="box" target="_blank">
     <h5>POW JS Client</h5>
     <p>Typescript/Javascript client for Textile's Powergate .</p>
   </a>
@@ -107,7 +107,7 @@ Built on top of the previous indexes, a Reputation module constructs a weighted-
 The Powergate APIs are available as gRPC endpoints. There are three ways to get familiar with the broad set of APIs available to start using on the Powergate.
 
 * **Explore the CLI**. The CLI runs on the Powergate API, so in general, anything you can do in the CLI you can also do over the API.
-* **Use the JS Client**. We have provided an easy to use [JavaScript client for the Powergate APIs](https://github.com/textileio/js-powergate-client).
+* **Use the JS Client**. We have provided an easy to use [JavaScript client for the Powergate APIs](https://textileio.github.io/js-powergate-client/).
 * **User the Go Client**. You can use the Powergate APIs from your go app by building directly on the [Powergate Go Client](https://godoc.org/github.com/textileio/powergate/api/client).
 * **Browse the Protocols**. The API is typed with Protocol Buffers and you can quickly view all capabilities by looking at the `.proto` files in the [Powergate repo](https://github.com/textileio/powergate). The best place to start is the [FFS API](https://github.com/textileio/powergate/blob/master/ffs/rpc/rpc.proto#L310).
 

@@ -30,78 +30,7 @@ pow ffs create
 
 Powergate provides you API access to a multi-tiered storage system built on IPFS and Filecoin. In many places, we refer to these two tiers of storage as Hot (IFPS) and Cold (Filecoin). Data stored in the Powergate Hot layer is available to the IPFS network (or private network). Data stored only in the Cold layer can be available to the IPFS network, but will require a retrieval deal to pull it from Cold and _add_ it to Hot. This mirrors multi-tiered storage often deployed with a hot storage layer in _memory_ and a cold storage layer on _disk_.
 
-You have a lot of control over how each file is managed on Hot and Cold storage through the use of the [Storage CidConfig](#storage-cidconfig).
-
-### Storage CidConfig
-
-Every FFS instance ([detailed below](#ffs)) can manage how data is stored on IPFS and Filecoin using the CidConfig (see below). Each FFS instance has a default config and every new storage request can use or override the default. Additionally, FFS owners can update the storage configuration (CidConfig) by pushing a new config file. When that happens, Powergate does all the work to comply with the new configuration.
-
-The CidConfig defines how data will be stored in Hot and Cold storage. A lot of the _power_ of the Powergate can be harnessed in how you setup and use these configurations.
-
-Here is an example of the _default CidConfig_.
-
-```JSON
-{
-  // Hot has this desired storing configuration in Hot Storage.
-  "Hot": {
-    // Enable indicates if Cid data is stored. If true, it will
-    // consider further configurations to execute actions.
-    "Enabled": true,
-    // AllowUnfreeze indicates that if data isn't available in the
-    // Hot Storage, it's allowed to be feeded by Cold Storage if
-    // available.
-    "AllowUnfreeze": false,
-    "Ipfs": {
-      // AddTimeout is an upper bound on adding data to IPFS node from
-      // the network before failing.
-      "AddTimeout": 30
-    }
-  },
-  // Cold has desired storing configuration in the Cold Storage.
-  "Cold": {
-    // Enabled indicates that data will be saved in Cold storage.
-    // If is switched from false->true, it will consider the other
-    // attributes as the desired state of the data in this Storage.
-    "Enabled": true,
-    // Filecoin describes the desired Filecoin configuration for a
-    // Cid in the Filecoin network.
-    "Filecoin": {
-    	// RepFactor indicates the desired amount of active deals
-    	// with different miners to store the data. While making deals
-    	// the other attributes of FilConfig are considered for miner
-      // selection.
-      "RepFactor": 1,
-    	// DealDuration indicates the duration to be used when making
-      // new deals.
-      "DealDuration": 1000,
-    	// ExcludedMiners is a set of miner addresses won't be ever be
-      // selected when making new deals, even if they comply to other
-      // filters.
-      "ExcludedMiners": null,
-    	// TrustedMiners is a set of miner addresses which will be
-      // forcibly used when making new deals. An empty/nil list
-      // disables this feature.
-      "TrustedMiners": null,
-    	// CountryCodes indicates that new deals should select miners
-      // on specific countries.
-      "CountryCodes": null,
-    	// Renew indicates deal-renewal configuration.
-      "Renew": {
-        // Enabled indicates that deal-renewal is enabled for this
-        // Cid.
-        "Enabled": false,
-        // Threshold indicates how many epochs before expiring should
-        // trigger deal renewal. e.g: 100 epoch before expiring.
-        "Threshold": 0
-      },
-    	// Addr is the wallet address used to store the data in filecoin
-      "Addr": "<unique>",
-      "MaxPrice": 0
-    }
-  },
-  "Repairable": false
-}
-```
+You have a lot of control over how each file is managed on Hot and Cold storage through the use of the [Storage CidConfig](cidconfig.md).
 
 ## Learn more
 

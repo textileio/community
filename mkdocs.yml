@@ -95,6 +95,7 @@ nav:
       - Introduction: powergate/index.md
       - Run Devnet: powergate/devnet.md
       - Store Data: powergate/ffs.md
+      - Storage Config: powergate/cidconfig.md
       - Powergate: https://github.com/textileio/powergate/#powergate
   - Hub CLI:
       - Login: hub/cli/hub_login.md
