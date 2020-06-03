@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://docs.textile.io/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/accounts/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/buckets/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/app-apis/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/hub/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/threads/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/powergate/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/powergate/devnet/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/powergate/ffs/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/hub_login/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/hub_logout/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/hub_whoami/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/hub_orgs/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/hub_buck/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/hub_threads/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/hub/cli/hub_keys/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/tutorials/hub/web-app/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/tutorials/static-websites/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.textile.io/tutorials/react-native-buckets/</loc>
-     <lastmod>2020-06-01</lastmod>
+     <lastmod>2020-06-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
