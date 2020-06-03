@@ -166,17 +166,25 @@ You can run devnet with the Docker image we maintain. Running the image is just 
 
 ```bash
 docker run --name texdevnet -e TEXLOTUSDEVNET_SPEED=1500\
--e TEXLOTUSDEVNET_BIGSECTORS=true -p 1234:7777 textile/lotus-devnet
+-e TEXLOTUSDEVNET_BIGSECTORS=true -p 1234:7777 \
+-v /tmp/import:/tmp/import textile/lotus-devnet
 ```
+
+After running this container, the Lotus API endpoint is available at the default port which lets you use the Lotus CLI without extra configuration.
+Recall that devnets should be used as ephemeral networks, so be sure to stop and remove `texdevnet` container to re-reun the above command again.
+
+If you plan to use the `ClientImport` API or `lotus client import` command, your importing file should be under `/tmp/import` path on your host machine. This folder is binded to the docker image so the devnet, so the Lotus node can find it under the same path.
+
+Finally, notice that the above command doesn't specify the `textile/lotus-devnet` tag, so it's recommended that you consider upating your cached `latest` tag.
 
 **Configuration parameters** 
 
-In the above we use the environmental variables to set the `speed` and `bigsectors` flags_. The complete mapping of options is,
+In the above we use the environmental variables to set the `speed` and `bigsectors` flags. The complete mapping of options is,
 
-* TEXLOTUSDEVNET_SPEED: speed
-* TEXLOTUSDEVNET_BIGSECTORS: bigsectors
-* TEXLOTUSDEVNET_NUMMINERS: numminers
-* TEXLOTUSDEVNET_IPFSADDR: ipfsaddr
+* TEXLOTUSDEVNET_SPEED: time in milliseconds of blocks/tipset generation.
+* TEXLOTUSDEVNET_BIGSECTORS: If true, the devnet will run on 512Mib sectors, but 2Kib otherwise.
+* TEXLOTUSDEVNET_NUMMINERS: The number of miners in the devnet. This is an experimental feature, which seems stable for <=3.
+* TEXLOTUSDEVNET_IPFSADDR: Optional multiaddr of an IPFS node to enable the Lotus node be connected to an IPFS node to avoid importing deals data, and storing retrievals.
 
 ### Run from source code
 
@@ -206,6 +214,8 @@ Run the devnet with:
 ```bash
 go run main.go
 ```
+
+If you've previously compiled a prior version of `lotus-devnet`, running `make clean` is recommended before building again.
 
 For full configuration options, [see the project Readme](https://github.com/textileio/lotus-devnet#run)
 
