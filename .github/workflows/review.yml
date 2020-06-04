@@ -9,7 +9,7 @@ on:
 
 jobs:
   spelling:
-    name: Spelling
+    name: Spelling & Grammar
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -18,3 +18,4 @@ jobs:
           reporter: github-pr-review
           github_token: ${{ secrets.github_token }}
           locale: "US"
+      - uses: place-labs/orthograph-err@master
