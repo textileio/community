@@ -1,8 +1,5 @@
 {
   "rules": {
-    "alex": {
-      "allow": []
-    },
     "common-misspellings": {
       "ignore": []
     },
