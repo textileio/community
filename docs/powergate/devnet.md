@@ -18,6 +18,12 @@ If you require more realistic scenarios (e.g. during product demos), you can cha
 
 The devnet is designed so that you can build and test your system quickly but function the exact same way as the production Filecoin network, except faster and entirely local. The devnet supports both 2KiB and 512MiB sectors, and the speed of block production is configurable. For advanced features, refer to the [devnet Readme](https://github.com/textileio/lotus-devnet).
 
+## Devnet Miners
+
+Miners are generated deterministically when you start the devnet. If you run the devnet with a single miner, the miner's address will be `t01000`. If you start the devnet with two miners, the addresses will be `t01000` and `t01001`. And so on.
+
+When running the devnet within the Powergate, you can also fetch miner details from the miner API endpoints and CLI.
+
 ## Getting Started
 
 There are a few resources you'll need before you start running any nodes.
