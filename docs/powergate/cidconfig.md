@@ -28,7 +28,7 @@ pow ffs config set new-config.json -t <token>
 
 ### Set a custom CidConfig at storage time
 
-To make a storage request for a CID with a custom config stored in `custom-config.json`. If you leave the config option off of the following command, the default CidConfig would be used.
+You can provide a flag (`-c`) to include a custom CidConfig for a new storage request. Storage requests without a custom CidConfig will use the instance default storage config.
 
 ```bash
 pow ffs push <cid> -t <token> -c custom-config.json
@@ -44,10 +44,10 @@ pow ffs pull <cid> -t <token>
 
 ### Update the CidConfig of existing data
 
-To update the CidConfig of data already stored and managed by the Powergate with a new config stored in `updated-config.json`.
+To update the CidConfig of data already stored and managed by the Powergate with a new config stored in `updated-config.json`. This command requires the _override_ flag (`-o`) to confirm that you understand that the command will replace an existing config.
 
 ```bash
-pow ffs push <cid> -t <token> -c updated-config.json
+pow ffs push <cid> -t <token> -o -c updated-config.json
 ```
 
 ## CidConfig Details
