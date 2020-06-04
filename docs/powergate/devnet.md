@@ -170,12 +170,11 @@ docker run --name texdevnet -e TEXLOTUSDEVNET_SPEED=1500\
 -v /tmp/import:/tmp/import textile/lotus-devnet
 ```
 
-After running this container, the Lotus API endpoint is available at the default port which lets you use the Lotus CLI without extra configuration.
-Recall that devnets should be used as ephemeral networks, so be sure to stop and remove `texdevnet` container to re-reun the above command again.
+After running the container, the Lotus API endpoint is available at the default port which lets you use the Lotus CLI without any extra configuration. Recall that *devnets* should be used as ephemeral networks, so be sure to stop and remove the `texdevnet` container if you re-rerun the above command again.
 
-If you plan to use the `ClientImport` API or `lotus client import` command, your importing file should be under `/tmp/import` path on your host machine. This folder is binded to the docker image so the devnet, so the Lotus node can find it under the same path.
+If you plan to use the `ClientImport` API or `lotus client import` command, your target file to import should be in the `/tmp/import` path on your host machine. This folder is bound to the docker image and the devnet, so the Lotus node can find it under the same path.
 
-Finally, notice that the above command doesn't specify the `textile/lotus-devnet` tag, so it's recommended that you consider upating your cached `latest` tag.
+Finally, notice that the above command doesn't specify the `textile/lotus-devnet` tag, so it's recommended that you consider updating your cached `latest` tag.
 
 **Configuration parameters** 
 
