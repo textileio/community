@@ -16,7 +16,7 @@
        ignoreInlineNodeTypes: ["Code", "Html"],
     },
     "spelling": {
-      "language": "en-us",
+      "language": "en",
       "wordDefinitionRegexp": "/[\\w']+/g",
       "suggestCorrections": true,
     },
