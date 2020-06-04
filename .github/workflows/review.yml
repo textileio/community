@@ -19,3 +19,5 @@ jobs:
           github_token: ${{ secrets.github_token }}
           locale: "US"
       - uses: place-labs/orthograph-err@master
+        with:
+          path: 'docs/**/*.md'
