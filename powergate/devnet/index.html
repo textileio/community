@@ -590,6 +590,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../cidconfig/" title="Storage Config" target="" class="md-nav__link">
+      Storage Config
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="https://github.com/textileio/powergate/#powergate" title="Powergate" target="" class="md-nav__link">
       Powergate
     </a>
@@ -1193,10 +1205,9 @@ mined block in the past <span class="o">{</span><span class="s2">&quot;block-tim
 -v /tmp/import:/tmp/import textile/lotus-devnet
 </code></pre></div>
 
-<p>After running this container, the Lotus API endpoint is available at the default port which lets you use the Lotus CLI without extra configuration.
-Recall that devnets should be used as ephemeral networks, so be sure to stop and remove <code>texdevnet</code> container to re-reun the above command again.</p>
-<p>If you plan to use the <code>ClientImport</code> API or <code>lotus client import</code> command, your importing file should be under <code>/tmp/import</code> path on your host machine. This folder is binded to the docker image so the devnet, so the Lotus node can find it under the same path.</p>
-<p>Finally, notice that the above command doesn't specify the <code>textile/lotus-devnet</code> tag, so it's recommended that you consider upating your cached <code>latest</code> tag.</p>
+<p>After running the container, the Lotus API endpoint is available at the default port which lets you use the Lotus CLI without any extra configuration. Recall that <em>devnets</em> should be used as ephemeral networks, so be sure to stop and remove the <code>texdevnet</code> container if you re-rerun the above command again.</p>
+<p>If you plan to use the <code>ClientImport</code> API or <code>lotus client import</code> command, your target file to import should be in the <code>/tmp/import</code> path on your host machine. This folder is bound to the docker image and the devnet, so the Lotus node can find it under the same path.</p>
+<p>Finally, notice that the above command doesn't specify the <code>textile/lotus-devnet</code> tag, so it's recommended that you consider updating your cached <code>latest</code> tag.</p>
 <p><strong>Configuration parameters</strong> </p>
 <p>In the above we use the environmental variables to set the <code>speed</code> and <code>bigsectors</code> flags. The complete mapping of options is,</p>
 <ul>

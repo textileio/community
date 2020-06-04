@@ -497,19 +497,6 @@
     Data storage
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#storage-cidconfig" title="Storage CidConfig" class="md-nav__link">
-    Storage CidConfig
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -527,6 +514,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cidconfig/" title="Storage Config" target="" class="md-nav__link">
+      Storage Config
+    </a>
   </li>
 
         
@@ -927,19 +926,6 @@
     Data storage
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#storage-cidconfig" title="Storage CidConfig" class="md-nav__link">
-    Storage CidConfig
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -991,73 +977,7 @@
 </details>
 <h2 id="data-storage">Data storage<a class="headerlink" href="#data-storage" title="Permanent link">&para;</a></h2>
 <p>Powergate provides you API access to a multi-tiered storage system built on IPFS and Filecoin. In many places, we refer to these two tiers of storage as Hot (IFPS) and Cold (Filecoin). Data stored in the Powergate Hot layer is available to the IPFS network (or private network). Data stored only in the Cold layer can be available to the IPFS network, but will require a retrieval deal to pull it from Cold and <em>add</em> it to Hot. This mirrors multi-tiered storage often deployed with a hot storage layer in <em>memory</em> and a cold storage layer on <em>disk</em>.</p>
-<p>You have a lot of control over how each file is managed on Hot and Cold storage through the use of the <a href="#storage-cidconfig">Storage CidConfig</a>.</p>
-<h3 id="storage-cidconfig">Storage CidConfig<a class="headerlink" href="#storage-cidconfig" title="Permanent link">&para;</a></h3>
-<p>Every FFS instance (<a href="#ffs">detailed below</a>) can manage how data is stored on IPFS and Filecoin using the CidConfig (see below). Each FFS instance has a default config and every new storage request can use or override the default. Additionally, FFS owners can update the storage configuration (CidConfig) by pushing a new config file. When that happens, Powergate does all the work to comply with the new configuration.</p>
-<p>The CidConfig defines how data will be stored in Hot and Cold storage. A lot of the <em>power</em> of the Powergate can be harnessed in how you setup and use these configurations.</p>
-<p>Here is an example of the <em>default CidConfig</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="err">//</span> <span class="err">Hot</span> <span class="err">has</span> <span class="err">this</span> <span class="err">desired</span> <span class="err">storing</span> <span class="err">configuration</span> <span class="err">in</span> <span class="err">Hot</span> <span class="err">Storage.</span>
-  <span class="nt">&quot;Hot&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="err">//</span> <span class="err">Enable</span> <span class="err">indicates</span> <span class="err">if</span> <span class="err">Cid</span> <span class="err">data</span> <span class="err">is</span> <span class="err">stored.</span> <span class="err">If</span> <span class="err">true,</span> <span class="err">it</span> <span class="err">will</span>
-    <span class="err">//</span> <span class="err">consider</span> <span class="err">further</span> <span class="err">configurations</span> <span class="err">to</span> <span class="err">execute</span> <span class="err">actions.</span>
-    <span class="nt">&quot;Enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="err">//</span> <span class="err">AllowUnfreeze</span> <span class="err">indicates</span> <span class="err">that</span> <span class="err">if</span> <span class="err">data</span> <span class="err">isn&#39;t</span> <span class="err">available</span> <span class="err">in</span> <span class="err">the</span>
-    <span class="err">//</span> <span class="err">Hot</span> <span class="err">Storage,</span> <span class="err">it&#39;s</span> <span class="err">allowed</span> <span class="err">to</span> <span class="err">be</span> <span class="err">feeded</span> <span class="err">by</span> <span class="err">Cold</span> <span class="err">Storage</span> <span class="err">if</span>
-    <span class="err">//</span> <span class="err">available.</span>
-    <span class="nt">&quot;AllowUnfreeze&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="nt">&quot;Ipfs&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="err">//</span> <span class="err">AddTimeout</span> <span class="err">is</span> <span class="err">an</span> <span class="err">upper</span> <span class="err">bound</span> <span class="err">on</span> <span class="err">adding</span> <span class="err">data</span> <span class="err">to</span> <span class="err">IPFS</span> <span class="err">node</span> <span class="err">from</span>
-      <span class="err">//</span> <span class="err">the</span> <span class="err">network</span> <span class="err">before</span> <span class="err">failing.</span>
-      <span class="nt">&quot;AddTimeout&quot;</span><span class="p">:</span> <span class="mi">30</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="err">//</span> <span class="err">Cold</span> <span class="err">has</span> <span class="err">desired</span> <span class="err">storing</span> <span class="err">configuration</span> <span class="err">in</span> <span class="err">the</span> <span class="err">Cold</span> <span class="err">Storage.</span>
-  <span class="nt">&quot;Cold&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="err">//</span> <span class="err">Enabled</span> <span class="err">indicates</span> <span class="err">that</span> <span class="err">data</span> <span class="err">will</span> <span class="err">be</span> <span class="err">saved</span> <span class="err">in</span> <span class="err">Cold</span> <span class="err">storage.</span>
-    <span class="err">//</span> <span class="err">If</span> <span class="err">is</span> <span class="err">switched</span> <span class="err">from</span> <span class="err">false-&gt;true,</span> <span class="err">it</span> <span class="err">will</span> <span class="err">consider</span> <span class="err">the</span> <span class="err">other</span>
-    <span class="err">//</span> <span class="err">attributes</span> <span class="err">as</span> <span class="err">the</span> <span class="err">desired</span> <span class="err">state</span> <span class="err">of</span> <span class="err">the</span> <span class="err">data</span> <span class="err">in</span> <span class="err">this</span> <span class="err">Storage.</span>
-    <span class="nt">&quot;Enabled&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="err">//</span> <span class="err">Filecoin</span> <span class="err">describes</span> <span class="err">the</span> <span class="err">desired</span> <span class="err">Filecoin</span> <span class="err">configuration</span> <span class="err">for</span> <span class="err">a</span>
-    <span class="err">//</span> <span class="err">Cid</span> <span class="err">in</span> <span class="err">the</span> <span class="err">Filecoin</span> <span class="err">network.</span>
-    <span class="nt">&quot;Filecoin&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="err">//</span> <span class="err">RepFactor</span> <span class="err">indicates</span> <span class="err">the</span> <span class="err">desired</span> <span class="err">amount</span> <span class="err">of</span> <span class="err">active</span> <span class="err">deals</span>
-        <span class="err">//</span> <span class="err">with</span> <span class="err">different</span> <span class="err">miners</span> <span class="err">to</span> <span class="err">store</span> <span class="err">the</span> <span class="err">data.</span> <span class="err">While</span> <span class="err">making</span> <span class="err">deals</span>
-        <span class="err">//</span> <span class="err">the</span> <span class="err">other</span> <span class="err">attributes</span> <span class="err">of</span> <span class="err">FilConfig</span> <span class="err">are</span> <span class="err">considered</span> <span class="err">for</span> <span class="err">miner</span>
-      <span class="err">//</span> <span class="err">selection.</span>
-      <span class="nt">&quot;RepFactor&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="err">//</span> <span class="err">DealDuration</span> <span class="err">indicates</span> <span class="err">the</span> <span class="err">duration</span> <span class="err">to</span> <span class="err">be</span> <span class="err">used</span> <span class="err">when</span> <span class="err">making</span>
-      <span class="err">//</span> <span class="err">new</span> <span class="err">deals.</span>
-      <span class="nt">&quot;DealDuration&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
-        <span class="err">//</span> <span class="err">ExcludedMiners</span> <span class="err">is</span> <span class="err">a</span> <span class="err">set</span> <span class="err">of</span> <span class="err">miner</span> <span class="err">addresses</span> <span class="err">won&#39;t</span> <span class="err">be</span> <span class="err">ever</span> <span class="err">be</span>
-      <span class="err">//</span> <span class="err">selected</span> <span class="err">when</span> <span class="err">making</span> <span class="err">new</span> <span class="err">deals,</span> <span class="err">even</span> <span class="err">if</span> <span class="err">they</span> <span class="err">comply</span> <span class="err">to</span> <span class="err">other</span>
-      <span class="err">//</span> <span class="err">filters.</span>
-      <span class="nt">&quot;ExcludedMiners&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-        <span class="err">//</span> <span class="err">TrustedMiners</span> <span class="err">is</span> <span class="err">a</span> <span class="err">set</span> <span class="err">of</span> <span class="err">miner</span> <span class="err">addresses</span> <span class="err">which</span> <span class="err">will</span> <span class="err">be</span>
-      <span class="err">//</span> <span class="err">forcibly</span> <span class="err">used</span> <span class="err">when</span> <span class="err">making</span> <span class="err">new</span> <span class="err">deals.</span> <span class="err">An</span> <span class="err">empty/nil</span> <span class="err">list</span>
-      <span class="err">//</span> <span class="err">disables</span> <span class="err">this</span> <span class="err">feature.</span>
-      <span class="nt">&quot;TrustedMiners&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-        <span class="err">//</span> <span class="err">CountryCodes</span> <span class="err">indicates</span> <span class="err">that</span> <span class="err">new</span> <span class="err">deals</span> <span class="err">should</span> <span class="err">select</span> <span class="err">miners</span>
-      <span class="err">//</span> <span class="err">on</span> <span class="err">specific</span> <span class="err">countries.</span>
-      <span class="nt">&quot;CountryCodes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-        <span class="err">//</span> <span class="err">Renew</span> <span class="err">indicates</span> <span class="err">deal-renewal</span> <span class="err">configuration.</span>
-      <span class="nt">&quot;Renew&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="err">//</span> <span class="err">Enabled</span> <span class="err">indicates</span> <span class="err">that</span> <span class="err">deal-renewal</span> <span class="err">is</span> <span class="err">enabled</span> <span class="err">for</span> <span class="err">this</span>
-        <span class="err">//</span> <span class="err">Cid.</span>
-        <span class="nt">&quot;Enabled&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="err">//</span> <span class="err">Threshold</span> <span class="err">indicates</span> <span class="err">how</span> <span class="err">many</span> <span class="err">epochs</span> <span class="err">before</span> <span class="err">expiring</span> <span class="err">should</span>
-        <span class="err">//</span> <span class="err">trigger</span> <span class="err">deal</span> <span class="err">renewal.</span> <span class="err">e.g:</span> <span class="err">100</span> <span class="err">epoch</span> <span class="err">before</span> <span class="err">expiring.</span>
-        <span class="nt">&quot;Threshold&quot;</span><span class="p">:</span> <span class="mi">0</span>
-      <span class="p">},</span>
-        <span class="err">//</span> <span class="err">Addr</span> <span class="err">is</span> <span class="err">the</span> <span class="err">wallet</span> <span class="err">address</span> <span class="err">used</span> <span class="err">to</span> <span class="err">store</span> <span class="err">the</span> <span class="err">data</span> <span class="err">in</span> <span class="err">filecoin</span>
-      <span class="nt">&quot;Addr&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;unique&gt;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;MaxPrice&quot;</span><span class="p">:</span> <span class="mi">0</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;Repairable&quot;</span><span class="p">:</span> <span class="kc">false</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<p>You have a lot of control over how each file is managed on Hot and Cold storage through the use of the <a href="../cidconfig/">Storage CidConfig</a>.</p>
 <h2 id="learn-more">Learn more<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
 <p>The FFS does a lot of work out of the box. If you'd like to learn more about the components, design, and capabilities of the FFS, we encourage you to read the <a href="https://github.com/textileio/powergate/blob/master/ffs/Design.md">FFS Design document</a>.</p>
                 
@@ -1095,13 +1015,13 @@
           </a>
         
         
-          <a href="../../hub/cli/hub_login/" title="Login" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../cidconfig/" title="Storage Config" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Login
+                Storage Config
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

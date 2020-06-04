@@ -42,7 +42,7 @@
     
     
       
-        <title>Managing Storage Configuration with the CidConfig | Documentation | Textile</title>
+        <title>Storage Config | Documentation | Textile</title>
       
     
     
@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#managing-storage-configuration-with-the-cidconfig" tabindex="1" class="md-skip">
+      <a href="#managing-storage-with-the-cidconfig" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              Managing Storage Configuration with the CidConfig
+              Storage Config
             </span>
           
         </div>
@@ -412,10 +412,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       Filecoin Powergate
@@ -460,6 +462,104 @@
     <a href="../ffs/" title="Store Data" target="" class="md-nav__link">
       Store Data
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Storage Config
+      </label>
+    
+    <a href="./" title="Storage Config" class="md-nav__link md-nav__link--active">
+      Storage Config
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-the-cidconfig" title="Setting the CidConfig" class="md-nav__link">
+    Setting the CidConfig
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-the-default-cidconfig-of-an-ffs-instance" title="Get the default CidConfig of an FFS instance" class="md-nav__link">
+    Get the default CidConfig of an FFS instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-the-default-cidconfig-of-an-ffs-instance" title="Set the default CidConfig of an FFS instance" class="md-nav__link">
+    Set the default CidConfig of an FFS instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-a-custom-cidconfig-at-storage-time" title="Set a custom CidConfig at storage time" class="md-nav__link">
+    Set a custom CidConfig at storage time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-the-cidconfig-of-previously-stored-data" title="Get the CidConfig of previously stored data" class="md-nav__link">
+    Get the CidConfig of previously stored data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-the-cidconfig-of-existing-data" title="Update the CidConfig of existing data" class="md-nav__link">
+    Update the CidConfig of existing data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cidconfig-details" title="CidConfig Details" class="md-nav__link">
+    CidConfig Details
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -849,23 +949,44 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ffs-instance" title="FFS Instance" class="md-nav__link">
-    FFS Instance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-storage" title="Data storage" class="md-nav__link">
-    Data storage
+  <a href="#setting-the-cidconfig" title="Setting the CidConfig" class="md-nav__link">
+    Setting the CidConfig
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#storage-cidconfig" title="Storage CidConfig" class="md-nav__link">
-    Storage CidConfig
+  <a href="#get-the-default-cidconfig-of-an-ffs-instance" title="Get the default CidConfig of an FFS instance" class="md-nav__link">
+    Get the default CidConfig of an FFS instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-the-default-cidconfig-of-an-ffs-instance" title="Set the default CidConfig of an FFS instance" class="md-nav__link">
+    Set the default CidConfig of an FFS instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-a-custom-cidconfig-at-storage-time" title="Set a custom CidConfig at storage time" class="md-nav__link">
+    Set a custom CidConfig at storage time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-the-cidconfig-of-previously-stored-data" title="Get the CidConfig of previously stored data" class="md-nav__link">
+    Get the CidConfig of previously stored data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-the-cidconfig-of-existing-data" title="Update the CidConfig of existing data" class="md-nav__link">
+    Update the CidConfig of existing data
   </a>
   
 </li>
@@ -876,8 +997,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#learn-more" title="Learn more" class="md-nav__link">
-    Learn more
+  <a href="#cidconfig-details" title="CidConfig Details" class="md-nav__link">
+    CidConfig Details
   </a>
   
 </li>
@@ -903,31 +1024,41 @@
                   <a href="https://github.com/textileio/docs/edit/master/docs/powergate/cidconfig.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="managing-storage-configuration-with-the-cidconfig">Managing Storage Configuration with the CidConfig<a class="headerlink" href="#managing-storage-configuration-with-the-cidconfig" title="Permanent link">&para;</a></h1>
-<p>The Filecoin File System API (FFS) manages all the necessary state and capabilities to provide multi-tiered file storage through the Powergate. The FFS is the primary API for storing and retrieving data, tracking long-term deals on Filecoin, and allowing data persisted on Filecoin to be available on IPFS. To start using the FFS APIs you must first create an <em>FFS Instance</em>.</p>
-<h2 id="ffs-instance">FFS Instance<a class="headerlink" href="#ffs-instance" title="Permanent link">&para;</a></h2>
-<p>The FFS API is scoped to one or more Filecoin wallet addresses. So to start accessing the FFS API, you must init a new instance at which time the Powergate will:</p>
+                <h1 id="managing-storage-with-the-cidconfig">Managing Storage with the CidConfig<a class="headerlink" href="#managing-storage-with-the-cidconfig" title="Permanent link">&para;</a></h1>
+<p>Every <a href="../ffs/">FFS instance</a> can manage how data is stored on IPFS and Filecoin using the <strong>CidConfig</strong> (<a href="#cidconfig-details">details below</a>). The CidConfig is a powerful tool to customize all the details of how you store data on Filecoin, make it available over IPFS, enforce replication, manage expiring deals, and more.</p>
+<h2 id="setting-the-cidconfig">Setting the CidConfig<a class="headerlink" href="#setting-the-cidconfig" title="Permanent link">&para;</a></h2>
+<p>In every Powergate deployment there are three ways to manage CidConfigs throughout the system.</p>
 <ol>
-<li>Create a new default wallet address for the FFS Instance. You can configure the Powergate to automatically fund new wallets from a master address.</li>
-<li>Create a new API token linked to the FFS Instance.</li>
-<li>Enable access to the FFS API through the use of the supplied token.</li>
+<li>The FFS instance default CidConfig. This is initially set by the system default CidConfig. It can be modified by the FFS instance owner after creation.</li>
+<li>The storage request CidConfig. This will use the FFS instance default, but a custom CidConfig can also be supplied at request time.</li>
+<li>A storage update CidConfig. Any CidConfigs attached to existing stored data can be updated with a new CidConfig. The FFS instance will then work to modify the way data is stored to match the new configuration</li>
 </ol>
-<p>Anytime you use the FFS API (including use through the CLI), you will supply the <em>token</em> to indicate which <em>FFS Instance</em> your requests are targeting. Since each FFS Instance has its own address, it has its own balance and therefor limits on the Filecoin network.</p>
-<p><strong>Create an FFS Instance</strong></p>
-<p>Using the Powergate CLI, you can create new FFS instances easily.</p>
-<div class="highlight"><pre><span></span><code>pow ffs create
+<h3 id="get-the-default-cidconfig-of-an-ffs-instance">Get the default CidConfig of an FFS instance<a class="headerlink" href="#get-the-default-cidconfig-of-an-ffs-instance" title="Permanent link">&para;</a></h3>
+<p>View the current default CidConfig of an FFS instance. </p>
+<div class="highlight"><pre><span></span><code>pow ffs config default -t &lt;token&gt;
 </code></pre></div>
 
-<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Instance created with id 0ac0fb4d-581c-4276-bd90-a9aa30dd4cb4 and token 883f57b1-4e66-47f8-b291-7cf8b10f6370
+<h3 id="set-the-default-cidconfig-of-an-ffs-instance">Set the default CidConfig of an FFS instance<a class="headerlink" href="#set-the-default-cidconfig-of-an-ffs-instance" title="Permanent link">&para;</a></h3>
+<p>To set the default config to one stored in <code>new-config.json</code>.</p>
+<div class="highlight"><pre><span></span><code>pow ffs config <span class="nb">set</span> new-config.json -t &lt;token&gt;
 </code></pre></div>
 
-</details>
-<h2 id="data-storage">Data storage<a class="headerlink" href="#data-storage" title="Permanent link">&para;</a></h2>
-<p>Powergate provides you API access to a multi-tiered storage system built on IPFS and Filecoin. In many places, we refer to these two tiers of storage as Hot (IFPS) and Cold (Filecoin). Data stored in the Powergate Hot layer is available to the IPFS network (or private network). Data stored only in the Cold layer can be available to the IPFS network, but will require a retrieval deal to pull it from Cold and <em>add</em> it to Hot. This mirrors multi-tiered storage often deployed with a hot storage layer in <em>memory</em> and a cold storage layer on <em>disk</em>.</p>
-<p>You have a lot of control over how each file is managed on Hot and Cold storage through the use of the <a href="#storage-cidconfig">Storage CidConfig</a>.</p>
-<h3 id="storage-cidconfig">Storage CidConfig<a class="headerlink" href="#storage-cidconfig" title="Permanent link">&para;</a></h3>
-<p>Every FFS instance (<a href="#ffs">detailed below</a>) can manage how data is stored on IPFS and Filecoin using the CidConfig (see below). Each FFS instance has a default config and every new storage request can use or override the default. Additionally, FFS owners can update the storage configuration (CidConfig) by pushing a new config file. When that happens, Powergate does all the work to comply with the new configuration.</p>
-<p>The CidConfig defines how data will be stored in Hot and Cold storage. A lot of the <em>power</em> of the Powergate can be harnessed in how you setup and use these configurations.</p>
+<h3 id="set-a-custom-cidconfig-at-storage-time">Set a custom CidConfig at storage time<a class="headerlink" href="#set-a-custom-cidconfig-at-storage-time" title="Permanent link">&para;</a></h3>
+<p>You can provide a flag (<code>-c</code>) to include a custom CidConfig for a new storage request. Storage requests without a custom CidConfig will use the instance default storage config.</p>
+<div class="highlight"><pre><span></span><code>pow ffs push &lt;cid&gt; -t &lt;token&gt; -c custom-config.json
+</code></pre></div>
+
+<h3 id="get-the-cidconfig-of-previously-stored-data">Get the CidConfig of previously stored data<a class="headerlink" href="#get-the-cidconfig-of-previously-stored-data" title="Permanent link">&para;</a></h3>
+<p>To pull the CidConfig associated with data already managed by the FFS instance, use the <em><cid></em> of the stored data.</p>
+<div class="highlight"><pre><span></span><code>pow ffs pull &lt;cid&gt; -t &lt;token&gt;
+</code></pre></div>
+
+<h3 id="update-the-cidconfig-of-existing-data">Update the CidConfig of existing data<a class="headerlink" href="#update-the-cidconfig-of-existing-data" title="Permanent link">&para;</a></h3>
+<p>To update the CidConfig of data already stored and managed by the Powergate with a new config stored in <code>updated-config.json</code>. This command requires the <em>override</em> flag (<code>-o</code>) to confirm that you understand that the command will replace an existing config.</p>
+<div class="highlight"><pre><span></span><code>pow ffs push &lt;cid&gt; -t &lt;token&gt; -o -c updated-config.json
+</code></pre></div>
+
+<h2 id="cidconfig-details">CidConfig Details<a class="headerlink" href="#cidconfig-details" title="Permanent link">&para;</a></h2>
 <p>Here is an example of the <em>default CidConfig</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="err">//</span> <span class="err">Hot</span> <span class="err">has</span> <span class="err">this</span> <span class="err">desired</span> <span class="err">storing</span> <span class="err">configuration</span> <span class="err">in</span> <span class="err">Hot</span> <span class="err">Storage.</span>
@@ -991,8 +1122,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<h2 id="learn-more">Learn more<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
-<p>The FFS does a lot of work out of the box. If you'd like to learn more about the components, design, and capabilities of the FFS, we encourage you to read the <a href="https://github.com/textileio/powergate/blob/master/ffs/Design.md">FFS Design document</a>.</p>
+<p><br/></p>
                 
                   
                 
@@ -1009,6 +1139,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../ffs/" title="Store Data" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Store Data
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../hub/cli/hub_login/" title="Login" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Login
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
