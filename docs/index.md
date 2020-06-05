@@ -71,7 +71,27 @@ ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Deve
 
 ## Filecoin Powergate
 
-The Powergate is just warming up! We are building an API driven solution to deploy hybrid Filecoin and IPFS storage into your app. If you are eager to learn more about what we are up to, we invite you to follow our bi-weekly [community updates](https://blog.textile.io/tag/filecoin) or follow along in the [the open-source repo](https://github.com/textileio/powergate).
+The Powergate is just warming up! The Powergate is an API driven solution to deploy hybrid Filecoin and IPFS storage into your app. If you are eager to learn more about what we are up to, we invite you to follow our regular [community updates](https://blog.textile.io/tag/filecoin) or follow along in the [the open-source repo](https://github.com/textileio/powergate). If you want to jump right in, follow one of the links below.
+
+#### Dive into Filecoin
+
+<div class="txtl-options">
+  <a href="https://github.com/textileio/powergate/" class="box">
+    <h5>System overview</h5>
+    <p>Multitiered file storage API built on Filecoin and IPFS.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="./powergate/devnet" class="box">
+    <h5>Spin-up the Devnet</h5>
+    <p>You can test, explore, and build on all the Filecoin APIs today with Devnet</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="https://textileio.github.io/js-powergate-client/" class="box" target="_blank">
+    <h5>POW JS Client</h5>
+    <p>Typescript/Javascript client for Textile's Powergate .</p>
+  </a>
+</div>
+
 
 ## Other Resources
 
