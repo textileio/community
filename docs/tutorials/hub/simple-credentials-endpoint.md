@@ -15,7 +15,7 @@ There are a few resources you'll need before you start writing code.
 
 ```bash
 # Textile libraries
-npm install --save @textile/textile @textile/threads-core
+npm install --save @textile/hub @textile/threads-core
 
 # Other utilities use in example
 npm install --save dotenv isomorphic-ws
@@ -56,8 +56,7 @@ import bodyParser from "koa-bodyparser";
 import dotenv from "dotenv";
 
 /** Textile libraries */
-import {Client} from '@textile/threads-client';
-import {Provider} from '@textile/context';
+import {Client, createAPISig} from '@textile/hub';
 import {Libp2pCryptoIdentity} from '@textile/threads-core';
 
 /** Read the values of .env into the environment */
@@ -125,7 +124,8 @@ api.get( '/credentials', async (ctx: koa.Context, next: () => Promise<any>) => {
   // Custom validation could be done here...
   
   /** Get API authorization for the user */
-  const auth = await getAPISig()
+  const expiration = new Date(Date.now() + 60 * seconds)
+  const auth = await createAPISig(process.env.USER_API_SECRET, expiration)
 
   /** Include the API KEY in the auth payload */
   const credentials = {
@@ -157,15 +157,37 @@ Response:
 
 ## Create a client
 
-Back in the browser, you can now make requests to your credentials endpoint.
+Back in the browser, you can now make requests to your credentials endpoint. From their, each user can use the Hub token endpoint directly and begin making calls to the Hub APIs.
 
 ```typescript
+import { Client, UserAuth } from '@textile/hub'
+import {Libp2pCryptoIdentity} from '@textile/threads-core';
+
 const createCredentials = async (): Promise<UserAuth> => {
   const response = await fetch(`/api/credentials`, {
     method: 'GET',
   })
   const userAuth = await response.json()
   return userAuth;
+}
+
+/** Use the simple auth REST endpoint to get API access */
+let auth = await createCredentials()
+
+
+console.log('Verified on Textile API')
+displayStatus();
+
+/** The simple auth endpoint generates a user's Hub API Token */
+const client = Client.withUserAuth(auth, API)
+
+/** See identity tutorial */
+const token = await client.getToken(identity)
+
+/** Now, full auth object includes the token */
+auth = {
+  ...this.auth,
+  token: token,
 }
 ```
 

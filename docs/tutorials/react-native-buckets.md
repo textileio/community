@@ -13,7 +13,7 @@
 **Textile Libraries**
 
 ```bash
-npm install --save @textile/textile @textile/threads-client @textile/threads-core @textile/threads-id
+npm install --save @textile/hub @textile/threads-client @textile/threads-core @textile/threads-id
 ```
 
 We'll use the above combination of Textile libraries in our app below.
@@ -82,12 +82,10 @@ The rest of the JavaScript portions of the tutorial will be in TypeScript. You d
 ```typescript
 // Our secrets
 import {USER_API_SECRET, USER_API_KEY} from 'react-native-dotenv';
-// Database and Query method
-import {Client, Where} from '@textile/threads-client';
-// Common Thread ID type
-import {ThreadID} from '@textile/threads-id';
+// Database Query method
+import {Where} from '@textile/threads-client';
 // Buckets client and an API Context helper
-import {Buckets, Context} from '@textile/textile';
+import {Buckets, Client, ThreadID} from '@textile/hub';
 // A basic Identity provider (PKI from Libp2p)
 import {Libp2pCryptoIdentity} from '@textile/threads-core';
 ```
@@ -97,15 +95,11 @@ import {Libp2pCryptoIdentity} from '@textile/threads-core';
 Next, we'll connect to the remote API using our Key and Secret. We do this so that the user can later push their bucket for remote persistence on IPFS and publishing on IPNS.
 
 ```typescript
-  const ctx = new Context();
-  
-  await ctx.withUserKey({
+  db = await Client.withUserKey({
     key: USER_API_KEY,
     secret: USER_API_SECRET,
     type: 1,
   })
-
-  db = new Client(ctx);
 ```
 
 !!!Hint
@@ -113,15 +107,13 @@ Next, we'll connect to the remote API using our Key and Secret. We do this so th
 
 ### Generate an Identity
 
+[Read the basic libp2p identities tutorial now](libp2p-identities.md).
+
 ```typescript
 const id = await Libp2pCryptoIdentity.fromRandom();
 ```
 
-Here we are just using a Libp2p helper to generate a private-key identity for the user. You could use an identity provider to achieve the same result! Or, if you are already using a key-based identity in your app, just use it instead.
-
-!!!Warning
-    #### Identity caching & recovery
-    Your app should hang-on to the user identity in a persistent way. It should be stored in your user model or given to the user for recovery.
+Here we are just using a Libp2p helper to generate a private-key identity for the user.
 
 ### Generate user Token
 
@@ -136,7 +128,11 @@ This will register the user with your remote Hub account, granting them the abil
 Now that your user is setup and connected to your API on the Hub, you can start creating Buckets. First, setup a Bucket Client instance.
 
 ```typescript
-const buckets = new Buckets(db.context);
+const buckets = Buckets.withUserKey({
+    key: USER_API_KEY,
+    secret: USER_API_SECRET,
+    type: 1,
+  })
 ```
 
 In the above, we reuse the Context we already created in our ThreadDB Client because it contains the token, API keys, etc.

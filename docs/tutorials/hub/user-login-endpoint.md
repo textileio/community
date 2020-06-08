@@ -1,8 +1,6 @@
 # Create a login system for user public keys
 
-The login example shows you how to setup a simple server that will accept a user's public key, verify that they also own the private key (via a challenge), and then provide that users credentials to use the Hub APIs.
-
-With the verification step, your server can now build a user model around the user's public key, create user discovery or search in your app, or link a user's account to other services away from the Hub.
+The login example shows you how to setup a simple server that will accept a user's public key, verify that they control the private key (via a challenge), and then grant the user access to the Hub APIs.
 
 ## Setup
 
@@ -15,10 +13,9 @@ There are a few resources you'll need before you start writing code.
 
 **Install dependencies**
 
-
 ```bash
 # Textile libraries
-npm install --save @textile/textile
+npm install --save @textile/hub
 
 # Other utilities use in example
 npm install --save dotenv emittery isomorphic-ws
@@ -29,7 +26,10 @@ npm install --save koa koa-router koa-logger koa-json koa-bodyparser koa-route k
 
 ### Environment variables
 
-We'll use a `.env` file in the root of our project repo where you'll add your Hub API key and secret. The `.env` file should be added to your `.gitignore` so that your key and secret are never shared.
+We use a `.env` file in the root of our project repo. The values in the file will be pulled into the app each time it's run. This is where you'll add your Hub API key and secret. 
+
+!!!danger
+    The `.env` file should be added to your `.gitignore` so that your key and secret are never shared.
 
 Contents of `.env`.
 
@@ -67,8 +67,7 @@ import websockify from "koa-websocket";
 import Emittery from "emittery";
 import dotenv from "dotenv";
 
-import {Client} from '@textile/threads-client';
-import {Provider} from '@textile/context';
+import { Client, UserAuth } from "@textile/hub"
 
 /** Read the values of .env into the environment */
 dotenv.config();
@@ -113,12 +112,14 @@ app.ws.use(route.all('/ws/login', (ctx) => {
           /** A new token request will contain the user's public key */
           if (!data.pubkey) { throw new Error('missing pubkey') }
 
-          /** 
-           * Init new Hub API Client 
-           * 
-           * see ./hub.ts
+          /**
+           * Init new Hub API Client with the user group API keys
            */
-          const db = await newClientDB()
+          const db = await Client.withUserKey({
+            key: process.env.USER_API_KEY,
+            secret: process.env.USER_API_SECRET,
+            type: 0,
+          })
 
           /** Request a token from the Hub based on the user public key */
           const token = await db.getTokenChallenge(
@@ -144,7 +145,7 @@ app.ws.use(route.all('/ws/login', (ctx) => {
             })
           })
 
-          /** 
+          /**
            * The challenge was successfully completed by the client
            */
 
@@ -152,12 +153,12 @@ app.ws.use(route.all('/ws/login', (ctx) => {
           const auth = await getAPISig()
 
           /** Include the token in the auth payload */
-          const payload = {
+          const payload: UserAuth = {
             ...auth,
             token: token,
             key: process.env.USER_API_KEY,
           };
-          
+
           /** Return the result to the client */
           ctx.websocket.send(JSON.stringify({
             type: 'token',
@@ -186,22 +187,20 @@ app.ws.use(route.all('/ws/login', (ctx) => {
       }))
     }
   });
-});
+}));
 ```
-
-
 
 Now when you refresh your locally running server you should have a websocket endpoint for client token creation.
 
 ### Server notes
 
-- Now that the user is verified in your system, you can keep their public key as a reference to them without any security issues.
-- However, you should never trust an API call only by the public key, the challlenge step is critical.
+- Now that the user is verified in your system, you can keep their public key without any security issues.
+- However, you should never trust an API call only by the public key, the challenge step is critical.
 - The token provided in the response should be considered a secret that only should be shared with a single user. It does not expire.
 
 ## Create a client
 
-Back in the browser, you can now make requests to your login endpoint using a websocket. A basic client might make a request like the following.
+Back in the browser webapp, you can now make requests to your login endpoint using a websocket. A basic client might make a request like the following.
 
 ```typescript
 const loginWithChallenge = async (id: Libp2pCryptoIdentity): Promise<UserAuth> => {  
@@ -212,7 +211,7 @@ const loginWithChallenge = async (id: Libp2pCryptoIdentity): Promise<UserAuth> =
      * Note: this should be upgraded to wss for production environments.
      */
     const socketUrl = `ws://localhost:3000/ws/login`
-    
+
     /** Initialize our websocket connection */
     const socket = new WebSocket(socketUrl)
 
@@ -261,9 +260,11 @@ const loginWithChallenge = async (id: Libp2pCryptoIdentity): Promise<UserAuth> =
 };
 ```
 
+By passing the user identity to the function above, your app can authenticate and verify the user in one step, granting them access to your Hub resources.
+
 ## GitHub Example
 
-If you'd like to explore the examples explained above more, we've provided a fully working example on GitHub. The login endpoint is part of a more complete example, you can see it here.
+If you'd like to explore the example more, we've provided a fully working example on GitHub. The login endpoint is part of a more complete example, you can see it here.
 
 <div class="txtl-options half">
   <a href="https://github.com/textileio/js-examples/blob/master/hub-browser-auth-app/src/server/wss.ts" class="box">
