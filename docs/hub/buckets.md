@@ -140,9 +140,9 @@ The final step is to invite collaborators to your Org. Once they accept the invi
 If you are building an app using one of our [developer libraries](../hub/app-apis.md#libraries) you can use Buckets from inside your apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
 
 <div class="txtl-options">
-  <a href="https://textileio.github.io/js-textile" target="_blank" class="box">
-    <h5>JS Textile Docs</h5>
-    <p>Create user Buckets in your JS app.</p>
+  <a href="https://textileio.github.io/js-hub" target="_blank" class="box">
+    <h5>JS Hub Docs</h5>
+    <p>Persist user Buckets on IPFS from your JS app.</p>
   </a>
   <span class="box-space"> </span>
   <a href="https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb" target="_blank" class="box">
@@ -182,9 +182,9 @@ Every Bucket you create has a unique ID associated with it. The Bucket ID is an 
     <p>Read the full CLI documentation.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://textileio.github.io/js-textile" target="_blank" class="box">
+  <a href="https://textileio.github.io/js-hub" target="_blank" class="box">
     <h5>Textile JavaScript SDK</h5>
-    <p>Create Buckets from your JavaScript app.</p>
+    <p>Persist Buckets on IPFS from your JavaScript app.</p>
   </a>
   <span class="box-space"> </span>
   <a href="https://github.com/marketplace/actions/textile-buckets" target="_blank" class="box">
