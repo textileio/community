@@ -1,92 +1,90 @@
 # Build a Web App using the Hub
 
-In this tutorial, you'll learn how to generate API credentials that can be shared with with web apps so that app users can leverage the Hub. With credentials, your users will be able to access Thread Services, create and edit Buckets, and use IPFS persistence right from the browser. You'll build it using a [_user group key_](../../hub/app-apis.md) so that every user can use your API while maintaining their own ownership over the data they create.
+In this tutorial, you'll learn how to generate API credentials that can be shared with with web apps so that your app users can leverage the Hub. With credentials, your users will be able to access Thread Services, create and edit Buckets, and use IPFS persistence right from the browser. You'll build it using a [_user group key_](../../hub/app-apis.md) so that every user can use your API while maintaining their own ownership over the data they create.
 
 ## Getting Started
 
 There are a few resources you'll need before you start writing code.
 
 - [An account](../../hub/accounts.md). This is your developer account on the Hub.
-- [A user group key](../../hub/app-apis.md). This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.
-- [A new Typescript web app](https://webpack.js.org/guides/typescript/). We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.
+- [A user group key](../../hub/app-apis.md). This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later. You only need to create one _user group key_ for all the users of your app.
+- [A new Typescript web app](https://webpack.js.org/guides/typescript/). We recommend using Typescript, as Textile libraries are in a period rapid of development and type detection is valuable during upgrades.
 
 ### API Access
 
-A [_user group key_](../../hub/app-apis.md) consists of a _key_ and a _secret_. You can expose your _key_ but you *never want to expose your _secret_* to users or outside of secure environments. So to use the Hub APIs in your web app, you have two options:
+A [_user group key_](../../hub/app-apis.md) consists of a _key_ and a _secret_. You can expose your _key_ but you *never want to expose your _secret_* to users or outside of secure environments.
 
-* Build a light-weight login endpoint accessible only by your app that will generate Hub credentials for users. ([See below](#creating-a-login-endpoint)).
-* Use the domain whitelisting to skip token generation. ([In development](https://github.com/textileio/textile/issues/109))
-
-In this tutorial, we'll show you how to build a simple web app and basic login endpoint.
+You must use your key and secret to create and renew API access credentials for your users on a regular basis. To do this, we'll build a simple auth endpoint accessible only to your app that will generate Hub credentials for users. ([See below](#creating-a-login-endpoint)).
 
 ## Building a simple web app
 
-With your basic Typescript web app setup, you should have a primary `.ts` (or `.js` if you decided to stick with Javascript) file where your app is written. We'll work within this single file to start, but the instructions below should be adaptable to any application architecture.
+We wont cover the details of setting up a webapp with Typescript because [it's well documented elsewhere](https://levelup.gitconnected.com/setting-up-a-full-stack-typescript-application-featuring-express-and-react-ccfe07f2ea47). 
+
+You can skip to the end and [explore our complete example](#completed-example).
+
+!!!info
+    With your basic Typescript web app setup, you should have a primary `.ts` (or `.js` if you decided to stick with Javascript) file where your webapp exists. We'll work within this single file to start, but the instructions below should be adaptable to any application architecture.
 
 ### Generating an Identity
 
-For identity in our app, we'll use a private-key based identity generated randomly for each new app user. To create a function for creating and restoring identities, we can use the _cached identity example_ from the identities tutorial.
+In our webapp, we will use a custom private-key identity. If you are exploring our libraries or prototyping a new application, this is a great place to start, as you wont need to wrestle with multiple libraries or APIs at the same time. However, as you get close to launch, we recommend using a more common DID provider. 
+
+We've provided a simple tutorial for creating new identies and caching those identities in the browser.
 
 [Read the basic libp2p identities tutorial now](libp2p-identities.md).
+
+Below, we'll use the [_cached identity example_](libp2p-identities.md#caching-user-identity) and `getIdentity` function from the tutorial above.
+
+
 
 ```typescript
 const identity = getIdentity();
 ```
 
 !!!info
-    Textile is relatively agnostic to identity providers. In the future, we will also support email-based identities, allowing you to more easily use the Hub APIs with common email-based user models. [Follow progress here](https://github.com/textileio/textile/issues/216).
+    The Hub is flexible about what identity or authentication system you use for your users. In the future, the Hub will support email-based identities, allowing you to more easily use the APIs with popular email-based user models. [Follow progress here](https://github.com/textileio/textile/issues/216).
 
-### Creating a credentials & login endpoint
+### Creating an authentication endpoint
 
-API credentials need to be generated for each time a user/client needs to access Hub APIs. Additionally, developers should ensure their credentials expire relatively quickly, so credentials need to be (re)generated relatively often. Below, we'll show you two ways to you can setup an endpoint to provide Hub credentials to your app.
+Now that your app is using PKI, your users will only ever share their _public key_ with your API (or any API). Therefore, you'll need a way to verify that they hold the private key linked with the public key, otherwise users could spoof your system very easily. Additionally, you'll want to provide Hub API access to your users based on that verification. 
 
-Both examples keep the _user group secret_ private on the server.
+You should design your system for credentials that expire quickly. This ensures that if credentials are ever leaked the impact will be minimal.
 
-**Option 1. Creating a simple credentials endpoint**
+**Build an authentication endpoint**
 
-In this example, we'll show a simple endpoint that will provide credentials to any user that requests it. This is a pretty wide open API, but could be used with your own domain whitelisting or other security models.
+This example will use the Hub to issue the user a challenge (where they prove they own their private key). After the user passes the challenge, the endpoint will give them Hub credentials. This multi-step flow is useful for developers who don't want to design their own user-verification system.
 
-[Read the section on creating a simple credentials endpoint.](simple-credentials-endpoint.md)
+[Click here to read the credentials setup steps](user-login-endpoint.md).
 
-**Option 2. Build a credentials and login endpoint**
-
-In this example, we'll show you how to use the user's public key to let them _login_ to your app. This endpoint will use the Hub to issue the user a challenge (where they prove they own their private key). After the user passes the challenge, the endpoint will give them Hub credentials. This is a more restrictive flow, but is useful for developers who don't want to design their own user-validation flow.
-
-[Read the section on building a login system.](user-login-endpoint.md)
+In the above example, you should have setup a _server_ and API endpoint that your webapp can connect to. 
 
 ### Generate API credentials
 
-Now that our credentials endpoint is setup, we simply need to generate a new credentials for our identity.
-
-*Based on login endpoint*
-
-```typescript
-const auth = await loginWithChallenge(identity);
-```
-
-*Based on basic credentials endpoint*
+Now that our credentials endpoint is setup, we simply need to generate new credentials for each user's identity. We'll use the `createCredentials` function provided in the setup above in our _client_ webapp.
 
 ```typescript
 const auth = await createCredentials()
 ```
 
+This `auth` object will allow your app to start creating and editing Buckets and Threads owned by your user.
+
 ### Using the API
 
-To start creating Buckets or Threads for your user, you need setup your app to use the credentials for API requests.
+Now, your users have identities and they've verified themselves. Next, you'll want to start created Buckets and ThreadDBs for your user. Let's start using hte Hub from inside the webapp.
 
 **Install dependencies**
 
 ```bash
 # Textile libraries
-npm install --save @textile/textile
+npm install --save @textile/hub
 ```
 
 **Connect to the API**
 
-Now, you just need to use the new token to connect to the API.
+Now, you just need to use `auth` object above to connect to the API.
 
 ```typescript
-import {Client} from '@textile/textile';
+import {Client} from '@textile/hub';
 
 const client = Client.withUserAuth(auth)
 
@@ -94,17 +92,24 @@ const client = Client.withUserAuth(auth)
 const threads = await client.listThreads()
 ```
 
-Your user is now setup to start creating Threads and Buckets that replicate o the Hub API! Read more tutorials or jump over to the [js-threads docs](https://textileio.github.io/js-threads) to keep building.
+Your user is now setup to start creating Threads and Buckets that replicate on the Hub API! Read more tutorials or jump over to the [js-threads docs](https://textileio.github.io/js-threads) to keep building.
 
 ## Putting it all together
 
-Now you've had a chance to see how identities work with API keys to provide Hub resources to your users. 
+Now you've had a chance to see how identities work with API keys to provide Hub resources to your users.
 
 If you'd like to explore the examples explained above more, we've provided a fully working example on GitHub.
 
+### Completed example
+
+```bash
+git clone git@github.com:textileio/js-examples.git
+cd js-examples/hub-browser-auth-app
+```
+
 <div class="txtl-options half">
   <a href="https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app" class="box">
-    <h5>Build an app on the Hub</h5>
+    <h5>Explore the repo</h5>
     <p>Clone the source code for a server and client using the Hub.</p>
   </a>
 </div>
