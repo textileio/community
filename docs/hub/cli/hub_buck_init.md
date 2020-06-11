@@ -6,6 +6,7 @@ A .textile config directory and a seed file will be created in the current worki
 Existing configs will not be overwritten.
 
 Use the '--existing' flag to initialize from an existing remote bucket.
+Use the '--cid' flag to initialize from an existing UnixFS DAG.
 
 
 ```
@@ -15,6 +16,7 @@ hub buck init [flags]
 ### Options
 
 ```
+      --cid string      Bootstrap the bucket with a UnixFS Cid available in the IPFS network
   -e, --existing        Initializes from an existing remote bucket if true
   -h, --help            help for init
       --key string      Bucket key
