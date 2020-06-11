@@ -174,7 +174,7 @@ ThreadDB has been designed to support trustless peers on the network to provide 
 
 1. [Create an Account](../hub/accounts.md#account-setup)
 2. [Create an App Token](../hub/app-apis.md#api-access)
-3. <a href="https://textileio.github.io/js-textile" target="_blank">Add the Textile Library to your App</a>
+3. <a href="https://textileio.github.io/js-hub" target="_blank">Add the Textile Hub Library to your App</a>
 
 ### Pinning, Relay, and Replication
 

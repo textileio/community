@@ -49,13 +49,13 @@ If you are building a web application, you can use domain whitelisting to access
 
 ### Buckets
 
-[Buckets](../hub/buckets.md) provide S3-like data storage on IPFS. Just as you can create Buckets with the [Hub CLI](../hub/cli/hub.md), you can create Buckets using JavaScript with [js-textile](#libraries).
+[Buckets](../hub/buckets.md) provide S3-like data storage on IPFS. Just as you can create Buckets with the [Hub CLI](../hub/cli/hub.md), you can create Buckets using JavaScript with [js-hub](#libraries).
 
-The [js-textile](#libraries) library allows you to create and edit Buckets owned by you or your organization using an [account key](#account-key). Alternatively, you can use Buckets to store your user's data using a [user group key](#user-group-key).
+The [js-hub](#libraries) library allows you to create and edit Buckets owned by you or your organization using an [account key](#account-key). Alternatively, you can use Buckets to store your user's data using a [user group key](#user-group-key).
 
 ### ThreadDB
 
-[ThreadDB](../threads/index.md) is a mongo-like database that runs on IPFS. You can use it in combination with [js-textile](#libraries) to add replication and relay to your user's databases. When combined, `js-threads` and `js-textile` allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.
+[ThreadDB](../threads/index.md) is a mongo-like database that runs on IPFS. You can use it in combination with [js-hub](#libraries) to add replication and relay to your user's databases. When combined, `js-threads` and `js-hub` allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.
 
 ### Data Ownership
 
@@ -260,7 +260,7 @@ Here are the libraries you will find useful to start building today.
 
 |                         | ThreadDB           | Threads APIs & Buckets      |
 |-------------------------|:---------------------:|:-------------------:|
-| Browser, React Native, & NodeJS | [js-threads](https://textileio.github.io/js-threads) | [js-textile](https://textileio.github.io/js-textile) |
+| Browser, React Native, & NodeJS | [js-threads](https://textileio.github.io/js-threads) | [js-hub](https://textileio.github.io/js-hub) |
 | Dart & Flutter Apps ([pending release](https://github.com/textileio/dart-textile/issues/5))    | [dart-threads-client](https://github.com/textileio/dart-textile/issues/5) | [dart-textile](https://github.com/textileio/dart-textile/issues/5) |
 | Golang Libraries        | [go-threads](https://godoc.org/github.com/textileio/go-threads/api/client)          | |
 | Command-line | _thread-shell (coming)_       | [Hub CLI](../hub/cli/hub.md)         |
