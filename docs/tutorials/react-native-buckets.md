@@ -107,7 +107,7 @@ Next, we'll connect to the remote API using our Key and Secret. We do this so th
 
 ### Generate an Identity
 
-[Read the basic libp2p identities tutorial now](libp2p-identities.md).
+[Read the basic libp2p identities tutorial now](hub/libp2p-identities.md).
 
 ```typescript
 const id = await Libp2pCryptoIdentity.fromRandom();
