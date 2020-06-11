@@ -1236,10 +1236,10 @@
 <p>If you are building a web application, you can use domain whitelisting to access the same resources without embedding keys in your application. You can track the release of <a href="https://github.com/textileio/textile/issues/109">domain whitelisting here</a>.</p>
 <h2 id="app-apis">App APIs<a class="headerlink" href="#app-apis" title="Permanent link">&para;</a></h2>
 <h3 id="buckets">Buckets<a class="headerlink" href="#buckets" title="Permanent link">&para;</a></h3>
-<p><a href="../buckets/">Buckets</a> provide S3-like data storage on IPFS. Just as you can create Buckets with the <a href="../cli/hub/">Hub CLI</a>, you can create Buckets using JavaScript with <a href="#libraries">js-textile</a>.</p>
-<p>The <a href="#libraries">js-textile</a> library allows you to create and edit Buckets owned by you or your organization using an <a href="#account-key">account key</a>. Alternatively, you can use Buckets to store your user's data using a <a href="#user-group-key">user group key</a>.</p>
+<p><a href="../buckets/">Buckets</a> provide S3-like data storage on IPFS. Just as you can create Buckets with the <a href="../cli/hub/">Hub CLI</a>, you can create Buckets using JavaScript with <a href="#libraries">js-hub</a>.</p>
+<p>The <a href="#libraries">js-hub</a> library allows you to create and edit Buckets owned by you or your organization using an <a href="#account-key">account key</a>. Alternatively, you can use Buckets to store your user's data using a <a href="#user-group-key">user group key</a>.</p>
 <h3 id="threaddb">ThreadDB<a class="headerlink" href="#threaddb" title="Permanent link">&para;</a></h3>
-<p><a href="../../threads/">ThreadDB</a> is a mongo-like database that runs on IPFS. You can use it in combination with <a href="#libraries">js-textile</a> to add replication and relay to your user's databases. When combined, <code>js-threads</code> and <code>js-textile</code> allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.</p>
+<p><a href="../../threads/">ThreadDB</a> is a mongo-like database that runs on IPFS. You can use it in combination with <a href="#libraries">js-hub</a> to add replication and relay to your user's databases. When combined, <code>js-threads</code> and <code>js-hub</code> allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.</p>
 <h3 id="data-ownership">Data Ownership<a class="headerlink" href="#data-ownership" title="Permanent link">&para;</a></h3>
 <p>The databases and buckets you create over the APIs are owned in one of three ways.</p>
 <ol>
@@ -1408,7 +1408,7 @@
 <tr>
 <td>Browser, React Native, &amp; NodeJS</td>
 <td align="center"><a href="https://textileio.github.io/js-threads">js-threads</a></td>
-<td align="center"><a href="https://textileio.github.io/js-textile">js-textile</a></td>
+<td align="center"><a href="https://textileio.github.io/js-hub">js-hub</a></td>
 </tr>
 <tr>
 <td>Dart &amp; Flutter Apps (<a href="https://github.com/textileio/dart-textile/issues/5">pending release</a>)</td>

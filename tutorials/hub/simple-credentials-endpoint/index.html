@@ -941,7 +941,7 @@
 </ul>
 <p><strong>Install dependencies</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Textile libraries</span>
-npm install --save @textile/textile @textile/threads-core
+npm install --save @textile/hub @textile/threads-core
 
 <span class="c1"># Other utilities use in example</span>
 npm install --save dotenv isomorphic-ws
@@ -974,8 +974,7 @@ USER_API_SECRET=balkweop3jflk9f43lkjs9df2jlght94nzlkv93s
 <span class="kr">import</span> <span class="nx">dotenv</span> <span class="nx">from</span> <span class="s2">&quot;dotenv&quot;</span><span class="p">;</span>
 
 <span class="cm">/** Textile libraries */</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-client&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Provider</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/context&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">createAPISig</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span><span class="nx">Libp2pCryptoIdentity</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span><span class="p">;</span>
 
 <span class="cm">/** Read the values of .env into the environment */</span>
@@ -1039,7 +1038,8 @@ USER_API_SECRET=balkweop3jflk9f43lkjs9df2jlght94nzlkv93s
   <span class="c1">// Custom validation could be done here...</span>
 
   <span class="cm">/** Get API authorization for the user */</span>
-  <span class="kr">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getAPISig</span><span class="p">()</span>
+  <span class="kr">const</span> <span class="nx">expiration</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">+</span> <span class="mi">60</span> <span class="o">*</span> <span class="nx">seconds</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">createAPISig</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">USER_API_SECRET</span><span class="p">,</span> <span class="nx">expiration</span><span class="p">)</span>
 
   <span class="cm">/** Include the API KEY in the auth payload */</span>
   <span class="kr">const</span> <span class="nx">credentials</span> <span class="o">=</span> <span class="p">{</span>
@@ -1065,13 +1065,35 @@ USER_API_SECRET=balkweop3jflk9f43lkjs9df2jlght94nzlkv93s
 </code></pre></div>
 
 <h2 id="create-a-client">Create a client<a class="headerlink" href="#create-a-client" title="Permanent link">&para;</a></h2>
-<p>Back in the browser, you can now make requests to your credentials endpoint.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">createCredentials</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">UserAuth</span><span class="o">&gt;</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<p>Back in the browser, you can now make requests to your credentials endpoint. From their, each user can use the Hub token endpoint directly and begin making calls to the Hub APIs.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">UserAuth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Libp2pCryptoIdentity</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">createCredentials</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">UserAuth</span><span class="o">&gt;</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="sb">`/api/credentials`</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
   <span class="p">})</span>
   <span class="kr">const</span> <span class="nx">userAuth</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
   <span class="k">return</span> <span class="nx">userAuth</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/** Use the simple auth REST endpoint to get API access */</span>
+<span class="kd">let</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">createCredentials</span><span class="p">()</span>
+
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Verified on Textile API&#39;</span><span class="p">)</span>
+<span class="nx">displayStatus</span><span class="p">();</span>
+
+<span class="cm">/** The simple auth endpoint generates a user&#39;s Hub API Token */</span>
+<span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withUserAuth</span><span class="p">(</span><span class="nx">auth</span><span class="p">,</span> <span class="nx">API</span><span class="p">)</span>
+
+<span class="cm">/** See identity tutorial */</span>
+<span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">getToken</span><span class="p">(</span><span class="nx">identity</span><span class="p">)</span>
+
+<span class="cm">/** Now, full auth object includes the token */</span>
+<span class="nx">auth</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">...</span><span class="k">this</span><span class="p">.</span><span class="nx">auth</span><span class="p">,</span>
+  <span class="nx">token</span>: <span class="kt">token</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 

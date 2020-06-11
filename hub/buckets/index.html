@@ -1388,7 +1388,7 @@
 <li>Create private Buckets where your <a href="#app-user-buckets">app users can store data</a>.</li>
 </ul>
 <h2 id="initialize-a-bucket">Initialize a Bucket<a class="headerlink" href="#initialize-a-bucket" title="Permanent link">&para;</a></h2>
-<p>When working on your local machine, Buckets are mapped to working directories. Once you initialize a Bucket in a directory, anytime you return to the directory, the Textile CLI will automatically detect the Bucket you are interacting with. To start a Bucket in your current working directory, you must first initialize the Bucket.</p>
+<p>When working on your local machine, Buckets are mapped to working directories. Once you initialize a Bucket in a directory, anytime you return to the directory, the Textile CLI will automatically detect the Bucket you are interacting with. To start a Bucket in your current working directory, you must first initialize the Bucket. You can initialize a bucket with an existing UnixFS DAG available in the IPFS network, or import it interactively in an already existing bucket.</p>
 <p>
 <figure><img src="../../images/hub-cli/hub_bucket_init.png" /><figcaption><a href="../cli/hub_buck/">Read CLI docs for Buckets</a>.</figcaption>
 </figure>
@@ -1481,9 +1481,9 @@ hub bucket init --org nasa
 <h4 id="app-user-buckets">App user Buckets<a class="headerlink" href="#app-user-buckets" title="Permanent link">&para;</a></h4>
 <p>If you are building an app using one of our <a href="../app-apis/#libraries">developer libraries</a> you can use Buckets from inside your apps. Apps generally will create Buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.</p>
 <div class="txtl-options">
-  <a href="https://textileio.github.io/js-textile" target="_blank" class="box">
-    <h5>JS Textile Docs</h5>
-    <p>Create user Buckets in your JS app.</p>
+  <a href="https://textileio.github.io/js-hub" target="_blank" class="box">
+    <h5>JS Hub Docs</h5>
+    <p>Persist user Buckets on IPFS from your JS app.</p>
   </a>
   <span class="box-space"> </span>
   <a href="https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb" target="_blank" class="box">
@@ -1512,9 +1512,9 @@ hub bucket init --org nasa
     <p>Read the full CLI documentation.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://textileio.github.io/js-textile" target="_blank" class="box">
+  <a href="https://textileio.github.io/js-hub" target="_blank" class="box">
     <h5>Textile JavaScript SDK</h5>
-    <p>Create Buckets from your JavaScript app.</p>
+    <p>Persist Buckets on IPFS from your JavaScript app.</p>
   </a>
   <span class="box-space"> </span>
   <a href="https://github.com/marketplace/actions/textile-buckets" target="_blank" class="box">

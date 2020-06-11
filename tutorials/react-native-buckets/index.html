@@ -711,19 +711,6 @@
     Generate an Identity
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#identity-caching-recovery" title="Identity caching &amp; recovery" class="md-nav__link">
-    Identity caching &amp; recovery
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1016,19 +1003,6 @@
     Generate an Identity
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#identity-caching-recovery" title="Identity caching &amp; recovery" class="md-nav__link">
-    Identity caching &amp; recovery
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1100,7 +1074,7 @@
 
 <h2 id="install-libraries">Install libraries<a class="headerlink" href="#install-libraries" title="Permanent link">&para;</a></h2>
 <p><strong>Textile Libraries</strong></p>
-<div class="highlight"><pre><span></span><code>npm install --save @textile/textile @textile/threads-client @textile/threads-core @textile/threads-id
+<div class="highlight"><pre><span></span><code>npm install --save @textile/hub @textile/threads-client @textile/threads-core @textile/threads-id
 </code></pre></div>
 
 <p>We'll use the above combination of Textile libraries in our app below.</p>
@@ -1147,27 +1121,21 @@
 <p><strong>Import Textile</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Our secrets</span>
 <span class="kr">import</span> <span class="p">{</span><span class="nx">USER_API_SECRET</span><span class="p">,</span> <span class="nx">USER_API_KEY</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-native-dotenv&#39;</span><span class="p">;</span>
-<span class="c1">// Database and Query method</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">Where</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-client&#39;</span><span class="p">;</span>
-<span class="c1">// Common Thread ID type</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">ThreadID</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-id&#39;</span><span class="p">;</span>
+<span class="c1">// Database Query method</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Where</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-client&#39;</span><span class="p">;</span>
 <span class="c1">// Buckets client and an API Context helper</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Buckets</span><span class="p">,</span> <span class="nx">Context</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/textile&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">Buckets</span><span class="p">,</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span><span class="p">;</span>
 <span class="c1">// A basic Identity provider (PKI from Libp2p)</span>
 <span class="kr">import</span> <span class="p">{</span><span class="nx">Libp2pCryptoIdentity</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span><span class="p">;</span>
 </code></pre></div>
 
 <h3 id="register-with-remote-api">Register with remote API<a class="headerlink" href="#register-with-remote-api" title="Permanent link">&para;</a></h3>
 <p>Next, we'll connect to the remote API using our Key and Secret. We do this so that the user can later push their bucket for remote persistence on IPFS and publishing on IPNS.</p>
-<div class="highlight"><pre><span></span><code>  <span class="kr">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Context</span><span class="p">();</span>
-
-  <span class="nx">await</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">withUserKey</span><span class="p">({</span>
+<div class="highlight"><pre><span></span><code>  <span class="nx">db</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withUserKey</span><span class="p">({</span>
     <span class="nx">key</span>: <span class="kt">USER_API_KEY</span><span class="p">,</span>
     <span class="nx">secret</span>: <span class="kt">USER_API_SECRET</span><span class="p">,</span>
     <span class="nx">type</span>: <span class="kt">1</span><span class="p">,</span>
   <span class="p">})</span>
-
-  <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Client</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span>
 </code></pre></div>
 
 <div class="admonition hint">
@@ -1175,15 +1143,11 @@
 <p>Read more about the Context tool in the <a href="../../threads/">Threads Introduction</a>.</p>
 </div>
 <h3 id="generate-an-identity">Generate an Identity<a class="headerlink" href="#generate-an-identity" title="Permanent link">&para;</a></h3>
+<p><a href="../hub/libp2p-identities/">Read the basic libp2p identities tutorial now</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Libp2pCryptoIdentity</span><span class="p">.</span><span class="nx">fromRandom</span><span class="p">();</span>
 </code></pre></div>
 
-<p>Here we are just using a Libp2p helper to generate a private-key identity for the user. You could use an identity provider to achieve the same result! Or, if you are already using a key-based identity in your app, just use it instead.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<h4 id="identity-caching-recovery">Identity caching &amp; recovery<a class="headerlink" href="#identity-caching-recovery" title="Permanent link">&para;</a></h4>
-<p>Your app should hang-on to the user identity in a persistent way. It should be stored in your user model or given to the user for recovery.</p>
-</div>
+<p>Here we are just using a Libp2p helper to generate a private-key identity for the user.</p>
 <h3 id="generate-user-token">Generate user Token<a class="headerlink" href="#generate-user-token" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">getToken</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
 </code></pre></div>
@@ -1191,7 +1155,11 @@
 <p>This will register the user with your remote Hub account, granting them the ability to push data to IPFS through Threads and Buckets.</p>
 <h3 id="connect-buckets">Connect Buckets<a class="headerlink" href="#connect-buckets" title="Permanent link">&para;</a></h3>
 <p>Now that your user is setup and connected to your API on the Hub, you can start creating Buckets. First, setup a Bucket Client instance.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">buckets</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Buckets</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">context</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">buckets</span> <span class="o">=</span> <span class="nx">Buckets</span><span class="p">.</span><span class="nx">withUserKey</span><span class="p">({</span>
+    <span class="nx">key</span>: <span class="kt">USER_API_KEY</span><span class="p">,</span>
+    <span class="nx">secret</span>: <span class="kt">USER_API_SECRET</span><span class="p">,</span>
+    <span class="nx">type</span>: <span class="kt">1</span><span class="p">,</span>
+  <span class="p">})</span>
 </code></pre></div>
 
 <p>In the above, we reuse the Context we already created in our ThreadDB Client because it contains the token, API keys, etc.</p>

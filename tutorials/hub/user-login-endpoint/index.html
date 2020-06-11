@@ -943,8 +943,7 @@
                 
                 
                 <h1 id="create-a-login-system-for-user-public-keys">Create a login system for user public keys<a class="headerlink" href="#create-a-login-system-for-user-public-keys" title="Permanent link">&para;</a></h1>
-<p>The login example shows you how to setup a simple server that will accept a user's public key, verify that they also own the private key (via a challenge), and then provide that users credentials to use the Hub APIs.</p>
-<p>With the verification step, your server can now build a user model around the user's public key, create user discovery or search in your app, or link a user's account to other services away from the Hub.</p>
+<p>The login example shows you how to setup a simple server that will accept a user's public key, verify that they control the private key (via a challenge), and then grant the user access to the Hub APIs.</p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <p>There are a few resources you'll need before you start writing code.</p>
 <ul>
@@ -955,7 +954,7 @@
 </ul>
 <p><strong>Install dependencies</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Textile libraries</span>
-npm install --save @textile/textile
+npm install --save @textile/hub
 
 <span class="c1"># Other utilities use in example</span>
 npm install --save dotenv emittery isomorphic-ws
@@ -965,7 +964,11 @@ npm install --save koa koa-router koa-logger koa-json koa-bodyparser koa-route k
 </code></pre></div>
 
 <h3 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
-<p>We'll use a <code>.env</code> file in the root of our project repo where you'll add your Hub API key and secret. The <code>.env</code> file should be added to your <code>.gitignore</code> so that your key and secret are never shared.</p>
+<p>We use a <code>.env</code> file in the root of our project repo. The values in the file will be pulled into the app each time it's run. This is where you'll add your Hub API key and secret. </p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>The <code>.env</code> file should be added to your <code>.gitignore</code> so that your key and secret are never shared.</p>
+</div>
 <p>Contents of <code>.env</code>.</p>
 <div class="highlight"><pre><span></span><code>USER_API_KEY=&lt;insert user group key&gt;
 USER_API_SECRET=&lt;insert user group secret&gt;
@@ -997,8 +1000,7 @@ USER_API_SECRET=&lt;insert user group secret&gt;
 <span class="kr">import</span> <span class="nx">Emittery</span> <span class="nx">from</span> <span class="s2">&quot;emittery&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">dotenv</span> <span class="nx">from</span> <span class="s2">&quot;dotenv&quot;</span><span class="p">;</span>
 
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-client&#39;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">Provider</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/context&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">UserAuth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;@textile/hub&quot;</span>
 
 <span class="cm">/** Read the values of .env into the environment */</span>
 <span class="nx">dotenv</span><span class="p">.</span><span class="nx">config</span><span class="p">();</span>
@@ -1040,12 +1042,14 @@ USER_API_SECRET=&lt;insert user group secret&gt;
           <span class="cm">/** A new token request will contain the user&#39;s public key */</span>
           <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">.</span><span class="nx">pubkey</span><span class="p">)</span> <span class="p">{</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;missing pubkey&#39;</span><span class="p">)</span> <span class="p">}</span>
 
-          <span class="cm">/** </span>
-<span class="cm">           * Init new Hub API Client </span>
-<span class="cm">           * </span>
-<span class="cm">           * see ./hub.ts</span>
+          <span class="cm">/**</span>
+<span class="cm">           * Init new Hub API Client with the user group API keys</span>
 <span class="cm">           */</span>
-          <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">newClientDB</span><span class="p">()</span>
+          <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withUserKey</span><span class="p">({</span>
+            <span class="nx">key</span>: <span class="kt">process.env.USER_API_KEY</span><span class="p">,</span>
+            <span class="nx">secret</span>: <span class="kt">process.env.USER_API_SECRET</span><span class="p">,</span>
+            <span class="nx">type</span>: <span class="kt">0</span><span class="p">,</span>
+          <span class="p">})</span>
 
           <span class="cm">/** Request a token from the Hub based on the user public key */</span>
           <span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">getTokenChallenge</span><span class="p">(</span>
@@ -1071,7 +1075,7 @@ USER_API_SECRET=&lt;insert user group secret&gt;
             <span class="p">})</span>
           <span class="p">})</span>
 
-          <span class="cm">/** </span>
+          <span class="cm">/**</span>
 <span class="cm">           * The challenge was successfully completed by the client</span>
 <span class="cm">           */</span>
 
@@ -1079,7 +1083,7 @@ USER_API_SECRET=&lt;insert user group secret&gt;
           <span class="kr">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getAPISig</span><span class="p">()</span>
 
           <span class="cm">/** Include the token in the auth payload */</span>
-          <span class="kr">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="kr">const</span> <span class="nx">payload</span>: <span class="kt">UserAuth</span> <span class="o">=</span> <span class="p">{</span>
             <span class="p">...</span><span class="nx">auth</span><span class="p">,</span>
             <span class="nx">token</span>: <span class="kt">token</span><span class="p">,</span>
             <span class="nx">key</span>: <span class="kt">process.env.USER_API_KEY</span><span class="p">,</span>
@@ -1113,18 +1117,18 @@ USER_API_SECRET=&lt;insert user group secret&gt;
       <span class="p">}))</span>
     <span class="p">}</span>
   <span class="p">});</span>
-<span class="p">});</span>
+<span class="p">}));</span>
 </code></pre></div>
 
 <p>Now when you refresh your locally running server you should have a websocket endpoint for client token creation.</p>
 <h3 id="server-notes">Server notes<a class="headerlink" href="#server-notes" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Now that the user is verified in your system, you can keep their public key as a reference to them without any security issues.</li>
-<li>However, you should never trust an API call only by the public key, the challlenge step is critical.</li>
+<li>Now that the user is verified in your system, you can keep their public key without any security issues.</li>
+<li>However, you should never trust an API call only by the public key, the challenge step is critical.</li>
 <li>The token provided in the response should be considered a secret that only should be shared with a single user. It does not expire.</li>
 </ul>
 <h2 id="create-a-client">Create a client<a class="headerlink" href="#create-a-client" title="Permanent link">&para;</a></h2>
-<p>Back in the browser, you can now make requests to your login endpoint using a websocket. A basic client might make a request like the following.</p>
+<p>Back in the browser webapp, you can now make requests to your login endpoint using a websocket. A basic client might make a request like the following.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">loginWithChallenge</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">id</span>: <span class="kt">Libp2pCryptoIdentity</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">UserAuth</span><span class="o">&gt;</span> <span class="o">=&gt;</span> <span class="p">{</span>  
   <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="cm">/** </span>
@@ -1182,8 +1186,9 @@ USER_API_SECRET=&lt;insert user group secret&gt;
 <span class="p">};</span>
 </code></pre></div>
 
+<p>By passing the user identity to the function above, your app can authenticate and verify the user in one step, granting them access to your Hub resources.</p>
 <h2 id="github-example">GitHub Example<a class="headerlink" href="#github-example" title="Permanent link">&para;</a></h2>
-<p>If you'd like to explore the examples explained above more, we've provided a fully working example on GitHub. The login endpoint is part of a more complete example, you can see it here.</p>
+<p>If you'd like to explore the example more, we've provided a fully working example on GitHub. The login endpoint is part of a more complete example, you can see it here.</p>
 <div class="txtl-options half">
   <a href="https://github.com/textileio/js-examples/blob/master/hub-browser-auth-app/src/server/wss.ts" class="box">
     <h5>Login API</h5>
