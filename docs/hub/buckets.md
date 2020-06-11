@@ -14,7 +14,7 @@ Buckets are packed with useful features, including:
 
 ## Initialize a Bucket
 
-When working on your local machine, Buckets are mapped to working directories. Once you initialize a Bucket in a directory, anytime you return to the directory, the Textile CLI will automatically detect the Bucket you are interacting with. To start a Bucket in your current working directory, you must first initialize the Bucket.
+When working on your local machine, Buckets are mapped to working directories. Once you initialize a Bucket in a directory, anytime you return to the directory, the Textile CLI will automatically detect the Bucket you are interacting with. To start a Bucket in your current working directory, you must first initialize the Bucket. You can initialize a bucket with an existing UnixFS DAG available in the IPFS network, or import it interactively in an already existing bucket.
 
 ![[Read CLI docs for Buckets](../hub/cli/hub_buck.md).](../images/hub-cli/hub_bucket_init.png)
 

@@ -15,6 +15,7 @@ hub buck init [flags]
 ### Options
 
 ```
+      --cid string      Bootstrap the bucket with a UnixFS Cid availabe in the IPFS network
   -e, --existing        Initializes from an existing remote bucket if true
   -h, --help            help for init
       --key string      Bucket key
