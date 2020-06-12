@@ -26,8 +26,8 @@ Some benefits of using the Powergate include:
 
 <div class="txtl-options">
   <a href="https://github.com/textileio/powergate/" class="box" target="_blank">
-    <h5>Powergate</h5>
-    <p>Multitiered file storage API built on Filecoin and IPFS.</p>
+    <h5>Powergate Repo</h5>
+    <p>Open source multi-tiered file storage API built on Filecoin and IPFS.</p>
   </a>
   <span class="box-space"> </span>
   <a href="https://textileio.github.io/js-powergate-client/" class="box" target="_blank">
