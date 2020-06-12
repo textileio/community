@@ -80,8 +80,6 @@ The rest of the JavaScript portions of the tutorial will be in TypeScript. You d
 **Import Textile**
 
 ```typescript
-// Our secrets
-import {USER_API_SECRET, USER_API_KEY} from 'react-native-dotenv';
 // Database Query method
 import {Where} from '@textile/threads-client';
 // Buckets client and an API Context helper
@@ -95,11 +93,13 @@ import {Libp2pCryptoIdentity} from '@textile/threads-core';
 Next, we'll connect to the remote API using our Key and Secret. We do this so that the user can later push their bucket for remote persistence on IPFS and publishing on IPNS.
 
 ```typescript
-  db = await Client.withUserKey({
-    key: USER_API_KEY,
-    secret: USER_API_SECRET,
-    type: 1,
-  })
+import { Client } from '@textile/hub'
+
+const client = Client.withKeyInfo({
+  key: 'USER_API_KEY',
+  secret: 'USER_API_SECRET',
+  type: 1,
+})
 ```
 
 !!!Hint
@@ -110,7 +110,12 @@ Next, we'll connect to the remote API using our Key and Secret. We do this so th
 [Read the basic libp2p identities tutorial now](hub/libp2p-identities.md).
 
 ```typescript
-const id = await Libp2pCryptoIdentity.fromRandom();
+import { Libp2pCryptoIdentity } from '@textile/threads-core'
+
+async function example () {
+  const id = await Libp2pCryptoIdentity.fromRandom();
+  return id
+}
 ```
 
 Here we are just using a Libp2p helper to generate a private-key identity for the user.
@@ -118,7 +123,12 @@ Here we are just using a Libp2p helper to generate a private-key identity for th
 ### Generate user Token
 
 ```typescript
-await db.getToken(id);
+import { Client } from '@textile/hub'
+import { Libp2pCryptoIdentity } from '@textile/threads-core'
+
+async function example (client: Client, identity: Libp2pCryptoIdentity) {
+  await client.getToken(identity);
+}
 ```
 
 This will register the user with your remote Hub account, granting them the ability to push data to IPFS through Threads and Buckets.
@@ -128,9 +138,11 @@ This will register the user with your remote Hub account, granting them the abil
 Now that your user is setup and connected to your API on the Hub, you can start creating Buckets. First, setup a Bucket Client instance.
 
 ```typescript
-const buckets = Buckets.withUserKey({
-    key: USER_API_KEY,
-    secret: USER_API_SECRET,
+import { Buckets } from '@textile/hub'
+
+const buckets = Buckets.withKeyInfo({
+    key: 'USER_API_KEY',
+    secret: 'USER_API_SECRET',
     type: 1,
   })
 ```
@@ -140,19 +152,26 @@ In the above, we reuse the Context we already created in our ThreadDB Client bec
 **List all Buckets**
 
 ```typescript
-const roots = await buckets.list();
-const existing = roots.find((bucket) => bucket.name === 'files')
-```
+import { Buckets } from '@textile/hub'
 
-Here, we list all the user's Buckets and determine if one exists called `files`. If it exists, we'll use its _key_ if not, we'll create a new Bucket and key.
+async function example (buckets: Buckets) {
+  const roots = await buckets.list();
+  const existing = roots.find((bucket) => bucket.name === 'files')
 
-```typescript
-let bucketKey = ''
-if (existing) {
-  bucketKey = existing.key;
-} else {
-  const created = await buckets.init('files');
-  bucketKey = created.root!.key;
+  /**
+   * Here, we list all the user's Buckets and determine if one
+   * exists called `files`. If it exists, we'll use its _key_
+   * if not, we'll create a new Bucket and key.
+   */
+
+  let bucketKey = ''
+  if (existing) {
+    bucketKey = existing.key;
+  } else {
+    const created = await buckets.init('files');
+    bucketKey = created.root ? created.root.key : '';
+  }
+  return bucketKey
 }
 ```
 
@@ -161,9 +180,13 @@ if (existing) {
 Finally, let's push a simple file to the user's Bucket. In this example, we'll just create a simple `HTML` file that says, `Hello world`.
 
 ```typescript
-const file = { path: '/index.html', content: Buffer.from(webpage) }
+import { Buckets } from '@textile/hub'
 
-const raw = await buckets.pushPath(bucketKey!, 'index.html', file)
+async function example (buckets: Buckets, bucketKey: string, content: string) {
+  const file = { path: '/index.html', content: Buffer.from(content) }
+
+  const raw = await buckets.pushPath(bucketKey, 'index.html', file)
+}
 ```
 
 ### List the Bucket links
@@ -190,8 +213,12 @@ Textile give you and your users a public address for each Bucket created. They a
 The IPFS address is contained in the result of `pushPath`.
 
 ```typescript
-const raw = await buckets.pushPath(bucketKey!, 'index.html', file)
-console.log(raw.root)
+import { Buckets } from '@textile/hub'
+
+async function example (buckets: Buckets, bucketKey: string, file: Buffer) {
+  const raw = await buckets.pushPath(bucketKey!, 'index.html', file)
+  console.log(raw.root)
+}
 ```
 
 **IPNS Address**

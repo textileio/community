@@ -41,7 +41,7 @@ _Replace the example key and secret values with values you create usint the CLI_
 
 In our project setup, our main server is defined in `src/index.ts`.
 
-```typescript
+```ts
 /** Provides nodejs access to a global Websocket value, required by Hub API */
 ;(global as any).WebSocket = require('isomorphic-ws')
 
@@ -116,7 +116,7 @@ ts-node src/index.ts
 
 Next, we'll add an endpoint so the client can get new or refreshed credentials. Note the `Add credentials API here` location in the server code above.
 
-```typescript
+```ts
 /**
  * Add credentials API here
  */
@@ -159,7 +159,7 @@ Response:
 
 Back in the browser, you can now make requests to your credentials endpoint. From their, each user can use the Hub token endpoint directly and begin making calls to the Hub APIs.
 
-```typescript
+```ts
 import { Client, UserAuth } from '@textile/hub'
 import {Libp2pCryptoIdentity} from '@textile/threads-core';
 

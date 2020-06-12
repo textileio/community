@@ -117,9 +117,8 @@ This should produce output similar to the following. Make note of these values, 
 Once you have the key information handy, let's jump to some code. We'll start with the required imports, and initialize a basic default `Context`.
 
 ```typescript
-import { Context } from '@textile/context'
 import { Libp2pCryptoIdentity } from '@textile/threads-core'
-import { Client } from '@textile/threads-client'
+import { Client } from '@textile/hub'
 import { config } from 'dotenv'
 
 // Load your .env into process.env
@@ -135,20 +134,27 @@ For example, to create a new basic Context that will connect to Textile's remote
 While we're at it, we'll also create a default identity for our user, using the `Libp2pCryptoIdentity` object. In practice, you might have your own identity provider, or you might want to use a hierarchical key/wallet or mnemonic phrase to help store a users keys for them. Whatever you decide, Textile's generic identity interface should be able to support it.
 
 ```typescript
-const ctx = new Context()
-const identity = await Libp2pCryptoIdentity.fromRandom() // Random identity
+import { Libp2pCryptoIdentity } from '@textile/threads-core'
+
+async function example () {
+   const identity = await Libp2pCryptoIdentity.fromRandom() // Random identity
+   return identity
+}
 ```
 
 The next step is to authenticate the user with your _user group key_ and Secret. This will allow the user to store threads and buckets using your developer resources on the Hub.
 
 ```typescript
-// Update the context WITH the user group key information
-await ctx.withUserKey({
-   key: process.env.USER_API_KEY,
-   secret: process.env.USER_API_SECRET,
-   type: 1, // User group key type
- })
-// This will also return a promise with your updated context:
+import { Client, KeyInfo } from '@textile/hub'
+
+async function start () {
+  const keyInfo: KeyInfo = {
+    key: '<api key>',
+    secret: '<api secret>',
+    type: 1,
+  }
+  const client = await Client.withKeyInfo(keyInfo)
+}
 ```
 
 ### Setup ThreadDB
@@ -156,31 +162,40 @@ await ctx.withUserKey({
 Now we will connect to our remote ThreadDB client. This will allow us to connect to a remote ThreadDB on the Textile Hub. This is an alternative to a local-first database where keys and data are stored _locally_ on the device.
 
 ```typescript
-const db = new Client(ctx)
-// API calls will now include the credentials created above
+import { Client, UserAuth } from '@textile/hub'
+
+async function start (auth: UserAuth) {
+  const client = Client.withUserAuth(auth)
+}
 ```
 
 With the ThreadDB instance ready to connect to the remote database, it is time to generate a user token. This allows us (the developer) to allocate user-scoped resources without our remote database. The app user (defined by their Identity created above) needs an API token to perform database operations. The API will give you one based on ID plus your developer credentials. The token will be added to the existing db.context. The token can also be stored/cached for future use by the same user identity (and then manually be added to a context later).
 
 ```typescript
-const token = await db.getToken(identity)
+import { Client, UserAuth } from '@textile/hub'
+import { Identity } from '@textile/threads-core'
+
+async function start (auth: UserAuth) {
+  const client = Client.withUserAuth(auth)
+  return client
+}
+async function setToken(client: Client, identity: Identity) {
+   const token = await client.getToken(identity)
+   return token
+}
 ```
 
-Note that this operation updates the database's context in place. This updated context can be stored in a session or however your app stores app state.
-
-```typescript
-console.log(JSON.stringify(db.context.toJSON()))
-```
+_Note that this operation updates the database's context in place, meaning all future requests will leverage the token._
 
 An app should create a minimal number of Threads per user to avoid creating unnecessary storage. A single Thread can contain a large number of distinct Collections for different types of data. Here, we create a new Thread for a user, but you could similarly store this ThreadID in (say) a local database or your app state and restore it using `ThreadID.fromString()`.
 
 ```typescript
-import { ThreadID } from '@textile/threads-id'
-const id = ThreadID.fromRandom()
+import { Client, ThreadID } from '@textile/hub'
 
-await db.newDB(id) // Updates the context to include the thread id
-// Or, do it manually
-// db.context.withThread(id)
+async function example (client: Client, threadId: ThreadID) {
+   const id = ThreadID.fromRandom()
+   await client.newDB(id) // Updates the context to include the thread id
+}
 ```
 
 For this example, we're going to be working with a Collection of Astronauts. The schema looks like this.
@@ -213,7 +228,12 @@ const astronautSchema = {
  Using that schema, we'll create a new collection. See [our ThreadDB introduction](https://docs.textile.io/threads/) for details about Collections, Schemas, and Instances.
 
  ```typescript
- await db.newCollection(id, 'Astronaut', astronautSchema)
+import { Client, ThreadID } from '@textile/hub'
+
+// Provide the astronautSchema here.
+async function example (client: Client, threadId: ThreadID, schema: any) {
+  await client.newCollection(threadId, 'Astronauts', schema)
+}
  ```
 
  ### Add Instance to Collection
@@ -221,14 +241,18 @@ const astronautSchema = {
 Now that our ThreadDB contains the Astronaut Collection, you just need to add a new astronaut that matches the expected schema. If you run the following code many times, you'll notice many Buzz Aldrin entries in your ThreadDB, each with a unique ID.
 
 ```typescript
-const ids = await db.create(id, 'Astronaut', [
-  {
-    _id: '', // Leave empty to auto-generate
-    firstName: 'Buzz',
-    lastName: 'Aldrin',
-    missions: 2,
-  }
-])
+import { Client, ThreadID } from '@textile/hub'
+
+async function example (client: Client, threadId: ThreadID) {
+   const ids = await client.create(threadId, 'Astronauts', [
+     {
+       _id: '', // Leave empty to auto-generate
+       firstName: 'Buzz',
+       lastName: 'Aldrin',
+       missions: 2,
+     }
+   ])
+}
 ```
 
 ### Query from our Collection
@@ -236,18 +260,20 @@ const ids = await db.create(id, 'Astronaut', [
 You can search all your existing Buzz Aldrins pretty easily. You can also clean up our entries (just delete them all!), modify them, or perform various transactions.
 
 ```typescript
+import { Client, ThreadID } from '@textile/hub'
 import { Where } from '@textile/threads-client'
 
-const q = new Where('firstName').eq('Buzz')
-const r = await db.find(id, 'Astronaut', q)
+async function example (client: Client, threadId: ThreadID) {
+   const q = new Where('firstName').eq('Buzz')
+   const r = await client.find(threadId, 'Astronauts', q)
+   // Extract just the ids
+   const ids = r.instancesList.map((instance: any) => instance._id)
 
-// Extract just the ids
-const ids = r.instancesList.map((instance: any) => instance._id)
+   console.log(`Found ${ids.length} entries`)
 
-console.log(`Found ${ids.length} entries`)
-
-// Cleanup!
-await db.delete(id, 'Astronaut', ids)
+   // Cleanup!
+   await client.delete(threadId, 'Astronauts', ids)
+}
 ```
 
 We leave the remaining operations as an exercise for the reader. Have fun, explore, and let us know what you think!

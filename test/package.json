@@ -11,8 +11,10 @@
     "@textile/hub": "*",
     "@textile/security": "*",
     "@textile/threads-client": "*",
+    "@textile/threads-core": "^0.1.18",
     "@textile/threads-database": "*",
     "@textile/threads-id": "*",
+    "dotenv": "^8.2.0",
     "typescript": "^3.7.2",
     "typescript-docs-verifier": "^1.1.2"
   }

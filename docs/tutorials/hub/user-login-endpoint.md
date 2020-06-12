@@ -53,7 +53,7 @@ In our project setup, our main server is defined in `src/index.ts`. Unlike the [
 
 It sounds complicated, but you'll see it happens very fast with only a few lines of code. In our example, we use `websockets` to enable the multi-step communication between the server and the client.
 
-```typescript
+```javascript
 /** Provides nodejs access to a global Websocket value, required by Hub API */
 ;(global as any).WebSocket = require('isomorphic-ws')
 import koa from "koa";
@@ -93,101 +93,35 @@ app.listen( PORT, () => console.log( "Server started." ) );
 
 ## Add a websocket login handler
 
-Next, we'll add a websocket endpoint to our server. Note the `Add websocket login endpoint` location in the server code above.
+Next, we'll add a websocket endpoint to our server. Note the `Add websocket login endpoint` location in the server code above. The primary step that the server needs to do is accept a pubkey and issue a new challenge back to the client. When successful, new API credentials can be handed to the client.
+
+[View the full code example in the repo](https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app/src/server).
 
 ```typescript
-/**
- * Add token websocket endpoint
- */
-app.ws.use(route.all('/ws/login', (ctx) => {
-  /** Emittery allows us to wait for the challenge response event */
-  const emitter = new Emittery();
-  ctx.websocket.on('message', async (msg) => {
-    try {
-      /** All messages from client contain {type: string} */
-      const data = JSON.parse(msg);
-      switch (data.type) {
-        /** The first type is a new token request */
-        case 'token': {
-          /** A new token request will contain the user's public key */
-          if (!data.pubkey) { throw new Error('missing pubkey') }
+import {Client} from '@textile/hub'
 
-          /**
-           * Init new Hub API Client with the user group API keys
-           */
-          const db = await Client.withUserKey({
-            key: process.env.USER_API_KEY,
-            secret: process.env.USER_API_SECRET,
-            type: 0,
-          })
+async function example (pubkey: string) {
+  /**
+   * Init new Hub API Client with the user group API keys
+   */
+  const client = await Client.withKeyInfo({
+    key: 'USER_API_KEY',
+    secret: 'USER_API_SECRET',
+    type: 0,
+  })
 
-          /** Request a token from the Hub based on the user public key */
-          const token = await db.getTokenChallenge(
-            data.pubkey, 
-            /** The callback passes the challenge back to the client */
-            (challenge: Buffer) => {
-            return new Promise((resolve, reject) => {
-              /** Pass the challenge to the client */
-              ctx.websocket.send(JSON.stringify({
-                type: 'challenge',
-                value: challenge.toJSON(),
-              }))
-              /** Wait for the challenge event from our event emitter */
-              emitter.on('challenge', (sig) => {
-                /** Resolve the promise with the challenge response */
-                resolve(Buffer.from(sig))
-              });
-              /** Give client a reasonable timeout to respond to the challenge */
-              setTimeout(() => {
-                reject()
-              }, 1500);
-
-            })
-          })
-
-          /**
-           * The challenge was successfully completed by the client
-           */
-
-          /** Get API authorization for the user */
-          const auth = await getAPISig()
-
-          /** Include the token in the auth payload */
-          const payload: UserAuth = {
-            ...auth,
-            token: token,
-            key: process.env.USER_API_KEY,
-          };
-
-          /** Return the result to the client */
-          ctx.websocket.send(JSON.stringify({
-            type: 'token',
-            value: payload,
-          }))
-          break;
-        }
-        /** The second type is a challenge response */
-        case 'challenge': {
-          /** A new challenge response will contain a signature */
-          if (!data.sig) { throw new Error('missing signature (sig)') }
-
-          /** 
-           * If the timeout hasn't passed there is a waiting promise.
-           * Emit the challenge signature for the waiting listener above.
-           * */
-          await emitter.emit('challenge', data.sig);
-          break;
-        }
-      }
-    } catch (error) {
-      /** Notify our client of any errors */
-      ctx.websocket.send(JSON.stringify({
-        type: 'error',
-        value: error.message,
-      }))
-    }
-  });
-}));
+  /** 
+   * Request a token from the Hub based on the user public key */
+  const token = await client.getTokenChallenge(
+    pubkey,
+    /** The callback passes the challenge back to the client */
+    (challenge: Buffer) => {
+    return new Promise((resolve, reject) => {
+      // Send the challenge back to the client and resolve(Buffer.from(sig))
+      resolve()
+    })
+  })
+}
 ```
 
 Now when you refresh your locally running server you should have a websocket endpoint for client token creation.
@@ -200,64 +134,25 @@ Now when you refresh your locally running server you should have a websocket end
 
 ## Create a client
 
-Back in the browser webapp, you can now make requests to your login endpoint using a websocket. A basic client might make a request like the following.
+Back in the browser webapp, you can now make requests to your login endpoint using a websocket. A basic client needs to handle a challenge request from the server, where the challenge will be signed and returned over websocket.
+
+[View the full client example here](https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app/src/client).
 
 ```typescript
-const loginWithChallenge = async (id: Libp2pCryptoIdentity): Promise<UserAuth> => {  
-  return new Promise((resolve, reject) => {
-    /** 
-     * Configured for our development server
-     * 
-     * Note: this should be upgraded to wss for production environments.
-     */
-    const socketUrl = `ws://localhost:3000/ws/login`
+import { Libp2pCryptoIdentity } from '@textile/threads-core'
 
-    /** Initialize our websocket connection */
-    const socket = new WebSocket(socketUrl)
-
-    /** Wait for our socket to open successfully */
-    socket.onopen = () => {
-      /** Get public key string */
-      const publicKey = id.public.toString();
-
-      /** Send a new token request */
-      socket.send(JSON.stringify({
-        pubkey: publicKey,
-        type: 'token'
-      })); 
-
-      /** Listen for messages from the server */
-      socket.onmessage = async (event) => {
-        const data = JSON.parse(event.data)
-        switch (data.type) {
-          /** Error never happen :) */
-          case 'error': {
-            reject(data.value);
-            break;
-          }
-          /** The server issued a new challenge */
-          case 'challenge':{
-            /** Convert the challenge json to a Buffer */
-            const buf = Buffer.from(data.value)
-            /** User our identity to sign the challenge */
-            const signed = await id.sign(buf)
-            /** Send the signed challenge back to the server */
-            socket.send(JSON.stringify({
-              type: 'challenge',
-              sig: signed.toJSON()
-            })); 
-            break;
-          }
-          /** New token generated */
-          case 'token': {
-            resolve(data.value)
-            break;
-          }
-        }
-      }
-    }
-  });
-};
+async function handleChallenge (identity: Libp2pCryptoIdentity, challenge: string) {
+  /** Convert the challenge json to a Buffer */
+  const buf = Buffer.from(challenge)
+  /** User our identity to sign the challenge */
+  const signed = await identity.sign(buf)
+  /** Send the signed challenge back to the server */
+  const response = JSON.stringify({
+    type: 'challenge',
+    sig: signed.toJSON()
+  })
+  return response
+}
 ```
 
 By passing the user identity to the function above, your app can authenticate and verify the user in one step, granting them access to your Hub resources.

@@ -33,13 +33,7 @@ We've provided a simple tutorial for creating new identies and caching those ide
 
 [Read the basic libp2p identities tutorial now](libp2p-identities.md).
 
-Below, we'll use the [_cached identity example_](libp2p-identities.md#caching-user-identity) and `getIdentity` function from the tutorial above.
-
-
-
-```typescript
-const identity = getIdentity();
-```
+Below, we'll use the [_cached identity example_](libp2p-identities.md#caching-user-identity) and `getIdentity` function from the tutorial above. E.e. `const identity = getIdentity();`.
 
 !!!info
     The Hub is flexible about what identity or authentication system you use for your users. In the future, the Hub will support email-based identities, allowing you to more easily use the APIs with popular email-based user models. [Follow progress here](https://github.com/textileio/textile/issues/216).
@@ -62,11 +56,7 @@ In the above example, you should have setup a _server_ and API endpoint that you
 
 Now that our credentials endpoint is setup, we simply need to generate new credentials for each user's identity. We'll use the `createCredentials` function provided in the setup above in our _client_ webapp.
 
-```typescript
-const auth = await createCredentials()
-```
-
-This `auth` object will allow your app to start creating and editing Buckets and Threads owned by your user.
+The `auth` object returned from `createCredentials` will allow your app to start creating and editing Buckets and Threads owned by your user.
 
 ### Using the API
 
@@ -84,12 +74,14 @@ npm install --save @textile/hub
 Now, you just need to use `auth` object above to connect to the API.
 
 ```typescript
-import {Client} from '@textile/hub';
+import {Client, UserAuth} from '@textile/hub';
 
-const client = Client.withUserAuth(auth)
+async function example (auth: UserAuth) {
+  const client = Client.withUserAuth(auth)
 
-/** Query for all the user's existing threads (none to start) */
-const threads = await client.listThreads()
+  /** Query for all the user's existing threads (none to start) */
+  const threads = await client.listThreads()
+}
 ```
 
 Your user is now setup to start creating Threads and Buckets that replicate on the Hub API! Read more tutorials or jump over to the [js-threads docs](https://textileio.github.io/js-threads) to keep building.
