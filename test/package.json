@@ -4,12 +4,16 @@
   "description": "Dependencies for testing doc examples.",
   "main": "./",
   "license": "MIT",
+  "scripts": {
+    "test:docs": "typescript-docs-verifier --input-files=`find ../docs -type f -name '**.md'`"
+  },
   "devDependencies": {
     "@textile/hub": "*",
-    "@textile/threads-client": "*",
-    "@textile/threads-id": "*",
-    "@textile/threads-database": "*",
     "@textile/security": "*",
-    "typescript": "^3.7.2"
+    "@textile/threads-client": "*",
+    "@textile/threads-database": "*",
+    "@textile/threads-id": "*",
+    "typescript": "^3.7.2",
+    "typescript-docs-verifier": "^1.1.2"
   }
 }

@@ -9,4 +9,4 @@ echo 'test typescript'
 # echo '{"name": "@textile/docs", "main": "./"}' > package.json
 (cd test/ && npm install)
 (cd test/ && echo `find ../docs -type f -name '**.md'`)
-(cd test/ && npx typescript-docs-verifier --input-files=`find ../docs -type f -name '**.md'`)
+(cd test/ && npm run test:docs)
