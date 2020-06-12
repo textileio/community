@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-echo 'update cli docs...'
+echo 'testing docs...'
 # printf "<h1>Command-line</h1>\n\n<p>The command-line client ships alongside the daemon. Usage information for all commands, including sub-commands, is available via the --help flag.</p>\n\n<style>pre { background: inherit !important; word-wrap: inherit !important; white-space: pre-wrap !important; }</style>\n%s" "$(textile docs)" | sed -e 's/<h1>/# /g' -e 's/<h2>/## /g' -e 's/<h3>/### /g' -e 's/<h4>/#### /g' -e 's/<h5>/##### /g' -e 's/<h6>/###### /g' -e 's/<\/h.>//g' -e 's/&\#34;/"/g' -e "s/&\#39;/'/g"  | sed 's/\# textile \[/\#\# textile \[/' > ./docs/develop/clients/command-line.md
 # the sed is used to workaround this issue: https://github.com/Python-Markdown/markdown/issues/830
 
-echo 'prettify...'
-npx prettier --write "./**" 2> /dev/null || true
-
-echo 'build docs...'
-mkdocs build
+echo 'test typescript'
+# echo '{"name": "@textile/docs", "main": "./"}' > package.json
+(cd test/ && npm install)
+(cd test/ && echo `find ../docs -type f -name '**.md'`)
+(cd test/ && npx typescript-docs-verifier --input-files=`find ../docs -type f -name '**.md'`)

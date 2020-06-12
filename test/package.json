@@ -1,0 +1,15 @@
+{
+  "name": "@textile/docs",
+  "version": "0.0.0",
+  "description": "Dependencies for testing doc examples.",
+  "main": "./",
+  "license": "MIT",
+  "devDependencies": {
+    "@textile/hub": "*",
+    "@textile/threads-client": "*",
+    "@textile/threads-id": "*",
+    "@textile/threads-database": "*",
+    "@textile/security": "*",
+    "typescript": "^3.7.2"
+  }
+}

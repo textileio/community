@@ -2,3 +2,5 @@
 set -Eeuo pipefail
 
 pip install mkdocs mkdocs-material markdown-captions mkdocs-redirects
+
+npm install -g typescript-docs-verifier
