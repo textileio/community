@@ -1119,9 +1119,7 @@
 <p>In the example app, we put all the ThreadDB and Bucket logic into a single component called <a href="https://github.com/textileio/js-examples/blob/master/react-native-hub-app/src/checklist.tsx">checklist.ts</a>. You can view that file for reference. </p>
 </div>
 <p><strong>Import Textile</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Our secrets</span>
-<span class="kr">import</span> <span class="p">{</span><span class="nx">USER_API_SECRET</span><span class="p">,</span> <span class="nx">USER_API_KEY</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-native-dotenv&#39;</span><span class="p">;</span>
-<span class="c1">// Database Query method</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Database Query method</span>
 <span class="kr">import</span> <span class="p">{</span><span class="nx">Where</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-client&#39;</span><span class="p">;</span>
 <span class="c1">// Buckets client and an API Context helper</span>
 <span class="kr">import</span> <span class="p">{</span><span class="nx">Buckets</span><span class="p">,</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span><span class="p">;</span>
@@ -1131,11 +1129,13 @@
 
 <h3 id="register-with-remote-api">Register with remote API<a class="headerlink" href="#register-with-remote-api" title="Permanent link">&para;</a></h3>
 <p>Next, we'll connect to the remote API using our Key and Secret. We do this so that the user can later push their bucket for remote persistence on IPFS and publishing on IPNS.</p>
-<div class="highlight"><pre><span></span><code>  <span class="nx">db</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withUserKey</span><span class="p">({</span>
-    <span class="nx">key</span>: <span class="kt">USER_API_KEY</span><span class="p">,</span>
-    <span class="nx">secret</span>: <span class="kt">USER_API_SECRET</span><span class="p">,</span>
-    <span class="nx">type</span>: <span class="kt">1</span><span class="p">,</span>
-  <span class="p">})</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
+
+<span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withKeyInfo</span><span class="p">({</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;USER_API_KEY&#39;</span><span class="p">,</span>
+  <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;USER_API_SECRET&#39;</span><span class="p">,</span>
+  <span class="nx">type</span>: <span class="kt">1</span><span class="p">,</span>
+<span class="p">})</span>
 </code></pre></div>
 
 <div class="admonition hint">
@@ -1144,45 +1144,70 @@
 </div>
 <h3 id="generate-an-identity">Generate an Identity<a class="headerlink" href="#generate-an-identity" title="Permanent link">&para;</a></h3>
 <p><a href="../hub/libp2p-identities/">Read the basic libp2p identities tutorial now</a>.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Libp2pCryptoIdentity</span><span class="p">.</span><span class="nx">fromRandom</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Libp2pCryptoIdentity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Libp2pCryptoIdentity</span><span class="p">.</span><span class="nx">fromRandom</span><span class="p">();</span>
+  <span class="k">return</span> <span class="nx">id</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>Here we are just using a Libp2p helper to generate a private-key identity for the user.</p>
 <h3 id="generate-user-token">Generate user Token<a class="headerlink" href="#generate-user-token" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">getToken</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Libp2pCryptoIdentity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">identity</span>: <span class="kt">Libp2pCryptoIdentity</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">getToken</span><span class="p">(</span><span class="nx">identity</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>This will register the user with your remote Hub account, granting them the ability to push data to IPFS through Threads and Buckets.</p>
 <h3 id="connect-buckets">Connect Buckets<a class="headerlink" href="#connect-buckets" title="Permanent link">&para;</a></h3>
 <p>Now that your user is setup and connected to your API on the Hub, you can start creating Buckets. First, setup a Bucket Client instance.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">buckets</span> <span class="o">=</span> <span class="nx">Buckets</span><span class="p">.</span><span class="nx">withUserKey</span><span class="p">({</span>
-    <span class="nx">key</span>: <span class="kt">USER_API_KEY</span><span class="p">,</span>
-    <span class="nx">secret</span>: <span class="kt">USER_API_SECRET</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
+
+<span class="kr">const</span> <span class="nx">buckets</span> <span class="o">=</span> <span class="nx">Buckets</span><span class="p">.</span><span class="nx">withKeyInfo</span><span class="p">({</span>
+    <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;USER_API_KEY&#39;</span><span class="p">,</span>
+    <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;USER_API_SECRET&#39;</span><span class="p">,</span>
     <span class="nx">type</span>: <span class="kt">1</span><span class="p">,</span>
   <span class="p">})</span>
 </code></pre></div>
 
 <p>In the above, we reuse the Context we already created in our ThreadDB Client because it contains the token, API keys, etc.</p>
 <p><strong>List all Buckets</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">roots</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span>
-<span class="kr">const</span> <span class="nx">existing</span> <span class="o">=</span> <span class="nx">roots</span><span class="p">.</span><span class="nx">find</span><span class="p">((</span><span class="nx">bucket</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">bucket</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="s1">&#39;files&#39;</span><span class="p">)</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
-<p>Here, we list all the user's Buckets and determine if one exists called <code>files</code>. If it exists, we'll use its <em>key</em> if not, we'll create a new Bucket and key.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">bucketKey</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">existing</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">bucketKey</span> <span class="o">=</span> <span class="nx">existing</span><span class="p">.</span><span class="nx">key</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">created</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">);</span>
-  <span class="nx">bucketKey</span> <span class="o">=</span> <span class="nx">created</span><span class="p">.</span><span class="nx">root</span><span class="o">!</span><span class="p">.</span><span class="nx">key</span><span class="p">;</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">buckets</span>: <span class="kt">Buckets</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">roots</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span>
+  <span class="kr">const</span> <span class="nx">existing</span> <span class="o">=</span> <span class="nx">roots</span><span class="p">.</span><span class="nx">find</span><span class="p">((</span><span class="nx">bucket</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">bucket</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="s1">&#39;files&#39;</span><span class="p">)</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Here, we list all the user&#39;s Buckets and determine if one</span>
+<span class="cm">   * exists called `files`. If it exists, we&#39;ll use its _key_</span>
+<span class="cm">   * if not, we&#39;ll create a new Bucket and key.</span>
+<span class="cm">   */</span>
+
+  <span class="kd">let</span> <span class="nx">bucketKey</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">existing</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">bucketKey</span> <span class="o">=</span> <span class="nx">existing</span><span class="p">.</span><span class="nx">key</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">created</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">);</span>
+    <span class="nx">bucketKey</span> <span class="o">=</span> <span class="nx">created</span><span class="p">.</span><span class="nx">root</span> <span class="o">?</span> <span class="nx">created</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">key</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">bucketKey</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <h3 id="push-files-to-user-bucket">Push files to user Bucket<a class="headerlink" href="#push-files-to-user-bucket" title="Permanent link">&para;</a></h3>
 <p>Finally, let's push a simple file to the user's Bucket. In this example, we'll just create a simple <code>HTML</code> file that says, <code>Hello world</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">file</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/index.html&#39;</span><span class="p">,</span> <span class="nx">content</span>: <span class="kt">Buffer.from</span><span class="p">(</span><span class="nx">webpage</span><span class="p">)</span> <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
-<span class="kr">const</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">pushPath</span><span class="p">(</span><span class="nx">bucketKey</span><span class="o">!</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">buckets</span>: <span class="kt">Buckets</span><span class="p">,</span> <span class="nx">bucketKey</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">content</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">file</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/index.html&#39;</span><span class="p">,</span> <span class="nx">content</span>: <span class="kt">Buffer.from</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span> <span class="p">}</span>
+
+  <span class="kr">const</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">pushPath</span><span class="p">(</span><span class="nx">bucketKey</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <h3 id="list-the-bucket-links">List the Bucket links<a class="headerlink" href="#list-the-bucket-links" title="Permanent link">&para;</a></h3>
@@ -1200,8 +1225,12 @@
 <p><code>https://${bucket-key}.textile.space</code></p>
 <p><strong>IPFS Address</strong></p>
 <p>The IPFS address is contained in the result of <code>pushPath</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">pushPath</span><span class="p">(</span><span class="nx">bucketKey</span><span class="o">!</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">raw</span><span class="p">.</span><span class="nx">root</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">buckets</span>: <span class="kt">Buckets</span><span class="p">,</span> <span class="nx">bucketKey</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">file</span>: <span class="kt">Buffer</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">pushPath</span><span class="p">(</span><span class="nx">bucketKey</span><span class="o">!</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">raw</span><span class="p">.</span><span class="nx">root</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p><strong>IPNS Address</strong></p>

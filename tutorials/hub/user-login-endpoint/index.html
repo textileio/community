@@ -988,7 +988,7 @@ USER_API_SECRET=&lt;insert user group secret&gt;
 </ul>
 <p>It sounds complicated, but you'll see it happens very fast with only a few lines of code. In our example, we use <code>websockets</code> to enable the multi-step communication between the server and the client.</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/** Provides nodejs access to a global Websocket value, required by Hub API */</span>
-<span class="p">;(</span><span class="nx">global</span> <span class="kr">as</span> <span class="nx">any</span><span class="p">).</span><span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;isomorphic-ws&#39;</span><span class="p">)</span>
+<span class="p">;(</span><span class="nx">global</span> <span class="nx">as</span> <span class="nx">any</span><span class="p">).</span><span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;isomorphic-ws&#39;</span><span class="p">)</span>
 <span class="kr">import</span> <span class="nx">koa</span> <span class="nx">from</span> <span class="s2">&quot;koa&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">Router</span> <span class="nx">from</span> <span class="s2">&quot;koa-router&quot;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">logger</span> <span class="nx">from</span> <span class="s2">&quot;koa-logger&quot;</span><span class="p">;</span>
@@ -1006,7 +1006,7 @@ USER_API_SECRET=&lt;insert user group secret&gt;
 <span class="nx">dotenv</span><span class="p">.</span><span class="nx">config</span><span class="p">();</span>
 
 <span class="cm">/** Port our server will run */</span>
-<span class="kr">const</span> <span class="nx">PORT</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">PORT</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
 
 <span class="cm">/** Init Koa with Websocket support */</span>
 <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">websockify</span><span class="p">(</span><span class="k">new</span> <span class="nx">koa</span><span class="p">());</span>
@@ -1021,103 +1021,36 @@ USER_API_SECRET=&lt;insert user group secret&gt;
 <span class="cm"> */</span>
 
 <span class="cm">/** Start the server! */</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span> <span class="nx">PORT</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">&quot;Server started.&quot;</span> <span class="p">)</span> <span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span> <span class="nx">PORT</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">&quot;Server started.&quot;</span> <span class="p">)</span> <span class="p">);</span>
 </code></pre></div>
 
 <h2 id="add-a-websocket-login-handler">Add a websocket login handler<a class="headerlink" href="#add-a-websocket-login-handler" title="Permanent link">&para;</a></h2>
-<p>Next, we'll add a websocket endpoint to our server. Note the <code>Add websocket login endpoint</code> location in the server code above.</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * Add token websocket endpoint</span>
-<span class="cm"> */</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">ws</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">route</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="s1">&#39;/ws/login&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="cm">/** Emittery allows us to wait for the challenge response event */</span>
-  <span class="kr">const</span> <span class="nx">emitter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Emittery</span><span class="p">();</span>
-  <span class="nx">ctx</span><span class="p">.</span><span class="nx">websocket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="k">try</span> <span class="p">{</span>
-      <span class="cm">/** All messages from client contain {type: string} */</span>
-      <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
-      <span class="k">switch</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
-        <span class="cm">/** The first type is a new token request */</span>
-        <span class="k">case</span> <span class="s1">&#39;token&#39;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="cm">/** A new token request will contain the user&#39;s public key */</span>
-          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">.</span><span class="nx">pubkey</span><span class="p">)</span> <span class="p">{</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;missing pubkey&#39;</span><span class="p">)</span> <span class="p">}</span>
+<p>Next, we'll add a websocket endpoint to our server. Note the <code>Add websocket login endpoint</code> location in the server code above. The primary step that the server needs to do is accept a pubkey and issue a new challenge back to the client. When successful, new API credentials can be handed to the client.</p>
+<p><a href="https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app/src/server">View the full code example in the repo</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
-          <span class="cm">/**</span>
-<span class="cm">           * Init new Hub API Client with the user group API keys</span>
-<span class="cm">           */</span>
-          <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withUserKey</span><span class="p">({</span>
-            <span class="nx">key</span>: <span class="kt">process.env.USER_API_KEY</span><span class="p">,</span>
-            <span class="nx">secret</span>: <span class="kt">process.env.USER_API_SECRET</span><span class="p">,</span>
-            <span class="nx">type</span>: <span class="kt">0</span><span class="p">,</span>
-          <span class="p">})</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">pubkey</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/**</span>
+<span class="cm">   * Init new Hub API Client with the user group API keys</span>
+<span class="cm">   */</span>
+  <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withKeyInfo</span><span class="p">({</span>
+    <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;USER_API_KEY&#39;</span><span class="p">,</span>
+    <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;USER_API_SECRET&#39;</span><span class="p">,</span>
+    <span class="nx">type</span>: <span class="kt">0</span><span class="p">,</span>
+  <span class="p">})</span>
 
-          <span class="cm">/** Request a token from the Hub based on the user public key */</span>
-          <span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">getTokenChallenge</span><span class="p">(</span>
-            <span class="nx">data</span><span class="p">.</span><span class="nx">pubkey</span><span class="p">,</span> 
-            <span class="cm">/** The callback passes the challenge back to the client */</span>
-            <span class="p">(</span><span class="nx">challenge</span>: <span class="kt">Buffer</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-              <span class="cm">/** Pass the challenge to the client */</span>
-              <span class="nx">ctx</span><span class="p">.</span><span class="nx">websocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-                <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;challenge&#39;</span><span class="p">,</span>
-                <span class="nx">value</span>: <span class="kt">challenge.toJSON</span><span class="p">(),</span>
-              <span class="p">}))</span>
-              <span class="cm">/** Wait for the challenge event from our event emitter */</span>
-              <span class="nx">emitter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;challenge&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">sig</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                <span class="cm">/** Resolve the promise with the challenge response */</span>
-                <span class="nx">resolve</span><span class="p">(</span><span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">sig</span><span class="p">))</span>
-              <span class="p">});</span>
-              <span class="cm">/** Give client a reasonable timeout to respond to the challenge */</span>
-              <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                <span class="nx">reject</span><span class="p">()</span>
-              <span class="p">},</span> <span class="mi">1500</span><span class="p">);</span>
-
-            <span class="p">})</span>
-          <span class="p">})</span>
-
-          <span class="cm">/**</span>
-<span class="cm">           * The challenge was successfully completed by the client</span>
-<span class="cm">           */</span>
-
-          <span class="cm">/** Get API authorization for the user */</span>
-          <span class="kr">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getAPISig</span><span class="p">()</span>
-
-          <span class="cm">/** Include the token in the auth payload */</span>
-          <span class="kr">const</span> <span class="nx">payload</span>: <span class="kt">UserAuth</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="p">...</span><span class="nx">auth</span><span class="p">,</span>
-            <span class="nx">token</span>: <span class="kt">token</span><span class="p">,</span>
-            <span class="nx">key</span>: <span class="kt">process.env.USER_API_KEY</span><span class="p">,</span>
-          <span class="p">};</span>
-
-          <span class="cm">/** Return the result to the client */</span>
-          <span class="nx">ctx</span><span class="p">.</span><span class="nx">websocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-            <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;token&#39;</span><span class="p">,</span>
-            <span class="nx">value</span>: <span class="kt">payload</span><span class="p">,</span>
-          <span class="p">}))</span>
-          <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="cm">/** The second type is a challenge response */</span>
-        <span class="k">case</span> <span class="s1">&#39;challenge&#39;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="cm">/** A new challenge response will contain a signature */</span>
-          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">.</span><span class="nx">sig</span><span class="p">)</span> <span class="p">{</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;missing signature (sig)&#39;</span><span class="p">)</span> <span class="p">}</span>
-
-          <span class="cm">/** </span>
-<span class="cm">           * If the timeout hasn&#39;t passed there is a waiting promise.</span>
-<span class="cm">           * Emit the challenge signature for the waiting listener above.</span>
-<span class="cm">           * */</span>
-          <span class="nx">await</span> <span class="nx">emitter</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;challenge&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">.</span><span class="nx">sig</span><span class="p">);</span>
-          <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-      <span class="cm">/** Notify our client of any errors */</span>
-      <span class="nx">ctx</span><span class="p">.</span><span class="nx">websocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;error&#39;</span><span class="p">,</span>
-        <span class="nx">value</span>: <span class="kt">error.message</span><span class="p">,</span>
-      <span class="p">}))</span>
-    <span class="p">}</span>
-  <span class="p">});</span>
-<span class="p">}));</span>
+  <span class="cm">/** </span>
+<span class="cm">   * Request a token from the Hub based on the user public key */</span>
+  <span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">getTokenChallenge</span><span class="p">(</span>
+    <span class="nx">pubkey</span><span class="p">,</span>
+    <span class="cm">/** The callback passes the challenge back to the client */</span>
+    <span class="p">(</span><span class="nx">challenge</span>: <span class="kt">Buffer</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// Send the challenge back to the client and resolve(Buffer.from(sig))</span>
+      <span class="nx">resolve</span><span class="p">()</span>
+    <span class="p">})</span>
+  <span class="p">})</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>Now when you refresh your locally running server you should have a websocket endpoint for client token creation.</p>
@@ -1128,62 +1061,22 @@ USER_API_SECRET=&lt;insert user group secret&gt;
 <li>The token provided in the response should be considered a secret that only should be shared with a single user. It does not expire.</li>
 </ul>
 <h2 id="create-a-client">Create a client<a class="headerlink" href="#create-a-client" title="Permanent link">&para;</a></h2>
-<p>Back in the browser webapp, you can now make requests to your login endpoint using a websocket. A basic client might make a request like the following.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">loginWithChallenge</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">id</span>: <span class="kt">Libp2pCryptoIdentity</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">UserAuth</span><span class="o">&gt;</span> <span class="o">=&gt;</span> <span class="p">{</span>  
-  <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="cm">/** </span>
-<span class="cm">     * Configured for our development server</span>
-<span class="cm">     * </span>
-<span class="cm">     * Note: this should be upgraded to wss for production environments.</span>
-<span class="cm">     */</span>
-    <span class="kr">const</span> <span class="nx">socketUrl</span> <span class="o">=</span> <span class="sb">`ws://localhost:3000/ws/login`</span>
+<p>Back in the browser webapp, you can now make requests to your login endpoint using a websocket. A basic client needs to handle a challenge request from the server, where the challenge will be signed and returned over websocket.</p>
+<p><a href="https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app/src/client">View the full client example here</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Libp2pCryptoIdentity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
 
-    <span class="cm">/** Initialize our websocket connection */</span>
-    <span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="nx">socketUrl</span><span class="p">)</span>
-
-    <span class="cm">/** Wait for our socket to open successfully */</span>
-    <span class="nx">socket</span><span class="p">.</span><span class="nx">onopen</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="cm">/** Get public key string */</span>
-      <span class="kr">const</span> <span class="nx">publicKey</span> <span class="o">=</span> <span class="nx">id</span><span class="p">.</span><span class="kr">public</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
-
-      <span class="cm">/** Send a new token request */</span>
-      <span class="nx">socket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-        <span class="nx">pubkey</span>: <span class="kt">publicKey</span><span class="p">,</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;token&#39;</span>
-      <span class="p">}));</span> 
-
-      <span class="cm">/** Listen for messages from the server */</span>
-      <span class="nx">socket</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
-        <span class="k">switch</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
-          <span class="cm">/** Error never happen :) */</span>
-          <span class="k">case</span> <span class="s1">&#39;error&#39;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">reject</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
-            <span class="k">break</span><span class="p">;</span>
-          <span class="p">}</span>
-          <span class="cm">/** The server issued a new challenge */</span>
-          <span class="k">case</span> <span class="s1">&#39;challenge&#39;</span><span class="o">:</span><span class="p">{</span>
-            <span class="cm">/** Convert the challenge json to a Buffer */</span>
-            <span class="kr">const</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
-            <span class="cm">/** User our identity to sign the challenge */</span>
-            <span class="kr">const</span> <span class="nx">signed</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">id</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">buf</span><span class="p">)</span>
-            <span class="cm">/** Send the signed challenge back to the server */</span>
-            <span class="nx">socket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-              <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;challenge&#39;</span><span class="p">,</span>
-              <span class="nx">sig</span>: <span class="kt">signed.toJSON</span><span class="p">()</span>
-            <span class="p">}));</span> 
-            <span class="k">break</span><span class="p">;</span>
-          <span class="p">}</span>
-          <span class="cm">/** New token generated */</span>
-          <span class="k">case</span> <span class="s1">&#39;token&#39;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
-            <span class="k">break</span><span class="p">;</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">});</span>
-<span class="p">};</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">handleChallenge</span> <span class="p">(</span><span class="nx">identity</span>: <span class="kt">Libp2pCryptoIdentity</span><span class="p">,</span> <span class="nx">challenge</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/** Convert the challenge json to a Buffer */</span>
+  <span class="kr">const</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">challenge</span><span class="p">)</span>
+  <span class="cm">/** User our identity to sign the challenge */</span>
+  <span class="kr">const</span> <span class="nx">signed</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">identity</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">buf</span><span class="p">)</span>
+  <span class="cm">/** Send the signed challenge back to the server */</span>
+  <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;challenge&#39;</span><span class="p">,</span>
+    <span class="nx">sig</span>: <span class="kt">signed.toJSON</span><span class="p">()</span>
+  <span class="p">})</span>
+  <span class="k">return</span> <span class="nx">response</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>By passing the user identity to the function above, your app can authenticate and verify the user in one step, granting them access to your Hub resources.</p>
