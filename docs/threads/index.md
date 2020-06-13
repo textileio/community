@@ -10,15 +10,7 @@ ThreadDB is a p2p database built on [IPFS](https://ipfs.io) and [Libp2p](https:/
 
 ThreadDB is designed to be simple enough for any developer to start using. The API will feel familiar to developers who have worked with technologies like MongoDB.
 
-The first three concepts a developer will encounter with ThreadDB are [Databases](#databases), [Collections](#collections), and [Instances](#instances). The organization is simple. Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections. Collections are similar to Tables in other databases.
-
-A Thread-based Database is tied to a single Thread (with associated Thread ID).
-
-
-```typescript
-import { Database, JSONSchema, FilterQuery } from '@textile/threads-database'
-import { ThreadID } from '@textile/threads-id'
-```
+The first three concepts a developer will encounter with ThreadDB are [Databases](#databases), [Collections](#collections), and [Instances](#instances). The organization is simple. Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections. Collections are similar to Tables in other databases. A Thread-based Database is tied to a single Thread (with associated Thread ID).
 
 To start a new, empty database is simple. A new [Level Datastore](https://github.com/ipfs/js-datastore-level) is used as the backing store by default if no datastore is explicitly supplied. See the doc-strings for the `Database.constructor` for further options.
 
@@ -27,17 +19,25 @@ By default, a ThreadDB will connect with a local `go-threads` Threads Daemon. Se
 Alternatively, it is possible to connect with a remote daemon by specifying the networking component of the Database ([See more](#replication-with-the-hub) for details on connecting to hosted remote services).
 
 
-```typescript
-const db = new Database() // Uses a level datastore by default
-```
-
-Next, we simply start the database, and we are ready to take action. Here, we are explicitly providing an 'existing' ThreadID. But default, a random ThreadID will be used. See the doc-strings for `Database.open` for further options.
+In the following examples, we create and start a new database each time. By default a random ThreadID will be used, though this can be configured via additional options; see the doc-strings for `Database.open` for additional config options. Notice also that an `Identity` is required to interact with a Database. The the following examples, we use a default random public-key infrastructure (PKI) based identity, however, see [Identity](#identity) for further details and links.
 
 
 ```typescript
-const threadID = ThreadID.fromRandom()
-await db.open({ threadID })
-console.log(db.threadID.toString())
+import { Identity } from '@textile/threads-core'
+import { Database } from '@textile/threads-database'
+
+async function example (identity: Identity) {
+  const db = new Database('demo.db')
+  await db.start(identity)
+  return db
+}
+
+// Create random identity and use it to start the db
+Database.randomIdentity().then((identity) => {
+  example(identity).then((db) => {
+    console.log(db.threadID.toString())
+  })
+})
 ```
 
 ### Collections
@@ -48,6 +48,9 @@ Collections can be created from an existing Schema.
 
 
 ```typescript
+import { Identity } from '@textile/threads-core'
+import { Database, JSONSchema } from '@textile/threads-database'
+
 // Define a simple person schema
 const schema: JSONSchema = {
   $schema: 'http://json-schema.org/draft-07/schema#',
@@ -63,20 +66,35 @@ const schema: JSONSchema = {
     },
   },
 }
-const Person = await db.newCollection('Person', schema)
+
+async function example (identity: Identity) {
+  const db = new Database('demo.db')
+  await db.start(identity)
+
+  const Person = await db.newCollection('Person', schema)
+}
 ```
 
 Or from an existing object/instance.
 
 
 ```typescript
+import { Identity } from '@textile/threads-core'
+import { Database } from '@textile/threads-database'
+
 const obj = {
   _id: '', // All collections have an _id field
   team: '',
   name: '',
   points: 0,
 }
-const Player = await db.newCollectionFromObject('Player', obj)
+
+async function example (identity: Identity) {
+  const db = new Database('demo.db')
+  await db.start(identity)
+
+  const Player = await db.newCollectionFromObject('Player', obj)
+}
 ```
 
 ### Instances
@@ -85,73 +103,102 @@ Instances are the objects you store in your Collection. Instances are JSON docum
 
 
 ```typescript
-const beth = new Player({ _id: '', name: 'beth' }) // Not yet persisted
-await beth.save() // Persist changes to db
+import { Identity } from '@textile/threads-core'
+import { Database } from '@textile/threads-database'
 
-// Modify the `beth` instance
-beth.points = 1
-await beth.save() // Save changes
+async function example (identity: Identity) {
+  const db = new Database('demo.db')
+  await db.start(identity)
 
-// Modify it again
-beth.team = 'Astronauts'
-beth.points = 2
+  const Player = await db.newCollection('Player', {}) // Anything goes schema
 
-// Save it from the Collection
-await Player.save(beth)
+  const beth = new Player({ _id: '', name: 'beth' }) // Not yet persisted
+  await beth.save() // Persist changes to db
 
-// Delete it from the Collection
-await Player.delete(beth._id)
+  // Modify the `beth` instance
+  beth.points = 1
+  await beth.save() // Save changes
 
-// etc!
+  // Modify it again
+  beth.team = 'Astronauts'
+  beth.points = 2
+
+  // Save it from the Collection
+  await Player.save(beth)
+
+  // Delete it from the Collection
+  await Player.delete(beth._id)
+  
+  // etc!
+}
 ```
 
 ### Query
 
-Each Threads implementation supports query and look-up capabilities such as `insert`, `findOne`, `has`, and more. ThreadDB also supports the [MongoDB query language](https://github.com/kofrasa/mingo). In the JavaScript library, you might write queries like the following.
+Each Threads implementation supports query and look-up capabilities such as `insert`, `findOne`, `has`, and more. ThreadDB also supports the [MongoDB query language](https://github.com/kofrasa/mingo). In the JavaScript library, you might write queries like the following. Queries return `AsyncIterableIterators`, so you can loop over them and take appropriate action.
 
 
 ```typescript
-await Player.insert(
-  { _id: '', points: 11, team: 'Astronauts', name: 'beth'},
-  { _id: '', points: 1, team: 'Astronauts', name: 'jim'},
-  { _id: '', points: 18, team: 'Astronauts', name: 'issac'},
-  { _id: '', points: 7, team: 'Astronauts', name: 'beth'},
-)
-```
-
-
-```typescript
-// Setup a query
-const query = {
-  $or: [
-    { points: { $gt: 10 } },
-    { name: 'jim' },
-  ]
-}
-
-const all = Player.find(query, { sort: { points: -1 } })
-```
-
-Queries return `AsyncIterableIterators`, so you can loop over them and take appropriate action.
-
-
-```typescript
+import { Identity } from '@textile/threads-core'
+import { Database } from '@textile/threads-database'
 import { collect } from 'streaming-iterables'
 
-for (const { key, value } of await collect(all)) {
-  console.log(`${key.toString()}: ${value.name}`)
+async function createQuery (identity: Identity) {
+  const db = new Database('demo.db')
+  await db.start(identity)
+
+  const Player = await db.newCollection('Player', {})
+
+  await Player.insert(
+    { _id: '', points: 11, team: 'Astronauts', name: 'beth'},
+    { _id: '', points: 1, team: 'Astronauts', name: 'jim'},
+    { _id: '', points: 18, team: 'Astronauts', name: 'issac'},
+    { _id: '', points: 7, team: 'Astronauts', name: 'beth'},
+  )
+  // Setup a query
+  const query = {
+    $or: [
+      { points: { $gt: 10 } },
+      { name: 'jim' },
+    ]
+  }
+  // Get results
+  const all = Player.find(query)
+  // Loop over AsyncIterableIterator result and log the names
+  for (const { key, value } of await collect(all)) {
+    console.log(`${key.toString()}: ${value.name}`)
+  }
 }
 ```
 
 ### Listen
 
-A Database is also an [Event Emitter](https://github.com/EventEmitter2/EventEmitter2), and listeners can subscribe to events using 'wildcard' syntax. The following database manipulations could be observed via the following simple listener.
+A Database also has an event emitter, and listeners can subscribe to events. For example, event _names_ are structured as `<collection>.<id>.<type>`, and they support 'wildcard' matching, so `db.emitter.many(['foo', '*', 2], callback)` will match all delete operations (`{ create: 0; save: 1, delete: 2 }`) on the 'foo' collection. Similarly, `db.emitter.on('foo.**', callback)` will match all event types on the 'foo' collection. To observe a given instance, try `db.emitter.on('foo.${instance._id}', callback)`. See [EventEmitter2](https://github.com/EventEmitter2/EventEmitter2) docs for further details. To illustrate, the following database manipulations could be observed via the following simple listener.
 
 
 ```typescript
-const _ = db.on('**', (update: any) => {
-  console.log(update)
-})
+import { Identity } from '@textile/threads-core'
+import { Database } from '@textile/threads-database'
+
+async function example (identity: Identity) {
+  const db = new Database('demo.db')
+  await db.start(identity)
+
+  db.emitter.on('**', (update: any) => {
+    console.log(update) // Logs the following updates...
+  })
+
+  const Player = await db.newCollection('Player', {})
+
+  const beth = new Player({ _id: '', name: 'beth' })
+  await beth.save()
+  beth.points = 1
+  await beth.save()
+  beth.team = 'Astronauts'
+  beth.points = 2
+  await Player.save(beth)
+  await Player.delete(beth._id)
+}
 ```
 
 ## Multi-user Databases
