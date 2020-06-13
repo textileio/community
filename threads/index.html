@@ -1162,28 +1162,35 @@
 <p>ThreadDB is a p2p database built on <a href="https://ipfs.io">IPFS</a> and <a href="https://libp2p.io">Libp2p</a>. Together, the Threads Protocol and Database provide an alternative architecture for data on the web. ThreadDB aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data (<a href="https://ipld.io">IPLD</a>), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.</p>
 <h3 id="developer-api">Developer API<a class="headerlink" href="#developer-api" title="Permanent link">&para;</a></h3>
 <p>ThreadDB is designed to be simple enough for any developer to start using. The API will feel familiar to developers who have worked with technologies like MongoDB.</p>
-<p>The first three concepts a developer will encounter with ThreadDB are <a href="#databases">Databases</a>, <a href="#collections">Collections</a>, and <a href="#instances">Instances</a>. The organization is simple. Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections. Collections are similar to Tables in other databases.</p>
-<p>A Thread-based Database is tied to a single Thread (with associated Thread ID).</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">JSONSchema</span><span class="p">,</span> <span class="nx">FilterQuery</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">ThreadID</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-id&#39;</span>
-</code></pre></div>
-
+<p>The first three concepts a developer will encounter with ThreadDB are <a href="#databases">Databases</a>, <a href="#collections">Collections</a>, and <a href="#instances">Instances</a>. The organization is simple. Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections. Collections are similar to Tables in other databases. A Thread-based Database is tied to a single Thread (with associated Thread ID).</p>
 <p>To start a new, empty database is simple. A new <a href="https://github.com/ipfs/js-datastore-level">Level Datastore</a> is used as the backing store by default if no datastore is explicitly supplied. See the doc-strings for the <code>Database.constructor</code> for further options.</p>
 <p>By default, a ThreadDB will connect with a local <code>go-threads</code> Threads Daemon. See the <a href="https://github.com/textileio/go-threads"><code>go-threads</code></a> for details on getting started with local development. The Threads Daemon may be helpful to developers that aim to build their own Thread Services, host replication services, or test advanced Thread usage. The Threads Daemon (<code>threadsd</code>) is provided as an installable binary with every <a href="https://github.com/textileio/go-threads/releases">release of Threads</a>.</p>
 <p>Alternatively, it is possible to connect with a remote daemon by specifying the networking component of the Database (<a href="#replication-with-the-hub">See more</a> for details on connecting to hosted remote services).</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Database</span><span class="p">()</span> <span class="c1">// Uses a level datastore by default</span>
-</code></pre></div>
+<p>In the following examples, we create and start a new database each time. By default a random ThreadID will be used, though this can be configured via additional options; see the doc-strings for <code>Database.open</code> for additional config options. Notice also that an <code>Identity</code> is required to interact with a Database. The the following examples, we use a default random public-key infrastructure (PKI) based identity, however, see <a href="#identity">Identity</a> for further details and links.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
 
-<p>Next, we simply start the database, and we are ready to take action. Here, we are explicitly providing an 'existing' ThreadID. But default, a random ThreadID will be used. See the doc-strings for <code>Database.open</code> for further options.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">threadID</span> <span class="o">=</span> <span class="nx">ThreadID</span><span class="p">.</span><span class="nx">fromRandom</span><span class="p">()</span>
-<span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">open</span><span class="p">({</span> <span class="nx">threadID</span> <span class="p">})</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">threadID</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Database</span><span class="p">(</span><span class="s1">&#39;demo.db&#39;</span><span class="p">)</span>
+  <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="nx">identity</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">db</span>
+<span class="p">}</span>
+
+<span class="c1">// Create random identity and use it to start the db</span>
+<span class="nx">Database</span><span class="p">.</span><span class="nx">randomIdentity</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">identity</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">example</span><span class="p">(</span><span class="nx">identity</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">db</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">threadID</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
+  <span class="p">})</span>
+<span class="p">})</span>
 </code></pre></div>
 
 <h3 id="collections">Collections<a class="headerlink" href="#collections" title="Permanent link">&para;</a></h3>
 <p>To handle different data structures, a Database contains Collections, each of which are defined by a <a href="https://json-schema.org/">json-schema.org schema</a>. These schemas define the 'shape' of Collection Instances. Collections are similar to Tables in other databases. Ultimately, a Collection is a single document store with a set of APIs to make it feel like a <em>local database table</em>.</p>
 <p>Collections can be created from an existing Schema.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Define a simple person schema</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">JSONSchema</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
+
+<span class="c1">// Define a simple person schema</span>
 <span class="kr">const</span> <span class="nx">schema</span>: <span class="kt">JSONSchema</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">$schema</span><span class="o">:</span> <span class="s1">&#39;http://json-schema.org/draft-07/schema#&#39;</span><span class="p">,</span>
   <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Person&#39;</span><span class="p">,</span>
@@ -1198,75 +1205,124 @@
     <span class="p">},</span>
   <span class="p">},</span>
 <span class="p">}</span>
-<span class="kr">const</span> <span class="nx">Person</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">newCollection</span><span class="p">(</span><span class="s1">&#39;Person&#39;</span><span class="p">,</span> <span class="nx">schema</span><span class="p">)</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Database</span><span class="p">(</span><span class="s1">&#39;demo.db&#39;</span><span class="p">)</span>
+  <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="nx">identity</span><span class="p">)</span>
+
+  <span class="kr">const</span> <span class="nx">Person</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">newCollection</span><span class="p">(</span><span class="s1">&#39;Person&#39;</span><span class="p">,</span> <span class="nx">schema</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>Or from an existing object/instance.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
+
+<span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// All collections have an _id field</span>
   <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
   <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
   <span class="nx">points</span>: <span class="kt">0</span><span class="p">,</span>
 <span class="p">}</span>
-<span class="kr">const</span> <span class="nx">Player</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">newCollectionFromObject</span><span class="p">(</span><span class="s1">&#39;Player&#39;</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Database</span><span class="p">(</span><span class="s1">&#39;demo.db&#39;</span><span class="p">)</span>
+  <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="nx">identity</span><span class="p">)</span>
+
+  <span class="kr">const</span> <span class="nx">Player</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">newCollectionFromObject</span><span class="p">(</span><span class="s1">&#39;Player&#39;</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <h3 id="instances">Instances<a class="headerlink" href="#instances" title="Permanent link">&para;</a></h3>
 <p>Instances are the objects you store in your Collection. Instances are JSON documents with schemas that match those defined in your Collection. Updates to an Instance are driven by <a href="https://github.com/Starcounter-Jack/JSON-Patch">JSON Patch</a> semantics by default, but will be made to support other types (CRDT-driven documents for instance) in the future (some of which are already under active development). Creating and manipulating them is simple.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">beth</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Player</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;beth&#39;</span> <span class="p">})</span> <span class="c1">// Not yet persisted</span>
-<span class="nx">await</span> <span class="nx">beth</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span> <span class="c1">// Persist changes to db</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
 
-<span class="c1">// Modify the `beth` instance</span>
-<span class="nx">beth</span><span class="p">.</span><span class="nx">points</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nx">await</span> <span class="nx">beth</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span> <span class="c1">// Save changes</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Database</span><span class="p">(</span><span class="s1">&#39;demo.db&#39;</span><span class="p">)</span>
+  <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="nx">identity</span><span class="p">)</span>
 
-<span class="c1">// Modify it again</span>
-<span class="nx">beth</span><span class="p">.</span><span class="nx">team</span> <span class="o">=</span> <span class="s1">&#39;Astronauts&#39;</span>
-<span class="nx">beth</span><span class="p">.</span><span class="nx">points</span> <span class="o">=</span> <span class="mi">2</span>
+  <span class="kr">const</span> <span class="nx">Player</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">newCollection</span><span class="p">(</span><span class="s1">&#39;Player&#39;</span><span class="p">,</span> <span class="p">{})</span> <span class="c1">// Anything goes schema</span>
 
-<span class="c1">// Save it from the Collection</span>
-<span class="nx">await</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">beth</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">beth</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Player</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;beth&#39;</span> <span class="p">})</span> <span class="c1">// Not yet persisted</span>
+  <span class="nx">await</span> <span class="nx">beth</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span> <span class="c1">// Persist changes to db</span>
 
-<span class="c1">// Delete it from the Collection</span>
-<span class="nx">await</span> <span class="nx">Player</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">beth</span><span class="p">.</span><span class="nx">_id</span><span class="p">)</span>
+  <span class="c1">// Modify the `beth` instance</span>
+  <span class="nx">beth</span><span class="p">.</span><span class="nx">points</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="nx">await</span> <span class="nx">beth</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span> <span class="c1">// Save changes</span>
 
-<span class="c1">// etc!</span>
+  <span class="c1">// Modify it again</span>
+  <span class="nx">beth</span><span class="p">.</span><span class="nx">team</span> <span class="o">=</span> <span class="s1">&#39;Astronauts&#39;</span>
+  <span class="nx">beth</span><span class="p">.</span><span class="nx">points</span> <span class="o">=</span> <span class="mi">2</span>
+
+  <span class="c1">// Save it from the Collection</span>
+  <span class="nx">await</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">beth</span><span class="p">)</span>
+
+  <span class="c1">// Delete it from the Collection</span>
+  <span class="nx">await</span> <span class="nx">Player</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">beth</span><span class="p">.</span><span class="nx">_id</span><span class="p">)</span>
+
+  <span class="c1">// etc!</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <h3 id="query">Query<a class="headerlink" href="#query" title="Permanent link">&para;</a></h3>
-<p>Each Threads implementation supports query and look-up capabilities such as <code>insert</code>, <code>findOne</code>, <code>has</code>, and more. ThreadDB also supports the <a href="https://github.com/kofrasa/mingo">MongoDB query language</a>. In the JavaScript library, you might write queries like the following.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">await</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span>
-  <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">points</span>: <span class="kt">11</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;beth&#39;</span><span class="p">},</span>
-  <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">points</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;jim&#39;</span><span class="p">},</span>
-  <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">points</span>: <span class="kt">18</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;issac&#39;</span><span class="p">},</span>
-  <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">points</span>: <span class="kt">7</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;beth&#39;</span><span class="p">},</span>
-<span class="p">)</span>
-</code></pre></div>
+<p>Each Threads implementation supports query and look-up capabilities such as <code>insert</code>, <code>findOne</code>, <code>has</code>, and more. ThreadDB also supports the <a href="https://github.com/kofrasa/mingo">MongoDB query language</a>. In the JavaScript library, you might write queries like the following. Queries return <code>AsyncIterableIterators</code>, so you can loop over them and take appropriate action.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">collect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;streaming-iterables&#39;</span>
 
-<div class="highlight"><pre><span></span><code><span class="c1">// Setup a query</span>
-<span class="kr">const</span> <span class="nx">query</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">$or</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span> <span class="nx">points</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span>: <span class="kt">10</span> <span class="p">}</span> <span class="p">},</span>
-    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;jim&#39;</span> <span class="p">},</span>
-  <span class="p">]</span>
-<span class="p">}</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">createQuery</span> <span class="p">(</span><span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Database</span><span class="p">(</span><span class="s1">&#39;demo.db&#39;</span><span class="p">)</span>
+  <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="nx">identity</span><span class="p">)</span>
 
-<span class="kr">const</span> <span class="nx">all</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="p">{</span> <span class="nx">sort</span><span class="o">:</span> <span class="p">{</span> <span class="nx">points</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="p">})</span>
-</code></pre></div>
+  <span class="kr">const</span> <span class="nx">Player</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">newCollection</span><span class="p">(</span><span class="s1">&#39;Player&#39;</span><span class="p">,</span> <span class="p">{})</span>
 
-<p>Queries return <code>AsyncIterableIterators</code>, so you can loop over them and take appropriate action.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">collect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;streaming-iterables&#39;</span>
-
-<span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">{</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="p">}</span> <span class="k">of</span> <span class="nx">await</span> <span class="nx">collect</span><span class="p">(</span><span class="nx">all</span><span class="p">))</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">key</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">value</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+  <span class="nx">await</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span>
+    <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">points</span>: <span class="kt">11</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;beth&#39;</span><span class="p">},</span>
+    <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">points</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;jim&#39;</span><span class="p">},</span>
+    <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">points</span>: <span class="kt">18</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;issac&#39;</span><span class="p">},</span>
+    <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">points</span>: <span class="kt">7</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;beth&#39;</span><span class="p">},</span>
+  <span class="p">)</span>
+  <span class="c1">// Setup a query</span>
+  <span class="kr">const</span> <span class="nx">query</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">$or</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="nx">points</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span>: <span class="kt">10</span> <span class="p">}</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;jim&#39;</span> <span class="p">},</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+  <span class="c1">// Get results</span>
+  <span class="kr">const</span> <span class="nx">all</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">query</span><span class="p">)</span>
+  <span class="c1">// Loop over AsyncIterableIterator result and log the names</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">{</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="p">}</span> <span class="k">of</span> <span class="nx">await</span> <span class="nx">collect</span><span class="p">(</span><span class="nx">all</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">key</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">value</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <h3 id="listen">Listen<a class="headerlink" href="#listen" title="Permanent link">&para;</a></h3>
-<p>A Database is also an <a href="https://github.com/EventEmitter2/EventEmitter2">Event Emitter</a>, and listeners can subscribe to events using 'wildcard' syntax. The following database manipulations could be observed via the following simple listener.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">update</span>: <span class="kt">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">update</span><span class="p">)</span>
-<span class="p">})</span>
+<p>A Database also has an event emitter, and listeners can subscribe to events. For example, event <em>names</em> are structured as <code>&lt;collection&gt;.&lt;id&gt;.&lt;type&gt;</code>, and they support 'wildcard' matching, so <code>db.emitter.many(['foo', '*', 2], callback)</code> will match all delete operations (<code>{ create: 0; save: 1, delete: 2 }</code>) on the 'foo' collection. Similarly, <code>db.emitter.on('foo.**', callback)</code> will match all event types on the 'foo' collection. To observe a given instance, try <code>db.emitter.on('foo.${instance._id}', callback)</code>. See <a href="https://github.com/EventEmitter2/EventEmitter2">EventEmitter2</a> docs for further details. To illustrate, the following database manipulations could be observed via the following simple listener.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Database</span><span class="p">(</span><span class="s1">&#39;demo.db&#39;</span><span class="p">)</span>
+  <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="nx">identity</span><span class="p">)</span>
+
+  <span class="nx">db</span><span class="p">.</span><span class="nx">emitter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">update</span>: <span class="kt">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">update</span><span class="p">)</span> <span class="c1">// Logs the following updates...</span>
+  <span class="p">})</span>
+
+  <span class="kr">const</span> <span class="nx">Player</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">newCollection</span><span class="p">(</span><span class="s1">&#39;Player&#39;</span><span class="p">,</span> <span class="p">{})</span>
+
+  <span class="kr">const</span> <span class="nx">beth</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Player</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;beth&#39;</span> <span class="p">})</span>
+  <span class="nx">await</span> <span class="nx">beth</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span>
+  <span class="nx">beth</span><span class="p">.</span><span class="nx">points</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="nx">await</span> <span class="nx">beth</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span>
+  <span class="nx">beth</span><span class="p">.</span><span class="nx">team</span> <span class="o">=</span> <span class="s1">&#39;Astronauts&#39;</span>
+  <span class="nx">beth</span><span class="p">.</span><span class="nx">points</span> <span class="o">=</span> <span class="mi">2</span>
+  <span class="nx">await</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">beth</span><span class="p">)</span>
+  <span class="nx">await</span> <span class="nx">Player</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">beth</span><span class="p">.</span><span class="nx">_id</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <h2 id="multi-user-databases">Multi-user Databases<a class="headerlink" href="#multi-user-databases" title="Permanent link">&para;</a></h2>
