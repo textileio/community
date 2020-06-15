@@ -11,6 +11,7 @@ Manages files and folders in an object storage bucket.
 ### SEE ALSO
 
 * [hub](hub.md)	 - Hub Client
+* [hub buck add](hub_buck_add.md)	 - Add adds a UnixFS DAG locally.
 * [hub buck archive](hub_buck_archive.md)	 - Create a Filecoin archive
 * [hub buck cat](hub_buck_cat.md)	 - Cat bucket objects at path
 * [hub buck destroy](hub_buck_destroy.md)	 - Destroy bucket and all objects

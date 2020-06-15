@@ -24,3 +24,11 @@ go run .
 cd ../../../
 
 rm -rf textile
+
+
+# Clone the latest Powergate CLI (use commit # if released needed)
+git clone https://github.com/textileio/powergate.git
+
+rm -rf ../../docs/powergate/cli/*
+cp -r powergate/cli-docs/pow/* ../../docs/powergate/cli/
+rm -rf powergate

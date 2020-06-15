@@ -7,24 +7,34 @@ function load_navpane() {
   if (width <= 1200) {
     return;
   }
+  /* Filter to The Hub /*
+  // var labels = document.getElementsByClassName('md-nav__link');
+  // for (var i = 0; i < labels.length; i++) {
+  //   if (labels[i].title == 'The Hub') {
+  //     var nav = labels[i].parent.getElementsByClassName("md-nav__toggle");
+  //     for (var i = 0; i < nav.length; i++) {
+  //       nav.item(i).checked = true;
+  //     }
+  //   }
+  // }
 
-  var nav = document.getElementsByClassName("md-nav");
-  for (var i = 0; i < nav.length; i++) {
-    if (typeof nav.item(i).style === "undefined") {
-      continue;
-    }
+  /* Comment back in to collapse side-bar */
+  // var nav = document.getElementsByClassName("md-nav");
+  // for (var i = 0; i < nav.length; i++) {
+  //   if (typeof nav.item(i).style === "undefined") {
+  //     continue;
+  //   }
 
-    if (
-      nav.item(i).getAttribute("data-md-level") &&
-      nav.item(i).getAttribute("data-md-component")
-    ) {
-      nav.item(i).style.display = "block";
-      nav.item(i).style.overflow = "visible";
-    }
-  }
-
-  var nav = document.getElementsByClassName("md-nav__toggle");
-  for (var i = 0; i < nav.length; i++) {
-    nav.item(i).checked = true;
-  }
+  //   if (
+  //     nav.item(i).getAttribute("data-md-level") &&
+  //     nav.item(i).getAttribute("data-md-component")
+  //   ) {
+  //     nav.item(i).style.display = "block";
+  //     nav.item(i).style.overflow = "visible";
+  //   }
+  // }
+  // var nav = document.getElementsByClassName("md-nav__toggle");
+  // for (var i = 0; i < nav.length; i++) {
+  //   nav.item(i).checked = true;
+  // }
 }
