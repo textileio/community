@@ -121,7 +121,7 @@ nav:
       - Links:
           - JavaScript: https://textileio.github.io/js-powergate-client/
           - Golang: https://godoc.org/github.com/textileio/powergate/api/client
-  - How-tos:
+  - Tutorials:
       - Build a Web App using Hub APIs: tutorials/hub/web-app.md
       - Host a Website in a Bucket: tutorials/static-websites.md
       - Create User Buckets & Threads in React Native: tutorials/react-native-buckets.md
