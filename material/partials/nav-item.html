@@ -57,7 +57,7 @@
   {% set target = "" %}
 {% else %}
   <li class="{{ class }}">
-    <a href="{{ nav_item.url | url }}" title="{{ nav_item.title }}" target="{{ target }}" class="md-nav__link">
+    <a href="{{ nav_item.url | url }}" title="{{ nav_item.title }}" target="{{ target }}" class="md-nav__link {{ target }}">
       {{ nav_item.title }}
     </a>
   </li>

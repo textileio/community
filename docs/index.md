@@ -108,13 +108,16 @@ To all of the great people who have contributed to the [Textile projects](https:
 
 <div class='txtl-community'>
   <a href='https://github.com/100ideas' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/57006?v=4'/></a>
+  <a href='https://github.com/ArseniiPetrovich' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/23522179?v=4'/></a>
   <a href='https://github.com/Gozala' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/21236?v=4'/></a>
   <a href='https://github.com/Jewcub' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/52448067?v=4'/></a>
   <a href='https://github.com/JustMaier' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/607609?v=4'/></a>
   <a href='https://github.com/Schwartz10' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/12353734?v=4'/></a>
+  <a href='https://github.com/ShishKabab' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/477149?v=4'/></a>
   <a href='https://github.com/TeNNoX' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/2084639?v=4'/></a>
   <a href='https://github.com/abour' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/1284598?v=4'/></a>
   <a href='https://github.com/adgitate1' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/8494994?v=4'/></a>
+  <a href='https://github.com/alzinging' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/46663325?v=4'/></a>
   <a href='https://github.com/andrewxhill' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/370259?v=4'/></a>
   <a href='https://github.com/asutula' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/528969?v=4'/></a>
   <a href='https://github.com/bafu' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/292790?v=4'/></a>

@@ -45,7 +45,7 @@ plugins:
         "threads/introduction.md": "threads/index.md"
         "powergate/introduction.md": "powergate/index.md"
 
-# Extensions
+        # Extensions
 markdown_extensions:
   - markdown.extensions.admonition
   - markdown.extensions.codehilite:
@@ -85,30 +85,43 @@ nav:
       - Accounts: hub/accounts.md
       - Buckets: hub/buckets.md
       - App APIs: hub/app-apis.md
-      - CLI Docs: hub/cli/hub.md
+      - Hub CLI:
+          - Overview: hub/cli/hub.md
+          - Login: hub/cli/hub_login.md
+          - Logout: hub/cli/hub_logout.md
+          - Whoami: hub/cli/hub_whoami.md
+          - Orgs: hub/cli/hub_orgs.md
+          - Bucket: hub/cli/hub_buck.md
+          - Threads: hub/cli/hub_threads.md
+          - API Keys: hub/cli/hub_keys.md
       - Links:
           - JavaScript: https://textileio.github.io/js-hub/docs/
   - ThreadDB:
       - Introduction: threads/index.md
       - Links:
-          - JS Client: https://textileio.github.io/js-hub/docs/hub.client
-          - JS Database: https://textileio.github.io/js-threads/modules/_textile_threads_database.html
           - Golang: https://godoc.org/github.com/textileio/go-threads/api/client
+          - JavaScript Client: https://textileio.github.io/js-hub/docs/hub.client
+          - JavaScript Database: https://textileio.github.io/js-threads/modules/_textile_threads_database.html
   - Filecoin Powergate:
       - Introduction: powergate/index.md
       - Run Devnet: powergate/devnet.md
       - Store Data: powergate/ffs.md
       - Storage Config: powergate/cidconfig.md
-      - Powergate: https://github.com/textileio/powergate/#powergate
-  - Hub CLI:
-      - Login: hub/cli/hub_login.md
-      - Logout: hub/cli/hub_logout.md
-      - Whoami: hub/cli/hub_whoami.md
-      - Orgs: hub/cli/hub_orgs.md
-      - Bucket: hub/cli/hub_buck.md
-      - Threads: hub/cli/hub_threads.md
-      - API Keys: hub/cli/hub_keys.md
-  - How-tos:
+      - POW CLI:
+          - Overview: powergate/cli/pow.md
+          - FFS: powergate/cli/pow_ffs.md
+          - Asks: powergate/cli/pow_asks.md
+          - Deals: powergate/cli/pow_deals.md
+          - Faults: powergate/cli/pow_faults.md
+          - Miners: powergate/cli/pow_miners.md
+          - Net: powergate/cli/pow_net.md
+          - Reputation: powergate/cli/pow_reputation.md
+          - Wallet: powergate/cli/pow_wallet.md
+          - Health: powergate/cli/pow_health.md
+      - Links:
+          - JavaScript: https://textileio.github.io/js-powergate-client/
+          - Golang: https://godoc.org/github.com/textileio/powergate/api/client
+  - Tutorials:
       - Build a Web App using Hub APIs: tutorials/hub/web-app.md
       - Host a Website in a Bucket: tutorials/static-websites.md
       - Create User Buckets & Threads in React Native: tutorials/react-native-buckets.md
