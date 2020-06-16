@@ -27,7 +27,7 @@ jobs:
         with:
           key: ${{ secrets.TEXTILE_ORG_ACCOUNT_KEY }}
           secret: ${{ secrets.TEXTILE_ORG_ACCOUNT_SECRET }}
-          bucket: "docs"
+          bucket: "documentation"
           thread: ${{ secrets.TEXTILE_ORG_BUCKET_THREAD }}
           path: "site"
       - run: echo "bucket - ${{ steps.bucket.outputs.key }}"
