@@ -14,6 +14,9 @@ Depending on your use case you can change settings such as block generation spee
 
 If you require more realistic scenarios (e.g. during product demos), you can change to block production speed to _~1s_ and enable `--bigsectors`. This would progress deal slow enough that you can observe updates in the status of confirmed deals at the rate of _~1 minute_ and also store larger files if required.
 
+!!!Warning
+    Not using `--bigsectors` will limit you to storing files of around 700 bytes and deals will complete in 30-60 seconds. Using `--bigsectors` will allow you to store files anywhere from 1Mb to 400Mb, but deals will complete in 3-4 minutes. Be sure to choose the value that makes sense for your development scenario.
+
 **Production compatible storage**
 
 The devnet is designed so that you can build and test your system quickly but function the exact same way as the production Filecoin network, except faster and entirely local. The devnet supports both 2KiB and 512MiB sectors, and the speed of block production is configurable. For advanced features, refer to the [devnet Readme](https://github.com/textileio/lotus-devnet).
@@ -95,6 +98,9 @@ FFS is the most common API for interacting with the Powergate. To use the API, y
 - Create a new wallet address on Lotus. You can configure the Powergate to automatically fund new wallets from a master address.
 - Track and manage deals associated with that address in the Powergate FFS.
 - Create an API token for using that FFS (and address) over the Powergate API.
+
+!!!Warning
+    If you're providing a `--lotusmasteraddr` and `--walletinitialfund`, be sure that address exists in the Lotus node and it has enough funds, since `walletinitialfund` attoFILs will be sent from there to fund from newly created FFS instances. Recall that both flags are optional, and if not present there won't be any auto-funding transaction, so you're responsible to fund wallet addresses of new FFS instances. You can fund any testnet wallet address using the official Lotus Faucet.
 
 ```Bash
 pow ffs create
