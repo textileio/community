@@ -24,6 +24,17 @@
 	}
 }
 
+/* indicate an external link in the sidebar */
+.md-nav__link._blank {
+	color: #333;
+}
+.md-nav__link._blank:after {
+  content:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==");
+  text-decoration:none;
+  padding-left:3px;
+	color: #333;
+}
+
 /* gets rid of that hidden sidebar ux issues */
 .md-sidebar.md-sidebar--primary {
 	padding-bottom: 2px
