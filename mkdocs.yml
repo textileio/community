@@ -104,9 +104,11 @@ nav:
           - JavaScript Database: https://textileio.github.io/js-threads/modules/_textile_threads_database.html
   - Filecoin Powergate:
       - Introduction: powergate/index.md
-      - Run Devnet: powergate/devnet.md
-      - Store Data: powergate/ffs.md
-      - Storage Config: powergate/cidconfig.md
+      - Devnet: powergate/devnet.md
+      - Testnet: powergate/testnet.md
+      - Store Data: 
+          - Intro to FFS: powergate/ffs.md
+          - Storage Configs: powergate/cidconfig.md
       - POW CLI:
           - Overview: powergate/cli/pow.md
           - FFS: powergate/cli/pow_ffs.md

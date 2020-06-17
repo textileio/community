@@ -77,7 +77,7 @@ When complete, you will have a fully functional Powergate (`powd`), a Lotus devn
 
 Now that your Powergate is running on devnet, all the CLI and API commands are the same as using it in production mode, just your deals will store faster (and disappear when you delete the devnet).
 
-**Install the CLI**
+#### Install the CLI
 
 From the root of the `powergate` repo, you can build the CLI from the latest code. This will install the Powergate CLI, `pow`, on your machine.
 
@@ -91,82 +91,9 @@ Test your installation.
 pow --help
 ```
 
-**Create an FFS instance**
+#### Start storing data
 
-FFS is the most common API for interacting with the Powergate. To use the API, you must first create an empty FFS instance, which will,
-
-- Create a new wallet address on Lotus. You can configure the Powergate to automatically fund new wallets from a master address.
-- Track and manage deals associated with that address in the Powergate FFS.
-- Create an API token for using that FFS (and address) over the Powergate API.
-
-!!!Warning
-    If you're providing a `--lotusmasteraddr` and `--walletinitialfund`, be sure that address exists in the Lotus node and it has enough funds, since `walletinitialfund` attoFILs will be sent from there to fund from newly created FFS instances. Recall that both flags are optional, and if not present there won't be any auto-funding transaction, so you're responsible to fund wallet addresses of new FFS instances. You can fund any testnet wallet address using the official Lotus Faucet.
-
-```Bash
-pow ffs create
-```
-
-???+ success
-
-    ```Bash
-    Instance created with id 0ac0fb4d-581c-4276-bd90-a9aa30dd4cb4 and token 883f57b1-4e66-47f8-b291-7cf8b10f6370
-    ```
-
-**Generate a CID for your file on IPFS**
-
-To store data on the cold layer (Filecoin), you first need to make it available on IPFS. You can do that quickly by using the Powergate to temporarily add it to the embedded IPFS node.
-
-```bash
-pow ffs addToHot -t 883f57b1-4e66-47f8-b291-7cf8b10f6370 myfile
-```
-
-???+ success
-
-    ```Bash
-    Success! Added file to FFS hot storage with cid: QmYaAK8SSsKJsJdtahCbUe7MZzQdkPBybFCcQJJ3dKZpfm
-    ```
-
-Note: `addToHot` does not store your data in the Powergate FFS. It simply caches your data in the IPFS node in preparation for being stored in the Powergate FFS in the following steps. This is technically equivalent to `ipfs add`, which is adding data without pinning it.
-
-**Add environmental variable (optional)**
-
-For the rest of the commands, the `--token` is used to scope the requests to the FFS instance we created. You can skip setting the `--token` flag on every command by adding your new token as an environmental variable. We won't do this and our following examples will continue to use the `--token` flag.
-
-```bash
-export POW_TOKEN=883f57b1-4e66-47f8-b291-7cf8b10f6370
-```
-
-**Push a CidConfig**
-
-How the Powergate manages each file stored in the FFS is defined by a _CidConfig_. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must push a new CidConfig for the CID we generated above.
-
-Every FFS instance has a default `CidConfig` that will be used for every new deal unless overridden.
-
-```bash
-❯ pow ffs push --watch --token 883f57b1-4e66-47f8-b291-7cf8b10f6370 QmYaAK8SSsKJsJdtahCbUe7MZzQdkPBybFCcQJJ3dKZpfm
-```
-
-???+ success
-
-    ```Bash
-    Success! Pushed cid config for QmYaAK8SSsKJsJdtahCbUe7MZzQdkPBybFCcQJJ3dKZpfm to FFS with job id: 966dcb44-9ef4-4d2a-9c90-a8103c77c354
-               JOB ID                   STATUS
-    966dcb44-9ef4-4d2a-9c90-a8103c77c354    Success
-    ```
-
-**Retrieve file from network**
-
-Finally, you can verify that the file was stored on the devnet by making a request to get it back out. 
-
-```bash
-❯ pow ffs get  -t 883f57b1-4e66-47f8-b291-7cf8b10f6370 QmYaAK8SSsKJsJdtahCbUe7MZzQdkPBybFCcQJJ3dKZpfm myfile2
-```
-
-???+ success
-
-    ```Bash
-    Success! Data written to myfile2
-    ```
+You are now ready to start storing and retrieving data using the Powergate. Read more on [Storing Data with the FFS](ffs.md).
 
 ## Devnet with Lotus Client
 
