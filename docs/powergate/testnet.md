@@ -38,7 +38,7 @@ If this is your first time running the Powergate, Docker will download the requi
 
 If this is the first time you are running the Powergate on the testnet, or if you have been offline for any amount of time, you will need to wait for the chain to properly sync. This will likely take more than a day.
 
-Once running, you will begin to see log outputs, including those of the embedded miner.
+Once running, you will begin to see log outputs.
 
 ```bash
 lotus_1      | 2020-05-29T20:35:08.644Z	WARN	miner	miner/miner.go:177\

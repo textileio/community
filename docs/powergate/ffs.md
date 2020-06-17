@@ -21,11 +21,23 @@ The FFS provides you API access to multi-tiered storage system built on IPFS and
 
 ### Hot storage layer
 
-Data stored in the Powergate Hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). When you enable hot storage for data, the data is pinned to the Powergate's IPFS node. If Hot is enabled for data you store, you will be able to retrieve it at anytime. If Hot is disabled, you will need to first enable it before you retrieve it. Read more about [updating the CidConfig here](cidconfig.md).
+Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). The default `CidConfig` enables both hot for all new data stored. Data stored with hot enabled is pinned to the Powergate's IPFS node. 
 
 ### Cold storage layer
 
-Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (devnet or testnet). You can use the [CidConfig](cidconfig.md) to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. Data stored in the Cold layer will be available to the IPFS network even if it isn't presently in the Hot layer, but will require a retrieval deal to pull it from Cold and _add_ it to Hot.
+Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (devnet or testnet). You can use the [CidConfig](cidconfig.md) to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default `CidConfig` enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.
+
+### Moving between tiers
+
+#### Hot to Cold
+
+Data that is stored in the hot layer can be moved to cold storage in a couple different ways. The most common scenario is where data is stored initially with cold *disabled* and later a new `CidConfig` is pushed that *enables* cold storage. In this scenario, Powergate will resolve the file from the hot layer, create any newly required Filecoin deals to fulfil the cold storage settings. 
+
+#### Cold to Hot
+
+Data stored only in the cold layer isn't guaranteed to be available on the IPFS network. In order for it to be, you need to push a new storage config that enables hot storage. You can automate this movement using the `AllowUnfreeze` flag of [the CidConfig](cidconfig.md). Either way, Powergate will always attempt resolve the data, first by trying to fetch it from the IPFS network, and if unable to do that, will execute a retrieval deal to pull the data from Finally. Finally, the data will be pinned in hot layer IPFS storage and available on the IPFS network.
+
+Read more about [updating the CidConfig here](cidconfig.md).
 
 ## Using the FFS
 
@@ -96,14 +108,14 @@ When complete, you should see,
     ```
 
 !!!info
-    The FFS Scheduler is configured by default to run up to 50 pushes in parallel, though you can update this setting as needed. [Read more about the FFS design here](https://github.com/textileio/powergate/blob/master/ffs/Design.md).
+    The FFS is configured by default to run up to 50 pushes in parallel, though you can update this setting as needed. [Read more about the FFS design here](https://github.com/textileio/powergate/blob/master/ffs/Design.md).
 
-**FFS Log**
+**FFS Watch**
 
-The status will update as the deal progresses. If you push a file without the `--watch` flag, you can check the logs using `log`.
+The status will update as the deal progresses. If you push a file without the `--watch` flag, you can check the progress later using, `watch`.
 
 ```bash
-pow ffs log
+pow ffs watch <cid>
 ```
 
 ### Retrieve files
