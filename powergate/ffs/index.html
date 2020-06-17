@@ -42,7 +42,7 @@
     
     
       
-        <title>Store Data | Documentation | Textile</title>
+        <title>Intro to FFS | Documentation | Textile</title>
       
     
     
@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#storing-data-with-the-ffs" tabindex="1" class="md-skip">
+      <a href="#storing-data" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              Store Data
+              Intro to FFS
             </span>
           
         </div>
@@ -591,11 +591,44 @@
 
 
   <li class="md-nav__item">
-    <a href="../devnet/" title="Run Devnet" target="" class="md-nav__link ">
-      Run Devnet
+    <a href="../devnet/" title="Devnet" target="" class="md-nav__link ">
+      Devnet
     </a>
   </li>
 
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../testnet/" title="Testnet" target="" class="md-nav__link ">
+      Testnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4" checked>
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Store Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        Store Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
         
           
           
@@ -612,11 +645,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Store Data
+        Intro to FFS
       </label>
     
-    <a href="./" title="Store Data" class="md-nav__link md-nav__link--active">
-      Store Data
+    <a href="./" title="Intro to FFS" class="md-nav__link md-nav__link--active">
+      Intro to FFS
     </a>
     
       
@@ -630,16 +663,104 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ffs-instance" title="FFS Instance" class="md-nav__link">
-    FFS Instance
+  <a href="#intro-to-the-ffs" title="Intro to the FFS" class="md-nav__link">
+    Intro to the FFS
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-storage" title="Data storage" class="md-nav__link">
-    Data storage
+  <a href="#multi-tiered-design" title="Multi-tiered design" class="md-nav__link">
+    Multi-tiered design
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hot-storage-layer" title="Hot storage layer" class="md-nav__link">
+    Hot storage layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cold-storage-layer" title="Cold storage layer" class="md-nav__link">
+    Cold storage layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-between-tiers" title="Moving between tiers" class="md-nav__link">
+    Moving between tiers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hot-to-cold" title="Hot to Cold" class="md-nav__link">
+    Hot to Cold
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cold-to-hot" title="Cold to Hot" class="md-nav__link">
+    Cold to Hot
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-ffs" title="Using the FFS" class="md-nav__link">
+    Using the FFS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-ffs-instance" title="Create an FFS Instance" class="md-nav__link">
+    Create an FFS Instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store-new-data" title="Store new data" class="md-nav__link">
+    Store new data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-a-cidconfig" title="Push a CidConfig" class="md-nav__link">
+    Push a CidConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieve-files" title="Retrieve files" class="md-nav__link">
+    Retrieve files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -667,9 +788,14 @@
 
 
   <li class="md-nav__item">
-    <a href="../cidconfig/" title="Storage Config" target="" class="md-nav__link ">
-      Storage Config
+    <a href="../cidconfig/" title="Storage Configs" target="" class="md-nav__link ">
+      Storage Configs
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -1119,16 +1245,104 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ffs-instance" title="FFS Instance" class="md-nav__link">
-    FFS Instance
+  <a href="#intro-to-the-ffs" title="Intro to the FFS" class="md-nav__link">
+    Intro to the FFS
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-storage" title="Data storage" class="md-nav__link">
-    Data storage
+  <a href="#multi-tiered-design" title="Multi-tiered design" class="md-nav__link">
+    Multi-tiered design
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hot-storage-layer" title="Hot storage layer" class="md-nav__link">
+    Hot storage layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cold-storage-layer" title="Cold storage layer" class="md-nav__link">
+    Cold storage layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-between-tiers" title="Moving between tiers" class="md-nav__link">
+    Moving between tiers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hot-to-cold" title="Hot to Cold" class="md-nav__link">
+    Hot to Cold
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cold-to-hot" title="Cold to Hot" class="md-nav__link">
+    Cold to Hot
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-ffs" title="Using the FFS" class="md-nav__link">
+    Using the FFS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-ffs-instance" title="Create an FFS Instance" class="md-nav__link">
+    Create an FFS Instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store-new-data" title="Store new data" class="md-nav__link">
+    Store new data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push-a-cidconfig" title="Push a CidConfig" class="md-nav__link">
+    Push a CidConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieve-files" title="Retrieve files" class="md-nav__link">
+    Retrieve files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1160,9 +1374,9 @@
                   <a href="https://github.com/textileio/docs/edit/master/docs/powergate/ffs.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="storing-data-with-the-ffs">Storing Data with the FFS<a class="headerlink" href="#storing-data-with-the-ffs" title="Permanent link">&para;</a></h1>
-<p>The Filecoin File System API (FFS) manages all the necessary state and capabilities to provide multi-tiered file storage through the Powergate. The FFS is the primary API for storing and retrieving data, tracking long-term deals on Filecoin, and allowing data persisted on Filecoin to be available on IPFS. To start using the FFS APIs you must first create an <em>FFS Instance</em>.</p>
-<h2 id="ffs-instance">FFS Instance<a class="headerlink" href="#ffs-instance" title="Permanent link">&para;</a></h2>
+                <h1 id="storing-data">Storing Data<a class="headerlink" href="#storing-data" title="Permanent link">&para;</a></h1>
+<p>The Filecoin File System API (FFS) manages all the necessary state and capabilities to provide multi-tiered file storage through the Powergate. The FFS is the primary API for storing and retrieving data, tracking long-term deals on Filecoin, and allowing data persisted on Filecoin to be available on IPFS. </p>
+<h2 id="intro-to-the-ffs">Intro to the FFS<a class="headerlink" href="#intro-to-the-ffs" title="Permanent link">&para;</a></h2>
 <p>The FFS API is scoped to one or more Filecoin wallet addresses. So to start accessing the FFS API, you must init a new instance at which time the Powergate will:</p>
 <ol>
 <li>Create a new default wallet address for the FFS Instance. You can configure the Powergate to automatically fund new wallets from a master address.</li>
@@ -1170,7 +1384,25 @@
 <li>Enable access to the FFS API through the use of the supplied token.</li>
 </ol>
 <p>Anytime you use the FFS API (including use through the CLI), you will supply the <em>token</em> to indicate which <em>FFS Instance</em> your requests are targeting. Since each FFS Instance has its own address, it has its own balance and therefor limits on the Filecoin network.</p>
-<p><strong>Create an FFS Instance</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you're providing a <code>--lotusmasteraddr</code> and <code>--walletinitialfund</code>, be sure that address exists in the Lotus node and it has enough funds, since <code>walletinitialfund</code> attoFILs will be sent from there to fund from newly created FFS instances. Recall that both flags are optional, and if not present there won't be any auto-funding transaction, so you're responsible to fund wallet addresses of new FFS instances. You can fund any testnet wallet address using the official Lotus Faucet.</p>
+</div>
+<h2 id="multi-tiered-design">Multi-tiered design<a class="headerlink" href="#multi-tiered-design" title="Permanent link">&para;</a></h2>
+<p>The FFS provides you API access to multi-tiered storage system built on IPFS and Filecoin. In many places, we refer to these two tiers of storage as Hot (IFPS) and Cold (Filecoin). This mirrors multi-tiered storage often deployed with a hot storage layer in <em>memory</em> and a cold storage layer on <em>disk</em>.</p>
+<h3 id="hot-storage-layer">Hot storage layer<a class="headerlink" href="#hot-storage-layer" title="Permanent link">&para;</a></h3>
+<p>Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). The default <code>CidConfig</code> enables both hot for all new data stored. Data stored with hot enabled is pinned to the Powergate's IPFS node. </p>
+<h3 id="cold-storage-layer">Cold storage layer<a class="headerlink" href="#cold-storage-layer" title="Permanent link">&para;</a></h3>
+<p>Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (devnet or testnet). You can use the <a href="../cidconfig/">CidConfig</a> to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default <code>CidConfig</code> enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.</p>
+<h3 id="moving-between-tiers">Moving between tiers<a class="headerlink" href="#moving-between-tiers" title="Permanent link">&para;</a></h3>
+<h4 id="hot-to-cold">Hot to Cold<a class="headerlink" href="#hot-to-cold" title="Permanent link">&para;</a></h4>
+<p>Data that is stored in the hot layer can be moved to cold storage in a couple different ways. The most common scenario is where data is stored initially with cold <em>disabled</em> and later a new <code>CidConfig</code> is pushed that <em>enables</em> cold storage. In this scenario, Powergate will resolve the file from the hot layer, create any newly required Filecoin deals to fulfill. the cold storage settings.</p>
+<h4 id="cold-to-hot">Cold to Hot<a class="headerlink" href="#cold-to-hot" title="Permanent link">&para;</a></h4>
+<p>Data stored only in the cold layer isn't guaranteed to be available on the IPFS network. In order for it to be, you need to push a new storage config that enables hot storage. You can automate this movement using the <code>AllowUnfreeze</code> flag of <a href="../cidconfig/">the CidConfig</a>. Either way, Powergate will always attempt resolve the data, first by trying to fetch it from the IPFS network, and if unable to do that, will execute a retrieval deal to pull the data from Finally. Finally, the data will be pinned in hot layer IPFS storage and available on the IPFS network.</p>
+<p>Read more about <a href="../cidconfig/">updating the CidConfig here</a>.</p>
+<h2 id="using-the-ffs">Using the FFS<a class="headerlink" href="#using-the-ffs" title="Permanent link">&para;</a></h2>
+<p>To start using the FFS APIs you must first create an <em>FFS Instance</em>.</p>
+<h3 id="create-an-ffs-instance">Create an FFS Instance<a class="headerlink" href="#create-an-ffs-instance" title="Permanent link">&para;</a></h3>
 <p>Using the Powergate CLI, you can create new FFS instances easily.</p>
 <div class="highlight"><pre><span></span><code>pow ffs create
 </code></pre></div>
@@ -1179,9 +1411,57 @@
 </code></pre></div>
 
 </details>
-<h2 id="data-storage">Data storage<a class="headerlink" href="#data-storage" title="Permanent link">&para;</a></h2>
-<p>Powergate provides you API access to a multi-tiered storage system built on IPFS and Filecoin. In many places, we refer to these two tiers of storage as Hot (IFPS) and Cold (Filecoin). Data stored in the Powergate Hot layer is available to the IPFS network (or private network). Data stored only in the Cold layer can be available to the IPFS network, but will require a retrieval deal to pull it from Cold and <em>add</em> it to Hot. This mirrors multi-tiered storage often deployed with a hot storage layer in <em>memory</em> and a cold storage layer on <em>disk</em>.</p>
-<p>You have a lot of control over how each file is managed on Hot and Cold storage through the use of the <a href="../cidconfig/">Storage CidConfig</a>.</p>
+<p><strong>Add environmental variable (optional)</strong></p>
+<p>The <code>--token</code> is used to scope the requests to the FFS instance we created. You can skip setting the <code>--token</code> flag on every command by adding your new token as an environmental variable. For the rest of the examples, we'll assume you've set this environmental variable.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">POW_TOKEN</span><span class="o">=</span>883f57b1-4e66-47f8-b291-7cf8b10f6370
+</code></pre></div>
+
+<h3 id="store-new-data">Store new data<a class="headerlink" href="#store-new-data" title="Permanent link">&para;</a></h3>
+<p>The FFS requires data you aim to store to be available over IPFS. If you are using the CLI, you can ensure that it is available by staging it on IPFS using <code>addToHot</code>. Note that <code>addToHot</code> does not store your data in the Powergate FFS. It simply caches your data in the IPFS node in preparation for being stored in the Powergate FFS in the following steps. This is technically equivalent to <code>ipfs add</code>, which is adding data without pinning it.</p>
+<div class="highlight"><pre><span></span><code>pow ffs addToHot &lt;path/filename&gt;
+</code></pre></div>
+
+<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Success! Added file to FFS hot storage with cid: &lt;cid&gt;
+</code></pre></div>
+
+</details>
+<h3 id="push-a-cidconfig">Push a CidConfig<a class="headerlink" href="#push-a-cidconfig" title="Permanent link">&para;</a></h3>
+<p>How the Powergate manages each file stored in the FFS is defined by a <em>CidConfig</em>. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must push a new CidConfig for the CID we generated above. Learn more about the <a href="../cidconfig/">CidConfig here</a>.</p>
+<p>Every FFS instance has a default <code>CidConfig</code> that will be used for every new deal unless overridden.</p>
+<div class="highlight"><pre><span></span><code>pow ffs push --watch &lt;cid&gt;
+</code></pre></div>
+
+<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>&gt; Success! Pushed cid config <span class="k">for</span> &lt;cid&gt; to FFS with job id: 70368cda-d65a-4e11-8a9f-fbf36135f563
+           JOB ID                    STATUS    
+70368cda-d65a-4e11-8a9f-fbf36135f563    Executing
+</code></pre></div>
+
+</details>
+<p>When complete, you should see,</p>
+<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>&gt; Success! Pushed cid config <span class="k">for</span> &lt;cid&gt; to FFS with job id: 70368cda-d65a-4e11-8a9f-fbf36135f563
+           JOB ID                   STATUS
+70368cda-d65a-4e11-8a9f-fbf36135f563    Success
+</code></pre></div>
+
+</details>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The FFS is configured by default to run up to 50 pushes in parallel, though you can update this setting as needed. <a href="https://github.com/textileio/powergate/blob/master/ffs/Design.md">Read more about the FFS design here</a>.</p>
+</div>
+<p><strong>FFS Watch</strong></p>
+<p>The status will update as the deal progresses. If you push a file without the <code>--watch</code> flag, you can check the progress later using, <code>watch</code>.</p>
+<div class="highlight"><pre><span></span><code>pow ffs watch &lt;cid&gt;
+</code></pre></div>
+
+<h3 id="retrieve-files">Retrieve files<a class="headerlink" href="#retrieve-files" title="Permanent link">&para;</a></h3>
+<p>Finally, you can verify that the file was stored on the network by making a request to get it back out. </p>
+<div class="highlight"><pre><span></span><code>❯ pow ffs get &lt;cid&gt; myfile2
+</code></pre></div>
+
+<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Success! Data written to myfile2
+</code></pre></div>
+
+</details>
 <h2 id="learn-more">Learn more<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
 <p>The FFS does a lot of work out of the box. If you'd like to learn more about the components, design, and capabilities of the FFS, we encourage you to read the <a href="https://github.com/textileio/powergate/blob/master/ffs/Design.md">FFS Design document</a>.</p>
                 
@@ -1204,7 +1484,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../devnet/" title="Run Devnet" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../testnet/" title="Testnet" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1213,19 +1493,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Run Devnet
+                Testnet
               </span>
             </div>
           </a>
         
         
-          <a href="../cidconfig/" title="Storage Config" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../cidconfig/" title="Storage Configs" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Storage Config
+                Storage Configs
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

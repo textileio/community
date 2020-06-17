@@ -42,7 +42,7 @@
     
     
       
-        <title>Run Devnet | Documentation | Textile</title>
+        <title>Devnet | Documentation | Textile</title>
       
     
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              Run Devnet
+              Devnet
             </span>
           
         </div>
@@ -600,11 +600,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Run Devnet
+        Devnet
       </label>
     
-    <a href="./" title="Run Devnet" class="md-nav__link md-nav__link--active">
-      Run Devnet
+    <a href="./" title="Devnet" class="md-nav__link md-nav__link--active">
+      Devnet
     </a>
     
       
@@ -657,6 +657,26 @@
   <a href="#create-a-deal-and-store-a-file" title="Create a deal and store a file" class="md-nav__link">
     Create a deal and store a file
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-cli" title="Install the CLI" class="md-nav__link">
+    Install the CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-storing-data" title="Start storing data" class="md-nav__link">
+    Start storing data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -729,8 +749,39 @@
 
 
   <li class="md-nav__item">
-    <a href="../ffs/" title="Store Data" target="" class="md-nav__link ">
+    <a href="../testnet/" title="Testnet" target="" class="md-nav__link ">
+      Testnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
       Store Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        Store Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ffs/" title="Intro to FFS" target="" class="md-nav__link ">
+      Intro to FFS
     </a>
   </li>
 
@@ -741,9 +792,14 @@
 
 
   <li class="md-nav__item">
-    <a href="../cidconfig/" title="Storage Config" target="" class="md-nav__link ">
-      Storage Config
+    <a href="../cidconfig/" title="Storage Configs" target="" class="md-nav__link ">
+      Storage Configs
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -1233,6 +1289,26 @@
     Create a deal and store a file
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-cli" title="Install the CLI" class="md-nav__link">
+    Install the CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-storing-data" title="Start storing data" class="md-nav__link">
+    Start storing data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1362,7 +1438,7 @@ mined block in the past <span class="o">{</span><span class="s2">&quot;block-tim
 <p>When complete, you will have a fully functional Powergate (<code>powd</code>), a Lotus devnet, and an IPFS node wired correctly together to start using.</p>
 <h3 id="create-a-deal-and-store-a-file">Create a deal and store a file<a class="headerlink" href="#create-a-deal-and-store-a-file" title="Permanent link">&para;</a></h3>
 <p>Now that your Powergate is running on devnet, all the CLI and API commands are the same as using it in production mode, just your deals will store faster (and disappear when you delete the devnet).</p>
-<p><strong>Install the CLI</strong></p>
+<h4 id="install-the-cli">Install the CLI<a class="headerlink" href="#install-the-cli" title="Permanent link">&para;</a></h4>
 <p>From the root of the <code>powergate</code> repo, you can build the CLI from the latest code. This will install the Powergate CLI, <code>pow</code>, on your machine.</p>
 <div class="highlight"><pre><span></span><code>make build
 </code></pre></div>
@@ -1371,60 +1447,8 @@ mined block in the past <span class="o">{</span><span class="s2">&quot;block-tim
 <div class="highlight"><pre><span></span><code>pow --help
 </code></pre></div>
 
-<p><strong>Create an FFS instance</strong></p>
-<p>FFS is the most common API for interacting with the Powergate. To use the API, you must first create an empty FFS instance, which will,</p>
-<ul>
-<li>Create a new wallet address on Lotus. You can configure the Powergate to automatically fund new wallets from a master address.</li>
-<li>Track and manage deals associated with that address in the Powergate FFS.</li>
-<li>Create an API token for using that FFS (and address) over the Powergate API.</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If you're providing a <code>--lotusmasteraddr</code> and <code>--walletinitialfund</code>, be sure that address exists in the Lotus node and it has enough funds, since <code>walletinitialfund</code> attoFILs will be sent from there to fund from newly created FFS instances. Recall that both flags are optional, and if not present there won't be any auto-funding transaction, so you're responsible to fund wallet addresses of new FFS instances. You can fund any testnet wallet address using the official Lotus Faucet.</p>
-</div>
-<div class="highlight"><pre><span></span><code>pow ffs create
-</code></pre></div>
-
-<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Instance created with id 0ac0fb4d-581c-4276-bd90-a9aa30dd4cb4 and token 883f57b1-4e66-47f8-b291-7cf8b10f6370
-</code></pre></div>
-
-</details>
-<p><strong>Generate a CID for your file on IPFS</strong></p>
-<p>To store data on the cold layer (Filecoin), you first need to make it available on IPFS. You can do that quickly by using the Powergate to temporarily add it to the embedded IPFS node.</p>
-<div class="highlight"><pre><span></span><code>pow ffs addToHot -t 883f57b1-4e66-47f8-b291-7cf8b10f6370 myfile
-</code></pre></div>
-
-<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Success! Added file to FFS hot storage with cid: QmYaAK8SSsKJsJdtahCbUe7MZzQdkPBybFCcQJJ3dKZpfm
-</code></pre></div>
-
-</details>
-<p>Note: <code>addToHot</code> does not store your data in the Powergate FFS. It simply caches your data in the IPFS node in preparation for being stored in the Powergate FFS in the following steps. This is technically equivalent to <code>ipfs add</code>, which is adding data without pinning it.</p>
-<p><strong>Add environmental variable (optional)</strong></p>
-<p>For the rest of the commands, the <code>--token</code> is used to scope the requests to the FFS instance we created. You can skip setting the <code>--token</code> flag on every command by adding your new token as an environmental variable. We won't do this and our following examples will continue to use the <code>--token</code> flag.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">POW_TOKEN</span><span class="o">=</span>883f57b1-4e66-47f8-b291-7cf8b10f6370
-</code></pre></div>
-
-<p><strong>Push a CidConfig</strong></p>
-<p>How the Powergate manages each file stored in the FFS is defined by a <em>CidConfig</em>. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must push a new CidConfig for the CID we generated above.</p>
-<p>Every FFS instance has a default <code>CidConfig</code> that will be used for every new deal unless overridden.</p>
-<div class="highlight"><pre><span></span><code>❯ pow ffs push --watch --token 883f57b1-4e66-47f8-b291-7cf8b10f6370 QmYaAK8SSsKJsJdtahCbUe7MZzQdkPBybFCcQJJ3dKZpfm
-</code></pre></div>
-
-<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Success! Pushed cid config <span class="k">for</span> QmYaAK8SSsKJsJdtahCbUe7MZzQdkPBybFCcQJJ3dKZpfm to FFS with job id: 966dcb44-9ef4-4d2a-9c90-a8103c77c354
-           JOB ID                   STATUS
-966dcb44-9ef4-4d2a-9c90-a8103c77c354    Success
-</code></pre></div>
-
-</details>
-<p><strong>Retrieve file from network</strong></p>
-<p>Finally, you can verify that the file was stored on the devnet by making a request to get it back out. </p>
-<div class="highlight"><pre><span></span><code>❯ pow ffs get  -t 883f57b1-4e66-47f8-b291-7cf8b10f6370 QmYaAK8SSsKJsJdtahCbUe7MZzQdkPBybFCcQJJ3dKZpfm myfile2
-</code></pre></div>
-
-<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Success! Data written to myfile2
-</code></pre></div>
-
-</details>
+<h4 id="start-storing-data">Start storing data<a class="headerlink" href="#start-storing-data" title="Permanent link">&para;</a></h4>
+<p>You are now ready to start storing and retrieving data using the Powergate. Read more on <a href="../ffs/">Storing Data with the FFS</a>.</p>
 <h2 id="devnet-with-lotus-client">Devnet with Lotus Client<a class="headerlink" href="#devnet-with-lotus-client" title="Permanent link">&para;</a></h2>
 <p>You can run the devnet to make use of the <a href="https://lotu.sh/">Lotus Client</a>with all the benefits described in the introduction but no Powergate or IPFS components.</p>
 <h3 id="run-from-docker-image">Run from Docker image<a class="headerlink" href="#run-from-docker-image" title="Permanent link">&para;</a></h3>
@@ -1503,13 +1527,13 @@ mined block in the past <span class="o">{</span><span class="s2">&quot;block-tim
           </a>
         
         
-          <a href="../ffs/" title="Store Data" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../testnet/" title="Testnet" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Store Data
+                Testnet
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
