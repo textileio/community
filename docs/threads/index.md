@@ -60,8 +60,8 @@ The above assumes you are running the database in insecure environments such as 
 import { Database, KeyInfo } from '@textile/threads'
 
 async function create (keys: KeyInfo, name: string) {
-  const db = Database.withKeyInfo(keys, name)
-  return db
+  // const db = Database.withKeyInfo(keys, name)
+  // return db
 }
 ```
 -->
