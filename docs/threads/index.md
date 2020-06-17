@@ -6,50 +6,86 @@ hero_img: ../images/threads-hero.png
 
 ThreadDB is a p2p database built on [IPFS](https://ipfs.io) and [Libp2p](https://libp2p.io). Together, the Threads Protocol and Database provide an alternative architecture for data on the web. ThreadDB aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data ([IPLD](https://ipld.io)), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.
 
+### How to use ThreadDB
+
+There are two implementations of ThreadDB. 
+
+#### Golang
+
+The first is written in Go and can be found at [https://github.com/textileio/go-threads/](https://github.com/textileio/go-threads/). This is the reference implementation, it contains all the latest components to use as a library, write trustless services, [build a client](https://godoc.org/github.com/textileio/go-threads/api/client) connected to a a threads daemon. More documentation for the Go implementation will be coming in the future.
+
+#### JavaScript
+
+The second implementation is written in JavaScript (Typescript, really). This implementation has some optimizations to make it more ideal when writing web applications. The JavaScript implementation is best understood through the [Client](https://textileio.github.io/js-hub/docs/hub.client) and [Database](https://textileio.github.io/js-threads/modules/_textile_threads_database.html) documentation.
+
+In general, when you are building apps that use threads in remote context (e.g. the browser) it's best to push the networking later to remote services whenever possible (while using/allowing p2p when it works). For this, we recommend using `js-threads` using the Hub's APIs. Using the [Database](https://textileio.github.io/js-threads/modules/_textile_threads_database.html) for example, you can perform all signing and encryption locally, keeping thread ownership with your users, but push persistence and networking to the remote Hub. You can also build your own remote relays and services using the [go-threads](https://github.com/textileio/go-threads/) library.
+
+For the rest of the explanation below, we'll focus on examples using the JavaScript library.
+
 ### Developer API
 
 ThreadDB is designed to be simple enough for any developer to start using. The API will feel familiar to developers who have worked with technologies like MongoDB.
 
-The first three concepts a developer will encounter with ThreadDB are [Databases](#databases), [Collections](#collections), and [Instances](#instances). The organization is simple. Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections. Collections are similar to Tables in other databases. A Thread-based Database is tied to a single Thread (with associated Thread ID).
+#### Data organization
 
-To start a new, empty database is simple. A new [Level Datastore](https://github.com/ipfs/js-datastore-level) is used as the backing store by default if no datastore is explicitly supplied. See the doc-strings for the `Database.constructor` for further options.
+The first three concepts a developer will encounter with ThreadDB are [Databases](#databases), [Collections](#collections), and [Instances](#instances). Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections. Collections are similar to Tables in other databases. A Thread-based Database is tied to a single Thread (with associated Thread ID).
 
-By default, a ThreadDB will connect with a local `go-threads` Threads Daemon. See the [`go-threads`](https://github.com/textileio/go-threads) for details on getting started with local development. The Threads Daemon may be helpful to developers that aim to build their own Thread Services, host replication services, or test advanced Thread usage. The Threads Daemon (`threadsd`) is provided as an installable binary with every [release of Threads](https://github.com/textileio/go-threads/releases).
+#### Creating a new database
 
-Alternatively, it is possible to connect with a remote daemon by specifying the networking component of the Database ([See more](#replication-with-the-hub) for details on connecting to hosted remote services).
+To start a new, empty Database, with remote networking using the Hub APIs you simply initialize your database with the `UserAuth` object. You can read more about creating `UserAuth` objects in [the creating web apps tutorial](../tutorials/hub/web-app.md).
 
+Running the DB in this way will greatly improve performance, by pushing signed and encrypted updates to the always on service on the Hub for other trusted peers to find and pull.
 
-In the following examples, we create and start a new database each time. By default a random ThreadID will be used, though this can be configured via additional options; see the doc-strings for `Database.open` for additional config options. Notice also that an `Identity` is required to interact with a Database. The the following examples, we use a default random public-key infrastructure (PKI) based identity, however, see [Identity](#identity) for further details and links.
-
+!!!info
+    A new [Level Datastore](https://github.com/ipfs/js-datastore-level) is used as the backing store by default if no datastore is explicitly supplied.
 
 ```typescript
 import { Identity } from '@textile/threads-core'
-import { Database } from '@textile/threads-database'
+import { Database, UserAuth } from '@textile/threads'
 
-async function example (identity: Identity) {
-  const db = new Database('demo.db')
-  await db.start(identity)
+async function create (auth: UserAuth, name: string) {
+  const db = Database.withUserAuth(auth, name)
   return db
 }
-
-// Create random identity and use it to start the db
-Database.randomIdentity().then((identity) => {
-  example(identity).then((db) => {
-    console.log(db.threadID.toString())
-  })
-})
 ```
+
+<!--
+Depends on: https://github.com/textileio/js-threads/issues/293
+
+The above assumes you are running the database in insecure environments such as the browser, but if you are running the database in a secure environment you can skip the tutorial and provide you [API keys](../hub/app-apis.md) directly.
+
+```typescript
+import { Database, KeyInfo } from '@textile/threads'
+
+async function create (keys: KeyInfo, name: string) {
+  // const db = Database.withKeyInfo(keys, name)
+  // return db
+}
+```
+-->
+
+With your database created, you now need to *start* it. Starting a database requires the data owner's identity. In these examples, we'll use a [random public-key infrastructure (PKI) based identity](../tutorials/hub/libp2p-identities.md), however, see [Identity](#identity) for further details and links.
+
+```typescript
+import { Identity } from '@textile/threads-core'
+import { Database, UserAuth, ThreadID } from '@textile/threads'
+
+async function start (db: Database, identity: Identity) {
+  const threadID = ThreadID.fromRandom()
+  await db.start(identity, { threadID })
+}
+```
+
+Congrats! You now have a new ThreadDB! Each ThreadDB has a unique [ThreadID](https://textileio.github.io/js-hub/docs/hub.threadid). You can create your own ThreadIDs, or easily generate a random ThreadID as we do in the above example.
 
 ### Collections
 
-To handle different data structures, a Database contains Collections, each of which are defined by a [json-schema.org schema](https://json-schema.org/). These schemas define the 'shape' of Collection Instances. Collections are similar to Tables in other databases. Ultimately, a Collection is a single document store with a set of APIs to make it feel like a *local database table*.
+To handle different data structures in the same Database, a Database contains Collections. Each Collection is defined by a [json-schema.org schema](https://json-schema.org/). These schemas define the *shape* of Collection Instances (the individual entries). Collections are similar to tables in other databases. Ultimately, a Collection is a single document store with a set of APIs to make it feel like a *local database table*.
 
 Collections can be created from an existing Schema.
 
-
 ```typescript
-import { Identity } from '@textile/threads-core'
-import { Database, JSONSchema } from '@textile/threads-database'
+import { Database, JSONSchema } from '@textile/threads'
 
 // Define a simple person schema
 const schema: JSONSchema = {
@@ -67,20 +103,17 @@ const schema: JSONSchema = {
   },
 }
 
-async function example (identity: Identity) {
-  const db = new Database('demo.db')
-  await db.start(identity)
-
+// Requires the started database we created above
+async function collectionFromSchema (db: Database) {
   const Person = await db.newCollection('Person', schema)
+  return Person
 }
 ```
 
 Or from an existing object/instance.
 
-
 ```typescript
-import { Identity } from '@textile/threads-core'
-import { Database } from '@textile/threads-database'
+import { Database } from '@textile/threads'
 
 const obj = {
   _id: '', // All collections have an _id field
@@ -89,11 +122,33 @@ const obj = {
   points: 0,
 }
 
-async function example (identity: Identity) {
-  const db = new Database('demo.db')
-  await db.start(identity)
-
+// Requires the started database we created above
+async function collectionFromObject (db: Database) {
   const Player = await db.newCollectionFromObject('Player', obj)
+}
+```
+
+Since you don't need to create a Collection if it already exists in your database, a more complete Collection creation step can use the name of the collection to check if it exists first.
+
+```typescript
+import { Database } from '@textile/threads'
+
+const obj = {
+  _id: '',
+  team: '',
+  name: '',
+  points: 0,
+}
+
+// Requires the started database we generated above
+async function getOrCreatePlayers (db: Database) {
+    const {collections} = db
+    const existing = collections.get('Player')
+    if (existing) {
+      return existing
+    } else {
+      return await db.newCollectionFromObject('Player', obj)
+    }
 }
 ```
 
@@ -103,15 +158,14 @@ Instances are the objects you store in your Collection. Instances are JSON docum
 
 
 ```typescript
-import { Identity } from '@textile/threads-core'
-import { Database } from '@textile/threads-database'
+import { Database } from '@textile/threads'
 
-async function example (identity: Identity) {
-  const db = new Database('demo.db')
-  await db.start(identity)
-
-  const Player = await db.newCollection('Player', {}) // Anything goes schema
-
+// Requires the started database we generated above containing the Player collection
+async function example (db: Database) {
+  const Player = db.collections.get('Player')
+  if (!Player) throw new Error('Collection does not exist')
+  
+  // Create an instance for the Collection and then save it
   const beth = new Player({ _id: '', name: 'beth' }) // Not yet persisted
   await beth.save() // Persist changes to db
 
@@ -139,15 +193,13 @@ Each Threads implementation supports query and look-up capabilities such as `ins
 
 
 ```typescript
-import { Identity } from '@textile/threads-core'
-import { Database } from '@textile/threads-database'
+import { Database } from '@textile/threads'
 import { collect } from 'streaming-iterables'
 
-async function createQuery (identity: Identity) {
-  const db = new Database('demo.db')
-  await db.start(identity)
-
-  const Player = await db.newCollection('Player', {})
+// Requires the started database we generated above containing the Player collection
+async function createQuery (db: Database) {
+  const Player = db.collections.get('Player')
+  if (!Player) throw new Error('Collection does not exist')
 
   await Player.insert(
     { _id: '', points: 11, team: 'Astronauts', name: 'beth'},
@@ -175,20 +227,18 @@ async function createQuery (identity: Identity) {
 
 A Database also has an event emitter, and listeners can subscribe to events. For example, event _names_ are structured as `<collection>.<id>.<type>`, and they support 'wildcard' matching, so `db.emitter.many(['foo', '*', 2], callback)` will match all delete operations (`{ create: 0; save: 1, delete: 2 }`) on the 'foo' collection. Similarly, `db.emitter.on('foo.**', callback)` will match all event types on the 'foo' collection. To observe a given instance, try `db.emitter.on('foo.${instance._id}', callback)`. See [EventEmitter2](https://github.com/EventEmitter2/EventEmitter2) docs for further details. To illustrate, the following database manipulations could be observed via the following simple listener.
 
-
 ```typescript
-import { Identity } from '@textile/threads-core'
-import { Database } from '@textile/threads-database'
+import { Database } from '@textile/threads'
 
-async function example (identity: Identity) {
-  const db = new Database('demo.db')
-  await db.start(identity)
+// Requires the started database we generated above containing the Player collection
+async function emitter (db: Database) {
 
   db.emitter.on('**', (update: any) => {
     console.log(update) // Logs the following updates...
   })
 
-  const Player = await db.newCollection('Player', {})
+  const Player = db.collections.get('Player')
+  if (!Player) throw new Error('Collection does not exist')
 
   const beth = new Player({ _id: '', name: 'beth' })
   await beth.save()
@@ -198,6 +248,19 @@ async function example (identity: Identity) {
   beth.points = 2
   await Player.save(beth)
   await Player.delete(beth._id)
+}
+```
+
+#### Using the Database as an Observable
+
+If you are building with React, you may be interested in integrating database updates as an [Observable](https://redux-observable.js.org/), so that changes to your dataset can immediately change the UI (and other use-cases). Doing so is quite simple using the emitter described above. You can combine the emitter with a selector using the pattern `<collection>.<instance>.<type>`. In the example here, we select for all `create` events (`0`) on the `Player` collection we created above, so `Player.*.0`.
+
+```typescript
+import { Database } from '@textile/threads'
+import { fromEvent } from 'rxjs';
+
+function returnObservable(db: Database) {
+    return fromEvent(db.emitter, 'Player.*.0') // fromEvent returns an Observable
 }
 ```
 

@@ -11,11 +11,11 @@
     "@textile/hub": "*",
     "@textile/powergate-client": "*",
     "@textile/security": "*",
-    "@textile/threads-client": "*",
+    "@textile/threads": "*",
     "@textile/threads-core": "*",
-    "@textile/threads-database": "*",
     "@textile/threads-id": "*",
     "dotenv": "^8.2.0",
+    "rxjs": "^6.5.5",
     "typescript": "^3.7.2",
     "typescript-docs-verifier": "^1.1.2"
   }
