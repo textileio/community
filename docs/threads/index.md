@@ -32,7 +32,7 @@ The first three concepts a developer will encounter with ThreadDB are [Databases
 
 #### Creating a new database
 
-To start a new, empty database is simple. You can run the Database with remote networking using the Hub APIs. To do so, you initialize your database with the `UserAuth` object. You can read more about creating `UserAuth` objects in [the creating web apps tutorial](../tutorials/hub/web-app.md).
+To start a new, empty Database, with remote networking using the Hub APIs you simply initialize your database with the `UserAuth` object. You can read more about creating `UserAuth` objects in [the creating web apps tutorial](../tutorials/hub/web-app.md).
 
 Running the DB in this way will greatly improve performance, by pushing signed and encrypted updates to the always on service on the Hub for other trusted peers to find and pull.
 
