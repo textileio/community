@@ -227,9 +227,8 @@ async function createQuery (db: Database) {
 
 A Database also has an event emitter, and listeners can subscribe to events. For example, event _names_ are structured as `<collection>.<id>.<type>`, and they support 'wildcard' matching, so `db.emitter.many(['foo', '*', 2], callback)` will match all delete operations (`{ create: 0; save: 1, delete: 2 }`) on the 'foo' collection. Similarly, `db.emitter.on('foo.**', callback)` will match all event types on the 'foo' collection. To observe a given instance, try `db.emitter.on('foo.${instance._id}', callback)`. See [EventEmitter2](https://github.com/EventEmitter2/EventEmitter2) docs for further details. To illustrate, the following database manipulations could be observed via the following simple listener.
 
-
 ```typescript
-import { Database } from '@textile/threads-database'
+import { Database } from '@textile/threads'
 
 // Requires the started database we generated above containing the Player collection
 async function emitter (db: Database) {
@@ -249,6 +248,19 @@ async function emitter (db: Database) {
   beth.points = 2
   await Player.save(beth)
   await Player.delete(beth._id)
+}
+```
+
+#### Using the Database as an Observable
+
+If you are building with React, you may be interested in integrating database updates as an [Observable](), so that changes to your dataset can immediately change the UI (and other use-cases). Doing so is quite simple using the emitter described above. You can combine the emitter with a selector using the pattern `<collection>.<instance>.<type>`. In the example here, we select for all `create` events (`0`) on the `Player` collection we created above, so `Player.*.0`.
+
+```typescript
+import { Database } from '@textile/threads'
+import { fromEvent } from 'rxjs';
+
+function returnObservable(db: Database) {
+    return fromEvent(db.emitter, 'Player.*.0') // fromEvent returns an Observable
 }
 ```
 
