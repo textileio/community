@@ -71,8 +71,8 @@ import { Identity } from '@textile/threads-core'
 import { Database, UserAuth, ThreadID } from '@textile/threads'
 
 async function start (db: Database, identity: Identity) {
-  const randomID = ThreadID.fromRandom()
-  await db.start(identity, {threadID: randomID})
+  const threadID = ThreadID.fromRandom()
+  await db.start(identity, { threadID })
 }
 ```
 
