@@ -1503,8 +1503,7 @@
 <p class="admonition-title">Info</p>
 <p>A new <a href="https://github.com/ipfs/js-datastore-level">Level Datastore</a> is used as the backing store by default if no datastore is explicitly supplied.</p>
 </div>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">UserAuth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">UserAuth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
 
 <span class="nx">async</span> <span class="kd">function</span> <span class="nx">create</span> <span class="p">(</span><span class="nx">auth</span>: <span class="kt">UserAuth</span><span class="p">,</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">Database</span><span class="p">.</span><span class="nx">withUserAuth</span><span class="p">(</span><span class="nx">auth</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>
@@ -1527,8 +1526,7 @@ The above assumes you are running the database in insecure environments such as 
 -->
 
 <p>With your database created, you now need to <em>start</em> it. Starting a database requires the data owner's identity. In these examples, we'll use a <a href="../tutorials/hub/libp2p-identities/">random public-key infrastructure (PKI) based identity</a>, however, see <a href="#identity">Identity</a> for further details and links.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">UserAuth</span><span class="p">,</span> <span class="nx">ThreadID</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">,</span> <span class="nx">UserAuth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
 
 <span class="nx">async</span> <span class="kd">function</span> <span class="nx">start</span> <span class="p">(</span><span class="nx">db</span>: <span class="kt">Database</span><span class="p">,</span> <span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">threadID</span> <span class="o">=</span> <span class="nx">ThreadID</span><span class="p">.</span><span class="nx">fromRandom</span><span class="p">()</span>

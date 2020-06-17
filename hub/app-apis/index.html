@@ -1564,7 +1564,7 @@
 
 <p>With the ThreadDB instance ready to connect to the remote database, it is time to generate a user token. This allows us (the developer) to allocate user-scoped resources without our remote database. The app user (defined by their Identity created above) needs an API token to perform database operations. The API will give you one based on ID plus your developer credentials. The token will be added to the existing db.context. The token can also be stored/cached for future use by the same user identity (and then manually be added to a context later).</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">UserAuth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
 
 <span class="nx">async</span> <span class="kd">function</span> <span class="nx">start</span> <span class="p">(</span><span class="nx">auth</span>: <span class="kt">UserAuth</span><span class="p">)</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withUserAuth</span><span class="p">(</span><span class="nx">auth</span><span class="p">)</span>
