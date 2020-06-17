@@ -49,8 +49,6 @@ async function create (auth: UserAuth, name: string) {
 }
 ```
 
-
-
 <!--
 Depends on: https://github.com/textileio/js-threads/issues/293
 
