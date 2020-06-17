@@ -253,7 +253,7 @@ async function emitter (db: Database) {
 
 #### Using the Database as an Observable
 
-If you are building with React, you may be interested in integrating database updates as an [Observable](), so that changes to your dataset can immediately change the UI (and other use-cases). Doing so is quite simple using the emitter described above. You can combine the emitter with a selector using the pattern `<collection>.<instance>.<type>`. In the example here, we select for all `create` events (`0`) on the `Player` collection we created above, so `Player.*.0`.
+If you are building with React, you may be interested in integrating database updates as an [Observable](https://redux-observable.js.org/), so that changes to your dataset can immediately change the UI (and other use-cases). Doing so is quite simple using the emitter described above. You can combine the emitter with a selector using the pattern `<collection>.<instance>.<type>`. In the example here, we select for all `create` events (`0`) on the `Player` collection we created above, so `Player.*.0`.
 
 ```typescript
 import { Database } from '@textile/threads'
