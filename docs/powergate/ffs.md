@@ -31,7 +31,7 @@ Data stored in the Powergate Cold layer is stored by miners on the Filecoin netw
 
 #### Hot to Cold
 
-Data that is stored in the hot layer can be moved to cold storage in a couple different ways. The most common scenario is where data is stored initially with cold *disabled* and later a new `CidConfig` is pushed that *enables* cold storage. In this scenario, Powergate will resolve the file from the hot layer, create any newly required Filecoin deals to fulfil the cold storage settings. 
+Data that is stored in the hot layer can be moved to cold storage in a couple different ways. The most common scenario is where data is stored initially with cold *disabled* and later a new `CidConfig` is pushed that *enables* cold storage. In this scenario, Powergate will resolve the file from the hot layer, create any newly required Filecoin deals to fulfil. the cold storage settings.
 
 #### Cold to Hot
 
