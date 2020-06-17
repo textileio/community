@@ -40,8 +40,7 @@ Running the DB in this way will greatly improve performance, by pushing signed a
     A new [Level Datastore](https://github.com/ipfs/js-datastore-level) is used as the backing store by default if no datastore is explicitly supplied.
 
 ```typescript
-import { Identity } from '@textile/threads-core'
-import { Database, UserAuth } from '@textile/threads'
+import { Database, Identity, UserAuth } from '@textile/threads'
 
 async function create (auth: UserAuth, name: string) {
   const db = Database.withUserAuth(auth, name)
@@ -67,8 +66,7 @@ async function create (keys: KeyInfo, name: string) {
 With your database created, you now need to *start* it. Starting a database requires the data owner's identity. In these examples, we'll use a [random public-key infrastructure (PKI) based identity](../tutorials/hub/libp2p-identities.md), however, see [Identity](#identity) for further details and links.
 
 ```typescript
-import { Identity } from '@textile/threads-core'
-import { Database, UserAuth, ThreadID } from '@textile/threads'
+import { Database, Identity, ThreadID, UserAuth } from '@textile/threads'
 
 async function start (db: Database, identity: Identity) {
   const threadID = ThreadID.fromRandom()

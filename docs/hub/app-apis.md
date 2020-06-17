@@ -173,7 +173,7 @@ With the ThreadDB instance ready to connect to the remote database, it is time t
 
 ```typescript
 import { Client, UserAuth } from '@textile/hub'
-import { Identity } from '@textile/threads-core'
+import { Identity } from '@textile/threads'
 
 async function start (auth: UserAuth) {
   const client = Client.withUserAuth(auth)

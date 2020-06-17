@@ -106,7 +106,7 @@ nav:
       - Introduction: powergate/index.md
       - Devnet: powergate/devnet.md
       - Testnet: powergate/testnet.md
-      - Store Data: 
+      - Store Data:
           - Intro to FFS: powergate/ffs.md
           - Storage Configs: powergate/cidconfig.md
       - POW CLI:
