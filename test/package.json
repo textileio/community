@@ -16,7 +16,7 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "@textile/hub": "^0.1.5",
+    "@textile/hub": "*",
     "@textile/powergate-client": "*",
     "@textile/security": "*",
     "@textile/threads": "*",
