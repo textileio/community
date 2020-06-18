@@ -8,7 +8,7 @@
     "test:docs": "typescript-docs-verifier --input-files=`find ../docs -type f -name '**.md'`"
   },
   "devDependencies": {
-    "@textile/hub": "*",
+    "@textile/hub": "^0.1.5",
     "@textile/powergate-client": "*",
     "@textile/security": "*",
     "@textile/threads": "*",
@@ -16,7 +16,7 @@
     "@textile/threads-id": "*",
     "dotenv": "^8.2.0",
     "rxjs": "^6.5.5",
-    "typescript": "^3.7.2",
+    "typescript": "^3.9.5",
     "typescript-docs-verifier": "^1.1.2"
   }
 }

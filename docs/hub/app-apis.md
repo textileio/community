@@ -117,8 +117,8 @@ This should produce output similar to the following. Make note of these values, 
 Once you have the key information handy, let's jump to some code. We'll start with the required imports, and initialize a basic default `Context`.
 
 ```typescript
-import { Libp2pCryptoIdentity } from '@textile/threads-core'
 import { Client } from '@textile/hub'
+import { Libp2pCryptoIdentity } from '@textile/threads-core'
 import { config } from 'dotenv'
 
 // Load your .env into process.env
@@ -172,8 +172,7 @@ async function start (auth: UserAuth) {
 With the ThreadDB instance ready to connect to the remote database, it is time to generate a user token. This allows us (the developer) to allocate user-scoped resources without our remote database. The app user (defined by their Identity created above) needs an API token to perform database operations. The API will give you one based on ID plus your developer credentials. The token will be added to the existing db.context. The token can also be stored/cached for future use by the same user identity (and then manually be added to a context later).
 
 ```typescript
-import { Client, UserAuth } from '@textile/hub'
-import { Identity } from '@textile/threads'
+import { Client, Identity, UserAuth } from '@textile/hub'
 
 async function start (auth: UserAuth) {
   const client = Client.withUserAuth(auth)
@@ -261,7 +260,7 @@ You can search all your existing Buzz Aldrins pretty easily. You can also clean 
 
 ```typescript
 import { Client, ThreadID } from '@textile/hub'
-import { Where } from '@textile/threads-client'
+import { Where } from '@textile/threads'
 
 async function example (client: Client, threadId: ThreadID) {
    const q = new Where('firstName').eq('Buzz')
