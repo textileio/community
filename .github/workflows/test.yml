@@ -1,8 +1,7 @@
 name: Review
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    - cron:  '1 0 * * *'
   pull_request:
     branches:
       - master
