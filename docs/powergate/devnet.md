@@ -104,7 +104,7 @@ You can run the devnet to make use of the [Lotus Client](https://lotu.sh/)with a
 You can run devnet with the Docker image we maintain. Running the image is just a single line.
 
 ```bash
-docker run --name texdevnet -e TEXLOTUSDEVNET_SPEED=1500\
+docker run --name texdevnet -e TEXLOTUSDEVNET_SPEED=1500 \
 -e TEXLOTUSDEVNET_BIGSECTORS=true -p 1234:7777 \
 -v /tmp/import:/tmp/import textile/lotus-devnet
 ```
