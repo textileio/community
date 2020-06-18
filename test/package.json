@@ -5,7 +5,8 @@
   "main": "./",
   "license": "MIT",
   "scripts": {
-    "test:docs": "typescript-docs-verifier --input-files=`find ../docs -type f -name '**.md'`"
+    "test:docs": "typescript-docs-verifier --input-files=`find ../docs -type f -name '**.md'`",
+    "clean": "rimraf node_modules package-lock.json"
   },
   "devDependencies": {
     "@textile/hub": "^0.1.5",
@@ -17,6 +18,7 @@
     "dotenv": "^8.2.0",
     "rxjs": "^6.5.5",
     "typescript": "^3.9.5",
-    "typescript-docs-verifier": "^1.1.2"
+    "typescript-docs-verifier": "^1.1.2",
+    "rimraf": "^3.0.2"
   }
 }
