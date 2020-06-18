@@ -33,7 +33,7 @@ There are a few resources you'll need before you start running any nodes.
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop). In the examples below, you'll run node instances using local Docker containers. You can do the same with any Docker enabled system, but to get started we recommend Docker Desktop and the default configurations we provide.
 - [Powergate](https://github.com/textileio/powergate). If you run the devnet as part of the Powergate, you should get the latest version of the Powergate source code. 
-- - [Golang](https://golang.org/). Building the Powergate CLI from code requires that you can run commands with Go. Other sections of the tutorials below don't have any Go requirement.
+- [Golang](https://golang.org/). Building the Powergate CLI from code requires that you can run commands with Go. Other sections of the tutorials below don't have any Go requirement.
 
 ## Devnet with Powergate
 
@@ -97,7 +97,7 @@ You are now ready to start storing and retrieving data using the Powergate. Read
 
 ## Devnet with Lotus Client
 
-You can run the devnet to make use of the [Lotus Client](https://lotu.sh/)with all the benefits described in the introduction but no Powergate or IPFS components.
+You can run the devnet to make use of the [Lotus Client](https://lotu.sh/) with all the benefits described in the introduction but no Powergate or IPFS components.
 
 ### Run from Docker image
 
