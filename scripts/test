@@ -8,4 +8,4 @@ echo 'testing docs...'
 echo 'test typescript'
 # echo '{"name": "@textile/docs", "main": "./"}' > package.json
 (cd test/ && npm install)
-(cd test/ && npm run test:docs)
+(cd test/ && npm run test)
