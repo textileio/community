@@ -1453,7 +1453,7 @@ mined block in the past <span class="o">{</span><span class="s2">&quot;block-tim
 <p>You can run the devnet to make use of the <a href="https://lotu.sh/">Lotus Client</a>with all the benefits described in the introduction but no Powergate or IPFS components.</p>
 <h3 id="run-from-docker-image">Run from Docker image<a class="headerlink" href="#run-from-docker-image" title="Permanent link">&para;</a></h3>
 <p>You can run devnet with the Docker image we maintain. Running the image is just a single line.</p>
-<div class="highlight"><pre><span></span><code>docker run --name texdevnet -e <span class="nv">TEXLOTUSDEVNET_SPEED</span><span class="o">=</span><span class="m">1500</span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>docker run --name texdevnet -e <span class="nv">TEXLOTUSDEVNET_SPEED</span><span class="o">=</span><span class="m">1500</span> <span class="se">\</span>
 -e <span class="nv">TEXLOTUSDEVNET_BIGSECTORS</span><span class="o">=</span><span class="nb">true</span> -p <span class="m">1234</span>:7777 <span class="se">\</span>
 -v /tmp/import:/tmp/import textile/lotus-devnet
 </code></pre></div>
