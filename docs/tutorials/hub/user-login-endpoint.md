@@ -149,7 +149,7 @@ async function handleChallenge (identity: Libp2pCryptoIdentity, challenge: strin
   /** Send the signed challenge back to the server */
   const response = JSON.stringify({
     type: 'challenge',
-    sig: signed.toJSON()
+    sig: Buffer.from(signed).toJSON()
   })
   return response
 }

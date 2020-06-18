@@ -5,18 +5,24 @@
   "main": "./",
   "license": "MIT",
   "scripts": {
-    "test:docs": "typescript-docs-verifier --input-files=`find ../docs -type f -name '**.md'`"
+    "test:canary": "tsc -p ./",
+    "test:docs": "typescript-docs-verifier --input-files=`find ../docs -type f -name '**.md'`",
+    "test": "npm run test:canary && npm run test:docs",
+    "clean": "rimraf node_modules package-lock.json"
   },
   "devDependencies": {
-    "@textile/hub": "^0.1.5",
+    "typescript": "^3.9.5",
+    "typescript-docs-verifier": "^1.1.2",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "@textile/hub": "*",
     "@textile/powergate-client": "*",
     "@textile/security": "*",
     "@textile/threads": "*",
     "@textile/threads-core": "*",
     "@textile/threads-id": "*",
     "dotenv": "^8.2.0",
-    "rxjs": "^6.5.5",
-    "typescript": "^3.9.5",
-    "typescript-docs-verifier": "^1.1.2"
+    "rxjs": "^6.5.5"
   }
 }
