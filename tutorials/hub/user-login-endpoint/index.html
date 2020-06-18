@@ -1313,7 +1313,7 @@ USER_API_SECRET=&lt;insert user group secret&gt;
   <span class="cm">/** Send the signed challenge back to the server */</span>
   <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;challenge&#39;</span><span class="p">,</span>
-    <span class="nx">sig</span>: <span class="kt">signed.toJSON</span><span class="p">()</span>
+    <span class="nx">sig</span>: <span class="kt">Buffer.from</span><span class="p">(</span><span class="nx">signed</span><span class="p">).</span><span class="nx">toJSON</span><span class="p">()</span>
   <span class="p">})</span>
   <span class="k">return</span> <span class="nx">response</span>
 <span class="p">}</span>
