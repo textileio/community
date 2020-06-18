@@ -21,4 +21,4 @@ async function hubCanary (client: Client, threadId: ThreadID) {
    await client.delete(threadId, 'Astronauts', ids)
 }
 
-export default canary
+export default hubCanary
