@@ -41,6 +41,10 @@ jobs:
         run: |
           git remote rm origin
           git remote add origin "https://x-access-token:$GITHUB_TOKEN@github.com/textileio/docs.git"
+          git branch -D gh-pages
+          git checkout gh-pages
+          git pull --rebase
+          git checkout master
           ./scripts/deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
