@@ -40,7 +40,7 @@ You can create buckets to share with all members of an organization. To do so, s
 
 `hub bucket push`
 
-## Diffing and Synching
+### Diffing and Synching
 
 When a bucket is pushed to the remote, its [Merkle DAG](https://en.wikipedia.org/wiki/Merkle_tree) representation is saved locally as a reference of the latest pushed version. When you execute `hub buck status`, it compares the persisted Merkle DAG with a generated Merkle DAG of the Bucket local state. As we mentioned in the last section, walking both DAGs and comparing [CIDs](https://github.com/multiformats/cid) can quickly provide paths that changed to the last known version. In a nutshell, when a bucket is pushed, the persisted Merkle DAG contains the minimum amount of information about the directory structure and data fingerprints. [Read more about this process](https://blog.textile.io/buckets-diffing-syncing-archiving/).
 
