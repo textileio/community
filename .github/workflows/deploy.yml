@@ -37,3 +37,7 @@ jobs:
       - run: echo "ipns link - ${{ steps.bucket.outputs.ipnsUrl }}"
       - run: echo "hub - ${{ steps.bucket.outputs.hub }}"
       - run: echo "www - ${{ steps.bucket.outputs.www }}"
+      - name: pages
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
