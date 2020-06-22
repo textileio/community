@@ -151,12 +151,12 @@ If you are building an app using one of our [developer libraries](../hub/app-api
 <div class="txtl-options">
   <a href="https://textileio.github.io/js-hub" target="_blank" class="box">
     <h5>JS Hub Docs</h5>
-    <p>Persist user Buckets on IPFS from your JS app.</p>
+    <p>Persist user buckets on IPFS from your JS app.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://github.com/textileio/js-examples/tree/master/react-3box-threadsdb" target="_blank" class="box">
-    <h5>3Box example</h5>
-    <p>See how to use 3Box identities to own Threads and Buckets.</p>
+  <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app" target="_blank" class="box">
+    <h5>React Native example</h5>
+    <p>See how to create user buckets & threads in React Native.</p>
   </a>
   <span class="box-space"> </span>
   <span class="box-fill">
