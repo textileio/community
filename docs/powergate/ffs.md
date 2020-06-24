@@ -67,7 +67,7 @@ export POW_TOKEN=883f57b1-4e66-47f8-b291-7cf8b10f6370
 
 ### Make data available
 
-The FFS requires data you aim to store to be available over IPFS. If you are using the CLI, you can ensure that it is available by staging it on IPFS using `addToHot`. Note that `addToHot` does not store your data in the Powergate FFS. It is an optional step that caches your data to ensure it is available on IPFS before being stored in the Powergate FFS. This is technically equivalent to `ipfs add`, which is adding data without pinning it.
+The FFS requires data you aim to store to be available over IPFS. If you are using the CLI, you can ensure that it is available by staging it on IPFS using `addToHot`. Note that `addToHot` does not store your data in the Powergate FFS. It is an optional step that caches your data to ensure it is available on IPFS before being stored in the Powergate FFS. This is technically equivalent to `ipfs add --pin=false`, which is adding data without pinning it.
 
 ```bash
 pow ffs addToHot <path/filename>
