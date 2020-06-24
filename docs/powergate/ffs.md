@@ -136,7 +136,7 @@ Finally, you can verify that the file was stored on the network by making a requ
     ```
 
 !!!warning
-    If you ever interact directly with the IPFS node, do not ever manually modify the pinset. The Powergate requires full control over the pinset, since it is required when users specify `HotStorage.Enabled=true`. If you do things manually in the IPFS node related to the pinset, you could cause unexpected failures.
+    If you ever interact directly with the IPFS node, do not ever manually modify the pinset. The Powergate requires full control over the pinset, since it is required when users specify `HotStorage.Enabled=true`. Manually interacting with the IPFS node's pinset could lead to unexpected behavior in the Powergate.
 
 ## Miner selection
 
