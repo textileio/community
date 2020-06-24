@@ -2,28 +2,32 @@
 
 ## Installation
 
-To access and manage Hub resources, you need to install the Textile CLI. First, [download the Textile CLI binary](https://github.com/textileio/textile/releases/latest) for your platform from the latest releases.
+### Download
 
-### Download 
+To access and manage Hub resources, you need to install the Hub CLI. First, download the Hub CLI binary for your platform from the [latest releases](https://github.com/textileio/textile/releases/latest).
 
-![[Download the Textile CLI Latest Release](https://github.com/textileio/textile/releases/latest).](../images/hub-cli/hub_help.png)
+!!! info
+  
+    You'll see two binaries available for download on the Textile releases page, `hub` and `buck`. You can ignore the `buck` binary for now; It's used to interact with Buckets in a stand-alone manner, independent of Textile Hub. For our purposes here, `hub` provides all the functionality you'll need to interact with the Textile Hub and Buckets.
 
 ### Install
 
-![Open the contents of the downloaded archive and run the `install` script. This should install the `tt` tool on your computer. You can verify with `hub --help`.](../images/install/install.png)
+![Open the contents of the downloaded archive and run the `install` script. This should install the `hub` executable on your computer. You can verify with `hub --help`.](../images/install/install.png)
 
 #### Mac Installation
 
-On MacOS you will need to confirm that it is okay to run the `tt` binary before it will run successfully. You will see this warning:
+On MacOS you will need to confirm that it is okay to run the `hub` binary before it will run successfully. You will see this warning:
 
 ![Select 'Cancel'](../images/install/install_warn.png)
 
-![Go to 'System Settings' => 'General' where you will be able to click, 'Always Allow'](../images/install/install_allow.png)
+![Go to 'System Settings' => 'General' where you will be able to click, 'Allow Anyway'](../images/install/install_allow.png)
 
 
-![Run `hub --help` again and this time select, 'Open` when promted.](../images/install/install_confirm.png)
+![Run `hub --help` again and this time select, 'Open` when prompted.](../images/install/install_confirm.png)
 
 You will now be able to continue using the CLI without issue. When you update the binary, you may need to repeat the above steps. We will add developer signing to our MacOS binaries soon.
+
+![Successfully running `hub --help` to print out the command docs.](../images/hub-cli/hub_help.png)
 
 ## Account setup
 
