@@ -1,6 +1,6 @@
 # Buckets and Threads in Go
 
-You have access to the full suite of Textile APIs and technologies in Go. Including access to Hub-based persistence, thread client, local thread databases, bucket client, and more. Below, we'll walk you through the basic flow for creating new user identities and giving them access to your resources on the Hub. 
+You have access to the full suite of Textile APIs and technologies in Go. This includes access to Hub-based persistence, thread client, local thread databases, bucket client, and more. Below, we'll walk you through the basic flow for creating new user identities and giving them access to your resources on the Hub. 
 
 You can read more about Go support in the [Thread Client](https://godoc.org/github.com/textileio/go-threads/api/client), [Bucket Client](https://godoc.org/github.com/textileio/textile/api/buckets), and [Hub API](https://godoc.org/github.com/textileio/textile/api/hub/client) docs.
 
