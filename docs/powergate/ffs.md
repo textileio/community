@@ -65,9 +65,9 @@ The `--token` is used to scope the requests to the FFS instance we created. You 
 export POW_TOKEN=883f57b1-4e66-47f8-b291-7cf8b10f6370
 ```
 
-### Store new data
+### Make data available
 
-The FFS requires data you aim to store to be available over IPFS. If you are using the CLI, you can ensure that it is available by staging it on IPFS using `addToHot`. Note that `addToHot` does not store your data in the Powergate FFS. It simply caches your data in the IPFS node in preparation for being stored in the Powergate FFS in the following steps. This is technically equivalent to `ipfs add`, which is adding data without pinning it.
+The FFS requires data you aim to store to be available over IPFS. If you are using the CLI, you can ensure that it is available by staging it on IPFS using `addToHot`. Note that `addToHot` does not store your data in the Powergate FFS. It is an optional step that caches your data to ensure it is available on IPFS before being stored in the Powergate FFS. This is technically equivalent to `ipfs add`, which is adding data without pinning it.
 
 ```bash
 pow ffs addToHot <path/filename>
@@ -79,7 +79,10 @@ pow ffs addToHot <path/filename>
     Success! Added file to FFS hot storage with cid: <cid>
     ```
 
-### Push a CidConfig
+!!!info
+    If data exists on the IPFS network, you don't need to run `addToHot` as the Powergate will automatically fetch that data from remote peers.
+
+### Initiate storage
 
 How the Powergate manages each file stored in the FFS is defined by a _CidConfig_. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must push a new CidConfig for the CID we generated above. Learn more about the [CidConfig here](cidconfig.md).
 
@@ -131,6 +134,13 @@ Finally, you can verify that the file was stored on the network by making a requ
     ```Bash
     Success! Data written to myfile2
     ```
+
+!!!warning
+    If you ever interact directly with the IPFS node, do not ever manually modify the pinset. The Powergate requires full control over the pinset, since it is required when users specify `HotStorage.Enabled=true`. If you do things manually in the IPFS node related to the pinset, you could cause unexpected failures.
+
+## Miner selection
+
+Powergate has many internal components that are used to simplify the process of using Filecoin. One set of components are the Powergate's indexes, where it collects information about miners including, power, sector size, storage ask price, etc. With that information, the Powergate can create a reasonable ranking of miners, with the most promising ones to make deals with on top. When pushing data to cold storage, the FFS will use this information to automate finding miners and initiating deals. You can use the `CidConfig` to help direct the Powergate to miners that match your own qualifications.
 
 ## Learn more
 
