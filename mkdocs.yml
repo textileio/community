@@ -127,6 +127,7 @@ nav:
       - Build a Web App using Hub APIs: tutorials/hub/web-app.md
       - Host a Website in a Bucket: tutorials/static-websites.md
       - Create User Buckets & Threads in React Native: tutorials/react-native-buckets.md
+      - Getting started with Golang: tutorials/golang/getting-started.md
   - Examples:
       - ThreadDB:
           - Links:
