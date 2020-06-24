@@ -84,7 +84,7 @@ pow ffs addToHot <path/filename>
 
 ### Initiate storage
 
-How the Powergate manages each file stored in the FFS is defined by a _CidConfig_. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must push a new CidConfig for the CID we generated above. Learn more about the [CidConfig here](cidconfig.md).
+The Powergate manages each file stored in the FFS based on the setup defined in a _CidConfig_. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must push a new CidConfig for the CID we generated above. Learn more about the [CidConfig here](cidconfig.md).
 
 Every FFS instance has a default `CidConfig` that will be used for every new deal unless overridden.
 
