@@ -140,7 +140,7 @@ Finally, you can verify that the file was stored on the network by making a requ
 
 ## Miner selection
 
-Powergate has many internal components that are used to simplify the process of using Filecoin. One set of components are the Powergate's indexes, where it collects information about miners including, power, sector size, storage ask price, etc. With that information, the Powergate can create a reasonable ranking of miners, with the most promising ones to make deals with on top. When pushing data to cold storage, the FFS will use this information to automate finding miners and initiating deals. You can use the `CidConfig` to help direct the Powergate to miners that match your own qualifications.
+Powergate has many internal components that are used to simplify the process of using Filecoin. One set of components are the Powergate's indexes, where it collects information about miners including, power, sector size, storage ask price, etc. With that information, the Powergate can create a reasonable ranking of miners. Miners that are most promising for making deals will show up at the top. When pushing data to cold storage, the FFS will use this information to automate finding miners and initiating deals. You can use the `CidConfig` to help direct the Powergate to miners that match your particular requirements.
 
 ## Learn more
 
