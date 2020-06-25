@@ -12,7 +12,7 @@ To access and manage Hub resources, you need to install the Hub CLI. First, down
 
 ### Install
 
-![Open the contents of the downloaded archive and run the `install` script. This should install the `hub` executable on your computer. You can verify with `hub --help`.](../images/install/install.png)
+![Open the contents of the downloaded archive and run the `install` script. This should install the `hub` tool on your computer. You can verify with `hub --help`.](../images/install/install.png)
 
 #### Mac Installation
 
