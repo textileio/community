@@ -13,7 +13,7 @@
         <meta name="description" content="Textile makes it easy for you or your application to store and distribute data over the IPFS network.">
       
       
-        <link rel="canonical" href="https://docs.textile.io/tutorials/hub/user-login-endpoint/">
+        <link rel="canonical" href="https://docs.textile.io/tutorials/golang/getting-started/">
       
       
         <meta name="author" content="textile.io">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Create a login system for user public keys | Documentation | Textile</title>
+        <title>Getting started with Golang | Documentation | Textile</title>
       
     
     
@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#create-a-login-system-for-user-public-keys" tabindex="1" class="md-skip">
+      <a href="#buckets-and-threads-in-go" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              Create a login system for user public keys
+              Getting started with Golang
             </span>
           
         </div>
@@ -844,10 +844,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       Tutorials
@@ -865,7 +867,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../web-app/" title="Build a Web App using Hub APIs" target="" class="md-nav__link ">
+    <a href="../../hub/web-app/" title="Build a Web App using Hub APIs" target="" class="md-nav__link ">
       Build a Web App using Hub APIs
     </a>
   </li>
@@ -899,11 +901,77 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../golang/getting-started/" title="Getting started with Golang" target="" class="md-nav__link ">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Getting started with Golang
+      </label>
+    
+    <a href="./" title="Getting started with Golang" class="md-nav__link md-nav__link--active">
       Getting started with Golang
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-identity" title="Create a new Identity" class="md-nav__link">
+    Create a new Identity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hub-authentication" title="Hub authentication" class="md-nav__link">
+    Hub authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hub-user-authorization" title="Hub user authorization" class="md-nav__link">
+    Hub user authorization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-threads-with-the-client" title="Create threads with the client" class="md-nav__link">
+    Create threads with the client
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-bucket" title="Create a Bucket" class="md-nav__link">
+    Create a Bucket
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1089,62 +1157,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setup" title="Setup" class="md-nav__link">
-    Setup
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-variables" title="Environment variables" class="md-nav__link">
-    Environment variables
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-the-server" title="Create the server" class="md-nav__link">
-    Create the server
+  <a href="#create-a-new-identity" title="Create a new Identity" class="md-nav__link">
+    Create a new Identity
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#add-a-websocket-login-handler" title="Add a websocket login handler" class="md-nav__link">
-    Add a websocket login handler
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#server-notes" title="Server notes" class="md-nav__link">
-    Server notes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-client" title="Create a client" class="md-nav__link">
-    Create a client
+  <a href="#hub-authentication" title="Hub authentication" class="md-nav__link">
+    Hub authentication
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#github-example" title="GitHub Example" class="md-nav__link">
-    GitHub Example
+  <a href="#hub-user-authorization" title="Hub user authorization" class="md-nav__link">
+    Hub user authorization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-threads-with-the-client" title="Create threads with the client" class="md-nav__link">
+    Create threads with the client
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-bucket" title="Create a Bucket" class="md-nav__link">
+    Create a Bucket
   </a>
   
 </li>
@@ -1167,157 +1209,174 @@
               
                 
                 
-                  <a href="https://github.com/textileio/docs/edit/master/docs/tutorials/hub/user-login-endpoint.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/textileio/docs/edit/master/docs/tutorials/golang/getting-started.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="create-a-login-system-for-user-public-keys">Create a login system for user public keys<a class="headerlink" href="#create-a-login-system-for-user-public-keys" title="Permanent link">&para;</a></h1>
-<p>The login example shows you how to setup a simple server that will accept a user's public key, verify that they control the private key (via a challenge), and then grant the user access to the Hub APIs.</p>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<p>There are a few resources you'll need before you start writing code.</p>
-<ul>
-<li><a href="../../../hub/accounts/">An account</a>. This is your developer account on the Hub.</li>
-<li><a href="../../../hub/app-apis/">A user group key</a>. This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.</li>
-<li><a href="https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript">A new Typescript project</a>. We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.</li>
-<li>A server framework. The example below uses <a href="https://koajs.com/">KoaJS</a> but could just as easily be written for <a href="https://expressjs.com/">Express</a> or the basic Node server.</li>
-</ul>
-<p><strong>Install dependencies</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Textile libraries</span>
-npm install --save @textile/hub
+                <h1 id="buckets-and-threads-in-go">Buckets and Threads in Go<a class="headerlink" href="#buckets-and-threads-in-go" title="Permanent link">&para;</a></h1>
+<p>You have access to the full suite of Textile APIs and technologies in Go. This includes access to Hub-based persistence, thread client, local thread databases, bucket client, and more. Below, we'll walk you through the basic flow for creating new user identities and giving them access to your resources on the Hub. </p>
+<p>You can read more about Go support in the <a href="https://godoc.org/github.com/textileio/go-threads/api/client">Thread Client</a>, <a href="https://godoc.org/github.com/textileio/textile/api/buckets">Bucket Client</a>, and <a href="https://godoc.org/github.com/textileio/textile/api/hub/client">Hub API</a> docs.</p>
+<h2 id="create-a-new-identity">Create a new Identity<a class="headerlink" href="#create-a-new-identity" title="Permanent link">&para;</a></h2>
+<p>Many functions below require some form of PKI identity. You can use the Threads library to generate a basic one.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
 
-<span class="c1"># Other utilities use in example</span>
-npm install --save dotenv emittery isomorphic-ws
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="nx">crand</span> <span class="s">&quot;crypto/rand&quot;</span>
+    <span class="s">&quot;github.com/libp2p/go-libp2p-core/crypto&quot;</span>
+    <span class="s">&quot;github.com/textileio/go-threads/core/thread&quot;</span>
+<span class="p">)</span>
 
-<span class="c1"># Libraries specific to our server framework, koajs</span>
-npm install --save koa koa-router koa-logger koa-json koa-bodyparser koa-route koa-websocket
-</code></pre></div>
-
-<h3 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
-<p>We use a <code>.env</code> file in the root of our project repo. The values in the file will be pulled into the app each time it's run. This is where you'll add your Hub API key and secret. </p>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>The <code>.env</code> file should be added to your <code>.gitignore</code> so that your key and secret are never shared.</p>
-</div>
-<p>Contents of <code>.env</code>.</p>
-<div class="highlight"><pre><span></span><code>USER_API_KEY=&lt;insert user group key&gt;
-USER_API_SECRET=&lt;insert user group secret&gt;
-</code></pre></div>
-
-<h2 id="create-the-server">Create the server<a class="headerlink" href="#create-the-server" title="Permanent link">&para;</a></h2>
-<p>In our project setup, our main server is defined in <code>src/index.ts</code>. Unlike the <a href="../simple-credentials-endpoint/">simple credentials example</a>, our server needs to handle two-way communication with the client during identity verification. The flow is as follows:</p>
-<ul>
-<li>First, the <strong>client</strong> will make a request login.</li>
-<li>The <strong>server</strong> will initiate the request with the Hub and get back an identity challenge.</li>
-<li>The <strong>server</strong> will pass the challenge to the <strong>client</strong>.</li>
-<li>The <strong>client</strong> will confirm they own their private key by signing the challenge and passing it back to the <strong>server</strong></li>
-<li>The <strong>server</strong> which passes it on to the Hub. </li>
-<li>If successful, a token is generated for the user.</li>
-<li>If successful, the <strong>server* generates API credentials and passes credentials, token, and API key back to the **client</strong>.</li>
-<li>Now, the <strong>client</strong> can use the Hub APIs directly!</li>
-</ul>
-<p>It sounds complicated, but you'll see it happens very fast with only a few lines of code. In our example, we use <code>websockets</code> to enable the multi-step communication between the server and the client.</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/** Provides nodejs access to a global Websocket value, required by Hub API */</span>
-<span class="p">;(</span><span class="nx">global</span> <span class="nx">as</span> <span class="nx">any</span><span class="p">).</span><span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;isomorphic-ws&#39;</span><span class="p">)</span>
-<span class="kr">import</span> <span class="nx">koa</span> <span class="nx">from</span> <span class="s2">&quot;koa&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">Router</span> <span class="nx">from</span> <span class="s2">&quot;koa-router&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">logger</span> <span class="nx">from</span> <span class="s2">&quot;koa-logger&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">json</span> <span class="nx">from</span> <span class="s2">&quot;koa-json&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">bodyParser</span> <span class="nx">from</span> <span class="s2">&quot;koa-bodyparser&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">route</span> <span class="nx">from</span> <span class="s2">&quot;koa-route&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">websockify</span> <span class="nx">from</span> <span class="s2">&quot;koa-websocket&quot;</span><span class="p">;</span>
-
-<span class="kr">import</span> <span class="nx">Emittery</span> <span class="nx">from</span> <span class="s2">&quot;emittery&quot;</span><span class="p">;</span>
-<span class="kr">import</span> <span class="nx">dotenv</span> <span class="nx">from</span> <span class="s2">&quot;dotenv&quot;</span><span class="p">;</span>
-
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">UserAuth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;@textile/hub&quot;</span>
-
-<span class="cm">/** Read the values of .env into the environment */</span>
-<span class="nx">dotenv</span><span class="p">.</span><span class="nx">config</span><span class="p">();</span>
-
-<span class="cm">/** Port our server will run */</span>
-<span class="kr">const</span> <span class="nx">PORT</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
-
-<span class="cm">/** Init Koa with Websocket support */</span>
-<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">websockify</span><span class="p">(</span><span class="k">new</span> <span class="nx">koa</span><span class="p">());</span>
-
-<span class="cm">/** Middlewares */</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">json</span><span class="p">()</span> <span class="p">);</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">logger</span><span class="p">()</span> <span class="p">);</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">bodyParser</span><span class="p">()</span> <span class="p">);</span>
-
-<span class="cm">/**</span>
-<span class="cm"> * Add websocket login endpoint</span>
-<span class="cm"> */</span>
-
-<span class="cm">/** Start the server! */</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span> <span class="nx">PORT</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">&quot;Server started.&quot;</span> <span class="p">)</span> <span class="p">);</span>
-</code></pre></div>
-
-<h2 id="add-a-websocket-login-handler">Add a websocket login handler<a class="headerlink" href="#add-a-websocket-login-handler" title="Permanent link">&para;</a></h2>
-<p>Next, we'll add a websocket endpoint to our server. Note the <code>Add websocket login endpoint</code> location in the server code above. The primary step that the server needs to do is accept a pubkey and issue a new challenge back to the client. When successful, new API credentials can be handed to the client.</p>
-<p><a href="https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app/src/server">View the full code example in the repo</a>.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
-
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">pubkey</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-  <span class="cm">/**</span>
-<span class="cm">   * Init new Hub API Client with the user group API keys</span>
-<span class="cm">   */</span>
-  <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withKeyInfo</span><span class="p">({</span>
-    <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;USER_API_KEY&#39;</span><span class="p">,</span>
-    <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;USER_API_SECRET&#39;</span><span class="p">,</span>
-    <span class="nx">type</span>: <span class="kt">0</span><span class="p">,</span>
-  <span class="p">})</span>
-
-  <span class="cm">/** </span>
-<span class="cm">   * Request a token from the Hub based on the user public key */</span>
-  <span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">getTokenChallenge</span><span class="p">(</span>
-    <span class="nx">pubkey</span><span class="p">,</span>
-    <span class="cm">/** The callback passes the challenge back to the client */</span>
-    <span class="p">(</span><span class="nx">challenge</span>: <span class="kt">Buffer</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="c1">// Send the challenge back to the client and resolve(Buffer.from(sig))</span>
-      <span class="nx">resolve</span><span class="p">()</span>
-    <span class="p">})</span>
-  <span class="p">})</span>
+<span class="kd">func</span> <span class="nx">createIdentity</span><span class="p">()</span> <span class="p">(</span><span class="nx">thread</span><span class="p">.</span><span class="nx">Identity</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sk</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">GenerateEd25519Key</span><span class="p">(</span><span class="nx">crand</span><span class="p">.</span><span class="nx">Reader</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">thread</span><span class="p">.</span><span class="nx">NewLibp2pIdentity</span><span class="p">(</span><span class="nx">sk</span><span class="p">),</span> <span class="kc">nil</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Now when you refresh your locally running server you should have a websocket endpoint for client token creation.</p>
-<h3 id="server-notes">Server notes<a class="headerlink" href="#server-notes" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Now that the user is verified in your system, you can keep their public key without any security issues.</li>
-<li>However, you should never trust an API call only by the public key, the challenge step is critical.</li>
-<li>The token provided in the response should be considered a secret that only should be shared with a single user. It does not expire.</li>
-</ul>
-<h2 id="create-a-client">Create a client<a class="headerlink" href="#create-a-client" title="Permanent link">&para;</a></h2>
-<p>Back in the browser webapp, you can now make requests to your login endpoint using a websocket. A basic client needs to handle a challenge request from the server, where the challenge will be signed and returned over websocket.</p>
-<p><a href="https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app/src/client">View the full client example here</a>.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Libp2pCryptoIdentity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The <code>NewLibp2pIdentity</code> method returns a new <a href="https://godoc.org/github.com/textileio/go-threads/core/thread#Identity">thread.Identity</a>.</p>
+</div>
+<h2 id="hub-authentication">Hub authentication<a class="headerlink" href="#hub-authentication" title="Permanent link">&para;</a></h2>
+<p>Authentication on the Hub is done using your API keys and secrets, either Account Keys or User Group Keys depending on what kind of application you are building and which APIs you plan to use.</p>
+<p>Below is an example authentication function that will use your User Group Key to create a <code>context</code> that stores the correct session information to begin using the APIs. This function would need to be run before all functions below in order to generate the proper <code>context</code> object.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
 
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">handleChallenge</span> <span class="p">(</span><span class="nx">identity</span>: <span class="kt">Libp2pCryptoIdentity</span><span class="p">,</span> <span class="nx">challenge</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-  <span class="cm">/** Convert the challenge json to a Buffer */</span>
-  <span class="kr">const</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">challenge</span><span class="p">)</span>
-  <span class="cm">/** User our identity to sign the challenge */</span>
-  <span class="kr">const</span> <span class="nx">signed</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">identity</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">buf</span><span class="p">)</span>
-  <span class="cm">/** Send the signed challenge back to the server */</span>
-  <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;challenge&#39;</span><span class="p">,</span>
-    <span class="nx">sig</span>: <span class="kt">Buffer.from</span><span class="p">(</span><span class="nx">signed</span><span class="p">).</span><span class="nx">toJSON</span><span class="p">()</span>
-  <span class="p">})</span>
-  <span class="k">return</span> <span class="nx">response</span>
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;context&quot;</span>
+  <span class="s">&quot;time&quot;</span>
+    <span class="s">&quot;github.com/textileio/textile/api/common&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">authenticate</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">userGroupKey</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">userGroupSecret</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Add our user group key to the context</span>
+  <span class="nx">ctx</span> <span class="p">=</span> <span class="nx">common</span><span class="p">.</span><span class="nx">NewAPIKeyContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">userGroupKey</span><span class="p">)</span>
+  <span class="c1">// Add a signature using our user group secret</span>
+    <span class="kd">var</span> <span class="nx">err</span> <span class="kt">error</span>
+    <span class="nx">ctx</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">common</span><span class="p">.</span><span class="nx">CreateAPISigContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">().</span><span class="nx">Add</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Minute</span><span class="p">),</span> <span class="nx">userGroupSecret</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nx">ctx</span><span class="p">,</span> <span class="nx">err</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>By passing the user identity to the function above, your app can authenticate and verify the user in one step, granting them access to your Hub resources.</p>
-<h2 id="github-example">GitHub Example<a class="headerlink" href="#github-example" title="Permanent link">&para;</a></h2>
-<p>If you'd like to explore the example more, we've provided a fully working example on GitHub. The login endpoint is part of a more complete example, you can see it here.</p>
-<div class="txtl-options half">
-  <a href="https://github.com/textileio/js-examples/blob/master/hub-browser-auth-app/src/server/wss.ts" class="box">
-    <h5>Login API</h5>
-    <p>Source code for login and Hub credentials endpoint.</p>
-  </a>
-</div>
+<h2 id="hub-user-authorization">Hub user authorization<a class="headerlink" href="#hub-user-authorization" title="Permanent link">&para;</a></h2>
+<p>Next, you can provide access to your Hub APIs to your users by generating an API token for them. Tokens are based on your user's identity public keys and your <code>context</code> created above. You could use any keypair identity, but we'll use the simple <code>threads.Identity</code> type shown above.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
 
-<p><br /></p>
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;context&quot;</span>
+    <span class="s">&quot;github.com/textileio/go-threads/api/client&quot;</span>
+    <span class="s">&quot;github.com/textileio/go-threads/core/thread&quot;</span>
+    <span class="s">&quot;google.golang.org/grpc&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">HUB_API</span> <span class="p">=</span> <span class="s">&quot;api.textile.io:3447&quot;</span>
+<span class="kd">var</span> <span class="nx">HUB_HEADERS</span> <span class="p">=</span> <span class="p">[]</span><span class="nx">grpc</span><span class="p">.</span><span class="nx">DialOption</span><span class="p">{</span><span class="nx">grpc</span><span class="p">.</span><span class="nx">WithInsecure</span><span class="p">(),</span> <span class="nx">grpc</span><span class="p">.</span><span class="nx">WithPerRPCCredentials</span><span class="p">(</span><span class="nx">common</span><span class="p">.</span><span class="nx">Credentials</span><span class="p">{})}</span>
+
+<span class="kd">func</span> <span class="nx">authorizeUser</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">user</span> <span class="nx">thread</span><span class="p">.</span><span class="nx">Identity</span><span class="p">)</span> <span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Create an API Client</span>
+    <span class="nx">cli</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">HUB_API</span><span class="p">,</span> <span class="nx">HUB_HEADERS</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+    <span class="p">}</span>
+  <span class="c1">// Generate a new token for the user</span>
+  <span class="nx">tok</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">cli</span><span class="p">.</span><span class="nx">GetToken</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+    <span class="p">}</span>
+  <span class="c1">// // Add the token to the context</span>
+    <span class="nx">ctx</span> <span class="p">=</span> <span class="nx">thread</span><span class="p">.</span><span class="nx">NewTokenContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">tok</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">ctx</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="create-threads-with-the-client">Create threads with the client<a class="headerlink" href="#create-threads-with-the-client" title="Permanent link">&para;</a></h2>
+<p>The client allows you to create fully remote threads on the Hub. This is a good approach for cases where the application doesn't require fully offline modes.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;context&quot;</span>
+  <span class="s">&quot;time&quot;</span>
+    <span class="nx">crand</span> <span class="s">&quot;crypto/rand&quot;</span>
+    <span class="s">&quot;github.com/libp2p/go-libp2p-core/crypto&quot;</span>
+    <span class="s">&quot;github.com/textileio/go-threads/core/thread&quot;</span>
+    <span class="s">&quot;github.com/textileio/go-threads/common&quot;</span>
+    <span class="s">&quot;google.golang.org/grpc&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">HUB_API</span> <span class="p">=</span> <span class="s">&quot;api.textile.io:3447&quot;</span>
+<span class="kd">var</span> <span class="nx">HUB_HEADERS</span> <span class="p">=</span> <span class="p">[]</span><span class="nx">grpc</span><span class="p">.</span><span class="nx">DialOption</span><span class="p">{</span><span class="nx">grpc</span><span class="p">.</span><span class="nx">WithInsecure</span><span class="p">(),</span> <span class="nx">grpc</span><span class="p">.</span><span class="nx">WithPerRPCCredentials</span><span class="p">(</span><span class="nx">common</span><span class="p">.</span><span class="nx">Credentials</span><span class="p">{})}</span>
+
+<span class="kd">func</span> <span class="nx">createThreadDB</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+  <span class="c1">// Assign the name for the Thread</span>
+  <span class="nx">ctx</span> <span class="p">=</span> <span class="nx">common</span><span class="p">.</span><span class="nx">NewThreadNameContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>
+  <span class="c1">// Generate our client again</span>
+    <span class="nx">cli</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">HUB_API</span><span class="p">,</span> <span class="nx">HUB_HEADERS</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">err</span>
+  <span class="p">}</span>
+  <span class="c1">// Create the ID</span>
+    <span class="nx">dbID</span> <span class="o">:=</span> <span class="nx">thread</span><span class="p">.</span><span class="nx">NewIDV1</span><span class="p">(</span><span class="nx">thread</span><span class="p">.</span><span class="nx">Raw</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+  <span class="c1">// Create the database</span>
+    <span class="k">return</span> <span class="nx">cli</span><span class="p">.</span><span class="nx">NewDB</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">dbID</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="create-a-bucket">Create a Bucket<a class="headerlink" href="#create-a-bucket" title="Permanent link">&para;</a></h2>
+<p>Creating buckets in Go applications shares many of the same steps as creating threads. Because buckets are managed in a thread, you must first create a thread where you will then add a bucket. A single thread can store all of your user's buckets (and more).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;context&quot;</span>
+  <span class="s">&quot;time&quot;</span>
+    <span class="nx">crand</span> <span class="s">&quot;crypto/rand&quot;</span>
+    <span class="s">&quot;github.com/textileio/go-threads/core/thread&quot;</span>
+    <span class="s">&quot;github.com/textileio/go-threads/common&quot;</span>
+    <span class="nx">buckets</span> <span class="s">&quot;github.com/textileio/textile/api/buckets/client&quot;</span>
+    <span class="s">&quot;google.golang.org/grpc&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">HUB_API</span> <span class="p">=</span> <span class="s">&quot;api.textile.io:3447&quot;</span>
+<span class="kd">var</span> <span class="nx">HUB_HEADERS</span> <span class="p">=</span> <span class="p">[]</span><span class="nx">grpc</span><span class="p">.</span><span class="nx">DialOption</span><span class="p">{</span><span class="nx">grpc</span><span class="p">.</span><span class="nx">WithInsecure</span><span class="p">(),</span> <span class="nx">grpc</span><span class="p">.</span><span class="nx">WithPerRPCCredentials</span><span class="p">(</span><span class="nx">common</span><span class="p">.</span><span class="nx">Credentials</span><span class="p">{})}</span>
+
+<span class="kd">func</span> <span class="nx">createBucket</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+  <span class="c1">// Create a new threaddb for our buckets</span>
+  <span class="nx">ctx</span> <span class="p">=</span> <span class="nx">common</span><span class="p">.</span><span class="nx">NewThreadNameContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="s">&quot;my-buckets&quot;</span><span class="p">)</span>
+    <span class="nx">cli</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">HUB_API</span><span class="p">,</span> <span class="nx">HUB_HEADERS</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">err</span>
+    <span class="p">}</span>
+    <span class="nx">dbID</span> <span class="o">:=</span> <span class="nx">thread</span><span class="p">.</span><span class="nx">NewIDV1</span><span class="p">(</span><span class="nx">thread</span><span class="p">.</span><span class="nx">Raw</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+  <span class="nx">err</span> <span class="p">=</span> <span class="nx">cli</span><span class="p">.</span><span class="nx">NewDB</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">dbID</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">err</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Connect our Bucket client</span>
+    <span class="nx">bucket</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">HUB_API</span><span class="p">,</span> <span class="nx">HUB_HEADERS</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">err</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Initialize a new bucket in the db</span>
+    <span class="nx">ctx</span> <span class="p">=</span> <span class="nx">common</span><span class="p">.</span><span class="nx">NewThreadIDContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">dbID</span><span class="p">)</span>
+  <span class="nx">buck</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">bucket</span><span class="p">.</span><span class="nx">Init</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="s">&quot;images&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">err</span>
+    <span class="p">}</span>
+
+  <span class="c1">//Finally, push a file to the bucket.</span>
+    <span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="s">&quot;data/file1.jpg&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">err</span>
+    <span class="p">}</span>
+    <span class="k">defer</span> <span class="nx">file</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
+    <span class="nx">_</span><span class="p">,</span> <span class="nx">file1Root</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">PushPath</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">buck</span><span class="p">.</span><span class="nx">Root</span><span class="p">.</span><span class="nx">Key</span><span class="p">,</span> <span class="s">&quot;file1.jpg&quot;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nx">err</span>
+<span class="p">}</span>
+</code></pre></div>
                 
                   
                 
@@ -1334,6 +1393,27 @@ USER_API_SECRET=&lt;insert user group secret&gt;
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../react-native-buckets/" title="Create User Buckets & Threads in React Native" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Create User Buckets & Threads in React Native
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

@@ -739,15 +739,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#store-new-data" title="Store new data" class="md-nav__link">
-    Store new data
+  <a href="#make-data-available" title="Make data available" class="md-nav__link">
+    Make data available
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#push-a-cidconfig" title="Push a CidConfig" class="md-nav__link">
-    Push a CidConfig
+  <a href="#initiate-storage" title="Initiate storage" class="md-nav__link">
+    Initiate storage
   </a>
   
 </li>
@@ -761,6 +761,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#miner-selection" title="Miner selection" class="md-nav__link">
+    Miner selection
+  </a>
   
 </li>
       
@@ -1039,6 +1046,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/golang/getting-started/" title="Getting started with Golang" target="" class="md-nav__link ">
+      Getting started with Golang
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1297,15 +1316,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#store-new-data" title="Store new data" class="md-nav__link">
-    Store new data
+  <a href="#make-data-available" title="Make data available" class="md-nav__link">
+    Make data available
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#push-a-cidconfig" title="Push a CidConfig" class="md-nav__link">
-    Push a CidConfig
+  <a href="#initiate-storage" title="Initiate storage" class="md-nav__link">
+    Initiate storage
   </a>
   
 </li>
@@ -1319,6 +1338,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#miner-selection" title="Miner selection" class="md-nav__link">
+    Miner selection
+  </a>
   
 </li>
       
@@ -1392,8 +1418,8 @@
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">POW_TOKEN</span><span class="o">=</span>883f57b1-4e66-47f8-b291-7cf8b10f6370
 </code></pre></div>
 
-<h3 id="store-new-data">Store new data<a class="headerlink" href="#store-new-data" title="Permanent link">&para;</a></h3>
-<p>The FFS requires data you aim to store to be available over IPFS. If you are using the CLI, you can ensure that it is available by staging it on IPFS using <code>addToHot</code>. Note that <code>addToHot</code> does not store your data in the Powergate FFS. It simply caches your data in the IPFS node in preparation for being stored in the Powergate FFS in the following steps. This is technically equivalent to <code>ipfs add</code>, which is adding data without pinning it.</p>
+<h3 id="make-data-available">Make data available<a class="headerlink" href="#make-data-available" title="Permanent link">&para;</a></h3>
+<p>The FFS requires data you aim to store to be available over IPFS. If you are using the CLI, you can ensure that it is available by staging it on IPFS using <code>addToHot</code>. Note that <code>addToHot</code> does not store your data in the Powergate FFS. It is an optional step that caches your data to ensure it is available on IPFS before being stored in the Powergate FFS. This is technically equivalent to <code>ipfs add --pin=false</code>, which is adding data without pinning it.</p>
 <div class="highlight"><pre><span></span><code>pow ffs addToHot &lt;path/filename&gt;
 </code></pre></div>
 
@@ -1401,8 +1427,12 @@
 </code></pre></div>
 
 </details>
-<h3 id="push-a-cidconfig">Push a CidConfig<a class="headerlink" href="#push-a-cidconfig" title="Permanent link">&para;</a></h3>
-<p>How the Powergate manages each file stored in the FFS is defined by a <em>CidConfig</em>. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must push a new CidConfig for the CID we generated above. Learn more about the <a href="../cidconfig/">CidConfig here</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>If data exists on the IPFS network, you don't need to run <code>addToHot</code> as the Powergate will automatically fetch that data from remote peers.</p>
+</div>
+<h3 id="initiate-storage">Initiate storage<a class="headerlink" href="#initiate-storage" title="Permanent link">&para;</a></h3>
+<p>The Powergate manages each file stored in the FFS based on the setup defined in a <em>CidConfig</em>. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must push a new CidConfig for the CID we generated above. Learn more about the <a href="../cidconfig/">CidConfig here</a>.</p>
 <p>Every FFS instance has a default <code>CidConfig</code> that will be used for every new deal unless overridden.</p>
 <div class="highlight"><pre><span></span><code>pow ffs push --watch &lt;cid&gt;
 </code></pre></div>
@@ -1438,6 +1468,12 @@
 </code></pre></div>
 
 </details>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you ever interact directly with the IPFS node, do not ever manually modify the pinset. The Powergate requires full control over the pinset, since it is required when users specify <code>HotStorage.Enabled=true</code>. Manually interacting with the IPFS node's pinset could lead to unexpected behavior in the Powergate.</p>
+</div>
+<h2 id="miner-selection">Miner selection<a class="headerlink" href="#miner-selection" title="Permanent link">&para;</a></h2>
+<p>Powergate has many internal components that are used to simplify the process of using Filecoin. One set of components are the Powergate's indexes, where it collects information about miners including, power, sector size, storage ask price, etc. With that information, the Powergate can create a reasonable ranking of miners. Miners that are most promising for making deals will show up at the top. When pushing data to cold storage, the FFS will use this information to automate finding miners and initiating deals. You can use the <code>CidConfig</code> to help direct the Powergate to miners that match your particular requirements.</p>
 <h2 id="learn-more">Learn more<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
 <p>The FFS does a lot of work out of the box. If you'd like to learn more about the components, design, and capabilities of the FFS, we encourage you to read the <a href="https://github.com/textileio/powergate/blob/master/ffs/Design.md">FFS Design document</a>.</p>
                 
