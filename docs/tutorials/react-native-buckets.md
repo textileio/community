@@ -149,6 +149,9 @@ const buckets = Buckets.withKeyInfo({
 
 In the above, we reuse the Context we already created in our ThreadDB Client because it contains the token, API keys, etc.
 
+!!!info
+    If you have already created a connection using the the Threads `client`, you directly transfer that connection to Buckets with, `Buckets.fromClient(client)`.
+
 **List all Buckets**
 
 ```typescript

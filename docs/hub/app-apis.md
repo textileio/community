@@ -169,7 +169,7 @@ async function start (auth: UserAuth) {
 }
 ```
 
-With the ThreadDB instance ready to connect to the remote database, it is time to generate a user token. This allows us (the developer) to allocate user-scoped resources without our remote database. The app user (defined by their Identity created above) needs an API token to perform database operations. The API will give you one based on ID plus your developer credentials. The token will be added to the existing db.context. The token can also be stored/cached for future use by the same user identity (and then manually be added to a context later).
+With the ThreadDB instance ready to connect to the remote database, it is time to generate a user token. This allows us (the developer) to allocate user-scoped resources without our remote database. The app user (defined by their Identity created above) needs an API token to perform database operations. The API will give you one based on ID plus your developer credentials. The token will be added to the existing `client` session. The token can also be stored/cached for future use by the same user identity (and then manually be added to a context later).
 
 ```typescript
 import { Client, Identity, UserAuth } from '@textile/hub'
@@ -191,9 +191,8 @@ An app should create a minimal number of Threads per user to avoid creating unne
 ```typescript
 import { Client, ThreadID } from '@textile/hub'
 
-async function example (client: Client, threadId: ThreadID) {
-   const id = ThreadID.fromRandom()
-   await client.newDB(id) // Updates the context to include the thread id
+async function openDB (client: Client, threadId: ThreadID) {
+   await client.open(threadId) // Updates the context to include the thread id for all future calls
 }
 ```
 
