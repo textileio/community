@@ -1403,6 +1403,10 @@
 </code></pre></div>
 
 <p>In the above, we reuse the Context we already created in our ThreadDB Client because it contains the token, API keys, etc.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>If you have already created a connection using the the Threads <code>client</code>, you directly transfer that connection to Buckets with, <code>Buckets.fromClient(client)</code>.</p>
+</div>
 <p><strong>List all Buckets</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
