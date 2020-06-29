@@ -55,13 +55,13 @@ hub login
 
 ## Organizations
 
-The Hub allows you to create organizations easily. Organizations can be one or many collaborators. Members of an Org have management access to the [Buckets](../hub/buckets.md) and [App Keys](../hub/app-apis.md#app-keys) created while in an Org's directory.
+The Hub allows you to create organizations easily. Organizations can be one or many collaborators. Members of an Org have management access to the [Buckets](../buckets/index.md) and [App Keys](../hub/app-apis.md#app-keys) created while in an Org's directory.
 
 !!! info
   
     You can [create](../hub/cli/hub_orgs_create.md), [invite](../hub/cli/hub_orgs_invite.md), and [leave](../hub/cli/hub_orgs_leave.md) organizations easily. Read more about all Org methods on the [CLI docs](../hub/cli/hub_orgs.md).
 
-To learn more about sharing Buckets with an organization, read the intro on [Organization Buckets](../hub/buckets.md#organization-buckets).
+To learn more about sharing Buckets with an organization, read the intro on [Organization Buckets](../buckets/index.md#organization-buckets).
 
 ### Enterprise users
 

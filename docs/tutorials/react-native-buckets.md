@@ -157,24 +157,23 @@ In the above, we reuse the Context we already created in our ThreadDB Client bec
 ```typescript
 import { Buckets } from '@textile/hub'
 
-async function example (buckets: Buckets) {
+async function find (buckets: Buckets) {
   const roots = await buckets.list();
-  const existing = roots.find((bucket) => bucket.name === 'files')
+  const exists = roots.find((bucket) => bucket.name === 'buckets')
+  return exists
+}
+```
 
-  /**
-   * Here, we list all the user's Buckets and determine if one
-   * exists called `files`. If it exists, we'll use its _key_
-   * if not, we'll create a new Bucket and key.
-   */
+**Open a Bucket**
 
-  let bucketKey = ''
-  if (existing) {
-    bucketKey = existing.key;
-  } else {
-    const created = await buckets.init('files');
-    bucketKey = created.root ? created.root.key : '';
-  }
-  return bucketKey
+By far the easiest way to start pushing/pulling bucket files is to use the `open` method with just the bucket name you intend to use.
+
+```typescript
+import { Buckets } from '@textile/hub'
+
+async function find (buckets: Buckets, name: string) {
+  const root = await buckets.open(name)
+  return root // root.key is the bucket key
 }
 ```
 

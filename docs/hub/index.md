@@ -2,7 +2,7 @@
 hero_img: ../images/cloud-hero.png
 ---
 
-The Hub is a portal where teams and individual developers can access IPFS and *soon* Filecoin resources easily. The Hub makes it simple to manage and update [Buckets](../hub/buckets.md) on IPFS, persist data for your users on IPFS, deploy and scale [Threads databases](../threads/index.md) for your app users, and collaborate on all of it with your team!
+The Hub is a portal where teams and individual developers can access IPFS and *soon* Filecoin resources easily. The Hub makes it simple to manage and update [Buckets](../buckets/index.md) on IPFS, persist data for your users on IPFS, deploy and scale [Threads databases](../threads/index.md) for your app users, and collaborate on all of it with your team!
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ The Hub is API driven and available through the command-line tool and developer 
 Once you have your Hub account, you can start using the Hub to host your data on the IPFS network. IPFS hosting is offered using a Textile technology called, Buckets. Buckets offer you dynamic, folder-based, directories that you can use to persist data on IPFS. They are editable, sharable, and come with free URLs. 
 
 <div class="txtl-options half">
-  <a href="../hub/buckets" class="box">
+  <a href="../buckets/" class="box">
     <h5>Buckets</h5>
     <p>Learn how to create, manage, share, and publish data on IPFS.</p>
   </a>
