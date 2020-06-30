@@ -2,7 +2,7 @@
 {% if nav_item.active %}
   {% set class = "md-nav__item md-nav__item--active" %}
 {% endif %}
-{% if nav_item.children and nav_item.title != "Links" %}
+{% if nav_item.children and nav_item.title != "Externals" %}
   <li class="{{ class }} md-nav__item--nested">
     {% if nav_item.active %}
       <input class="md-toggle md-nav__toggle" data-md-toggle="{{ path }}" type="checkbox" id="{{ path }}" checked>
@@ -45,8 +45,8 @@
       {% include "partials/toc.html" %}
     {% endif %}
   </li>
-{% elif nav_item.title == "Links" %}
-  <!-- Added the Links filter so we could do target=_blank for a bit better ux -->
+{% elif nav_item.title == "Externals" %}
+  <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
   {% set base = path %}
   {% set target = "_blank" %}
   {% for nav_item in nav_item.children %}

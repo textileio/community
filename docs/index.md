@@ -18,7 +18,7 @@ The Hub is a portal to the IPFS network. Use Textile's managed services to persi
     <p>Learn more about using the Textile Hub.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./hub/buckets" class="box">
+  <a href="./buckets/" class="box">
     <h5>Buckets</h5>
     <p>Persist your data on remote IPFS peers.</p>
   </a>

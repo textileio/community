@@ -42,6 +42,7 @@ plugins:
   - redirects:
       redirect_maps:
         "hub/introduction.md": "hub/index.md"
+        "hub/buckets.md": "buckets/index.md"
         "threads/introduction.md": "threads/index.md"
         "powergate/introduction.md": "powergate/index.md"
 
@@ -83,7 +84,6 @@ nav:
   - The Hub:
       - Introduction: hub/index.md
       - Accounts: hub/accounts.md
-      - Buckets: hub/buckets.md
       - App APIs: hub/app-apis.md
       - Hub CLI:
           - Overview: hub/cli/hub.md
@@ -94,15 +94,31 @@ nav:
           - Bucket: hub/cli/hub_buck.md
           - Threads: hub/cli/hub_threads.md
           - API Keys: hub/cli/hub_keys.md
-      - Links:
+      - Externals:
           - JavaScript: https://textileio.github.io/js-hub/docs/
+  - Buckets:
+      - Introduction: buckets/index.md
+      - Buckets CLI: 
+          - Overview: hub/cli/hub_buck.md
+          - Add: hub/cli/hub_buck_add.md
+          - Archive: hub/cli/hub_buck_archive.md
+          - Cat: hub/cli/hub_buck_cat.md
+          - Destroy: hub/cli/hub_buck_destroy.md
+          - Init: hub/cli/hub_buck_init.md
+          - Links: hub/cli/hub_buck_links.md
+          - Ls: hub/cli/hub_buck_ls.md
+          - Pull: hub/cli/hub_buck_pull.md
+          - Push: hub/cli/hub_buck_push.md
+          - Root: hub/cli/hub_buck_root.md
+          - Status: hub/cli/hub_buck_status.md
+      - JavaScript: https://textileio.github.io/js-hub/docs/hub.buckets
   - ThreadDB:
       - Introduction: threads/index.md
-      - Links:
+      - Externals:
           - Golang: https://godoc.org/github.com/textileio/go-threads/api/client
           - JavaScript Client: https://textileio.github.io/js-hub/docs/hub.client
           - JavaScript Database: https://textileio.github.io/js-threads/modules/_textile_threads_database.html
-  - Filecoin Powergate:
+  - Powergate:
       - Introduction: powergate/index.md
       - Devnet: powergate/devnet.md
       - Testnet: powergate/testnet.md
@@ -120,7 +136,7 @@ nav:
           - Reputation: powergate/cli/pow_reputation.md
           - Wallet: powergate/cli/pow_wallet.md
           - Health: powergate/cli/pow_health.md
-      - Links:
+      - Externals:
           - JavaScript: https://textileio.github.io/js-powergate-client/
           - Golang: https://godoc.org/github.com/textileio/powergate/api/client
   - Tutorials:
@@ -130,13 +146,13 @@ nav:
       - Getting started with Golang: tutorials/golang/getting-started.md
   - Examples:
       - ThreadDB:
-          - Links:
+          - Externals:
               - Threads from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app
               - Chat App (Golang): https://github.com/textileio/go-threads/blob/master/examples/chat/main.go
               - Event Store (Golang): https://github.com/textileio/go-threads/tree/master/examples/local_eventstore
               - P2P Counter (Golang): https://github.com/textileio/go-threads/tree/master/examples/e2e_counter
       - Buckets:
-          - Links:
+          - Externals:
               - Buckets from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app
 
 # Customization
