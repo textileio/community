@@ -72,6 +72,9 @@ cd powergate
 make build
 ```
 
+!!!info
+    To compile from source, verify you have Go 1.14 or newer installed. All `make` commands install binaries in `$GOPATH/bin`, which usually is in `$PATH`, so you can run them right away from any folder in your terminal.
+
 **Using the CLI**
 
 Powergate CLI commands are just `pow`.
