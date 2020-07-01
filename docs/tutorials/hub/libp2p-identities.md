@@ -86,4 +86,48 @@ async function sign (identity: Libp2pCryptoIdentity) {
 }
 ```
 
+## Combining with 3Box
+
+One trick with the above workflow is that you need to help your users store and recover their private keys. You could do this with your own user model stored over an API. Alternatively, you can use a decentralized identity provider such as 3Box. There is a simple way to merge the approach above with 3Box.
+
+!!!info
+    As of writing this, 3Box doesn't have Typescript typings available.
+
+We can replace our `getIdentity` function above, that used simple `localStorage`, with one that uses [3Box](https://3box.io/) and [Metamask](https://metamask.io/) to allow the user to hang on to their private key. 
+
+```javascript
+const Box = require("3box");
+
+getIdentity = async (): Promise<Libp2pCryptoIdentity> => {
+  /**
+   * Initialize the 3Box API uses Metamask
+   * This will allow the user to sign their transactions
+   * Using Metamask and 3Box directly
+   */
+  const box = await Box.create((window as any).ethereum)
+  const [address] = await (window as any).ethereum.enable()
+  await box.auth([], { address });
+  // Note: sometimes, openSpace returns early... caution
+  const space = await box.openSpace('io-textile-dropzone');
+  await box.syncDone;
+  try {
+    // We'll try to restore the private key if it's available
+    var storedIdent = await space.private.get('identity');
+    if (storedIdent === null) {
+      throw new Error('No identity')
+    }
+    const identity = await Libp2pCryptoIdentity.fromString(storedIdent)
+    return identity
+  } catch (e) {
+    /**
+     * If the stored identity wasn't found, create a new one.
+     */
+    const identity = await Libp2pCryptoIdentity.fromRandom()
+    const identityString = identity.toString()
+    await space.private.set('identity', identityString);
+    return identity
+  }
+}
+```
+
 <br />

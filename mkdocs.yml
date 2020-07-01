@@ -98,7 +98,7 @@ nav:
           - JavaScript: https://textileio.github.io/js-hub/docs/
   - Buckets:
       - Introduction: buckets/index.md
-      - Buckets CLI: 
+      - Buckets CLI:
           - Overview: hub/cli/hub_buck.md
           - Add: hub/cli/hub_buck_add.md
           - Archive: hub/cli/hub_buck_archive.md
