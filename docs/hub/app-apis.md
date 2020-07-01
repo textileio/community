@@ -37,7 +37,7 @@ To create a new _user group key_ using `hub key create` and selecting the `user 
 
 You can replace your keys in your app at any time and the user will still have access to their Threads and Buckets as long as the key is connected to the same developer or organization. If you fully delete your account or organization, data replicated on IPFS through the _user group key_ will **also be removed**. So if you remove your account, we highly encourage you to replicate the data on an external IPFS node, provide tools for your users to export or replicate their own account data, or host external Thread Services to migrate your user Thread replication to.
 
-Also see Identity section and how to use identity providers such as 3Box with user group keys.
+Also see [Identity tutorial](../tutorials/hub/libp2p-identities.md) and how to use identity providers such as 3Box with user group keys.
 
 _[See CLI commands](../hub/cli/hub_keys.md)_
 
