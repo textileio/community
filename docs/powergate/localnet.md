@@ -1,4 +1,4 @@
-# Filecoin Local Localnet
+# Filecoin Localnet
 
 Having a fully synced [Lotus](https://lotu.sh/) node can take a considerable amount of time and effort to maintain. The required effort is normal on live blockchain networks, but isn't ideal in some scenarios. Scenarios such as application development, testing, and continuous integration can be enhanced by having access to Lotus nodes and APIs that don't require connection to the live network. For those cases, we have built the `localnet`.
 
