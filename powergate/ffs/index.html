@@ -795,8 +795,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../devnet/" title="Devnet" target="" class="md-nav__link ">
-      Devnet
+    <a href="../localnet/" title="Localnet" target="" class="md-nav__link ">
+      Localnet
     </a>
   </li>
 
@@ -1599,7 +1599,7 @@
 <h3 id="hot-storage-layer">Hot storage layer<a class="headerlink" href="#hot-storage-layer" title="Permanent link">&para;</a></h3>
 <p>Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). The default <code>CidConfig</code> enables both hot for all new data stored. Data stored with hot enabled is pinned to the Powergate's IPFS node. </p>
 <h3 id="cold-storage-layer">Cold storage layer<a class="headerlink" href="#cold-storage-layer" title="Permanent link">&para;</a></h3>
-<p>Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (devnet or testnet). You can use the <a href="../cidconfig/">CidConfig</a> to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default <code>CidConfig</code> enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.</p>
+<p>Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (localnet or testnet). You can use the <a href="../cidconfig/">CidConfig</a> to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default <code>CidConfig</code> enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.</p>
 <h3 id="moving-between-tiers">Moving between tiers<a class="headerlink" href="#moving-between-tiers" title="Permanent link">&para;</a></h3>
 <h4 id="hot-to-cold">Hot to Cold<a class="headerlink" href="#hot-to-cold" title="Permanent link">&para;</a></h4>
 <p>Data that is stored in the hot layer can be moved to cold storage in a couple different ways. The most common scenario is where data is stored initially with cold <em>disabled</em> and later a new <code>CidConfig</code> is pushed that <em>enables</em> cold storage. In this scenario, Powergate will resolve the file from the hot layer, create any newly required Filecoin deals to fulfill. the cold storage settings.</p>
