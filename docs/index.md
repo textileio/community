@@ -81,9 +81,9 @@ The Powergate is just warming up! The Powergate is an API driven solution to dep
     <p>Multitiered file storage API built on Filecoin and IPFS.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./powergate/devnet" class="box">
-    <h5>Spin-up the Devnet</h5>
-    <p>You can test, explore, and build on all the Filecoin APIs today with Devnet</p>
+  <a href="./powergate/localnet" class="box">
+    <h5>Spin-up the Localnet</h5>
+    <p>You can test, explore, and build on all the Filecoin APIs today with Localnet</p>
   </a>
   <span class="box-space"> </span>
   <a href="https://textileio.github.io/js-powergate-client/" class="box" target="_blank">

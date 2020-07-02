@@ -47,8 +47,8 @@ Some benefits of using the Powergate include:
     <p>A command-line interface to work directly with a running Powergate.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./devnet" class="box">
-    <h5>Filecoin Local Devnet</h5>
+  <a href="./localnet" class="box">
+    <h5>Filecoin Local Localnet</h5>
     <p>A fast development node for working with Filecoin APIs.</p>
   </a>
   <span class="box-space"> </span>
@@ -126,11 +126,11 @@ The Powergate comes packed with a number of additional tools that will be useful
 
 ### Running the Powergate
 
-You can run the Powergate on the Filecoin testnet or using an embedded devnet we make available as part of the Powergate stack. We recommend starting out with the devnet as you'll get access to the full set of APIs and capabilities without having to start syncing the network right away. When ready, you can update your Powergate to connect to the live _testnet_ and in the future _mainnet_.
+You can run the Powergate on the Filecoin testnet or using an embedded localnet we make available as part of the Powergate stack. We recommend starting out with the localnet as you'll get access to the full set of APIs and capabilities without having to start syncing the network right away. When ready, you can update your Powergate to connect to the live _testnet_ and in the future _mainnet_.
 
-#### Devnet
+#### Localnet
 
-The devnet provides a fast, fully functional, embedded Filecoin network that can be used for testing, building, or running continuous integratin. Read more about [running the Powergate on devnet or running the devnet to use the Lotus client directly](devnet.md).
+The localnet provides a fast, fully functional, embedded Filecoin network that can be used for testing, building, or running continuous integratin. Read more about [running the Powergate on localnet or running the localnet to use the Lotus client directly](localnet.md).
 
 #### Testnet
 

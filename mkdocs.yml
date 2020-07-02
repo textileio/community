@@ -45,6 +45,7 @@ plugins:
         "hub/buckets.md": "buckets/index.md"
         "threads/introduction.md": "threads/index.md"
         "powergate/introduction.md": "powergate/index.md"
+        "powergate/devnet.md": "powergate/localnet.md"
 
         # Extensions
 markdown_extensions:
@@ -120,7 +121,7 @@ nav:
           - JavaScript Database: https://textileio.github.io/js-threads/modules/_textile_threads_database.html
   - Powergate:
       - Introduction: powergate/index.md
-      - Devnet: powergate/devnet.md
+      - Localnet: powergate/localnet.md
       - Testnet: powergate/testnet.md
       - Store Data:
           - Intro to FFS: powergate/ffs.md
