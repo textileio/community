@@ -25,7 +25,7 @@ Data stored in the Powergate hot layer is available to the IPFS network (or priv
 
 ### Cold storage layer
 
-Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (devnet or testnet). You can use the [CidConfig](cidconfig.md) to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default `CidConfig` enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.
+Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (localnet or testnet). You can use the [CidConfig](cidconfig.md) to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default `CidConfig` enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.
 
 ### Moving between tiers
 

@@ -50,7 +50,7 @@ When complete, you will have a fully functional Powergate (`powd`), a Lotus node
 
 ### Create a deal and store a file
 
-Now that your Powergate is running on testnet, all the CLI and API commands are the same as if you had run it on devnet before.
+Now that your Powergate is running on testnet, all the CLI and API commands are the same as if you had run it on localnet before.
 
 #### Install the CLI
 
