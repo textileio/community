@@ -106,8 +106,7 @@ async function example (pubkey: string) {
    */
   const client = await Client.withKeyInfo({
     key: 'USER_API_KEY',
-    secret: 'USER_API_SECRET',
-    type: 0,
+    secret: 'USER_API_SECRET'
   })
 
   /** 

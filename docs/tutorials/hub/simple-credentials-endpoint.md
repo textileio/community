@@ -172,14 +172,12 @@ const createCredentials = async (): Promise<UserAuth> => {
 }
 
 /** Use the simple auth REST endpoint to get API access */
-let auth = await createCredentials()
-
 
 console.log('Verified on Textile API')
 displayStatus();
 
 /** The simple auth endpoint generates a user's Hub API Token */
-const client = Client.withUserAuth(auth, API)
+const client = Client.withUserAuth(createCredentials)
 
 /** See identity tutorial */
 const token = await client.getToken(identity)
