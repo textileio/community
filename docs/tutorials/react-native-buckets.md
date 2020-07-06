@@ -97,8 +97,7 @@ import { Client } from '@textile/hub'
 
 const client = Client.withKeyInfo({
   key: 'USER_API_KEY',
-  secret: 'USER_API_SECRET',
-  type: 1,
+  secret: 'USER_API_SECRET'
 })
 ```
 
@@ -142,8 +141,7 @@ import { Buckets } from '@textile/hub'
 
 const buckets = Buckets.withKeyInfo({
     key: 'USER_API_KEY',
-    secret: 'USER_API_SECRET',
-    type: 1,
+    secret: 'USER_API_SECRET'
   })
 ```
 

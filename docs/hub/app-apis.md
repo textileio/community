@@ -142,7 +142,7 @@ async function example () {
 }
 ```
 
-The next step is to authenticate the user with your _user group key_ and Secret. This will allow the user to store threads and buckets using your developer resources on the Hub.
+The next step is to authenticate the user with your _user group key_ and Secret. This will allow the user to store threads and buckets using your developer resources on the Hub. If you are running in development mode and created a key that doesn't require signing, you can set the key to an empty string, `''`.
 
 ```typescript
 import { Client, KeyInfo } from '@textile/hub'
@@ -150,8 +150,7 @@ import { Client, KeyInfo } from '@textile/hub'
 async function start () {
   const keyInfo: KeyInfo = {
     key: '<api key>',
-    secret: '<api secret>',
-    type: 1,
+    secret: '<api secret>'
   }
   const client = await Client.withKeyInfo(keyInfo)
 }
@@ -174,8 +173,8 @@ With the ThreadDB instance ready to connect to the remote database, it is time t
 ```typescript
 import { Client, Identity, UserAuth } from '@textile/hub'
 
-async function start (auth: UserAuth) {
-  const client = Client.withUserAuth(auth)
+async function startWithCallback (callback: () => Promise<UserAuth>) {
+  const client = Client.withUserAuth(callback)
   return client
 }
 async function setToken(client: Client, identity: Identity) {

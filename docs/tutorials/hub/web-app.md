@@ -76,8 +76,8 @@ Now, you just need to use `auth` object above to connect to the API.
 ```typescript
 import {Client, UserAuth} from '@textile/hub';
 
-async function example (auth: UserAuth) {
-  const client = Client.withUserAuth(auth)
+async function example (callback: () => Promise<UserAuth>) {
+  const client = Client.withUserAuth(callback)
 
   /** Query for all the user's existing threads (none to start) */
   const threads = await client.listThreads()
