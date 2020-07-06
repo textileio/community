@@ -1732,14 +1732,13 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>The next step is to authenticate the user with your <em>user group key</em> and Secret. This will allow the user to store threads and buckets using your developer resources on the Hub.</p>
+<p>The next step is to authenticate the user with your <em>user group key</em> and Secret. This will allow the user to store threads and buckets using your developer resources on the Hub. If you are running in development mode and created a key that doesn't require signing, you can set the key to an empty string, <code>''</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">KeyInfo</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
 <span class="nx">async</span> <span class="kd">function</span> <span class="nx">start</span> <span class="p">()</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">keyInfo</span>: <span class="kt">KeyInfo</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;&lt;api key&gt;&#39;</span><span class="p">,</span>
-    <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;&lt;api secret&gt;&#39;</span><span class="p">,</span>
-    <span class="nx">type</span>: <span class="kt">1</span><span class="p">,</span>
+    <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;&lt;api secret&gt;&#39;</span>
   <span class="p">}</span>
   <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withKeyInfo</span><span class="p">(</span><span class="nx">keyInfo</span><span class="p">)</span>
 <span class="p">}</span>
@@ -1757,8 +1756,8 @@
 <p>With the ThreadDB instance ready to connect to the remote database, it is time to generate a user token. This allows us (the developer) to allocate user-scoped resources without our remote database. The app user (defined by their Identity created above) needs an API token to perform database operations. The API will give you one based on ID plus your developer credentials. The token will be added to the existing <code>client</code> session. The token can also be stored/cached for future use by the same user identity (and then manually be added to a context later).</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">UserAuth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">start</span> <span class="p">(</span><span class="nx">auth</span>: <span class="kt">UserAuth</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withUserAuth</span><span class="p">(</span><span class="nx">auth</span><span class="p">)</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">startWithCallback</span> <span class="p">(</span><span class="nx">callback</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">UserAuth</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withUserAuth</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>
   <span class="k">return</span> <span class="nx">client</span>
 <span class="p">}</span>
 <span class="nx">async</span> <span class="kd">function</span> <span class="nx">setToken</span><span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="p">{</span>

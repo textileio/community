@@ -1557,8 +1557,8 @@ npm install --save @textile/hub
 <p>Now, you just need to use <code>auth</code> object above to connect to the API.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">UserAuth</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span><span class="p">;</span>
 
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">auth</span>: <span class="kt">UserAuth</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withUserAuth</span><span class="p">(</span><span class="nx">auth</span><span class="p">)</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">callback</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">UserAuth</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withUserAuth</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>
 
   <span class="cm">/** Query for all the user&#39;s existing threads (none to start) */</span>
   <span class="kr">const</span> <span class="nx">threads</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">listThreads</span><span class="p">()</span>
