@@ -46,6 +46,7 @@ plugins:
         "threads/introduction.md": "threads/index.md"
         "powergate/introduction.md": "powergate/index.md"
         "powergate/devnet.md": "powergate/localnet.md"
+        "tutorials/hub/user-login-endpoint.md": "tutorials/hub/production-auth.md"
 
         # Extensions
 markdown_extensions:
@@ -141,9 +142,14 @@ nav:
           - JavaScript: https://textileio.github.io/js-powergate-client/
           - Golang: https://godoc.org/github.com/textileio/powergate/api/client
   - Tutorials:
-      - Build a Web App using Hub APIs: tutorials/hub/web-app.md
-      - Host a Website in a Bucket: tutorials/static-websites.md
-      - Create User Buckets & Threads in React Native: tutorials/react-native-buckets.md
+      - Build Apps:
+          - Introduction: tutorials/hub/web-app.md
+          - User identity: tutorials/hub/libp2p-identities.md
+          - Development mode: tutorials/hub/development-mode.md
+          - Image sharing app: tutorials/hub/user-buckets.md
+          - Mobile threads & buckets: tutorials/react-native-buckets.md
+          - Authentication: tutorials/hub/production-auth.md
+      - Host Websites: tutorials/static-websites.md
       - Getting started with Golang: tutorials/golang/getting-started.md
   - Examples:
       - ThreadDB:
