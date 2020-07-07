@@ -31,19 +31,22 @@ _[See CLI options](../hub/cli/hub_keys.md)_
 
 User groups are non-admin groups of users (e.g. app users or beta users) that you want to provide restricted access to your Hub APIs. For each user group you want, you create a single _user group key_ that will be used by all members of the group to access your API endpoint (developer or organization). For example, your app can create Buckets and Threads on behalf of your user that they sign on device with their own identity.
 
-#### Managing User Group Keys
+#### Creating User Group keys
 
 To create a new _user group key_ using `hub key create` and selecting the `user group` option. If you are buiding an app in an organization, use `hub key create --org=<name>` to link a new key to the organization not your personal account. There is currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see [Organizations](../hub/accounts.md))
+
+
+#### Non-signing User Group keys
+
+You can use insecure keys with the API by creating non-signing keys. These keys are meant to use during development only. Read the tutorial on [development mode](../tutorials/hub/development-mode.md) to use these keys.
+
+#### Updating User Group keys
 
 You can replace your keys in your app at any time and the user will still have access to their Threads and Buckets as long as the key is connected to the same developer or organization. If you fully delete your account or organization, data replicated on IPFS through the _user group key_ will **also be removed**. So if you remove your account, we highly encourage you to replicate the data on an external IPFS node, provide tools for your users to export or replicate their own account data, or host external Thread Services to migrate your user Thread replication to.
 
 Also see [Identity tutorial](../tutorials/hub/libp2p-identities.md) and how to use identity providers such as 3Box with user group keys.
 
 _[See CLI commands](../hub/cli/hub_keys.md)_
-
-### Domain whitelisting
-
-If you are building a web application, you can use domain whitelisting to access the same resources without embedding keys in your application. You can track the release of [domain whitelisting here](https://github.com/textileio/textile/issues/109).
 
 ## App APIs
 
@@ -127,11 +130,7 @@ const parsed = config()
 
 ### Prepare Identity & Token
 
-The `Context` module provides a useful set of methods for managing and using developer keys and signatures on the client side, abstracting away some of the complexity of developer key management and communication with Textile's remote Hub gRPC APIs.
-
-For example, to create a new basic Context that will connect to Textile's remote Hub, you can initialize a Context with all defaults.
-
-While we're at it, we'll also create a default identity for our user, using the `Libp2pCryptoIdentity` object. In practice, you might have your own identity provider, or you might want to use a hierarchical key/wallet or mnemonic phrase to help store a users keys for them. Whatever you decide, Textile's generic identity interface should be able to support it.
+You can create a basic identity for our user, using the `Libp2pCryptoIdentity` object. In practice, you might have your own identity provider, or you might want to use a hierarchical key/wallet or mnemonic phrase to help store a users keys for them. Whatever you decide, Textile's generic identity interface should be able to support it.
 
 ```typescript
 import { Libp2pCryptoIdentity } from '@textile/threads-core'
@@ -142,19 +141,13 @@ async function example () {
 }
 ```
 
-The next step is to authenticate the user with your _user group key_ and Secret. This will allow the user to store threads and buckets using your developer resources on the Hub. If you are running in development mode and created a key that doesn't require signing, you can set the key to an empty string, `''`.
+#### User authorization
 
-```typescript
-import { Client, KeyInfo } from '@textile/hub'
+This step is only necessary if you are using production (signing required) API keys. If you are in [development mode](../tutorials/hub/development-mode.md), you don't need to do this step. 
 
-async function start () {
-  const keyInfo: KeyInfo = {
-    key: '<api key>',
-    secret: '<api secret>'
-  }
-  const client = await Client.withKeyInfo(keyInfo)
-}
-```
+Authorizing the user with your _user group key_ and Secret will allow the user to store threads and buckets using your developer resources on the Hub. If you are running in development mode and created a key that doesn't require signing.
+
+Read more about setting up authentication and authorization in [production mode](../tutorials/hub/production-auth.md).
 
 ### Setup ThreadDB
 
@@ -284,6 +277,5 @@ Here are the libraries you will find useful to start building today.
 |                         | ThreadDB           | Threads APIs & Buckets      |
 |-------------------------|:---------------------:|:-------------------:|
 | Browser, React Native, & NodeJS | [js-threads](https://textileio.github.io/js-threads) | [js-hub](https://textileio.github.io/js-hub) |
-| Dart & Flutter Apps ([pending release](https://github.com/textileio/dart-textile/issues/5))    | [dart-threads-client](https://github.com/textileio/dart-textile/issues/5) | [dart-textile](https://github.com/textileio/dart-textile/issues/5) |
 | Golang Libraries        | [go-threads](https://godoc.org/github.com/textileio/go-threads/api/client)          | |
 | Command-line | _thread-shell (coming)_       | [Hub CLI](../hub/cli/hub.md)         |

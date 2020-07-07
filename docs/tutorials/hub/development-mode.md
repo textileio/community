@@ -49,14 +49,13 @@ async function authorize (key: KeyInfo, identity: Identity) {
 }
 ```
 
-The `KeyInfo` you supply to the API will look as follows, leaving `secret` an empty string.
+The `KeyInfo` you supply to the API will look as follows,
 
 ```typescript
 import {KeyInfo} from '@textile/hub';
 
 const keyinfo: KeyInfo = {
   key: 'INSECURE API KEY',
-  secret: '',
 }
 ```
 

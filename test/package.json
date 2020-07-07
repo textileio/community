@@ -23,6 +23,6 @@
     "@textile/threads-core": "*",
     "@textile/threads-id": "*",
     "dotenv": "^8.2.0",
-    "rxjs": "^6.5.5"
+    "rxjs": "^6.6.0"
   }
 }
