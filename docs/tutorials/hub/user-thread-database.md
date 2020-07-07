@@ -1,6 +1,6 @@
 # Thread Database
 
-In this tutorial, we'll walk through using the local Thread Database in JavaScript. The `Database` can be used to store and work with data entirely locally in your app and it can be linked to other nodes that can help sync, rely, or store data when the user goes offline. We'll use those features to create a Database, connect it to the Hub, and connect two peers.
+In this tutorial, we'll walk through using the local Thread Database in JavaScript. The `Database` can be used to store and work with data entirely locally in your app and it can be linked to other nodes that can help sync, relay, or store data when the user goes offline. We'll use those features to create a Database, connect it to the Hub, and connect two peers.
 
 ## Getting Started
 
@@ -24,25 +24,22 @@ Let's take a look at those steps all together.
 ```typescript
 import { KeyInfo, ThreadID } from '@textile/hub'
 import { Database } from "@textile/threads-database"
-import LevelDatastore from "datastore-level"
 
 const init = (keyInfo: KeyInfo, threadID: ThreadID) => {
-    const storage = new LevelDatastore(threadID.toString())
-    const db = Database.withKeyInfo(keyInfo, storage)
+    const db = Database.withKeyInfo(keyInfo, threadID.toString())
     return db
 }
 ```
 
 ## Create a thread for the chat room
 
-Next, let's create a chat room. You simply need to start a new thread based on a `ThreadID`. We'll just create one from random.
+Next, let's create a chat room. You simply need to start a new thread using the same `ThreadID` as above. We'll just create one from random.
 
 ```typescript
 import { Identity, ThreadID } from '@textile/hub'
 import { Database } from "@textile/threads-database"
 
-const startThread = async (db: Database, identity: Identity) => {
-  const threadID = ThreadID.fromRandom()
+const startThread = async (db: Database, threadID: ThreadID, identity: Identity) => {
   await db.start(identity, {threadID: threadID})
   return threadID
 }
@@ -94,7 +91,9 @@ const newCollection = async (db: Database, roomName: string): Promise<Collection
 
 ## Listen to new events
 
-You can use your database as an event emitter. This is helpful if you are building with react and want to use the database to drive user interface updates, or if you are familiar with using `socketio`, you may have used a socket interface in many of the same ways. Let's listent to events from our database.
+You can use your database as an event emitter. This is helpful if you are building with react and want to use the database to drive user interface updates, or if you are familiar with using `socketio`, you may have used a socket interface in many of the same ways. Let's listen to events from our database.
+
+Here, we'll filter to only updates on our collection of type, `0`, meaning newly created events.
 
 ```typescript
 import { Identity, ThreadID } from '@textile/hub'
@@ -117,6 +116,8 @@ const addListener = async (db: Database, name: string) => {
 ```
 
 ### Using the database as an Observable
+
+Like the previous filter, we'll filter to only updates on our collection of type, `0`, meaning newly created events.
 
 ```typescript
 import { Database } from "@textile/threads-database"
