@@ -46,7 +46,7 @@ If you are going to allow your users to upload images, or files, that may become
 ```typescript
 import { Buckets, Identity } from '@textile/hub'
 
-const initIndex = async (buckets: Buckets, bucketKey: string identity: Identity) => {
+const initIndex = async (buckets: Buckets, bucketKey: string, identity: Identity) => {
   // Create a json model for the index
   const index = {
     author: identity.public.toString(),
@@ -69,7 +69,7 @@ Buckets are cross-protocol objects, meaning you can use them in IPFS, IPNS or HT
 ```typescript
 import { Buckets, Identity } from '@textile/hub'
 
-const addIndexHTML = async (buckets: Buckets, bucketKey: string html: string) => {
+const addIndexHTML = async (buckets: Buckets, bucketKey: string, html: string) => {
   // Store the index.html in the root of the bucket
   const buf = Buffer.from(html)
   const path = `index.html`
@@ -84,7 +84,7 @@ You are now ready to start pushing your files to the bucket. You can push each b
 ```typescript
 import { Buckets, PushPathResult } from '@textile/hub'
 
-insertFile(buckets: Buckets, bucketKey: string, file: File, path: string): Promise<PushPathResult> {
+const insertFile = (buckets: Buckets, bucketKey: string, file: File, path: string): Promise<PushPathResult> => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader()
     reader.onabort = () => reject('file reading was aborted')

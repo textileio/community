@@ -40,7 +40,7 @@ npm install --save @textile/hub
 Now, you just need to create a `KeyInfo` object above to connect to the API.
 
 ```typescript
-import {Client, KeyInfo} from '@textile/hub';
+import {Client, Identity, KeyInfo} from '@textile/hub';
 
 async function authorize (key: KeyInfo, identity: Identity) {
   const client = await Client.withKeyInfo(key)
@@ -56,7 +56,7 @@ import {KeyInfo} from '@textile/hub';
 
 const keyinfo: KeyInfo = {
   key: 'INSECURE API KEY',
-  secret: ''
+  secret: '',
 }
 ```
 

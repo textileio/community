@@ -166,7 +166,7 @@ Now that our credentials endpoint is set up, we simply need to generate new cred
 ### Login function
 
 ```typescript
-import { Buckets, Identity, UserAuth } from '@textile/hub'
+import { Buckets, Client, Identity, UserAuth } from '@textile/hub'
 import { Libp2pCryptoIdentity } from '@textile/threads-core'
 
 /**
@@ -176,8 +176,8 @@ import { Libp2pCryptoIdentity } from '@textile/threads-core'
  * Read more about setting up user verification here:
  * https://docs.textile.io/tutorials/hub/web-app/
  */
-const loginWithChallenge = (id: Identity): (() => Promise<UserAuth>) => {
-  return () => {
+const loginWithChallenge = (id: Identity) => {
+  return (): Promise<UserAuth> => {
     return new Promise((resolve, reject) => {
       /** 
        * Configured for our development server
@@ -232,9 +232,9 @@ const loginWithChallenge = (id: Identity): (() => Promise<UserAuth>) => {
       }
     })
   }
-})
+}
 
-async function setupThreads (identity: Identity) {
+const setupThreads = async (identity: Identity) => {
   /**
    * By passing a callback, the Threads library can refresh 
    * the session whenever expiring.
