@@ -42,7 +42,7 @@
     
     
       
-        <title>Image sharing app | Documentation | Textile</title>
+        <title>Add images to Buckets | Documentation | Textile</title>
       
     
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              Image sharing app
+              Add images to Buckets
             </span>
           
         </div>
@@ -1149,11 +1149,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Image sharing app
+        Add images to Buckets
       </label>
     
-    <a href="./" title="Image sharing app" class="md-nav__link md-nav__link--active">
-      Image sharing app
+    <a href="./" title="Add images to Buckets" class="md-nav__link md-nav__link--active">
+      Add images to Buckets
     </a>
     
       
@@ -1199,6 +1199,21 @@
     Push files
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-encrypted-buckets" title="Push encrypted buckets" class="md-nav__link">
+    Push encrypted buckets
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sharing-encrypted-buckets" title="Sharing encrypted buckets" class="md-nav__link">
+    Sharing encrypted buckets
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
@@ -1206,6 +1221,11 @@
   <a href="#example-on-github" title="Example on GitHub" class="md-nav__link">
     Example on GitHub
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1222,6 +1242,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../user-thread-database/" title="Chat rooms in Threads" target="" class="md-nav__link ">
+      Chat rooms in Threads
+    </a>
   </li>
 
         
@@ -1492,6 +1524,21 @@
     Push files
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-encrypted-buckets" title="Push encrypted buckets" class="md-nav__link">
+    Push encrypted buckets
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sharing-encrypted-buckets" title="Sharing encrypted buckets" class="md-nav__link">
+    Sharing encrypted buckets
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
@@ -1499,6 +1546,11 @@
   <a href="#example-on-github" title="Example on GitHub" class="md-nav__link">
     Example on GitHub
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1615,7 +1667,28 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>At this point, we also update our <code>index.json</code> with the new file. </p>
+<p>At this point, we also update our <code>index.json</code> with the new file.</p>
+<h2 id="push-encrypted-buckets">Push encrypted buckets<a class="headerlink" href="#push-encrypted-buckets" title="Permanent link">&para;</a></h2>
+<p>If your app is providing private spaces for your users to organize their photos or files, you can also create encrypted buckets for them. The <code>open</code> and <code>init</code> methods on the Bucket class take an <code>isPrivate</code> option. So your bucket start method may look more like,</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
+
+<span class="kr">const</span> <span class="nx">openEncrypted</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">buckets</span>: <span class="kt">Buckets</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">isEncrypted</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="kr">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;io.textile.encrypted&#39;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">isEncrypted</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">root</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Failed to open bucket&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">buckets</span>: <span class="kt">buckets</span><span class="p">,</span> 
+      <span class="nx">bucketKey</span>: <span class="kt">root.key</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="sharing-encrypted-buckets">Sharing encrypted buckets<a class="headerlink" href="#sharing-encrypted-buckets" title="Permanent link">&para;</a></h3>
+<p>There is no way to convert encrypted Buckets to non-encrypted or vice-versa. However, it should be straight-forward to move files from an encrypted Bucket into a non-encrypted Bucket and back again.</p>
+<p>Adding multiple readers or writers to Buckets is only currently available through <code>orgs</code> for developers, not app users. However, we will include this ability in future release. This is dependent on our work to implement more advanced <a href="https://github.com/textileio/go-threads/issues/295">Threads ACLs</a>.</p>
+<p>Be aware that creating encrypted Buckets still posts files to IPFS. Meaning the encrypted contents of Buckets are still publicly available, just encrypted so not possible to view without the encryption keys.</p>
 <h4 id="example-on-github">Example on GitHub<a class="headerlink" href="#example-on-github" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/js-examples.git
 <span class="nb">cd</span> js-examples/bucket-photo-gallery
@@ -1624,7 +1697,7 @@
 <div class="txtl-options half">
   <a href="https://github.com/textileio/js-examples" class="box">
     <h5>Explore the repo</h5>
-    <p>Try out the gallery app build with dropzone.js and buckets</p>
+    <p>Try out the gallery app built with dropzone.js and buckets</p>
   </a>
 </div>
 
@@ -1664,13 +1737,13 @@
           </a>
         
         
-          <a href="../../react-native-buckets/" title="Mobile threads & buckets" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../user-thread-database/" title="Chat rooms in Threads" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Mobile threads & buckets
+                Chat rooms in Threads
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
