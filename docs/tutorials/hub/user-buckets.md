@@ -34,7 +34,7 @@ const setup = async (key: KeyInfo, identity: Identity) => {
   }
   return {
       buckets: buckets, 
-      bucketKey: root.key
+      bucketKey: root.key,
   }
 }
 ```
@@ -51,7 +51,7 @@ const initIndex = async (buckets: Buckets, bucketKey: string identity: Identity)
   const index = {
     author: identity.public.toString(),
     date: (new Date()).getTime(),
-    paths: []
+    paths: [],
   }
   // Store the index in the Bucket (or in the Thread later)
   const buf = Buffer.from(JSON.stringify(index, null, 2))

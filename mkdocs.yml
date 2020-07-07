@@ -113,7 +113,8 @@ nav:
           - Push: hub/cli/hub_buck_push.md
           - Root: hub/cli/hub_buck_root.md
           - Status: hub/cli/hub_buck_status.md
-      - JavaScript: https://textileio.github.io/js-hub/docs/hub.buckets
+      - Externals:
+        - JavaScript: https://textileio.github.io/js-hub/docs/hub.buckets
   - ThreadDB:
       - Introduction: threads/index.md
       - Externals:

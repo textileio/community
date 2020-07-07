@@ -72,16 +72,16 @@ It sounds complicated, but you'll see it happens very fast with only a few lines
 ```javascript
 /** Provides nodejs access to a global Websocket value, required by Hub API */
 ;(global as any).WebSocket = require('isomorphic-ws')
-import koa from "koa";
-import Router from "koa-router";
-import logger from "koa-logger";
-import json from "koa-json";
-import bodyParser from "koa-bodyparser";
-import route from "koa-route";
-import websockify from "koa-websocket";
+import koa from "koa"
+import Router from "koa-router"
+import logger from "koa-logger"
+import json from "koa-json"
+import bodyParser from "koa-bodyparser"
+import route from "koa-route"
+import websockify from "koa-websocket"
 
-import Emittery from "emittery";
-import dotenv from "dotenv";
+import Emittery from "emittery"
+import dotenv from "dotenv"
 
 import { Client, UserAuth } from "@textile/hub"
 
@@ -89,22 +89,22 @@ import { Client, UserAuth } from "@textile/hub"
 dotenv.config();
 
 /** Port our server will run */
-const PORT: number = 3000;
+const PORT: number = 3000
 
 /** Init Koa with Websocket support */
-const app = websockify(new koa());
+const app = websockify(new koa())
 
 /** Middlewares */
-app.use( json() );
-app.use( logger() );
-app.use( bodyParser() );
+app.use( json() )
+app.use( logger() )
+app.use( bodyParser() )
 
 /**
  * Add websocket login endpoint
  */
 
 /** Start the server! */
-app.listen( PORT, () => console.log( "Server started." ) );
+app.listen( PORT, () => console.log( "Server started." ) )
 ```
 
 ### Add a websocket login handler
@@ -122,7 +122,7 @@ async function example (pubkey: string) {
    */
   const client = await Client.withKeyInfo({
     key: 'USER_API_KEY',
-    secret: 'USER_API_SECRET'
+    secret: 'USER_API_SECRET',
   })
 
   /** 
@@ -132,7 +132,8 @@ async function example (pubkey: string) {
     /** The callback passes the challenge back to the client */
     (challenge: Buffer) => {
     return new Promise((resolve, reject) => {
-      // Send the challenge back to the client and resolve(Buffer.from(sig))
+      // Send the challenge back to the client and 
+      // resolve(Buffer.from(sig))
       resolve()
     })
   })
@@ -149,7 +150,7 @@ Now when you refresh your locally running server you should have a websocket end
 
 #### Example on GitHub
 
-If you'd like to explore the example more, we've provided a fully working example on GitHub. The login endpoint is part of a more complete example, you can see it here.
+We've provided an abstracted view of the main parts of server-side authentication and authorization. If you'd like to learn more, we've provided a fully working example on GitHub, you can see it here.
 
 <div class="txtl-options half">
   <a href="https://github.com/textileio/js-examples/blob/master/hub-browser-auth-app/src/server/wss.ts" class="box">
@@ -160,13 +161,13 @@ If you'd like to explore the example more, we've provided a fully working exampl
 
 ## Client (app) authentication
 
-Now that our credentials endpoint is setup, we simply need to generate new credentials for each user's identity. A basic client needs to submit a login and handle a challenge request from the server, where the challenge will be signed and returned over websocket. We'll create a `login` function that handles the back and forth of the websocket and can combine with the `withUserAuth` function.
+Now that our credentials endpoint is set up, we simply need to generate new credentials for each user's identity. A basic client needs to submit a login and handle a challenge request from the server, where the challenge will be signed and returned over websocket. We'll create a `login` function that handles the back and forth of the websocket and can combine with the `withUserAuth` function.
 
 ### Login function
 
 ```typescript
 import { Buckets, Identity, UserAuth } from '@textile/hub'
-import { Libp2pCryptoIdentity } from '@textile/threads-core';
+import { Libp2pCryptoIdentity } from '@textile/threads-core'
 
 /**
  * loginWithChallenge uses websocket to initiate and respond to
@@ -175,7 +176,7 @@ import { Libp2pCryptoIdentity } from '@textile/threads-core';
  * Read more about setting up user verification here:
  * https://docs.textile.io/tutorials/hub/web-app/
  */
-const loginWithChallenge = (id: Identity): () => Promise<UserAuth> => {
+const loginWithChallenge = (id: Identity): (() => Promise<UserAuth>) => {
   return () => {
     return new Promise((resolve, reject) => {
       /** 
@@ -196,8 +197,8 @@ const loginWithChallenge = (id: Identity): () => Promise<UserAuth> => {
         /** Send a new token request */
         socket.send(JSON.stringify({
           pubkey: publicKey,
-          type: 'token'
-        })); 
+          type: 'token',
+        }))
   
         /** Listen for messages from the server */
         socket.onmessage = async (event) => {
@@ -205,11 +206,11 @@ const loginWithChallenge = (id: Identity): () => Promise<UserAuth> => {
           switch (data.type) {
             /** Error never happen :) */
             case 'error': {
-              reject(data.value);
-              break;
+              reject(data.value)
+              break
             }
             /** The server issued a new challenge */
-            case 'challenge':{
+            case 'challenge': {
               /** Convert the challenge json to a Buffer */
               const buf = Buffer.from(data.value)
               /** User our identity to sign the challenge */
@@ -217,14 +218,14 @@ const loginWithChallenge = (id: Identity): () => Promise<UserAuth> => {
               /** Send the signed challenge back to the server */
               socket.send(JSON.stringify({
                 type: 'challenge',
-                sig: Buffer.from(signed).toJSON()
-              })); 
-              break;
+                sig: Buffer.from(signed).toJSON(),
+              }))
+              break
             }
             /** New token generated */
             case 'token': {
               resolve(data.value)
-              break;
+              break
             }
           }
         }
@@ -254,7 +255,7 @@ Similarly, if you are looking for how to convert your Buckets from using the ins
 
 When using your insecure API key, you typically initialized Buckets like the following.
 
-```
+```typescript
 import { Buckets, Identity, KeyInfo } from '@textile/hub'
 
 const init = async (key: KeyInfo, identity: Identity) => {
