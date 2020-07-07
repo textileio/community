@@ -22,7 +22,8 @@
     "@textile/threads": "*",
     "@textile/threads-core": "*",
     "@textile/threads-id": "*",
+    "datastore-level": "^1.1.0",
     "dotenv": "^8.2.0",
-    "rxjs": "^6.5.5"
+    "rxjs": "^6.6.0"
   }
 }

@@ -114,7 +114,7 @@ nav:
           - Root: hub/cli/hub_buck_root.md
           - Status: hub/cli/hub_buck_status.md
       - Externals:
-        - JavaScript: https://textileio.github.io/js-hub/docs/hub.buckets
+          - JavaScript: https://textileio.github.io/js-hub/docs/hub.buckets
   - ThreadDB:
       - Introduction: threads/index.md
       - Externals:
@@ -147,7 +147,8 @@ nav:
           - Introduction: tutorials/hub/web-app.md
           - User identity: tutorials/hub/libp2p-identities.md
           - Development mode: tutorials/hub/development-mode.md
-          - Image sharing app: tutorials/hub/user-buckets.md
+          - Add images to Buckets: tutorials/hub/user-buckets.md
+          - Chat rooms in Threads: tutorials/hub/user-thread-database.md
           - Mobile threads & buckets: tutorials/react-native-buckets.md
           - Authentication: tutorials/hub/production-auth.md
       - Host Websites: tutorials/static-websites.md
