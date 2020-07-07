@@ -107,11 +107,11 @@ At this point, we also update our `index.json` with the new file.
 
 ```bash
 git clone git@github.com:textileio/js-examples.git
-cd js-examples/hub-browser-auth-app
+cd js-examples/bucket-photo-gallery
 ```
 
 <div class="txtl-options half">
-  <a href="https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app" class="box">
+  <a href="https://github.com/textileio/js-examples" class="box">
     <h5>Explore the repo</h5>
     <p>Try out the gallery app build with dropzone.js and buckets</p>
   </a>

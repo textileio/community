@@ -292,7 +292,7 @@ cd js-examples/hub-browser-auth-app
 ```
 
 <div class="txtl-options half">
-  <a href="https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app" class="box">
+  <a href="https://github.com/textileio/js-examples" class="box">
     <h5>Explore the repo</h5>
     <p>Clone the source code for a server and client using the Hub.</p>
   </a>
