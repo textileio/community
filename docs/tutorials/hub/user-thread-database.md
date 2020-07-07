@@ -26,7 +26,7 @@ import { KeyInfo, ThreadID } from '@textile/hub'
 import { Database } from "@textile/threads-database"
 import LevelDatastore from "datastore-level"
 
-const init = (keyInfo: keyInfo, threadID: ThreadID) => {
+const init = (keyInfo: KeyInfo, threadID: ThreadID) => {
     const storage = new LevelDatastore(threadID.toString())
     const db = Database.withKeyInfo(keyInfo, storage)
     return db
@@ -56,8 +56,7 @@ You can add multiple chat rooms to the same thread by adding multiple collection
 2. Create a new collection, declaring both the type and the `json` schema.
 
 ```typescript
-import { JSONSchema } from '@textile/hub'
-import { Database, Collection } from "@textile/threads-database"
+import { Database, Collection, JSONSchema } from "@textile/threads-database"
 
 interface Message {
   _id: string
@@ -154,7 +153,7 @@ const send = async (collection: Collection<Message>, text: string, author: strin
     author: author,
     text: text,
   }
-  await collection.send(message)
+  await collection.insert(message)
 }
 ```
 
