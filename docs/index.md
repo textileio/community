@@ -108,12 +108,14 @@ To all of the great people who have contributed to the [Textile projects](https:
 
 <div class='txtl-community'>
   <a href='https://github.com/100ideas' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/57006?v=4'/></a>
+  <a href='https://github.com/524119574' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/9982417?v=4'/></a>
   <a href='https://github.com/ArseniiPetrovich' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/23522179?v=4'/></a>
   <a href='https://github.com/Gozala' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/21236?v=4'/></a>
   <a href='https://github.com/Jewcub' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/52448067?v=4'/></a>
   <a href='https://github.com/JustMaier' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/607609?v=4'/></a>
   <a href='https://github.com/Schwartz10' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/12353734?v=4'/></a>
   <a href='https://github.com/ShishKabab' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/477149?v=4'/></a>
+  <a href='https://github.com/Tbaut' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/33178835?v=4'/></a>
   <a href='https://github.com/TeNNoX' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/2084639?v=4'/></a>
   <a href='https://github.com/abour' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/1284598?v=4'/></a>
   <a href='https://github.com/adgitate1' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/8494994?v=4'/></a>
@@ -125,7 +127,6 @@ To all of the great people who have contributed to the [Textile projects](https:
   <a href='https://github.com/burdiyan' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/1793789?v=4'/></a>
   <a href='https://github.com/carsonfarmer' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/1220613?v=4'/></a>
   <a href='https://github.com/cchrs' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/32277322?v=4'/></a>
-  <a href='https://github.com/chickenduy' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/8456864?v=4'/></a>
   <a href='https://github.com/codynhat' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/6885592?v=4'/></a>
   <a href='https://github.com/dpetranek' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/2993946?v=4'/></a>
   <a href='https://github.com/eightysteele' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/462255?v=4'/></a>
@@ -136,10 +137,13 @@ To all of the great people who have contributed to the [Textile projects](https:
   <a href='https://github.com/jsign' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/6136245?v=4'/></a>
   <a href='https://github.com/jsonsivar' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/18757934?v=4'/></a>
   <a href='https://github.com/kanej' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/24030?v=4'/></a>
+  <a href='https://github.com/kaustavha' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/3248143?v=4'/></a>
   <a href='https://github.com/novocodev' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/16430708?v=4'/></a>
   <a href='https://github.com/pcowgill' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/2731712?v=4'/></a>
+  <a href='https://github.com/phibar' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/9037246?v=4'/></a>
   <a href='https://github.com/requilence' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/1025231?v=4'/></a>
   <a href='https://github.com/sanderpick' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/361000?v=4'/></a>
+  <a href='https://github.com/shoce' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/261885?v=4'/></a>
   <a href='https://github.com/tatecarson' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/12865394?v=4'/></a>
   <a href='https://github.com/thasmin' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/198015?v=4'/></a>
   <a href='https://github.com/theefer' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/36964?v=4'/></a>
