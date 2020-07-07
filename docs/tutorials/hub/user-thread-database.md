@@ -176,7 +176,8 @@ const createInvite = async (db: Database) => {
 Now, when a user wants to join this database, they need to start the database with the info payload. This is just like starting the database like you did before, but now you'll start it from some remote information.
 
 ```typescript
-import { DBInfo, Identity } from '@textile/hub'
+import { Identity } from '@textile/hub'
+import { DBInfo } from '@textile/threads-client'
 import { Database } from "@textile/threads-database"
 
 const startFromInvite = async (db: Database, identity: Identity, invite: DBInfo) => {

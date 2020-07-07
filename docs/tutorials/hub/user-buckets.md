@@ -103,11 +103,13 @@ const insertFile = (buckets: Buckets, bucketKey: string, file: File, path: strin
 
 At this point, we also update our `index.json` with the new file.
 
-## Push private buckets
+## Push encrypted buckets
 
 If your app is providing private spaces for your users to organize their photos or files, you can also create encrypted buckets for them. The `open` and `init` methods on the Bucket class take an `isPrivate` option. So your bucket start method may look more like,
 
 ```typescript
+import { Buckets } from '@textile/hub'
+
 const openEncrypted = async (buckets: Buckets) => {
   const isEncrypted = true
   const root = await buckets.open('io.textile.encrypted', isEncrypted)
@@ -121,7 +123,11 @@ const openEncrypted = async (buckets: Buckets) => {
 }
 ```
 
+### Sharing encrypted buckets
+
 There is no way to convert encrypted Buckets to non-encrypted or vice-versa. However, it should be straight-forward to move files from an encrypted Bucket into a non-encrypted Bucket and back again.
+
+Adding multiple readers or writers to Buckets is only currently available through `orgs` for developers, not app users. However, we will include this ability in future release. This is dependent on our work to implement more advanced [Threads ACLs](https://github.com/textileio/go-threads/issues/295).
 
 Be aware that creating encrypted Buckets still posts files to IPFS. Meaning the encrypted contents of Buckets are still publicly available, just encrypted so not possible to view without the encryption keys.
 
