@@ -42,7 +42,7 @@
     
     
       
-        <title>Build a Web App using Hub APIs | Documentation | Textile</title>
+        <title>Introduction | Documentation | Textile</title>
       
     
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              Build a Web App using Hub APIs
+              Introduction
             </span>
           
         </div>
@@ -660,11 +660,23 @@
           
 
 
+  <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+  
+  
+  
+    
+    
+    
+
+
   <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.buckets" title="JavaScript" target="" class="md-nav__link ">
+    <a href="https://textileio.github.io/js-hub/docs/hub.buckets" title="JavaScript" target="_blank" class="md-nav__link _blank">
       JavaScript
     </a>
   </li>
+
+  
+  
 
         
       </ul>
@@ -1072,6 +1084,27 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1" checked>
+    
+    <label class="md-nav__link" for="nav-6-1">
+      Build Apps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-1">
+        Build Apps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -1080,11 +1113,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Build a Web App using Hub APIs
+        Introduction
       </label>
     
-    <a href="./" title="Build a Web App using Hub APIs" class="md-nav__link md-nav__link--active">
-      Build a Web App using Hub APIs
+    <a href="./" title="Introduction" class="md-nav__link md-nav__link--active">
+      Introduction
     </a>
     
       
@@ -1106,8 +1139,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#api-access" title="API Access" class="md-nav__link">
-    API Access
+  <a href="#typescript-setup" title="Typescript setup" class="md-nav__link">
+    Typescript setup
   </a>
   
 </li>
@@ -1118,57 +1151,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-a-simple-web-app" title="Building a simple web app" class="md-nav__link">
-    Building a simple web app
+  <a href="#tutorial-overview" title="Tutorial overview" class="md-nav__link">
+    Tutorial overview
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#generating-an-identity" title="Generating an Identity" class="md-nav__link">
-    Generating an Identity
+  <a href="#user-identities" title="User identities" class="md-nav__link">
+    User identities
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-an-authentication-endpoint" title="Creating an authentication endpoint" class="md-nav__link">
-    Creating an authentication endpoint
+  <a href="#to-secure-or-not-to-secure" title="To secure or not to secure" class="md-nav__link">
+    To secure or not to secure
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#generate-api-credentials" title="Generate API credentials" class="md-nav__link">
-    Generate API credentials
+  <a href="#start-building-apps" title="Start building apps" class="md-nav__link">
+    Start building apps
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-the-api" title="Using the API" class="md-nav__link">
-    Using the API
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#putting-it-all-together" title="Putting it all together" class="md-nav__link">
-    Putting it all together
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#completed-example" title="Completed example" class="md-nav__link">
-    Completed example
+  <a href="#add-api-authorization" title="Add API authorization" class="md-nav__link">
+    Add API authorization
   </a>
   
 </li>
@@ -1195,8 +1208,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../static-websites/" title="Host a Website in a Bucket" target="" class="md-nav__link ">
-      Host a Website in a Bucket
+    <a href="../libp2p-identities/" title="User identity" target="" class="md-nav__link ">
+      User identity
     </a>
   </li>
 
@@ -1207,8 +1220,61 @@
 
 
   <li class="md-nav__item">
-    <a href="../../react-native-buckets/" title="Create User Buckets & Threads in React Native" target="" class="md-nav__link ">
-      Create User Buckets & Threads in React Native
+    <a href="../development-mode/" title="Development mode" target="" class="md-nav__link ">
+      Development mode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../user-buckets/" title="Image sharing app" target="" class="md-nav__link ">
+      Image sharing app
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../react-native-buckets/" title="Mobile threads & buckets" target="" class="md-nav__link ">
+      Mobile threads & buckets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../production-auth/" title="Authentication" target="" class="md-nav__link ">
+      Authentication
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../static-websites/" title="Host Websites" target="" class="md-nav__link ">
+      Host Websites
     </a>
   </li>
 
@@ -1415,8 +1481,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#api-access" title="API Access" class="md-nav__link">
-    API Access
+  <a href="#typescript-setup" title="Typescript setup" class="md-nav__link">
+    Typescript setup
   </a>
   
 </li>
@@ -1427,57 +1493,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-a-simple-web-app" title="Building a simple web app" class="md-nav__link">
-    Building a simple web app
+  <a href="#tutorial-overview" title="Tutorial overview" class="md-nav__link">
+    Tutorial overview
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#generating-an-identity" title="Generating an Identity" class="md-nav__link">
-    Generating an Identity
+  <a href="#user-identities" title="User identities" class="md-nav__link">
+    User identities
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-an-authentication-endpoint" title="Creating an authentication endpoint" class="md-nav__link">
-    Creating an authentication endpoint
+  <a href="#to-secure-or-not-to-secure" title="To secure or not to secure" class="md-nav__link">
+    To secure or not to secure
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#generate-api-credentials" title="Generate API credentials" class="md-nav__link">
-    Generate API credentials
+  <a href="#start-building-apps" title="Start building apps" class="md-nav__link">
+    Start building apps
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-the-api" title="Using the API" class="md-nav__link">
-    Using the API
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#putting-it-all-together" title="Putting it all together" class="md-nav__link">
-    Putting it all together
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#completed-example" title="Completed example" class="md-nav__link">
-    Completed example
+  <a href="#add-api-authorization" title="Add API authorization" class="md-nav__link">
+    Add API authorization
   </a>
   
 </li>
@@ -1509,78 +1555,32 @@
                 
                 
                 <h1 id="build-a-web-app-using-the-hub">Build a Web App using the Hub<a class="headerlink" href="#build-a-web-app-using-the-hub" title="Permanent link">&para;</a></h1>
-<p>In this tutorial, you'll learn how to generate API credentials that can be shared with with web apps so that your app users can leverage the Hub. With credentials, your users will be able to access Thread Services, create and edit Buckets, and use IPFS persistence right from the browser. You'll build it using a <a href="../../../hub/app-apis/"><em>user group key</em></a> so that every user can use your API while maintaining their own ownership over the data they create.</p>
+<p>In this tutorial, you'll learn how to start building JavaScript apps that use the Hub to push Threads and Buckets to the IPFS network (and beyond). We'll walk-through a series of basic setup options and then show you how to build a couple different types of apps. Using the examples shared here, you will see how you can add interoperable, content addressed datasets to your app. We'll show you how to get started with basic cryptographic identities, or how to integrate your existing identity solution.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <p>There are a few resources you'll need before you start writing code.</p>
 <ul>
 <li><a href="../../../hub/accounts/">An account</a>. This is your developer account on the Hub.</li>
-<li><a href="../../../hub/app-apis/">A user group key</a>. This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later. You only need to create one <em>user group key</em> for all the users of your app.</li>
 <li><a href="https://webpack.js.org/guides/typescript/">A new Typescript web app</a>. We recommend using Typescript, as Textile libraries are in a period rapid of development and type detection is valuable during upgrades.</li>
 </ul>
-<h3 id="api-access">API Access<a class="headerlink" href="#api-access" title="Permanent link">&para;</a></h3>
-<p>A <a href="../../../hub/app-apis/"><em>user group key</em></a> consists of a <em>key</em> and a <em>secret</em>. You can expose your <em>key</em> but you <em>never want to expose your <em>secret</em></em> to users or outside of secure environments.</p>
-<p>You must use your key and secret to create and renew API access credentials for your users on a regular basis. To do this, we'll build a simple auth endpoint accessible only to your app that will generate Hub credentials for users. (<a href="#creating-a-login-endpoint">See below</a>).</p>
-<h2 id="building-a-simple-web-app">Building a simple web app<a class="headerlink" href="#building-a-simple-web-app" title="Permanent link">&para;</a></h2>
-<p>We wont cover the details of setting up a webapp with Typescript because <a href="https://levelup.gitconnected.com/setting-up-a-full-stack-typescript-application-featuring-express-and-react-ccfe07f2ea47">it's well documented elsewhere</a>. </p>
-<p>You can skip to the end and <a href="#completed-example">explore our complete example</a>.</p>
+<p>Once you have those two things, you can continue to read the overview or jump ahead to:</p>
+<p><a href="../libp2p-identities/">User identity</a> to create simple user identies for the rest of the tutorial.</p>
+<p>Or, if you plan to provide your own identity setup, you can skip to the <a href="../development-mode/">development mode</a> setup instructions.</p>
+<h3 id="typescript-setup">Typescript setup<a class="headerlink" href="#typescript-setup" title="Permanent link">&para;</a></h3>
+<p>Our examples will primarily be built using Typescript. We wont cover the details of setting up a webapp with Typescript because <a href="https://levelup.gitconnected.com/setting-up-a-full-stack-typescript-application-featuring-express-and-react-ccfe07f2ea47">it's well documented elsewhere</a>. </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>With your basic Typescript web app setup, you should have a primary <code>.ts</code> (or <code>.js</code> if you decided to stick with Javascript) file where your webapp exists. We'll work within this single file to start, but the instructions below should be adaptable to any application architecture.</p>
 </div>
-<h3 id="generating-an-identity">Generating an Identity<a class="headerlink" href="#generating-an-identity" title="Permanent link">&para;</a></h3>
-<p>In our webapp, we will use a custom private-key identity. If you are exploring our libraries or prototyping a new application, this is a great place to start, as you wont need to wrestle with multiple libraries or APIs at the same time. However, as you get close to launch, we recommend using a more common DID provider. </p>
-<p>We've provided a simple tutorial for creating new identies and caching those identities in the browser.</p>
-<p><a href="../libp2p-identities/">Read the basic libp2p identities tutorial now</a>.</p>
-<p>Below, we'll use the <a href="../libp2p-identities/#caching-user-identity"><em>cached identity example</em></a> and <code>getIdentity</code> function from the tutorial above. E.e. <code>const identity = getIdentity();</code>.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The Hub is flexible about what identity or authentication system you use for your users. In the future, the Hub will support email-based identities, allowing you to more easily use the APIs with popular email-based user models. <a href="https://github.com/textileio/textile/issues/216">Follow progress here</a>.</p>
-</div>
-<h3 id="creating-an-authentication-endpoint">Creating an authentication endpoint<a class="headerlink" href="#creating-an-authentication-endpoint" title="Permanent link">&para;</a></h3>
-<p>Now that your app is using PKI, your users will only ever share their <em>public key</em> with your API (or any API). Therefore, you'll need a way to verify that they hold the private key linked with the public key, otherwise users could spoof your system very easily. Additionally, you'll want to provide Hub API access to your users based on that verification. </p>
-<p>You should design your system for credentials that expire quickly. This ensures that if credentials are ever leaked the impact will be minimal.</p>
-<p><strong>Build an authentication endpoint</strong></p>
-<p>This example will use the Hub to issue the user a challenge (where they prove they own their private key). After the user passes the challenge, the endpoint will give them Hub credentials. This multi-step flow is useful for developers who don't want to design their own user-verification system.</p>
-<p><a href="../user-login-endpoint/">Click here to read the credentials setup steps</a>.</p>
-<p>In the above example, you should have setup a <em>server</em> and API endpoint that your webapp can connect to. </p>
-<h3 id="generate-api-credentials">Generate API credentials<a class="headerlink" href="#generate-api-credentials" title="Permanent link">&para;</a></h3>
-<p>Now that our credentials endpoint is setup, we simply need to generate new credentials for each user's identity. We'll use the <code>createCredentials</code> function provided in the setup above in our <em>client</em> webapp.</p>
-<p>The <code>auth</code> object returned from <code>createCredentials</code> will allow your app to start creating and editing Buckets and Threads owned by your user.</p>
-<h3 id="using-the-api">Using the API<a class="headerlink" href="#using-the-api" title="Permanent link">&para;</a></h3>
-<p>Now, your users have identities and they've verified themselves. Next, you'll want to start created Buckets and ThreadDBs for your user. Let's start using hte Hub from inside the webapp.</p>
-<p><strong>Install dependencies</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Textile libraries</span>
-npm install --save @textile/hub
-</code></pre></div>
-
-<p><strong>Connect to the API</strong></p>
-<p>Now, you just need to use <code>auth</code> object above to connect to the API.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">UserAuth</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span><span class="p">;</span>
-
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">callback</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">UserAuth</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withUserAuth</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>
-
-  <span class="cm">/** Query for all the user&#39;s existing threads (none to start) */</span>
-  <span class="kr">const</span> <span class="nx">threads</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">listThreads</span><span class="p">()</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>Your user is now setup to start creating Threads and Buckets that replicate on the Hub API! Read more tutorials or jump over to the <a href="https://textileio.github.io/js-threads">js-threads docs</a> to keep building.</p>
-<h2 id="putting-it-all-together">Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permanent link">&para;</a></h2>
-<p>Now you've had a chance to see how identities work with API keys to provide Hub resources to your users.</p>
-<p>If you'd like to explore the examples explained above more, we've provided a fully working example on GitHub.</p>
-<h3 id="completed-example">Completed example<a class="headerlink" href="#completed-example" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/js-examples.git
-<span class="nb">cd</span> js-examples/hub-browser-auth-app
-</code></pre></div>
-
-<div class="txtl-options half">
-  <a href="https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app" class="box">
-    <h5>Explore the repo</h5>
-    <p>Clone the source code for a server and client using the Hub.</p>
-  </a>
-</div>
-
+<h2 id="tutorial-overview">Tutorial overview<a class="headerlink" href="#tutorial-overview" title="Permanent link">&para;</a></h2>
+<h3 id="user-identities">User identities<a class="headerlink" href="#user-identities" title="Permanent link">&para;</a></h3>
+<p>Setup simple keypair based identities for your app users. <a href="../libp2p-identities/">View tutorial</a>.</p>
+<h3 id="to-secure-or-not-to-secure">To secure or not to secure<a class="headerlink" href="#to-secure-or-not-to-secure" title="Permanent link">&para;</a></h3>
+<p>Learn how to use non-signing API keys for faster app development. <a href="../development-mode/">View tutorial</a>.</p>
+<h3 id="start-building-apps">Start building apps<a class="headerlink" href="#start-building-apps" title="Permanent link">&para;</a></h3>
+<p>Build a photo gallery sharing app for users with Buckets.  <a href="../user-buckets/">Start here</a>.</p>
+<p>Create chat rooms for your users. <em>coming</em>.</p>
+<h3 id="add-api-authorization">Add API authorization<a class="headerlink" href="#add-api-authorization" title="Permanent link">&para;</a></h3>
+<p>Add secure API keys and a login flow to your app. <a href="../production-auth/">View tutorial</a>.</p>
 <p><br /></p>
                 
                   
@@ -1617,13 +1617,13 @@ npm install --save @textile/hub
           </a>
         
         
-          <a href="../../static-websites/" title="Host a Website in a Bucket" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../libp2p-identities/" title="User identity" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Host a Website in a Bucket
+                User identity
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
