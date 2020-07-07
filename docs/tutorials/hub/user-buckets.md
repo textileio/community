@@ -101,7 +101,29 @@ const insertFile = (buckets: Buckets, bucketKey: string, file: File, path: strin
 }
 ```
 
-At this point, we also update our `index.json` with the new file. 
+At this point, we also update our `index.json` with the new file.
+
+## Push private buckets
+
+If your app is providing private spaces for your users to organize their photos or files, you can also create encrypted buckets for them. The `open` and `init` methods on the Bucket class take an `isPrivate` option. So your bucket start method may look more like,
+
+```typescript
+const openEncrypted = async (buckets: Buckets) => {
+  const isEncrypted = true
+  const root = await buckets.open('io.textile.encrypted', isEncrypted)
+  if (!root) {
+    throw new Error('Failed to open bucket')
+  }
+  return {
+      buckets: buckets, 
+      bucketKey: root.key,
+  }
+}
+```
+
+There is no way to convert encrypted Buckets to non-encrypted or vice-versa. However, it should be straight-forward to move files from an encrypted Bucket into a non-encrypted Bucket and back again.
+
+Be aware that creating encrypted Buckets still posts files to IPFS. Meaning the encrypted contents of Buckets are still publicly available, just encrypted so not possible to view without the encryption keys.
 
 #### Example on GitHub
 
@@ -113,7 +135,7 @@ cd js-examples/bucket-photo-gallery
 <div class="txtl-options half">
   <a href="https://github.com/textileio/js-examples" class="box">
     <h5>Explore the repo</h5>
-    <p>Try out the gallery app build with dropzone.js and buckets</p>
+    <p>Try out the gallery app built with dropzone.js and buckets</p>
   </a>
 </div>
 

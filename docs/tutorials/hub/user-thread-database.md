@@ -86,7 +86,7 @@ const messageSchema: JSONSchema = {
   },
 }
 
-const newCollection = async (db: Database, roomName: string): Collection<Message> => {
+const newCollection = async (db: Database, roomName: string): Promise<Collection<Message>> => {
   const chat = await db.newCollection<Message>(roomName, messageSchema)
   return chat
 }
