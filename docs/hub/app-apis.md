@@ -145,7 +145,7 @@ async function example () {
 
 This step is only necessary if you are using production (signing required) API keys. If you are in [development mode](../tutorials/hub/development-mode.md), you don't need to do this step. 
 
-Authorizing the user with your _user group key_ and Secret will allow the user to store threads and buckets using your developer resources on the Hub. If you are running in development mode and created a key that doesn't require signing, you can set the key to an empty string, `''`.
+Authorizing the user with your _user group key_ and Secret will allow the user to store threads and buckets using your developer resources on the Hub. If you are running in development mode and created a key that doesn't require signing.
 
 Read more about setting up authentication and authorization in [production mode](../tutorials/hub/production-auth.md).
 
