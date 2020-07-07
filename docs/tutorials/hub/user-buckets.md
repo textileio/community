@@ -112,7 +112,7 @@ import { Buckets } from '@textile/hub'
 
 const openEncrypted = async (buckets: Buckets) => {
   const isEncrypted = true
-  const root = await buckets.open('io.textile.encrypted', isEncrypted)
+  const root = await buckets.open('io.textile.encrypted', undefined, isEncrypted)
   if (!root) {
     throw new Error('Failed to open bucket')
   }
