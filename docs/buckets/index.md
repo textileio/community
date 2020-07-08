@@ -48,7 +48,7 @@ When a bucket is pushed to the remote, its [Merkle DAG](https://en.wikipedia.org
 
 ### Encryption
 
-On bucket creation, you can opt-in to encrypt buckets content. The encryption setup is based on AES-CTR + AES-512 HMAC as seen [here](https://github.com/textileio/dcrypto), whic is a modified version of the encryption lib used by the Google Drive client, which is designed to handle large streams (files).
+On bucket creation, you can opt-in to encrypt buckets content. The encryption setup is based on AES-CTR + AES-512 HMAC as seen [here](https://github.com/textileio/dcrypto), a modified version of the encryption lib used by the Google Drive client, which is designed to handle large streams (files).
 
 Encrypted buckets have a couple goals:
 - Obfuscate bucket data / files (the normal goal of encryption)
