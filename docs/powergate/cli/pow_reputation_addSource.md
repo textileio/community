@@ -4,7 +4,7 @@ Adds a new external source to be considered for reputation generation
 
 ### Synopsis
 
-Aadds a new external source to be considered for reputation generation
+Adds a new external source to be considered for reputation generation
 
 ```
 pow reputation addSource [flags]
