@@ -46,6 +46,21 @@ When a bucket is pushed to the remote, its [Merkle DAG](https://en.wikipedia.org
 
 ![](../images/hub-cli/hub_bucket_status.png)
 
+### Encryption
+
+On bucket creation, you can opt-in to encrypt buckets content. The encryption setup is based on AES-CTR + AES-512 HMAC as seen [here](https://github.com/textileio/dcrypto), whic is a modified version of the encryption lib used by the Google Drive client, which is designed to handle large streams (files).
+
+Encrypted buckets have a couple goals:
+- Obfuscate bucket data / files (the normal goal of encryption)
+- Obfuscate directory structure, which amounts to encrypting IPLD nodes and their links
+
+The AES and HMAC keys used for bucket encryption are stored in the threadDB collection instance. That just means, each bucket has a model entry for key. This setup essentially allows bucket access to be inherited by thread ACL rules. Of course, this also means that if you can break into the thread (you have gained access to the thread read key), you can decrypt bucket content.
+
+As a compromise, we have added some convenience methods to the local buck client which allow you to encrypt content locally (protected by a password) before it gets added to the bucket. This has the downside that you must remember the password.
+
+Finally, you can run the standalone buckets daemon buckd locally and use a remote peer as a thread replicator (no read key access), meaning there’s really no downside to the keys being stored in the bucket collection instance.
+Password-based encryption uses the same approach, but also leverages [scrypt](https://godoc.org/golang.org/x/crypto/scrypt) to derive the keys from the password. This carries the normal tradeoff: The encryption is only as good as the password.
+
 ## Retrieving content
 
 ### Pull files
