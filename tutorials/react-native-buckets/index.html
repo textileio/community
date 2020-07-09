@@ -1264,6 +1264,33 @@
     Code
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-example" title="Running the example" class="md-nav__link">
+    Running the example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android" title="Android" class="md-nav__link">
+    Android
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ios" title="iOS" class="md-nav__link">
+    iOS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -1573,6 +1600,33 @@
     Code
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-example" title="Running the example" class="md-nav__link">
+    Running the example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android" title="Android" class="md-nav__link">
+    Android
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ios" title="iOS" class="md-nav__link">
+    iOS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -1630,17 +1684,16 @@
 </code></pre></div>
 
 <p><strong>Dot env</strong></p>
-<p>You will need to add API keys to your app. If you plan to store your sourcecode anywhere public, you <strong>should not</strong> store those keys publicly. In our example app, we use <code>react-native-dotenv</code> to manage our secrets. </p>
+<p>You will need to add API keys to your app. If you plan to store your sourcecode anywhere public, you <strong>should not</strong> store those keys publicly. In our example app, we use <code>react-native-dotenv</code> to manage our key. </p>
 <div class="highlight"><pre><span></span><code>npm install --save react-native-dotenv
 </code></pre></div>
 
 <p>Next, create a <code>.env</code> file in the root of your project. You can find an example <code>.env</code> in our <a href="https://github.com/textileio/js-examples/blob/master/react-native-hub-app/example.env">example project here</a>. Be <strong>certain</strong> that the <code>.env</code> is added to your <code>.gitignore</code> and note checked in with your code. </p>
 <p>The contents of <code>.env</code> will be, </p>
-<div class="highlight"><pre><span></span><code><span class="nv">USER_API_SECRET</span><span class="o">=</span>textile-hub-user-secret
-<span class="nv">USER_API_KEY</span><span class="o">=</span>textile-hub-user-group-key
+<div class="highlight"><pre><span></span><code><span class="nv">USER_API_KEY</span><span class="o">=</span>textile-hub-user-group-key
 </code></pre></div>
 
-<p>You can follow the instructions to generate a <strong>User Group Key</strong> and <strong>Secret</strong> here, <a href="http://localhost:8000/hub/app-apis/#api-access">API Access</a>. If you have already generated keys, you can list them by executing <code>hub keys ls</code>. You'll add the values to your <code>.env</code> file on the right side of the equality sign.</p>
+<p>You can follow the instructions to generate a <strong>User Group Key</strong> here, <a href="http://localhost:8000/hub/app-apis/#api-access">API Access</a>. If you have already generated keys, you can list them by executing <code>hub keys ls</code>. You'll add the values to your <code>.env</code> file on the right side of the equality sign.</p>
 <p><strong>Typescript</strong></p>
 <p>The rest of the JavaScript portions of the tutorial will be in TypeScript. You do not need to use TypeScript, but if you don't be sure to strip the typings from any code you copy below.</p>
 <h2 id="build-your-app">Build your app<a class="headerlink" href="#build-your-app" title="Permanent link">&para;</a></h2>
@@ -1658,12 +1711,11 @@
 </code></pre></div>
 
 <h3 id="register-with-remote-api">Register with remote API<a class="headerlink" href="#register-with-remote-api" title="Permanent link">&para;</a></h3>
-<p>Next, we'll connect to the remote API using our Key and Secret. We do this so that the user can later push their bucket for remote persistence on IPFS and publishing on IPNS.</p>
+<p>Next, we'll connect to the remote API using our Key from an insecure (non-signing) api key (read more about keys for <a href="../hub/development-mode/">development mode</a>). We do this so that the user can later push their bucket for remote persistence on IPFS and publishing on IPNS.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
 <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withKeyInfo</span><span class="p">({</span>
   <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;USER_API_KEY&#39;</span><span class="p">,</span>
-  <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;USER_API_SECRET&#39;</span>
 <span class="p">})</span>
 </code></pre></div>
 
@@ -1693,12 +1745,11 @@
 
 <p>This will register the user with your remote Hub account, granting them the ability to push data to IPFS through Threads and Buckets.</p>
 <h3 id="connect-buckets">Connect Buckets<a class="headerlink" href="#connect-buckets" title="Permanent link">&para;</a></h3>
-<p>Now that your user is setup and connected to your API on the Hub, you can start creating Buckets. First, setup a Bucket Client instance.</p>
+<p>Now that your user is setup and connected to your API on the Hub, you can start creating Buckets. First, setup a Bucket instance. </p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
 <span class="kr">const</span> <span class="nx">buckets</span> <span class="o">=</span> <span class="nx">Buckets</span><span class="p">.</span><span class="nx">withKeyInfo</span><span class="p">({</span>
     <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;USER_API_KEY&#39;</span><span class="p">,</span>
-    <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;USER_API_SECRET&#39;</span>
   <span class="p">})</span>
 </code></pre></div>
 
@@ -1773,6 +1824,20 @@
 </div>
 <h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h2>
 <p>Check out a complete <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app">React Native project on GitHub</a> that generates a user identity, Thread, and Bucket.</p>
+<h3 id="running-the-example">Running the example<a class="headerlink" href="#running-the-example" title="Permanent link">&para;</a></h3>
+<h3 id="android">Android<a class="headerlink" href="#android" title="Permanent link">&para;</a></h3>
+<p>Simply <code>npm install</code> and then <code>npm run android</code> from the root of the <code>react-native-hub-app</code> folder.</p>
+<h3 id="ios">iOS<a class="headerlink" href="#ios" title="Permanent link">&para;</a></h3>
+<p>If <code>npm run ios</code> doesn't work for you immediately after <code>npm install</code>, follow these steps.</p>
+<ol>
+<li>Be sure you ran <code>npm install</code>.</li>
+<li>Be sure you have updated your <code>.env</code> file.</li>
+<li>Start the react native server, <code>npm run start</code>.</li>
+<li>Open Xcode</li>
+<li>Open the iOS project, <code>./ios/threadsdb_app.xcworkspace</code>.</li>
+<li>Click run in Xcode.</li>
+</ol>
+<p>Your app should now be running. Subsequent should work with just, <code>npm run ios</code>.</p>
                 
                   
                 
