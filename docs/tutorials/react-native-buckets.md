@@ -51,7 +51,7 @@ This may need to be updated on future package changes, you can make this easier 
 
 **Dot env**
 
-You will need to add API keys to your app. If you plan to store your sourcecode anywhere public, you **should not** store those keys publicly. In our example app, we use `react-native-dotenv` to manage our secrets. 
+You will need to add API keys to your app. If you plan to store your sourcecode anywhere public, you **should not** store those keys publicly. In our example app, we use `react-native-dotenv` to manage our key. 
 
 ```bash
 npm install --save react-native-dotenv
@@ -62,11 +62,10 @@ Next, create a `.env` file in the root of your project. You can find an example 
 The contents of `.env` will be, 
 
 ```bash
-USER_API_SECRET=textile-hub-user-secret
 USER_API_KEY=textile-hub-user-group-key
 ```
 
-You can follow the instructions to generate a **User Group Key** and **Secret** here, [API Access](http://localhost:8000/hub/app-apis/#api-access). If you have already generated keys, you can list them by executing `hub keys ls`. You'll add the values to your `.env` file on the right side of the equality sign.
+You can follow the instructions to generate a **User Group Key** here, [API Access](http://localhost:8000/hub/app-apis/#api-access). If you have already generated keys, you can list them by executing `hub keys ls`. You'll add the values to your `.env` file on the right side of the equality sign.
 
 **Typescript**
 
@@ -90,14 +89,13 @@ import {Libp2pCryptoIdentity} from '@textile/threads-core';
 
 ### Register with remote API
 
-Next, we'll connect to the remote API using our Key and Secret. We do this so that the user can later push their bucket for remote persistence on IPFS and publishing on IPNS.
+Next, we'll connect to the remote API using our Key from an insecure (non-signing) api key (read more about keys for [development mode](hub/development-mode.md)). We do this so that the user can later push their bucket for remote persistence on IPFS and publishing on IPNS.
 
 ```typescript
 import { Client } from '@textile/hub'
 
 const client = Client.withKeyInfo({
   key: 'USER_API_KEY',
-  secret: 'USER_API_SECRET'
 })
 ```
 
@@ -134,14 +132,13 @@ This will register the user with your remote Hub account, granting them the abil
 
 ### Connect Buckets
 
-Now that your user is setup and connected to your API on the Hub, you can start creating Buckets. First, setup a Bucket Client instance.
+Now that your user is setup and connected to your API on the Hub, you can start creating Buckets. First, setup a Bucket instance. 
 
 ```typescript
 import { Buckets } from '@textile/hub'
 
 const buckets = Buckets.withKeyInfo({
     key: 'USER_API_KEY',
-    secret: 'USER_API_SECRET'
   })
 ```
 
@@ -239,3 +236,22 @@ You can generate a link to the Bucket with the user thread as follows:
 ## Code
 
 Check out a complete [React Native project on GitHub](https://github.com/textileio/js-examples/tree/master/react-native-hub-app) that generates a user identity, Thread, and Bucket.
+
+### Running the example
+
+### Android
+
+Simply `npm install` and then `npm run android` from the root of the `react-native-hub-app` folder.
+
+### iOS
+
+If `npm run ios` doesn't work for you immediately after `npm install`, follow these steps.
+
+1. Be sure you ran `npm install`.
+2. Be sure you have updated your `.env` file.
+3. Start the react native server, `npm run start`.
+4. Open Xcode
+5. Open the iOS project, `./ios/threadsdb_app.xcworkspace`.
+6. Click run in Xcode.
+
+Your app should now be running. Subsequent should work with just, `npm run ios`.
