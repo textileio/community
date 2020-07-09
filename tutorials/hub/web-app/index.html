@@ -1150,7 +1150,8 @@
     Browser, Node, or React Native?
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#browser" title="Browser" class="md-nav__link">
@@ -1170,6 +1171,11 @@
   <a href="#react-native" title="React Native" class="md-nav__link">
     React Native
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1532,7 +1538,8 @@
     Browser, Node, or React Native?
   </a>
   
-</li>
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#browser" title="Browser" class="md-nav__link">
@@ -1552,6 +1559,11 @@
   <a href="#react-native" title="React Native" class="md-nav__link">
     React Native
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1641,9 +1653,9 @@
 </div>
 <h3 id="browser-node-or-react-native">Browser, Node, or React Native?<a class="headerlink" href="#browser-node-or-react-native" title="Permanent link">&para;</a></h3>
 <p>You can use the JavaScript libraries for all three, though there are some differences to be aware of.</p>
-<h3 id="browser">Browser<a class="headerlink" href="#browser" title="Permanent link">&para;</a></h3>
+<h4 id="browser">Browser<a class="headerlink" href="#browser" title="Permanent link">&para;</a></h4>
 <p>Go go go! Green lights ahead. Just read the rest of the docs and get building.</p>
-<h3 id="node">Node<a class="headerlink" href="#node" title="Permanent link">&para;</a></h3>
+<h4 id="node">Node<a class="headerlink" href="#node" title="Permanent link">&para;</a></h4>
 <p>Some of our libraries rely on WebSockets for moving data around. WebSockets is packed in every major browser out of the box, but doesn't exist in Node the same way. This can be solved by adding WebSockets to the environment. We've solved this in past examples using, <a href="https://www.npmjs.com/package/isomorphic-ws">isomorphic-ws</a>.</p>
 <ol>
 <li>Install <a href="https://www.npmjs.com/package/isomorphic-ws">isomorphic-ws</a>, <code>npm install --save isomorphic-ws ws</code></li>
@@ -1651,7 +1663,7 @@
 </ol>
 <p><code>;(global as any).WebSocket = require('isomorphic-ws')</code></p>
 <p>See an example of that, <a href="https://github.com/textileio/js-examples/blob/master/hub-browser-auth-app/src/server/index.ts#L2">here</a>.</p>
-<h3 id="react-native">React Native<a class="headerlink" href="#react-native" title="Permanent link">&para;</a></h3>
+<h4 id="react-native">React Native<a class="headerlink" href="#react-native" title="Permanent link">&para;</a></h4>
 <p>The React Native environment is missing a whole number of required packages, including <code>crypto</code>. Read the React Native tutorial's <a href="../../react-native-buckets/#install-libraries">installation steps</a> to learn how to add the necessary packages.</p>
 <h2 id="tutorial-overview">Tutorial overview<a class="headerlink" href="#tutorial-overview" title="Permanent link">&para;</a></h2>
 <h3 id="user-identities">User identities<a class="headerlink" href="#user-identities" title="Permanent link">&para;</a></h3>
