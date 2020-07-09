@@ -26,11 +26,11 @@ Our examples will primarily be built using Typescript. We wont cover the details
 
 You can use the JavaScript libraries for all three, though there are some differences to be aware of.
 
-### Browser
+#### Browser
 
 Go go go! Green lights ahead. Just read the rest of the docs and get building.
 
-### Node
+#### Node
 
 Some of our libraries rely on WebSockets for moving data around. WebSockets is packed in every major browser out of the box, but doesn't exist in Node the same way. This can be solved by adding WebSockets to the environment. We've solved this in past examples using, [isomorphic-ws](https://www.npmjs.com/package/isomorphic-ws).
 
@@ -41,7 +41,7 @@ Some of our libraries rely on WebSockets for moving data around. WebSockets is p
 
 See an example of that, [here](https://github.com/textileio/js-examples/blob/master/hub-browser-auth-app/src/server/index.ts#L2).
 
-### React Native
+#### React Native
 
 The React Native environment is missing a whole number of required packages, including `crypto`. Read the React Native tutorial's [installation steps](../react-native-buckets.md#install-libraries) to learn how to add the necessary packages.
 
