@@ -1252,6 +1252,19 @@
     Wrap-up
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-on-github" title="Example on GitHub" class="md-nav__link">
+    Example on GitHub
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -1369,6 +1382,42 @@
   <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
   
   
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
+      User Galleries in Buckets
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/hub-threaddb-chat" title="Chat in Local Database" target="_blank" class="md-nav__link _blank">
+      Chat in Local Database
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app" title="Server-side Authentication" target="_blank" class="md-nav__link _blank">
+      Server-side Authentication
+    </a>
+  </li>
+
   
     
     
@@ -1573,6 +1622,19 @@
     Wrap-up
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-on-github" title="Example on GitHub" class="md-nav__link">
+    Example on GitHub
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -1614,10 +1676,10 @@
 <p>To attach you Hub account, you'll use the non-signing key described in the <a href="../development-mode/">development mode</a> section. You can pass it in using the <code>withKeyInfo</code> method you've already used on the <code>Buckets</code> class.</p>
 <p>Let's take a look at those steps all together.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">KeyInfo</span><span class="p">,</span> <span class="nx">ThreadID</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;@textile/threads-database&quot;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
 
 <span class="kr">const</span> <span class="nx">init</span> <span class="o">=</span> <span class="p">(</span><span class="nx">keyInfo</span>: <span class="kt">KeyInfo</span><span class="p">,</span> <span class="nx">threadID</span>: <span class="kt">ThreadID</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">Database</span><span class="p">.</span><span class="nx">withKeyInfo</span><span class="p">(</span><span class="nx">keyInfo</span><span class="p">,</span> <span class="nx">threadID</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
+    <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">Database</span><span class="p">.</span><span class="nx">withKeyInfo</span><span class="p">(</span><span class="nx">keyInfo</span><span class="p">,</span> <span class="s1">&#39;threads.chat.demo&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="nx">db</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1625,7 +1687,7 @@
 <h2 id="create-a-thread-for-the-chat-room">Create a thread for the chat room<a class="headerlink" href="#create-a-thread-for-the-chat-room" title="Permanent link">&para;</a></h2>
 <p>Next, let's create a chat room. You simply need to start a new thread using the same <code>ThreadID</code> as above. We'll just create one from random.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">ThreadID</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;@textile/threads-database&quot;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
 
 <span class="kr">const</span> <span class="nx">startThread</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">db</span>: <span class="kt">Database</span><span class="p">,</span> <span class="nx">threadID</span>: <span class="kt">ThreadID</span><span class="p">,</span> <span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="nx">identity</span><span class="p">,</span> <span class="p">{</span><span class="nx">threadID</span>: <span class="kt">threadID</span><span class="p">})</span>
@@ -1639,7 +1701,7 @@
 <li>Create a type that matches our schema.</li>
 <li>Create a new collection, declaring both the type and the <code>json</code> schema.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">Collection</span><span class="p">,</span> <span class="nx">JSONSchema</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;@textile/threads-database&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">Collection</span><span class="p">,</span> <span class="nx">JSONSchema</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
 
 <span class="kr">interface</span> <span class="nx">Message</span> <span class="p">{</span>
   <span class="nx">_id</span>: <span class="kt">string</span>
@@ -1679,7 +1741,7 @@
 <p>You can use your database as an event emitter. This is helpful if you are building with react and want to use the database to drive user interface updates, or if you are familiar with using <code>socketio</code>, you may have used a socket interface in many of the same ways. Let's listen to events from our database.</p>
 <p>Here, we'll filter to only updates on our collection of type, <code>0</code>, meaning newly created events.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">ThreadID</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;@textile/threads-database&quot;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
 
 <span class="kr">interface</span> <span class="nx">Message</span> <span class="p">{</span>
   <span class="nx">_id</span>: <span class="kt">string</span>
@@ -1699,7 +1761,7 @@
 
 <h3 id="using-the-database-as-an-observable">Using the database as an Observable<a class="headerlink" href="#using-the-database-as-an-observable" title="Permanent link">&para;</a></h3>
 <p>Like the previous filter, we'll filter to only updates on our collection of type, <code>0</code>, meaning newly created events.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;@textile/threads-database&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">fromEvent</span><span class="p">,</span> <span class="nx">Observable</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
 
 <span class="kr">interface</span> <span class="nx">Message</span> <span class="p">{</span>
@@ -1716,7 +1778,7 @@
 
 <h2 id="create-a-new-message">Create a new message<a class="headerlink" href="#create-a-new-message" title="Permanent link">&para;</a></h2>
 <p>Here, we'll use the <code>chat</code> collection created above to add a new message. </p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">Collection</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;@textile/threads-database&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">Collection</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
 
 <span class="kr">interface</span> <span class="nx">Message</span> <span class="p">{</span>
   <span class="nx">_id</span>: <span class="kt">string</span>
@@ -1736,7 +1798,7 @@
 
 <h2 id="create-invite">Create invite<a class="headerlink" href="#create-invite" title="Permanent link">&para;</a></h2>
 <p>When you want new individuals (with new identities) to join the thread, you'll need to create a payload like and <em>invite</em>. You can do that with <code>getDBInfo()</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;@textile/threads-database&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
 
 <span class="kr">const</span> <span class="nx">createInvite</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">db</span>: <span class="kt">Database</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">info</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">getDBInfo</span><span class="p">()</span>
@@ -1748,7 +1810,7 @@
 <p>Now, when a user wants to join this database, they need to start the database with the info payload. This is just like starting the database like you did before, but now you'll start it from some remote information.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">DBInfo</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-client&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;@textile/threads-database&quot;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
 
 <span class="kr">const</span> <span class="nx">startFromInvite</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">db</span>: <span class="kt">Database</span><span class="p">,</span> <span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">,</span> <span class="nx">invite</span>: <span class="kt">DBInfo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// Replaces startThread method above</span>
@@ -1759,7 +1821,19 @@
 
 <h2 id="wrap-up">Wrap-up<a class="headerlink" href="#wrap-up" title="Permanent link">&para;</a></h2>
 <p>Those are all the major pieces you need to string together various types of chat interfaces. We've found that chat examples built on <code>socketio</code> work really well with the Threads Database, replacing sockets for threads.</p>
-<p>We'll include a working example here soon.</p>
+<h4 id="example-on-github">Example on GitHub<a class="headerlink" href="#example-on-github" title="Permanent link">&para;</a></h4>
+<p>If you want a great tutorial on building a chat app with Typescript, look no further than Ross Bulat's, <a href="https://medium.com/@rossbulat/typescript-live-chat-react-and-socket-io-with-rxjs-event-handling-c80b1c661762">Typescript Live Chat</a>. For the following example, we forked Ross's example, replaced Sockets with Threads, and added a few small things. Give it a try.</p>
+<div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/js-examples.git
+<span class="nb">cd</span> js-examples/hub-threaddb-chat
+</code></pre></div>
+
+<div class="txtl-options half">
+  <a href="https://github.com/textileio/js-examples" class="box">
+    <h5>Explore the repo</h5>
+    <p>Try out the gallery app built with local Threads database</p>
+  </a>
+</div>
+
 <p><br /></p>
                 
                   
