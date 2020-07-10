@@ -23,10 +23,10 @@ Let's take a look at those steps all together.
 
 ```typescript
 import { KeyInfo, ThreadID } from '@textile/hub'
-import { Database } from "@textile/threads-database"
+import { Database } from '@textile/threads-database'
 
 const init = (keyInfo: KeyInfo, threadID: ThreadID) => {
-    const db = Database.withKeyInfo(keyInfo, threadID.toString())
+    const db = Database.withKeyInfo(keyInfo, 'threads.chat.demo')
     return db
 }
 ```
@@ -37,7 +37,7 @@ Next, let's create a chat room. You simply need to start a new thread using the 
 
 ```typescript
 import { Identity, ThreadID } from '@textile/hub'
-import { Database } from "@textile/threads-database"
+import { Database } from '@textile/threads-database'
 
 const startThread = async (db: Database, threadID: ThreadID, identity: Identity) => {
   await db.start(identity, {threadID: threadID})
@@ -53,7 +53,7 @@ You can add multiple chat rooms to the same thread by adding multiple collection
 2. Create a new collection, declaring both the type and the `json` schema.
 
 ```typescript
-import { Database, Collection, JSONSchema } from "@textile/threads-database"
+import { Database, Collection, JSONSchema } from '@textile/threads-database'
 
 interface Message {
   _id: string
@@ -97,7 +97,7 @@ Here, we'll filter to only updates on our collection of type, `0`, meaning newly
 
 ```typescript
 import { Identity, ThreadID } from '@textile/hub'
-import { Database } from "@textile/threads-database"
+import { Database } from '@textile/threads-database'
 
 interface Message {
   _id: string
@@ -120,7 +120,7 @@ const addListener = async (db: Database, name: string) => {
 Like the previous filter, we'll filter to only updates on our collection of type, `0`, meaning newly created events.
 
 ```typescript
-import { Database } from "@textile/threads-database"
+import { Database } from '@textile/threads-database'
 import { fromEvent, Observable } from 'rxjs';
 
 interface Message {
@@ -140,7 +140,7 @@ const getObservable = (db: Database, name: string): Observable<Message> => {
 Here, we'll use the `chat` collection created above to add a new message. 
 
 ```typescript
-import { Database, Collection } from "@textile/threads-database"
+import { Database, Collection } from '@textile/threads-database'
 
 interface Message {
   _id: string
@@ -163,7 +163,7 @@ const send = async (collection: Collection<Message>, text: string, author: strin
 When you want new individuals (with new identities) to join the thread, you'll need to create a payload like and _invite_. You can do that with `getDBInfo()`.
 
 ```typescript
-import { Database } from "@textile/threads-database"
+import { Database } from '@textile/threads-database'
 
 const createInvite = async (db: Database) => {
   const info = await db.getDBInfo()
@@ -178,7 +178,7 @@ Now, when a user wants to join this database, they need to start the database wi
 ```typescript
 import { Identity } from '@textile/hub'
 import { DBInfo } from '@textile/threads-client'
-import { Database } from "@textile/threads-database"
+import { Database } from '@textile/threads-database'
 
 const startFromInvite = async (db: Database, identity: Identity, invite: DBInfo) => {
   // Replaces startThread method above
@@ -191,6 +191,21 @@ const startFromInvite = async (db: Database, identity: Identity, invite: DBInfo)
 
 Those are all the major pieces you need to string together various types of chat interfaces. We've found that chat examples built on `socketio` work really well with the Threads Database, replacing sockets for threads.
 
-We'll include a working example here soon.
+#### Example on GitHub
+
+If you want a great tutorial on building a chat app with Typescript, look no further than Ross Bulat's, [Typescript Live Chat](https://medium.com/@rossbulat/typescript-live-chat-react-and-socket-io-with-rxjs-event-handling-c80b1c661762). For the following example, we forked Ross's example, replaced Sockets with Threads, and added a few small things. Give it a try.
+
+```bash
+git clone git@github.com:textileio/js-examples.git
+cd js-examples/hub-threaddb-chat
+```
+
+<div class="txtl-options half">
+  <a href="https://github.com/textileio/js-examples" class="box">
+    <h5>Explore the repo</h5>
+    <p>Try out the gallery app built with local Threads database</p>
+  </a>
+</div>
+
 
 <br />
