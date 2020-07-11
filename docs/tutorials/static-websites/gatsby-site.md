@@ -16,7 +16,7 @@ First, you'll need to login to Textile and initialize a Project in the root of y
 
 1. Download and install Textile CLI (see [installation](../../hub/accounts.md)).
 2. Init and login to Textile (see [account intro](../../hub/accounts.md)).
-3. CD into your Jekyll directory and initialize a Bucket with `textile bucket init`.
-4. Build your site with `gatsby build`.
+3. Build your site with `gatsby build`.
+4. CD into your Gatsby `public` directory and initialize a Bucket with `textile bucket init`.
 
 That's it! You can now view the content of your Bucket on the free domain, on the Gateway, or using IPNS.

@@ -83,6 +83,7 @@ build        package.json        src
 In this case, we are building the raw site code in `src` into the `build` folder. We should initialize the Bucket at the root of the project.
 
 ```bash
+cd build
 hub bucket init
 ```
 
@@ -91,7 +92,7 @@ hub bucket init
 Now, pushing your Bucket is simple. After you build your project so that `build` contains the latest version of your site ready to deploy you run the `bucket push` command.
 
 ```bash
-hub bucket push build/ .
+hub bucket push
 ```
 
 That's it! Your site is now available on the free subdomain and over IPNS. You can easily integrate it into your own DNS using DNSLink.

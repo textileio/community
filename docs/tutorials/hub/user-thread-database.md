@@ -203,7 +203,7 @@ cd js-examples/hub-threaddb-chat
 <div class="txtl-options half">
   <a href="https://github.com/textileio/js-examples" class="box">
     <h5>Explore the repo</h5>
-    <p>Try out the gallery app built with local Threads database</p>
+    <p>Try out the chat app built with local Threads database</p>
   </a>
 </div>
 
