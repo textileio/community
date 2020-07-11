@@ -41,23 +41,36 @@ If you're interested in running Powergate to experiment with the CLI or APIs, th
 
 ### Installation
 
-Clone the Powergate and `cd` into the project
+You can run a localnet setup by using a Powergate release or by using Powergate source code.
+
+#### Download a release
+
+Visit the [latest Powergate release page](https://github.com/textileio/powergate/releases/latest) and download the `powergate-docker-<version>.zip
+` release artifact. Unzip it and `cd` into the resulting directory:
+
+```
+unzip `powergate-docker-<version>.zip
+cd `powergate-docker-<version>
+```
+
+#### Use Powergate source code
+
+Clone the Powergate and `cd` into the project's `docker` directory:
 
 ```bash
 git clone git@github.com:textileio/powergate.git
-cd powergate
+cd powergate/docker
 ```
 
 ### Setup
 
-A default setup is available in a `docker-compose` configuration shipped with the Powergate. With the default setup, you will run Powergate connected to a local localnet with 512Mib sectors and instantly available gRPC API or CLI that don't require any extra config flags 🎊
+With whichever method you chose in the Installation section above, you can now use the provided `docker-compose` configuration. With the default setup, you will run Powergate connected to a local localnet with 512Mib sectors and instantly available gRPC API or CLI that don't require any extra config flags 🎊
 
 **Run the docker-compose**
 
 Docker files for the Powergate are all contained in the folder, `/docker`.
 
 ```bash
-cd docker
 make localnet
 ```
 
@@ -79,10 +92,26 @@ Now that your Powergate is running on localnet, all the CLI and API commands are
 
 #### Install the CLI
 
+You can install the CLI from a Powergate release or from source.
+
+#### Download a release
+
+Visit the [latest Powergate release page](https://github.com/textileio/powergate/releases/latest) and download the `pow_<version>_<platform>.tar.gz` file appropriate for your system. Unzip and install `pow` (following example is for unix-like systems):
+
+```
+tar -xzvf pow_v0.1.0_darwin-amd64.tar.gz
+./install
+Moved ./pow to /usr/local/bin
+```
+
+**Note:** If you're installing on macOS, there are some system permissions issues you'll have to deal with. Please follow the [`hub` installation instructions](https://docs.textile.io/hub/accounts/#mac-installation) to work around the issue.
+
+#### Build from source
+
 From the root of the `powergate` repo, you can build the CLI from the latest code. This will install the Powergate CLI, `pow`, on your machine.
 
 ```bash
-make build
+make build-pow
 ```
 
 Test your installation.
