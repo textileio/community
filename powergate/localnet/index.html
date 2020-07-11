@@ -860,6 +860,26 @@
     Installation
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-a-release" title="Download a release" class="md-nav__link">
+    Download a release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-powergate-source-code" title="Use Powergate source code" class="md-nav__link">
+    Use Powergate source code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -880,6 +900,20 @@
           <li class="md-nav__item">
   <a href="#install-the-cli" title="Install the CLI" class="md-nav__link">
     Install the CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-a-release_1" title="Download a release" class="md-nav__link">
+    Download a release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-from-source" title="Build from source" class="md-nav__link">
+    Build from source
   </a>
   
 </li>
@@ -1599,6 +1633,26 @@
     Installation
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-a-release" title="Download a release" class="md-nav__link">
+    Download a release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-powergate-source-code" title="Use Powergate source code" class="md-nav__link">
+    Use Powergate source code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1619,6 +1673,20 @@
           <li class="md-nav__item">
   <a href="#install-the-cli" title="Install the CLI" class="md-nav__link">
     Install the CLI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-a-release_1" title="Download a release" class="md-nav__link">
+    Download a release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-from-source" title="Build from source" class="md-nav__link">
+    Build from source
   </a>
   
 </li>
@@ -1735,17 +1803,24 @@
 <h2 id="localnet-with-powergate">Localnet with Powergate<a class="headerlink" href="#localnet-with-powergate" title="Permanent link">&para;</a></h2>
 <p>If you're interested in running Powergate to experiment with the CLI or APIs, the fastest way is to replace the Lotus client dependency with a running localnet. This will run the Powergate on a Lotus client connected to an embedded network of miners.</p>
 <h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
-<p>Clone the Powergate and <code>cd</code> into the project</p>
+<p>You can run a localnet setup by using a Powergate release or by using Powergate source code.</p>
+<h4 id="download-a-release">Download a release<a class="headerlink" href="#download-a-release" title="Permanent link">&para;</a></h4>
+<p>Visit the <a href="https://github.com/textileio/powergate/releases/latest">latest Powergate release page</a> and download the <code>powergate-docker-&lt;version&gt;.zip</code> release artifact. Unzip it and <code>cd</code> into the resulting directory:</p>
+<div class="highlight"><pre><span></span><code>unzip `powergate-docker-&lt;version&gt;.zip
+cd `powergate-docker-&lt;version&gt;
+</code></pre></div>
+
+<h4 id="use-powergate-source-code">Use Powergate source code<a class="headerlink" href="#use-powergate-source-code" title="Permanent link">&para;</a></h4>
+<p>Clone the Powergate and <code>cd</code> into the project's <code>docker</code> directory:</p>
 <div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/powergate.git
-<span class="nb">cd</span> powergate
+<span class="nb">cd</span> powergate/docker
 </code></pre></div>
 
 <h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
-<p>A default setup is available in a <code>docker-compose</code> configuration shipped with the Powergate. With the default setup, you will run Powergate connected to a local localnet with 512Mib sectors and instantly available gRPC API or CLI that don't require any extra config flags 🎊</p>
+<p>With whichever method you chose in the Installation section above, you can now use the provided <code>docker-compose</code> configuration. With the default setup, you will run Powergate connected to a local localnet with 512Mib sectors and instantly available gRPC API or CLI that don't require any extra config flags 🎊</p>
 <p><strong>Run the docker-compose</strong></p>
 <p>Docker files for the Powergate are all contained in the folder, <code>/docker</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> docker
-make localnet
+<div class="highlight"><pre><span></span><code>make localnet
 </code></pre></div>
 
 <p>If this is your first time running the Powergate, Docker will download the required instances before any Powergate setup begins. Downloads are dependent on your bandwidth and may take <strong>a few minutes</strong>, but wont be required for subsequent runs of the Powergate.</p>
@@ -1759,8 +1834,18 @@ mined block in the past <span class="o">{</span><span class="s2">&quot;block-tim
 <h3 id="create-a-deal-and-store-a-file">Create a deal and store a file<a class="headerlink" href="#create-a-deal-and-store-a-file" title="Permanent link">&para;</a></h3>
 <p>Now that your Powergate is running on localnet, all the CLI and API commands are the same as using it in production mode, just your deals will store faster (and disappear when you delete the localnet).</p>
 <h4 id="install-the-cli">Install the CLI<a class="headerlink" href="#install-the-cli" title="Permanent link">&para;</a></h4>
+<p>You can install the CLI from a Powergate release or from source.</p>
+<h4 id="download-a-release_1">Download a release<a class="headerlink" href="#download-a-release_1" title="Permanent link">&para;</a></h4>
+<p>Visit the <a href="https://github.com/textileio/powergate/releases/latest">latest Powergate release page</a> and download the <code>pow_&lt;version&gt;_&lt;platform&gt;.tar.gz</code> file appropriate for your system. Unzip and install <code>pow</code> (following example is for unix-like systems):</p>
+<div class="highlight"><pre><span></span><code>tar -xzvf pow_v0.1.0_darwin-amd64.tar.gz
+./install
+Moved ./pow to /usr/local/bin
+</code></pre></div>
+
+<p><strong>Note:</strong> If you're installing on macOS, there are some system permissions issues you'll have to deal with. Please follow the <a href="https://docs.textile.io/hub/accounts/#mac-installation"><code>hub</code> installation instructions</a> to work around the issue.</p>
+<h4 id="build-from-source">Build from source<a class="headerlink" href="#build-from-source" title="Permanent link">&para;</a></h4>
 <p>From the root of the <code>powergate</code> repo, you can build the CLI from the latest code. This will install the Powergate CLI, <code>pow</code>, on your machine.</p>
-<div class="highlight"><pre><span></span><code>make build
+<div class="highlight"><pre><span></span><code>make build-pow
 </code></pre></div>
 
 <p>Test your installation.</p>
