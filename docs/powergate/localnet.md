@@ -49,8 +49,8 @@ Visit the [latest Powergate release page](https://github.com/textileio/powergate
 ` release artifact. Unzip it and `cd` into the resulting directory:
 
 ```
-unzip `powergate-docker-<version>.zip
-cd `powergate-docker-<version>
+unzip powergate-docker-<version>.zip
+cd powergate-docker-<version>
 ```
 
 #### Use Powergate source code
@@ -104,7 +104,8 @@ tar -xzvf pow_v0.1.0_darwin-amd64.tar.gz
 Moved ./pow to /usr/local/bin
 ```
 
-**Note:** If you're installing on macOS, there are some system permissions issues you'll have to deal with. Please follow the [`hub` installation instructions](https://docs.textile.io/hub/accounts/#mac-installation) to work around the issue.
+!!!info
+    If you're installing on macOS, there are some system permissions issues you'll have to deal with. Please follow the [`hub` installation instructions](https://docs.textile.io/hub/accounts/#mac-installation) to work around the issue.
 
 #### Build from source
 
