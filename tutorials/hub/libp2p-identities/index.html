@@ -1192,8 +1192,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#metamask" title="Metamask" class="md-nav__link">
-    Metamask
+  <a href="#public-key-provider" title="Public key provider" class="md-nav__link">
+    Public key provider
   </a>
   
 </li>
@@ -1304,6 +1304,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../nodejs/" title="Build with NodeJS" target="" class="md-nav__link ">
+      Build with NodeJS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../golang/getting-started/" title="Getting started with Golang" target="" class="md-nav__link ">
       Getting started with Golang
     </a>
@@ -1361,18 +1373,6 @@
   <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
   
   
-  
-    
-    
-    
-
-
-  <li class="md-nav__item">
-    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
-      User Galleries in Buckets
-    </a>
-  </li>
-
   
     
     
@@ -1488,6 +1488,18 @@
 
 
   <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
+      User Galleries in Buckets
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
     <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app" title="Buckets from React Native (JavaScript)" target="_blank" class="md-nav__link _blank">
       Buckets from React Native (JavaScript)
     </a>
@@ -1577,8 +1589,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#metamask" title="Metamask" class="md-nav__link">
-    Metamask
+  <a href="#public-key-provider" title="Public key provider" class="md-nav__link">
+    Public key provider
   </a>
   
 </li>
@@ -1690,15 +1702,24 @@
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p>Time to setup your app in <a href="../development-mode/">development mode</a>.</p>
 <h2 id="advanced-identity-providers">Advanced identity providers<a class="headerlink" href="#advanced-identity-providers" title="Permanent link">&para;</a></h2>
-<h3 id="metamask">Metamask<a class="headerlink" href="#metamask" title="Permanent link">&para;</a></h3>
-<p>One trick with the above workflow is that you need to help your users store and recover their private keys. You could do this with your own user model stored over an API. Alternatively, you can use any keypair manager, such as Metamask. There are a few of steps to generate a Textile compatible <code>identity</code> from the Metamask API.</p>
+<h3 id="public-key-provider">Public key provider<a class="headerlink" href="#public-key-provider" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kr">interface</span> <span class="nx">Public</span> <span class="p">{</span>
+  <span class="nx">verify</span><span class="p">(</span><span class="nx">data</span>: <span class="kt">Buffer</span><span class="p">,</span> <span class="nx">sig</span>: <span class="kt">Buffer</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Identity</span> <span class="p">{</span>
+  <span class="nx">sign</span><span class="p">(</span><span class="nx">data</span>: <span class="kt">Buffer</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">Buffer</span><span class="o">&gt;</span>
+  <span class="kr">public</span><span class="o">:</span> <span class="nx">Public</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Identity here represents any entity capable of signing a message. This is a simple <a href="https://en.wikipedia.org/wiki/Public_key_infrastructure">public key infrastructure</a> inspired interface that similarly requires the implementer to be capable of returning an associated public key for verification. In many cases, the Identity will just be a private key, but callers can use any setup that suits their needs. A default implementation based on <a href="https://github.com/libp2p/js-libp2p-crypto/blob/master/src/index.d.ts#L82">Libp2p's crypto library</a> is provided for convinience (and is also used by default if no identity is provided), however, many developers will want to use alternative identity provides, such as <a href="https://www.ceramic.network">3box/Ceramic</a>, <a href="https://fortmatic.com">Fortmatic</a>, and existing private/public keypair, or a web3 provider such as <a href="https://metamask.io">Metamask</a>. Textile Hub also provides email-based identities.</p>
 <h3 id="3box">3Box<a class="headerlink" href="#3box" title="Permanent link">&para;</a></h3>
-<p>Another alternative to local storage is 3Box. 3Box manages a cluster of nodes that web3 users can push small bits of information to. In this approach, a user with a 3Box identity can use that identity to create and track Buckets or Threads generated on Textile.</p>
+<p>One trick with the above workflow is that you need to help your users store and recover their private keys. You could do this with your own user model stored over an API. Alternatively, you can use any keypair manager, such as Metamask. There are a few of steps to generate a Textile compatible <code>identity</code> from the Metamask API. A good starting point is to use the <a href="https://docs.3box.io/">3Box SDK</a>. 3Box manages a cluster of nodes that web3 users can push small bits of information to. In this approach, a user with a 3Box identity can use that identity to create and track Buckets or Threads generated on Textile.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>As of writing this, 3Box doesn't have Typescript typings available.</p>
 </div>
-<p>We can replace our <code>getIdentity</code> function above, that used simple <code>localStorage</code>, with one that uses <a href="https://3box.io/">3Box</a> and <a href="https://metamask.io/">Metamask</a> to allow the user to hang on to their private key. </p>
 <div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">Box</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;3box&quot;</span><span class="p">);</span>
 
 <span class="nx">getIdentity</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">()</span><span class="o">:</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Libp2pCryptoIdentity</span><span class="o">&gt;</span> <span class="p">=&gt;</span> <span class="p">{</span>

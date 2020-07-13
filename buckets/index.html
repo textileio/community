@@ -537,6 +537,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#encrypted-buckets" title="Encrypted buckets" class="md-nav__link">
+    Encrypted buckets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#publishing-content" title="Publishing content" class="md-nav__link">
     Publishing content
   </a>
@@ -1479,6 +1486,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../tutorials/nodejs/" title="Build with NodeJS" target="" class="md-nav__link ">
+      Build with NodeJS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../tutorials/golang/getting-started/" title="Getting started with Golang" target="" class="md-nav__link ">
       Getting started with Golang
     </a>
@@ -1536,18 +1555,6 @@
   <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
   
   
-  
-    
-    
-    
-
-
-  <li class="md-nav__item">
-    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
-      User Galleries in Buckets
-    </a>
-  </li>
-
   
     
     
@@ -1663,6 +1670,18 @@
 
 
   <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
+      User Galleries in Buckets
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
     <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app" title="Buckets from React Native (JavaScript)" target="_blank" class="md-nav__link _blank">
       Buckets from React Native (JavaScript)
     </a>
@@ -1726,6 +1745,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encrypted-buckets" title="Encrypted buckets" class="md-nav__link">
+    Encrypted buckets
+  </a>
   
 </li>
       
@@ -1988,7 +2014,7 @@
 </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Bucket names are unique to a developer and within an Org. They are not globally unique.**</p>
+<p>Bucket names are unique to a developer and within an Org. They are not globally unique.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2000,6 +2026,8 @@
 <p class="admonition-title">Info</p>
 <p>to check which org a bucket is registered with, examine the <code>.textile/config.yml</code> file (it will be a hidden folder in the bucket's directory)</p>
 </div>
+<h2 id="encrypted-buckets">Encrypted buckets<a class="headerlink" href="#encrypted-buckets" title="Permanent link">&para;</a></h2>
+<p>It is possible to create encrypted buckets. The contents of encrypted buckets <em>will</em> still exist on IPFS but the contents will be obfuscated to any viewer that doesn't have access to the encryption keys. You can choose to create encrypted buckets in when creating them in the CLI or when initializing them <a href="../tutorials/hub/user-buckets/#push-encrypted-buckets">in the JavaScript library</a>.</p>
 <h2 id="publishing-content">Publishing content<a class="headerlink" href="#publishing-content" title="Permanent link">&para;</a></h2>
 <h3 id="push-new-files">Push new files<a class="headerlink" href="#push-new-files" title="Permanent link">&para;</a></h3>
 <p>
@@ -2087,18 +2115,20 @@ hub buck init --org nasa
 <h4 id="app-user-buckets">App user Buckets<a class="headerlink" href="#app-user-buckets" title="Permanent link">&para;</a></h4>
 <p>If you are building an app using one of our <a href="../hub/app-apis/#libraries">developer libraries</a> you can use buckets from inside your apps. Apps generally will create buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.</p>
 <div class="txtl-options">
+  <a href="../tutorials/hub/user-buckets/" class="box">
+    <h5>Buckets in your app</h5>
+    <p>View the tutorial on adding Buckets to your JavaScript app.</p>
+  </a>
+  <span class="box-space"> </span>
   <a href="https://textileio.github.io/js-hub" target="_blank" class="box">
     <h5>JS Hub Docs</h5>
     <p>Persist user buckets on IPFS from your JS app.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app" target="_blank" class="box">
-    <h5>React Native example</h5>
+  <a href="../tutorials/react-native-buckets/" class="box">
+    <h5>React Native tutorial</h5>
     <p>See how to create user buckets & threads in React Native.</p>
   </a>
-  <span class="box-space"> </span>
-  <span class="box-fill">
-  </span>
 </div>
 
 <h3 id="bucket-protocols">Bucket Protocols<a class="headerlink" href="#bucket-protocols" title="Permanent link">&para;</a></h3>

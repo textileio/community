@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#getting-started" tabindex="1" class="md-skip">
+      <a href="#accounts-limits" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -318,6 +318,40 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#accounts-overview" title="Accounts overview" class="md-nav__link">
+    Accounts overview
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organizations" title="Organizations" class="md-nav__link">
+    Organizations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#users" title="Users" class="md-nav__link">
+    Users
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotas" title="Quotas" class="md-nav__link">
+    Quotas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#installation" title="Installation" class="md-nav__link">
     Installation
   </a>
@@ -385,19 +419,6 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#organizations" title="Organizations" class="md-nav__link">
-    Organizations
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#enterprise-users" title="Enterprise users" class="md-nav__link">
@@ -1328,6 +1349,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../tutorials/nodejs/" title="Build with NodeJS" target="" class="md-nav__link ">
+      Build with NodeJS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../tutorials/golang/getting-started/" title="Getting started with Golang" target="" class="md-nav__link ">
       Getting started with Golang
     </a>
@@ -1385,18 +1418,6 @@
   <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
   
   
-  
-    
-    
-    
-
-
-  <li class="md-nav__item">
-    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
-      User Galleries in Buckets
-    </a>
-  </li>
-
   
     
     
@@ -1512,6 +1533,18 @@
 
 
   <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
+      User Galleries in Buckets
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
     <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app" title="Buckets from React Native (JavaScript)" target="_blank" class="md-nav__link _blank">
       Buckets from React Native (JavaScript)
     </a>
@@ -1550,6 +1583,40 @@
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#accounts-overview" title="Accounts overview" class="md-nav__link">
+    Accounts overview
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organizations" title="Organizations" class="md-nav__link">
+    Organizations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#users" title="Users" class="md-nav__link">
+    Users
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quotas" title="Quotas" class="md-nav__link">
+    Quotas
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#installation" title="Installation" class="md-nav__link">
@@ -1620,19 +1687,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#organizations" title="Organizations" class="md-nav__link">
-    Organizations
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#enterprise-users" title="Enterprise users" class="md-nav__link">
     Enterprise users
@@ -1666,7 +1720,56 @@
                   <a href="https://github.com/textileio/docs/edit/master/docs/hub/accounts.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
+                <h1 id="accounts-limits">Accounts &amp; Limits<a class="headerlink" href="#accounts-limits" title="Permanent link">&para;</a></h1>
+<h2 id="accounts-overview">Accounts overview<a class="headerlink" href="#accounts-overview" title="Permanent link">&para;</a></h2>
+<p>When you sign-up to use the Hub, you do so as a developer. Each developer account on the Hub has their own set of API keys and quotas. Developers can create two other entities on the Hub, Organizations (just Orgs for short) and Users. </p>
+<h3 id="organizations">Organizations<a class="headerlink" href="#organizations" title="Permanent link">&para;</a></h3>
+<p>Organizations allow multiple developers to work together using shared resources. Members of an organization can collaboratively manage <a href="../../buckets/">Buckets</a>, create or remove <a href="../app-apis/#app-keys">API Keykeyss</a>, and more. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>You can <a href="../cli/hub_orgs_create/">create</a>, <a href="../cli/hub_orgs_invite/">invite</a>, and <a href="../cli/hub_orgs_leave/">leave</a> organizations easily. Read more about all Org methods on the <a href="../cli/hub_orgs/">CLI docs</a>.</p>
+</div>
+<p>To learn more about sharing Buckets with an organization, read the intro on <a href="../../buckets/#organization-buckets">Organization Buckets</a>.</p>
+<h3 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h3>
+<p>If a developer is creating an app or service with its own users, those users can be mapped to user instances in the Hub by using <a href="../app-apis/#user-group-key">User Group keys</a>. Each user of an app can have their own Buckets and Threads. Unlike developers or organizations, app users cannot create their own API keys. This allows you to embed bucket and thread functionality into your app, see the <a href="../../tutorials/hub/web-app/">app building tutorial</a> to learn more.</p>
+<h2 id="quotas">Quotas<a class="headerlink" href="#quotas" title="Permanent link">&para;</a></h2>
+<p>Owners are developers, organizations, or users (see above) depending on how the resource is created. If these limits are not enough for you, or if you need to talk to us about a custom account, you can reach us at <a href="mailto:support@textile.io">support@textile.io</a>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Threads</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Max Threads Per Owner</td>
+<td align="left">100</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Buckets</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Max Buckets Size</td>
+<td align="left">1Gib</td>
+</tr>
+<tr>
+<td align="left">Max Size All Buckets</td>
+<td align="left">1Gib</td>
+</tr>
+<tr>
+<td align="left">Max Buckets Per Thread</td>
+<td align="left">10,000</td>
+</tr>
+</tbody>
+</table>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <h3 id="download">Download<a class="headerlink" href="#download" title="Permanent link">&para;</a></h3>
 <p>To access and manage Hub resources, you need to install the Hub CLI. First, download the Hub CLI binary for your platform from the <a href="https://github.com/textileio/textile/releases/latest">latest releases</a>.</p>
@@ -1712,13 +1815,6 @@
 <div class="highlight"><pre><span></span><code>hub login
 </code></pre></div>
 
-<h2 id="organizations">Organizations<a class="headerlink" href="#organizations" title="Permanent link">&para;</a></h2>
-<p>The Hub allows you to create organizations easily. Organizations can be one or many collaborators. Members of an Org have management access to the <a href="../../buckets/">Buckets</a> and <a href="../app-apis/#app-keys">App Keys</a> created while in an Org's directory.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>You can <a href="../cli/hub_orgs_create/">create</a>, <a href="../cli/hub_orgs_invite/">invite</a>, and <a href="../cli/hub_orgs_leave/">leave</a> organizations easily. Read more about all Org methods on the <a href="../cli/hub_orgs/">CLI docs</a>.</p>
-</div>
-<p>To learn more about sharing Buckets with an organization, read the intro on <a href="../../buckets/#organization-buckets">Organization Buckets</a>.</p>
 <h3 id="enterprise-users">Enterprise users<a class="headerlink" href="#enterprise-users" title="Permanent link">&para;</a></h3>
 <p>If you are interested in enterprise support from Textile, please email us at <a href="mailto:support@textile.io">support@textile.io</a>.</p>
                 

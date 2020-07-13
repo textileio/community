@@ -1383,6 +1383,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../tutorials/nodejs/" title="Build with NodeJS" target="" class="md-nav__link ">
+      Build with NodeJS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../tutorials/golang/getting-started/" title="Getting started with Golang" target="" class="md-nav__link ">
       Getting started with Golang
     </a>
@@ -1440,18 +1452,6 @@
   <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
   
   
-  
-    
-    
-    
-
-
-  <li class="md-nav__item">
-    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
-      User Galleries in Buckets
-    </a>
-  </li>
-
   
     
     
@@ -1560,6 +1560,18 @@
   <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
   
   
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
+      User Galleries in Buckets
+    </a>
+  </li>
+
   
     
     
@@ -1806,8 +1818,8 @@
 <p>You can run a localnet setup by using a Powergate release or by using Powergate source code.</p>
 <h4 id="download-a-release">Download a release<a class="headerlink" href="#download-a-release" title="Permanent link">&para;</a></h4>
 <p>Visit the <a href="https://github.com/textileio/powergate/releases/latest">latest Powergate release page</a> and download the <code>powergate-docker-&lt;version&gt;.zip</code> release artifact. Unzip it and <code>cd</code> into the resulting directory:</p>
-<div class="highlight"><pre><span></span><code>unzip `powergate-docker-&lt;version&gt;.zip
-cd `powergate-docker-&lt;version&gt;
+<div class="highlight"><pre><span></span><code>unzip powergate-docker-&lt;version&gt;.zip
+cd powergate-docker-&lt;version&gt;
 </code></pre></div>
 
 <h4 id="use-powergate-source-code">Use Powergate source code<a class="headerlink" href="#use-powergate-source-code" title="Permanent link">&para;</a></h4>
@@ -1842,7 +1854,10 @@ mined block in the past <span class="o">{</span><span class="s2">&quot;block-tim
 Moved ./pow to /usr/local/bin
 </code></pre></div>
 
-<p><strong>Note:</strong> If you're installing on macOS, there are some system permissions issues you'll have to deal with. Please follow the <a href="https://docs.textile.io/hub/accounts/#mac-installation"><code>hub</code> installation instructions</a> to work around the issue.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>If you're installing on macOS, there are some system permissions issues you'll have to deal with. Please follow the <a href="https://docs.textile.io/hub/accounts/#mac-installation"><code>hub</code> installation instructions</a> to work around the issue.</p>
+</div>
 <h4 id="build-from-source">Build from source<a class="headerlink" href="#build-from-source" title="Permanent link">&para;</a></h4>
 <p>From the root of the <code>powergate</code> repo, you can build the CLI from the latest code. This will install the Powergate CLI, <code>pow</code>, on your machine.</p>
 <div class="highlight"><pre><span></span><code>make build-pow

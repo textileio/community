@@ -1325,6 +1325,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../nodejs/" title="Build with NodeJS" target="" class="md-nav__link ">
+      Build with NodeJS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../golang/getting-started/" title="Getting started with Golang" target="" class="md-nav__link ">
       Getting started with Golang
     </a>
@@ -1382,18 +1394,6 @@
   <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
   
   
-  
-    
-    
-    
-
-
-  <li class="md-nav__item">
-    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
-      User Galleries in Buckets
-    </a>
-  </li>
-
   
     
     
@@ -1502,6 +1502,18 @@
   <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
   
   
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
+      User Galleries in Buckets
+    </a>
+  </li>
+
   
     
     
@@ -1674,6 +1686,10 @@
 <li>Attach that database to your Hub account for networking.</li>
 </ol>
 <p>To attach you Hub account, you'll use the non-signing key described in the <a href="../development-mode/">development mode</a> section. You can pass it in using the <code>withKeyInfo</code> method you've already used on the <code>Buckets</code> class.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+</div>
+<p>For this tutorial, you will be using an API key generated as part of a User Group key. It is possible to use Account Keys together with these APIs, but they do not work in quite the same way, since only Account owners (or Org members) can use them. A User Group key will allow you to create databases for each user of your app.</p>
 <p>Let's take a look at those steps all together.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">KeyInfo</span><span class="p">,</span> <span class="nx">ThreadID</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>

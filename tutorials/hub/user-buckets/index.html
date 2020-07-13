@@ -1214,23 +1214,17 @@
     Sharing encrypted buckets
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example-on-github" title="Example on GitHub" class="md-nav__link">
     Example on GitHub
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1304,6 +1298,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../nodejs/" title="Build with NodeJS" target="" class="md-nav__link ">
+      Build with NodeJS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../golang/getting-started/" title="Getting started with Golang" target="" class="md-nav__link ">
       Getting started with Golang
     </a>
@@ -1361,18 +1367,6 @@
   <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
   
   
-  
-    
-    
-    
-
-
-  <li class="md-nav__item">
-    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
-      User Galleries in Buckets
-    </a>
-  </li>
-
   
     
     
@@ -1488,6 +1482,18 @@
 
 
   <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
+      User Galleries in Buckets
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
     <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app" title="Buckets from React Native (JavaScript)" target="_blank" class="md-nav__link _blank">
       Buckets from React Native (JavaScript)
     </a>
@@ -1575,23 +1581,17 @@
     Sharing encrypted buckets
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
+</li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example-on-github" title="Example on GitHub" class="md-nav__link">
     Example on GitHub
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1632,6 +1632,10 @@
 <li>Create or fetch the existing bucket of interest by name.</li>
 <li>Get the key of the bucket.</li>
 </ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+</div>
+<p>For this tutorial, you will be using an API key generated as part of a User Group key. It is possible to use Account Keys together with these APIs, but they do not work in quite the same way, since only Account owners (or Org members) can use them. A User Group key will allow you to create buckets for each user of your app.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span><span class="p">,</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">KeyInfo</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
 <span class="kr">const</span> <span class="nx">setup</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">key</span>: <span class="kt">KeyInfo</span><span class="p">,</span> <span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -1725,7 +1729,7 @@
 <p>There is no way to convert encrypted Buckets to non-encrypted or vice-versa. However, it should be straight-forward to move files from an encrypted Bucket into a non-encrypted Bucket and back again.</p>
 <p>Adding multiple readers or writers to Buckets is only currently available through <code>orgs</code> for developers, not app users. However, we will include this ability in future release. This is dependent on our work to implement more advanced <a href="https://github.com/textileio/go-threads/issues/295">Threads ACLs</a>.</p>
 <p>Be aware that creating encrypted Buckets still posts files to IPFS. Meaning the encrypted contents of Buckets are still publicly available, just encrypted so not possible to view without the encryption keys.</p>
-<h4 id="example-on-github">Example on GitHub<a class="headerlink" href="#example-on-github" title="Permanent link">&para;</a></h4>
+<h2 id="example-on-github">Example on GitHub<a class="headerlink" href="#example-on-github" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/js-examples.git
 <span class="nb">cd</span> js-examples/bucket-photo-gallery
 </code></pre></div>
