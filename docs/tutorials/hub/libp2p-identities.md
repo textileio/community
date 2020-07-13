@@ -92,7 +92,23 @@ Time to setup your app in [development mode](development-mode.md).
 
 ## Advanced identity providers
 
-### Metamask
+### Public key provider
+
+
+```typescript
+interface Public {
+  verify(data: Buffer, sig: Buffer): Promise<boolean>
+}
+
+interface Identity {
+  sign(data: Buffer): Promise<Buffer>
+  public: Public
+}
+```
+
+Identity here represents any entity capable of signing a message. This is a simple [public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure) inspired interface that similarly requires the implementer to be capable of returning an associated public key for verification. In many cases, the Identity will just be a private key, but callers can use any setup that suits their needs. A default implementation based on [Libp2p's crypto library](https://github.com/libp2p/js-libp2p-crypto/blob/master/src/index.d.ts#L82) is provided for convinience (and is also used by default if no identity is provided), however, many developers will want to use alternative identity provides, such as [3box/Ceramic](https://www.ceramic.network), [Fortmatic](https://fortmatic.com), and existing private/public keypair, or a web3 provider such as [Metamask](https://metamask.io). Textile Hub also provides email-based identities.
+
+### 3Box
 
 One trick with the above workflow is that you need to help your users store and recover their private keys. You could do this with your own user model stored over an API. Alternatively, you can use any keypair manager, such as Metamask. There are a few of steps to generate a Textile compatible `identity` from the Metamask API. A good starting point is to use the [3Box SDK](https://docs.3box.io/). 3Box manages a cluster of nodes that web3 users can push small bits of information to. In this approach, a user with a 3Box identity can use that identity to create and track Buckets or Threads generated on Textile.
 
