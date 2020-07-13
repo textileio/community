@@ -31,7 +31,7 @@ The Hub is a portal to the IPFS network. Use Textile's managed services to persi
 
 ## Buckets
 
-Buckets are a new way to pin data to IPFS (and soon, store it to Filecoin). Buckets are dynamic folders published simultaneously over IPFS, IPNS, and HTTP. Buckets are designed to make it simple for you to create folders of data and push that data to remote IPFS peers for backup, persistance, or sharing. They can be encrypted or public, they can be single or multi-user, and they can be used from the CLI or with the Go or JavaScript libraries.
+Buckets are a new way to pin data to IPFS (and soon, store it to Filecoin). Buckets are dynamic folders published simultaneously over IPFS, IPNS, and HTTP. Buckets are designed to make it simple for you to create folders of data and push that data to remote IPFS peers for backup, persistence, or sharing. They can be encrypted or public, they can be single or multi-user, and they can be used from the CLI or with the Go or JavaScript libraries.
 
 #### Push your buckets
 
