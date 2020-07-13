@@ -152,6 +152,7 @@ nav:
           - Mobile threads & buckets: tutorials/react-native-buckets.md
           - Authentication: tutorials/hub/production-auth.md
       - Host Websites: tutorials/static-websites.md
+      - Build with NodeJS: tutorials/nodejs.md
       - Getting started with Golang: tutorials/golang/getting-started.md
   - Examples:
       - ThreadDB:
