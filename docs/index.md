@@ -18,14 +18,37 @@ The Hub is a portal to the IPFS network. Use Textile's managed services to persi
     <p>Learn more about using the Textile Hub.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./buckets/" class="box">
-    <h5>Buckets</h5>
-    <p>Persist your data on remote IPFS peers.</p>
-  </a>
-  <span class="box-space"> </span>
-  <a href="./hub/app-apis" target="_blank" class="box">
+  <a href="./hub/app-apis" class="box">
     <h5>App APIs</h5>
     <p>Use Threads & Buckets to persist data on IPFS from your apps.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="./tutorials/hub/web-app/" class="box">
+    <h5>App Building</h5>
+    <p>Read a tutorial on building apps using the Hub.</p>
+  </a>
+</div>
+
+## Buckets
+
+Buckets are a new way to pin data to IPFS (and soon, store it to Filecoin). Buckets are dynamic folders published simultaneously over IPFS, IPNS, and HTTP. Buckets are designed to make it simple for you to create folders of data and push that data to remote IPFS peers for backup, persistance, or sharing. They can be encrypted or public, they can be single or multi-user, and they can be used from the CLI or with the Go or JavaScript libraries.
+
+#### Push your buckets
+
+<div class="txtl-options">
+  <a href="./buckets/" class="box">
+    <h5>Introduction</h5>
+    <p>Learn more about using the Buckets.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="./tutorials/hub/user-buckets/" class="box">
+    <h5>Buckets in Apps</h5>
+    <p>Read about adding buckets to your app for users.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="https://textileio.github.io/js-hub/docs/hub.buckets" target="_blank" class="box">
+    <h5>Buckets JavaScript</h5>
+    <p>Jump over to the JavaScript documentation.</p>
   </a>
 </div>
 
