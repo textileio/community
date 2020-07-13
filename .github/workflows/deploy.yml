@@ -23,7 +23,7 @@ jobs:
           node-version: 12
       - name: push # push to a known bucket
         id: bucket
-        uses: textileio/github-action-buckets@v14
+        uses: textileio/github-action-buckets@v15
         with:
           key: ${{ secrets.TEXTILE_ORG_ACCOUNT_KEY }}
           secret: ${{ secrets.TEXTILE_ORG_ACCOUNT_SECRET }}
