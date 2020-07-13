@@ -19,6 +19,9 @@ To create a new `Database` you need to,
 
 To attach you Hub account, you'll use the non-signing key described in the [development mode](development-mode.md) section. You can pass it in using the `withKeyInfo` method you've already used on the `Buckets` class.
 
+!!!info
+   For this tutorial, you will be using an API key generated as part of a User Group key. It is possible to use Account Keys together with these APIs, but they do not work in quite the same way, since only Account owners (or Org members) can use them. A User Group key will allow you to create databases for each user of your app.
+
 Let's take a look at those steps all together.
 
 ```typescript
