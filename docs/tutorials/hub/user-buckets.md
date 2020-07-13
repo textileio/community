@@ -134,7 +134,7 @@ Adding multiple readers or writers to Buckets is only currently available throug
 
 Be aware that creating encrypted Buckets still posts files to IPFS. Meaning the encrypted contents of Buckets are still publicly available, just encrypted so not possible to view without the encryption keys.
 
-#### Example on GitHub
+## Example on GitHub
 
 ```bash
 git clone git@github.com:textileio/js-examples.git

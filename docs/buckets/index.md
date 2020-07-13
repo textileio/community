@@ -20,7 +20,7 @@ When working on your local machine, buckets are mapped to working directories. O
 ![[Read CLI docs for buckets](../hub/cli/hub_buck.md).](../images/hub-cli/hub_bucket_init.png)
 
 !!! info
-    Bucket names are unique to a developer and within an Org. They are not globally unique.**
+    Bucket names are unique to a developer and within an Org. They are not globally unique.
 
 !!! warning
     Be careful creating a bucket in a root directory, because all children directories are linked to that bucket. To move or remove a bucket's link to a directory, edit, move or delete the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory)
@@ -31,6 +31,10 @@ You can create buckets to share with all members of an organization. To do so, s
 
 !!! info
     to check which org a bucket is registered with, examine the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory)
+
+## Encrypted buckets
+
+It is possible to create encrypted buckets. The contents of encrypted buckets _will_ still exist on IPFS but the contents will be obfuscated to any viewer that doesn't have access to the encryption keys. You can choose to create encrypted buckets in when creating them in the CLI or when initializing them [in the JavaScript library](../tutorials/hub/user-buckets.md#push-encrypted-buckets).
 
 ## Publishing content
 
@@ -164,18 +168,20 @@ The final step is to invite collaborators to your Org. Once they accept the invi
 If you are building an app using one of our [developer libraries](../hub/app-apis.md#libraries) you can use buckets from inside your apps. Apps generally will create buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
 
 <div class="txtl-options">
+  <a href="../tutorials/hub/user-buckets/" class="box">
+    <h5>Buckets in your app</h5>
+    <p>View the tutorial on adding Buckets to your JavaScript app.</p>
+  </a>
+  <span class="box-space"> </span>
   <a href="https://textileio.github.io/js-hub" target="_blank" class="box">
     <h5>JS Hub Docs</h5>
     <p>Persist user buckets on IPFS from your JS app.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app" target="_blank" class="box">
-    <h5>React Native example</h5>
+  <a href="../tutorials/react-native-buckets/" class="box">
+    <h5>React Native tutorial</h5>
     <p>See how to create user buckets & threads in React Native.</p>
   </a>
-  <span class="box-space"> </span>
-  <span class="box-fill">
-  </span>
 </div>
 
 ### Bucket Protocols
