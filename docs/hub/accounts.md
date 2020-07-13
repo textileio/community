@@ -1,4 +1,36 @@
-# Getting Started
+# Accounts & Limits
+
+## Accounts overview
+
+When you sign-up to use the Hub, you do so as a developer. Each developer account on the Hub has their own set of API keys and quotas. Developers can create two other entities on the Hub, Organizations (just Orgs for short) and Users. 
+
+### Organizations
+
+Organizations allow multiple developers to work together using shared resources. Members of an organization can collaboratively manage [Buckets](../buckets/index.md), create or remove [API Keykeyss](../hub/app-apis.md#app-keys), and more. 
+
+!!! info
+  
+    You can [create](../hub/cli/hub_orgs_create.md), [invite](../hub/cli/hub_orgs_invite.md), and [leave](../hub/cli/hub_orgs_leave.md) organizations easily. Read more about all Org methods on the [CLI docs](../hub/cli/hub_orgs.md).
+
+To learn more about sharing Buckets with an organization, read the intro on [Organization Buckets](../buckets/index.md#organization-buckets).
+
+### Users
+
+If a developer is creating an app or service with its own users, those users can be mapped to user instances in the Hub by using [User Group keys](app-apis.md#user-group-key). Each user of an app can have their own Buckets and Threads. Unlike developers or organizations, app users cannot create their own API keys. This allows you to embed bucket and thread functionality into your app, see the [app building tutorial](../tutorials/hub/web-app.md) to learn more.
+
+## Quotas
+
+Owners are developers, organizations, or users (see above) depending on how the resource is created. If these limits are not enough for you, or if you need to talk to us about a custom account, you can reach us at [support@textile.io](mailto:support@textile.io).
+
+| Threads | |
+| :------ | :------ |
+| Max Threads Per Owner | 100 |
+
+| Buckets | |
+| :------ | :------ |
+| Max Buckets Size | 1Gib |
+| Max Size All Buckets | 1Gib |
+| Max Buckets Per Thread | 10,000 |
 
 ## Installation
 
@@ -52,16 +84,6 @@ If you've just initialized your account successfully, there is no need to login.
 ```sh
 hub login
 ```
-
-## Organizations
-
-The Hub allows you to create organizations easily. Organizations can be one or many collaborators. Members of an Org have management access to the [Buckets](../buckets/index.md) and [App Keys](../hub/app-apis.md#app-keys) created while in an Org's directory.
-
-!!! info
-  
-    You can [create](../hub/cli/hub_orgs_create.md), [invite](../hub/cli/hub_orgs_invite.md), and [leave](../hub/cli/hub_orgs_leave.md) organizations easily. Read more about all Org methods on the [CLI docs](../hub/cli/hub_orgs.md).
-
-To learn more about sharing Buckets with an organization, read the intro on [Organization Buckets](../buckets/index.md#organization-buckets).
 
 ### Enterprise users
 

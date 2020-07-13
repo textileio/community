@@ -19,6 +19,9 @@ So, to get started in our app, we are going to do three things at once.
 2. Create or fetch the existing bucket of interest by name.
 3. Get the key of the bucket.
 
+!!!info
+   For this tutorial, you will be using an API key generated as part of a User Group key. It is possible to use Account Keys together with these APIs, but they do not work in quite the same way, since only Account owners (or Org members) can use them. A User Group key will allow you to create buckets for each user of your app.
+
 ```typescript
 import { Buckets, Identity, KeyInfo } from '@textile/hub'
 
@@ -131,7 +134,7 @@ Adding multiple readers or writers to Buckets is only currently available throug
 
 Be aware that creating encrypted Buckets still posts files to IPFS. Meaning the encrypted contents of Buckets are still publicly available, just encrypted so not possible to view without the encryption keys.
 
-#### Example on GitHub
+## Example on GitHub
 
 ```bash
 git clone git@github.com:textileio/js-examples.git

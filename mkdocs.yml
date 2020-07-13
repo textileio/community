@@ -152,11 +152,11 @@ nav:
           - Mobile threads & buckets: tutorials/react-native-buckets.md
           - Authentication: tutorials/hub/production-auth.md
       - Host Websites: tutorials/static-websites.md
+      - Build with NodeJS: tutorials/nodejs.md
       - Getting started with Golang: tutorials/golang/getting-started.md
   - Examples:
       - ThreadDB:
           - Externals:
-              - User Galleries in Buckets: https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery
               - Chat in Local Database: https://github.com/textileio/js-examples/tree/master/hub-threaddb-chat
               - Server-side Authentication: https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app
               - Threads from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app
@@ -165,6 +165,7 @@ nav:
               - P2P Counter (Golang): https://github.com/textileio/go-threads/tree/master/examples/e2e_counter
       - Buckets:
           - Externals:
+              - User Galleries in Buckets: https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery
               - Buckets from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app
 
 # Customization
