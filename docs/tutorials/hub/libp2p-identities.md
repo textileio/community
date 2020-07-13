@@ -94,16 +94,10 @@ Time to setup your app in [development mode](development-mode.md).
 
 ### Metamask
 
-One trick with the above workflow is that you need to help your users store and recover their private keys. You could do this with your own user model stored over an API. Alternatively, you can use any keypair manager, such as Metamask. There are a few of steps to generate a Textile compatible `identity` from the Metamask API.
-
-### 3Box
-
-Another alternative to local storage is 3Box. 3Box manages a cluster of nodes that web3 users can push small bits of information to. In this approach, a user with a 3Box identity can use that identity to create and track Buckets or Threads generated on Textile.
+One trick with the above workflow is that you need to help your users store and recover their private keys. You could do this with your own user model stored over an API. Alternatively, you can use any keypair manager, such as Metamask. There are a few of steps to generate a Textile compatible `identity` from the Metamask API. A good starting point is to use the [3Box SDK](https://docs.3box.io/). 3Box manages a cluster of nodes that web3 users can push small bits of information to. In this approach, a user with a 3Box identity can use that identity to create and track Buckets or Threads generated on Textile.
 
 !!!info
     As of writing this, 3Box doesn't have Typescript typings available.
-
-We can replace our `getIdentity` function above, that used simple `localStorage`, with one that uses [3Box](https://3box.io/) and [Metamask](https://metamask.io/) to allow the user to hang on to their private key. 
 
 ```javascript
 const Box = require("3box");
