@@ -1,58 +1,58 @@
-# Managing Storage with the CidConfig
+# Managing Storage with the StorageConfig
 
-Every [FFS instance](ffs.md) can manage how data is stored on IPFS and Filecoin using the **CidConfig** ([details below](#cidconfig-details)). The CidConfig is a powerful tool to customize all the details of how you store data on Filecoin, make it available over IPFS, enforce replication, manage expiring deals, and more.
+Every [FFS instance](ffs.md) can manage how data is stored on IPFS and Filecoin using the **StorageConfig** ([details below](#storageconfig-details)). The StorageConfig is a powerful tool to customize all the details of how you store data on Filecoin, make it available over IPFS, enforce replication, manage expiring deals, and more.
 
-## Setting the CidConfig
+## Setting the StorageConfig
 
-In every Powergate deployment there are three ways to manage CidConfigs throughout the system.
+In every Powergate deployment there are three ways to manage StorageConfigs throughout the system.
 
-1. The FFS instance default CidConfig. This is initially set by the system default CidConfig. It can be modified by the FFS instance owner after creation.
-2. The storage request CidConfig. This will use the FFS instance default, but a custom CidConfig can also be supplied at request time.
-3. A storage update CidConfig. Any CidConfigs attached to existing stored data can be updated with a new CidConfig. The FFS instance will then work to modify the way data is stored to match the new configuration
+1. The FFS instance default StorageConfig. This is initially set by the system default StorageConfig. It can be modified by the FFS instance owner after creation.
+2. The storage request StorageConfig. This will use the FFS instance default, but a custom StorageConfig can also be supplied at request time.
+3. A storage update StorageConfig. Any StorageConfigs attached to existing stored data can be updated with a new StorageConfig. The FFS instance will then work to modify the way data is stored to match the new configuration
 
-### Get the default CidConfig of an FFS instance
+### Get the default StorageConfig of an FFS instance
 
-View the current default CidConfig of an FFS instance. 
+View the current default StorageConfig of an FFS instance. 
 
 ```bash
 pow ffs config default -t <token>
 ```
 
-### Set the default CidConfig of an FFS instance
+### Set the default StorageConfig of an FFS instance
 
-To set the default config to one stored in `new-config.json`.
-
-```bash
-pow ffs config set new-config.json -t <token>
-```
-
-### Set a custom CidConfig at storage time
-
-You can provide a flag (`-c`) to include a custom CidConfig for a new storage request. Storage requests without a custom CidConfig will use the instance default storage config.
+To set the default `StorageConfig` to one stored in `new-config.json`.
 
 ```bash
-pow ffs push <cid> -t <token> -c custom-config.json
+pow ffs config set-default new-config.json -t <token>
 ```
 
-### Get the CidConfig of previously stored data
+### Set a custom StorageConfig at storage time
 
-To pull the CidConfig associated with data already managed by the FFS instance, use the _<cid>_ of the stored data.
+You can provide a flag (`-c`) to include a custom StorageConfig for a new storage request. Storage requests without a custom StorageConfig will use the instance default storage config.
 
 ```bash
-pow ffs pull <cid> -t <token>
+pow ffs config push <cid> -t <token> -c custom-config.json
 ```
 
-### Update the CidConfig of existing data
+### Get the StorageConfig of previously stored data
 
-To update the CidConfig of data already stored and managed by the Powergate with a new config stored in `updated-config.json`. This command requires the _override_ flag (`-o`) to confirm that you understand that the command will replace an existing config.
+To pull the StorageConfig associated with data already managed by the FFS instance, use the _<cid>_ of the stored data.
 
 ```bash
-pow ffs push <cid> -t <token> -o -c updated-config.json
+pow ffs config get <cid> -t <token>
 ```
 
-## CidConfig Details
+### Update the StorageConfig of existing data
 
-Here is an example of the _default CidConfig_.
+To update the StorageConfig of data already stored and managed by the Powergate with a new config stored in `updated-config.json`. This command requires the _override_ flag (`-o`) to confirm that you understand that the command will replace an existing config.
+
+```bash
+pow ffs config push <cid> -t <token> -o -c updated-config.json
+```
+
+## StorageConfig Details
+
+Here is an example of the _default StorageConfig_.
 
 ```JSON
 {
