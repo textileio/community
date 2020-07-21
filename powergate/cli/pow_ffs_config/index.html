@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -860,7 +860,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../cidconfig/" title="Storage Configs" target="" class="md-nav__link ">
+    <a href="../../storageconfig/" title="Storage Configs" target="" class="md-nav__link ">
       Storage Configs
     </a>
   </li>
@@ -922,18 +922,6 @@
   <li class="md-nav__item">
     <a href="../pow_asks/" title="Asks" target="" class="md-nav__link ">
       Asks
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../pow_deals/" title="Deals" target="" class="md-nav__link ">
-      Deals
     </a>
   </li>
 
@@ -1507,16 +1495,16 @@
 </code></pre></div>
 
 <h3 id="options-inherited-from-parent-commands">Options inherited from parent commands<a class="headerlink" href="#options-inherited-from-parent-commands" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>      --config string          config file (default is $HOME/.powergate.yaml)
-      --serverAddress string   address of the powergate service api (default &quot;/ip4/127.0.0.1/tcp/5002&quot;)
+<div class="highlight"><pre><span></span><code>      --serverAddress string   address of the powergate service api (default &quot;/ip4/127.0.0.1/tcp/5002&quot;)
 </code></pre></div>
 
 <h3 id="see-also">SEE ALSO<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="../pow_ffs/">pow ffs</a>  - Provides commands to manage ffs</li>
 <li><a href="../pow_ffs_config_default/">pow ffs config default</a>    - Returns the default storage config</li>
-<li><a href="../pow_ffs_config_prep/">pow ffs config prep</a>  - Returns the default config prepped for the provided cid</li>
-<li><a href="../pow_ffs_config_set/">pow ffs config set</a>    - Sets the default cid storage config from stdin or a file</li>
+<li><a href="../pow_ffs_config_get/">pow ffs config get</a>    - Fetches the storage config for the provided cid</li>
+<li><a href="../pow_ffs_config_push/">pow ffs config push</a>  - Add data to FFS via cid</li>
+<li><a href="../pow_ffs_config_set-default/">pow ffs config set-default</a>    - Sets the default cid storage config from stdin or a file</li>
 </ul>
                 
                   
@@ -1573,7 +1561,7 @@
     
       <script src="../../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
       
         <script src="../../../js/sidebar.js"></script>
       

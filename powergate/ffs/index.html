@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -1011,7 +1011,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cidconfig/" title="Storage Configs" target="" class="md-nav__link ">
+    <a href="../storageconfig/" title="Storage Configs" target="" class="md-nav__link ">
       Storage Configs
     </a>
   </li>
@@ -1073,18 +1073,6 @@
   <li class="md-nav__item">
     <a href="../cli/pow_asks/" title="Asks" target="" class="md-nav__link ">
       Asks
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/pow_deals/" title="Deals" target="" class="md-nav__link ">
-      Deals
     </a>
   </li>
 
@@ -1741,15 +1729,15 @@
 <h2 id="multi-tiered-design">Multi-tiered design<a class="headerlink" href="#multi-tiered-design" title="Permanent link">&para;</a></h2>
 <p>The FFS provides you API access to multi-tiered storage system built on IPFS and Filecoin. In many places, we refer to these two tiers of storage as Hot (IFPS) and Cold (Filecoin). This mirrors multi-tiered storage often deployed with a hot storage layer in <em>memory</em> and a cold storage layer on <em>disk</em>.</p>
 <h3 id="hot-storage-layer">Hot storage layer<a class="headerlink" href="#hot-storage-layer" title="Permanent link">&para;</a></h3>
-<p>Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). The default <code>CidConfig</code> enables both hot for all new data stored. Data stored with hot enabled is pinned to the Powergate's IPFS node. </p>
+<p>Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). The default <code>StorageConfig</code> enables both hot for all new data stored. Data stored with hot enabled is pinned to the Powergate's IPFS node. </p>
 <h3 id="cold-storage-layer">Cold storage layer<a class="headerlink" href="#cold-storage-layer" title="Permanent link">&para;</a></h3>
-<p>Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (localnet or testnet). You can use the <a href="../cidconfig/">CidConfig</a> to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default <code>CidConfig</code> enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.</p>
+<p>Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (localnet or testnet). You can use the <a href="../storageconfig/">StorageConfig</a> to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default <code>StorageConfig</code> enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.</p>
 <h3 id="moving-between-tiers">Moving between tiers<a class="headerlink" href="#moving-between-tiers" title="Permanent link">&para;</a></h3>
 <h4 id="hot-to-cold">Hot to Cold<a class="headerlink" href="#hot-to-cold" title="Permanent link">&para;</a></h4>
-<p>Data that is stored in the hot layer can be moved to cold storage in a couple different ways. The most common scenario is where data is stored initially with cold <em>disabled</em> and later a new <code>CidConfig</code> is pushed that <em>enables</em> cold storage. In this scenario, Powergate will resolve the file from the hot layer, create any newly required Filecoin deals to fulfill. the cold storage settings.</p>
+<p>Data that is stored in the hot layer can be moved to cold storage in a couple different ways. The most common scenario is where data is stored initially with cold <em>disabled</em> and later a new <code>StorageConfig</code> is pushed that <em>enables</em> cold storage. In this scenario, Powergate will resolve the file from the hot layer, create any newly required Filecoin deals to fulfill. the cold storage settings.</p>
 <h4 id="cold-to-hot">Cold to Hot<a class="headerlink" href="#cold-to-hot" title="Permanent link">&para;</a></h4>
-<p>Data stored only in the cold layer isn't guaranteed to be available on the IPFS network. In order for it to be, you need to push a new storage config that enables hot storage. You can automate this movement using the <code>AllowUnfreeze</code> flag of <a href="../cidconfig/">the CidConfig</a>. Either way, Powergate will always attempt resolve the data, first by trying to fetch it from the IPFS network, and if unable to do that, will execute a retrieval deal to pull the data from Finally. Finally, the data will be pinned in hot layer IPFS storage and available on the IPFS network.</p>
-<p>Read more about <a href="../cidconfig/">updating the CidConfig here</a>.</p>
+<p>Data stored only in the cold layer isn't guaranteed to be available on the IPFS network. In order for it to be, you need to push a new storage config that enables hot storage. You can automate this movement using the <code>AllowUnfreeze</code> flag of <a href="../storageconfig/">the StorageConfig</a>. Either way, Powergate will always attempt resolve the data, first by trying to fetch it from the IPFS network, and if unable to do that, will execute a retrieval deal to pull the data from Finally. Finally, the data will be pinned in hot layer IPFS storage and available on the IPFS network.</p>
+<p>Read more about <a href="../storageconfig/">updating the StorageConfig here</a>.</p>
 <h2 id="using-the-ffs">Using the FFS<a class="headerlink" href="#using-the-ffs" title="Permanent link">&para;</a></h2>
 <p>To start using the FFS APIs you must first create an <em>FFS Instance</em>.</p>
 <h3 id="create-an-ffs-instance">Create an FFS Instance<a class="headerlink" href="#create-an-ffs-instance" title="Permanent link">&para;</a></h3>
@@ -1767,22 +1755,22 @@
 </code></pre></div>
 
 <h3 id="make-data-available">Make data available<a class="headerlink" href="#make-data-available" title="Permanent link">&para;</a></h3>
-<p>The FFS requires data you aim to store to be available over IPFS. If you are using the CLI, you can ensure that it is available by staging it on IPFS using <code>addToHot</code>. Note that <code>addToHot</code> does not store your data in the Powergate FFS. It is an optional step that caches your data to ensure it is available on IPFS before being stored in the Powergate FFS. This is technically equivalent to <code>ipfs add --pin=false</code>, which is adding data without pinning it.</p>
-<div class="highlight"><pre><span></span><code>pow ffs addToHot &lt;path/filename&gt;
+<p>The FFS requires data you aim to store to be available over IPFS. If you are using the CLI, you can ensure that it is available by staging it on IPFS using <code>stage</code>. Note that <code>stage</code> does not store your data in the Powergate FFS. It is an optional step that caches your data to ensure it is available on IPFS before being stored in the Powergate FFS. This is technically equivalent to <code>ipfs add --pin=false</code>, which is adding data without pinning it.</p>
+<div class="highlight"><pre><span></span><code>pow ffs stage &lt;path/filename&gt;
 </code></pre></div>
 
-<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Success! Added file to FFS hot storage with cid: &lt;cid&gt;
+<details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Success! Cached file in FFS hot storage with cid: &lt;cid&gt;
 </code></pre></div>
 
 </details>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>If data exists on the IPFS network, you don't need to run <code>addToHot</code> as the Powergate will automatically fetch that data from remote peers.</p>
+<p>If data exists on the IPFS network, you don't need to run <code>stage</code> as the Powergate will automatically fetch that data from remote peers.</p>
 </div>
 <h3 id="initiate-storage">Initiate storage<a class="headerlink" href="#initiate-storage" title="Permanent link">&para;</a></h3>
-<p>The Powergate manages each file stored in the FFS based on the setup defined in a <em>CidConfig</em>. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must push a new CidConfig for the CID we generated above. Learn more about the <a href="../cidconfig/">CidConfig here</a>.</p>
-<p>Every FFS instance has a default <code>CidConfig</code> that will be used for every new deal unless overridden.</p>
-<div class="highlight"><pre><span></span><code>pow ffs push --watch &lt;cid&gt;
+<p>The Powergate manages each file stored in the FFS based on the setup defined in a <em>StorageConfig</em>. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must push a new StorageConfig for the CID we generated above. Learn more about the <a href="../storageconfig/">StorageConfig here</a>.</p>
+<p>Every FFS instance has a default <code>StorageConfig</code> that will be used for every new deal unless overridden.</p>
+<div class="highlight"><pre><span></span><code>pow ffs config push --watch &lt;cid&gt;
 </code></pre></div>
 
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>&gt; Success! Pushed cid config <span class="k">for</span> &lt;cid&gt; to FFS with job id: 70368cda-d65a-4e11-8a9f-fbf36135f563
@@ -1821,7 +1809,7 @@
 <p>If you ever interact directly with the IPFS node, do not ever manually modify the pinset. The Powergate requires full control over the pinset, since it is required when users specify <code>HotStorage.Enabled=true</code>. Manually interacting with the IPFS node's pinset could lead to unexpected behavior in the Powergate.</p>
 </div>
 <h2 id="miner-selection">Miner selection<a class="headerlink" href="#miner-selection" title="Permanent link">&para;</a></h2>
-<p>Powergate has many internal components that are used to simplify the process of using Filecoin. One set of components are the Powergate's indexes, where it collects information about miners including, power, sector size, storage ask price, etc. With that information, the Powergate can create a reasonable ranking of miners. Miners that are most promising for making deals will show up at the top. When pushing data to cold storage, the FFS will use this information to automate finding miners and initiating deals. You can use the <code>CidConfig</code> to help direct the Powergate to miners that match your particular requirements.</p>
+<p>Powergate has many internal components that are used to simplify the process of using Filecoin. One set of components are the Powergate's indexes, where it collects information about miners including, power, sector size, storage ask price, etc. With that information, the Powergate can create a reasonable ranking of miners. Miners that are most promising for making deals will show up at the top. When pushing data to cold storage, the FFS will use this information to automate finding miners and initiating deals. You can use the <code>StorageConfig</code> to help direct the Powergate to miners that match your particular requirements.</p>
 <h2 id="learn-more">Learn more<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
 <p>The FFS does a lot of work out of the box. If you'd like to learn more about the components, design, and capabilities of the FFS, we encourage you to read the <a href="https://github.com/textileio/powergate/blob/master/ffs/Design.md">FFS Design document</a>.</p>
                 
@@ -1859,7 +1847,7 @@
           </a>
         
         
-          <a href="../cidconfig/" title="Storage Configs" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../storageconfig/" title="Storage Configs" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
@@ -1914,7 +1902,7 @@
     
       <script src="../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
         <script src="../../js/sidebar.js"></script>
       

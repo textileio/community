@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -1042,7 +1042,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../cidconfig/" title="Storage Configs" target="" class="md-nav__link ">
+    <a href="../storageconfig/" title="Storage Configs" target="" class="md-nav__link ">
       Storage Configs
     </a>
   </li>
@@ -1104,18 +1104,6 @@
   <li class="md-nav__item">
     <a href="../cli/pow_asks/" title="Asks" target="" class="md-nav__link ">
       Asks
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/pow_deals/" title="Deals" target="" class="md-nav__link ">
-      Deals
     </a>
   </li>
 
@@ -1832,9 +1820,13 @@ cd powergate-docker-&lt;version&gt;
 <p>With whichever method you chose in the Installation section above, you can now use the provided <code>docker-compose</code> configuration. With the default setup, you will run Powergate connected to a local localnet with 512Mib sectors and instantly available gRPC API or CLI that don't require any extra config flags 🎊</p>
 <p><strong>Run the docker-compose</strong></p>
 <p>Docker files for the Powergate are all contained in the folder, <code>/docker</code>.</p>
-<div class="highlight"><pre><span></span><code>make localnet
+<div class="highlight"><pre><span></span><code><span class="nv">BIGSECTORS</span><span class="o">=</span><span class="nb">true</span> make localnet
 </code></pre></div>
 
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>You can set <code>BIGSECTORS</code> according to your needs. See the description <a href="#filecoin-localnet">above</a> for more information. If you don't specify a <code>BIGSECTORS</code> environment variable, the default is <code>true</code>.</p>
+</div>
 <p>If this is your first time running the Powergate, Docker will download the required instances before any Powergate setup begins. Downloads are dependent on your bandwidth and may take <strong>a few minutes</strong>, but wont be required for subsequent runs of the Powergate.</p>
 <p>Once running, you will begin to see log outputs, including those of the embedded miner.</p>
 <div class="highlight"><pre><span></span><code>lotus_1      <span class="p">|</span> <span class="m">2020</span>-05-29T20:35:08.644Z WARN    miner   miner/miner.go:177<span class="se">\</span>
@@ -2002,7 +1994,7 @@ Moved ./pow to /usr/local/bin
     
       <script src="../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
         <script src="../../js/sidebar.js"></script>
       
