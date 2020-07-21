@@ -2,11 +2,13 @@
 
 ## Accounts overview
 
+### Developer accounts
+
 When you sign-up to use the Hub, you do so as a developer. Each developer account on the Hub has their own set of API keys and quotas. Developers can create two other entities on the Hub, Organizations (just Orgs for short) and Users. 
 
 ### Organizations
 
-Organizations allow multiple developers to work together using shared resources. Members of an organization can collaboratively manage [Buckets](../buckets/index.md), create or remove [API Keykeyss](../hub/app-apis.md#app-keys), and more. 
+Organizations allow multiple developers to work together using shared resources. Members of an organization can collaboratively manage [Buckets](../buckets/index.md), create or remove [API Keykeyss](../hub/apis.md#app-keys), and more. 
 
 !!! info
   
@@ -14,11 +16,7 @@ Organizations allow multiple developers to work together using shared resources.
 
 To learn more about sharing Buckets with an organization, read the intro on [Organization Buckets](../buckets/index.md#organization-buckets).
 
-### Users
-
-If a developer is creating an app or service with its own users, those users can be mapped to user instances in the Hub by using [User Group keys](app-apis.md#user-group-key). Each user of an app can have their own Buckets and Threads. Unlike developers or organizations, app users cannot create their own API keys. This allows you to embed bucket and thread functionality into your app, see the [app building tutorial](../tutorials/hub/web-app.md) to learn more.
-
-## Quotas
+### Quotas
 
 Owners are developers, organizations, or users (see above) depending on how the resource is created. If these limits are not enough for you, or if you need to talk to us about a custom account, you can reach us at [support@textile.io](mailto:support@textile.io).
 
@@ -84,6 +82,10 @@ If you've just initialized your account successfully, there is no need to login.
 ```sh
 hub login
 ```
+
+### Removal
+
+If you fully delete your account or organization, data replicated on IPFS through any API will **also be removed**. So if you remove your account, we highly encourage you to replicate the data on an external IPFS node, provide tools for your users to export or replicate their own account data, or host external Thread Services to migrate your user Thread replication to.
 
 ### Enterprise users
 

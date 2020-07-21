@@ -65,7 +65,7 @@ The contents of `.env` will be,
 USER_API_KEY=textile-hub-user-group-key
 ```
 
-You can follow the instructions to generate a **User Group Key** here, [API Access](http://localhost:8000/hub/app-apis/#api-access). If you have already generated keys, you can list them by executing `hub keys ls`. You'll add the values to your `.env` file on the right side of the equality sign.
+You can follow the instructions to generate a **User Group Key** here, [API Access](http://localhost:8000/hub/apis/#api-access). If you have already generated keys, you can list them by executing `hub keys ls`. You'll add the values to your `.env` file on the right side of the equality sign.
 
 **Typescript**
 

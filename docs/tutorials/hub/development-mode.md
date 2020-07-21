@@ -4,7 +4,7 @@ You are now ready to start running your app! The Hub allows you to generate API 
 
 ## API Access
 
-[User group keys](../../hub/app-apis.md) come with a `key` and a `secret`. You never want to share your secret or save it in a place where it may be exposed. However, when you are in development mode, you can create keys that have signing **disabled**, meaning no secret is required. This is ideal during development or working with your internal team, because it will make your first steps of app development a bit faster.
+[User group keys](../../hub/apis.md) come with a `key` and a `secret`. You never want to share your secret or save it in a place where it may be exposed. However, when you are in development mode, you can create keys that have signing **disabled**, meaning no secret is required. This is ideal during development or working with your internal team, because it will make your first steps of app development a bit faster.
 
 ### Create insecure keys
 

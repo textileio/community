@@ -10,7 +10,7 @@ Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](ht
 
 The Hub is a portal to the IPFS network. Use Textile's managed services to persist your data on the IPFS network, enhance the speed and availability of your decentralized databases, and more. The Hub has APIs for developers and teams to push data to the network and it has developer libraries to provide remote IPFS pinning in your apps or simplify the deployment of our decentralized database, ThreadDB.
 
-#### Start building
+**Start building**
 
 <div class="txtl-options">
   <a href="./hub/" class="box">
@@ -18,7 +18,7 @@ The Hub is a portal to the IPFS network. Use Textile's managed services to persi
     <p>Learn more about using the Textile Hub.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./hub/app-apis" class="box">
+  <a href="./hub/apis" class="box">
     <h5>App APIs</h5>
     <p>Use Threads & Buckets to persist data on IPFS from your apps.</p>
   </a>
@@ -33,7 +33,7 @@ The Hub is a portal to the IPFS network. Use Textile's managed services to persi
 
 Buckets are a new way to pin data to IPFS (and soon, store it to Filecoin). Buckets are dynamic folders published simultaneously over IPFS, IPNS, and HTTP. Buckets are designed to make it simple for you to create folders of data and push that data to remote IPFS peers for backup, persistence, or sharing. They can be encrypted or public, they can be single or multi-user, and they can be used from the CLI or with the Go or JavaScript libraries.
 
-#### Push your buckets
+**Push your buckets**
 
 <div class="txtl-options">
   <a href="./buckets/" class="box">
@@ -56,7 +56,7 @@ Buckets are a new way to pin data to IPFS (and soon, store it to Filecoin). Buck
 
 ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Developers use ThreadDB so they can spend less time configuring encryption or managing content addresses, instead ThreadDB allows them to start building right away. A familiar MongoDB/Mongoose API and simple data hosting services make dynamic data on the DWeb easy!
 
-#### Learn more
+**Learn more**
 
 <div class="txtl-options">
   <a href="./threads/" class="box">
@@ -64,7 +64,7 @@ ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Deve
     <p>Learn about ThreadDB and how to use them in your app.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="./hub/app-apis" class="box">
+  <a href="./hub/apis" class="box">
     <h5>App APIs</h5>
     <p>Use the Hub to help persist and scale your user's databases.</p>
   </a>
@@ -75,7 +75,7 @@ ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Deve
   </a>
 </div>
 
-#### Start building
+**Start building**
 
 <div class="txtl-options">
   <a href="https://github.com/textileio/js-todo-demo#threads-todo-demo" target="_blank" class="box">
@@ -96,7 +96,7 @@ ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Deve
 
 The Powergate is just warming up! The Powergate is an API driven solution to deploy hybrid Filecoin and IPFS storage into your app. If you are eager to learn more about what we are up to, we invite you to follow our regular [community updates](https://blog.textile.io/tag/filecoin) or follow along in the [the open-source repo](https://github.com/textileio/powergate). If you want to jump right in, follow one of the links below.
 
-#### Dive into Filecoin
+**Dive into Filecoin**
 
 <div class="txtl-options">
   <a href="https://github.com/textileio/powergate/" class="box">

@@ -165,7 +165,7 @@ The final step is to invite collaborators to your Org. Once they accept the invi
 
 #### App user Buckets
 
-If you are building an app using one of our [developer libraries](../hub/app-apis.md#libraries) you can use buckets from inside your apps. Apps generally will create buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
+If you are building an app using one of our [developer libraries](../hub/apis.md#libraries) you can use buckets from inside your apps. Apps generally will create buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
 
 <div class="txtl-options">
   <a href="../tutorials/hub/user-buckets/" class="box">

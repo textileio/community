@@ -42,6 +42,7 @@ plugins:
   - redirects:
       redirect_maps:
         "hub/introduction.md": "hub/index.md"
+        "hub/api-apis.md": "hub/apis.md"
         "hub/buckets.md": "buckets/index.md"
         "threads/introduction.md": "threads/index.md"
         "powergate/introduction.md": "powergate/index.md"
@@ -83,21 +84,25 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - The Hub:
-      - Introduction: hub/index.md
-      - Accounts: hub/accounts.md
-      - App APIs: hub/app-apis.md
-      - Hub CLI:
-          - Overview: hub/cli/hub.md
-          - Login: hub/cli/hub_login.md
-          - Logout: hub/cli/hub_logout.md
-          - Whoami: hub/cli/hub_whoami.md
-          - Orgs: hub/cli/hub_orgs.md
-          - Bucket: hub/cli/hub_buck.md
-          - Threads: hub/cli/hub_threads.md
-          - API Keys: hub/cli/hub_keys.md
-      - Externals:
-          - JavaScript: https://textileio.github.io/js-hub/docs/
+  - The Hub: hub/index.md
+  - Quickstart:
+    - Create an Account: hub/index.md
+    - Command-line tools: hub/cli-introduction.md
+    - Scripting and CI: hub/scripting-ci.md
+    - CLI Commands:
+      - Overview: hub/cli/hub.md
+      - Login: hub/cli/hub_login.md
+      - Logout: hub/cli/hub_logout.md
+      - Whoami: hub/cli/hub_whoami.md
+      - Orgs: hub/cli/hub_orgs.md
+      - Bucket: hub/cli/hub_buck.md
+      - Threads: hub/cli/hub_threads.md
+      - API Keys: hub/cli/hub_keys.md
+  - Build Apps: 
+      - Introduction: tutorials/hub/web-app.md
+      - App users: tutorials/hub/libp2p-identities.md
+      - Development mode: tutorials/hub/development-mode.md
+      - Production authentication: tutorials/hub/production-auth.md
   - Buckets:
       - Introduction: buckets/index.md
       - Buckets CLI:
@@ -165,7 +170,24 @@ nav:
           - Externals:
               - User Galleries in Buckets: https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery
               - Buckets from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app
-
+  - The old Hub:
+      - Connected Apps: hub/index.md
+      - Connected Apps: hub/apis.md
+      - Create an Account: hub/accounts.md
+      - Available APIs: hub/apis.md
+      - Development: hub/development.md
+      - Hub CLI:
+          - Overview: hub/cli/hub.md
+          - Login: hub/cli/hub_login.md
+          - Logout: hub/cli/hub_logout.md
+          - Whoami: hub/cli/hub_whoami.md
+          - Orgs: hub/cli/hub_orgs.md
+          - Bucket: hub/cli/hub_buck.md
+          - Threads: hub/cli/hub_threads.md
+          - API Keys: hub/cli/hub_keys.md
+      - Externals:
+          - JavaScript: https://textileio.github.io/js-hub/docs/
+  
 # Customization
 extra:
   social:
