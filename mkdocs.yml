@@ -132,7 +132,6 @@ nav:
           - Overview: powergate/cli/pow.md
           - FFS: powergate/cli/pow_ffs.md
           - Asks: powergate/cli/pow_asks.md
-          - Deals: powergate/cli/pow_deals.md
           - Faults: powergate/cli/pow_faults.md
           - Miners: powergate/cli/pow_miners.md
           - Net: powergate/cli/pow_net.md
