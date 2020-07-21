@@ -21,23 +21,23 @@ The FFS provides you API access to multi-tiered storage system built on IPFS and
 
 ### Hot storage layer
 
-Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). The default `CidConfig` enables both hot for all new data stored. Data stored with hot enabled is pinned to the Powergate's IPFS node. 
+Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). The default `StorageConfig` enables both hot for all new data stored. Data stored with hot enabled is pinned to the Powergate's IPFS node. 
 
 ### Cold storage layer
 
-Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (localnet or testnet). You can use the [CidConfig](cidconfig.md) to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default `CidConfig` enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.
+Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (localnet or testnet). You can use the [StorageConfig](storageconfig.md) to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default `StorageConfig` enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.
 
 ### Moving between tiers
 
 #### Hot to Cold
 
-Data that is stored in the hot layer can be moved to cold storage in a couple different ways. The most common scenario is where data is stored initially with cold *disabled* and later a new `CidConfig` is pushed that *enables* cold storage. In this scenario, Powergate will resolve the file from the hot layer, create any newly required Filecoin deals to fulfill. the cold storage settings.
+Data that is stored in the hot layer can be moved to cold storage in a couple different ways. The most common scenario is where data is stored initially with cold *disabled* and later a new `StorageConfig` is pushed that *enables* cold storage. In this scenario, Powergate will resolve the file from the hot layer, create any newly required Filecoin deals to fulfill. the cold storage settings.
 
 #### Cold to Hot
 
-Data stored only in the cold layer isn't guaranteed to be available on the IPFS network. In order for it to be, you need to push a new storage config that enables hot storage. You can automate this movement using the `AllowUnfreeze` flag of [the CidConfig](cidconfig.md). Either way, Powergate will always attempt resolve the data, first by trying to fetch it from the IPFS network, and if unable to do that, will execute a retrieval deal to pull the data from Finally. Finally, the data will be pinned in hot layer IPFS storage and available on the IPFS network.
+Data stored only in the cold layer isn't guaranteed to be available on the IPFS network. In order for it to be, you need to push a new storage config that enables hot storage. You can automate this movement using the `AllowUnfreeze` flag of [the StorageConfig](storageconfig.md). Either way, Powergate will always attempt resolve the data, first by trying to fetch it from the IPFS network, and if unable to do that, will execute a retrieval deal to pull the data from Finally. Finally, the data will be pinned in hot layer IPFS storage and available on the IPFS network.
 
-Read more about [updating the CidConfig here](cidconfig.md).
+Read more about [updating the StorageConfig here](storageconfig.md).
 
 ## Using the FFS
 
@@ -67,29 +67,29 @@ export POW_TOKEN=883f57b1-4e66-47f8-b291-7cf8b10f6370
 
 ### Make data available
 
-The FFS requires data you aim to store to be available over IPFS. If you are using the CLI, you can ensure that it is available by staging it on IPFS using `addToHot`. Note that `addToHot` does not store your data in the Powergate FFS. It is an optional step that caches your data to ensure it is available on IPFS before being stored in the Powergate FFS. This is technically equivalent to `ipfs add --pin=false`, which is adding data without pinning it.
+The FFS requires data you aim to store to be available over IPFS. If you are using the CLI, you can ensure that it is available by staging it on IPFS using `stage`. Note that `stage` does not store your data in the Powergate FFS. It is an optional step that caches your data to ensure it is available on IPFS before being stored in the Powergate FFS. This is technically equivalent to `ipfs add --pin=false`, which is adding data without pinning it.
 
 ```bash
-pow ffs addToHot <path/filename>
+pow ffs stage <path/filename>
 ```
 
 ???+ success
 
     ```Bash
-    Success! Added file to FFS hot storage with cid: <cid>
+    Success! Cached file in FFS hot storage with cid: <cid>
     ```
 
 !!!info
-    If data exists on the IPFS network, you don't need to run `addToHot` as the Powergate will automatically fetch that data from remote peers.
+    If data exists on the IPFS network, you don't need to run `stage` as the Powergate will automatically fetch that data from remote peers.
 
 ### Initiate storage
 
-The Powergate manages each file stored in the FFS based on the setup defined in a _CidConfig_. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must push a new CidConfig for the CID we generated above. Learn more about the [CidConfig here](cidconfig.md).
+The Powergate manages each file stored in the FFS based on the setup defined in a _StorageConfig_. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must push a new StorageConfig for the CID we generated above. Learn more about the [StorageConfig here](storageconfig.md).
 
-Every FFS instance has a default `CidConfig` that will be used for every new deal unless overridden.
+Every FFS instance has a default `StorageConfig` that will be used for every new deal unless overridden.
 
 ```bash
-pow ffs push --watch <cid>
+pow ffs config push --watch <cid>
 ```
 
 ???+ success
@@ -140,7 +140,7 @@ Finally, you can verify that the file was stored on the network by making a requ
 
 ## Miner selection
 
-Powergate has many internal components that are used to simplify the process of using Filecoin. One set of components are the Powergate's indexes, where it collects information about miners including, power, sector size, storage ask price, etc. With that information, the Powergate can create a reasonable ranking of miners. Miners that are most promising for making deals will show up at the top. When pushing data to cold storage, the FFS will use this information to automate finding miners and initiating deals. You can use the `CidConfig` to help direct the Powergate to miners that match your particular requirements.
+Powergate has many internal components that are used to simplify the process of using Filecoin. One set of components are the Powergate's indexes, where it collects information about miners including, power, sector size, storage ask price, etc. With that information, the Powergate can create a reasonable ranking of miners. Miners that are most promising for making deals will show up at the top. When pushing data to cold storage, the FFS will use this information to automate finding miners and initiating deals. You can use the `StorageConfig` to help direct the Powergate to miners that match your particular requirements.
 
 ## Learn more
 

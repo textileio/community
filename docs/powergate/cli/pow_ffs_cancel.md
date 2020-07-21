@@ -1,26 +1,25 @@
-## pow ffs pull
+## pow ffs cancel
 
-Fetches the config for the provided cid
+Cancel an executing job
 
 ### Synopsis
 
-Fetches the config for the provided cid
+Cancel an executing job
 
 ```
-pow ffs pull [cid] [flags]
+pow ffs cancel [jobid] [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help           help for pull
+  -h, --help           help for cancel
   -t, --token string   FFS auth token
 ```
 
 ### Options inherited from parent commands
 
 ```
-      --config string          config file (default is $HOME/.powergate.yaml)
       --serverAddress string   address of the powergate service api (default "/ip4/127.0.0.1/tcp/5002")
 ```
 

@@ -1,4 +1,4 @@
-## pow ffs config set
+## pow ffs config set-default
 
 Sets the default cid storage config from stdin or a file
 
@@ -7,20 +7,19 @@ Sets the default cid storage config from stdin or a file
 Sets the default cid storage config from stdin or a file
 
 ```
-pow ffs config set [(optional)file] [flags]
+pow ffs config set-default [(optional)file] [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help           help for set
+  -h, --help           help for set-default
   -t, --token string   FFS auth token
 ```
 
 ### Options inherited from parent commands
 
 ```
-      --config string          config file (default is $HOME/.powergate.yaml)
       --serverAddress string   address of the powergate service api (default "/ip4/127.0.0.1/tcp/5002")
 ```
 
