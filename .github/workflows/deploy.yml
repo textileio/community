@@ -11,19 +11,19 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
+      - name: setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
       - name: checkout
         uses: actions/checkout@v2
       - name: build
         run: |
           ./scripts/setup
           ./scripts/build
-      - name: setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
       - name: push # push to a known bucket
         id: bucket
-        uses: textileio/github-action-buckets@v17
+        uses: textileio/github-action-buckets@master
         with:
           key: ${{ secrets.TEXTILE_ORG_ACCOUNT_KEY }}
           secret: ${{ secrets.TEXTILE_ORG_ACCOUNT_SECRET }}
