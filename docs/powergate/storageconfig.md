@@ -113,6 +113,9 @@ Here is an example of the _default StorageConfig_.
       "MaxPrice": 0
     }
   },
+  // If true, Powergate will detect if the data is no longer
+  // stored according to the StorageConfig requirements and
+  // make new storage arrangements that match the StorageConfig
   "Repairable": false
 }
 ```
