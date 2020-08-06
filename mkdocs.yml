@@ -84,12 +84,29 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - The Hub: hub/index.md
-  - Quickstart:
-    - Create an Account: hub/index.md
-    - Command-line tools: hub/cli-introduction.md
+  - Getting Started:
+    - What is the Hub: hub/index.md
+    - Install & Join: hub/cli-introduction.md
+    - Install & Join II: hub/accounts.md
+    - Resources & APIs: hub/apis.md
+    # ADD https://developers.google.com/maps/api-key-best-practices
+    - Roles & Access: hub/development.md
+    - Testing & Debugging: hub/development.md
+    - What next: hub/next.md
+  - Guides:
+    - Desktop tools: hub/cli-introduction.md
     - Scripting and CI: hub/scripting-ci.md
-    - CLI Commands:
+    - Build Apps: 
+        - Introduction: tutorials/hub/web-app.md
+        - App users: tutorials/hub/libp2p-identities.md
+        - Development mode: tutorials/hub/development-mode.md
+        - Production authentication: tutorials/hub/production-auth.md
+  - Libraries:
+    - JS Buckets: https://textileio.github.io/js-hub/docs/hub.buckets
+    - JS Threads Client: https://textileio.github.io/js-hub/docs/hub.client
+    - Golang Threads: https://github.com/textileio/go-threads
+    - Golang Threads Client: https://godoc.org/github.com/textileio/go-threads/api/client
+    - Hub CLI:
       - Overview: hub/cli/hub.md
       - Login: hub/cli/hub_login.md
       - Logout: hub/cli/hub_logout.md
@@ -169,25 +186,7 @@ nav:
       - Buckets:
           - Externals:
               - User Galleries in Buckets: https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery
-              - Buckets from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app
-  - The old Hub:
-      - Connected Apps: hub/index.md
-      - Connected Apps: hub/apis.md
-      - Create an Account: hub/accounts.md
-      - Available APIs: hub/apis.md
-      - Development: hub/development.md
-      - Hub CLI:
-          - Overview: hub/cli/hub.md
-          - Login: hub/cli/hub_login.md
-          - Logout: hub/cli/hub_logout.md
-          - Whoami: hub/cli/hub_whoami.md
-          - Orgs: hub/cli/hub_orgs.md
-          - Bucket: hub/cli/hub_buck.md
-          - Threads: hub/cli/hub_threads.md
-          - API Keys: hub/cli/hub_keys.md
-      - Externals:
-          - JavaScript: https://textileio.github.io/js-hub/docs/
-  
+              - Buckets from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app  
 # Customization
 extra:
   social:
