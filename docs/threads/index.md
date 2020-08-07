@@ -72,7 +72,7 @@ async function list (client: Client) {
 }
 ```
 
-**create a new datbase**
+**create a new database**
 
 ```typescript
 import {Client, Identity, ThreadID, UserAuth} from '@textile/hub'
