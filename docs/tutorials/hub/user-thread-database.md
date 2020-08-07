@@ -1,5 +1,8 @@
 # Thread Database
 
+!!!warning
+    Do not use the Database class at this time. We have learned a lot from the first release and have a plan to consolidate and improve APIs. For now, we recommend using the JS Client class only. Read more about the [planned work here](https://github.com/textileio/js-threads/issues/414).
+
 In this tutorial, we'll walk through using the local Thread Database in JavaScript. The `Database` can be used to store and work with data entirely locally in your app and it can be linked to other nodes that can help sync, relay, or store data when the user goes offline. We'll use those features to create a Database, connect it to the Hub, and connect two peers.
 
 ## Getting Started
@@ -23,16 +26,6 @@ To attach you Hub account, you'll use the non-signing key described in the [deve
    For this tutorial, you will be using an API key generated as part of a User Group key. It is possible to use Account Keys together with these APIs, but they do not work in quite the same way, since only Account owners (or Org members) can use them. A User Group key will allow you to create databases for each user of your app.
 
 Let's take a look at those steps all together.
-
-```typescript
-import { KeyInfo, ThreadID } from '@textile/hub'
-import { Database } from '@textile/threads-database'
-
-const init = (keyInfo: KeyInfo, threadID: ThreadID) => {
-    const db = Database.withKeyInfo(keyInfo, 'threads.chat.demo')
-    return db
-}
-```
 
 ## Create a thread for the chat room
 
@@ -180,7 +173,7 @@ Now, when a user wants to join this database, they need to start the database wi
 
 ```typescript
 import { Identity } from '@textile/hub'
-import { DBInfo } from '@textile/threads-client'
+import { DBInfo } from '@textile/threads'
 import { Database } from '@textile/threads-database'
 
 const startFromInvite = async (db: Database, identity: Identity, invite: DBInfo) => {

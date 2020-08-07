@@ -120,7 +120,6 @@ nav:
       - Externals:
           - Golang: https://godoc.org/github.com/textileio/go-threads/api/client
           - JavaScript Client: https://textileio.github.io/js-hub/docs/hub.client
-          - JavaScript Database: https://textileio.github.io/js-threads/modules/_textile_threads_database.html
   - Powergate:
       - Introduction: powergate/index.md
       - Localnet: powergate/localnet.md
