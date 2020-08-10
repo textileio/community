@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
     
     
       
@@ -744,18 +744,6 @@
   <li class="md-nav__item">
     <a href="https://textileio.github.io/js-hub/docs/hub.client" title="JavaScript Client" target="_blank" class="md-nav__link _blank">
       JavaScript Client
-    </a>
-  </li>
-
-  
-    
-    
-    
-
-
-  <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-threads/modules/_textile_threads_database.html" title="JavaScript Database" target="_blank" class="md-nav__link _blank">
-      JavaScript Database
     </a>
   </li>
 
@@ -1659,6 +1647,10 @@
                 
                 
                 <h1 id="thread-database">Thread Database<a class="headerlink" href="#thread-database" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not use the Database class at this time. We have learned a lot from the first release and have a plan to consolidate and improve APIs. For now, we recommend using the JS Client class only. Read more about the <a href="https://github.com/textileio/js-threads/issues/414">planned work here</a>.</p>
+</div>
 <p>In this tutorial, we'll walk through using the local Thread Database in JavaScript. The <code>Database</code> can be used to store and work with data entirely locally in your app and it can be linked to other nodes that can help sync, relay, or store data when the user goes offline. We'll use those features to create a Database, connect it to the Hub, and connect two peers.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <p>There are a few resources you'll need before you start writing code.</p>
@@ -1679,15 +1671,6 @@
 </div>
 <p>For this tutorial, you will be using an API key generated as part of a User Group key. It is possible to use Account Keys together with these APIs, but they do not work in quite the same way, since only Account owners (or Org members) can use them. A User Group key will allow you to create databases for each user of your app.</p>
 <p>Let's take a look at those steps all together.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">KeyInfo</span><span class="p">,</span> <span class="nx">ThreadID</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
-
-<span class="kr">const</span> <span class="nx">init</span> <span class="o">=</span> <span class="p">(</span><span class="nx">keyInfo</span>: <span class="kt">KeyInfo</span><span class="p">,</span> <span class="nx">threadID</span>: <span class="kt">ThreadID</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">Database</span><span class="p">.</span><span class="nx">withKeyInfo</span><span class="p">(</span><span class="nx">keyInfo</span><span class="p">,</span> <span class="s1">&#39;threads.chat.demo&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nx">db</span>
-<span class="p">}</span>
-</code></pre></div>
-
 <h2 id="create-a-thread-for-the-chat-room">Create a thread for the chat room<a class="headerlink" href="#create-a-thread-for-the-chat-room" title="Permanent link">&para;</a></h2>
 <p>Next, let's create a chat room. You simply need to start a new thread using the same <code>ThreadID</code> as above. We'll just create one from random.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">ThreadID</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
@@ -1813,7 +1796,7 @@
 <h2 id="accept-invite">Accept invite<a class="headerlink" href="#accept-invite" title="Permanent link">&para;</a></h2>
 <p>Now, when a user wants to join this database, they need to start the database with the info payload. This is just like starting the database like you did before, but now you'll start it from some remote information.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">DBInfo</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-client&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">DBInfo</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
 <span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-database&#39;</span>
 
 <span class="kr">const</span> <span class="nx">startFromInvite</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">db</span>: <span class="kt">Database</span><span class="p">,</span> <span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">,</span> <span class="nx">invite</span>: <span class="kt">DBInfo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -1929,7 +1912,7 @@
     
       <script src="../../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
       
         <script src="../../../js/sidebar.js"></script>
       

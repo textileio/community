@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
     
     
       
@@ -738,8 +738,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-use-threaddb" title="How to use ThreadDB" class="md-nav__link">
-    How to use ThreadDB
+  <a href="#thread-implementations" title="Thread Implementations" class="md-nav__link">
+    Thread Implementations
   </a>
   
     <nav class="md-nav">
@@ -780,8 +780,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-a-new-database" title="Creating a new database" class="md-nav__link">
-    Creating a new database
+  <a href="#creating-a-new-thread" title="Creating a new thread" class="md-nav__link">
+    Creating a new thread
   </a>
   
 </li>
@@ -817,45 +817,19 @@
     Listen
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-the-database-as-an-observable" title="Using the Database as an Observable" class="md-nav__link">
-    Using the Database as an Observable
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#multi-user-databases" title="Multi-user Databases" class="md-nav__link">
-    Multi-user Databases
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#access-control" title="Access-control" class="md-nav__link">
     Access-control
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#identity" title="Identity" class="md-nav__link">
     Identity
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -940,18 +914,6 @@
   <li class="md-nav__item">
     <a href="https://textileio.github.io/js-hub/docs/hub.client" title="JavaScript Client" target="_blank" class="md-nav__link _blank">
       JavaScript Client
-    </a>
-  </li>
-
-  
-    
-    
-    
-
-
-  <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-threads/modules/_textile_threads_database.html" title="JavaScript Database" target="_blank" class="md-nav__link _blank">
-      JavaScript Database
     </a>
   </li>
 
@@ -1621,8 +1583,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-use-threaddb" title="How to use ThreadDB" class="md-nav__link">
-    How to use ThreadDB
+  <a href="#thread-implementations" title="Thread Implementations" class="md-nav__link">
+    Thread Implementations
   </a>
   
     <nav class="md-nav">
@@ -1663,8 +1625,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-a-new-database" title="Creating a new database" class="md-nav__link">
-    Creating a new database
+  <a href="#creating-a-new-thread" title="Creating a new thread" class="md-nav__link">
+    Creating a new thread
   </a>
   
 </li>
@@ -1700,45 +1662,19 @@
     Listen
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-the-database-as-an-observable" title="Using the Database as an Observable" class="md-nav__link">
-    Using the Database as an Observable
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#multi-user-databases" title="Multi-user Databases" class="md-nav__link">
-    Multi-user Databases
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#access-control" title="Access-control" class="md-nav__link">
     Access-control
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#identity" title="Identity" class="md-nav__link">
     Identity
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1807,62 +1743,68 @@
                 
                 
                 <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
-<p>ThreadDB is a p2p database built on <a href="https://ipfs.io">IPFS</a> and <a href="https://libp2p.io">Libp2p</a>. Together, the Threads Protocol and Database provide an alternative architecture for data on the web. ThreadDB aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data (<a href="https://ipld.io">IPLD</a>), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.</p>
-<h3 id="how-to-use-threaddb">How to use ThreadDB<a class="headerlink" href="#how-to-use-threaddb" title="Permanent link">&para;</a></h3>
-<p>There are two implementations of ThreadDB. </p>
+<p>ThreadDB is a multi-party database built on <a href="https://ipfs.io">IPFS</a> and <a href="https://libp2p.io">Libp2p</a>. Threads provide an alternative architecture for data on the web. ThreadDB aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data (<a href="https://ipld.io">IPLD</a>), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.</p>
+<h3 id="thread-implementations">Thread Implementations<a class="headerlink" href="#thread-implementations" title="Permanent link">&para;</a></h3>
+<p>There are two implementations of ThreadDB.</p>
 <h4 id="golang">Golang<a class="headerlink" href="#golang" title="Permanent link">&para;</a></h4>
 <p>The first is written in Go and can be found at <a href="https://github.com/textileio/go-threads/">https://github.com/textileio/go-threads/</a>. This is the reference implementation, it contains all the latest components to use as a library, write trustless services, <a href="https://godoc.org/github.com/textileio/go-threads/api/client">build a client</a> connected to a a threads daemon. More documentation for the Go implementation will be coming in the future.</p>
 <h4 id="javascript">JavaScript<a class="headerlink" href="#javascript" title="Permanent link">&para;</a></h4>
-<p>The second implementation is written in JavaScript (Typescript, really). This implementation has some optimizations to make it more ideal when writing web applications. The JavaScript implementation is best understood through the <a href="https://textileio.github.io/js-hub/docs/hub.client">Client</a> and <a href="https://textileio.github.io/js-threads/modules/_textile_threads_database.html">Database</a> documentation.</p>
-<p>In general, when you are building apps that use threads in remote context (e.g. the browser) it's best to push the networking later to remote services whenever possible (while using/allowing p2p when it works). For this, we recommend using <code>js-threads</code> using the Hub's APIs. Using the <a href="https://textileio.github.io/js-threads/modules/_textile_threads_database.html">Database</a> for example, you can perform all signing and encryption locally, keeping thread ownership with your users, but push persistence and networking to the remote Hub. You can also build your own remote relays and services using the <a href="https://github.com/textileio/go-threads/">go-threads</a> library.</p>
+<p>The second implementation is written in JavaScript (Typescript, really). This implementation has some optimizations to make it more ideal when writing web applications. The JavaScript implementation is currently a Client of the Go implementation. You can run it against your own go-threads instance or connect it to the Textile Hub to use one of ours. Read more about the <a href="https://textileio.github.io/js-hub/docs/hub.client">Client here</a>.</p>
+<p>In general, when you are building apps that use threads in remote context (e.g. the browser) it's best to push the networking later to remote services whenever possible (while using/allowing p2p when it works). You can also build your own remote relays and services using the <a href="https://github.com/textileio/go-threads/">go-threads</a> library.</p>
 <p>For the rest of the explanation below, we'll focus on examples using the JavaScript library.</p>
 <h3 id="developer-api">Developer API<a class="headerlink" href="#developer-api" title="Permanent link">&para;</a></h3>
 <p>ThreadDB is designed to be simple enough for any developer to start using. The API will feel familiar to developers who have worked with technologies like MongoDB.</p>
 <h4 id="data-organization">Data organization<a class="headerlink" href="#data-organization" title="Permanent link">&para;</a></h4>
-<p>The first three concepts a developer will encounter with ThreadDB are <a href="#databases">Databases</a>, <a href="#collections">Collections</a>, and <a href="#instances">Instances</a>. Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections. Collections are similar to Tables in other databases. A Thread-based Database is tied to a single Thread (with associated Thread ID).</p>
-<h4 id="creating-a-new-database">Creating a new database<a class="headerlink" href="#creating-a-new-database" title="Permanent link">&para;</a></h4>
-<p>To start a new, empty Database, with remote networking using the Hub APIs you simply initialize your database with the <code>UserAuth</code> object. You can read more about creating <code>UserAuth</code> objects in <a href="../tutorials/hub/web-app/">the creating web apps tutorial</a>.</p>
-<p>Running the DB in this way will greatly improve performance, by pushing signed and encrypted updates to the always on service on the Hub for other trusted peers to find and pull.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>A new <a href="https://github.com/ipfs/js-datastore-level">Level Datastore</a> is used as the backing store by default if no datastore is explicitly supplied.</p>
-</div>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">UserAuth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
+<p>The first three concepts a developer will encounter with ThreadDB are <a href="#threads">Threads</a>, <a href="#collections">Collections</a>, and <a href="#instances">Instances</a>. Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections. Collections are similar to Tables in other databases. A Thread-based Database is tied to a single Thread (with associated Thread ID).</p>
+<h4 id="creating-a-new-thread">Creating a new thread<a class="headerlink" href="#creating-a-new-thread" title="Permanent link">&para;</a></h4>
+<p>To start a new, empty Thread, with remote networking using the Hub APIs you simply initialize your Thread with the <code>UserAuth</code> object. You can read more about creating <code>UserAuth</code> objects in <a href="../tutorials/hub/web-app/">the creating web apps tutorial</a>.</p>
+<p><strong>Create a new Thread API client</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">PrivateKey</span><span class="p">,</span> <span class="nx">UserAuth</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">create</span> <span class="p">(</span><span class="nx">auth</span>: <span class="kt">UserAuth</span><span class="p">,</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">db</span> <span class="o">=</span> <span class="nx">Database</span><span class="p">.</span><span class="nx">withUserAuth</span><span class="p">(</span><span class="nx">auth</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>
-  <span class="k">return</span> <span class="nx">db</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">setup</span> <span class="p">(</span><span class="nx">auth</span>: <span class="kt">UserAuth</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">PrivateKey</span><span class="p">.</span><span class="nx">fromRandom</span><span class="p">()</span>
+
+  <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withUserAuth</span><span class="p">(</span><span class="nx">auth</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="nx">client</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<!--
-Depends on: https://github.com/textileio/js-threads/issues/293
+<p><strong>Authorize a new user to use your Hub API</strong></p>
+<p>You must generate a new API token for each user you want on your API.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">PrivateKey</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
-The above assumes you are running the database in insecure environments such as the browser, but if you are running the database in a secure environment you can skip the tutorial and provide you [API keys](../hub/app-apis.md) directly.
-
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">KeyInfo</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
-
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">create</span> <span class="p">(</span><span class="nx">keys</span>: <span class="kt">KeyInfo</span><span class="p">,</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// const db = Database.withKeyInfo(keys, name)</span>
-  <span class="c1">// return db</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">newToken</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">user</span>: <span class="kt">PrivateKey</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">getToken</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">token</span>
 <span class="p">}</span>
 </code></pre></div>
--->
 
-<p>With your database created, you now need to <em>start</em> it. Starting a database requires the data owner's identity. In these examples, we'll use a <a href="../tutorials/hub/libp2p-identities/">random public-key infrastructure (PKI) based identity</a>, however, see <a href="#identity">Identity</a> for further details and links.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">,</span> <span class="nx">UserAuth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
+<p><strong>List a user's existing Threads</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">start</span> <span class="p">(</span><span class="nx">db</span>: <span class="kt">Database</span><span class="p">,</span> <span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">threadID</span> <span class="o">=</span> <span class="nx">ThreadID</span><span class="p">.</span><span class="nx">fromRandom</span><span class="p">()</span>
-  <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="nx">identity</span><span class="p">,</span> <span class="p">{</span> <span class="nx">threadID</span> <span class="p">})</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">list</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">threads</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">listThreads</span><span class="p">()</span>
+  <span class="k">return</span> <span class="nx">threads</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><strong>create a new database</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">,</span> <span class="nx">UserAuth</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">createDB</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">thread</span>: <span class="kt">ThreadID</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">newDB</span><span class="p">()</span>
+  <span class="k">return</span> <span class="nx">thread</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <p>Congrats! You now have a new ThreadDB! Each ThreadDB has a unique <a href="https://textileio.github.io/js-hub/docs/hub.threadid">ThreadID</a>. You can create your own ThreadIDs, or easily generate a random ThreadID as we do in the above example.</p>
 <h3 id="collections">Collections<a class="headerlink" href="#collections" title="Permanent link">&para;</a></h3>
 <p>To handle different data structures in the same Database, a Database contains Collections. Each Collection is defined by a <a href="https://json-schema.org/">json-schema.org schema</a>. These schemas define the <em>shape</em> of Collection Instances (the individual entries). Collections are similar to tables in other databases. Ultimately, a Collection is a single document store with a set of APIs to make it feel like a <em>local database table</em>.</p>
-<p>Collections can be created from an existing Schema.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span><span class="p">,</span> <span class="nx">JSONSchema</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
+<p>Collections can be created from an existing Schema or from an Object.</p>
+<p><strong>Create from schema</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">ThreadID</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">JSONSchema</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
 
 <span class="c1">// Define a simple person schema</span>
 <span class="kr">const</span> <span class="nx">schema</span>: <span class="kt">JSONSchema</span> <span class="o">=</span> <span class="p">{</span>
@@ -1872,7 +1814,7 @@ The above assumes you are running the database in insecure environments such as 
   <span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">_id</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span> <span class="p">},</span>
     <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span> <span class="p">},</span>
-    <span class="nx">age</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">missions</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;number&#39;</span><span class="p">,</span>
       <span class="nx">minimum</span>: <span class="kt">0</span><span class="p">,</span>
       <span class="nx">exclusiveMaximum</span>: <span class="kt">100</span><span class="p">,</span>
@@ -1881,150 +1823,69 @@ The above assumes you are running the database in insecure environments such as 
 <span class="p">}</span>
 
 <span class="c1">// Requires the started database we created above</span>
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">collectionFromSchema</span> <span class="p">(</span><span class="nx">db</span>: <span class="kt">Database</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">Person</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">newCollection</span><span class="p">(</span><span class="s1">&#39;Person&#39;</span><span class="p">,</span> <span class="nx">schema</span><span class="p">)</span>
-  <span class="k">return</span> <span class="nx">Person</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>Or from an existing object/instance.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
-
-<span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// All collections have an _id field</span>
-  <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-  <span class="nx">points</span>: <span class="kt">0</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="c1">// Requires the started database we created above</span>
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">collectionFromObject</span> <span class="p">(</span><span class="nx">db</span>: <span class="kt">Database</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">Player</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">newCollectionFromObject</span><span class="p">(</span><span class="s1">&#39;Player&#39;</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>Since you don't need to create a Collection if it already exists in your database, a more complete Collection creation step can use the name of the collection to check if it exists first.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
-
-<span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-  <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-  <span class="nx">points</span>: <span class="kt">0</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="c1">// Requires the started database we generated above</span>
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">getOrCreatePlayers</span> <span class="p">(</span><span class="nx">db</span>: <span class="kt">Database</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="p">{</span><span class="nx">collections</span><span class="p">}</span> <span class="o">=</span> <span class="nx">db</span>
-    <span class="kr">const</span> <span class="nx">existing</span> <span class="o">=</span> <span class="nx">collections</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;Player&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">existing</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="nx">existing</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="nx">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">newCollectionFromObject</span><span class="p">(</span><span class="s1">&#39;Player&#39;</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span>
-    <span class="p">}</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">collectionFromSchema</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">threadID</span>: <span class="kt">ThreadID</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">newCollection</span><span class="p">(</span><span class="nx">threadID</span><span class="p">,</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">schema</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <h3 id="instances">Instances<a class="headerlink" href="#instances" title="Permanent link">&para;</a></h3>
-<p>Instances are the objects you store in your Collection. Instances are JSON documents with schemas that match those defined in your Collection. Updates to an Instance are driven by <a href="https://github.com/Starcounter-Jack/JSON-Patch">JSON Patch</a> semantics by default, but will be made to support other types (CRDT-driven documents for instance) in the future (some of which are already under active development). Creating and manipulating them is simple.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
+<p>Instances are the objects you store in your Collection. Instances are JSON documents with schemas that match those defined in your Collection.</p>
+<p><strong>get all instances</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">findEntity</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">threadId</span>: <span class="kt">ThreadID</span><span class="p">,</span> <span class="nx">collection</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">found</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">threadId</span><span class="p">,</span> <span class="nx">collection</span><span class="p">,</span> <span class="p">{})</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s1">&#39;found:&#39;</span><span class="p">,</span> <span class="nx">found</span><span class="p">.</span><span class="nx">instancesList</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
 
-<span class="c1">// Requires the started database we generated above containing the Player collection</span>
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">(</span><span class="nx">db</span>: <span class="kt">Database</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">Player</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">collections</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;Player&#39;</span><span class="p">)</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">Player</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Collection does not exist&#39;</span><span class="p">)</span>
-
-  <span class="c1">// Create an instance for the Collection and then save it</span>
-  <span class="kr">const</span> <span class="nx">beth</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Player</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;beth&#39;</span> <span class="p">})</span> <span class="c1">// Not yet persisted</span>
-  <span class="nx">await</span> <span class="nx">beth</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span> <span class="c1">// Persist changes to db</span>
-
-  <span class="c1">// Modify the `beth` instance</span>
-  <span class="nx">beth</span><span class="p">.</span><span class="nx">points</span> <span class="o">=</span> <span class="mi">1</span>
-  <span class="nx">await</span> <span class="nx">beth</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span> <span class="c1">// Save changes</span>
-
-  <span class="c1">// Modify it again</span>
-  <span class="nx">beth</span><span class="p">.</span><span class="nx">team</span> <span class="o">=</span> <span class="s1">&#39;Astronauts&#39;</span>
-  <span class="nx">beth</span><span class="p">.</span><span class="nx">points</span> <span class="o">=</span> <span class="mi">2</span>
-
-  <span class="c1">// Save it from the Collection</span>
-  <span class="nx">await</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">beth</span><span class="p">)</span>
-
-  <span class="c1">// Delete it from the Collection</span>
-  <span class="nx">await</span> <span class="nx">Player</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">beth</span><span class="p">.</span><span class="nx">_id</span><span class="p">)</span>
-
-  <span class="c1">// etc!</span>
+<p><strong>add an instance</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
+<span class="c1">// matches YourModel and schema</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">create</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">threadId</span>: <span class="kt">ThreadID</span><span class="p">,</span> <span class="nx">collection</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">created</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">threadId</span><span class="p">,</span> <span class="nx">collection</span><span class="p">,</span> <span class="p">[{</span>
+    <span class="nx">some</span><span class="o">:</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span>
+    <span class="nx">numbers</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+  <span class="p">}])</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <h3 id="query">Query<a class="headerlink" href="#query" title="Permanent link">&para;</a></h3>
-<p>Each Threads implementation supports query and look-up capabilities such as <code>insert</code>, <code>findOne</code>, <code>has</code>, and more. ThreadDB also supports the <a href="https://github.com/kofrasa/mingo">MongoDB query language</a>. In the JavaScript library, you might write queries like the following. Queries return <code>AsyncIterableIterators</code>, so you can loop over them and take appropriate action.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">collect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;streaming-iterables&#39;</span>
+<p>Each Threads implementation supports query and look-up capabilities such as <code>insert</code>, <code>findOne</code>, <code>has</code>, and more. ThreadDB also supports the <a href="https://github.com/kofrasa/mingo">MongoDB query language</a>. In the JavaScript library, you might write queries like the following. </p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">ThreadID</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">QueryJSON</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
 
 <span class="c1">// Requires the started database we generated above containing the Player collection</span>
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">createQuery</span> <span class="p">(</span><span class="nx">db</span>: <span class="kt">Database</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kr">const</span> <span class="nx">Player</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">collections</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;Player&#39;</span><span class="p">)</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">Player</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Collection does not exist&#39;</span><span class="p">)</span>
-
-  <span class="nx">await</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span>
-    <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">points</span>: <span class="kt">11</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;beth&#39;</span><span class="p">},</span>
-    <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">points</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;jim&#39;</span><span class="p">},</span>
-    <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">points</span>: <span class="kt">18</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;issac&#39;</span><span class="p">},</span>
-    <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">points</span>: <span class="kt">7</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;beth&#39;</span><span class="p">},</span>
-  <span class="p">)</span>
-  <span class="c1">// Setup a query</span>
-  <span class="kr">const</span> <span class="nx">query</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">$or</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span> <span class="nx">points</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span>: <span class="kt">10</span> <span class="p">}</span> <span class="p">},</span>
-      <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;jim&#39;</span> <span class="p">},</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">createQuery</span> <span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">threadID</span>: <span class="kt">ThreadID</span><span class="p">,</span> <span class="nx">query</span>: <span class="kt">QueryJSON</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Get results</span>
-  <span class="kr">const</span> <span class="nx">all</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">query</span><span class="p">)</span>
-  <span class="c1">// Loop over AsyncIterableIterator result and log the names</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">{</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="p">}</span> <span class="k">of</span> <span class="nx">await</span> <span class="nx">collect</span><span class="p">(</span><span class="nx">all</span><span class="p">))</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">key</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">value</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
-  <span class="p">}</span>
+  <span class="kr">const</span> <span class="nx">all</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">threadID</span><span class="p">,</span> <span class="s1">&#39;astronauts&#39;</span><span class="p">,</span> <span class="nx">query</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">all</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <h3 id="listen">Listen<a class="headerlink" href="#listen" title="Permanent link">&para;</a></h3>
-<p>A Database also has an event emitter, and listeners can subscribe to events. For example, event <em>names</em> are structured as <code>&lt;collection&gt;.&lt;id&gt;.&lt;type&gt;</code>, and they support 'wildcard' matching, so <code>db.emitter.many(['foo', '*', 2], callback)</code> will match all delete operations (<code>{ create: 0; save: 1, delete: 2 }</code>) on the 'foo' collection. Similarly, <code>db.emitter.on('foo.**', callback)</code> will match all event types on the 'foo' collection. To observe a given instance, try <code>db.emitter.on('foo.${instance._id}', callback)</code>. See <a href="https://github.com/EventEmitter2/EventEmitter2">EventEmitter2</a> docs for further details. To illustrate, the following database manipulations could be observed via the following simple listener.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
+<p>You can also subscribe to changes in a database.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">,</span> <span class="nx">PrivateKey</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Update</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
 
-<span class="c1">// Requires the started database we generated above containing the Player collection</span>
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">emitter</span> <span class="p">(</span><span class="nx">db</span>: <span class="kt">Database</span><span class="p">)</span> <span class="p">{</span>
+<span class="kr">const</span> <span class="nx">userID</span> <span class="o">=</span> <span class="nx">PrivateKey</span><span class="p">.</span><span class="nx">fromRandom</span><span class="p">()</span>
 
-  <span class="nx">db</span><span class="p">.</span><span class="nx">emitter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;**&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">update</span>: <span class="kt">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">update</span><span class="p">)</span> <span class="c1">// Logs the following updates...</span>
-  <span class="p">})</span>
+<span class="kr">interface</span> <span class="nx">Astronaut</span> <span class="p">{</span>
+  <span class="nx">_id</span>: <span class="kt">string</span>
+  <span class="nx">name</span>: <span class="kt">string</span>
+  <span class="nx">missions</span>: <span class="kt">number</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">callback</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">reply?</span>: <span class="kt">Update</span><span class="o">&lt;</span><span class="nx">Astronaut</span><span class="o">&gt;</span><span class="p">,</span> <span class="nx">err?</span>: <span class="kt">Error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reply</span><span class="p">.</span><span class="nx">instance</span><span class="p">)</span>
+<span class="p">}</span>
 
-  <span class="kr">const</span> <span class="nx">Player</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">collections</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;Player&#39;</span><span class="p">)</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">Player</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Collection does not exist&#39;</span><span class="p">)</span>
-
-  <span class="kr">const</span> <span class="nx">beth</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Player</span><span class="p">({</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;beth&#39;</span> <span class="p">})</span>
-  <span class="nx">await</span> <span class="nx">beth</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span>
-  <span class="nx">beth</span><span class="p">.</span><span class="nx">points</span> <span class="o">=</span> <span class="mi">1</span>
-  <span class="nx">await</span> <span class="nx">beth</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span>
-  <span class="nx">beth</span><span class="p">.</span><span class="nx">team</span> <span class="o">=</span> <span class="s1">&#39;Astronauts&#39;</span>
-  <span class="nx">beth</span><span class="p">.</span><span class="nx">points</span> <span class="o">=</span> <span class="mi">2</span>
-  <span class="nx">await</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">beth</span><span class="p">)</span>
-  <span class="nx">await</span> <span class="nx">Player</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">beth</span><span class="p">.</span><span class="nx">_id</span><span class="p">)</span>
+<span class="c1">// Requires userID already be authenticated to the Users API</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">startListener</span><span class="p">(</span><span class="nx">client</span>: <span class="kt">Client</span><span class="p">,</span> <span class="nx">threadID</span>: <span class="kt">ThreadID</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">filters</span> <span class="o">=</span> <span class="p">[{</span><span class="nx">actionTypes</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;CREATE&#39;</span><span class="p">]}]</span>
+  <span class="kr">const</span> <span class="nx">closer</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">listen</span><span class="o">&lt;</span><span class="nx">Astronaut</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">threadID</span><span class="p">,</span> <span class="nx">filters</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">closer</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<h4 id="using-the-database-as-an-observable">Using the Database as an Observable<a class="headerlink" href="#using-the-database-as-an-observable" title="Permanent link">&para;</a></h4>
-<p>If you are building with React, you may be interested in integrating database updates as an <a href="https://redux-observable.js.org/">Observable</a>, so that changes to your dataset can immediately change the UI (and other use-cases). Doing so is quite simple using the emitter described above. You can combine the emitter with a selector using the pattern <code>&lt;collection&gt;.&lt;instance&gt;.&lt;type&gt;</code>. In the example here, we select for all <code>create</code> events (<code>0</code>) on the <code>Player</code> collection we created above, so <code>Player.*.0</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Database</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads&#39;</span>
-<span class="kr">import</span> <span class="p">{</span> <span class="nx">fromEvent</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
-
-<span class="kd">function</span> <span class="nx">returnObservable</span><span class="p">(</span><span class="nx">db</span>: <span class="kt">Database</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">fromEvent</span><span class="p">(</span><span class="nx">db</span><span class="p">.</span><span class="nx">emitter</span><span class="p">,</span> <span class="s1">&#39;Player.*.0&#39;</span><span class="p">)</span> <span class="c1">// fromEvent returns an Observable</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<h2 id="multi-user-databases">Multi-user Databases<a class="headerlink" href="#multi-user-databases" title="Permanent link">&para;</a></h2>
-<p>Everything above just looks like a database, so what's a Thread? ThreadDB combines the storage and management of data (the <em>Database</em>) with networking, access control, and replication over IPFS using the Threads <em>Protocol</em>. The Threads protocol has been extensively documented in the <a href="https://docsend.com/view/gu3ywqi">whitepaper</a>, but in short, Threads use private-key encryption to manage both security and identity among multiple parties that can access or edit the same Database.</p>
 <h3 id="access-control">Access-control<a class="headerlink" href="#access-control" title="Permanent link">&para;</a></h3>
 <p>ThreadDB uses a modular role-based access control system that will allow access control lists (ACLs) to be declared in a wide-variety of ways. ACLs are in active development and you can <a href="https://github.com/textileio/go-threads/issues/295">follow the development here</a>.</p>
 <h3 id="identity">Identity<a class="headerlink" href="#identity" title="Permanent link">&para;</a></h3>
@@ -2148,7 +2009,7 @@ The above assumes you are running the database in insecure environments such as 
     
       <script src="../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
       
         <script src="../js/sidebar.js"></script>
       

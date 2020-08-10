@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
     
     
       
@@ -744,18 +744,6 @@
   <li class="md-nav__item">
     <a href="https://textileio.github.io/js-hub/docs/hub.client" title="JavaScript Client" target="_blank" class="md-nav__link _blank">
       JavaScript Client
-    </a>
-  </li>
-
-  
-    
-    
-    
-
-
-  <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-threads/modules/_textile_threads_database.html" title="JavaScript Database" target="_blank" class="md-nav__link _blank">
-      JavaScript Database
     </a>
   </li>
 
@@ -1632,13 +1620,13 @@
   <span class="c1">// Authorize the user and your insecure keys with getToken</span>
   <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">getToken</span><span class="p">(</span><span class="nx">identity</span><span class="p">)</span> 
 
-  <span class="kr">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;io.textile.dropzone&#39;</span><span class="p">)</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">root</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;io.textile.dropzone&#39;</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">root</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Failed to open bucket&#39;</span><span class="p">)</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="p">{</span>
       <span class="nx">buckets</span>: <span class="kt">buckets</span><span class="p">,</span> 
-      <span class="nx">bucketKey</span>: <span class="kt">root.key</span><span class="p">,</span>
+      <span class="nx">bucketKey</span>: <span class="kt">result.root.key</span><span class="p">,</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1702,13 +1690,13 @@
 
 <span class="kr">const</span> <span class="nx">openEncrypted</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">buckets</span>: <span class="kt">Buckets</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">isEncrypted</span> <span class="o">=</span> <span class="kc">true</span>
-  <span class="kr">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;io.textile.encrypted&#39;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">isEncrypted</span><span class="p">)</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">root</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s1">&#39;io.textile.encrypted&#39;</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">isEncrypted</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">root</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Failed to open bucket&#39;</span><span class="p">)</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="p">{</span>
       <span class="nx">buckets</span>: <span class="kt">buckets</span><span class="p">,</span> 
-      <span class="nx">bucketKey</span>: <span class="kt">root.key</span><span class="p">,</span>
+      <span class="nx">bucketKey</span>: <span class="kt">result.root.key</span><span class="p">,</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1820,7 +1808,7 @@
     
       <script src="../../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
       
         <script src="../../../js/sidebar.js"></script>
       
