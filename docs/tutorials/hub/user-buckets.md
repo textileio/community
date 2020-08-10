@@ -31,13 +31,13 @@ const setup = async (key: KeyInfo, identity: Identity) => {
   // Authorize the user and your insecure keys with getToken
   await buckets.getToken(identity) 
 
-  const root = await buckets.open('io.textile.dropzone')
-  if (!root) {
+  const result = await buckets.open('io.textile.dropzone')
+  if (!result.root) {
     throw new Error('Failed to open bucket')
   }
   return {
       buckets: buckets, 
-      bucketKey: root.key,
+      bucketKey: result.root.key,
   }
 }
 ```
@@ -115,13 +115,13 @@ import { Buckets } from '@textile/hub'
 
 const openEncrypted = async (buckets: Buckets) => {
   const isEncrypted = true
-  const root = await buckets.open('io.textile.encrypted', undefined, isEncrypted)
-  if (!root) {
+  const result = await buckets.open('io.textile.encrypted', undefined, isEncrypted)
+  if (!result.root) {
     throw new Error('Failed to open bucket')
   }
   return {
       buckets: buckets, 
-      bucketKey: root.key,
+      bucketKey: result.root.key,
   }
 }
 ```

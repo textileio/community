@@ -3,9 +3,9 @@
  * A failure here should indicate something out of date below or more critical
  */
 import { Client, ThreadID } from "@textile/hub";
-import { Database, UserAuth, Where } from "@textile/threads";
+import { UserAuth, Where } from "@textile/threads";
 export async function threadCanary(auth: UserAuth, name: string) {
-  const db = Database.withUserAuth(auth, name);
+  const db = Client.withUserAuth(auth, name);
   return db;
 }
 
