@@ -9,9 +9,10 @@ hub buck push [flags]
 ### Options
 
 ```
-  -f, --force   Allows non-fast-forward updates if true
-  -h, --help    help for push
-  -y, --yes     Skips the confirmation prompt if true
+  -f, --force         Allows non-fast-forward updates if true
+  -h, --help          help for push
+      --maxsize int   Max bucket size in MiB (default 1024)
+  -y, --yes           Skips the confirmation prompt if true
 ```
 
 ### SEE ALSO

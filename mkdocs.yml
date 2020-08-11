@@ -93,63 +93,6 @@ nav:
     - ThreadDB Overview: threads/index.md
     - User Mailboxes: users/index.md
     - Powergate (Filecoin):
-        - Introduction: powergate/index.md
-        - Localnet: powergate/localnet.md
-        - Testnet: powergate/testnet.md
-        - Store Data:
-            - Intro to FFS: powergate/ffs.md
-            - Storage Configs: powergate/storageconfig.md
-        - POW CLI:
-            - Overview: powergate/cli/pow.md
-            - FFS: powergate/cli/pow_ffs.md
-            - Asks: powergate/cli/pow_asks.md
-            - Faults: powergate/cli/pow_faults.md
-            - Miners: powergate/cli/pow_miners.md
-            - Net: powergate/cli/pow_net.md
-            - Reputation: powergate/cli/pow_reputation.md
-            - Wallet: powergate/cli/pow_wallet.md
-            - Health: powergate/cli/pow_health.md
-        - Externals:
-            - JavaScript: https://textileio.github.io/js-powergate-client/
-            - Golang: https://godoc.org/github.com/textileio/powergate/api/client
-  - Command-line Reference:
-    - Hub admin:
-      - Overview: hub/cli/hub.md
-      - Login: hub/cli/hub_login.md
-      - Logout: hub/cli/hub_logout.md
-      - Whoami: hub/cli/hub_whoami.md
-      - Orgs: hub/cli/hub_orgs.md
-      - Bucket: hub/cli/hub_buck.md
-      - Threads: hub/cli/hub_threads.md
-      - API Keys: hub/cli/hub_keys.md
-  - Build Apps: 
-      - Introduction: tutorials/hub/web-app.md
-      - App users: tutorials/hub/libp2p-identities.md
-      - Development mode: tutorials/hub/development-mode.md
-      - Production authentication: tutorials/hub/production-auth.md
-  - Buckets:
-      - Introduction: buckets/index.md
-      - Buckets CLI:
-          - Overview: hub/cli/hub_buck.md
-          - Add: hub/cli/hub_buck_add.md
-          - Archive: hub/cli/hub_buck_archive.md
-          - Cat: hub/cli/hub_buck_cat.md
-          - Destroy: hub/cli/hub_buck_destroy.md
-          - Init: hub/cli/hub_buck_init.md
-          - Links: hub/cli/hub_buck_links.md
-          - Ls: hub/cli/hub_buck_ls.md
-          - Pull: hub/cli/hub_buck_pull.md
-          - Push: hub/cli/hub_buck_push.md
-          - Root: hub/cli/hub_buck_root.md
-          - Status: hub/cli/hub_buck_status.md
-      - Externals:
-          - JavaScript: https://textileio.github.io/js-hub/docs/hub.buckets
-  - ThreadDB:
-      - Introduction: threads/index.md
-      - Externals:
-          - Golang: https://godoc.org/github.com/textileio/go-threads/api/client
-          - JavaScript Client: https://textileio.github.io/js-hub/docs/hub.client
-  - Powergate:
       - Introduction: powergate/index.md
       - Localnet: powergate/localnet.md
       - Testnet: powergate/testnet.md
@@ -169,16 +112,38 @@ nav:
       - Externals:
           - JavaScript: https://textileio.github.io/js-powergate-client/
           - Golang: https://godoc.org/github.com/textileio/powergate/api/client
-  - Tutorials:
-      - Build Apps:
-          - Introduction: tutorials/hub/web-app.md
-          - User identity: tutorials/hub/libp2p-identities.md
-          - Development mode: tutorials/hub/development-mode.md
-          - Add images to Buckets: tutorials/hub/user-buckets.md
-          - Chat rooms in Threads: tutorials/hub/user-thread-database.md
-          - Mobile threads & buckets: tutorials/react-native-buckets.md
-          - Authentication: tutorials/hub/production-auth.md
-      - Host Websites: tutorials/static-websites.md
+  - Command-line Reference:
+    - Hub admin:
+      - Overview: hub/cli/hub.md
+      - Login: hub/cli/hub_login.md
+      - Logout: hub/cli/hub_logout.md
+      - Whoami: hub/cli/hub_whoami.md
+      - Orgs: hub/cli/hub_orgs.md
+      - Bucket: hub/cli/hub_buck.md
+      - Threads: hub/cli/hub_threads.md
+      - API Keys: hub/cli/hub_keys.md
+    - Buckets commands:
+      - Overview: hub/cli/hub_buck.md
+      - Add: hub/cli/hub_buck_add.md
+      - Archive: hub/cli/hub_buck_archive.md
+      - Cat: hub/cli/hub_buck_cat.md
+      - Destroy: hub/cli/hub_buck_destroy.md
+      - Decrypt: hub/cli/hub_buck_decrypt.md
+      - Encrypt: hub/cli/hub_buck_encrypt.md
+      - Init: hub/cli/hub_buck_init.md
+      - Links: hub/cli/hub_buck_links.md
+      - Ls: hub/cli/hub_buck_ls.md
+      - Pull: hub/cli/hub_buck_pull.md
+      - Push: hub/cli/hub_buck_push.md
+      - Watch: hub/cli/hub_buck_watch.md
+      - Root: hub/cli/hub_buck_root.md
+      - Status: hub/cli/hub_buck_status.md
+  - JavaScript Reference: 
+      - Introduction: tutorials/hub/web-app.md
+      - App users: tutorials/hub/libp2p-identities.md
+      - Development mode: tutorials/hub/development-mode.md
+      - Add images to Buckets: tutorials/hub/user-buckets.md
+      - Mobile threads & buckets: tutorials/react-native-buckets.md
       - Build with NodeJS: tutorials/nodejs.md
       - Production authentication: tutorials/hub/production-auth.md
       - Externals:

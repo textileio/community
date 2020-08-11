@@ -5,8 +5,7 @@ Manages your API keys.
 ### Options
 
 ```
-  -h, --help         help for keys
-      --org string   Org username
+  -h, --help   help for keys
 ```
 
 ### SEE ALSO

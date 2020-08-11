@@ -59,8 +59,6 @@ Learn how to use non-signing API keys for faster app development. [View tutorial
 
 Build a photo gallery sharing app for users with Buckets.  [Start here](user-buckets.md).
 
-Create chat rooms for your users. [Start building](user-thread-database.md).
-
 ### Add API authorization
 
 Add secure API keys and a login flow to your app. [View tutorial](production-auth.md).

@@ -16,12 +16,12 @@ hub buck init [flags]
 ### Options
 
 ```
-      --cid string      Bootstrap the bucket with a UnixFS Cid available in the IPFS network
+      --cid string      Bootstrap the bucket with a UnixFS Cid from the IPFS network
   -e, --existing        Initializes from an existing remote bucket if true
   -h, --help            help for init
       --key string      Bucket key
-      --org string      Org username
-      --public          Allow public access
+  -n, --name string     Bucket name
+  -p, --private         Obfuscates files and folders with encryption
       --thread string   Thread ID
 ```
 

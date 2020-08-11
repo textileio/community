@@ -95,10 +95,9 @@ Collections can be created from an existing Schema or from an Object.
 
 ```typescript
 import { Client, ThreadID } from '@textile/hub'
-import { JSONSchema } from '@textile/threads'
 
 // Define a simple person schema
-const schema: JSONSchema = {
+const schema = {
   $schema: 'http://json-schema.org/draft-07/schema#',
   title: 'Person',
   type: 'object',
@@ -152,8 +151,7 @@ Each Threads implementation supports query and look-up capabilities such as `ins
 
 
 ```typescript
-import { Client, ThreadID } from '@textile/hub'
-import { QueryJSON } from '@textile/threads'
+import { Client, ThreadID, QueryJSON } from '@textile/hub'
 
 // Requires the started database we generated above containing the Player collection
 async function createQuery (client: Client, threadID: ThreadID, query: QueryJSON) {
@@ -169,8 +167,7 @@ You can also subscribe to changes in a database.
 
 
 ```typescript
-import { Client, ThreadID, PrivateKey } from '@textile/hub'
-import { Update } from '@textile/threads'
+import { Client, PrivateKey, ThreadID, Update } from '@textile/hub'
 
 const userID = PrivateKey.fromRandom()
 
