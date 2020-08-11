@@ -2,7 +2,7 @@
 
 In this section, we'll walk through the basic concepts useful when building your app to use the Hub. We'll break the discussion into a few key parts, shown in the table of contents to the right.
 
-## Avaliable APIs
+## Available APIs
 
 ### Buckets
 
