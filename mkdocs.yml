@@ -140,7 +140,7 @@ nav:
       - Status: hub/cli/hub_buck_status.md
   - JavaScript Reference: 
       - Introduction: tutorials/hub/web-app.md
-      - App users: tutorials/hub/libp2p-identities.md
+      - User identities: tutorials/hub/pki-identities.md
       - Development mode: tutorials/hub/development-mode.md
       - Add images to Buckets: tutorials/hub/user-buckets.md
       - Mobile threads & buckets: tutorials/react-native-buckets.md
