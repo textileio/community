@@ -48,6 +48,7 @@ plugins:
         "powergate/introduction.md": "powergate/index.md"
         "powergate/devnet.md": "powergate/localnet.md"
         "tutorials/hub/user-login-endpoint.md": "tutorials/hub/production-auth.md"
+        "tutorials/hub/libp2p-identities.md": "tutorials/hub/pki-identities.md"
 
         # Extensions
 markdown_extensions:
@@ -85,28 +86,34 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started:
-    - What is the Hub: hub/index.md
-    - Install & Join: hub/cli-introduction.md
-    - Install & Join II: hub/accounts.md
-    - Resources & APIs: hub/apis.md
-    # ADD https://developers.google.com/maps/api-key-best-practices
-    - Roles & Access: hub/development.md
-    - Testing & Debugging: hub/development.md
-    - What next: hub/next.md
-  - Guides:
-    - Desktop tools: hub/cli-introduction.md
-    - Scripting and CI: hub/scripting-ci.md
-    - Build Apps: 
-        - Introduction: tutorials/hub/web-app.md
-        - App users: tutorials/hub/libp2p-identities.md
-        - Development mode: tutorials/hub/development-mode.md
-        - Production authentication: tutorials/hub/production-auth.md
-  - Libraries:
-    - JS Buckets: https://textileio.github.io/js-hub/docs/hub.buckets
-    - JS Threads Client: https://textileio.github.io/js-hub/docs/hub.client
-    - Golang Threads: https://github.com/textileio/go-threads
-    - Golang Threads Client: https://godoc.org/github.com/textileio/go-threads/api/client
-    - Hub CLI:
+    - Accounts Overview: hub/index.md
+    - Installation & Setup: hub/accounts.md
+    - APIs & API Keys: hub/apis.md
+    - Buckets Overview: buckets/index.md
+    - ThreadDB Overview: threads/index.md
+    - User Mailboxes: users/index.md
+    - Powergate (Filecoin):
+        - Introduction: powergate/index.md
+        - Localnet: powergate/localnet.md
+        - Testnet: powergate/testnet.md
+        - Store Data:
+            - Intro to FFS: powergate/ffs.md
+            - Storage Configs: powergate/storageconfig.md
+        - POW CLI:
+            - Overview: powergate/cli/pow.md
+            - FFS: powergate/cli/pow_ffs.md
+            - Asks: powergate/cli/pow_asks.md
+            - Faults: powergate/cli/pow_faults.md
+            - Miners: powergate/cli/pow_miners.md
+            - Net: powergate/cli/pow_net.md
+            - Reputation: powergate/cli/pow_reputation.md
+            - Wallet: powergate/cli/pow_wallet.md
+            - Health: powergate/cli/pow_health.md
+        - Externals:
+            - JavaScript: https://textileio.github.io/js-powergate-client/
+            - Golang: https://godoc.org/github.com/textileio/powergate/api/client
+  - Command-line Reference:
+    - Hub admin:
       - Overview: hub/cli/hub.md
       - Login: hub/cli/hub_login.md
       - Logout: hub/cli/hub_logout.md
@@ -173,8 +180,19 @@ nav:
           - Authentication: tutorials/hub/production-auth.md
       - Host Websites: tutorials/static-websites.md
       - Build with NodeJS: tutorials/nodejs.md
+      - Production authentication: tutorials/hub/production-auth.md
+      - Externals:
+        - Users API Class: https://textileio.github.io/js-hub/docs/hub.users
+        - Buckets API Class: https://textileio.github.io/js-hub/docs/hub.buckets
+        - Threads API Class: https://textileio.github.io/js-hub/docs/hub.client
+  - Golang Reference:
       - Getting started with Golang: tutorials/golang/getting-started.md
-  - Examples:
+      - Externals:
+        - Golang User Mailboxes: https://github.com/textileio/textile#using-the-mail-library
+        - Golang Buckets: https://github.com/textileio/textile#running-buckets
+        - Golang Threads: https://github.com/textileio/go-threads
+        - Golang Threads Client: https://godoc.org/github.com/textileio/go-threads/api/client
+  - More Examples:
       - ThreadDB:
           - Externals:
               - Chat in Local Database: https://github.com/textileio/js-examples/tree/master/hub-threaddb-chat

@@ -11,7 +11,7 @@ There are a few resources you'll need before you start writing code.
 
 Once you have those two things, you can continue to read the overview or jump ahead to:
 
-[User identity](libp2p-identities.md) to create simple user identies for the rest of the tutorial.
+[User identity](pki-identities.md) to create simple user identies for the rest of the tutorial.
 
 Or, if you plan to provide your own identity setup, you can skip to the [development mode](development-mode.md) setup instructions.
 
@@ -49,7 +49,7 @@ The React Native environment is missing a whole number of required packages, inc
 
 ### User identities
 
-Setup simple keypair based identities for your app users. [View tutorial](libp2p-identities.md).
+Setup simple keypair based identities for your app users. [View tutorial](pki-identities.md).
 
 ### To secure or not to secure
 

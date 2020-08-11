@@ -13,7 +13,7 @@
 **Textile Libraries**
 
 ```bash
-npm install --save @textile/hub @textile/threads-client @textile/threads-core @textile/threads-id
+npm install --save @textile/hub @textile/threads-id
 ```
 
 We'll use the above combination of Textile libraries in our app below.
@@ -79,12 +79,8 @@ The rest of the JavaScript portions of the tutorial will be in TypeScript. You d
 **Import Textile**
 
 ```typescript
-// Database Query method
-import {Where} from '@textile/threads-client';
 // Buckets client and an API Context helper
-import {Buckets, Client, ThreadID} from '@textile/hub';
-// A basic Identity provider (PKI from Libp2p)
-import {Libp2pCryptoIdentity} from '@textile/threads-core';
+import {Buckets, Client, ThreadID, PrivateKey, Where} from '@textile/hub';
 ```
 
 ### Register with remote API
@@ -104,26 +100,25 @@ const client = Client.withKeyInfo({
 
 ### Generate an Identity
 
-[Read the basic libp2p identities tutorial now](hub/libp2p-identities.md).
+[Read the basic identities tutorial now](hub/pki-identities.md).
 
 ```typescript
-import { Libp2pCryptoIdentity } from '@textile/threads-core'
+import { PrivateKey } from '@textile/hub'
 
 async function example () {
-  const id = await Libp2pCryptoIdentity.fromRandom();
+  const id = await PrivateKey.fromRandom();
   return id
 }
 ```
 
-Here we are just using a Libp2p helper to generate a private-key identity for the user.
+Here we are just using a helper to generate a private-key identity for the user.
 
 ### Generate user Token
 
 ```typescript
-import { Client } from '@textile/hub'
-import { Libp2pCryptoIdentity } from '@textile/threads-core'
+import { Client, PrivateKey } from '@textile/hub'
 
-async function example (client: Client, identity: Libp2pCryptoIdentity) {
+async function example (client: Client, identity: PrivateKey) {
   await client.getToken(identity);
 }
 ```
@@ -145,7 +140,7 @@ const buckets = Buckets.withKeyInfo({
 In the above, we reuse the Context we already created in our ThreadDB Client because it contains the token, API keys, etc.
 
 !!!info
-    If you have already created a connection using the the Threads `client`, you directly transfer that connection to Buckets with, `Buckets.fromClient(client)`.
+    If you have already created a connection using the Threads `client`, you directly transfer that connection to Buckets with, `Buckets.copyAuth(client)`.
 
 **List all Buckets**
 

@@ -4,7 +4,7 @@ hero_img: ./images/hero.jpg
 
 Welcome to the Textile documentation. Whether you are an expert or an absolute beginner, you'll find your answers here. Pick a starting point below, or use the search box to find documents matching your keywords.
 
-Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](https://ipfs.io), and [Filecoin](https://filecoin.io). Below, you'll find the three technologies that makeup Textile: the Hub, ThreadDB, and the Powergate. Together, these tools should help you build apps that are only limited by your imagination!
+Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](https://ipfs.io), and [Filecoin](https://filecoin.io). Below, you'll find the technologies that makeup Textile: the Hub, ThreadDB, Buckets, and the Powergate. Together, these tools should help you build apps that are only limited by your imagination!
 
 ## The Hub
 

@@ -166,8 +166,7 @@ Now that our credentials endpoint is set up, we simply need to generate new cred
 ### Login function
 
 ```typescript
-import { Buckets, Client, Identity, UserAuth } from '@textile/hub'
-import { Libp2pCryptoIdentity } from '@textile/threads-core'
+import { Buckets, Client, Identity, PrivateKey, UserAuth } from '@textile/hub'
 
 /**
  * loginWithChallenge uses websocket to initiate and respond to

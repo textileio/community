@@ -90,18 +90,18 @@ _[See CLI commands](../hub/cli/hub_keys.md)_
 
 Identities also provide a way for developers to allocate resources (i.e., storage) for a particular user, and in fact, is a key component in ensuring that a user *controls their own data*. Hub, Buckets, and ThreadDB APIs are flexible when it comes to user identity, allowing you to handle user identities (for access control and security/encryption) in the best way for your app and your users. In order to handle *multiple* peers collaborating on a single database, as well as the ability to handle storage *on behalf* of a user, Hub APIs expect a simple Identity interface for singing and validating updates.
 
-You can create a basic identity for our user in a JavaScript application using the `Libp2pCryptoIdentity` object. In practice, you might have your own identity provider, or you might want to use a hierarchical key/wallet or mnemonic phrase to help store a users keys for them. Whatever you decide, Textile's generic identity interface should be able to support it.
+You can create a basic identity for our user in a JavaScript application using the `PrivateKey` object available in the Hub library. In practice, you might have your own identity provider, or you might want to use a hierarchical key/wallet or mnemonic phrase to help store a users keys for them. Whatever you decide, Textile's generic identity interface should be able to support it.
 
 ```typescript
-import { Libp2pCryptoIdentity } from '@textile/threads-core'
+import { PrivateKey } from '@textile/hub'
 
 async function example () {
-   const identity = await Libp2pCryptoIdentity.fromRandom() // Random identity
+   const identity = await PrivateKey.fromRandom() // Random identity
    return identity
 }
 ```
 
-Read more about Identity in the [identity tutorial](../tutorials/hub/libp2p-identities.md).
+Read more about Identity in the [identity tutorial](../tutorials/hub/pki-identities.md).
 
 ### Data Ownership
 
