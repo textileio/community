@@ -20,7 +20,7 @@ When building apps or services, you can access the Hub APIs to push new buckets,
 
 ### Roles
 
-There are only three roles on the Hub, the developer and the user.
+There are only three roles on the Hub, the developer, a developer's orgs, and the user.
 
 * *Developers*: You. You are a primary account owner. You can create new API keys, create and join new Organizations, and access admin APIs. You can create your own Buckets and Threads. You can use the CLI with your account do all the mentioned.
 * *Organizations*: You and your collaborators. Members can share admin control of API keys. Members can share access to and synchronize Bucket state across all members. Referenced through docs as simply, `Org`.
