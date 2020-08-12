@@ -1,9 +1,9 @@
 # hub buck add
 
-Add adds a UnixFS DAG locally, merging with any existing content.
+Add adds a UnixFs DAG locally at path, merging with existing content.
 
 ```
-hub buck add [flags]
+hub buck add [cid] [path] [flags]
 ```
 
 ### Options

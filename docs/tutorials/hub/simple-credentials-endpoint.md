@@ -7,7 +7,7 @@ The simple credentials endpoint requires no user-identity to be sent to the serv
 There are a few resources you'll need before you start writing code.
 
 - [An account](../../hub/accounts.md). This is your developer account on the Hub.
-- [A user group key](../../hub/app-apis.md). This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.
+- [A user group key](../../hub/apis.md). This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.
 - [A new Typescript project](https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript). We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.
 - A server framework. The example below uses [KoaJS](https://koajs.com/) but could just as easily be written for [Express](https://expressjs.com/) or the basic Node server.
 
@@ -15,7 +15,7 @@ There are a few resources you'll need before you start writing code.
 
 ```bash
 # Textile libraries
-npm install --save @textile/hub @textile/threads-core
+npm install --save @textile/hub
 
 # Other utilities use in example
 npm install --save dotenv isomorphic-ws
@@ -42,9 +42,6 @@ _Replace the example key and secret values with values you create usint the CLI_
 In our project setup, our main server is defined in `src/index.ts`.
 
 ```ts
-/** Provides nodejs access to a global Websocket value, required by Hub API */
-;(global as any).WebSocket = require('isomorphic-ws')
-
 /** Import our server libraries */
 import koa from "koa";
 import Router from "koa-router";
@@ -56,8 +53,7 @@ import bodyParser from "koa-bodyparser";
 import dotenv from "dotenv";
 
 /** Textile libraries */
-import {Client, createAPISig} from '@textile/hub';
-import {Libp2pCryptoIdentity} from '@textile/threads-core';
+import {Client, createAPISig, PrivateKey} from '@textile/hub';
 
 /** Read the values of .env into the environment */
 dotenv.config();
@@ -161,7 +157,6 @@ Back in the browser, you can now make requests to your credentials endpoint. Fro
 
 ```ts
 import { Client, UserAuth } from '@textile/hub'
-import {Libp2pCryptoIdentity} from '@textile/threads-core';
 
 const createCredentials = async (): Promise<UserAuth> => {
   const response = await fetch(`/api/credentials`, {

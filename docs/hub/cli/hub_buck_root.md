@@ -1,6 +1,6 @@
 # hub buck root
 
-Shows the local bucket root CID
+Shows the local and remote bucket root CIDs (these will differ if the bucket is encrypted).
 
 ```
 hub buck root [flags]

@@ -14,7 +14,7 @@ rm -rf ../../docs/hub/cli/*
 
 # Modify the CLI to output MD in the CLI folder of docs.
 cd textile/cmd/hub
-perl -0777 -pi.bak -e 's/(.+)("time")/$1$2\n$1"log"/' main.go
+perl -0777 -pi.bak -e 's/(.+)("errors")/$1$2\n$1"log"/' main.go
 # Generate docs directly to CLI folder in markdown
 perl -0777 -pi.bak -e 's[(func main.+?)^}][$1\terr := GenMarkdownTree(rootCmd, "../../../../../docs/hub/cli")\n\tif err != nil {log.Fatal(err)}\n}]sm' main.go
 
@@ -24,7 +24,6 @@ go run .
 cd ../../../
 
 rm -rf textile
-
 
 # Clone the latest Powergate CLI (use commit # if released needed)
 git clone https://github.com/textileio/powergate.git

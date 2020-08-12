@@ -23,7 +23,7 @@ Now, we will setup a simple server that will accept a user's public key, verify 
 There are a few resources you'll need before you start writing code.
 
 - [An account](../../hub/accounts.md). This is your developer account on the Hub.
-- [A user group key](../../hub/app-apis.md). This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.
+- [A user group key](../../hub/apis.md). This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.
 - [A new Typescript project](https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript). We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.
 - A server framework. The example below uses [KoaJS](https://koajs.com/) but could just as easily be written for [Express](https://expressjs.com/) or the basic Node server.
 
@@ -166,8 +166,7 @@ Now that our credentials endpoint is set up, we simply need to generate new cred
 ### Login function
 
 ```typescript
-import { Buckets, Client, Identity, UserAuth } from '@textile/hub'
-import { Libp2pCryptoIdentity } from '@textile/threads-core'
+import { Buckets, Client, Identity, PrivateKey, UserAuth } from '@textile/hub'
 
 /**
  * loginWithChallenge uses websocket to initiate and respond to

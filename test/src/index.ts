@@ -2,8 +2,7 @@
  * Provides a buildable TS app to test before trying to compiles examples
  * A failure here should indicate something out of date below or more critical
  */
-import { Client, ThreadID } from "@textile/hub";
-import { UserAuth, Where } from "@textile/threads";
+import { Client, ThreadID, UserAuth, Where } from "@textile/hub";
 export async function threadCanary(auth: UserAuth, name: string) {
   const db = Client.withUserAuth(auth, name);
   return db;

@@ -42,11 +42,13 @@ plugins:
   - redirects:
       redirect_maps:
         "hub/introduction.md": "hub/index.md"
+        "hub/api-apis.md": "hub/apis.md"
         "hub/buckets.md": "buckets/index.md"
         "threads/introduction.md": "threads/index.md"
         "powergate/introduction.md": "powergate/index.md"
         "powergate/devnet.md": "powergate/localnet.md"
         "tutorials/hub/user-login-endpoint.md": "tutorials/hub/production-auth.md"
+        "tutorials/hub/libp2p-identities.md": "tutorials/hub/pki-identities.md"
 
         # Extensions
 markdown_extensions:
@@ -83,44 +85,14 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - The Hub:
-      - Introduction: hub/index.md
-      - Accounts: hub/accounts.md
-      - App APIs: hub/app-apis.md
-      - Hub CLI:
-          - Overview: hub/cli/hub.md
-          - Login: hub/cli/hub_login.md
-          - Logout: hub/cli/hub_logout.md
-          - Whoami: hub/cli/hub_whoami.md
-          - Orgs: hub/cli/hub_orgs.md
-          - Bucket: hub/cli/hub_buck.md
-          - Threads: hub/cli/hub_threads.md
-          - API Keys: hub/cli/hub_keys.md
-      - Externals:
-          - JavaScript: https://textileio.github.io/js-hub/docs/
-  - Buckets:
-      - Introduction: buckets/index.md
-      - Buckets CLI:
-          - Overview: hub/cli/hub_buck.md
-          - Add: hub/cli/hub_buck_add.md
-          - Archive: hub/cli/hub_buck_archive.md
-          - Cat: hub/cli/hub_buck_cat.md
-          - Destroy: hub/cli/hub_buck_destroy.md
-          - Init: hub/cli/hub_buck_init.md
-          - Links: hub/cli/hub_buck_links.md
-          - Ls: hub/cli/hub_buck_ls.md
-          - Pull: hub/cli/hub_buck_pull.md
-          - Push: hub/cli/hub_buck_push.md
-          - Root: hub/cli/hub_buck_root.md
-          - Status: hub/cli/hub_buck_status.md
-      - Externals:
-          - JavaScript: https://textileio.github.io/js-hub/docs/hub.buckets
-  - ThreadDB:
-      - Introduction: threads/index.md
-      - Externals:
-          - Golang: https://godoc.org/github.com/textileio/go-threads/api/client
-          - JavaScript Client: https://textileio.github.io/js-hub/docs/hub.client
-  - Powergate:
+  - Getting Started:
+    - Accounts Overview: hub/index.md
+    - Installation & Setup: hub/accounts.md
+    - APIs & API Keys: hub/apis.md
+    - Buckets Overview: buckets/index.md
+    - ThreadDB Overview: threads/index.md
+    - User Mailboxes: users/index.md
+    - Powergate (Filecoin):
       - Introduction: powergate/index.md
       - Localnet: powergate/localnet.md
       - Testnet: powergate/testnet.md
@@ -140,19 +112,52 @@ nav:
       - Externals:
           - JavaScript: https://textileio.github.io/js-powergate-client/
           - Golang: https://godoc.org/github.com/textileio/powergate/api/client
-  - Tutorials:
-      - Build Apps:
-          - Introduction: tutorials/hub/web-app.md
-          - User identity: tutorials/hub/libp2p-identities.md
-          - Development mode: tutorials/hub/development-mode.md
-          - Add images to Buckets: tutorials/hub/user-buckets.md
-          - Chat rooms in Threads: tutorials/hub/user-thread-database.md
-          - Mobile threads & buckets: tutorials/react-native-buckets.md
-          - Authentication: tutorials/hub/production-auth.md
-      - Host Websites: tutorials/static-websites.md
+  - Command-line Reference:
+    - Hub admin:
+      - Overview: hub/cli/hub.md
+      - Login: hub/cli/hub_login.md
+      - Logout: hub/cli/hub_logout.md
+      - Whoami: hub/cli/hub_whoami.md
+      - Orgs: hub/cli/hub_orgs.md
+      - Bucket: hub/cli/hub_buck.md
+      - Threads: hub/cli/hub_threads.md
+      - API Keys: hub/cli/hub_keys.md
+    - Buckets commands:
+      - Overview: hub/cli/hub_buck.md
+      - Add: hub/cli/hub_buck_add.md
+      - Archive: hub/cli/hub_buck_archive.md
+      - Cat: hub/cli/hub_buck_cat.md
+      - Destroy: hub/cli/hub_buck_destroy.md
+      - Decrypt: hub/cli/hub_buck_decrypt.md
+      - Encrypt: hub/cli/hub_buck_encrypt.md
+      - Init: hub/cli/hub_buck_init.md
+      - Links: hub/cli/hub_buck_links.md
+      - Ls: hub/cli/hub_buck_ls.md
+      - Pull: hub/cli/hub_buck_pull.md
+      - Push: hub/cli/hub_buck_push.md
+      - Watch: hub/cli/hub_buck_watch.md
+      - Root: hub/cli/hub_buck_root.md
+      - Status: hub/cli/hub_buck_status.md
+  - JavaScript Reference: 
+      - Introduction: tutorials/hub/web-app.md
+      - User identities: tutorials/hub/pki-identities.md
+      - Development mode: tutorials/hub/development-mode.md
+      - Add images to Buckets: tutorials/hub/user-buckets.md
+      - Mobile threads & buckets: tutorials/react-native-buckets.md
       - Build with NodeJS: tutorials/nodejs.md
+      - Production authentication: tutorials/hub/production-auth.md
+      - Externals:
+        - Users API Class: https://textileio.github.io/js-hub/docs/hub.users
+        - Buckets API Class: https://textileio.github.io/js-hub/docs/hub.buckets
+        - Threads API Class: https://textileio.github.io/js-hub/docs/hub.client
+  - Golang Reference:
       - Getting started with Golang: tutorials/golang/getting-started.md
-  - Examples:
+      - Externals:
+        - Golang User Mailboxes: https://github.com/textileio/textile#using-the-mail-library
+        - Golang Buckets: https://github.com/textileio/textile#running-buckets
+        - Golang Threads: https://github.com/textileio/go-threads
+        - Golang Threads Client: https://godoc.org/github.com/textileio/go-threads/api/client
+  - More Examples:
       - ThreadDB:
           - Externals:
               - Chat in Local Database: https://github.com/textileio/js-examples/tree/master/hub-threaddb-chat
@@ -164,8 +169,7 @@ nav:
       - Buckets:
           - Externals:
               - User Galleries in Buckets: https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery
-              - Buckets from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app
-
+              - Buckets from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app  
 # Customization
 extra:
   social:

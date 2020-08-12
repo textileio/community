@@ -1,15 +1,19 @@
-## pow asks
+## pow server-info
 
-Provides commands to view asks data
+Display information about the connected server
 
 ### Synopsis
 
-Provides commands to view asks data
+Display information about the connected server
+
+```
+pow server-info [flags]
+```
 
 ### Options
 
 ```
-  -h, --help   help for asks
+  -h, --help   help for server-info
 ```
 
 ### Options inherited from parent commands
@@ -21,6 +25,4 @@ Provides commands to view asks data
 ### SEE ALSO
 
 * [pow](pow.md)	 - A client for storage and retreival of powergate data
-* [pow asks get](pow_asks_get.md)	 - Get the asks index
-* [pow asks query](pow_asks_query.md)	 - Query the available asks
 

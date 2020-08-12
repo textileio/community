@@ -7,6 +7,7 @@ The Hub Client.
 ```
       --api string       API target (default "api.textile.io:443")
   -h, --help             help for hub
+  -o, --org string       Org username
   -s, --session string   User session token
 ```
 

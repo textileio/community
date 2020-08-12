@@ -5,8 +5,7 @@ Manages your threads.
 ### Options
 
 ```
-  -h, --help         help for threads
-      --org string   Org username
+  -h, --help   help for threads
 ```
 
 ### SEE ALSO

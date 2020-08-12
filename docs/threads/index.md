@@ -95,10 +95,9 @@ Collections can be created from an existing Schema or from an Object.
 
 ```typescript
 import { Client, ThreadID } from '@textile/hub'
-import { JSONSchema } from '@textile/threads'
 
 // Define a simple person schema
-const schema: JSONSchema = {
+const schema = {
   $schema: 'http://json-schema.org/draft-07/schema#',
   title: 'Person',
   type: 'object',
@@ -152,8 +151,7 @@ Each Threads implementation supports query and look-up capabilities such as `ins
 
 
 ```typescript
-import { Client, ThreadID } from '@textile/hub'
-import { QueryJSON } from '@textile/threads'
+import { Client, ThreadID, QueryJSON } from '@textile/hub'
 
 // Requires the started database we generated above containing the Player collection
 async function createQuery (client: Client, threadID: ThreadID, query: QueryJSON) {
@@ -169,8 +167,7 @@ You can also subscribe to changes in a database.
 
 
 ```typescript
-import { Client, ThreadID, PrivateKey } from '@textile/hub'
-import { Update } from '@textile/threads'
+import { Client, PrivateKey, ThreadID, Update } from '@textile/hub'
 
 const userID = PrivateKey.fromRandom()
 
@@ -197,7 +194,7 @@ ThreadDB uses a modular role-based access control system that will allow access 
 
 ### Identity
 
-ThreadDB allows you to handle user identities (for access control and security/encryption) in the best way for your app and your users. In order to handle *multiple* peers collaborating on a single database, as well as the ability to handle storage *on behalf* of a user, ThreadDB expects a simple Identity interface for singing and validating database updates. See the Hub documentation on [user identities](../hub/app-apis.md#user-identities) for details.
+ThreadDB allows you to handle user identities (for access control and security/encryption) in the best way for your app and your users. In order to handle *multiple* peers collaborating on a single database, as well as the ability to handle storage *on behalf* of a user, ThreadDB expects a simple Identity interface for singing and validating database updates. See the Hub documentation on [user identities](../hub/apis.md#user-identities) for details.
 
 ## Replication with the Hub
 
@@ -206,7 +203,7 @@ ThreadDB has been designed to support trustless peers on the network to provide 
 ### Connect to the Hub
 
 1. [Create an Account](../hub/accounts.md#account-setup)
-2. [Create an App Token](../hub/app-apis.md#api-access)
+2. [Create an App Token](../hub/apis.md#api-access)
 3. <a href="https://textileio.github.io/js-hub" target="_blank">Add the Textile Hub Library to your App</a>
 
 ### Pinning, Relay, and Replication
