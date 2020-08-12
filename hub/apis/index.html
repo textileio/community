@@ -13,7 +13,7 @@
         <meta name="description" content="Textile makes it easy for you or your application to store and distribute data over the IPFS network.">
       
       
-        <link rel="canonical" href="https://docs.textile.io/hub/app-apis/">
+        <link rel="canonical" href="https://docs.textile.io/hub/apis/">
       
       
         <meta name="author" content="textile.io">
@@ -42,7 +42,7 @@
     
     
       
-        <title>App APIs | Documentation | Textile</title>
+        <title>APIs & API Keys | Documentation | Textile</title>
       
     
     
@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#getting-started" tabindex="1" class="md-skip">
+      <a href="#apis-and-api-keys" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              App APIs
+              APIs & API Keys
             </span>
           
         </div>
@@ -264,11 +264,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
-      The Hub
+      Getting Started
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
-        The Hub
+        Getting Started
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -279,8 +279,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../" title="Introduction" target="" class="md-nav__link ">
-      Introduction
+    <a href="../" title="Accounts Overview" target="" class="md-nav__link ">
+      Accounts Overview
     </a>
   </li>
 
@@ -291,8 +291,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../accounts/" title="Accounts" target="" class="md-nav__link ">
-      Accounts
+    <a href="../accounts/" title="Installation & Setup" target="" class="md-nav__link ">
+      Installation & Setup
     </a>
   </li>
 
@@ -312,11 +312,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        App APIs
+        APIs & API Keys
       </label>
     
-    <a href="./" title="App APIs" class="md-nav__link md-nav__link--active">
-      App APIs
+    <a href="./" title="APIs & API Keys" class="md-nav__link md-nav__link--active">
+      APIs & API Keys
     </a>
     
       
@@ -330,8 +330,71 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#a-tour-of-available-apis" title="A Tour of Available APIs" class="md-nav__link">
+    A Tour of Available APIs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buckets" title="Buckets" class="md-nav__link">
+    Buckets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threaddb" title="ThreadDB" class="md-nav__link">
+    ThreadDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-inboxes" title="User Inboxes" class="md-nav__link">
+    User Inboxes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-access" title="API Access" class="md-nav__link">
     API Access
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-keys" title="API Keys" class="md-nav__link">
+    API Keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-use-and-security" title="Key Use and Security" class="md-nav__link">
+    Key Use and Security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-summary" title="Access Summary" class="md-nav__link">
+    Access Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-keys" title="Creating Keys" class="md-nav__link">
+    Creating Keys
   </a>
   
     <nav class="md-nav">
@@ -347,14 +410,6 @@
           <li class="md-nav__item">
   <a href="#user-group-key" title="User Group Key" class="md-nav__link">
     User Group Key
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-user-group-keys" title="Creating User Group keys" class="md-nav__link">
-    Creating User Group keys
   </a>
   
 </li>
@@ -384,69 +439,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#app-apis" title="App APIs" class="md-nav__link">
-    App APIs
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#buckets" title="Buckets" class="md-nav__link">
-    Buckets
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#threaddb" title="ThreadDB" class="md-nav__link">
-    ThreadDB
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identity-and-api-access" title="Identity and API access" class="md-nav__link">
-    Identity and API access
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generic-identity-model" title="Generic identity model" class="md-nav__link">
-    Generic identity model
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-ownership" title="Data Ownership" class="md-nav__link">
-    Data Ownership
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#user-authorization" title="User authorization" class="md-nav__link">
-    User authorization
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#libraries" title="Libraries" class="md-nav__link">
-    Libraries
+  <a href="#api-libraries" title="API Libraries" class="md-nav__link">
+    API Libraries
   </a>
   
 </li>
@@ -467,465 +461,52 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../buckets/" title="Buckets Overview" target="" class="md-nav__link ">
+      Buckets Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../threads/" title="ThreadDB Overview" target="" class="md-nav__link ">
+      ThreadDB Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/" title="User Mailboxes" target="" class="md-nav__link ">
+      User Mailboxes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7" type="checkbox" id="nav-2-7">
     
-    <label class="md-nav__link" for="nav-2-4">
-      Hub CLI
+    <label class="md-nav__link" for="nav-2-7">
+      Powergate (Filecoin)
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-4">
-        Hub CLI
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub/" title="Overview" target="" class="md-nav__link ">
-      Overview
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_login/" title="Login" target="" class="md-nav__link ">
-      Login
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_logout/" title="Logout" target="" class="md-nav__link ">
-      Logout
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_whoami/" title="Whoami" target="" class="md-nav__link ">
-      Whoami
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_orgs/" title="Orgs" target="" class="md-nav__link ">
-      Orgs
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_buck/" title="Bucket" target="" class="md-nav__link ">
-      Bucket
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_threads/" title="Threads" target="" class="md-nav__link ">
-      Threads
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_keys/" title="API Keys" target="" class="md-nav__link ">
-      API Keys
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
-  
-  
-  
-    
-    
-    
-
-
-  <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/" title="JavaScript" target="_blank" class="md-nav__link _blank">
-      JavaScript
-    </a>
-  </li>
-
-  
-  
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      Buckets
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        Buckets
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../buckets/" title="Introduction" target="" class="md-nav__link ">
-      Introduction
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
-    
-    <label class="md-nav__link" for="nav-3-2">
-      Buckets CLI
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
-        Buckets CLI
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_buck/" title="Overview" target="" class="md-nav__link ">
-      Overview
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_buck_add/" title="Add" target="" class="md-nav__link ">
-      Add
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_buck_archive/" title="Archive" target="" class="md-nav__link ">
-      Archive
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_buck_cat/" title="Cat" target="" class="md-nav__link ">
-      Cat
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_buck_destroy/" title="Destroy" target="" class="md-nav__link ">
-      Destroy
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_buck_init/" title="Init" target="" class="md-nav__link ">
-      Init
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_buck_links/" title="Links" target="" class="md-nav__link ">
-      Links
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_buck_ls/" title="Ls" target="" class="md-nav__link ">
-      Ls
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_buck_pull/" title="Pull" target="" class="md-nav__link ">
-      Pull
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_buck_push/" title="Push" target="" class="md-nav__link ">
-      Push
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_buck_root/" title="Root" target="" class="md-nav__link ">
-      Root
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cli/hub_buck_status/" title="Status" target="" class="md-nav__link ">
-      Status
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
-  
-  
-  
-    
-    
-    
-
-
-  <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.buckets" title="JavaScript" target="_blank" class="md-nav__link _blank">
-      JavaScript
-    </a>
-  </li>
-
-  
-  
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      ThreadDB
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        ThreadDB
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../threads/" title="Introduction" target="" class="md-nav__link ">
-      Introduction
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
-  
-  
-  
-    
-    
-    
-
-
-  <li class="md-nav__item">
-    <a href="https://godoc.org/github.com/textileio/go-threads/api/client" title="Golang" target="_blank" class="md-nav__link _blank">
-      Golang
-    </a>
-  </li>
-
-  
-    
-    
-    
-
-
-  <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.client" title="JavaScript Client" target="_blank" class="md-nav__link _blank">
-      JavaScript Client
-    </a>
-  </li>
-
-  
-  
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
-      Powergate
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Powergate
+      <label class="md-nav__title" for="nav-2-7">
+        Powergate (Filecoin)
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -973,13 +554,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7-4" type="checkbox" id="nav-2-7-4">
     
-    <label class="md-nav__link" for="nav-5-4">
+    <label class="md-nav__link" for="nav-2-7-4">
       Store Data
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-4">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-7-4">
         Store Data
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1021,13 +602,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7-5" type="checkbox" id="nav-2-7-5">
     
-    <label class="md-nav__link" for="nav-5-5">
+    <label class="md-nav__link" for="nav-2-7-5">
       POW CLI
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-5">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-7-5">
         POW CLI
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1186,6 +767,11 @@
     </nav>
   </li>
 
+        
+      </ul>
+    </nav>
+  </li>
+
     
       
       
@@ -1194,14 +780,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
-    <label class="md-nav__link" for="nav-6">
-      Tutorials
+    <label class="md-nav__link" for="nav-3">
+      Command-line Reference
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
-        Tutorials
+      <label class="md-nav__title" for="nav-3">
+        Command-line Reference
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1213,14 +799,343 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
     
-    <label class="md-nav__link" for="nav-6-1">
-      Build Apps
+    <label class="md-nav__link" for="nav-3-1">
+      Hub admin
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-1">
-        Build Apps
+      <label class="md-nav__title" for="nav-3-1">
+        Hub admin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub/" title="Overview" target="" class="md-nav__link ">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_login/" title="Login" target="" class="md-nav__link ">
+      Login
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_logout/" title="Logout" target="" class="md-nav__link ">
+      Logout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_whoami/" title="Whoami" target="" class="md-nav__link ">
+      Whoami
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_orgs/" title="Orgs" target="" class="md-nav__link ">
+      Orgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck/" title="Bucket" target="" class="md-nav__link ">
+      Bucket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_threads/" title="Threads" target="" class="md-nav__link ">
+      Threads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_keys/" title="API Keys" target="" class="md-nav__link ">
+      API Keys
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Buckets commands
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Buckets commands
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck/" title="Overview" target="" class="md-nav__link ">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_add/" title="Add" target="" class="md-nav__link ">
+      Add
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_archive/" title="Archive" target="" class="md-nav__link ">
+      Archive
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_cat/" title="Cat" target="" class="md-nav__link ">
+      Cat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_destroy/" title="Destroy" target="" class="md-nav__link ">
+      Destroy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_decrypt/" title="Decrypt" target="" class="md-nav__link ">
+      Decrypt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_encrypt/" title="Encrypt" target="" class="md-nav__link ">
+      Encrypt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_init/" title="Init" target="" class="md-nav__link ">
+      Init
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_links/" title="Links" target="" class="md-nav__link ">
+      Links
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_ls/" title="Ls" target="" class="md-nav__link ">
+      Ls
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_pull/" title="Pull" target="" class="md-nav__link ">
+      Pull
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_push/" title="Push" target="" class="md-nav__link ">
+      Push
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_watch/" title="Watch" target="" class="md-nav__link ">
+      Watch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_root/" title="Root" target="" class="md-nav__link ">
+      Root
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_status/" title="Status" target="" class="md-nav__link ">
+      Status
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      JavaScript Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        JavaScript Reference
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1243,8 +1158,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorials/hub/libp2p-identities/" title="User identity" target="" class="md-nav__link ">
-      User identity
+    <a href="../../tutorials/hub/pki-identities/" title="User identities" target="" class="md-nav__link ">
+      User identities
     </a>
   </li>
 
@@ -1279,49 +1194,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorials/hub/user-thread-database/" title="Chat rooms in Threads" target="" class="md-nav__link ">
-      Chat rooms in Threads
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../tutorials/react-native-buckets/" title="Mobile threads & buckets" target="" class="md-nav__link ">
       Mobile threads & buckets
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/hub/production-auth/" title="Authentication" target="" class="md-nav__link ">
-      Authentication
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/static-websites/" title="Host Websites" target="" class="md-nav__link ">
-      Host Websites
     </a>
   </li>
 
@@ -1344,10 +1218,58 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorials/golang/getting-started/" title="Getting started with Golang" target="" class="md-nav__link ">
-      Getting started with Golang
+    <a href="../../tutorials/hub/production-auth/" title="Production authentication" target="" class="md-nav__link ">
+      Production authentication
     </a>
   </li>
+
+        
+          
+          
+          
+
+
+  <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+  
+  
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://textileio.github.io/js-hub/docs/hub.users" title="Users API Class" target="_blank" class="md-nav__link _blank">
+      Users API Class
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://textileio.github.io/js-hub/docs/hub.buckets" title="Buckets API Class" target="_blank" class="md-nav__link _blank">
+      Buckets API Class
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://textileio.github.io/js-hub/docs/hub.client" title="Threads API Class" target="_blank" class="md-nav__link _blank">
+      Threads API Class
+    </a>
+  </li>
+
+  
+  
 
         
       </ul>
@@ -1362,14 +1284,110 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-7">
-      Examples
+    <label class="md-nav__link" for="nav-5">
+      Golang Reference
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        Examples
+      <label class="md-nav__title" for="nav-5">
+        Golang Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/golang/getting-started/" title="Getting started with Golang" target="" class="md-nav__link ">
+      Getting started with Golang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+  
+  
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/textile#using-the-mail-library" title="Golang User Mailboxes" target="_blank" class="md-nav__link _blank">
+      Golang User Mailboxes
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/textile#running-buckets" title="Golang Buckets" target="_blank" class="md-nav__link _blank">
+      Golang Buckets
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/go-threads" title="Golang Threads" target="_blank" class="md-nav__link _blank">
+      Golang Threads
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://godoc.org/github.com/textileio/go-threads/api/client" title="Golang Threads Client" target="_blank" class="md-nav__link _blank">
+      Golang Threads Client
+    </a>
+  </li>
+
+  
+  
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      More Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        More Examples
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1381,13 +1399,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1">
     
-    <label class="md-nav__link" for="nav-7-1">
+    <label class="md-nav__link" for="nav-6-1">
       ThreadDB
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-1">
+      <label class="md-nav__title" for="nav-6-1">
         ThreadDB
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1489,13 +1507,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
     
-    <label class="md-nav__link" for="nav-7-2">
+    <label class="md-nav__link" for="nav-6-2">
       Buckets
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-2">
+      <label class="md-nav__title" for="nav-6-2">
         Buckets
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1568,8 +1586,71 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#a-tour-of-available-apis" title="A Tour of Available APIs" class="md-nav__link">
+    A Tour of Available APIs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buckets" title="Buckets" class="md-nav__link">
+    Buckets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threaddb" title="ThreadDB" class="md-nav__link">
+    ThreadDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-inboxes" title="User Inboxes" class="md-nav__link">
+    User Inboxes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-access" title="API Access" class="md-nav__link">
     API Access
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-keys" title="API Keys" class="md-nav__link">
+    API Keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-use-and-security" title="Key Use and Security" class="md-nav__link">
+    Key Use and Security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-summary" title="Access Summary" class="md-nav__link">
+    Access Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-keys" title="Creating Keys" class="md-nav__link">
+    Creating Keys
   </a>
   
     <nav class="md-nav">
@@ -1585,14 +1666,6 @@
           <li class="md-nav__item">
   <a href="#user-group-key" title="User Group Key" class="md-nav__link">
     User Group Key
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-user-group-keys" title="Creating User Group keys" class="md-nav__link">
-    Creating User Group keys
   </a>
   
 </li>
@@ -1622,69 +1695,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#app-apis" title="App APIs" class="md-nav__link">
-    App APIs
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#buckets" title="Buckets" class="md-nav__link">
-    Buckets
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#threaddb" title="ThreadDB" class="md-nav__link">
-    ThreadDB
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identity-and-api-access" title="Identity and API access" class="md-nav__link">
-    Identity and API access
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#generic-identity-model" title="Generic identity model" class="md-nav__link">
-    Generic identity model
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-ownership" title="Data Ownership" class="md-nav__link">
-    Data Ownership
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#user-authorization" title="User authorization" class="md-nav__link">
-    User authorization
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#libraries" title="Libraries" class="md-nav__link">
-    Libraries
+  <a href="#api-libraries" title="API Libraries" class="md-nav__link">
+    API Libraries
   </a>
   
 </li>
@@ -1707,84 +1719,91 @@
               
                 
                 
-                  <a href="https://github.com/textileio/docs/edit/master/docs/hub/app-apis.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/textileio/docs/edit/master/docs/hub/apis.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
-<p>Use the Hub to help scale your applications on IPFS. The Hub APIs are available for your apps and your app users. You can use the Hub APIs with a privileged <a href="#account-key">Account API Key</a> or with a <a href="#user-group-key">User Group Key</a>. Both have the ability to push new data to Buckets, persist ThreadDB data, and relay ThreadDB updates (among other things). Attaching the Hub to your users' data will allow you to deliver high-quality user-experiences. In order to make this as straightforward as possible, you need to understand a few additional basic concepts.</p>
+                <h1 id="apis-and-api-keys">APIs and API Keys<a class="headerlink" href="#apis-and-api-keys" title="Permanent link">&para;</a></h1>
+<p>In this section, we'll walk through the basic concepts useful when building your app to use the Hub. We'll break the discussion into a few key parts, shown in the table of contents to the right.</p>
+<h2 id="a-tour-of-available-apis">A Tour of Available APIs<a class="headerlink" href="#a-tour-of-available-apis" title="Permanent link">&para;</a></h2>
+<h3 id="buckets">Buckets<a class="headerlink" href="#buckets" title="Permanent link">&para;</a></h3>
+<p><a href="../../buckets/">Buckets</a> provide S3-like data storage on IPFS. Just as you can create Buckets with the <a href="../cli/hub/">Hub CLI</a>, you can create Buckets using JavaScript with <a href="#libraries">js-hub</a>.</p>
+<p>The <a href="#libraries">js-hub</a> library allows you to create and edit Buckets owned by you or your organization using an <a href="#account-key">account key</a>. Alternatively, you can use Buckets to store your user's data using a <a href="#user-group-key">user group key</a>.</p>
+<h3 id="threaddb">ThreadDB<a class="headerlink" href="#threaddb" title="Permanent link">&para;</a></h3>
+<p><a href="../../threads/">ThreadDB</a> is a mongo-like database that runs on IPFS. You can use <a href="#libraries">js-hub</a> connect to the Hub's hosted thread server (<code>Client</code>) to push and persist encrypted data on an IPFS-backed database. Alternatively, you can embed local, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates (<code>Database</code>). </p>
+<h3 id="user-inboxes">User Inboxes<a class="headerlink" href="#user-inboxes" title="Permanent link">&para;</a></h3>
+<p>The Users API provides mechanisms for sending and receiving messages between Hub users. Mailboxes are built on ThreadDB. Hub mailboxes are a unique inboxing and messaging system designed for modern apps where users hold private keys linked to their identity. With just their private and public key, a user can send and receive encrypted messages to other users in your app.</p>
+<h2 id="api-access">API Access<a class="headerlink" href="#api-access" title="Permanent link">&para;</a></h2>
+<p>When building apps or services, you can access the Hub APIs to push new buckets, relay or persist threads, ensure data from your app is available on the IPFS network, and more. You can access those APIs through the use of API keys.</p>
+<h3 id="api-keys">API Keys<a class="headerlink" href="#api-keys" title="Permanent link">&para;</a></h3>
+<p>The Hub has two forms of API key, an <em>Account Key</em> and a <em>User Group Key</em>.</p>
+<ul>
+<li><strong>Account Keys</strong> can grant access to the developers own resources (e.g. Buckets you create using the command-line interface). If Account Keys are generated with the <code>-o</code> (organization) flag, they will grant access to that organization's resources. Example uses include, integrating your Buckets into CI, dashboards, team messaging integration, etc.</li>
+<li><strong>User Group Keys</strong> only grant access to new resources for new identities, not those of the developer. User group keys can be used in an application to allow app users to leverage Hub APIs (e.g. create and push new buckets). User group keys do not have permission to access the developer or organization resources, but threads and buckets created using these keys <em>are counted against API limits</em>.</li>
+</ul>
+<h3 id="key-use-and-security">Key Use and Security<a class="headerlink" href="#key-use-and-security" title="Permanent link">&para;</a></h3>
+<p>API keys are project-centric credentials that you can use to provision your Hub resources to end users (either within your organization or in a public app). We recommend reading this thorough overview of <a href="https://developers.google.com/maps/api-key-best-practices">API key design and best practices</a>.</p>
+<h3 id="access-summary">Access Summary<a class="headerlink" href="#access-summary" title="Permanent link">&para;</a></h3>
+<p>Below is a brief summary of the Hub resources you may create and access with each key type. </p>
 <p><center></p>
 <table>
 <thead>
 <tr>
-<th></th>
+<th>Resource example</th>
 <th align="center">Owner</th>
 <th align="center">CLI</th>
-<th align="center">Account Key</th>
-<th align="center">User Group Key</th>
+<th align="center">Required Key</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Developer Threads</td>
-<td align="center">Hub Login</td>
+<td align="center">Hub Developer</td>
 <td align="center">create, access</td>
-<td align="center">create, access</td>
-<td align="center"></td>
+<td align="center">Account Key</td>
 </tr>
 <tr>
 <td>Developer Buckets</td>
-<td align="center">Hub Login</td>
+<td align="center">Hub Developer</td>
 <td align="center">create, access</td>
-<td align="center">create, access</td>
-<td align="center"></td>
+<td align="center">Account Key</td>
 </tr>
 <tr>
 <td>Organization Threads</td>
-<td align="center">Hub Login</td>
+<td align="center">Hub Developer(s)</td>
 <td align="center">create, access</td>
-<td align="center">create, access</td>
-<td align="center"></td>
+<td align="center">Account Key</td>
 </tr>
 <tr>
 <td>Organization Buckets</td>
-<td align="center">Hub Login</td>
+<td align="center">Hub Developer(s)</td>
 <td align="center">create, access</td>
-<td align="center">create, access</td>
-<td align="center"></td>
+<td align="center">Account Key</td>
 </tr>
 <tr>
 <td>User Threads</td>
-<td align="center">PKI Identity</td>
+<td align="center">App User</td>
 <td align="center"></td>
-<td align="center"></td>
-<td align="center">create, access</td>
+<td align="center">User Group Key</td>
 </tr>
 <tr>
 <td>User Buckets</td>
-<td align="center">PKI Identity</td>
+<td align="center">App User</td>
 <td align="center"></td>
-<td align="center"></td>
-<td align="center">create, access</td>
+<td align="center">User Group Key</td>
 </tr>
 </tbody>
 </table>
 <p></center></p>
-<p>The above table gives an overview of the different roles that can create or manage Threads and Buckets. In short, there are developer identities on the Hub and then a developer's app users represented as <a href="#identity">private-key identities</a> originating in their app. Each can use resources on the Hub, and below we will walk through the details of each.</p>
-<h2 id="api-access">API Access<a class="headerlink" href="#api-access" title="Permanent link">&para;</a></h2>
+<h3 id="creating-keys">Creating Keys<a class="headerlink" href="#creating-keys" title="Permanent link">&para;</a></h3>
+<h4 id="account-key">Account Key<a class="headerlink" href="#account-key" title="Permanent link">&para;</a></h4>
+<p>To create a new Account Key using <code>hub key create</code> and selecting the <code>account</code> option.</p>
 <p><img alt="" src="../../images/hub-cli/hub_keys_create.png" /></p>
-<h3 id="account-key">Account Key<a class="headerlink" href="#account-key" title="Permanent link">&para;</a></h3>
-<p>Account keys provide direct access to developer and org account Buckets and Threads. Account keys make it possible to build apps that have full access to developer or organization Buckets. You can use account keys to integrate your Buckets into CI, dashboards, team messaging integration, etc. To create a new Account Key using <code>hub key create</code> and selecting the <code>account</code> option.</p>
 <p><em><a href="../cli/hub_keys/">See CLI options</a></em></p>
-<h3 id="user-group-key">User Group Key<a class="headerlink" href="#user-group-key" title="Permanent link">&para;</a></h3>
-<p>User groups are non-admin groups of users (e.g. app users or beta users) that you want to provide restricted access to your Hub APIs. For each user group you want, you create a single <em>user group key</em> that will be used by all members of the group to access your API endpoint (developer or organization). For example, your app can create Buckets and Threads on behalf of your user that they sign on device with their own identity.</p>
-<h4 id="creating-user-group-keys">Creating User Group keys<a class="headerlink" href="#creating-user-group-keys" title="Permanent link">&para;</a></h4>
-<p>To create a new <em>user group key</em> using <code>hub key create</code> and selecting the <code>user group</code> option. If you are buiding an app in an organization, use <code>hub key create --org=&lt;name&gt;</code> to link a new key to the organization not your personal account. There is currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see <a href="../accounts/">Organizations</a>).</p>
-<p>Create a new <code>user</code> key using <code>hub key create</code> command line tool. After some steps to create an account, you can create the keys.</p>
+<h4 id="user-group-key">User Group Key<a class="headerlink" href="#user-group-key" title="Permanent link">&para;</a></h4>
+<p>To create a new <em>user group key</em> using <code>hub key create</code> and selecting the <code>user group</code> option. If you are building an app in an organization, use <code>hub key create --org=&lt;name&gt;</code> to link a new key to the organization not your personal account. There are currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see <a href="../accounts/">Organizations</a>).</p>
 <div class="highlight"><pre><span></span><code>➜ hub key create <span class="c1"># select the &#39;user&#39; option</span>
-</code></pre></div>
 
-<p>This should produce output similar to the following. Make note of these values, but do not share them! For a Node app, it is a good idea to use a tool such as <a href="https://github.com/motdotla/dotenv">dotenv</a> to reference them in your apps, which is what we will assume below.</p>
-<div class="highlight"><pre><span></span><code>✔ user
+✔ user
 
   KEY                          SECRET                          TYPE  
   bqab5csdh...no6jjezox4       bm2tk476yivwlw...3a4cayll7ztha  user  
@@ -1795,70 +1814,26 @@
 <h4 id="non-signing-user-group-keys">Non-signing User Group keys<a class="headerlink" href="#non-signing-user-group-keys" title="Permanent link">&para;</a></h4>
 <p>You can use insecure keys with the API by creating non-signing keys. These keys are meant to use during development only. Read the tutorial on <a href="../../tutorials/hub/development-mode/">development mode</a> to use these keys.</p>
 <h4 id="updating-user-group-keys">Updating User Group keys<a class="headerlink" href="#updating-user-group-keys" title="Permanent link">&para;</a></h4>
-<p>You can replace your keys in your app at any time and the user will still have access to their Threads and Buckets as long as the key is connected to the same developer or organization. If you fully delete your account or organization, data replicated on IPFS through the <em>user group key</em> will <strong>also be removed</strong>. So if you remove your account, we highly encourage you to replicate the data on an external IPFS node, provide tools for your users to export or replicate their own account data, or host external Thread Services to migrate your user Thread replication to.</p>
-<p>Also see <a href="../../tutorials/hub/libp2p-identities/">Identity tutorial</a> and how to use identity providers such as 3Box with user group keys.</p>
+<p>You can replace your keys in your app at any time and the user will still have access to their Threads and Buckets as long as the key is connected to the same developer or organization.</p>
 <p><em><a href="../cli/hub_keys/">See CLI commands</a></em></p>
-<h2 id="app-apis">App APIs<a class="headerlink" href="#app-apis" title="Permanent link">&para;</a></h2>
-<h3 id="buckets">Buckets<a class="headerlink" href="#buckets" title="Permanent link">&para;</a></h3>
-<p><a href="../../buckets/">Buckets</a> provide S3-like data storage on IPFS. Just as you can create Buckets with the <a href="../cli/hub/">Hub CLI</a>, you can create Buckets using JavaScript with <a href="#libraries">js-hub</a>.</p>
-<p>The <a href="#libraries">js-hub</a> library allows you to create and edit Buckets owned by you or your organization using an <a href="#account-key">account key</a>. Alternatively, you can use Buckets to store your user's data using a <a href="#user-group-key">user group key</a>.</p>
-<h3 id="threaddb">ThreadDB<a class="headerlink" href="#threaddb" title="Permanent link">&para;</a></h3>
-<p><a href="../../threads/">ThreadDB</a> is a mongo-like database that runs on IPFS. You can use it in combination with <a href="#libraries">js-hub</a> to add replication and relay to your user's databases. When combined, <code>js-threads</code> and <code>js-hub</code> allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.</p>
-<h2 id="identity-and-api-access">Identity and API access<a class="headerlink" href="#identity-and-api-access" title="Permanent link">&para;</a></h2>
-<h3 id="generic-identity-model">Generic identity model<a class="headerlink" href="#generic-identity-model" title="Permanent link">&para;</a></h3>
-<p>Identities also provide a way for developers to allocate resources (i.e., storage) for a particular user, and in fact, is a key component in ensuring that a user <em>controls their own data</em>. Hub, Buckets, and ThreadDB APIs are flexible when it comes to user identity, allowing you to handle user identities (for access control and security/encryption) in the best way for your app and your users. In order to handle <em>multiple</em> peers collaborating on a single database, as well as the ability to handle storage <em>on behalf</em> of a user, Hub APIs expect a simple Identity interface for singing and validating updates.</p>
-<p>You can create a basic identity for our user in a JavaScript application using the <code>Libp2pCryptoIdentity</code> object. In practice, you might have your own identity provider, or you might want to use a hierarchical key/wallet or mnemonic phrase to help store a users keys for them. Whatever you decide, Textile's generic identity interface should be able to support it.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Libp2pCryptoIdentity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/threads-core&#39;</span>
-
-<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">()</span> <span class="p">{</span>
-   <span class="kr">const</span> <span class="nx">identity</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">Libp2pCryptoIdentity</span><span class="p">.</span><span class="nx">fromRandom</span><span class="p">()</span> <span class="c1">// Random identity</span>
-   <span class="k">return</span> <span class="nx">identity</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>Read more about Identity in the <a href="../../tutorials/hub/libp2p-identities/">identity tutorial</a>.</p>
-<h3 id="data-ownership">Data Ownership<a class="headerlink" href="#data-ownership" title="Permanent link">&para;</a></h3>
-<p>The databases and buckets you create over the APIs are owned in one of three ways.</p>
-<ol>
-<li>Developer owned. If you use an account key with the Buckets or ThreadDB APIs, the data will be linked directly to your account.</li>
-<li>Org owned. If you create an account key using the --org flag, the Buckets and Threads will be linked to the organization.</li>
-<li>User owned. If you create a user group key, Textile allows your app to provision new Buckets and Threads on behalf of your users. This data will be signed and owned by your end-users and only accessible to them.</li>
-</ol>
-<p>API keys add a lot of flexibility in how you use resources on the Hub. A developer is able to access Hub resources as themselves (i.e., the developer), with all the administrative capabilities that entails, or as users of their app, which are sandboxed but can create Threads (and Buckets) of their own <em>within</em> that user-scoped sandbox.</p>
-<p>This is a very powerful framework for accessing and allocating developer resources on behalf of users, while still providing the control and quality user-experience that apps built on Threads should provide.</p>
-<h3 id="user-authorization">User authorization<a class="headerlink" href="#user-authorization" title="Permanent link">&para;</a></h3>
-<p>This step is only necessary if you are using production (signing required) API keys. If you are in <a href="../../tutorials/hub/development-mode/">development mode</a>, you don't need to do this step.</p>
-<p>Authorizing the user with your <em>user group key</em> and Secret will allow the user to store threads and buckets using your developer resources on the Hub. If you are running in development mode and created a key that doesn't require signing.</p>
-<p>Read more about setting up authentication and authorization in <a href="../../tutorials/hub/production-auth/">production mode</a>.</p>
-<h2 id="libraries">Libraries<a class="headerlink" href="#libraries" title="Permanent link">&para;</a></h2>
+<h2 id="api-libraries">API Libraries<a class="headerlink" href="#api-libraries" title="Permanent link">&para;</a></h2>
 <p>You can find all remote Thread and Bucket APIs in the <code>textile</code> libraries below. These libraries are meant to work in combination with the <code>threads</code> libraries when you want to create and manage Threads database in your app. </p>
-<p>Here are the libraries you will find useful to start building today.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th align="center">ThreadDB</th>
-<th align="center">Threads APIs &amp; Buckets</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Browser, React Native, &amp; NodeJS</td>
-<td align="center"><a href="https://textileio.github.io/js-threads">js-threads</a></td>
-<td align="center"><a href="https://textileio.github.io/js-hub">js-hub</a></td>
-</tr>
-<tr>
-<td>Golang Libraries</td>
-<td align="center"><a href="https://godoc.org/github.com/textileio/go-threads/api/client">go-threads</a></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td>Command-line</td>
-<td align="center"><em>thread-shell (coming)</em></td>
-<td align="center"><a href="../cli/hub/">Hub CLI</a></td>
-</tr>
-</tbody>
-</table>
+<div class="txtl-options">
+  <a href="https://textileio.github.io/js-hub/docs/" target="_blank class="box">
+    <h5>JS Hub</h5>
+    <p>Start threads, buckets, and user creation in any JavaScript app.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="https://godoc.org/github.com/textileio/textile/api/buckets" target="_blank class="box">
+    <h5>JS Hub</h5>
+    <p>Use the Buckets client from Go</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="../hub/cli/hub" class="box">
+    <h5>Hub CLI</h5>
+    <p>Use scripting and command-line tooling with the Hub CLI.</p>
+  </a>
+</div>
                 
                   
                 
@@ -1879,7 +1854,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../accounts/" title="Accounts" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../accounts/" title="Installation & Setup" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1888,19 +1863,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Accounts
+                Installation & Setup
               </span>
             </div>
           </a>
         
         
-          <a href="../cli/hub/" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../buckets/" title="Buckets Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Overview
+                Buckets Overview
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

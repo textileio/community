@@ -1,0 +1,1814 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Textile makes it easy for you or your application to store and distribute data over the IPFS network.">
+      
+      
+        <link rel="canonical" href="https://docs.textile.io/hub/development/">
+      
+      
+        <meta name="author" content="textile.io">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>Getting Started | Documentation | Textile</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.86c34351.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../css/textile.css">
+    
+    <script src="https://cdn.usefathom.com/3.js" site="TEBMKXIY"></script>
+    <script>
+        window.fathom || document.write('<script src="https://grouse.textile.io/core.js"><\/script>');
+    </script>
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="default" data-md-color-accent="default">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#getting-started" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://docs.textile.io/" title="Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/hex.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              Getting Started
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/textileio/docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    textileio/docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://docs.textile.io/" title="Documentation" class="md-nav__button md-logo">
+      
+        <img src="../../images/hex.svg" width="48" height="48">
+      
+    </a>
+    Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/textileio/docs/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    textileio/docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" target="" class="md-nav__link ">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting Started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Accounts Overview" target="" class="md-nav__link ">
+      Accounts Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../accounts/" title="Installation & Setup" target="" class="md-nav__link ">
+      Installation & Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../apis/" title="APIs & API Keys" target="" class="md-nav__link ">
+      APIs & API Keys
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../buckets/" title="Buckets Overview" target="" class="md-nav__link ">
+      Buckets Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../threads/" title="ThreadDB Overview" target="" class="md-nav__link ">
+      ThreadDB Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/" title="User Mailboxes" target="" class="md-nav__link ">
+      User Mailboxes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7" type="checkbox" id="nav-2-7">
+    
+    <label class="md-nav__link" for="nav-2-7">
+      Powergate (Filecoin)
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-7">
+        Powergate (Filecoin)
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/" title="Introduction" target="" class="md-nav__link ">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/localnet/" title="Localnet" target="" class="md-nav__link ">
+      Localnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/testnet/" title="Testnet" target="" class="md-nav__link ">
+      Testnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7-4" type="checkbox" id="nav-2-7-4">
+    
+    <label class="md-nav__link" for="nav-2-7-4">
+      Store Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-7-4">
+        Store Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/ffs/" title="Intro to FFS" target="" class="md-nav__link ">
+      Intro to FFS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/storageconfig/" title="Storage Configs" target="" class="md-nav__link ">
+      Storage Configs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-7-5" type="checkbox" id="nav-2-7-5">
+    
+    <label class="md-nav__link" for="nav-2-7-5">
+      POW CLI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-7-5">
+        POW CLI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/cli/pow/" title="Overview" target="" class="md-nav__link ">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/cli/pow_ffs/" title="FFS" target="" class="md-nav__link ">
+      FFS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/cli/pow_asks/" title="Asks" target="" class="md-nav__link ">
+      Asks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/cli/pow_faults/" title="Faults" target="" class="md-nav__link ">
+      Faults
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/cli/pow_miners/" title="Miners" target="" class="md-nav__link ">
+      Miners
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/cli/pow_net/" title="Net" target="" class="md-nav__link ">
+      Net
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/cli/pow_reputation/" title="Reputation" target="" class="md-nav__link ">
+      Reputation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/cli/pow_wallet/" title="Wallet" target="" class="md-nav__link ">
+      Wallet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../powergate/cli/pow_health/" title="Health" target="" class="md-nav__link ">
+      Health
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+  
+  
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://textileio.github.io/js-powergate-client/" title="JavaScript" target="_blank" class="md-nav__link _blank">
+      JavaScript
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://godoc.org/github.com/textileio/powergate/api/client" title="Golang" target="_blank" class="md-nav__link _blank">
+      Golang
+    </a>
+  </li>
+
+  
+  
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Command-line Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Command-line Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Hub admin
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        Hub admin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub/" title="Overview" target="" class="md-nav__link ">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_login/" title="Login" target="" class="md-nav__link ">
+      Login
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_logout/" title="Logout" target="" class="md-nav__link ">
+      Logout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_whoami/" title="Whoami" target="" class="md-nav__link ">
+      Whoami
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_orgs/" title="Orgs" target="" class="md-nav__link ">
+      Orgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck/" title="Bucket" target="" class="md-nav__link ">
+      Bucket
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_threads/" title="Threads" target="" class="md-nav__link ">
+      Threads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_keys/" title="API Keys" target="" class="md-nav__link ">
+      API Keys
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Buckets commands
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Buckets commands
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck/" title="Overview" target="" class="md-nav__link ">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_add/" title="Add" target="" class="md-nav__link ">
+      Add
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_archive/" title="Archive" target="" class="md-nav__link ">
+      Archive
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_cat/" title="Cat" target="" class="md-nav__link ">
+      Cat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_destroy/" title="Destroy" target="" class="md-nav__link ">
+      Destroy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_decrypt/" title="Decrypt" target="" class="md-nav__link ">
+      Decrypt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_encrypt/" title="Encrypt" target="" class="md-nav__link ">
+      Encrypt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_init/" title="Init" target="" class="md-nav__link ">
+      Init
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_links/" title="Links" target="" class="md-nav__link ">
+      Links
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_ls/" title="Ls" target="" class="md-nav__link ">
+      Ls
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_pull/" title="Pull" target="" class="md-nav__link ">
+      Pull
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_push/" title="Push" target="" class="md-nav__link ">
+      Push
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_watch/" title="Watch" target="" class="md-nav__link ">
+      Watch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_root/" title="Root" target="" class="md-nav__link ">
+      Root
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/hub_buck_status/" title="Status" target="" class="md-nav__link ">
+      Status
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      JavaScript Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        JavaScript Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/hub/web-app/" title="Introduction" target="" class="md-nav__link ">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/hub/pki-identities/" title="User identities" target="" class="md-nav__link ">
+      User identities
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/hub/development-mode/" title="Development mode" target="" class="md-nav__link ">
+      Development mode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/hub/user-buckets/" title="Add images to Buckets" target="" class="md-nav__link ">
+      Add images to Buckets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/react-native-buckets/" title="Mobile threads & buckets" target="" class="md-nav__link ">
+      Mobile threads & buckets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/nodejs/" title="Build with NodeJS" target="" class="md-nav__link ">
+      Build with NodeJS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/hub/production-auth/" title="Production authentication" target="" class="md-nav__link ">
+      Production authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+  
+  
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://textileio.github.io/js-hub/docs/hub.users" title="Users API Class" target="_blank" class="md-nav__link _blank">
+      Users API Class
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://textileio.github.io/js-hub/docs/hub.buckets" title="Buckets API Class" target="_blank" class="md-nav__link _blank">
+      Buckets API Class
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://textileio.github.io/js-hub/docs/hub.client" title="Threads API Class" target="_blank" class="md-nav__link _blank">
+      Threads API Class
+    </a>
+  </li>
+
+  
+  
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Golang Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Golang Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/golang/getting-started/" title="Getting started with Golang" target="" class="md-nav__link ">
+      Getting started with Golang
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+  
+  
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/textile#using-the-mail-library" title="Golang User Mailboxes" target="_blank" class="md-nav__link _blank">
+      Golang User Mailboxes
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/textile#running-buckets" title="Golang Buckets" target="_blank" class="md-nav__link _blank">
+      Golang Buckets
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/go-threads" title="Golang Threads" target="_blank" class="md-nav__link _blank">
+      Golang Threads
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://godoc.org/github.com/textileio/go-threads/api/client" title="Golang Threads Client" target="_blank" class="md-nav__link _blank">
+      Golang Threads Client
+    </a>
+  </li>
+
+  
+  
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      More Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        More Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1">
+    
+    <label class="md-nav__link" for="nav-6-1">
+      ThreadDB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-1">
+        ThreadDB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+  
+  
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/hub-threaddb-chat" title="Chat in Local Database" target="_blank" class="md-nav__link _blank">
+      Chat in Local Database
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app" title="Server-side Authentication" target="_blank" class="md-nav__link _blank">
+      Server-side Authentication
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app" title="Threads from React Native (JavaScript)" target="_blank" class="md-nav__link _blank">
+      Threads from React Native (JavaScript)
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/go-threads/blob/master/examples/chat/main.go" title="Chat App (Golang)" target="_blank" class="md-nav__link _blank">
+      Chat App (Golang)
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/go-threads/tree/master/examples/local_eventstore" title="Event Store (Golang)" target="_blank" class="md-nav__link _blank">
+      Event Store (Golang)
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/go-threads/tree/master/examples/e2e_counter" title="P2P Counter (Golang)" target="_blank" class="md-nav__link _blank">
+      P2P Counter (Golang)
+    </a>
+  </li>
+
+  
+  
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+    
+    <label class="md-nav__link" for="nav-6-2">
+      Buckets
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        Buckets
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+  
+  
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery" title="User Galleries in Buckets" target="_blank" class="md-nav__link _blank">
+      User Galleries in Buckets
+    </a>
+  </li>
+
+  
+    
+    
+    
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app" title="Buckets from React Native (JavaScript)" target="_blank" class="md-nav__link _blank">
+      Buckets from React Native (JavaScript)
+    </a>
+  </li>
+
+  
+  
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#available-apis" title="Available APIs" class="md-nav__link">
+    Available APIs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buckets" title="Buckets" class="md-nav__link">
+    Buckets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threaddb" title="ThreadDB" class="md-nav__link">
+    ThreadDB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-access" title="API Access" class="md-nav__link">
+    API Access
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roles" title="Roles" class="md-nav__link">
+    Roles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-keys" title="API Keys" class="md-nav__link">
+    API Keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-summary" title="Access Summary" class="md-nav__link">
+    Access Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-keys" title="Creating Keys" class="md-nav__link">
+    Creating Keys
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#account-key" title="Account Key" class="md-nav__link">
+    Account Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-group-key" title="User Group Key" class="md-nav__link">
+    User Group Key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-signing-user-group-keys" title="Non-signing User Group keys" class="md-nav__link">
+    Non-signing User Group keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-user-group-keys" title="Updating User Group keys" class="md-nav__link">
+    Updating User Group keys
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identity-and-api-access" title="Identity and API access" class="md-nav__link">
+    Identity and API access
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generic-identity-model" title="Generic identity model" class="md-nav__link">
+    Generic identity model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-ownership" title="Data Ownership" class="md-nav__link">
+    Data Ownership
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-authorization" title="User authorization" class="md-nav__link">
+    User authorization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libraries" title="Libraries" class="md-nav__link">
+    Libraries
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <a href="https://github.com/textileio/docs/edit/master/docs/hub/development.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
+<p>In this section, we'll walk through the basic concepts useful when building your app to use the Hub. We'll break the discussion into a few key parts, shown in the table of contents to the right.</p>
+<h2 id="available-apis">Available APIs<a class="headerlink" href="#available-apis" title="Permanent link">&para;</a></h2>
+<h3 id="buckets">Buckets<a class="headerlink" href="#buckets" title="Permanent link">&para;</a></h3>
+<p><a href="../../buckets/">Buckets</a> provide S3-like data storage on IPFS. Just as you can create Buckets with the <a href="../cli/hub/">Hub CLI</a>, you can create Buckets using JavaScript with <a href="#libraries">js-hub</a>.</p>
+<p>The <a href="#libraries">js-hub</a> library allows you to create and edit Buckets owned by you or your organization using an <a href="#account-key">account key</a>. Alternatively, you can use Buckets to store your user's data using a <a href="#user-group-key">user group key</a>.</p>
+<h3 id="threaddb">ThreadDB<a class="headerlink" href="#threaddb" title="Permanent link">&para;</a></h3>
+<p><a href="../../threads/">ThreadDB</a> is a mongo-like database that runs on IPFS. You can use it in combination with <a href="#libraries">js-hub</a> to add replication and relay to your user's databases. When combined, <code>js-threads</code> and <code>js-hub</code> allow you to embed private, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates to all parties. This configuration will help you scale your app and offer the highest quality experience to your users.</p>
+<h2 id="api-access">API Access<a class="headerlink" href="#api-access" title="Permanent link">&para;</a></h2>
+<p>When building apps or services, you can access the Hub APIs to push new buckets, relay or persist threads, ensure data from your app is available on the IPFS network, and more. You can access those APIs through the use of API keys.</p>
+<h3 id="roles">Roles<a class="headerlink" href="#roles" title="Permanent link">&para;</a></h3>
+<p>There are only three roles on the Hub, the developer, a developer's orgs, and the user.</p>
+<ul>
+<li><em>Developers</em>: You. You are a primary account owner. You can create new API keys, create and join new Organizations, and access admin APIs. You can create your own Buckets and Threads. You can use the CLI with your account do all the mentioned.</li>
+<li><em>Organizations</em>: You and your collaborators. Members can share admin control of API keys. Members can share access to and synchronize Bucket state across all members. Referenced through docs as simply, <code>Org</code>.</li>
+<li><em>Users</em>: Accounts generated by your apps using a <code>User Group</code> API key. Your app can create Threads and Buckets owned by these users. These users can then add or remove content from those assets based on their identity. They cannot use the CLI and cannot create new API keys.</li>
+</ul>
+<h3 id="api-keys">API Keys<a class="headerlink" href="#api-keys" title="Permanent link">&para;</a></h3>
+<p>The Hub has two forms of API key, an <em>Account Key</em> and a <em>User Group Key</em>.</p>
+<ul>
+<li><strong>Account Keys</strong> can grant access to the developers own resources (e.g. Buckets you create using the command-line interface). If Account Keys are generated with the <code>-o</code> (organization) flag, they will grant access to that organization's resources. Example uses include, integrating your Buckets into CI, dashboards, team messaging integration, etc.</li>
+<li><strong>User Group Keys</strong> only grant access to new resources for new identities, not those of the developer. User group keys can be used in an application to allow app users to leverage Hub APIs (e.g. create and push new buckets). User group keys do not have permission to access the developer or organization resources, but threads and buckets created using these keys <em>are counted against API limits</em>.</li>
+</ul>
+<h3 id="access-summary">Access Summary<a class="headerlink" href="#access-summary" title="Permanent link">&para;</a></h3>
+<p>Below is a brief summary of the Hub resources you may create and access with each key type. </p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th>Resource example</th>
+<th align="center">Owner</th>
+<th align="center">CLI</th>
+<th align="center">Required Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Developer Threads</td>
+<td align="center">Hub Developer</td>
+<td align="center">create, access</td>
+<td align="center">Account Key</td>
+</tr>
+<tr>
+<td>Developer Buckets</td>
+<td align="center">Hub Developer</td>
+<td align="center">create, access</td>
+<td align="center">Account Key</td>
+</tr>
+<tr>
+<td>Organization Threads</td>
+<td align="center">Hub Developer(s)</td>
+<td align="center">create, access</td>
+<td align="center">Account Key</td>
+</tr>
+<tr>
+<td>Organization Buckets</td>
+<td align="center">Hub Developer(s)</td>
+<td align="center">create, access</td>
+<td align="center">Account Key</td>
+</tr>
+<tr>
+<td>User Threads</td>
+<td align="center">App User</td>
+<td align="center"></td>
+<td align="center">User Group Key</td>
+</tr>
+<tr>
+<td>User Buckets</td>
+<td align="center">App User</td>
+<td align="center"></td>
+<td align="center">User Group Key</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<h3 id="creating-keys">Creating Keys<a class="headerlink" href="#creating-keys" title="Permanent link">&para;</a></h3>
+<h4 id="account-key">Account Key<a class="headerlink" href="#account-key" title="Permanent link">&para;</a></h4>
+<p>To create a new Account Key using <code>hub key create</code> and selecting the <code>account</code> option.</p>
+<p><img alt="" src="../../images/hub-cli/hub_keys_create.png" /></p>
+<p><em><a href="../cli/hub_keys/">See CLI options</a></em></p>
+<h4 id="user-group-key">User Group Key<a class="headerlink" href="#user-group-key" title="Permanent link">&para;</a></h4>
+<p>To create a new <em>user group key</em> using <code>hub key create</code> and selecting the <code>user group</code> option. If you are building an app in an organization, use <code>hub key create --org=&lt;name&gt;</code> to link a new key to the organization not your personal account. There is currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see <a href="../accounts/">Organizations</a>).</p>
+<div class="highlight"><pre><span></span><code>➜ hub key create <span class="c1"># select the &#39;user&#39; option</span>
+
+✔ user
+
+  KEY                          SECRET                          TYPE  
+  bqab5csdh...no6jjezox4       bm2tk476yivwlw...3a4cayll7ztha  user  
+
+&gt; Success! Created new API key and secret
+</code></pre></div>
+
+<h4 id="non-signing-user-group-keys">Non-signing User Group keys<a class="headerlink" href="#non-signing-user-group-keys" title="Permanent link">&para;</a></h4>
+<p>You can use insecure keys with the API by creating non-signing keys. These keys are meant to use during development only. Read the tutorial on <a href="../../tutorials/hub/development-mode/">development mode</a> to use these keys.</p>
+<h4 id="updating-user-group-keys">Updating User Group keys<a class="headerlink" href="#updating-user-group-keys" title="Permanent link">&para;</a></h4>
+<p>You can replace your keys in your app at any time and the user will still have access to their Threads and Buckets as long as the key is connected to the same developer or organization.</p>
+<p><em><a href="../cli/hub_keys/">See CLI commands</a></em></p>
+<h2 id="identity-and-api-access">Identity and API access<a class="headerlink" href="#identity-and-api-access" title="Permanent link">&para;</a></h2>
+<h3 id="generic-identity-model">Generic identity model<a class="headerlink" href="#generic-identity-model" title="Permanent link">&para;</a></h3>
+<p>Identities also provide a way for developers to allocate resources (i.e., storage) for a particular user, and in fact, is a key component in ensuring that a user <em>controls their own data</em>. Hub, Buckets, and ThreadDB APIs are flexible when it comes to user identity, allowing you to handle user identities (for access control and security/encryption) in the best way for your app and your users. In order to handle <em>multiple</em> peers collaborating on a single database, as well as the ability to handle storage <em>on behalf</em> of a user, Hub APIs expect a simple Identity interface for singing and validating updates.</p>
+<p>You can create a basic identity for our user in a JavaScript application using the <code>PrivateKey</code> object available in the Hub library. In practice, you might have your own identity provider, or you might want to use a hierarchical key/wallet or mnemonic phrase to help store a users keys for them. Whatever you decide, Textile's generic identity interface should be able to support it.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">PrivateKey</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span> <span class="p">()</span> <span class="p">{</span>
+   <span class="kr">const</span> <span class="nx">identity</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">PrivateKey</span><span class="p">.</span><span class="nx">fromRandom</span><span class="p">()</span> <span class="c1">// Random identity</span>
+   <span class="k">return</span> <span class="nx">identity</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Read more about Identity in the <a href="../../tutorials/hub/pki-identities/">identity tutorial</a>.</p>
+<h3 id="data-ownership">Data Ownership<a class="headerlink" href="#data-ownership" title="Permanent link">&para;</a></h3>
+<p>The databases and buckets you create over the APIs are owned in one of three ways.</p>
+<ol>
+<li>Developer owned. If you use an account key with the Buckets or ThreadDB APIs, the data will be linked directly to your account.</li>
+<li>Org owned. If you create an account key using the --org flag, the Buckets and Threads will be linked to the organization.</li>
+<li>User owned. If you create a user group key, Textile allows your app to provision new Buckets and Threads on behalf of your users. This data will be signed and owned by your end-users and only accessible to them.</li>
+</ol>
+<p>API keys add a lot of flexibility in how you use resources on the Hub. A developer is able to access Hub resources as themselves (i.e., the developer), with all the administrative capabilities that entails, or as users of their app, which are sandboxed but can create Threads (and Buckets) of their own <em>within</em> that user-scoped sandbox.</p>
+<p>This is a very powerful framework for accessing and allocating developer resources on behalf of users, while still providing the control and quality user-experience that apps built on Threads should provide.</p>
+<h3 id="user-authorization">User authorization<a class="headerlink" href="#user-authorization" title="Permanent link">&para;</a></h3>
+<p>This step is only necessary if you are using production (signing required) API keys. If you are in <a href="../../tutorials/hub/development-mode/">development mode</a>, you don't need to do this step.</p>
+<p>Authorizing the user with your <em>user group key</em> and Secret will allow the user to store threads and buckets using your developer resources on the Hub. If you are running in development mode and created a key that doesn't require signing.</p>
+<p>Read more about setting up authentication and authorization in <a href="../../tutorials/hub/production-auth/">production mode</a>.</p>
+<h2 id="libraries">Libraries<a class="headerlink" href="#libraries" title="Permanent link">&para;</a></h2>
+<p>You can find all remote Thread and Bucket APIs in the <code>textile</code> libraries below. These libraries are meant to work in combination with the <code>threads</code> libraries when you want to create and manage Threads database in your app. </p>
+<p>Here are the libraries you will find useful to start building today.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Library</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Browser, React Native, &amp; NodeJS</td>
+<td align="center"><a href="https://textileio.github.io/js-hub">js-hub</a></td>
+</tr>
+<tr>
+<td>Golang Libraries</td>
+<td align="center"><a href="https://godoc.org/github.com/textileio/go-threads/api/client">go-threads</a>,<br/> <a href="https://godoc.org/github.com/textileio/textile/api/buckets">buckets</a></td>
+</tr>
+<tr>
+<td>Command-line</td>
+<td align="center"><a href="../cli/hub/">Hub CLI</a>,<br/> <em>thread-shell (coming)</em></td>
+</tr>
+</tbody>
+</table>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; Textile
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://textile.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/textileio" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/textileio" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://blog.textile.io/" class="md-footer-social__link fa fa-medium"></a>
+    
+      <a href="https://slack.textile.io" class="md-footer-social__link fa fa-slack"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.12aa63bf.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      
+        <script src="../../js/sidebar.js"></script>
+      
+        <script src="../../search/main.js"></script>
+      
+    
+  </body>
+</html>
