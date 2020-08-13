@@ -77,13 +77,13 @@ You can now share and collaborate with all `org` members. For example, when crea
 **Org bucket init**
 
 ```sh
-hub buck init --org=<org name>
+HUB_ORG=<org name> hub buck init
 ```
 
 **Org keys create**
 
 ```sh
-hub keys create --org=<org name>
+HUB_ORG=<org name> hub keys create
 ```
 
 !!!info

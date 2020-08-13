@@ -86,59 +86,59 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started:
-    - Accounts Overview: hub/index.md
-    - Installation & Setup: hub/accounts.md
-    - APIs & API Keys: hub/apis.md
-    - Buckets Overview: buckets/index.md
-    - ThreadDB Overview: threads/index.md
-    - User Mailboxes: users/index.md
-    - Powergate (Filecoin):
-      - Introduction: powergate/index.md
-      - Localnet: powergate/localnet.md
-      - Testnet: powergate/testnet.md
-      - Store Data:
-          - Intro to FFS: powergate/ffs.md
-          - Storage Configs: powergate/storageconfig.md
-      - POW CLI:
-          - Overview: powergate/cli/pow.md
-          - FFS: powergate/cli/pow_ffs.md
-          - Asks: powergate/cli/pow_asks.md
-          - Faults: powergate/cli/pow_faults.md
-          - Miners: powergate/cli/pow_miners.md
-          - Net: powergate/cli/pow_net.md
-          - Reputation: powergate/cli/pow_reputation.md
-          - Wallet: powergate/cli/pow_wallet.md
-          - Health: powergate/cli/pow_health.md
-      - Externals:
-          - JavaScript: https://textileio.github.io/js-powergate-client/
-          - Golang: https://godoc.org/github.com/textileio/powergate/api/client
+      - Accounts Overview: hub/index.md
+      - Installation & Setup: hub/accounts.md
+      - APIs & API Keys: hub/apis.md
+      - Buckets Overview: buckets/index.md
+      - ThreadDB Overview: threads/index.md
+      - User Mailboxes: users/index.md
+      - Powergate (Filecoin):
+          - Introduction: powergate/index.md
+          - Localnet: powergate/localnet.md
+          - Testnet: powergate/testnet.md
+          - Store Data:
+              - Intro to FFS: powergate/ffs.md
+              - Storage Configs: powergate/storageconfig.md
+          - POW CLI:
+              - Overview: powergate/cli/pow.md
+              - FFS: powergate/cli/pow_ffs.md
+              - Asks: powergate/cli/pow_asks.md
+              - Faults: powergate/cli/pow_faults.md
+              - Miners: powergate/cli/pow_miners.md
+              - Net: powergate/cli/pow_net.md
+              - Reputation: powergate/cli/pow_reputation.md
+              - Wallet: powergate/cli/pow_wallet.md
+              - Health: powergate/cli/pow_health.md
+          - Externals:
+              - JavaScript: https://textileio.github.io/js-powergate-client/
+              - Golang: https://godoc.org/github.com/textileio/powergate/api/client
   - Command-line Reference:
-    - Hub admin:
-      - Overview: hub/cli/hub.md
-      - Login: hub/cli/hub_login.md
-      - Logout: hub/cli/hub_logout.md
-      - Whoami: hub/cli/hub_whoami.md
-      - Orgs: hub/cli/hub_orgs.md
-      - Bucket: hub/cli/hub_buck.md
-      - Threads: hub/cli/hub_threads.md
-      - API Keys: hub/cli/hub_keys.md
-    - Buckets commands:
-      - Overview: hub/cli/hub_buck.md
-      - Add: hub/cli/hub_buck_add.md
-      - Archive: hub/cli/hub_buck_archive.md
-      - Cat: hub/cli/hub_buck_cat.md
-      - Destroy: hub/cli/hub_buck_destroy.md
-      - Decrypt: hub/cli/hub_buck_decrypt.md
-      - Encrypt: hub/cli/hub_buck_encrypt.md
-      - Init: hub/cli/hub_buck_init.md
-      - Links: hub/cli/hub_buck_links.md
-      - Ls: hub/cli/hub_buck_ls.md
-      - Pull: hub/cli/hub_buck_pull.md
-      - Push: hub/cli/hub_buck_push.md
-      - Watch: hub/cli/hub_buck_watch.md
-      - Root: hub/cli/hub_buck_root.md
-      - Status: hub/cli/hub_buck_status.md
-  - JavaScript Reference: 
+      - Hub admin:
+          - Overview: hub/cli/hub.md
+          - Login: hub/cli/hub_login.md
+          - Logout: hub/cli/hub_logout.md
+          - Whoami: hub/cli/hub_whoami.md
+          - Orgs: hub/cli/hub_orgs.md
+          - Bucket: hub/cli/hub_buck.md
+          - Threads: hub/cli/hub_threads.md
+          - API Keys: hub/cli/hub_keys.md
+      - Buckets commands:
+          - Overview: hub/cli/hub_buck.md
+          - Add: hub/cli/hub_buck_add.md
+          - Archive: hub/cli/hub_buck_archive.md
+          - Cat: hub/cli/hub_buck_cat.md
+          - Destroy: hub/cli/hub_buck_destroy.md
+          - Decrypt: hub/cli/hub_buck_decrypt.md
+          - Encrypt: hub/cli/hub_buck_encrypt.md
+          - Init: hub/cli/hub_buck_init.md
+          - Links: hub/cli/hub_buck_links.md
+          - Ls: hub/cli/hub_buck_ls.md
+          - Pull: hub/cli/hub_buck_pull.md
+          - Push: hub/cli/hub_buck_push.md
+          - Watch: hub/cli/hub_buck_watch.md
+          - Root: hub/cli/hub_buck_root.md
+          - Status: hub/cli/hub_buck_status.md
+  - JavaScript Reference:
       - Introduction: tutorials/hub/web-app.md
       - User identities: tutorials/hub/pki-identities.md
       - Development mode: tutorials/hub/development-mode.md
@@ -147,16 +147,16 @@ nav:
       - Build with NodeJS: tutorials/nodejs.md
       - Production authentication: tutorials/hub/production-auth.md
       - Externals:
-        - Users API Class: https://textileio.github.io/js-hub/docs/hub.users
-        - Buckets API Class: https://textileio.github.io/js-hub/docs/hub.buckets
-        - Threads API Class: https://textileio.github.io/js-hub/docs/hub.client
+          - Users API Class: https://textileio.github.io/js-hub/docs/hub.users
+          - Buckets API Class: https://textileio.github.io/js-hub/docs/hub.buckets
+          - Threads API Class: https://textileio.github.io/js-hub/docs/hub.client
   - Golang Reference:
       - Getting started with Golang: tutorials/golang/getting-started.md
       - Externals:
-        - Golang User Mailboxes: https://github.com/textileio/textile#using-the-mail-library
-        - Golang Buckets: https://github.com/textileio/textile#running-buckets
-        - Golang Threads: https://github.com/textileio/go-threads
-        - Golang Threads Client: https://godoc.org/github.com/textileio/go-threads/api/client
+          - Golang User Mailboxes: https://github.com/textileio/textile#using-the-mail-library
+          - Golang Buckets: https://github.com/textileio/textile#running-buckets
+          - Golang Threads: https://github.com/textileio/go-threads
+          - Golang Threads Client: https://godoc.org/github.com/textileio/go-threads/api/client
   - More Examples:
       - ThreadDB:
           - Externals:
@@ -169,7 +169,7 @@ nav:
       - Buckets:
           - Externals:
               - User Galleries in Buckets: https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery
-              - Buckets from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app  
+              - Buckets from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app
 # Customization
 extra:
   social:

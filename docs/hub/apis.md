@@ -62,7 +62,7 @@ _[See CLI options](../hub/cli/hub_keys.md)_
 
 #### User Group Key
 
-To create a new _user group key_ using `hub key create` and selecting the `user group` option. If you are building an app in an organization, use `hub key create --org=<name>` to link a new key to the organization not your personal account. There are currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see [Organizations](../hub/accounts.md)).
+To create a new _user group key_ using `hub key create` and selecting the `user group` option. If you are building an app in an organization, use `HUB_ORG=<org name> hub key create` to link a new key to the organization not your personal account. There are currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see [Organizations](../hub/accounts.md)).
 
 ```bash
 ➜ hub key create # select the 'user' option

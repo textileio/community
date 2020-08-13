@@ -25,12 +25,12 @@ jobs:
         id: bucket
         uses: textileio/github-action-buckets@master
         with:
-          key: ${{ secrets.TEXTILE_ORG_ACCOUNT_KEY }}
-          secret: ${{ secrets.TEXTILE_ORG_ACCOUNT_SECRET }}
-          bucket: "documentation"
-          thread: ${{ secrets.TEXTILE_ORG_BUCKET_THREAD }}
+          key: ${{ secrets.TEXTILEIO_ORG_ACCOUNT_KEY }}
+          secret: ${{ secrets.TEXTILEIO_ORG_ACCOUNT_SECRET }}
+          bucket: "docs"
+          thread: ${{ secrets.TEXTILEIO_ORG_BUCKET_THREAD }}
           path: "site"
-          pattern: '**/*'
+          pattern: "**/*"
       - run: echo "bucket - ${{ steps.bucket.outputs.key }}"
       - run: echo "ipfs - ${{ steps.bucket.outputs.ipfs }}"
       - run: echo "ipfs link - ${{ steps.bucket.outputs.ipfsUrl }}"
