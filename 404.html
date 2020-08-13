@@ -79,7 +79,7 @@
 
         function cli_download(url) {
           var callback = function () {
-            if (typeof(url) != 'undefined') { window.location = url; }
+            if (typeof(url) != 'undefined') { window.open(url, '_blank'); }
           };
           gtag('event', 'conversion', { 'send_to': 'AW-856649624/j8kSCKvCknMQmN-9mAM', 'event_callback': callback });
           return false;

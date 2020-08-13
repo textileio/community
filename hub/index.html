@@ -81,7 +81,7 @@
 
         function cli_download(url) {
           var callback = function () {
-            if (typeof(url) != 'undefined') { window.location = url; }
+            if (typeof(url) != 'undefined') { window.open(url, '_blank'); }
           };
           gtag('event', 'conversion', { 'send_to': 'AW-856649624/j8kSCKvCknMQmN-9mAM', 'event_callback': callback });
           return false;
@@ -346,13 +346,6 @@
         <li class="md-nav__item">
   <a href="#install-create-account" title="Install &amp; Create Account" class="md-nav__link">
     Install &amp; Create Account
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#other-documentation" title="Other Documentation" class="md-nav__link">
-    Other Documentation
   </a>
   
     <nav class="md-nav">
@@ -1565,13 +1558,6 @@
     Install &amp; Create Account
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#other-documentation" title="Other Documentation" class="md-nav__link">
-    Other Documentation
-  </a>
-  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
@@ -1678,27 +1664,6 @@
   </a>
 </div>
 
-<p>=============================</p>
-<p>Once you have your Hub account, you can start using the Hub to host your data on the IPFS network. IPFS hosting is offered using a Textile technology called, Buckets. Buckets offer you dynamic, folder-based, directories that you can use to persist data on IPFS. They are editable, sharable, and come with free URLs. </p>
-<div class="txtl-options half">
-  <a href="../buckets/" class="box">
-    <h5>Buckets</h5>
-    <p>Learn how to create, manage, share, and publish data on IPFS.</p>
-  </a>
-</div>
-
-<p>Another thing you can do with your account on the Hub, is create an app token that will allow you to use the Hub for persisting user Thread data. Think of it as a trustless service that your app's database can rely on to quickly store and access data on IPFS!</p>
-<div class="txtl-options half">
-  <a href="../hub/apis#thread-services" class="box">
-    <h5>Thread Services</h5>
-    <p>Persist and relay Thread updates for your app users.</p>
-  </a>
-  <span class="box-space"> </span>
-  <span class="box-fill">
-  </span>
-</div>
-
-<h2 id="other-documentation">Other Documentation<a class="headerlink" href="#other-documentation" title="Permanent link">&para;</a></h2>
 <h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h3>
 <div class="txtl-options">
   <a href="../hub/accounts" class="box">
