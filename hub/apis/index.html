@@ -1800,7 +1800,7 @@
 <p><img alt="" src="../../images/hub-cli/hub_keys_create.png" /></p>
 <p><em><a href="../cli/hub_keys/">See CLI options</a></em></p>
 <h4 id="user-group-key">User Group Key<a class="headerlink" href="#user-group-key" title="Permanent link">&para;</a></h4>
-<p>To create a new <em>user group key</em> using <code>hub key create</code> and selecting the <code>user group</code> option. If you are building an app in an organization, use <code>hub key create --org=&lt;name&gt;</code> to link a new key to the organization not your personal account. There are currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see <a href="../accounts/">Organizations</a>).</p>
+<p>To create a new <em>user group key</em> using <code>hub key create</code> and selecting the <code>user group</code> option. If you are building an app in an organization, use <code>HUB_ORG=&lt;org name&gt; hub key create</code> to link a new key to the organization not your personal account. There are currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see <a href="../accounts/">Organizations</a>).</p>
 <div class="highlight"><pre><span></span><code>➜ hub key create <span class="c1"># select the &#39;user&#39; option</span>
 
 ✔ user

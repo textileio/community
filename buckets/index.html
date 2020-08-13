@@ -2021,7 +2021,7 @@
 <p>Be careful creating a bucket in a root directory, because all children directories are linked to that bucket. To move or remove a bucket's link to a directory, edit, move or delete the <code>.textile/config.yml</code> file (it will be a hidden folder in the bucket's directory)</p>
 </div>
 <h3 id="shared-buckets">Shared buckets<a class="headerlink" href="#shared-buckets" title="Permanent link">&para;</a></h3>
-<p>You can create buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the <code>--org</code> flag, specifying the name of the Org you want to share the bucket with. For example <code>hub bucket init --org nasa</code>. All members of the Org will be able to push and pull files to and from the shared Bucket. <a href="../hub/accounts/#organizations">Read more about creating Orgs</a>.</p>
+<p>You can create buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the <code>HUB_ORG</code> environmental flag, specifying the name of the Org you want to share the bucket with. For example <code>HUB_ORG=astronauts hub bucket init</code>. All members of the Org will be able to push and pull files to and from the shared Bucket. <a href="../hub/accounts/#organizations">Read more about creating Orgs</a>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>to check which org a bucket is registered with, examine the <code>.textile/config.yml</code> file (it will be a hidden folder in the bucket's directory)</p>
@@ -2052,7 +2052,7 @@ Password-based encryption uses the same approach, but also leverages <a href="ht
 <p><code>hub bucket init --existing</code></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>By using the <code>--existing</code> flag, you can list buckets already pushed by you or, when using <code>--org</code>, your collaborators.</p>
+<p>By using the <code>--existing</code> flag, you can list buckets already pushed by you or, when using <code>HUB_ORG</code>, your collaborators.</p>
 </div>
 <h3 id="explore-on-the-gateway">Explore on the gateway<a class="headerlink" href="#explore-on-the-gateway" title="Permanent link">&para;</a></h3>
 <p>To inspect your pushed files, explore on the gateway:
@@ -2087,7 +2087,7 @@ then open the first result 'Thread links' in your browser.</p>
 <h4 id="developer-buckets">Developer Buckets<a class="headerlink" href="#developer-buckets" title="Permanent link">&para;</a></h4>
 <p>All buckets you create are scoped to your developer account. You can always find your currently logged in account with <code>hub whoami</code>.</p>
 <h4 id="organization-buckets">Organization Buckets<a class="headerlink" href="#organization-buckets" title="Permanent link">&para;</a></h4>
-<p>Any buckets you create using the <code>--org</code> flag will also be shared with Org members. Here are the steps to create an Org, create a new Bucket in the Org, and invite a collaborator to the Org:</p>
+<p>Any buckets you create using the <code>HUB_ORG</code> setting will also be shared with Org members. Here are the steps to create an Org, create a new Bucket in the Org, and invite a collaborator to the Org:</p>
 <h5 id="create-a-new-org">Create a new Org<a class="headerlink" href="#create-a-new-org" title="Permanent link">&para;</a></h5>
 <p><img alt="" src="../images/hub-cli/hub_org_create.png" /></p>
 <div class="highlight"><pre><span></span><code>hub org create
@@ -2103,7 +2103,7 @@ Please confirm: y█
 <p>The default bucket command is simply <code>buck</code>, because it's two letters less to type each time. If you prefer, you can still type <code>bucket</code></p>
 <div class="highlight"><pre><span></span><code>mkdir launchpad
 <span class="nb">cd</span> launchpad
-hub buck init --org nasa
+<span class="nv">HUB_ORG</span><span class="o">=</span>nasa hub buck init
 </code></pre></div>
 
 <p>You have now created a new Bucket inside of the <code>launchpad</code> directory and owned by your <code>nasa</code> organization.</p>

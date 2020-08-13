@@ -1726,11 +1726,11 @@
 
 <p>You can now share and collaborate with all <code>org</code> members. For example, when creating new buckets, you can create them in the <code>org</code> and immediately be available to your collaborators. Additionally, you can create and share API key admin.</p>
 <p><strong>Org bucket init</strong></p>
-<div class="highlight"><pre><span></span><code>hub buck init --org<span class="o">=</span>&lt;org name&gt;
+<div class="highlight"><pre><span></span><code><span class="nv">HUB_ORG</span><span class="o">=</span>&lt;org name&gt; hub buck init
 </code></pre></div>
 
 <p><strong>Org keys create</strong></p>
-<div class="highlight"><pre><span></span><code>hub keys create --org<span class="o">=</span>&lt;org name&gt;
+<div class="highlight"><pre><span></span><code><span class="nv">HUB_ORG</span><span class="o">=</span>&lt;org name&gt; hub keys create
 </code></pre></div>
 
 <div class="admonition info">
@@ -1742,6 +1742,15 @@
 <p>If you are interested in enterprise support from Textile, please email us at <a href="mailto:support@textile.io">support@textile.io</a>.</p>
 <h2 id="account-deletion">Account deletion<a class="headerlink" href="#account-deletion" title="Permanent link">&para;</a></h2>
 <p>If you delete your account or organization, data replicated on IPFS through any API will <strong>also be removed</strong>. So if you remove your account, we highly encourage you to replicate the data on an external IPFS node, provide tools for your users to export or replicate their account data, or host external Thread Services to migrate your user Thread replication to.</p>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-856649624"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-856649624');
+</script>
                 
                   
                 
