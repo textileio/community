@@ -72,9 +72,23 @@
       <link rel="stylesheet" href="../../css/textile.css">
     
     <script src="https://cdn.usefathom.com/3.js" site="TEBMKXIY"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-856649624"></script>
     <script>
         window.fathom || document.write('<script src="https://grouse.textile.io/core.js"><\/script>');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); gtag('config', 'AW-856649624');
+
+        function cli_download(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') { window.location = url; }
+          };
+          gtag('event', 'conversion', { 'send_to': 'AW-856649624/j8kSCKvCknMQmN-9mAM', 'event_callback': callback });
+          return false;
+        }
     </script>
+  
+
     
   </head>
   
@@ -1670,7 +1684,7 @@
 <p>To create an account, you need first to install the Hub CLI. The CLI is where you are going to do all account management, create orgs, create API keys, etc. The first step is to download and install the application. </p>
 <h2 id="install-the-command-line-interface">Install the Command-line Interface<a class="headerlink" href="#install-the-command-line-interface" title="Permanent link">&para;</a></h2>
 <h3 id="download">Download<a class="headerlink" href="#download" title="Permanent link">&para;</a></h3>
-<p>Download the Hub CLI binary for your platform from the <a href="https://github.com/textileio/textile/releases/latest">latest releases</a>.</p>
+<p>Download the Hub CLI binary for your platform from the <a href="https://github.com/textileio/textile/releases/latest" target="_blank" onclick="cli_download(); return false;"><a href="https://github.com/textileio/textile/releases/latest">https://github.com/textileio/textile/releases/latest</a></a></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>You'll see two binaries available for download on the Textile releases page, <code>hub</code>, and <code>buck</code>. Ignore the <code>buck</code> binary for now. <code>buck</code> is used to interact with buckets in a stand-alone manner, independent of Textile Hub. <code>hub</code> provides all the functionality you'll need to interact with the Textile Hub and Buckets together.</p>
@@ -1742,15 +1756,6 @@
 <p>If you are interested in enterprise support from Textile, please email us at <a href="mailto:support@textile.io">support@textile.io</a>.</p>
 <h2 id="account-deletion">Account deletion<a class="headerlink" href="#account-deletion" title="Permanent link">&para;</a></h2>
 <p>If you delete your account or organization, data replicated on IPFS through any API will <strong>also be removed</strong>. So if you remove your account, we highly encourage you to replicate the data on an external IPFS node, provide tools for your users to export or replicate their account data, or host external Thread Services to migrate your user Thread replication to.</p>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-856649624"></script>
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-856649624');
-</script>
                 
                   
                 
