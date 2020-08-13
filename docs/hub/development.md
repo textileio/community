@@ -62,7 +62,7 @@ _[See CLI options](../hub/cli/hub_keys.md)_
 
 #### User Group Key
 
-To create a new _user group key_ using `hub key create` and selecting the `user group` option. If you are building an app in an organization, use `hub key create --org=<name>` to link a new key to the organization not your personal account. There is currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see [Organizations](../hub/accounts.md)).
+To create a new _user group key_ using `hub key create` and selecting the `user group` option. If you are building an app in an organization, use `HUB_ORG=<org name> hub key create` to link a new key to the organization not your personal account. There is currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see [Organizations](../hub/accounts.md)).
 
 ```bash
 ➜ hub key create # select the 'user' option
@@ -109,7 +109,7 @@ Read more about Identity in the [identity tutorial](../tutorials/hub/pki-identit
 The databases and buckets you create over the APIs are owned in one of three ways.
 
 1. Developer owned. If you use an account key with the Buckets or ThreadDB APIs, the data will be linked directly to your account.
-2. Org owned. If you create an account key using the --org flag, the Buckets and Threads will be linked to the organization.
+2. Org owned. If you create an account key using the `HUB_ORG` environmental variable, the Buckets and Threads will be linked to the organization.
 3. User owned. If you create a user group key, Textile allows your app to provision new Buckets and Threads on behalf of your users. This data will be signed and owned by your end-users and only accessible to them.
 
 API keys add a lot of flexibility in how you use resources on the Hub. A developer is able to access Hub resources as themselves (i.e., the developer), with all the administrative capabilities that entails, or as users of their app, which are sandboxed but can create Threads (and Buckets) of their own *within* that user-scoped sandbox.

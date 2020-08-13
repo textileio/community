@@ -27,7 +27,7 @@ When working on your local machine, buckets are mapped to working directories. O
 
 ### Shared buckets
 
-You can create buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the `--org` flag, specifying the name of the Org you want to share the bucket with. For example `hub bucket init --org nasa`. All members of the Org will be able to push and pull files to and from the shared Bucket. [Read more about creating Orgs](../hub/accounts.md#organizations).
+You can create buckets to share with all members of an organization. To do so, simply initialize an Org first and then initialize a Bucket using the `HUB_ORG` environmental flag, specifying the name of the Org you want to share the bucket with. For example `HUB_ORG=astronauts hub bucket init`. All members of the Org will be able to push and pull files to and from the shared Bucket. [Read more about creating Orgs](../hub/accounts.md#organizations).
 
 !!! info
     to check which org a bucket is registered with, examine the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory)
@@ -72,7 +72,7 @@ Password-based encryption uses the same approach, but also leverages [scrypt](ht
 `hub bucket init --existing`
 
 !!!info
-    By using the `--existing` flag, you can list buckets already pushed by you or, when using `--org`, your collaborators.
+    By using the `--existing` flag, you can list buckets already pushed by you or, when using `HUB_ORG`, your collaborators.
 
 ### Explore on the gateway
 
@@ -126,7 +126,7 @@ All buckets you create are scoped to your developer account. You can always find
 
 #### Organization Buckets
 
-Any buckets you create using the `--org` flag will also be shared with Org members. Here are the steps to create an Org, create a new Bucket in the Org, and invite a collaborator to the Org:
+Any buckets you create using the `HUB_ORG` setting will also be shared with Org members. Here are the steps to create an Org, create a new Bucket in the Org, and invite a collaborator to the Org:
 
 ##### Create a new Org
 
@@ -150,7 +150,7 @@ The default bucket command is simply `buck`, because it's two letters less to ty
 ```bash
 mkdir launchpad
 cd launchpad
-hub buck init --org nasa
+HUB_ORG=nasa hub buck init
 ```
 
 You have now created a new Bucket inside of the `launchpad` directory and owned by your `nasa` organization.

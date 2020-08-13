@@ -11,6 +11,8 @@ The Hub Client.
   -s, --session string   User session token
 ```
 
+Alternatively, you can use an environmental variable, `HUB_ORG`, in place of the `--org` flag.
+
 ### SEE ALSO
 
 * [hub buck](hub_buck.md)	 - Manage an object storage bucket
