@@ -8,7 +8,7 @@ You've not had time to build and test your app using the insecure keys described
 
 ## Differences from development mode
 
-There are a few difference once you switch to production mode. A primary one is that your user's API sessions will expire, meaning that you need to have a way to re-verify them occasionally. For this, we'll move from using the `withKeyInfo` APIs to a new one called, `withUserAuth` that can refresh your user sessions smoothly in your app. This new API is also designed to work without access to your `secret`, so your app can `authorize` users remotely and provide them that authorization on demand. Other than that, all the APIs will work in the exact same way.
+There are a few differences once you switch to production mode. A primary one is that your user's will need a signature to accompany their API requests. Those signatures can only be created with your API secret, and will expire. You will need to have a way to re-verify them occasionally. For this, we'll move from using the `withKeyInfo` APIs to a new one called, `withUserAuth` that can request updated signatures in your app. This new API is also designed to work without access to your `secret`, so your app can `authorize` users on your own backend and provide API key signatures on demand. Other than that, all the APIs will work in the exact same way.
 
 ## User identity
 
@@ -236,7 +236,7 @@ const loginWithChallenge = (id: Identity) => {
 const setupThreads = async (identity: Identity) => {
   /**
    * By passing a callback, the Threads library can refresh 
-   * the session whenever expiring.
+   * the api signature whenever expiring.
    */
   const callback = loginWithChallenge(identity)
   const client = Client.withUserAuth(callback)

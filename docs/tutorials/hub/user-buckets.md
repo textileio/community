@@ -11,7 +11,7 @@ There are a few resources you'll need before you start writing code.
 
 ## Initialize Buckets
 
-In your app, there are two items you will regularly use when building on Buckets. The first is the [Buckets class](https://textileio.github.io/js-hub/docs/hub.buckets) object where you will initialize a new session for your user and call various bucket methods. The second is the `key` of any bucket you want to interact with regularly, since you will need to tell the API which Bucket you are acting on.
+In your app, there are two items you will regularly use when building on Buckets. The first is the [Buckets class](https://textileio.github.io/js-hub/docs/hub.buckets) object where you will initialize a API client for your user and call bucket methods. The second is the `key` of any bucket you want to interact with regularly, since you will need to tell the API which Bucket you are acting on.
 
 So, to get started in our app, we are going to do three things at once.
 
@@ -26,7 +26,7 @@ So, to get started in our app, we are going to do three things at once.
 import { Buckets, Identity, KeyInfo } from '@textile/hub'
 
 const setup = async (key: KeyInfo, identity: Identity) => {
-  // Use the insecure key to setup a new session
+  // Use the insecure key to set up the buckets client
   const buckets = await Buckets.withKeyInfo(key)
   // Authorize the user and your insecure keys with getToken
   await buckets.getToken(identity) 
