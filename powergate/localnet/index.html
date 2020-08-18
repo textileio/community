@@ -72,20 +72,8 @@
       <link rel="stylesheet" href="../../css/textile.css">
     
     <script src="https://cdn.usefathom.com/3.js" site="TEBMKXIY"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-856649624"></script>
     <script>
         window.fathom || document.write('<script src="https://grouse.textile.io/core.js"><\/script>');
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date()); gtag('config', 'AW-856649624');
-
-        function cli_download(url) {
-          var callback = function () {
-            if (typeof(url) != 'undefined') { window.open(url, '_blank'); }
-          };
-          gtag('event', 'conversion', { 'send_to': 'AW-856649624/j8kSCKvCknMQmN-9mAM', 'event_callback': callback });
-          return false;
-        }
     </script>
   
 
@@ -1848,12 +1836,16 @@ cd powergate-docker-&lt;version&gt;
 <p>With whichever method you chose in the Installation section above, you can now use the provided <code>docker-compose</code> configuration. With the default setup, you will run Powergate connected to a local localnet with 512Mib sectors and instantly available gRPC API or CLI that don't require any extra config flags 🎊</p>
 <p><strong>Run the docker-compose</strong></p>
 <p>Docker files for the Powergate are all contained in the folder, <code>/docker</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">BIGSECTORS</span><span class="o">=</span><span class="nb">true</span> make localnet
+<div class="highlight"><pre><span></span><code><span class="nv">BIGSECTORS</span><span class="o">=</span><span class="nb">false</span> make localnet
 </code></pre></div>
 
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>You can set <code>BIGSECTORS</code> according to your needs. See the description <a href="#filecoin-localnet">above</a> for more information. If you don't specify a <code>BIGSECTORS</code> environment variable, the default is <code>true</code>.</p>
+<p>You can set <code>BIGSECTORS</code> according to your needs. See the description <a href="#filecoin-localnet">above</a> for more information. If you don't specify a <code>BIGSECTORS</code> environment variable, the default is <code>false</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unfortunately, due to <a href="https://github.com/filecoin-project/lotus/issues/3109">a limitation</a> in the latest Lotus setup <code>BIGSECTORS=true</code> isn't currently supported. Please give some thumbs up to help increase its priority!</p>
 </div>
 <p>If this is your first time running the Powergate, Docker will download the required instances before any Powergate setup begins. Downloads are dependent on your bandwidth and may take <strong>a few minutes</strong>, but wont be required for subsequent runs of the Powergate.</p>
 <p>Once running, you will begin to see log outputs, including those of the embedded miner.</p>
