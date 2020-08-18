@@ -1588,7 +1588,7 @@
 </div>
 <h2 id="hub-authentication">Hub authentication<a class="headerlink" href="#hub-authentication" title="Permanent link">&para;</a></h2>
 <p>Authentication on the Hub is done using your API keys and secrets, either Account Keys or User Group Keys depending on what kind of application you are building and which APIs you plan to use.</p>
-<p>Below is an example authentication function that will use your User Group Key to create a <code>context</code> that stores the correct session information to begin using the APIs. This function would need to be run before all functions below in order to generate the proper <code>context</code> object.</p>
+<p>Below is an example authentication function that will use your User Group Key to maintain an API <code>context</code> that passes the correct API signature and key to begin using the APIs. This function would need to be run before all functions below in order to generate the proper <code>context</code> object.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>

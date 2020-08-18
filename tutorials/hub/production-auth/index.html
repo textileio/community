@@ -1728,7 +1728,7 @@
 <li>Add a login step to your app that will use the new endpoint to authorization users in your app.</li>
 </ol>
 <h2 id="differences-from-development-mode">Differences from development mode<a class="headerlink" href="#differences-from-development-mode" title="Permanent link">&para;</a></h2>
-<p>There are a few difference once you switch to production mode. A primary one is that your user's API sessions will expire, meaning that you need to have a way to re-verify them occasionally. For this, we'll move from using the <code>withKeyInfo</code> APIs to a new one called, <code>withUserAuth</code> that can refresh your user sessions smoothly in your app. This new API is also designed to work without access to your <code>secret</code>, so your app can <code>authorize</code> users remotely and provide them that authorization on demand. Other than that, all the APIs will work in the exact same way.</p>
+<p>There are a few differences once you switch to production mode. A primary one is that your user's will need a signature to accompany their API requests. Those signatures can only be created with your API secret, and will expire. You will need to have a way to re-verify them occasionally. For this, we'll move from using the <code>withKeyInfo</code> APIs to a new one called, <code>withUserAuth</code> that can request updated signatures in your app. This new API is also designed to work without access to your <code>secret</code>, so your app can <code>authorize</code> users on your own backend and provide API key signatures on demand. Other than that, all the APIs will work in the exact same way.</p>
 <h2 id="user-identity">User identity<a class="headerlink" href="#user-identity" title="Permanent link">&para;</a></h2>
 <p>If you've followed the tutorials up until now, you are already using <em>PKI</em>, so your users will only ever share their <em>public key</em> with your API (or any API). Therefore, you'll now just need a way to verify that they hold the private key linked with the public key, otherwise users could spoof your system very easily. From there, you can provide Hub API access to your users based on that verification.</p>
 <h2 id="authentication-server">Authentication server<a class="headerlink" href="#authentication-server" title="Permanent link">&para;</a></h2>
@@ -1931,7 +1931,7 @@ USER_API_SECRET=&lt;insert user group secret&gt;
 <span class="kr">const</span> <span class="nx">setupThreads</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="cm">/**</span>
 <span class="cm">   * By passing a callback, the Threads library can refresh </span>
-<span class="cm">   * the session whenever expiring.</span>
+<span class="cm">   * the api signature whenever expiring.</span>
 <span class="cm">   */</span>
   <span class="kr">const</span> <span class="nx">callback</span> <span class="o">=</span> <span class="nx">loginWithChallenge</span><span class="p">(</span><span class="nx">identity</span><span class="p">)</span>
   <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">withUserAuth</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>
