@@ -33,7 +33,7 @@ func createIdentity() (thread.Identity, error) {
 
 Authentication on the Hub is done using your API keys and secrets, either Account Keys or User Group Keys depending on what kind of application you are building and which APIs you plan to use.
 
-Below is an example authentication function that will use your User Group Key to create a `context` that stores the correct session information to begin using the APIs. This function would need to be run before all functions below in order to generate the proper `context` object.
+Below is an example authentication function that will use your User Group Key to maintain an API `context` that passes the correct API signature and key to begin using the APIs. This function would need to be run before all functions below in order to generate the proper `context` object.
 
 ```go
 package main
