@@ -1,12 +1,12 @@
 # Installation and Account Setup
 
-To create an account, you need first to install the Hub CLI. The CLI is where you are going to do all account management, create orgs, create API keys, etc. The first step is to download and install the application. 
+To create an account, you need first to install the Hub CLI. The CLI is where you are going to do all account management, create orgs, create API keys, etc. The first step is to download and install the application.
 
 ## Install the Command-line Interface
 
 ### Download
 
-Download the Hub CLI binary for your platform from the [latest releases](https://github.com/textileio/textile/releases/latest).
+Download the Hub CLI binary from the release landing page: [https://github.com/textileio/textile/releases/latest](https://github.com/textileio/textile/releases/latest).
 
 !!!info
   
