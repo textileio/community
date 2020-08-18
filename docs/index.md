@@ -122,7 +122,7 @@ Join our public [Slack](https://slack.textile.io), visit our [GitHub](https://gi
 
 
 <i>
-<a href="https://bafzbeicijsxazzszfhoqcmm4z76p54w56bazq4aaobwafbdkmq2beyn5ai.ipns.hub.textile.io/" target="_blank" style="text-decoration:none;color:grey">This site is on /ipns/bafzbeidm2siabgz4imyuk5lldy4wyo7iyxblzzuwbl2ndxucp5nuhsjcly</a>
+<a href="https://bafzbeidm2siabgz4imyuk5lldy4wyo7iyxblzzuwbl2ndxucp5nuhsjcly.ipns.hub.textile.io/" target="_blank" style="text-decoration:none;color:grey">This site is on /ipns/bafzbeidm2siabgz4imyuk5lldy4wyo7iyxblzzuwbl2ndxucp5nuhsjcly</a>
 </i>
 
 ## Thanks!
