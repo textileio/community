@@ -85,6 +85,24 @@ async function createDB (client: Client) {
 
 Congrats! You now have a new ThreadDB! Each ThreadDB has a unique [ThreadID](https://textileio.github.io/js-hub/docs/hub.threadid). You can create your own ThreadIDs, or easily generate a random ThreadID as we do in the above example.
 
+### Invite
+
+You can invite multiple users to the same thread. Use this to build chat apps, collaborative documents and more.
+
+```typescript
+import {Client, DBInfo, ThreadID} from '@textile/hub'
+
+async function getInfo (client: Client, threadID: ThreadID): Promise<DBInfo> {
+  return await client.getDBInfo(threadID)
+}
+
+async function joinFromInfo (client: Client, info: DBInfo) {
+  return await client.joinFromInfo(info)
+}
+```
+
+Once you get the DB info, you need to send that to the other users you want to join. To do that, we recommend the [User Mailbox API](../users/index.md).
+
 ### Collections
 
 To handle different data structures in the same Database, a Database contains Collections. Each Collection is defined by a [json-schema.org schema](https://json-schema.org/). These schemas define the *shape* of Collection Instances (the individual entries). Collections are similar to tables in other databases. Ultimately, a Collection is a single document store with a set of APIs to make it feel like a *local database table*.
@@ -196,10 +214,6 @@ ThreadDB uses a modular role-based access control system that will allow access 
 
 ThreadDB allows you to handle user identities (for access control and security/encryption) in the best way for your app and your users. In order to handle *multiple* peers collaborating on a single database, as well as the ability to handle storage *on behalf* of a user, ThreadDB expects a simple Identity interface for singing and validating database updates. See the Hub documentation on [user identities](../hub/apis.md#user-identities) for details.
 
-## Replication with the Hub
-
-ThreadDB has been designed to support trustless peers on the network to provide services that improve or enhance performance and experience for end-users. [The Hub](../hub/index.md) offers Thread Services for relay, replication, and backup that you can add for your users in a couple of minutes. You can learn more about Identity, Access Control, and other advanced topics, in the Hub documentation.
-
 ### Connect to the Hub
 
 1. [Create an Account](../hub/accounts.md#account-setup)
@@ -212,7 +226,7 @@ Thread Services (e.g. pinning encrypted data on IPFS and helping multiple peers 
 
 ## Installation
 
-ThreadDB can be used from many different languages and has libraries written in Javascript and Go. Find documentation on each of those Libraries below. 
+ThreadDB can be used from many languages and has libraries written in JavaScript and Go. Find documentation on each of those libraries below. 
 
 <div class="txtl-options">
   <a href="https://textileio.github.io/js-threads/" class="box">
