@@ -158,9 +158,13 @@ nav:
           - Golang Threads: https://github.com/textileio/go-threads
           - Golang Threads Client: https://godoc.org/github.com/textileio/go-threads/api/client
   - More Examples:
+      - Users:
+          - Externals:
+              - User Mailboxes: https://github.com/textileio/js-examples/tree/master/user-mailbox-setup
+              - Metamask Identity: https://github.com/textileio/js-examples/tree/master/metamask-identities-ed25519
+              - 3Box Identity: https://github.com/textileio/js-examples/tree/master/3box-identities-ed25519
       - ThreadDB:
           - Externals:
-              - Chat in Local Database: https://github.com/textileio/js-examples/tree/master/hub-threaddb-chat
               - Server-side Authentication: https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app
               - Threads from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app
               - Chat App (Golang): https://github.com/textileio/go-threads/blob/master/examples/chat/main.go

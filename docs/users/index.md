@@ -4,20 +4,39 @@ The Hub user APIs provide mechanisms for sending and receiving messages between 
 
 Visit the [GoDoc](https://pkg.go.dev/github.com/textileio/textile/mail/local?tab=doc) or [JavaScript Users doc](https://textileio.github.io/js-hub/docs/hub.users) for a complete list of methods and more usage descriptions.
 
-## Mailboxes, Identity, and Encryption
+## Mailbox overview
 
-User mailboxes are designed to be used with private key based identities. You can read more about creating basic PKI identities in our [tutorial](./../tutorials/hub/pki-identities.md). It is important that you keep these mailboxes secure by encrypting messages between your users, ideally using their keypairs, so the API clients will handle encryption and decryption for you automatically.
+User Mailboxes provide an encrypted endpoint where encrypted messages can be left for users when they are offline. User mailboxes are designed to be used with private key based identities where each user will privately encrypt messages for recipients based on their public key.
 
-### How Message Inboxing Works
+!!!info
+    You can read more about creating basic PKI identities in our [tutorial](./../tutorials/hub/pki-identities.md).
 
-#### Sending
+A common challenge app developers will face is how to exchange small, private information from one user to another. Take for example, using [Threads](../threads/index.md) to handle chat messages between users. Chat is a great use for Threads, but faces an initial challenge:
+
+**Challenge**
+
+> How do you send Thread invite details from one user to another, before the thread exists?
+
+**Solution**
+
+> User mailboxes!
+
+Mailboxes allow one user of your app to encrypt and leave private messages or data for another user. Mailboxes are always online, so the user creating the message can do it immediately and the recipient can find it the next time they use your app.
+
+![](../images/users/mailbox.png)
+
+### Sending messages
+
+To send messages, the sender only needs to know the recipients public key and be able to encrypt their message with that public key. 
 
 1. Your app creates a new user using their identity and your Hub API key.
 2. Your app user authors a new message for a contact, based on the remote contact's public key.
 3. Your app user encrypts the message using the remote users public key (encyption is handled by Hub library).
 4. You app sends the message to the remote user's inbox
 
-#### Receiving
+### Receiving
+
+To receive messages, a user simply needs to check their inbox and decrypt any messages using their private key.
 
 1. You app user checks their Hub inbox using your API key.
 2. Your user can pull any available messages (latest or using simple filters).
@@ -50,3 +69,12 @@ Some methods you will find useful include:
 * [Encryption by PublicKey](https://textileio.github.io/js-hub/docs/hub.publickey.encrypt)
 * [Decrypt by PrivateKey](https://textileio.github.io/js-hub/docs/hub.privatekey.decrypt)
 * [Sign by PrivateKey](https://textileio.github.io/js-hub/docs/hub.privatekey.sign)
+
+## Try it out
+
+<div class="txtl-options half">
+  <a href="https://github.com/textileio/js-examples/tree/master/user-mailbox-setup" class="box" target="_blank">
+    <h5>Mailbox example</h5>
+    <p>A single-user example sending message to an inbox.</p>
+  </a>
+</div>

@@ -111,45 +111,58 @@ interface Identity {
 
 Identity here represents any entity capable of signing a message. This is a simple [public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure) inspired interface that similarly requires the implementer to be capable of returning an associated public key for verification. In many cases, the Identity will just be a private key, but callers can use any setup that suits their needs. A default implementation based on [Noble ed2559 library](https://github.com/paulmillr/noble-ed25519) but many developers will want to use alternative identity provides, such as [3box/Ceramic](https://www.ceramic.network), [Fortmatic](https://fortmatic.com), and existing private/public keypair, or a web3 provider such as [Metamask](https://metamask.io). Textile Hub also provides email-based identities.
 
+### Metamask
+
+One trick with the above workflow is that you need to help your users store and recover their private keys. You could do this with your user model stored over an API. Alternatively, you can use any keypair manager, such as Metamask. There are a few steps to generate a Textile compatible `identity` from the Metamask API.
+
+We've provided an [example using Metamask here](https://github.com/textileio/js-examples/tree/master/metamask-identities-ed25519).
+
+In the above example, we allow you to generate a new ed25519 key for your users based on their Ethereum address in Metamask. This key is deterministic, meaning that as long as your user maintains access to their address in Metamask and their account secret, they can recover the same ed25519 key. This is handy if you don't want to store your user's private keys outside the app or use unreliable storage (e.g., local storage in browsers). It does this as follows:
+
+1. Prompt the user for a new `secret`. The secret helps ensure that another app cannot easily trick the user into generating their ed25519 key.
+2. The app then creates a unique string that contains a hashed version of the secret, the app name, and some additional text. The app can regenerate this string at any time in the future if the user supplies their secret.
+3. The unique string is then signed with the user's Ethereum address, using the Metamask API.
+4. The resulting signature is used to generate an ed25519 key that can be used as an identity with all Textile APIs.
+
+There are some benefits to this approach over using the ethereum address directly. An obvious one is that there is no public association between an ethereum address and the ed25519 key. This approach will allow users to create many keys without needing to worry about people association all their app use with a single address.
+
 ### 3Box
 
-One trick with the above workflow is that you need to help your users store and recover their private keys. You could do this with your own user model stored over an API. Alternatively, you can use any keypair manager, such as Metamask. There are a few of steps to generate a Textile compatible `identity` from the Metamask API. A good starting point is to use the [3Box SDK](https://docs.3box.io/). 3Box manages a cluster of nodes that web3 users can push small bits of information to. In this approach, a user with a 3Box identity can use that identity to create and track Buckets or Threads generated on Textile.
+Another good starting point is to use the [3Box SDK](https://docs.3box.io/). 3Box manages a cluster of nodes that web3 users where can push small bits of information. 3Box provides some helpful abstractions that integrate with Metamask and can help you create, manage, and recover keys for your users. In this approach, a user with a 3Box identity can use that identity to create and track Buckets or Threads generated on Textile.
+
+We've provided an [example using 3Box here](https://github.com/textileio/js-examples/tree/master/3box-identities-ed25519).
 
 !!!info
     As of writing this, 3Box doesn't have Typescript typings available.
 
 ```javascript
+import { PrivateKey } from '@textile/hub'
+
 const Box = require("3box");
 
-getIdentity = async (): Promise<PrivateKey> => {
-  /**
-   * Initialize the 3Box API uses Metamask
-   * This will allow the user to sign their transactions
-   * Using Metamask and 3Box directly
-   */
-  const box = await Box.create((window as any).ethereum)
-  const [address] = await (window as any).ethereum.enable()
-  await box.auth([], { address });
-  // Note: sometimes, openSpace returns early... caution
-  const space = await box.openSpace('io-textile-dropzone');
-  await box.syncDone;
-  try {
-    // We'll try to restore the private key if it's available
-    var storedIdent = await space.private.get('identity');
-    if (storedIdent === null) {
-      throw new Error('No identity')
-    }
-    const identity = await PrivateKey.fromString(storedIdent)
-    return identity
-  } catch (e) {
-    /**
-     * If the stored identity wasn't found, create a new one.
-     */
-    const identity = await PrivateKey.fromRandom()
-    const identityString = identity.toString()
-    await space.private.set('identity', identityString);
-    return identity
-  }
+const getIdentity = async (): Promise<PrivateKey> => {
+ const box = await Box.create((window as any).ethereum)
+ const [address] = await (window as any).ethereum.enable()
+ await box.auth([], { address })
+ const space = await box.openSpace('io-textile-3box-docs')
+ await box.syncDone
+ let identity: PrivateKey
+ try {
+   var storedIdent = await space.private.get("ed25519-identity")
+   if (storedIdent === null) {
+     throw new Error('No identity')
+   }
+   identity = await PrivateKey.fromString(storedIdent)
+   return identity
+ } catch (e) {
+   try {
+     identity = await PrivateKey.fromRandom()
+     const identityString = identity.toString()
+     await space.private.set("ed25519-identity", identityString)
+   } catch (err) {
+     return err.message
+   }
+ }
 }
 ```
 
