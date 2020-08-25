@@ -42,6 +42,7 @@ plugins:
   - redirects:
       redirect_maps:
         "hub/introduction.md": "hub/index.md"
+        "a-tour-of-textile.md": "index.md"
         "hub/api-apis.md": "hub/apis.md"
         "hub/buckets.md": "buckets/index.md"
         "threads/introduction.md": "threads/index.md"
