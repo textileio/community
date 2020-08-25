@@ -1,1 +1,0 @@
-[The tour has moved, start here](../).
