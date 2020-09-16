@@ -71,14 +71,11 @@ With whichever method you chose in the Installation section above, you can now u
 Docker files for the Powergate are all contained in the folder, `/docker`.
 
 ```bash
-BIGSECTORS=false make localnet
+make localnet
 ```
 
 !!!info
-    You can set `BIGSECTORS` according to your needs. See the description [above](#filecoin-localnet) for more information. If you don't specify a `BIGSECTORS` environment variable, the default is `false`.
-
-!!!Warning
-    Unfortunately, due to [a limitation](https://github.com/filecoin-project/lotus/issues/3109) in the latest Lotus setup `BIGSECTORS=true` isn't currently supported. Please give some thumbs up to help increase its priority!
+    You can set `BIGSECTORS` according to your needs. See the description [above](#filecoin-localnet) for more information. If you don't specify a `BIGSECTORS` environment variable, the default is `true`.
 
 If this is your first time running the Powergate, Docker will download the required instances before any Powergate setup begins. Downloads are dependent on your bandwidth and may take **a few minutes**, but wont be required for subsequent runs of the Powergate.
 
