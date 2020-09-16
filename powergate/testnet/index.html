@@ -452,6 +452,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#bootstrap-from-a-snapshot" title="Bootstrap from a snapshot" class="md-nav__link">
+    Bootstrap from a snapshot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#create-a-deal-and-store-a-file" title="Create a deal and store a file" class="md-nav__link">
     Create a deal and store a file
   </a>
@@ -1622,6 +1629,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#bootstrap-from-a-snapshot" title="Bootstrap from a snapshot" class="md-nav__link">
+    Bootstrap from a snapshot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#create-a-deal-and-store-a-file" title="Create a deal and store a file" class="md-nav__link">
     Create a deal and store a file
   </a>
@@ -1711,6 +1725,17 @@ mined block in the past <span class="o">{</span><span class="s2">&quot;block-tim
 </code></pre></div>
 
 <p>When complete, you will have a fully functional Powergate (<code>powd</code>), a Lotus node, and an IPFS node wired correctly together to start using the Testnet!</p>
+<h3 id="bootstrap-from-a-snapshot">Bootstrap from a snapshot<a class="headerlink" href="#bootstrap-from-a-snapshot" title="Permanent link">&para;</a></h3>
+<p>Syncing a new Lotus node from genesis can take a considerable time. The current <code>testnet</code> network is providing snapshots of the VM state every 6hrs, which means, in the worst case, syncing 6hs of new blocks.
+Bootstraping the Lotus node from a snapshot implies complete trust in the party who generated the snapshot, so this is a pragmatic solution for getting up to speed fast. Depending on your use case you should consider the security risks of accepting snapshots from trusted parties.</p>
+<p>In order to boostrap from a snapshot in <code>testnet</code>, download the <a href="https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car">snapshot CAR file</a>. This file is maintained up to date by Protocol Labs.
+We're going to assume this CAR file was downloaded to your local path: <code>/home/myuser/snapshots/Spacerace_stateroots_snapshot_latest.car</code>.</p>
+<p>You should edit the <code>docker/docker-compose.yaml</code> file adding two lines:
+<figure><img src="https://user-images.githubusercontent.com/6136245/93375329-6383fd80-f82e-11ea-9850-2970f30a793c.png" /><figcaption>image</figcaption>
+</figure>
+</p>
+<p>Then run <code>make up</code>. If you inspect the Lotus node with <code>docker logs testnet_lotus_1</code>, you will see a message that is importing chain information, and a bunch of Badger compaction messages. After the importing is done, the Lotus node will continue to sync as usual showing the typical logs. At this point you should <code>make down</code> (you don't need to wait to full syncing), revert <code>docker/docker-compose.yaml</code> to the original content, and <code>make up</code> again.</p>
+<p>Congratulations! You're now syncing from a trusted checkpoint.</p>
 <h3 id="create-a-deal-and-store-a-file">Create a deal and store a file<a class="headerlink" href="#create-a-deal-and-store-a-file" title="Permanent link">&para;</a></h3>
 <p>Now that your Powergate is running on testnet, all the CLI and API commands are the same as if you had run it on localnet before.</p>
 <h4 id="install-the-cli">Install the CLI<a class="headerlink" href="#install-the-cli" title="Permanent link">&para;</a></h4>
