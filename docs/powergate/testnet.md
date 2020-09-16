@@ -48,6 +48,22 @@ mined block in the past	{"block-time": "2009-01-01T04:44:30.000Z",\
 
 When complete, you will have a fully functional Powergate (`powd`), a Lotus node, and an IPFS node wired correctly together to start using the Testnet!
 
+### Bootstrap from a snapshot
+
+Syncing a new Lotus node from genesis can take a considerable time. The current `testnet` network is providing snapshots of the VM state every 6hrs, which means, in the worst case, syncing 6hs of new blocks.
+Bootstraping the Lotus node from a snapshot implies complete trust in the party who generated the snapshot, so this is a pragmatic solution for getting up to speed fast. Depending on your use case you should consider the security risks of accepting snapshots from trusted parties.
+
+In order to boostrap from a snapshot in `testnet`, download the [snapshot CAR file](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car). This file is mantained up to date by Protocol Labs.
+We're going to assume this CAR file was downloaded to your local path: `/home/myuser/Spacerace_stateroots_snapshot_latest.car`.
+
+You should edit the `docker/docker-compose.yaml` file adding two lines:
+![image](https://user-images.githubusercontent.com/6136245/93375329-6383fd80-f82e-11ea-9850-2970f30a793c.png)
+
+Then run `make up`. If you inspect the Lotus node with `docker logs testnet_lotus_1`, you will see a message that is importing chain information, and a bunch of Badger compaction messages. After the importing is done, the Lotus node will continue to sync as usual showing the typical logs. At this point you should `make down` (you don't need to wait to full syncing), revert `docker/docker-compose.yaml` to the original content, and `make up` again.
+
+Congratulations! You're now syncing from a trusted checkpoint.
+
+
 ### Create a deal and store a file
 
 Now that your Powergate is running on testnet, all the CLI and API commands are the same as if you had run it on localnet before.
