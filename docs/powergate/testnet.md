@@ -53,7 +53,7 @@ When complete, you will have a fully functional Powergate (`powd`), a Lotus node
 Syncing a new Lotus node from genesis can take a considerable time. The current `testnet` network is providing snapshots of the VM state every 6hrs, which means, in the worst case, syncing 6hs of new blocks.
 Bootstraping the Lotus node from a snapshot implies complete trust in the party who generated the snapshot, so this is a pragmatic solution for getting up to speed fast. Depending on your use case you should consider the security risks of accepting snapshots from trusted parties.
 
-In order to boostrap from a snapshot in `testnet`, download the [snapshot CAR file](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car). This file is mantained up to date by Protocol Labs.
+In order to boostrap from a snapshot in `testnet`, download the [snapshot CAR file](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car). This file is maintained up to date by Protocol Labs.
 We're going to assume this CAR file was downloaded to your local path: `/home/myuser/snapshots/Spacerace_stateroots_snapshot_latest.car`.
 
 You should edit the `docker/docker-compose.yaml` file adding two lines:
