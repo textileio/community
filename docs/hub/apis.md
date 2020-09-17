@@ -90,12 +90,12 @@ _[See CLI commands](../hub/cli/hub_keys.md)_
 You can find all remote Thread and Bucket APIs in the `textile` libraries below. These libraries are meant to work in combination with the `threads` libraries when you want to create and manage Threads database in your app. 
 
 <div class="txtl-options">
-  <a href="https://textileio.github.io/js-hub/docs/" target="_blank class="box">
+  <a href="https://textileio.github.io/js-hub/docs/" target="_blank" class="box">
     <h5>JS Hub</h5>
     <p>Start threads, buckets, and user creation in any JavaScript app.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://godoc.org/github.com/textileio/textile/api/buckets" target="_blank class="box">
+  <a href="https://godoc.org/github.com/textileio/textile/api/buckets" target="_blank" class="box">
     <h5>JS Hub</h5>
     <p>Use the Buckets client from Go</p>
   </a>
