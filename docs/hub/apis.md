@@ -100,7 +100,7 @@ You can find all remote Thread and Bucket APIs in the `textile` libraries below.
     <p>Use the Buckets client from Go</p>
   </a>
   <span class="box-space"> </span>
-  <a href="../hub/cli/hub" class="box">
+  <a href="../cli/hub" class="box">
     <h5>Hub CLI</h5>
     <p>Use scripting and command-line tooling with the Hub CLI.</p>
   </a>
