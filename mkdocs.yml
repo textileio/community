@@ -39,6 +39,7 @@ extra_css:
 # Plugins
 plugins:
   - search
+  - markdownextradata
   - redirects:
       redirect_maps:
         "hub/introduction.md": "hub/index.md"
@@ -188,3 +189,9 @@ extra:
       link: https://blog.textile.io/
     - type: slack
       link: https://slack.textile.io
+  limits:
+    max_threads_per_owner: 100
+    max_bucket_size: 4GiB
+    max_account_size: 4GiB
+    max_buckets_per_thread: 10000
+

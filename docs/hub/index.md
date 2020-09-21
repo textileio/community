@@ -31,15 +31,12 @@ Once you've setup an account on the Hub, you can start accessing those resources
 
 Each entity above has its own quota no matter which *role* it is (Developer, Org, or User). If these limits are not enough for you, or if you need to talk to us about a custom account, you can reach us at [support@textile.io](mailto:support@textile.io).
 
-| Threads | |
+| Developer quotas | |
 | :------ | :------ |
-| Max Threads Per Owner | 100 |
-
-| Buckets | |
-| :------ | :------ |
-| Max Buckets Size | 1Gib |
-| Max Size All Buckets | 1Gib |
-| Max Buckets Per Thread | 10,000 |
+| Max Threads Per Owner | {{limits.max_threads_per_owner}} |
+| Max Buckets Per Thread | {{limits.max_buckets_per_thread}} |
+| Max Buckets Size | {{limits.max_bucket_size}} |
+| Max Account Size | {{limits.max_account_size}} |
 
 ## Install & Create Account
 
