@@ -1667,8 +1667,13 @@
                 <h1 id="bucket-archiving">Bucket Archiving<a class="headerlink" href="#bucket-archiving" title="Permanent link">&para;</a></h1>
 <p>Bucket archiving is one of the latest features to arrive at Textile. Archiving is the process of taking the existing snapshot of your bucket content and storing it on <a href="https://filecoin.io/">Filecoin</a>. Filecoin is still considered experimental, but it is ready to be tested and built on by the right app developers. So, what is bucket archiving?</p>
 <p>Bucket archiving allows you to leverage the purely decentralized nature of Filecoin for the storage of your buckets. Check out this <a href="https://www.youtube.com/watch?v=jiBUxIi1zko&amp;feature=emb_title&amp;ab_channel=IgnacioHagopian">video</a> from a <a href="https://blog.textile.io/buckets-diffing-syncing-archiving/">blog post</a> demonstrating Filecoin bucket recovery using the Lotus client.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Archives are <strong>only</strong> encrypted if your bucket was configured to be encrypted.</p>
+<p>The Textile Hub is currently connected to Testnet, this network is for experimental usage only and you should not rely on data stored on the Testnet to be available. Testnet can and will likely reset.</p>
+<p>Account balances are in FIL from the Testnet. This FIL has no monetary value, cannot be transferred, and can only be used for bucket archiving experiments. </p>
 <p>When you create a new archive, you store your data on the decentralized Filecoin network and <em>outside</em> of the Textile platform. We provide this connection for users but do not offer any guarantees about the Filecoin Testnet network, data privacy or security, or access and availability once you create deals on that network.</p>
-<p>Archives are <strong>only</strong> encrypted if your bucket was configured to be encrypted. </p>
+</div>
 <h2 id="create-your-first-archive">Create your first archive<a class="headerlink" href="#create-your-first-archive" title="Permanent link">&para;</a></h2>
 <p>Archiving is available in all of the Textile client libraries and can be requested on a developer, user, or organization buckets. To start testing archiving, let's use a bucket created in the <code>hub</code> CLI. </p>
 <p>Let's try archiving the bucket.</p>
