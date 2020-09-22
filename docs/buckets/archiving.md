@@ -4,9 +4,15 @@ Bucket archiving is one of the latest features to arrive at Textile. Archiving i
 
 Bucket archiving allows you to leverage the purely decentralized nature of Filecoin for the storage of your buckets. Check out this [video](https://www.youtube.com/watch?v=jiBUxIi1zko&feature=emb_title&ab_channel=IgnacioHagopian) from a [blog post](https://blog.textile.io/buckets-diffing-syncing-archiving/) demonstrating Filecoin bucket recovery using the Lotus client.
 
-When you create a new archive, you store your data on the decentralized Filecoin network and _outside_ of the Textile platform. We provide this connection for users but do not offer any guarantees about the Filecoin Testnet network, data privacy or security, or access and availability once you create deals on that network.
+!!!Warning
 
-Archives are **only** encrypted if your bucket was configured to be encrypted. 
+    Archives are **only** encrypted if your bucket was configured to be encrypted.
+
+    The Textile Hub is currently connected to Testnet, this network is for experimental usage only and you should not rely on data stored on the Testnet to be available. Testnet can and will likely reset.
+
+    Account balances are in FIL from the Testnet. This FIL has no monetary value, cannot be transferred, and can only be used for bucket archiving experiments. 
+
+    When you create a new archive, you store your data on the decentralized Filecoin network and _outside_ of the Textile platform. We provide this connection for users but do not offer any guarantees about the Filecoin Testnet network, data privacy or security, or access and availability once you create deals on that network.
 
 ## Create your first archive
 
