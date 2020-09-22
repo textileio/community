@@ -24,9 +24,11 @@ The Hub is connected to the Filecoin testnet, so any archiving deal you create w
 
 You should see a success message if you proceed.
 
-```sh
-> Success! Archive queued successfully
-```
+???+ success
+
+    ```Bash
+    > Success! Archive queued successfully
+    ```
 
 This means that archiving has been initiated. It may take some time to complete...
 

@@ -18,10 +18,14 @@ Any buckets you create using the `HUB_ORG` setting will also be shared with Org 
 hub org create
 Choose an Org name: nasa█
 > The name of your account on Textile will be nasa
-> Your URL will be http://hub.textile.io/nasa
 Please confirm: y█
-> Success! Created new org nasa with URL http://hub.textile.io/nasa
 ```
+
+???+ success
+
+    ```Bash
+    > Success!
+    ```
 
 You have now created the `nasa` Org.
 
@@ -37,7 +41,7 @@ HUB_ORG=nasa hub buck init
 
 You have now created a new Bucket inside of the `launchpad` directory and owned by your `nasa` organization.
 
-#### Invite a collaborator
+#### Invite a new org member
 
 ```bash
 hub org invite
@@ -70,16 +74,21 @@ Read and write access roles are defined in a bucket at *any* path. Any subpaths 
 
 You can specify new users and their roles by inserting their public key into the bucket access rules. Let's take a look at how we update roles using the CLI. 
 
-```sh
-hub buck roles grant -r writer bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose /path/to
-
-  IDENTITY                                                     ROLE    
-  *                                                            Reader  
-  bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose  Writer  
-  bbaareieyrq92sbfcx2bhbmsfxzj25pi7ldx2vkrtcn6hu3xzi4mpzwqvcy  Admin   
-
-> Success! Updated access roles for path /path/to
+```bash
+hub buck roles grant -r writer \
+bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose /path/to
 ```
+
+???+ success
+
+    ```Bash
+      IDENTITY                                                     ROLE    
+      *                                                            Reader  
+      bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose  Writer  
+      bbaareieyrq92sbfcx2bhbmsfxzj25pi7ldx2vkrtcn6hu3xzi4mpzwqvcy  Admin   
+
+    > Success! Updated access roles for path /path/to
+    ```
 
 Success! You can see the new user has been added as a writer to the path `/path/to` and that the bucket creator is still listed as the admin.
 
