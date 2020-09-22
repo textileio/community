@@ -5,13 +5,11 @@ The Hub Client.
 ### Options
 
 ```
-      --api string       API target (default "api.textile.io:443")
+      --api string       API target (default "api.hub.textile.io:443")
   -h, --help             help for hub
   -o, --org string       Org username
   -s, --session string   User session token
 ```
-
-Alternatively, you can use an environmental variable, `HUB_ORG`, in place of the `--org` flag.
 
 ### SEE ALSO
 
@@ -22,5 +20,8 @@ Alternatively, you can use an environmental variable, `HUB_ORG`, in place of the
 * [hub login](hub_login.md)	 - Login
 * [hub logout](hub_logout.md)	 - Logout
 * [hub orgs](hub_orgs.md)	 - Org management
+* [hub pow](hub_pow.md)	 - Interact with Powergate
 * [hub threads](hub_threads.md)	 - Thread management
+* [hub update](hub_update.md)	 - Update the hub CLI
+* [hub version](hub_version.md)	 - Show current version
 * [hub whoami](hub_whoami.md)	 - Show current user

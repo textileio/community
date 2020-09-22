@@ -39,6 +39,7 @@ extra_css:
 # Plugins
 plugins:
   - search
+  - markdownextradata
   - redirects:
       redirect_maps:
         "hub/introduction.md": "hub/index.md"
@@ -90,7 +91,10 @@ nav:
       - Accounts Overview: hub/index.md
       - Installation & Setup: hub/accounts.md
       - APIs & API Keys: hub/apis.md
-      - Buckets Overview: buckets/index.md
+      - Bucket Storage:
+        - Overview: buckets/index.md
+        - Permissions: buckets/permissions.md
+        - Filecoin Archiving: buckets/archiving.md
       - ThreadDB Overview: threads/index.md
       - User Mailboxes: users/index.md
       - Powergate (Filecoin):
@@ -120,8 +124,11 @@ nav:
           - Logout: hub/cli/hub_logout.md
           - Whoami: hub/cli/hub_whoami.md
           - Orgs: hub/cli/hub_orgs.md
-          - Bucket: hub/cli/hub_buck.md
+          - Buckets: hub/cli/hub_buck.md
           - Threads: hub/cli/hub_threads.md
+          - Powergate: hub/cli/hub_pow.md
+          - Version: hub/cli/hub_version.md
+          - Update: hub/cli/hub_update.md
           - API Keys: hub/cli/hub_keys.md
       - Buckets commands:
           - Overview: hub/cli/hub_buck.md
@@ -188,3 +195,9 @@ extra:
       link: https://blog.textile.io/
     - type: slack
       link: https://slack.textile.io
+  limits:
+    max_threads_per_owner: 100
+    max_bucket_size: 4GiB
+    max_account_size: 4GiB
+    max_buckets_per_thread: 10000
+

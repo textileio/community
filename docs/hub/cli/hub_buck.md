@@ -22,6 +22,7 @@ Manages files and folders in an object storage bucket.
 * [hub buck ls](hub_buck_ls.md)	 - List top-level or nested bucket objects
 * [hub buck pull](hub_buck_pull.md)	 - Pull bucket object changes
 * [hub buck push](hub_buck_push.md)	 - Push bucket object changes
+* [hub buck roles](hub_buck_roles.md)	 - Object access role management
 * [hub buck root](hub_buck_root.md)	 - Show bucket root CIDs
 * [hub buck status](hub_buck_status.md)	 - Show bucket object changes
 * [hub buck watch](hub_buck_watch.md)	 - Watch auto-pushes local changes to the remote
