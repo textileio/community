@@ -44,7 +44,7 @@ It is possible to create encrypted buckets. The contents of encrypted buckets _w
 
 `hub bucket push`
 
-### Diffing and Synching
+### Diffing and Syncing
 
 When a bucket is pushed to the remote, its [Merkle DAG](https://en.wikipedia.org/wiki/Merkle_tree) representation is saved locally as a reference of the latest pushed version. When you execute `hub buck status`, it compares the persisted Merkle DAG with a generated Merkle DAG of the Bucket local state. As we mentioned in the last section, walking both DAGs and comparing [CIDs](https://github.com/multiformats/cid) can quickly provide paths that changed to the last known version. In a nutshell, when a bucket is pushed, the persisted Merkle DAG contains the minimum amount of information about the directory structure and data fingerprints. [Read more about this process](https://blog.textile.io/buckets-diffing-syncing-archiving/).
 
@@ -116,95 +116,27 @@ We have provided a configurable [GitHub Action](https://github.com/marketplace/a
 
 ![Example output from [Textile Bucket GitHub Action](https://github.com/marketplace/actions/textile-buckets)](../images/buckets/github-action.png)
 
-## Learn more
-
-### Bucket Permissions
-
-#### Developer Buckets
-
-All buckets you create are scoped to your developer account. You can always find your currently logged in account with `hub whoami`.
-
-#### Organization Buckets
-
-Any buckets you create using the `HUB_ORG` setting will also be shared with Org members. Here are the steps to create an Org, create a new Bucket in the Org, and invite a collaborator to the Org:
-
-##### Create a new Org
-
-![](../images/hub-cli/hub_org_create.png)
-
-```bash
-hub org create
-Choose an Org name: nasa█
-> The name of your account on Textile will be nasa
-> Your URL will be http://hub.textile.io/nasa
-Please confirm: y█
-> Success! Created new org nasa with URL http://hub.textile.io/nasa
-```
-
-You have now created the `nasa` Org.
-
-##### Create a new Bucket shared with an Org
-
-The default bucket command is simply `buck`, because it's two letters less to type each time. If you prefer, you can still type `bucket`
-
-```bash
-mkdir launchpad
-cd launchpad
-HUB_ORG=nasa hub buck init
-```
-
-You have now created a new Bucket inside of the `launchpad` directory and owned by your `nasa` organization.
-
-##### Invite a collaborator
-
-```bash
-hub org invite
-```
-
-The final step is to invite collaborators to your Org. Once they accept the invite, they will be able to interact with buckets associated with the Org.
-
-#### App user Buckets
-
-If you are building an app using one of our [developer libraries](../hub/apis.md#libraries) you can use buckets from inside your apps. Apps generally will create buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
-
-<div class="txtl-options">
-  <a href="../tutorials/hub/user-buckets/" class="box">
-    <h5>Buckets in your app</h5>
-    <p>View the tutorial on adding Buckets to your JavaScript app.</p>
-  </a>
-  <span class="box-space"> </span>
-  <a href="https://textileio.github.io/js-hub" target="_blank" class="box">
-    <h5>JS Hub Docs</h5>
-    <p>Persist user buckets on IPFS from your JS app.</p>
-  </a>
-  <span class="box-space"> </span>
-  <a href="../tutorials/react-native-buckets/" class="box">
-    <h5>React Native tutorial</h5>
-    <p>See how to create user buckets & threads in React Native.</p>
-  </a>
-</div>
-
-### Bucket Protocols
+## Cross Protocol Support
 
 Buckets are designed to be interoperable across protocols and services. Here are a few examples.
 
-#### Buckets and Threads
+### Buckets and Threads
 
 Buckets are built on [ThreadDB](../threads/index.md). In fact, in their most basic form, buckets are just a document in a Thread that is updated each time the directory of data is updated. Since buckets run on Threads, it opens the door to many new integrations that can be built on Buckets!
 
-#### Buckets and HTTP
+### Buckets and HTTP
 
 Buckets can be rendered over HTTP through either the [Hub Gateway](#explore-on-the-gateway), the [Bucket subdomains](#render-on-a-website), or on any IPFS gateway supporting IPNS (see below).
 
-#### Buckets and IPFS
+### Buckets and IPFS
 
 Data in a Bucket is stored as IPLD and pinned on IPFS. You can use the underlying content addresses to pin new Bucket content on additional pinning services such as [Pinata](https://pinata.cloud) or [Infura](https://infura.io/). This can be useful if you want additinal replication of your content on the IPFS network.
 
-#### Buckets and IPNS
+### Buckets and IPNS
 
 Every Bucket you create has a unique ID associated with it. The Bucket ID is an [IPNS](https://docs.ipfs.io/guides/concepts/ipns/) address that you can also use to fetch the latest Bucket content from any IPFS peer or view it over IPFS gateways that support the IPNS protocol.
 
-### More resources
+## More resources
 
 <div class="txtl-options">
   <a href="../../hub/cli/hub" class="box">
