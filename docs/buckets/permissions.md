@@ -17,7 +17,6 @@ Any buckets you create using the `HUB_ORG` setting will also be shared with Org 
 ```bash
 hub org create
 Choose an Org name: nasa█
-> The name of your account on Textile will be nasa
 Please confirm: y█
 ```
 
