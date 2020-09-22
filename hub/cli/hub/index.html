@@ -312,10 +312,58 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Bucket Storage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Bucket Storage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../../buckets/" title="Buckets Overview" target="" class="md-nav__link ">
-      Buckets Overview
+    <a href="../../../buckets/" title="Overview" target="" class="md-nav__link ">
+      Overview
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../buckets/permissions/" title="Permissions" target="" class="md-nav__link ">
+      Permissions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../buckets/archiving/" title="Filecoin Archiving" target="" class="md-nav__link ">
+      Filecoin Archiving
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -777,8 +825,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../hub_buck/" title="Bucket" target="" class="md-nav__link ">
-      Bucket
+    <a href="../hub_buck/" title="Buckets" target="" class="md-nav__link ">
+      Buckets
     </a>
   </li>
 
@@ -791,6 +839,42 @@
   <li class="md-nav__item">
     <a href="../hub_threads/" title="Threads" target="" class="md-nav__link ">
       Threads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hub_pow/" title="Powergate" target="" class="md-nav__link ">
+      Powergate
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hub_version/" title="Version" target="" class="md-nav__link ">
+      Version
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hub_update/" title="Update" target="" class="md-nav__link ">
+      Update
     </a>
   </li>
 
@@ -1583,13 +1667,12 @@
                 <h1 id="hub">hub<a class="headerlink" href="#hub" title="Permanent link">&para;</a></h1>
 <p>The Hub Client.</p>
 <h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>      --api string       API target (default &quot;api.textile.io:443&quot;)
+<div class="highlight"><pre><span></span><code>      --api string       API target (default &quot;api.hub.textile.io:443&quot;)
   -h, --help             help for hub
   -o, --org string       Org username
   -s, --session string   User session token
 </code></pre></div>
 
-<p>Alternatively, you can use an environmental variable, <code>HUB_ORG</code>, in place of the <code>--org</code> flag.</p>
 <h3 id="see-also">SEE ALSO<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="../hub_buck/">hub buck</a>    - Manage an object storage bucket</li>
@@ -1599,7 +1682,10 @@
 <li><a href="../hub_login/">hub login</a>  - Login</li>
 <li><a href="../hub_logout/">hub logout</a>    - Logout</li>
 <li><a href="../hub_orgs/">hub orgs</a>    - Org management</li>
+<li><a href="../hub_pow/">hub pow</a>  - Interact with Powergate</li>
 <li><a href="../hub_threads/">hub threads</a>  - Thread management</li>
+<li><a href="../hub_update/">hub update</a>    - Update the hub CLI</li>
+<li><a href="../hub_version/">hub version</a>  - Show current version</li>
 <li><a href="../hub_whoami/">hub whoami</a>    - Show current user</li>
 </ul>
                 
