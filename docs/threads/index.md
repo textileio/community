@@ -132,7 +132,7 @@ const schema = {
 
 // Requires the started database we created above
 async function collectionFromSchema (client: Client, threadID: ThreadID) {
-  await client.newCollection(threadID, 'Astronauts', schema)
+  await client.newCollection(threadID, {name: 'Astronauts', schema: schema})
 }
 ```
 
@@ -146,7 +146,7 @@ Instances are the objects you store in your Collection. Instances are JSON docum
 import {Client, ThreadID} from '@textile/hub'
 async function findEntity (client: Client, threadId: ThreadID, collection: string) {
   const found = await client.find(threadId, collection, {})
-  console.debug('found:', found.instancesList.length)
+  console.debug('found:', found.length)
 }
 ```
 
