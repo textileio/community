@@ -12,7 +12,7 @@ async function hubCanary(client: Client, threadId: ThreadID) {
   const q = new Where("firstName").eq("Buzz");
   const r = await client.find(threadId, "Astronauts", q);
   // Extract just the ids
-  const ids = r.instancesList.map((instance: any) => instance._id);
+  const ids = r.map((instance: any) => instance._id);
 
   console.log(`Found ${ids.length} entries`);
 
