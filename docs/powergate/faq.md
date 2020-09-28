@@ -2,7 +2,7 @@
 
 Here are some questions that usually get asked by the community.
 
-### Which Powergate CLIs commands are a minimal test for using localnet?
+### What is a minimal test of localnet using the Powergate CLI?
 
 ```
 $ <generate or use a ~10MB “new” file>
@@ -28,7 +28,7 @@ $ pow ffs -t 9d9f2fb8-c559-4394-98c9-12b2144124fc log QmSKfdYojdncCkq7FCnhATvzPr
 > 2020-09-28T09:14:47 - Job e27f1366-f3d0-484d-a0b3-b3abe71c150c execution finished with status Success.
 ```
 
-### Why my custom StorageConfig seems to be ignored?
+### Why is my custom StorageConfig being ignored?
 
 In SR2 we're using a custom miner-selector strategy by default: SR2-MinerSelector.
 
@@ -79,10 +79,10 @@ You could ignore those errors since Powergate is not relying on the Lotus client
 
 We preferred not to completely hide errors this external package just in case we discover new problems.
 
-### I've made a deal in Testnet/SR2, how can I know if all is doing well?
+### I've made a deal in Testnet/SR2, how can I know everything is working okay?
 
 We recommend using the `pow ffs -t <ffs-token> log <pushed-cid>` which provides a human-friendy output.
-Creating deals in testnet can take more than 10hs in the usual case, and many things can go wrong since Powergate is being relatively open to miners that provide storage in the network, so they might go offline at any time, be unreliable, or have network problems.
+Creating deals in testnet can take more than 10hrs in the usual case, and many things can go wrong since Powergate is being relatively open to miners that provide storage in the network, so they might go offline at any time, be unreliable, or have network problems.
 
 ### I see a log error `already tracking identifier: <cid>`, what should I do?
 
