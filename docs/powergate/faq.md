@@ -84,7 +84,7 @@ We preferred not to completely hide errors this external package just in case we
 We recommend using the `pow ffs -t <ffs-token> log <pushed-cid>` which provides a human-friendy output.
 Creating deals in testnet can take more than 10hs in the usual case, and many things can go wrong since Powergate is being relatively open to miners that provide storage in the network, so they might go offline at any time, be unreliable, or have network problems.
 
-### I see a log error `already tracking identifier: `<cid>`, what should I do?
+### I see a log error `already tracking identifier: <cid>`, what should I do?
 
 Please refer to [this](https://filecoinproject.slack.com/archives/C01ARR6BD2M/p1601297368175000) Slack thread.
 
