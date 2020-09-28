@@ -118,7 +118,7 @@ When complete, you should see,
 The status will update as the deal progresses. If you push a file without the `--watch` flag, you can check the progress later using, `watch`.
 
 ```bash
-pow ffs watch <cid>
+pow ffs watch <jobid>
 ```
 
 ### Retrieve files
