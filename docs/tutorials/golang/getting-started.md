@@ -69,7 +69,7 @@ import (
 	"google.golang.org/grpc"
 )
 
-var HUB_API = "api.textile.io:3447"
+var HUB_API = "api.hub.textile.io:443"
 var HUB_HEADERS = []grpc.DialOption{grpc.WithInsecure(), grpc.WithPerRPCCredentials(common.Credentials{})}
 
 func authorizeUser(ctx context.Context, user thread.Identity) (context.Context, error) {
@@ -106,7 +106,7 @@ import (
 	"google.golang.org/grpc"
 )
 
-var HUB_API = "api.textile.io:3447"
+var HUB_API = "api.hub.textile.io:443"
 var HUB_HEADERS = []grpc.DialOption{grpc.WithInsecure(), grpc.WithPerRPCCredentials(common.Credentials{})}
 
 func createThreadDB(ctx context.Context, name string) error {
@@ -141,7 +141,7 @@ import (
 	"google.golang.org/grpc"
 )
 
-var HUB_API = "api.textile.io:3447"
+var HUB_API = "api.hub.textile.io:443"
 var HUB_HEADERS = []grpc.DialOption{grpc.WithInsecure(), grpc.WithPerRPCCredentials(common.Credentials{})}
 
 func createBucket(ctx context.Context, name string) error {
