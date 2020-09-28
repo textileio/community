@@ -784,6 +784,18 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../faq/" title="FAQ" target="" class="md-nav__link ">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
   
   
@@ -1887,14 +1899,14 @@
 <h2 id="multi-tiered-design">Multi-tiered design<a class="headerlink" href="#multi-tiered-design" title="Permanent link">&para;</a></h2>
 <p>The FFS provides you API access to multi-tiered storage system built on IPFS and Filecoin. In many places, we refer to these two tiers of storage as Hot (IFPS) and Cold (Filecoin). This mirrors multi-tiered storage often deployed with a hot storage layer in <em>memory</em> and a cold storage layer on <em>disk</em>.</p>
 <h3 id="hot-storage-layer">Hot storage layer<a class="headerlink" href="#hot-storage-layer" title="Permanent link">&para;</a></h3>
-<p>Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). The default <code>StorageConfig</code> enables both hot for all new data stored. Data stored with hot enabled is pinned to the Powergate's IPFS node. </p>
+<p>Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). The default <code>StorageConfig</code> enables both hot and cold for all new data stored. Data stored with hot enabled is pinned to the Powergate's IPFS node. </p>
 <h3 id="cold-storage-layer">Cold storage layer<a class="headerlink" href="#cold-storage-layer" title="Permanent link">&para;</a></h3>
 <p>Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (localnet or testnet). You can use the <a href="../storageconfig/">StorageConfig</a> to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default <code>StorageConfig</code> enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.</p>
 <h3 id="moving-between-tiers">Moving between tiers<a class="headerlink" href="#moving-between-tiers" title="Permanent link">&para;</a></h3>
 <h4 id="hot-to-cold">Hot to Cold<a class="headerlink" href="#hot-to-cold" title="Permanent link">&para;</a></h4>
-<p>Data that is stored in the hot layer can be moved to cold storage in a couple different ways. The most common scenario is where data is stored initially with cold <em>disabled</em> and later a new <code>StorageConfig</code> is pushed that <em>enables</em> cold storage. In this scenario, Powergate will resolve the file from the hot layer, create any newly required Filecoin deals to fulfill. the cold storage settings.</p>
+<p>Data that is stored in the hot layer can be moved to cold storage in a couple different ways. The most common scenario is where data is stored initially with cold <em>disabled</em> and later a new <code>StorageConfig</code> is pushed that <em>enables</em> cold storage. In this scenario, Powergate will resolve the file from the hot layer, and create any newly required Filecoin deals to fulfill.</p>
 <h4 id="cold-to-hot">Cold to Hot<a class="headerlink" href="#cold-to-hot" title="Permanent link">&para;</a></h4>
-<p>Data stored only in the cold layer isn't guaranteed to be available on the IPFS network. In order for it to be, you need to push a new storage config that enables hot storage. You can automate this movement using the <code>AllowUnfreeze</code> flag of <a href="../storageconfig/">the StorageConfig</a>. Either way, Powergate will always attempt resolve the data, first by trying to fetch it from the IPFS network, and if unable to do that, will execute a retrieval deal to pull the data from Finally. Finally, the data will be pinned in hot layer IPFS storage and available on the IPFS network.</p>
+<p>Data stored only in the cold layer isn't guaranteed to be available on the IPFS network. In order for it to be, you need to push a new storage config that enables hot storage. You can automate this movement using the <code>AllowUnfreeze</code> flag of <a href="../storageconfig/">the StorageConfig</a>. Either way, Powergate will always attempt resolve the data, first by trying to fetch it from the IPFS network. If unable to do that, Powergate will execute a retrieval deal to pull the data from Filecoin. Finally, the data will be pinned in hot layer IPFS storage and available on the IPFS network.</p>
 <p>Read more about <a href="../storageconfig/">updating the StorageConfig here</a>.</p>
 <h2 id="using-the-ffs">Using the FFS<a class="headerlink" href="#using-the-ffs" title="Permanent link">&para;</a></h2>
 <p>To start using the FFS APIs you must first create an <em>FFS Instance</em>.</p>
@@ -1950,7 +1962,7 @@
 </div>
 <p><strong>FFS Watch</strong></p>
 <p>The status will update as the deal progresses. If you push a file without the <code>--watch</code> flag, you can check the progress later using, <code>watch</code>.</p>
-<div class="highlight"><pre><span></span><code>pow ffs watch &lt;cid&gt;
+<div class="highlight"><pre><span></span><code>pow ffs watch &lt;jobid&gt;
 </code></pre></div>
 
 <h3 id="retrieve-files">Retrieve files<a class="headerlink" href="#retrieve-files" title="Permanent link">&para;</a></h3>
