@@ -75,7 +75,7 @@ You should check that your FFS wallet address used for making deals has enough f
 ### What does the following log error mean:  `rpc go-jsonrpc: xxxx`?
 
 Usually, this is related to a [reported](https://github.com/filecoin-project/lotus/issues/3581) issue. As a solution, Powergate switched to another style of connecting to Lotus which is more reliable and avoids that problem to get in the way. 
-You could ignore those errors since Powergate is not relying on the Lotus client to have stable connections now. Whenever you see those errors not impacting other logs related to powergate screaming other buisness errors, you should be fine; if that isn't the case please report in a support channel.
+You could ignore those errors since Powergate is not relying on the Lotus client to have stable connections now. Whenever you see those errors not impacting other logs related to powergate screaming other business errors, you should be fine; if that isn't the case please report in a support channel.
 
 We preferred not to completely hide errors this external package just in case we discover new problems.
 
