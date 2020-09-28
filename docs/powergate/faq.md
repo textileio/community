@@ -32,25 +32,25 @@ $ pow ffs -t 9d9f2fb8-c559-4394-98c9-12b2144124fc log QmSKfdYojdncCkq7FCnhATvzPr
 
 In SR2 we're using a custom miner-selector strategy by default: SR2-MinerSelector.
 
-Every time Powergate needs to create a deal, it will fetch [this](https://github.com/filecoin-project/slingshot/blob/master/miners.json) JSON file and it will take `amount` miners at random from each region and make deals with them.
-This list is mantained by the Slingshot team to include miners which should be reasonably reliable to increase the odds of deal success. Since Powergate fetches this file every time it needs to do a deal, it will always select miners from the most up to date version of it.
+Every time Powergate needs to create a deal, it will fetch [this](https://github.com/filecoin-project/slingshot/blob/master/miners.json) JSON file, and it will take `amount` miners at random from each region and make deals with them.
+This list is maintained by the Slingshot team to include miners that should be reasonably reliable to increase the odds of deal success. Powergate fetches this file every time it needs to do a deal. It will always select miners from the most up to date version of it.
 
 As you can notice, if you set `TrustedMiners` or `RepFactor` in your storage config those will be ignored by Powergate. If you want full control using your _StorageConfig_, you can run `powd` with `--ffsminerselector="reputation"` (or env `POWD_FFSMINERSELECTOR)` which switches to the previous unopinionated miner selector strategy used before SR2.
 
 ## I see a log error `miner XXX not in ask-cache and query-ask errored:`, what does this mean?
 
 This usually means two possible problems:
-- The targeted miners doesn't exist in the network, or your Lotus node is not completely synced.
+- The targeted miners don't exist in the network, or your Lotus node is not completely synced.
 - Your Lotus node doesn't have connectivity with them to query ask their storage price.
 
-In most cases, if the miner or your Lotus node are in China there might be reachability challenges which is related to the second bullet point.
-If you're not using any custom config and just the SR2 miner selector using the remote JSON file and you're experiencing problems reaching some of that miners, please report this in a support channel since we should understand why that particular miner might have problems for your Lotus node.
+In most cases, if the miner or your Lotus node are in China there might be reachability challenges related to the second bullet point.
+If you're not using any custom config and just the SR2 miner selector using the remote JSON file and experiencing problems reaching some of that miners, please report this in a support channel since we should understand why that particular miner might have problems for your Lotus node.
 
 
 ## When I start Powergate, I see a fatal error: `verifying sr2 url content: getting miners list from url: Get https://xxxxx`, what does this mean?
 
-Since Powergate is now using SR2 miner selector by default, when starts it quickly checks if the [miners JSON file](https://github.com/filecoin-project/slingshot/blob/master/miners.json) is reachable. This file is located in Github, so it usually should be highly available.
-Some Powergate community members running Powergate from China had experienced this exact problems since there might be constraints in fetching this file from Github.
+Since Powergate is now using SR2 miner selector by default, when it starts quickly checks if the [miners JSON file](https://github.com/filecoin-project/slingshot/blob/master/miners.json) is reachable. This file is located in Github, so it usually should be highly available.
+Some Powergate community members running Powergate from China had experienced these exact problems since there might be constraints in fetching this file from Github.
 
 You can override this URL by specifying the flag/env `--ffsminerselectorparams`/`POWD_FFSMINERSELECTORPARAMS` with any URL that might be reachable from your location.
 
@@ -67,17 +67,17 @@ IpfsUseForRetrieval = true
 
 Note that if you are running the Powergate stack with `make up`, [this is already wired automatically](https://github.com/textileio/powergate/blob/d373c74922dfca5b56d7994a51bb59e496ef5730/docker/docker-compose.yaml#L35).
 
-## The `pow ffs log` commands mentions an error `... adding markets funds failed:`, how can I fix this?
+## The `pow ffs log` commands mention an error `... adding markets funds failed:`, how can I fix this?
 
 You should check that your FFS wallet address used for making deals has enough funds.
 
 
 ## What does the following log error mean:  `rpc go-jsonrpc: xxxx`?
 
-Usually this is related to a [reported](https://github.com/filecoin-project/lotus/issues/3581) issue. As a solution, Powergate switched to another style of connecting to Lotus which is more reliable and avoids that problem to get in the way. 
+Usually, this is related to a [reported](https://github.com/filecoin-project/lotus/issues/3581) issue. As a solution, Powergate switched to another style of connecting to Lotus which is more reliable and avoids that problem to get in the way. 
 You could ignore those errors since Powergate is not relying on the Lotus client to have stable connections now. Whenever you see those errors not impacting other logs related to powergate screaming other buisness errors, you should be fine; if that isn't the case please report in a support channel.
 
-We prefered not to completely hide errors this external package just in case we discover new problems.
+We preferred not to completely hide errors this external package just in case we discover new problems.
 
 ## I've made a deal in Testnet/SR2, how can I know if all is doing well?
 
