@@ -114,6 +114,7 @@ nav:
               - Reputation: powergate/cli/pow_reputation.md
               - Wallet: powergate/cli/pow_wallet.md
               - Health: powergate/cli/pow_health.md
+          - FAQ: powergate/faq.md
           - Externals:
               - JavaScript: https://textileio.github.io/js-powergate-client/
               - Golang: https://godoc.org/github.com/textileio/powergate/api/client
