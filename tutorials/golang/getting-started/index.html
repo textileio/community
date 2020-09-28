@@ -1775,7 +1775,7 @@
     <span class="s">&quot;google.golang.org/grpc&quot;</span>
 <span class="p">)</span>
 
-<span class="kd">var</span> <span class="nx">HUB_API</span> <span class="p">=</span> <span class="s">&quot;api.textile.io:3447&quot;</span>
+<span class="kd">var</span> <span class="nx">HUB_API</span> <span class="p">=</span> <span class="s">&quot;api.hub.textile.io:443&quot;</span>
 <span class="kd">var</span> <span class="nx">HUB_HEADERS</span> <span class="p">=</span> <span class="p">[]</span><span class="nx">grpc</span><span class="p">.</span><span class="nx">DialOption</span><span class="p">{</span><span class="nx">grpc</span><span class="p">.</span><span class="nx">WithInsecure</span><span class="p">(),</span> <span class="nx">grpc</span><span class="p">.</span><span class="nx">WithPerRPCCredentials</span><span class="p">(</span><span class="nx">common</span><span class="p">.</span><span class="nx">Credentials</span><span class="p">{})}</span>
 
 <span class="kd">func</span> <span class="nx">authorizeUser</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">user</span> <span class="nx">thread</span><span class="p">.</span><span class="nx">Identity</span><span class="p">)</span> <span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
@@ -1809,7 +1809,7 @@
     <span class="s">&quot;google.golang.org/grpc&quot;</span>
 <span class="p">)</span>
 
-<span class="kd">var</span> <span class="nx">HUB_API</span> <span class="p">=</span> <span class="s">&quot;api.textile.io:3447&quot;</span>
+<span class="kd">var</span> <span class="nx">HUB_API</span> <span class="p">=</span> <span class="s">&quot;api.hub.textile.io:443&quot;</span>
 <span class="kd">var</span> <span class="nx">HUB_HEADERS</span> <span class="p">=</span> <span class="p">[]</span><span class="nx">grpc</span><span class="p">.</span><span class="nx">DialOption</span><span class="p">{</span><span class="nx">grpc</span><span class="p">.</span><span class="nx">WithInsecure</span><span class="p">(),</span> <span class="nx">grpc</span><span class="p">.</span><span class="nx">WithPerRPCCredentials</span><span class="p">(</span><span class="nx">common</span><span class="p">.</span><span class="nx">Credentials</span><span class="p">{})}</span>
 
 <span class="kd">func</span> <span class="nx">createThreadDB</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
@@ -1841,7 +1841,7 @@
     <span class="s">&quot;google.golang.org/grpc&quot;</span>
 <span class="p">)</span>
 
-<span class="kd">var</span> <span class="nx">HUB_API</span> <span class="p">=</span> <span class="s">&quot;api.textile.io:3447&quot;</span>
+<span class="kd">var</span> <span class="nx">HUB_API</span> <span class="p">=</span> <span class="s">&quot;api.hub.textile.io:443&quot;</span>
 <span class="kd">var</span> <span class="nx">HUB_HEADERS</span> <span class="p">=</span> <span class="p">[]</span><span class="nx">grpc</span><span class="p">.</span><span class="nx">DialOption</span><span class="p">{</span><span class="nx">grpc</span><span class="p">.</span><span class="nx">WithInsecure</span><span class="p">(),</span> <span class="nx">grpc</span><span class="p">.</span><span class="nx">WithPerRPCCredentials</span><span class="p">(</span><span class="nx">common</span><span class="p">.</span><span class="nx">Credentials</span><span class="p">{})}</span>
 
 <span class="kd">func</span> <span class="nx">createBucket</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
