@@ -52,7 +52,7 @@ plugins:
         "tutorials/hub/user-login-endpoint.md": "tutorials/hub/production-auth.md"
         "tutorials/hub/libp2p-identities.md": "tutorials/hub/pki-identities.md"
 
-        # Extensions
+# Extensions
 markdown_extensions:
   - markdown.extensions.admonition
   - markdown.extensions.codehilite:
@@ -117,7 +117,7 @@ nav:
           - FAQ: powergate/faq.md
           - Externals:
               - JavaScript: https://textileio.github.io/js-powergate-client/
-              - Golang: https://godoc.org/github.com/textileio/powergate/api/client
+              - Go: https://godoc.org/github.com/textileio/powergate/api/client
   - Command-line Reference:
       - Hub admin:
           - Overview: hub/cli/hub.md
@@ -126,7 +126,7 @@ nav:
           - Whoami: hub/cli/hub_whoami.md
           - Orgs: hub/cli/hub_orgs.md
           - Buckets: hub/cli/hub_buck.md
-          - Threads: hub/cli/hub_threads.md
+          - ThreadDB: hub/cli/hub_threads.md
           - Powergate: hub/cli/hub_pow.md
           - Version: hub/cli/hub_version.md
           - Update: hub/cli/hub_update.md
@@ -152,20 +152,19 @@ nav:
       - User identities: tutorials/hub/pki-identities.md
       - Development mode: tutorials/hub/development-mode.md
       - Add images to Buckets: tutorials/hub/user-buckets.md
-      - Mobile threads & buckets: tutorials/react-native-buckets.md
+      - Mobile ThreadDB & Buckets: tutorials/react-native-buckets.md
       - Build with NodeJS: tutorials/nodejs.md
       - Production authentication: tutorials/hub/production-auth.md
       - Externals:
           - Users API Class: https://textileio.github.io/js-hub/docs/hub.users
           - Buckets API Class: https://textileio.github.io/js-hub/docs/hub.buckets
-          - Threads API Class: https://textileio.github.io/js-hub/docs/hub.client
-  - Golang Reference:
-      - Getting started with Golang: tutorials/golang/getting-started.md
+          - ThreadDB API Class: https://textileio.github.io/js-hub/docs/hub.client
+  - Go Reference:
+      - Getting started with Go: tutorials/go/getting-started.md
       - Externals:
-          - Golang User Mailboxes: https://github.com/textileio/textile#using-the-mail-library
-          - Golang Buckets: https://github.com/textileio/textile#running-buckets
-          - Golang Threads: https://github.com/textileio/go-threads
-          - Golang Threads Client: https://godoc.org/github.com/textileio/go-threads/api/client
+          - ThreadDB: https://github.com/textileio/go-threads
+          - Buckets: https://github.com/textileio/textile#running-buckets
+          - User Mailboxes: https://github.com/textileio/textile#using-the-mail-library
   - More Examples:
       - Users:
           - Externals:
@@ -176,9 +175,6 @@ nav:
           - Externals:
               - Server-side Authentication: https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app
               - Threads from React Native (JavaScript): https://github.com/textileio/js-examples/tree/master/react-native-hub-app
-              - Chat App (Golang): https://github.com/textileio/go-threads/blob/master/examples/chat/main.go
-              - Event Store (Golang): https://github.com/textileio/go-threads/tree/master/examples/local_eventstore
-              - P2P Counter (Golang): https://github.com/textileio/go-threads/tree/master/examples/e2e_counter
       - Buckets:
           - Externals:
               - User Galleries in Buckets: https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery
