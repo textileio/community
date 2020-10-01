@@ -1350,7 +1350,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.users" title="Users API Class" target="_blank" class="md-nav__link _blank">
+    <a href="https://textileio.github.io/js-textile/docs/hub.users" title="Users API Class" target="_blank" class="md-nav__link _blank">
       Users API Class
     </a>
   </li>
@@ -1362,7 +1362,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.buckets" title="Buckets API Class" target="_blank" class="md-nav__link _blank">
+    <a href="https://textileio.github.io/js-textile/docs/hub.buckets" title="Buckets API Class" target="_blank" class="md-nav__link _blank">
       Buckets API Class
     </a>
   </li>
@@ -1374,7 +1374,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.client" title="ThreadDB API Class" target="_blank" class="md-nav__link _blank">
+    <a href="https://textileio.github.io/js-textile/docs/hub.client" title="ThreadDB API Class" target="_blank" class="md-nav__link _blank">
       ThreadDB API Class
     </a>
   </li>
@@ -1869,7 +1869,7 @@
 <h4 id="golang">Golang<a class="headerlink" href="#golang" title="Permanent link">&para;</a></h4>
 <p>The first is written in Go and can be found at <a href="https://github.com/textileio/go-threads/">https://github.com/textileio/go-threads/</a>. This is the reference implementation, it contains all the latest components to use as a library, write trustless services, <a href="https://godoc.org/github.com/textileio/go-threads/api/client">build a client</a> connected to a a threads daemon. More documentation for the Go implementation will be coming in the future.</p>
 <h4 id="javascript">JavaScript<a class="headerlink" href="#javascript" title="Permanent link">&para;</a></h4>
-<p>The second implementation is written in JavaScript (Typescript, really). This implementation has some optimizations to make it more ideal when writing web applications. The JavaScript implementation is currently a Client of the Go implementation. You can run it against your own go-threads instance or connect it to the Textile Hub to use one of ours. Read more about the <a href="https://textileio.github.io/js-hub/docs/hub.client">Client here</a>.</p>
+<p>The second implementation is written in JavaScript (Typescript, really). This implementation has some optimizations to make it more ideal when writing web applications. The JavaScript implementation is currently a Client of the Go implementation. You can run it against your own go-threads instance or connect it to the Textile Hub to use one of ours. Read more about the <a href="https://textileio.github.io/js-textile/docs/hub.client">Client here</a>.</p>
 <p>In general, when you are building apps that use threads in remote context (e.g. the browser) it's best to push the networking later to remote services whenever possible (while using/allowing p2p when it works). You can also build your own remote relays and services using the <a href="https://github.com/textileio/go-threads/">go-threads</a> library.</p>
 <p>For the rest of the explanation below, we'll focus on examples using the JavaScript library.</p>
 <h3 id="developer-api">Developer API<a class="headerlink" href="#developer-api" title="Permanent link">&para;</a></h3>
@@ -1918,7 +1918,7 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Congrats! You now have a new ThreadDB! Each ThreadDB has a unique <a href="https://textileio.github.io/js-hub/docs/hub.threadid">ThreadID</a>. You can create your own ThreadIDs, or easily generate a random ThreadID as we do in the above example.</p>
+<p>Congrats! You now have a new ThreadDB! Each ThreadDB has a unique <a href="https://textileio.github.io/js-textile/docs/hub.threadid">ThreadID</a>. You can create your own ThreadIDs, or easily generate a random ThreadID as we do in the above example.</p>
 <h3 id="invite">Invite<a class="headerlink" href="#invite" title="Permanent link">&para;</a></h3>
 <p>You can invite multiple users to the same thread. Use this to build chat apps, collaborative documents and more.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">DBInfo</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
@@ -2025,7 +2025,7 @@
 <ol>
 <li><a href="../hub/accounts/#account-setup">Create an Account</a></li>
 <li><a href="../hub/apis/#api-access">Create an App Token</a></li>
-<li><a href="https://textileio.github.io/js-hub" target="_blank">Add the Textile Hub Library to your App</a></li>
+<li><a href="https://textileio.github.io/js-textile" target="_blank">Add the Textile Hub Library to your App</a></li>
 </ol>
 <h3 id="pinning-relay-and-replication">Pinning, Relay, and Replication<a class="headerlink" href="#pinning-relay-and-replication" title="Permanent link">&para;</a></h3>
 <p>Thread Services (e.g. pinning encrypted data on IPFS and helping multiple peers relay updates across the network) can be built and deployed to the network using <a href="https://github.com/textileio/go-threads">go-threads</a>. Textile offers a number of these functions through the Hub. Attaching the Hub to your databases will allow you to deliver a high-quality user-experience.</p>

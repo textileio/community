@@ -1335,7 +1335,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.users" title="Users API Class" target="_blank" class="md-nav__link _blank">
+    <a href="https://textileio.github.io/js-textile/docs/hub.users" title="Users API Class" target="_blank" class="md-nav__link _blank">
       Users API Class
     </a>
   </li>
@@ -1347,7 +1347,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.buckets" title="Buckets API Class" target="_blank" class="md-nav__link _blank">
+    <a href="https://textileio.github.io/js-textile/docs/hub.buckets" title="Buckets API Class" target="_blank" class="md-nav__link _blank">
       Buckets API Class
     </a>
   </li>
@@ -1359,7 +1359,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.client" title="ThreadDB API Class" target="_blank" class="md-nav__link _blank">
+    <a href="https://textileio.github.io/js-textile/docs/hub.client" title="ThreadDB API Class" target="_blank" class="md-nav__link _blank">
       ThreadDB API Class
     </a>
   </li>
@@ -1834,10 +1834,10 @@
 <p>In this section, we'll walk through the basic concepts useful when building your app to use the Hub. We'll break the discussion into a few key parts, shown in the table of contents to the right.</p>
 <h2 id="a-tour-of-available-apis">A Tour of Available APIs<a class="headerlink" href="#a-tour-of-available-apis" title="Permanent link">&para;</a></h2>
 <h3 id="buckets">Buckets<a class="headerlink" href="#buckets" title="Permanent link">&para;</a></h3>
-<p><a href="../../buckets/">Buckets</a> provide S3-like data storage on IPFS. Just as you can create Buckets with the <a href="../cli/hub/">Hub CLI</a>, you can create Buckets using JavaScript with <a href="#libraries">js-hub</a>.</p>
-<p>The <a href="#libraries">js-hub</a> library allows you to create and edit Buckets owned by you or your organization using an <a href="#account-key">account key</a>. Alternatively, you can use Buckets to store your user's data using a <a href="#user-group-key">user group key</a>.</p>
+<p><a href="../../buckets/">Buckets</a> provide S3-like data storage on IPFS. Just as you can create Buckets with the <a href="../cli/hub/">Hub CLI</a>, you can create Buckets using JavaScript with <a href="#libraries">js-textile</a>.</p>
+<p>The <a href="#libraries">js-textile</a> library allows you to create and edit Buckets owned by you or your organization using an <a href="#account-key">account key</a>. Alternatively, you can use Buckets to store your user's data using a <a href="#user-group-key">user group key</a>.</p>
 <h3 id="threaddb">ThreadDB<a class="headerlink" href="#threaddb" title="Permanent link">&para;</a></h3>
-<p><a href="../../threads/">ThreadDB</a> is a mongo-like database that runs on IPFS. You can use <a href="#libraries">js-hub</a> connect to the Hub's hosted thread server (<code>Client</code>) to push and persist encrypted data on an IPFS-backed database. Alternatively, you can embed local, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates (<code>Database</code>). </p>
+<p><a href="../../threads/">ThreadDB</a> is a mongo-like database that runs on IPFS. You can use <a href="#libraries">js-textile</a> connect to the Hub's hosted thread server (<code>Client</code>) to push and persist encrypted data on an IPFS-backed database. Alternatively, you can embed local, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates (<code>Database</code>). </p>
 <h3 id="user-inboxes">User Inboxes<a class="headerlink" href="#user-inboxes" title="Permanent link">&para;</a></h3>
 <p>The Users API provides mechanisms for sending and receiving messages between Hub users. Mailboxes are built on ThreadDB. Hub mailboxes are a unique inboxing and messaging system designed for modern apps where users hold private keys linked to their identity. With just their private and public key, a user can send and receive encrypted messages to other users in your app.</p>
 <h2 id="api-access">API Access<a class="headerlink" href="#api-access" title="Permanent link">&para;</a></h2>
@@ -1927,7 +1927,7 @@
 <h2 id="api-libraries">API Libraries<a class="headerlink" href="#api-libraries" title="Permanent link">&para;</a></h2>
 <p>You can find all remote Thread and Bucket APIs in the <code>textile</code> libraries below. These libraries are meant to work in combination with the <code>threads</code> libraries when you want to create and manage Threads database in your app. </p>
 <div class="txtl-options">
-  <a href="https://textileio.github.io/js-hub/docs/" target="_blank" class="box">
+  <a href="https://textileio.github.io/js-textile/docs/" target="_blank" class="box">
     <h5>JS Hub</h5>
     <p>Start threads, buckets, and user creation in any JavaScript app.</p>
   </a>

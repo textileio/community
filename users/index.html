@@ -1274,7 +1274,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.users" title="Users API Class" target="_blank" class="md-nav__link _blank">
+    <a href="https://textileio.github.io/js-textile/docs/hub.users" title="Users API Class" target="_blank" class="md-nav__link _blank">
       Users API Class
     </a>
   </li>
@@ -1286,7 +1286,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.buckets" title="Buckets API Class" target="_blank" class="md-nav__link _blank">
+    <a href="https://textileio.github.io/js-textile/docs/hub.buckets" title="Buckets API Class" target="_blank" class="md-nav__link _blank">
       Buckets API Class
     </a>
   </li>
@@ -1298,7 +1298,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.client" title="ThreadDB API Class" target="_blank" class="md-nav__link _blank">
+    <a href="https://textileio.github.io/js-textile/docs/hub.client" title="ThreadDB API Class" target="_blank" class="md-nav__link _blank">
       ThreadDB API Class
     </a>
   </li>
@@ -1710,7 +1710,7 @@
                 
                 <h1 id="user-mailboxes">User Mailboxes<a class="headerlink" href="#user-mailboxes" title="Permanent link">&para;</a></h1>
 <p>The Hub user APIs provide mechanisms for sending and receiving messages between Hub users. Mailboxes are built on ThreadDB.</p>
-<p>Visit the <a href="https://pkg.go.dev/github.com/textileio/textile/mail/local?tab=doc">GoDoc</a> or <a href="https://textileio.github.io/js-hub/docs/hub.users">JavaScript Users doc</a> for a complete list of methods and more usage descriptions.</p>
+<p>Visit the <a href="https://pkg.go.dev/github.com/textileio/textile/mail/local?tab=doc">GoDoc</a> or <a href="https://textileio.github.io/js-textile/docs/hub.users">JavaScript Users doc</a> for a complete list of methods and more usage descriptions.</p>
 <h2 id="mailbox-overview">Mailbox overview<a class="headerlink" href="#mailbox-overview" title="Permanent link">&para;</a></h2>
 <p>User Mailboxes provide an encrypted endpoint where encrypted messages can be left for users when they are offline. User mailboxes are designed to be used with private key based identities where each user will privately encrypt messages for recipients based on their public key.</p>
 <div class="admonition info">
@@ -1745,13 +1745,13 @@
 <li>User can then read and verify the message came from the recipient.</li>
 </ol>
 <h3 id="creating-mailboxes">Creating mailboxes<a class="headerlink" href="#creating-mailboxes" title="Permanent link">&para;</a></h3>
-<p>A user's mailbox needs to be initiated by them (through your app) before other users can begin sending them messages. We suggest you do this as part of the onboarding steps in your app. You can read about this creation process in <a href="https://github.com/textileio/textile#creating-a-mailbox">Go here</a> and in <a href="https://textileio.github.io/js-hub/docs/hub.users">JavaScript here</a>.</p>
+<p>A user's mailbox needs to be initiated by them (through your app) before other users can begin sending them messages. We suggest you do this as part of the onboarding steps in your app. You can read about this creation process in <a href="https://github.com/textileio/textile#creating-a-mailbox">Go here</a> and in <a href="https://textileio.github.io/js-textile/docs/hub.users">JavaScript here</a>.</p>
 <h3 id="using-inboxes-and-sentboxes">Using inboxes and sentboxes<a class="headerlink" href="#using-inboxes-and-sentboxes" title="Permanent link">&para;</a></h3>
 <p>After a mailbox is set up you can now add the following methods to your application:</p>
 <ul>
-<li>Get existing mailbox. <a href="https://github.com/textileio/textile#getting-an-existing-mailbox">Golang</a> <a href="https://textileio.github.io/js-hub/docs/hub.users.getmailboxid">JavaScript</a>.</li>
-<li>Send messages. <a href="https://github.com/textileio/textile#sending-a-message">Golang</a> <a href="https://textileio.github.io/js-hub/docs/hub.users.sendmessage">JavaScript</a>.</li>
-<li>Watch inbox. <a href="https://github.com/textileio/textile#watching-for-new-messages">Golang</a> <a href="https://textileio.github.io/js-hub/docs/hub.users.watchinbox">JavaScript</a>.</li>
+<li>Get existing mailbox. <a href="https://github.com/textileio/textile#getting-an-existing-mailbox">Golang</a> <a href="https://textileio.github.io/js-textile/docs/hub.users.getmailboxid">JavaScript</a>.</li>
+<li>Send messages. <a href="https://github.com/textileio/textile#sending-a-message">Golang</a> <a href="https://textileio.github.io/js-textile/docs/hub.users.sendmessage">JavaScript</a>.</li>
+<li>Watch inbox. <a href="https://github.com/textileio/textile#watching-for-new-messages">Golang</a> <a href="https://textileio.github.io/js-textile/docs/hub.users.watchinbox">JavaScript</a>.</li>
 </ul>
 <p>And more!</p>
 <h3 id="message-encryption-and-signing">Message encryption and signing<a class="headerlink" href="#message-encryption-and-signing" title="Permanent link">&para;</a></h3>
@@ -1759,10 +1759,10 @@
 <p>Read more about the identity utilities in the <a href="../tutorials/hub/pki-identities/">identity tutorial</a>.</p>
 <p>Some methods you will find useful include:</p>
 <ul>
-<li><a href="https://textileio.github.io/js-hub/docs/hub.privatekey">PrivateKey Identities</a></li>
-<li><a href="https://textileio.github.io/js-hub/docs/hub.publickey.encrypt">Encryption by PublicKey</a></li>
-<li><a href="https://textileio.github.io/js-hub/docs/hub.privatekey.decrypt">Decrypt by PrivateKey</a></li>
-<li><a href="https://textileio.github.io/js-hub/docs/hub.privatekey.sign">Sign by PrivateKey</a></li>
+<li><a href="https://textileio.github.io/js-textile/docs/hub.privatekey">PrivateKey Identities</a></li>
+<li><a href="https://textileio.github.io/js-textile/docs/hub.publickey.encrypt">Encryption by PublicKey</a></li>
+<li><a href="https://textileio.github.io/js-textile/docs/hub.privatekey.decrypt">Decrypt by PrivateKey</a></li>
+<li><a href="https://textileio.github.io/js-textile/docs/hub.privatekey.sign">Sign by PrivateKey</a></li>
 </ul>
 <h2 id="try-it-out">Try it out<a class="headerlink" href="#try-it-out" title="Permanent link">&para;</a></h2>
 <div class="txtl-options half">

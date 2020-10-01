@@ -1294,7 +1294,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.users" title="Users API Class" target="_blank" class="md-nav__link _blank">
+    <a href="https://textileio.github.io/js-textile/docs/hub.users" title="Users API Class" target="_blank" class="md-nav__link _blank">
       Users API Class
     </a>
   </li>
@@ -1306,7 +1306,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.buckets" title="Buckets API Class" target="_blank" class="md-nav__link _blank">
+    <a href="https://textileio.github.io/js-textile/docs/hub.buckets" title="Buckets API Class" target="_blank" class="md-nav__link _blank">
       Buckets API Class
     </a>
   </li>
@@ -1318,7 +1318,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://textileio.github.io/js-hub/docs/hub.client" title="ThreadDB API Class" target="_blank" class="md-nav__link _blank">
+    <a href="https://textileio.github.io/js-textile/docs/hub.client" title="ThreadDB API Class" target="_blank" class="md-nav__link _blank">
       ThreadDB API Class
     </a>
   </li>
@@ -1824,12 +1824,12 @@
 <h2 id="advanced-identity-providers">Advanced identity providers<a class="headerlink" href="#advanced-identity-providers" title="Permanent link">&para;</a></h2>
 <h3 id="public-key-provider">Public key provider<a class="headerlink" href="#public-key-provider" title="Permanent link">&para;</a></h3>
 <p>The below describe two generic identity interfaces used. You can import these interfaces from <code>@textile/hub</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Read more https://textileio.github.io/js-hub/docs/hub.public</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Read more https://textileio.github.io/js-textile/docs/hub.public</span>
 <span class="kr">interface</span> <span class="nx">Public</span> <span class="p">{</span>
   <span class="nx">verify</span><span class="p">(</span><span class="nx">data</span>: <span class="kt">Buffer</span><span class="p">,</span> <span class="nx">sig</span>: <span class="kt">Buffer</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span>
 <span class="p">}</span>
 
-<span class="c1">// Read more https://textileio.github.io/js-hub/docs/hub.identity</span>
+<span class="c1">// Read more https://textileio.github.io/js-textile/docs/hub.identity</span>
 <span class="kr">interface</span> <span class="nx">Identity</span> <span class="p">{</span>
   <span class="nx">sign</span><span class="p">(</span><span class="nx">data</span>: <span class="kt">Buffer</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">Buffer</span><span class="o">&gt;</span>
   <span class="kr">public</span><span class="o">:</span> <span class="nx">Public</span>
