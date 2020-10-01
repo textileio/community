@@ -156,9 +156,9 @@ nav:
       - Build with NodeJS: tutorials/nodejs.md
       - Production authentication: tutorials/hub/production-auth.md
       - Externals:
-          - Users API Class: https://textileio.github.io/js-hub/docs/hub.users
-          - Buckets API Class: https://textileio.github.io/js-hub/docs/hub.buckets
-          - ThreadDB API Class: https://textileio.github.io/js-hub/docs/hub.client
+          - Users API Class: https://textileio.github.io/js-textile/docs/hub.users
+          - Buckets API Class: https://textileio.github.io/js-textile/docs/hub.buckets
+          - ThreadDB API Class: https://textileio.github.io/js-textile/docs/hub.client
   - Go Reference:
       - Getting started with Go: tutorials/go/getting-started.md
       - Externals:

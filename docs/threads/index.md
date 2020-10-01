@@ -16,7 +16,7 @@ The first is written in Go and can be found at [https://github.com/textileio/go-
 
 #### JavaScript
 
-The second implementation is written in JavaScript (Typescript, really). This implementation has some optimizations to make it more ideal when writing web applications. The JavaScript implementation is currently a Client of the Go implementation. You can run it against your own go-threads instance or connect it to the Textile Hub to use one of ours. Read more about the [Client here](https://textileio.github.io/js-hub/docs/hub.client).
+The second implementation is written in JavaScript (Typescript, really). This implementation has some optimizations to make it more ideal when writing web applications. The JavaScript implementation is currently a Client of the Go implementation. You can run it against your own go-threads instance or connect it to the Textile Hub to use one of ours. Read more about the [Client here](https://textileio.github.io/js-textile/docs/hub.client).
 
 In general, when you are building apps that use threads in remote context (e.g. the browser) it's best to push the networking later to remote services whenever possible (while using/allowing p2p when it works). You can also build your own remote relays and services using the [go-threads](https://github.com/textileio/go-threads/) library.
 
@@ -83,7 +83,7 @@ async function createDB (client: Client) {
 }
 ```
 
-Congrats! You now have a new ThreadDB! Each ThreadDB has a unique [ThreadID](https://textileio.github.io/js-hub/docs/hub.threadid). You can create your own ThreadIDs, or easily generate a random ThreadID as we do in the above example.
+Congrats! You now have a new ThreadDB! Each ThreadDB has a unique [ThreadID](https://textileio.github.io/js-textile/docs/hub.threadid). You can create your own ThreadIDs, or easily generate a random ThreadID as we do in the above example.
 
 ### Invite
 
@@ -218,7 +218,7 @@ ThreadDB allows you to handle user identities (for access control and security/e
 
 1. [Create an Account](../hub/accounts.md#account-setup)
 2. [Create an App Token](../hub/apis.md#api-access)
-3. <a href="https://textileio.github.io/js-hub" target="_blank">Add the Textile Hub Library to your App</a>
+3. <a href="https://textileio.github.io/js-textile" target="_blank">Add the Textile Hub Library to your App</a>
 
 ### Pinning, Relay, and Replication
 

@@ -144,7 +144,7 @@ Every Bucket you create has a unique ID associated with it. The Bucket ID is an 
     <p>Read the full CLI documentation.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://textileio.github.io/js-hub" target="_blank" class="box">
+  <a href="https://textileio.github.io/js-textile" target="_blank" class="box">
     <h5>Textile JavaScript SDK</h5>
     <p>Persist Buckets on IPFS from your JavaScript app.</p>
   </a>
