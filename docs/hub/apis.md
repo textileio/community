@@ -6,13 +6,13 @@ In this section, we'll walk through the basic concepts useful when building your
 
 ### Buckets
 
-[Buckets](../buckets/index.md) provide S3-like data storage on IPFS. Just as you can create Buckets with the [Hub CLI](../hub/cli/hub.md), you can create Buckets using JavaScript with [js-hub](#libraries).
+[Buckets](../buckets/index.md) provide S3-like data storage on IPFS. Just as you can create Buckets with the [Hub CLI](../hub/cli/hub.md), you can create Buckets using JavaScript with [js-textile](#libraries).
 
-The [js-hub](#libraries) library allows you to create and edit Buckets owned by you or your organization using an [account key](#account-key). Alternatively, you can use Buckets to store your user's data using a [user group key](#user-group-key).
+The [js-textile](#libraries) library allows you to create and edit Buckets owned by you or your organization using an [account key](#account-key). Alternatively, you can use Buckets to store your user's data using a [user group key](#user-group-key).
 
 ### ThreadDB
 
-[ThreadDB](../threads/index.md) is a mongo-like database that runs on IPFS. You can use [js-hub](#libraries) connect to the Hub's hosted thread server (`Client`) to push and persist encrypted data on an IPFS-backed database. Alternatively, you can embed local, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates (`Database`). 
+[ThreadDB](../threads/index.md) is a mongo-like database that runs on IPFS. You can use [js-textile](#libraries) connect to the Hub's hosted thread server (`Client`) to push and persist encrypted data on an IPFS-backed database. Alternatively, you can embed local, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates (`Database`). 
 
 ### User Inboxes
 
@@ -90,7 +90,7 @@ _[See CLI commands](../hub/cli/hub_keys.md)_
 You can find all remote Thread and Bucket APIs in the `textile` libraries below. These libraries are meant to work in combination with the `threads` libraries when you want to create and manage Threads database in your app. 
 
 <div class="txtl-options">
-  <a href="https://textileio.github.io/js-hub/docs/" target="_blank" class="box">
+  <a href="https://textileio.github.io/js-textile/docs/" target="_blank" class="box">
     <h5>JS Hub</h5>
     <p>Start threads, buckets, and user creation in any JavaScript app.</p>
   </a>

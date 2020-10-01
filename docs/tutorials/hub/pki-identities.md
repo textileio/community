@@ -97,12 +97,12 @@ Time to setup your app in [development mode](development-mode.md).
 The below describe two generic identity interfaces used. You can import these interfaces from `@textile/hub`.
 
 ```typescript
-// Read more https://textileio.github.io/js-hub/docs/hub.public
+// Read more https://textileio.github.io/js-textile/docs/hub.public
 interface Public {
   verify(data: Buffer, sig: Buffer): Promise<boolean>
 }
 
-// Read more https://textileio.github.io/js-hub/docs/hub.identity
+// Read more https://textileio.github.io/js-textile/docs/hub.identity
 interface Identity {
   sign(data: Buffer): Promise<Buffer>
   public: Public

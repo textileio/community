@@ -12,7 +12,7 @@ repos = [
   'textileio/js-ipfs-lite',
   'textileio/js-examples',
   'textileio/js-powergate-client',
-  'textileio/js-hub',
+  'textileio/js-textile',
   'textileio/grpc-ipfs-lite',
   'textileio/dart-threads-client',
   'textileio/dart-textile',

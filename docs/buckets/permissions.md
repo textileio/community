@@ -97,7 +97,7 @@ Success! You can see the new user has been added as a writer to the path `/path/
     <p>View the tutorial on adding Buckets to your JavaScript app.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://textileio.github.io/js-hub" target="_blank" class="box">
+  <a href="https://textileio.github.io/js-textile" target="_blank" class="box">
     <h5>JS Hub Docs</h5>
     <p>Persist user buckets on IPFS from your JS app.</p>
   </a>

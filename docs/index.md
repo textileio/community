@@ -46,7 +46,7 @@ Buckets are a new way to pin data to IPFS and archive data on Filecoin. Buckets 
     <p>Read about adding buckets to your app for users.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://textileio.github.io/js-hub/docs/hub.buckets" target="_blank" class="box">
+  <a href="https://textileio.github.io/js-textile/docs/hub.buckets" target="_blank" class="box">
     <h5>Buckets JavaScript</h5>
     <p>Jump over to the JavaScript documentation.</p>
   </a>
