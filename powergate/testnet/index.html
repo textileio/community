@@ -1776,8 +1776,8 @@ mined block in the past <span class="o">{</span><span class="s2">&quot;block-tim
 <h3 id="bootstrap-from-a-snapshot">Bootstrap from a snapshot<a class="headerlink" href="#bootstrap-from-a-snapshot" title="Permanent link">&para;</a></h3>
 <p>Syncing a new Lotus node from genesis can take a considerable time. The current <code>testnet</code> network is providing snapshots of the VM state every 6hrs, which means, in the worst case, syncing 6hs of new blocks.
 Bootstraping the Lotus node from a snapshot implies complete trust in the party who generated the snapshot, so this is a pragmatic solution for getting up to speed fast. Depending on your use case you should consider the security risks of accepting snapshots from trusted parties.</p>
-<p>In order to boostrap from a snapshot in <code>testnet</code>, download the <a href="https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car">snapshot CAR file</a>. This file is maintained up to date by Protocol Labs.
-We're going to assume this CAR file was downloaded to your local path: <code>/home/myuser/snapshots/Spacerace_stateroots_snapshot_latest.car</code>.</p>
+<p>In order to boostrap from a snapshot in <code>testnet</code>, download the <a href="https://very-temporary-spacerace-chain-snapshot.s3.amazonaws.com/Spacerace_pruned_stateroots_snapshot_latest.car">snapshot CAR file</a>. This file is maintained up to date by Protocol Labs.
+We're going to assume this CAR file was downloaded to your local path: <code>/home/myuser/snapshots/Spacerace_pruned_stateroots_snapshot_latest.car</code>.</p>
 <p>You should edit the <code>docker/docker-compose.yaml</code> file adding two lines:
 <figure><img src="https://user-images.githubusercontent.com/6136245/93375329-6383fd80-f82e-11ea-9850-2970f30a793c.png" /><figcaption>image</figcaption>
 </figure>
