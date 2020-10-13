@@ -130,6 +130,7 @@ Join our public [Slack](https://slack.textile.io), visit our [GitHub](https://gi
 To all of the great people who have contributed to the [Textile projects](https://github.com/textileio) recently.
 
 <div class='txtl-community'>
+  <a href='https://github.com/10thfloor' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/901466?v=4'/></a>
   <a href='https://github.com/ArseniiPetrovich' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/23522179?v=4'/></a>
   <a href='https://github.com/Gozala' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/21236?v=4'/></a>
   <a href='https://github.com/Jewcub' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/52448067?v=4'/></a>
@@ -139,6 +140,7 @@ To all of the great people who have contributed to the [Textile projects](https:
   <a href='https://github.com/TeNNoX' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/2084639?v=4'/></a>
   <a href='https://github.com/abour' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/1284598?v=4'/></a>
   <a href='https://github.com/adgitate1' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/8494994?v=4'/></a>
+  <a href='https://github.com/agnelvishal' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/10105332?v=4'/></a>
   <a href='https://github.com/alzinging' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/46663325?v=4'/></a>
   <a href='https://github.com/andrew' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/1060?v=4'/></a>
   <a href='https://github.com/andrewxhill' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/370259?v=4'/></a>
@@ -173,7 +175,6 @@ To all of the great people who have contributed to the [Textile projects](https:
   <a href='https://github.com/jtacoma' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/301423?v=4'/></a>
   <a href='https://github.com/kanej' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/24030?v=4'/></a>
   <a href='https://github.com/kingHawkWin' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/30660399?v=4'/></a>
-  <a href='https://github.com/mburns' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/5170?v=4'/></a>
   <a href='https://github.com/oed' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/3909429?v=4'/></a>
   <a href='https://github.com/pcowgill' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/2731712?v=4'/></a>
   <a href='https://github.com/perfectmak' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/3120013?v=4'/></a>
