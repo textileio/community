@@ -80,26 +80,26 @@ Here is an example of the _default StorageConfig_.
     // Filecoin describes the desired Filecoin configuration for a
     // Cid in the Filecoin network.
     "Filecoin": {
-    	// RepFactor indicates the desired amount of active deals
-    	// with different miners to store the data. While making deals
-    	// the other attributes of FilConfig are considered for miner
+      // RepFactor indicates the desired amount of active deals
+      // with different miners to store the data. While making deals
+      // the other attributes of FilConfig are considered for miner
       // selection.
       "RepFactor": 1,
-    	// DealDuration indicates the duration to be used when making
+      // DealDuration indicates the duration to be used when making
       // new deals.
       "DealDuration": 1000,
-    	// ExcludedMiners is a set of miner addresses won't be ever be
+      // ExcludedMiners is a set of miner addresses won't be ever be
       // selected when making new deals, even if they comply to other
       // filters.
       "ExcludedMiners": null,
-    	// TrustedMiners is a set of miner addresses which will be
+      // TrustedMiners is a set of miner addresses which will be
       // forcibly used when making new deals. An empty/nil list
       // disables this feature.
       "TrustedMiners": null,
-    	// CountryCodes indicates that new deals should select miners
+      // CountryCodes indicates that new deals should select miners
       // on specific countries.
       "CountryCodes": null,
-    	// Renew indicates deal-renewal configuration.
+      // Renew indicates deal-renewal configuration.
       "Renew": {
         // Enabled indicates that deal-renewal is enabled for this
         // Cid.
@@ -108,10 +108,19 @@ Here is an example of the _default StorageConfig_.
         // trigger deal renewal. e.g: 100 epoch before expiring.
         "Threshold": 0
       },
-    	// Addr is the wallet address used to store the data in filecoin
+      // Addr is the wallet address used to store the data in filecoin
       "Addr": "<unique>",
-      // MaxPrice is the maximum price that will be spent per RepFactor to store the data in units of attoFIL per GiB per epoch
-      "MaxPrice": 0
+      // MaxPrice is the maximum price that will be spent per RepFactor 
+      // to store the data in units of attoFIL per GiB per epoch
+      "MaxPrice": 0,
+      // FastRetrieval indicates that created deals should enable the
+      // fast retrieval feature.
+      "FastRetrieval": true,
+      // DealStartOffset indicates how many epochs in the future impose a
+      // deadline to new deals being active on-chain. This value might influence
+      // if miners accept deals, since they should seal fast enough to satisfy
+      // this constraint.
+      "DealStartOffset": 8640 // Equivalent to 72 hours
     }
   },
   // If true, Powergate will detect if the data is no longer
