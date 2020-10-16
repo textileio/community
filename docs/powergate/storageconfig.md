@@ -110,7 +110,7 @@ Here is an example of the _default StorageConfig_.
       },
     	// Addr is the wallet address used to store the data in filecoin
       "Addr": "<unique>",
-      // MaxPrice is the maximum price that will be spent per miner to store the data in attoFIL per GiB per epoch
+      // MaxPrice is the maximum price that will be spent per RepFactor to store the data in units of attoFIL per GiB per epoch
       "MaxPrice": 0
     }
   },
