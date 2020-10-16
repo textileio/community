@@ -92,9 +92,9 @@ nav:
       - Installation & Setup: hub/accounts.md
       - APIs & API Keys: hub/apis.md
       - Bucket Storage:
-        - Overview: buckets/index.md
-        - Permissions: buckets/permissions.md
-        - Filecoin Archiving: buckets/archiving.md
+          - Overview: buckets/index.md
+          - Permissions: buckets/permissions.md
+          - Filecoin Archiving: buckets/archiving.md
       - ThreadDB Overview: threads/index.md
       - User Mailboxes: users/index.md
       - Powergate (Filecoin):
@@ -197,4 +197,3 @@ extra:
     max_bucket_size: 4GiB
     max_account_size: 4GiB
     max_buckets_per_thread: 10000
-
