@@ -8,15 +8,15 @@ Bucket archiving allows you to leverage the purely decentralized nature of Filec
 
     Archives are **only** encrypted if your bucket was configured to be encrypted.
 
-    The Textile Hub is currently connected to Testnet, this network is for experimental usage only and you should not rely on data stored on the Testnet to be available. Testnet can and will likely reset.
+    The Textile Hub is currently connected to Mainnet and account balances are in FIL.
 
-    Account balances are in FIL from the Testnet. This FIL has no monetary value, cannot be transferred, and can only be used for bucket archiving experiments. 
-
-    When you create a new archive, you store your data on the decentralized Filecoin network and _outside_ of the Textile platform. We provide this connection for users but do not offer any guarantees about the Filecoin Testnet network, data privacy or security, or access and availability once you create deals on that network.
+    When you create a new archive, you store your data on the decentralized Filecoin network and _outside_ of the Textile platform. We provide this connection for users but do not offer any guarantees about the Filecoin network, data privacy or security, or access and availability once you create deals on that network.
+    
+    Read our full [terms](../policies/terms.md) and use these features with caution. 
 
 ## Create your first archive
 
-Archiving is available in all of the Textile client libraries and can be requested on a developer, user, or organization buckets. To start testing archiving, let's use a bucket created in the `hub` CLI. 
+Archiving is available in all Textile client libraries and can be requested on a developer, user, or organization buckets. To start testing archiving, let's use a bucket created in the `hub` CLI. 
 
 Let's try archiving the bucket.
 
@@ -26,7 +26,7 @@ hub buck archive
 ? Proceed? [y/N]
 ```
 
-The Hub is connected to the Filecoin testnet, so any archiving deal you create will be created on [that experimental version](../powergate/testnet.md) of the network.
+The Hub is connected to the Filecoin Mainnet, so any archiving deal you created on that network.
 
 You should see a success message if you proceed.
 

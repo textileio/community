@@ -13,7 +13,7 @@ The FFS API is scoped to one or more Filecoin wallet addresses. So to start acce
 Anytime you use the FFS API (including use through the CLI), you will supply the _token_ to indicate which _FFS Instance_ your requests are targeting. Since each FFS Instance has its own address, it has its own balance and therefor limits on the Filecoin network.
 
 !!!Warning
-    If you're providing a `--lotusmasteraddr` and `--walletinitialfund`, be sure that address exists in the Lotus node and it has enough funds, since `walletinitialfund` attoFILs will be sent from there to fund from newly created FFS instances. Recall that both flags are optional, and if not present there won't be any auto-funding transaction, so you're responsible to fund wallet addresses of new FFS instances. You can fund any testnet wallet address using the official Lotus Faucet.
+    If you're providing a `--lotusmasteraddr` and `--walletinitialfund`, be sure that address exists in the Lotus node and it has enough funds, since `walletinitialfund` attoFILs will be sent from there to fund from newly created FFS instances. Recall that both flags are optional, and if not present there won't be any auto-funding transaction, so you're responsible to fund wallet addresses of new FFS instances. 
 
 ## Multi-tiered design
 
@@ -25,7 +25,7 @@ Data stored in the Powergate hot layer is available to the IPFS network (or priv
 
 ### Cold storage layer
 
-Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (localnet or testnet). You can use the [StorageConfig](storageconfig.md) to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default `StorageConfig` enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.
+Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (localnet or mainnet). You can use the [StorageConfig](storageconfig.md) to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default `StorageConfig` enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.
 
 ### Moving between tiers
 
