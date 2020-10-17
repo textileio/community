@@ -48,6 +48,7 @@ plugins:
         "hub/buckets.md": "buckets/index.md"
         "threads/introduction.md": "threads/index.md"
         "powergate/introduction.md": "powergate/index.md"
+        "powergate/testnet.md": "powergate/mainnet.md"
         "powergate/devnet.md": "powergate/localnet.md"
         "tutorials/hub/user-login-endpoint.md": "tutorials/hub/production-auth.md"
         "tutorials/hub/libp2p-identities.md": "tutorials/hub/pki-identities.md"
@@ -100,7 +101,7 @@ nav:
       - Powergate (Filecoin):
           - Introduction: powergate/index.md
           - Localnet: powergate/localnet.md
-          - Testnet: powergate/testnet.md
+          - Mainnet: powergate/mainnet.md
           - Store Data:
               - Intro to FFS: powergate/ffs.md
               - Storage Configs: powergate/storageconfig.md

@@ -1,4 +1,4 @@
-# Filecoin Testnet
+# Filecoin Questions
 
 Here are some questions that usually get asked by the community.
 
@@ -79,7 +79,7 @@ You could ignore those errors since Powergate is not relying on the Lotus client
 
 We preferred not to completely hide errors this external package just in case we discover new problems.
 
-### I've made a deal in Testnet/SR2, how can I know everything is working okay?
+### I've made a deal in Mainnet/Testnet/SR2, how can I know everything is working okay?
 
 We recommend using the `pow ffs -t <ffs-token> log <pushed-cid>` which provides a human-friendy output.
 Creating deals on any Filecoin network can take more than 10hrs in the usual case, and many things can go wrong since Powergate is being relatively open to miners that provide storage in the network, so they might go offline at any time, be unreliable, or have network problems.

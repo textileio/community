@@ -7,7 +7,7 @@ hero_img: ../images/powergate-hero.png
 The Powergate is an API driven solution for deploying multitiered storage across [Filecoin](https://filecoin.io/) and [IPFS](https://ipfs.io/). Persistent storage on Filecoin allows rich storage configuration for data such as replication factor, miner selection, deal renewal, and repair. Network available storage is configurable and provided through a connected IPFS peer or pinning network.
 
 !!!Warning
-    The Powergate will remain in rapid development until close to the Filecoin Mainnet launch. During this time, will likely encounter bugs and unannounced API changes. Do not run the Powergate in production systems.
+    The Powergate will remain in rapid development until a formal release. During this time, will likely encounter bugs and unannounced API changes. Do not run the Powergate in production systems and please join the powergate-users channel in the[ Filecoin community Slack](https://filecoin.io/slack) for announcements and support. 
 
 ## Overview
 
@@ -118,7 +118,7 @@ The Powergate APIs are available as gRPC endpoints. There are three ways to get 
 
 The Powergate comes packed with a number of additional tools that will be useful to you as you integrate it into your system.
 
-- [Lotus](https://lotu.sh/). A Lotus node running on the current Testnet.
+- [Lotus](https://lotu.sh/). A Lotus node running on the Filecoin network.
 - [IPFS](https://ipfs.io/). A full IPFS node running to back Powergate FFS.
 - [Prometheus](https://prometheus.io/). The backend for metrics processing.
 - [Grafana](https://grafana.com/). Providing metrics dashboard.
@@ -126,15 +126,15 @@ The Powergate comes packed with a number of additional tools that will be useful
 
 ### Running the Powergate
 
-You can run the Powergate on the Filecoin testnet or using an embedded localnet we make available as part of the Powergate stack. We recommend starting out with the localnet as you'll get access to the full set of APIs and capabilities without having to start syncing the network right away. When ready, you can update your Powergate to connect to the live _testnet_ and in the future _mainnet_.
+You can run the Powergate on the Filecoin mainnet or using an embedded localnet we make available as part of the Powergate stack. We recommend starting out with the localnet as you'll get access to the full set of APIs and capabilities without having to start syncing the network right away. When ready, you can update your Powergate to connect to the live _mainnet_.
 
 #### Localnet
 
 The localnet provides a fast, fully functional, embedded Filecoin network that can be used for testing, building, or running continuous integratin. Read more about [running the Powergate on localnet or running the localnet to use the Lotus client directly](localnet.md).
 
-#### Testnet
+#### Mainnet
 
-Once you are ready to start using the Powergate with the Filecoin Testnet, it's just a single line.  
+Once you are ready to start using the Powergate with the Filecoin Mainnet, it's just a single line.  
 
 ```bash
 git clone git@github.com:textileio/powergate.git
@@ -143,10 +143,6 @@ make up
 ```
 
 [Read the latest setup instructions](https://github.com/textileio/powergate/#production-setup).
-
-#### Mainnet
-
-When Filecoin Mainnet launches, we'll provide setup steps like the Testnet steps above.
 
 ## Learn more
 
