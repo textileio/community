@@ -13,7 +13,7 @@
         <meta name="description" content="Textile makes it easy for you or your application to store and distribute data over the IPFS network.">
       
       
-        <link rel="canonical" href="https://docs.textile.io/powergate/cli/pow_wallet_send/">
+        <link rel="canonical" href="https://docs.textile.io/powergate/cli/pow_ffs_sign/">
       
       
         <meta name="author" content="textile.io">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Pow wallet send | Documentation | Textile</title>
+        <title>Pow ffs sign | Documentation | Textile</title>
       
     
     
@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#pow-wallet-send" tabindex="1" class="md-skip">
+      <a href="#pow-ffs-sign" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              Pow wallet send
+              Pow ffs sign
             </span>
           
         </div>
@@ -1543,8 +1543,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pow-wallet-send" title="pow wallet send" class="md-nav__link">
-    pow wallet send
+  <a href="#pow-ffs-sign" title="pow ffs sign" class="md-nav__link">
+    pow ffs sign
   </a>
   
     <nav class="md-nav">
@@ -1601,20 +1601,21 @@
               
                 
                 
-                  <a href="https://github.com/textileio/docs/edit/master/docs/powergate/cli/pow_wallet_send.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/textileio/docs/edit/master/docs/powergate/cli/pow_ffs_sign.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Pow wallet send</h1>
+                  <h1>Pow ffs sign</h1>
                 
-                <h2 id="pow-wallet-send">pow wallet send<a class="headerlink" href="#pow-wallet-send" title="Permanent link">&para;</a></h2>
-<p>Send Fil from one address to another</p>
+                <h2 id="pow-ffs-sign">pow ffs sign<a class="headerlink" href="#pow-ffs-sign" title="Permanent link">&para;</a></h2>
+<p>Signs a message with FFS wallet addresses.</p>
 <h3 id="synopsis">Synopsis<a class="headerlink" href="#synopsis" title="Permanent link">&para;</a></h3>
-<p>Send Fil from one address to another</p>
-<div class="highlight"><pre><span></span><code>pow wallet send [from address] [to address] [amount] [flags]
+<p>Signs a message using all wallet addresses associated with the instance</p>
+<div class="highlight"><pre><span></span><code>pow ffs sign [hex-encoded-message] [flags]
 </code></pre></div>
 
 <h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>  -h, --help   help for send
+<div class="highlight"><pre><span></span><code>  -h, --help           help for sign
+  -t, --token string   token of the request
 </code></pre></div>
 
 <h3 id="options-inherited-from-parent-commands">Options inherited from parent commands<a class="headerlink" href="#options-inherited-from-parent-commands" title="Permanent link">&para;</a></h3>
@@ -1623,7 +1624,7 @@
 
 <h3 id="see-also">SEE ALSO<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../pow_wallet/">pow wallet</a>    - Provides commands about filecoin wallets</li>
+<li><a href="../pow_ffs/">pow ffs</a>  - Provides commands to manage ffs</li>
 </ul>
                 
                   
