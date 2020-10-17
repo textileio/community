@@ -1,6 +1,8 @@
 # Bucket Archiving
 
-Bucket archiving is one of the latest features to arrive at Textile. Archiving is the process of taking the existing snapshot of your bucket content and storing it on [Filecoin](https://filecoin.io/). Filecoin is still considered experimental, but it is ready to be tested and built on by the right app developers. So, what is bucket archiving?
+Bucket archiving is one of the latest features to arrive at Textile. Archiving is the process of taking the existing snapshot of your bucket content and storing it on [Filecoin](https://filecoin.io/). While the Hub is ready to be tested and built on by the right app developers, use it with caution.
+
+So, what is bucket archiving?
 
 Bucket archiving allows you to leverage the purely decentralized nature of Filecoin for the storage of your buckets. Check out this [video](https://www.youtube.com/watch?v=jiBUxIi1zko&feature=emb_title&ab_channel=IgnacioHagopian) from a [blog post](https://blog.textile.io/buckets-diffing-syncing-archiving/) demonstrating Filecoin bucket recovery using the Lotus client.
 
