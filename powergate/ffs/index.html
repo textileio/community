@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
     
     
       
@@ -1846,14 +1846,14 @@
 <p>Anytime you use the FFS API (including use through the CLI), you will supply the <em>token</em> to indicate which <em>FFS Instance</em> your requests are targeting. Since each FFS Instance has its own address, it has its own balance and therefor limits on the Filecoin network.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If you're providing a <code>--lotusmasteraddr</code> and <code>--walletinitialfund</code>, be sure that address exists in the Lotus node and it has enough funds, since <code>walletinitialfund</code> attoFILs will be sent from there to fund from newly created FFS instances. Recall that both flags are optional, and if not present there won't be any auto-funding transaction, so you're responsible to fund wallet addresses of new FFS instances. You can fund any testnet wallet address using the official Lotus Faucet.</p>
+<p>If you're providing a <code>--lotusmasteraddr</code> and <code>--walletinitialfund</code>, be sure that address exists in the Lotus node and it has enough funds, since <code>walletinitialfund</code> attoFILs will be sent from there to fund from newly created FFS instances. Recall that both flags are optional, and if not present there won't be any auto-funding transaction, so you're responsible to fund wallet addresses of new FFS instances. </p>
 </div>
 <h2 id="multi-tiered-design">Multi-tiered design<a class="headerlink" href="#multi-tiered-design" title="Permanent link">&para;</a></h2>
 <p>The FFS provides you API access to multi-tiered storage system built on IPFS and Filecoin. In many places, we refer to these two tiers of storage as Hot (IFPS) and Cold (Filecoin). This mirrors multi-tiered storage often deployed with a hot storage layer in <em>memory</em> and a cold storage layer on <em>disk</em>.</p>
 <h3 id="hot-storage-layer">Hot storage layer<a class="headerlink" href="#hot-storage-layer" title="Permanent link">&para;</a></h3>
 <p>Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). The default <code>StorageConfig</code> enables both hot and cold for all new data stored. Data stored with hot enabled is pinned to the Powergate's IPFS node. </p>
 <h3 id="cold-storage-layer">Cold storage layer<a class="headerlink" href="#cold-storage-layer" title="Permanent link">&para;</a></h3>
-<p>Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (localnet or testnet). You can use the <a href="../storageconfig/">StorageConfig</a> to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default <code>StorageConfig</code> enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.</p>
+<p>Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (localnet or mainnet). You can use the <a href="../storageconfig/">StorageConfig</a> to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default <code>StorageConfig</code> enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.</p>
 <h3 id="moving-between-tiers">Moving between tiers<a class="headerlink" href="#moving-between-tiers" title="Permanent link">&para;</a></h3>
 <h4 id="hot-to-cold">Hot to Cold<a class="headerlink" href="#hot-to-cold" title="Permanent link">&para;</a></h4>
 <p>Data that is stored in the hot layer can be moved to cold storage in a couple different ways. The most common scenario is where data is stored initially with cold <em>disabled</em> and later a new <code>StorageConfig</code> is pushed that <em>enables</em> cold storage. In this scenario, Powergate will resolve the file from the hot layer, and create any newly required Filecoin deals to fulfill.</p>
@@ -2024,7 +2024,7 @@
     
       <script src="../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
         <script src="../../js/sidebar.js"></script>
       

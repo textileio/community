@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
     
     
       
@@ -1773,26 +1773,26 @@
     <span class="err">//</span> <span class="err">Filecoin</span> <span class="err">describes</span> <span class="err">the</span> <span class="err">desired</span> <span class="err">Filecoin</span> <span class="err">configuration</span> <span class="err">for</span> <span class="err">a</span>
     <span class="err">//</span> <span class="err">Cid</span> <span class="err">in</span> <span class="err">the</span> <span class="err">Filecoin</span> <span class="err">network.</span>
     <span class="nt">&quot;Filecoin&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="err">//</span> <span class="err">RepFactor</span> <span class="err">indicates</span> <span class="err">the</span> <span class="err">desired</span> <span class="err">amount</span> <span class="err">of</span> <span class="err">active</span> <span class="err">deals</span>
-      <span class="err">//</span> <span class="err">with</span> <span class="err">different</span> <span class="err">miners</span> <span class="err">to</span> <span class="err">store</span> <span class="err">the</span> <span class="err">data.</span> <span class="err">While</span> <span class="err">making</span> <span class="err">deals</span>
-      <span class="err">//</span> <span class="err">the</span> <span class="err">other</span> <span class="err">attributes</span> <span class="err">of</span> <span class="err">FilConfig</span> <span class="err">are</span> <span class="err">considered</span> <span class="err">for</span> <span class="err">miner</span>
+        <span class="err">//</span> <span class="err">RepFactor</span> <span class="err">indicates</span> <span class="err">the</span> <span class="err">desired</span> <span class="err">amount</span> <span class="err">of</span> <span class="err">active</span> <span class="err">deals</span>
+        <span class="err">//</span> <span class="err">with</span> <span class="err">different</span> <span class="err">miners</span> <span class="err">to</span> <span class="err">store</span> <span class="err">the</span> <span class="err">data.</span> <span class="err">While</span> <span class="err">making</span> <span class="err">deals</span>
+        <span class="err">//</span> <span class="err">the</span> <span class="err">other</span> <span class="err">attributes</span> <span class="err">of</span> <span class="err">FilConfig</span> <span class="err">are</span> <span class="err">considered</span> <span class="err">for</span> <span class="err">miner</span>
       <span class="err">//</span> <span class="err">selection.</span>
       <span class="nt">&quot;RepFactor&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="err">//</span> <span class="err">DealDuration</span> <span class="err">indicates</span> <span class="err">the</span> <span class="err">duration</span> <span class="err">to</span> <span class="err">be</span> <span class="err">used</span> <span class="err">when</span> <span class="err">making</span>
+        <span class="err">//</span> <span class="err">DealDuration</span> <span class="err">indicates</span> <span class="err">the</span> <span class="err">duration</span> <span class="err">to</span> <span class="err">be</span> <span class="err">used</span> <span class="err">when</span> <span class="err">making</span>
       <span class="err">//</span> <span class="err">new</span> <span class="err">deals.</span>
       <span class="nt">&quot;DealDuration&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
-      <span class="err">//</span> <span class="err">ExcludedMiners</span> <span class="err">is</span> <span class="err">a</span> <span class="err">set</span> <span class="err">of</span> <span class="err">miner</span> <span class="err">addresses</span> <span class="err">won&#39;t</span> <span class="err">be</span> <span class="err">ever</span> <span class="err">be</span>
+        <span class="err">//</span> <span class="err">ExcludedMiners</span> <span class="err">is</span> <span class="err">a</span> <span class="err">set</span> <span class="err">of</span> <span class="err">miner</span> <span class="err">addresses</span> <span class="err">won&#39;t</span> <span class="err">be</span> <span class="err">ever</span> <span class="err">be</span>
       <span class="err">//</span> <span class="err">selected</span> <span class="err">when</span> <span class="err">making</span> <span class="err">new</span> <span class="err">deals,</span> <span class="err">even</span> <span class="err">if</span> <span class="err">they</span> <span class="err">comply</span> <span class="err">to</span> <span class="err">other</span>
       <span class="err">//</span> <span class="err">filters.</span>
       <span class="nt">&quot;ExcludedMiners&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="err">//</span> <span class="err">TrustedMiners</span> <span class="err">is</span> <span class="err">a</span> <span class="err">set</span> <span class="err">of</span> <span class="err">miner</span> <span class="err">addresses</span> <span class="err">which</span> <span class="err">will</span> <span class="err">be</span>
+        <span class="err">//</span> <span class="err">TrustedMiners</span> <span class="err">is</span> <span class="err">a</span> <span class="err">set</span> <span class="err">of</span> <span class="err">miner</span> <span class="err">addresses</span> <span class="err">which</span> <span class="err">will</span> <span class="err">be</span>
       <span class="err">//</span> <span class="err">forcibly</span> <span class="err">used</span> <span class="err">when</span> <span class="err">making</span> <span class="err">new</span> <span class="err">deals.</span> <span class="err">An</span> <span class="err">empty/nil</span> <span class="err">list</span>
       <span class="err">//</span> <span class="err">disables</span> <span class="err">this</span> <span class="err">feature.</span>
       <span class="nt">&quot;TrustedMiners&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="err">//</span> <span class="err">CountryCodes</span> <span class="err">indicates</span> <span class="err">that</span> <span class="err">new</span> <span class="err">deals</span> <span class="err">should</span> <span class="err">select</span> <span class="err">miners</span>
+        <span class="err">//</span> <span class="err">CountryCodes</span> <span class="err">indicates</span> <span class="err">that</span> <span class="err">new</span> <span class="err">deals</span> <span class="err">should</span> <span class="err">select</span> <span class="err">miners</span>
       <span class="err">//</span> <span class="err">on</span> <span class="err">specific</span> <span class="err">countries.</span>
       <span class="nt">&quot;CountryCodes&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="err">//</span> <span class="err">Renew</span> <span class="err">indicates</span> <span class="err">deal-renewal</span> <span class="err">configuration.</span>
+        <span class="err">//</span> <span class="err">Renew</span> <span class="err">indicates</span> <span class="err">deal-renewal</span> <span class="err">configuration.</span>
       <span class="nt">&quot;Renew&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="err">//</span> <span class="err">Enabled</span> <span class="err">indicates</span> <span class="err">that</span> <span class="err">deal-renewal</span> <span class="err">is</span> <span class="err">enabled</span> <span class="err">for</span> <span class="err">this</span>
         <span class="err">//</span> <span class="err">Cid.</span>
@@ -1801,19 +1801,9 @@
         <span class="err">//</span> <span class="err">trigger</span> <span class="err">deal</span> <span class="err">renewal.</span> <span class="err">e.g:</span> <span class="err">100</span> <span class="err">epoch</span> <span class="err">before</span> <span class="err">expiring.</span>
         <span class="nt">&quot;Threshold&quot;</span><span class="p">:</span> <span class="mi">0</span>
       <span class="p">},</span>
-      <span class="err">//</span> <span class="err">Addr</span> <span class="err">is</span> <span class="err">the</span> <span class="err">wallet</span> <span class="err">address</span> <span class="err">used</span> <span class="err">to</span> <span class="err">store</span> <span class="err">the</span> <span class="err">data</span> <span class="err">in</span> <span class="err">filecoin</span>
+        <span class="err">//</span> <span class="err">Addr</span> <span class="err">is</span> <span class="err">the</span> <span class="err">wallet</span> <span class="err">address</span> <span class="err">used</span> <span class="err">to</span> <span class="err">store</span> <span class="err">the</span> <span class="err">data</span> <span class="err">in</span> <span class="err">filecoin</span>
       <span class="nt">&quot;Addr&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;unique&gt;&quot;</span><span class="p">,</span>
-      <span class="err">//</span> <span class="err">MaxPrice</span> <span class="err">is</span> <span class="err">the</span> <span class="err">maximum</span> <span class="err">price</span> <span class="err">that</span> <span class="err">will</span> <span class="err">be</span> <span class="err">spent</span> <span class="err">per</span> <span class="err">RepFactor</span> 
-      <span class="err">//</span> <span class="err">to</span> <span class="err">store</span> <span class="err">the</span> <span class="err">data</span> <span class="err">in</span> <span class="err">units</span> <span class="err">of</span> <span class="err">attoFIL</span> <span class="err">per</span> <span class="err">GiB</span> <span class="err">per</span> <span class="err">epoch</span>
-      <span class="nt">&quot;MaxPrice&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="err">//</span> <span class="err">FastRetrieval</span> <span class="err">indicates</span> <span class="err">that</span> <span class="err">created</span> <span class="err">deals</span> <span class="err">should</span> <span class="err">enable</span> <span class="err">the</span>
-      <span class="err">//</span> <span class="err">fast</span> <span class="err">retrieval</span> <span class="err">feature.</span>
-      <span class="nt">&quot;FastRetrieval&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="err">//</span> <span class="err">DealStartOffset</span> <span class="err">indicates</span> <span class="err">how</span> <span class="err">many</span> <span class="err">epochs</span> <span class="err">in</span> <span class="err">the</span> <span class="err">future</span> <span class="err">impose</span> <span class="err">a</span>
-      <span class="err">//</span> <span class="err">deadline</span> <span class="err">to</span> <span class="err">new</span> <span class="err">deals</span> <span class="err">being</span> <span class="err">active</span> <span class="err">on-chain.</span> <span class="err">This</span> <span class="err">value</span> <span class="err">might</span> <span class="err">influence</span>
-      <span class="err">//</span> <span class="err">if</span> <span class="err">miners</span> <span class="err">accept</span> <span class="err">deals,</span> <span class="err">since</span> <span class="err">they</span> <span class="err">should</span> <span class="err">seal</span> <span class="err">fast</span> <span class="err">enough</span> <span class="err">to</span> <span class="err">satisfy</span>
-      <span class="err">//</span> <span class="err">this</span> <span class="err">constraint.</span>
-      <span class="nt">&quot;DealStartOffset&quot;</span><span class="p">:</span> <span class="mi">8640</span> <span class="err">//</span> <span class="err">Equivalent</span> <span class="err">to</span> <span class="mi">72</span> <span class="err">hours</span>
+      <span class="nt">&quot;MaxPrice&quot;</span><span class="p">:</span> <span class="mi">0</span>
     <span class="p">}</span>
   <span class="p">},</span>
   <span class="err">//</span> <span class="err">If</span> <span class="err">true,</span> <span class="err">Powergate</span> <span class="err">will</span> <span class="err">detect</span> <span class="err">if</span> <span class="err">the</span> <span class="err">data</span> <span class="err">is</span> <span class="err">no</span> <span class="err">longer</span>
@@ -1914,7 +1904,7 @@
     
       <script src="../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
         <script src="../../js/sidebar.js"></script>
       
