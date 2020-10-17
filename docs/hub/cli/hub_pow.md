@@ -20,7 +20,6 @@ Interact with Powergate.
 * [hub pow new-addr](hub_pow_new-addr.md)	 - Create a Filecoin wallet addresses associated with the current account or org
 * [hub pow peers](hub_pow_peers.md)	 - List Powergate's Filecoin peers
 * [hub pow retrievals](hub_pow_retrievals.md)	 - List Powergate retrieval deal records associated with the current account or org
-* [hub pow send-fil](hub_pow_send-fil.md)	 - Send FIL from an address associated with the current account or org to any other account
 * [hub pow show](hub_pow_show.md)	 - Display information about a stored CID
 * [hub pow show-all](hub_pow_show-all.md)	 - Display information about all stored CIDs
 * [hub pow storage](hub_pow_storage.md)	 - List Powergate storage deal records associated with the current account or org

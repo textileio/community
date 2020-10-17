@@ -1,9 +1,9 @@
 # hub buck links
 
-Displays a thread, IPNS, and website link to this bucket.
+Displays a thread, IPNS, and website link to a bucket object. Omit path to display the top-level links.
 
 ```
-hub buck links [flags]
+hub buck links [path] [flags]
 ```
 
 ### Options

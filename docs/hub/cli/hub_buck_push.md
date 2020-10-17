@@ -12,6 +12,7 @@ hub buck push [flags]
   -f, --force         Allows non-fast-forward updates if true
   -h, --help          help for push
       --maxsize int   Max bucket size in MiB (default 1024)
+  -q, --quiet         Write minimal output
   -y, --yes           Skips the confirmation prompt if true
 ```
 

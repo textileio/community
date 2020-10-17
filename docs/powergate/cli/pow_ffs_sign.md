@@ -1,20 +1,20 @@
-## pow ffs show
+## pow ffs sign
 
-Show pinned cid data
+Signs a message with FFS wallet addresses.
 
 ### Synopsis
 
-Show pinned cid data
+Signs a message using all wallet addresses associated with the instance
 
 ```
-pow ffs show [optional cid] [flags]
+pow ffs sign [hex-encoded-message] [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help           help for show
-  -t, --token string   FFS auth token
+  -h, --help           help for sign
+  -t, --token string   token of the request
 ```
 
 ### Options inherited from parent commands
