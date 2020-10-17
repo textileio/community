@@ -525,13 +525,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#testnet" title="Testnet" class="md-nav__link">
-    Testnet
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#mainnet" title="Mainnet" class="md-nav__link">
     Mainnet
   </a>
@@ -611,8 +604,8 @@
 
 
   <li class="md-nav__item">
-    <a href="testnet/" title="Testnet" target="" class="md-nav__link ">
-      Testnet
+    <a href="mainnet/" title="Mainnet" target="" class="md-nav__link ">
+      Mainnet
     </a>
   </li>
 
@@ -1794,13 +1787,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#testnet" title="Testnet" class="md-nav__link">
-    Testnet
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#mainnet" title="Mainnet" class="md-nav__link">
     Mainnet
   </a>
@@ -1878,7 +1864,7 @@
 <p>The Powergate is an API driven solution for deploying multitiered storage across <a href="https://filecoin.io/">Filecoin</a> and <a href="https://ipfs.io/">IPFS</a>. Persistent storage on Filecoin allows rich storage configuration for data such as replication factor, miner selection, deal renewal, and repair. Network available storage is configurable and provided through a connected IPFS peer or pinning network.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The Powergate will remain in rapid development until close to the Filecoin Mainnet launch. During this time, will likely encounter bugs and unannounced API changes. Do not run the Powergate in production systems.</p>
+<p>The Powergate will remain in rapid development until a formal release. During this time, will likely encounter bugs and unannounced API changes. Do not run the Powergate in production systems and please join the powergate-users channel in the<a href="https://filecoin.io/slack"> Filecoin community Slack</a> for announcements and support. </p>
 </div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Powergate is a collection of libraries, modules, and configurations that can used independently, and composed together to integrate Filecoin into your application or storage system. The Powergate is designed to manage one or many Filecoin wallet addresses. Each address in Powergate can be independently managed through the <a href="#api">FFS API</a> (or grouped together into a single <em>FFS instance</em>).</p>
@@ -1967,26 +1953,24 @@ make build
 <h3 id="additional-tools">Additional Tools<a class="headerlink" href="#additional-tools" title="Permanent link">&para;</a></h3>
 <p>The Powergate comes packed with a number of additional tools that will be useful to you as you integrate it into your system.</p>
 <ul>
-<li><a href="https://lotu.sh/">Lotus</a>. A Lotus node running on the current Testnet.</li>
+<li><a href="https://lotu.sh/">Lotus</a>. A Lotus node running on the Filecoin network.</li>
 <li><a href="https://ipfs.io/">IPFS</a>. A full IPFS node running to back Powergate FFS.</li>
 <li><a href="https://prometheus.io/">Prometheus</a>. The backend for metrics processing.</li>
 <li><a href="https://grafana.com/">Grafana</a>. Providing metrics dashboard.</li>
 <li><a href="https://github.com/google/cadvisor">cAdvisor</a>. Providing container metrics.</li>
 </ul>
 <h3 id="running-the-powergate">Running the Powergate<a class="headerlink" href="#running-the-powergate" title="Permanent link">&para;</a></h3>
-<p>You can run the Powergate on the Filecoin testnet or using an embedded localnet we make available as part of the Powergate stack. We recommend starting out with the localnet as you'll get access to the full set of APIs and capabilities without having to start syncing the network right away. When ready, you can update your Powergate to connect to the live <em>testnet</em> and in the future <em>mainnet</em>.</p>
+<p>You can run the Powergate on the Filecoin mainnet or using an embedded localnet we make available as part of the Powergate stack. We recommend starting out with the localnet as you'll get access to the full set of APIs and capabilities without having to start syncing the network right away. When ready, you can update your Powergate to connect to the live <em>mainnet</em>.</p>
 <h4 id="localnet">Localnet<a class="headerlink" href="#localnet" title="Permanent link">&para;</a></h4>
 <p>The localnet provides a fast, fully functional, embedded Filecoin network that can be used for testing, building, or running continuous integratin. Read more about <a href="localnet/">running the Powergate on localnet or running the localnet to use the Lotus client directly</a>.</p>
-<h4 id="testnet">Testnet<a class="headerlink" href="#testnet" title="Permanent link">&para;</a></h4>
-<p>Once you are ready to start using the Powergate with the Filecoin Testnet, it's just a single line.  </p>
+<h4 id="mainnet">Mainnet<a class="headerlink" href="#mainnet" title="Permanent link">&para;</a></h4>
+<p>Once you are ready to start using the Powergate with the Filecoin Mainnet, it's just a single line.  </p>
 <div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/powergate.git
 <span class="nb">cd</span> powergate/docker
 make up
 </code></pre></div>
 
 <p><a href="https://github.com/textileio/powergate/#production-setup">Read the latest setup instructions</a>.</p>
-<h4 id="mainnet">Mainnet<a class="headerlink" href="#mainnet" title="Permanent link">&para;</a></h4>
-<p>When Filecoin Mainnet launches, we'll provide setup steps like the Testnet steps above.</p>
 <h2 id="learn-more">Learn more<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
 <h4 id="walk-through-video">Walk-through Video<a class="headerlink" href="#walk-through-video" title="Permanent link">&para;</a></h4>
 <p><center>

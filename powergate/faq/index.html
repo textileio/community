@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#filecoin-testnet" tabindex="1" class="md-skip">
+      <a href="#filecoin-questions" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -444,8 +444,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../testnet/" title="Testnet" target="" class="md-nav__link ">
-      Testnet
+    <a href="../mainnet/" title="Mainnet" target="" class="md-nav__link ">
+      Mainnet
     </a>
   </li>
 
@@ -712,8 +712,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ive-made-a-deal-in-testnetsr2-how-can-i-know-everything-is-working-okay" title="I've made a deal in Testnet/SR2, how can I know everything is working okay?" class="md-nav__link">
-    I've made a deal in Testnet/SR2, how can I know everything is working okay?
+  <a href="#ive-made-a-deal-in-mainnettestnetsr2-how-can-i-know-everything-is-working-okay" title="I've made a deal in Mainnet/Testnet/SR2, how can I know everything is working okay?" class="md-nav__link">
+    I've made a deal in Mainnet/Testnet/SR2, how can I know everything is working okay?
   </a>
   
 </li>
@@ -1692,8 +1692,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ive-made-a-deal-in-testnetsr2-how-can-i-know-everything-is-working-okay" title="I've made a deal in Testnet/SR2, how can I know everything is working okay?" class="md-nav__link">
-    I've made a deal in Testnet/SR2, how can I know everything is working okay?
+  <a href="#ive-made-a-deal-in-mainnettestnetsr2-how-can-i-know-everything-is-working-okay" title="I've made a deal in Mainnet/Testnet/SR2, how can I know everything is working okay?" class="md-nav__link">
+    I've made a deal in Mainnet/Testnet/SR2, how can I know everything is working okay?
   </a>
   
 </li>
@@ -1726,7 +1726,7 @@
                   <a href="https://github.com/textileio/docs/edit/master/docs/powergate/faq.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="filecoin-testnet">Filecoin Testnet<a class="headerlink" href="#filecoin-testnet" title="Permanent link">&para;</a></h1>
+                <h1 id="filecoin-questions">Filecoin Questions<a class="headerlink" href="#filecoin-questions" title="Permanent link">&para;</a></h1>
 <p>Here are some questions that usually get asked by the community.</p>
 <h3 id="what-is-a-minimal-test-of-localnet-using-the-powergate-cli">What is a minimal test of localnet using the Powergate CLI?<a class="headerlink" href="#what-is-a-minimal-test-of-localnet-using-the-powergate-cli" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>$ &lt;generate or use a ~10MB “new” file&gt;
@@ -1782,7 +1782,7 @@ IpfsUseForRetrieval = true
 <p>Usually, this is related to a <a href="https://github.com/filecoin-project/lotus/issues/3581">reported</a> issue. As a solution, Powergate switched to another style of connecting to Lotus which is more reliable and avoids that problem to get in the way. 
 You could ignore those errors since Powergate is not relying on the Lotus client to have stable connections now. Whenever you see those errors not impacting other logs related to powergate screaming other business errors, you should be fine; if that isn't the case please report in a support channel.</p>
 <p>We preferred not to completely hide errors this external package just in case we discover new problems.</p>
-<h3 id="ive-made-a-deal-in-testnetsr2-how-can-i-know-everything-is-working-okay">I've made a deal in Testnet/SR2, how can I know everything is working okay?<a class="headerlink" href="#ive-made-a-deal-in-testnetsr2-how-can-i-know-everything-is-working-okay" title="Permanent link">&para;</a></h3>
+<h3 id="ive-made-a-deal-in-mainnettestnetsr2-how-can-i-know-everything-is-working-okay">I've made a deal in Mainnet/Testnet/SR2, how can I know everything is working okay?<a class="headerlink" href="#ive-made-a-deal-in-mainnettestnetsr2-how-can-i-know-everything-is-working-okay" title="Permanent link">&para;</a></h3>
 <p>We recommend using the <code>pow ffs -t &lt;ffs-token&gt; log &lt;pushed-cid&gt;</code> which provides a human-friendy output.
 Creating deals on any Filecoin network can take more than 10hrs in the usual case, and many things can go wrong since Powergate is being relatively open to miners that provide storage in the network, so they might go offline at any time, be unreliable, or have network problems.</p>
 <h3 id="i-see-a-log-error-already-tracking-identifier-cid-what-should-i-do">I see a log error <code>already tracking identifier: &lt;cid&gt;</code>, what should I do?<a class="headerlink" href="#i-see-a-log-error-already-tracking-identifier-cid-what-should-i-do" title="Permanent link">&para;</a></h3>
