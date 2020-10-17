@@ -22,6 +22,7 @@ hub buck init [flags]
       --key string      Bucket key
   -n, --name string     Bucket name
   -p, --private         Obfuscates files and folders with encryption
+  -q, --quiet           Write minimal output
       --thread string   Thread ID
 ```
 

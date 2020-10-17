@@ -12,6 +12,7 @@ hub buck pull [flags]
   -f, --force   Force pull all remote files if true
       --hard    Pulls and prunes local changes if true
   -h, --help    help for pull
+  -q, --quiet   Write minimal output
   -y, --yes     Skips the confirmation prompt if true
 ```
 

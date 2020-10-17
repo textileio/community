@@ -18,7 +18,7 @@ Manages files and folders in an object storage bucket.
 * [hub buck destroy](hub_buck_destroy.md)	 - Destroy bucket and all objects
 * [hub buck encrypt](hub_buck_encrypt.md)	 - Encrypt file with a password
 * [hub buck init](hub_buck_init.md)	 - Initialize a new or existing bucket
-* [hub buck links](hub_buck_links.md)	 - Show links to where this bucket can be accessed
+* [hub buck links](hub_buck_links.md)	 - Display URL links to a bucket object.
 * [hub buck ls](hub_buck_ls.md)	 - List top-level or nested bucket objects
 * [hub buck pull](hub_buck_pull.md)	 - Pull bucket object changes
 * [hub buck push](hub_buck_push.md)	 - Push bucket object changes
