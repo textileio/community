@@ -12,7 +12,7 @@ The [js-textile](#libraries) library allows you to create and edit Buckets owned
 
 ### ThreadDB
 
-[ThreadDB](../threads/index.md) is a mongo-like database that runs on IPFS. You can use [js-textile](#libraries) connect to the Hub's hosted thread server (`Client`) to push and persist encrypted data on an IPFS-backed database. Alternatively, you can embed local, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates (`Database`). 
+[ThreadDB](../threads/index.md) is a mongo-like database that runs on IPFS. You can use [js-textile](#libraries) to connect to the Hub's hosted thread server (`Client`) to push and persist encrypted data on an IPFS-backed database. Alternatively, you can embed local, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates (`Database`). 
 
 ### User Inboxes
 
