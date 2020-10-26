@@ -54,10 +54,10 @@ Syncing a new Lotus node from genesis can take a considerable time. The current 
 Bootstraping the Lotus node from a snapshot implies complete trust in the party who generated the snapshot, so this is a pragmatic solution for getting up to speed fast. Depending on your use case you should consider the security risks of accepting snapshots from trusted parties.
 
 In order to boostrap from a snapshot in `mainnet`, download the [snapshot CAR file](https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car). This file is maintained up to date by Protocol Labs.
-We're going to assume this CAR file was downloaded to your local path: `/home/myuser/snapshots/Spacerace_pruned_stateroots_snapshot_latest.car`.
+We're going to assume this CAR file was downloaded to your local path: `/home/myuser/snapshots/minimal_finality_stateroots_latest.car`.
 
 You should edit the `docker/docker-compose.yaml` file adding two lines:
-![image](https://user-images.githubusercontent.com/6136245/93375329-6383fd80-f82e-11ea-9850-2970f30a793c.png)
+![image](https://user-images.githubusercontent.com/6136245/97188297-1dea1700-1782-11eb-83d0-1d5063d1bebe.png)
 
 Then run `make up`. If you inspect the Lotus node with `docker logs mainnet_lotus_1`, you will see a message that is importing chain information, and many Badger compaction messages. After the importing is done, the Lotus node will continue to sync as usual showing the typical logs. At this point you should `make down` (you don't need to wait to full syncing), revert `docker/docker-compose.yaml` to the original content, and `make up` again.
 
