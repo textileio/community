@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -1776,10 +1776,10 @@ mined block in the past <span class="o">{</span><span class="s2">&quot;block-tim
 <h3 id="bootstrap-from-a-snapshot">Bootstrap from a snapshot<a class="headerlink" href="#bootstrap-from-a-snapshot" title="Permanent link">&para;</a></h3>
 <p>Syncing a new Lotus node from genesis can take a considerable time. The current <code>mainnet</code> network is providing snapshots of the VM state every 6hrs, which means, in the worst case, syncing 6hs of new blocks.
 Bootstraping the Lotus node from a snapshot implies complete trust in the party who generated the snapshot, so this is a pragmatic solution for getting up to speed fast. Depending on your use case you should consider the security risks of accepting snapshots from trusted parties.</p>
-<p>In order to boostrap from a snapshot in <code>mainnet</code>, download the <a href="https://very-temporary-spacerace-chain-snapshot.s3.amazonaws.com/Spacerace_pruned_stateroots_snapshot_latest.car">snapshot CAR file</a>. This file is maintained up to date by Protocol Labs.
-We're going to assume this CAR file was downloaded to your local path: <code>/home/myuser/snapshots/Spacerace_pruned_stateroots_snapshot_latest.car</code>.</p>
+<p>In order to boostrap from a snapshot in <code>mainnet</code>, download the <a href="https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car">snapshot CAR file</a>. This file is maintained up to date by Protocol Labs.
+We're going to assume this CAR file was downloaded to your local path: <code>/home/myuser/snapshots/minimal_finality_stateroots_latest.car</code>.</p>
 <p>You should edit the <code>docker/docker-compose.yaml</code> file adding two lines:
-<figure><img src="https://user-images.githubusercontent.com/6136245/93375329-6383fd80-f82e-11ea-9850-2970f30a793c.png" /><figcaption>image</figcaption>
+<figure><img src="https://user-images.githubusercontent.com/6136245/97188297-1dea1700-1782-11eb-83d0-1d5063d1bebe.png" /><figcaption>image</figcaption>
 </figure>
 </p>
 <p>Then run <code>make up</code>. If you inspect the Lotus node with <code>docker logs mainnet_lotus_1</code>, you will see a message that is importing chain information, and many Badger compaction messages. After the importing is done, the Lotus node will continue to sync as usual showing the typical logs. At this point you should <code>make down</code> (you don't need to wait to full syncing), revert <code>docker/docker-compose.yaml</code> to the original content, and <code>make up</code> again.</p>
@@ -1887,7 +1887,7 @@ We're going to assume this CAR file was downloaded to your local path: <code>/ho
     
       <script src="../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
         <script src="../../js/sidebar.js"></script>
       
