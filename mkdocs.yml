@@ -103,18 +103,15 @@ nav:
           - Localnet: powergate/localnet.md
           - Mainnet: powergate/mainnet.md
           - Store Data:
-              - Intro to FFS: powergate/ffs.md
+              - Storing Data: powergate/storage.md
               - Storage Configs: powergate/storageconfig.md
           - POW CLI:
               - Overview: powergate/cli/pow.md
-              - FFS: powergate/cli/pow_ffs.md
-              - Asks: powergate/cli/pow_asks.md
-              - Faults: powergate/cli/pow_faults.md
-              - Miners: powergate/cli/pow_miners.md
-              - Net: powergate/cli/pow_net.md
-              - Reputation: powergate/cli/pow_reputation.md
+              - Config: powergate/cli/pow_config.md
+              - Data: powergate/cli/pow_data.md
               - Wallet: powergate/cli/pow_wallet.md
-              - Health: powergate/cli/pow_health.md
+              - Storage Jobs: powergate/cli/pow_storage_jobs.md
+              - Deals: powergate/cli/pow_deals.md
           - FAQ: powergate/faq.md
           - Externals:
               - JavaScript: https://textileio.github.io/js-powergate-client/

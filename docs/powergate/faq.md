@@ -6,11 +6,15 @@ Here are some questions that usually get asked by the community.
 
 ```
 $ <generate or use a ~10MB “new” file>
-$ pow ffs -t 9d9f2fb8-c559-4394-98c9-12b2144124fc stage new
-> Success! Staged asset in FFS hot storage with cid: QmSKfdYojdncCkq7FCnhATvzPrtS4HSdQno7TxTKTgegFt
-$ pow ffs -t 9d9f2fb8-c559-4394-98c9-12b2144124fc config push QmSKfdYojdncCkq7FCnhATvzPrtS4HSdQno7TxTKTg
-> Success! Pushed cid storage config for QmSKfdYojdncCkq7FCnhATvzPrtS4HSdQno7TxTKTgegFt to FFS with job id: e2
-$ pow ffs -t 9d9f2fb8-c559-4394-98c9-12b2144124fc log QmSKfdYojdncCkq7FCnhATvzPrtS4HSdQno7TxTKTgegFt
+$ pow -t 9d9f2fb8-c559-4394-98c9-12b2144124fc data stage new
+{
+  "cid":  "QmSKfdYojdncCkq7FCnhATvzPrtS4HSdQno7TxTKTgegFt"
+}
+$ pow -t 9d9f2fb8-c559-4394-98c9-12b2144124fc config apply QmSKfdYojdncCkq7FCnhATvzPrtS4HSdQno7TxTKTg
+{
+  "jobId":  "e27f1366-f3d0-484d-a0b3-b3abe71c150c"
+}
+$ pow -t 9d9f2fb8-c559-4394-98c9-12b2144124fc data log QmSKfdYojdncCkq7FCnhATvzPrtS4HSdQno7TxTKTgegFt
 > 2020-09-28T09:12:15 - Pushing new configuration...
 > 2020-09-28T09:12:15 - Configuration saved successfully
 > 2020-09-28T09:12:15 - Executing job e27f1366-f3d0-484d-a0b3-b3abe71c150c...
@@ -67,9 +71,9 @@ IpfsUseForRetrieval = true
 
 Note that if you are running the Powergate stack with `make up`, [this is already wired automatically](https://github.com/textileio/powergate/blob/d373c74922dfca5b56d7994a51bb59e496ef5730/docker/docker-compose.yaml#L35).
 
-### The `pow ffs log` commands mention an error `... adding markets funds failed:`, how can I fix this?
+### The `pow data log` commands mention an error `... adding markets funds failed:`, how can I fix this?
 
-You should check that your FFS wallet address used for making deals has enough funds.
+You should check that your Storage Profile wallet address used for making deals has enough funds.
 
 
 ### What does the following log error mean:  `rpc go-jsonrpc: xxxx`?
@@ -81,7 +85,7 @@ We preferred not to completely hide errors this external package just in case we
 
 ### I've made a deal in Mainnet/Testnet/SR2, how can I know everything is working okay?
 
-We recommend using the `pow ffs -t <ffs-token> log <pushed-cid>` which provides a human-friendy output.
+We recommend using the `pow -t <token> data log <pushed-cid>` which provides a human-friendy output.
 Creating deals on any Filecoin network can take more than 10hrs in the usual case, and many things can go wrong since Powergate is being relatively open to miners that provide storage in the network, so they might go offline at any time, be unreliable, or have network problems.
 
 ### I see a log error `already tracking identifier: <cid>`, what should I do?

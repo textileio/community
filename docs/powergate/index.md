@@ -7,11 +7,11 @@ hero_img: ../images/powergate-hero.png
 The Powergate is an API driven solution for deploying multitiered storage across [Filecoin](https://filecoin.io/) and [IPFS](https://ipfs.io/). Persistent storage on Filecoin allows rich storage configuration for data such as replication factor, miner selection, deal renewal, and repair. Network available storage is configurable and provided through a connected IPFS peer or pinning network.
 
 !!!Warning
-    The Powergate will remain in rapid development until a formal release. During this time, will likely encounter bugs and unannounced API changes. Do not run the Powergate in production systems and please join the powergate-users channel in the[ Filecoin community Slack](https://filecoin.io/slack) for announcements and support. 
+    The Powergate will remain in rapid development until a formal release. During this time, you will likely encounter bugs and unannounced API changes. Do not run the Powergate in production systems and please join the powergate-users channel in the [Filecoin community Slack](https://filecoin.io/slack) for announcements and support. 
 
 ## Overview
 
-Powergate is a collection of libraries, modules, and configurations that can used independently, and composed together to integrate Filecoin into your application or storage system. The Powergate is designed to manage one or many Filecoin wallet addresses. Each address in Powergate can be independently managed through the [FFS API](#api) (or grouped together into a single _FFS instance_).
+Powergate is a collection of libraries, modules, and configurations that can used independently, and composed together to integrate Filecoin into your application or storage system. The Powergate is designed to manage one or many Filecoin wallet addresses. Each address and its associated configuration and data storage is scoped by a Storage Profile, and most Powergate APIs function within a single Storage Profile.
 
 Some benefits of using the Powergate include:
 
@@ -69,7 +69,7 @@ You can build and install the Powergate CLI from the [Powergate Repo](https://gi
 ```bash
 git clone git@github.com:textileio/powergate.git
 cd powergate
-make build
+make install-pow
 ```
 
 !!!info
@@ -77,33 +77,43 @@ make build
 
 **Using the CLI**
 
-Powergate CLI commands are just `pow`.
+You can view all the commands by running `pow --help`.
 
-![](images/powergate/../../../images/powergate/help.png)
+```bash
+$ pow --help
+A client for storage and retreival of powergate data
+
+Usage:
+  pow [flags]
+  pow [command]
+
+Available Commands:
+  admin        Provides admin commands
+  config       Provides commands to interact with cid storage configs
+  data         Provides commands to interact with general data APIs
+  deals        Provides commands to view Filecoin deal information
+  help         Help about any command
+  id           Returns the storage profile id
+  storage-jobs Provides commands to query for storage jobs in various states
+  version      Display version information for pow and the connected server
+  wallet       Provides commands about filecoin wallets
+
+Flags:
+  -h, --help                   help for pow
+      --serverAddress string   address of the powergate service api (default "127.0.0.1:5002")
+  -t, --token string           storage profile auth token
+  -v, --version                display version information for pow and the connected server
+
+Use "pow [command] --help" for more information about a command.
+```
 
 ### Multi-tiered storage
 
-The workhorse of APIs in the Powergate is called, the [FFS](ffs.md) (Filecoin File System). This module provides a multi-tiered file storage API built on Filecoin and IPFS. Storing data on IPFS and Filecoin is as easy as expressing your desired configuration for storing a Cid.
+Powergate provides a multi-tiered file storage API built on Filecoin and IPFS. Storing data on IPFS and Filecoin is as easy as expressing your desired configuration for storing a Cid.
 
-The FFS is where the Powergate handles Filecoin wallet addresses, long-term deal management, and connecting Filecoin to IPFS. Access to the FFS is enabled through a basic token, allowing you to create many FFS Instances, and map Powergate API access to user(s) in your system.
+Powergate handles Filecoin wallet addresses, long-term deal management, and connecting Filecoin to IPFS all within the context of a Storage Profile. Use of a Storage Profile is enabled through a basic token, allowing you to create many Storage Profiles, and map Powergate API access to user(s) in your system.
 
-[Read about the FFS here](ffs.md).
-
-### Network Indices
-
-**Indices**
-
-A running Powergate deployment will collect a number of useful indices about the network. Some of the data collected in these indices are used by the FFS to streamline miner selection when creating new deals. You can use the indices directly to build other features into your own system.
-
-- **Miners index**. Provides processed data regarding registered miners (on-chain and off-chain), such as: total miner power, relative power, online status, geolocation, and more!
-- **Ask index**. Provides a fast-retrieval up to date snapshot of miner's asking prices for data storage.
-- **Slashing index**. Provides history data about miners faults while proving their storage on-chain.
-
-**Reputation Module**
-
-Built on top of the previous indexes, a Reputation module constructs a weighted-scoring system that allows to sort miners considering multiple on-chain and off-chain data, such as: compared price to the median of the market, low storage-fault history, power on network, and external sources (soon!).
-
-![](../images/powergate/reputation.png)
+[Read about data storage here](storage.md).
 
 ### Powergate APIs
 
@@ -112,14 +122,14 @@ The Powergate APIs are available as gRPC endpoints. There are three ways to get 
 * **Explore the CLI**. The CLI runs on the Powergate API, so in general, anything you can do in the CLI you can also do over the API.
 * **Use the JS Client**. We have provided an easy to use [JavaScript client for the Powergate APIs](https://textileio.github.io/js-powergate-client/).
 * **User the Go Client**. You can use the Powergate APIs from your go app by building directly on the [Powergate Go Client](https://godoc.org/github.com/textileio/powergate/api/client).
-* **Browse the Protocols**. The API is typed with Protocol Buffers and you can quickly view all capabilities by looking at the `.proto` files in the [Powergate repo](https://github.com/textileio/powergate). The best place to start is the [FFS API](https://github.com/textileio/powergate/blob/master/ffs/rpc/rpc.proto#L310).
+* **Browse the Proto Files**. The API is typed with Protocol Buffers and you can quickly view all capabilities by looking at the `.proto` files in the [Powergate repo](https://github.com/textileio/powergate). The best place to start is the [main Powergate API](https://github.com/textileio/powergate/blob/master/proto/powegate/v1/powergate.proto).
 
 ### Additional Tools
 
 The Powergate comes packed with a number of additional tools that will be useful to you as you integrate it into your system.
 
 - [Lotus](https://lotu.sh/). A Lotus node running on the Filecoin network.
-- [IPFS](https://ipfs.io/). A full IPFS node running to back Powergate FFS.
+- [IPFS](https://ipfs.io/). A full IPFS node running to back Powergate.
 - [Prometheus](https://prometheus.io/). The backend for metrics processing.
 - [Grafana](https://grafana.com/). Providing metrics dashboard.
 - [cAdvisor](https://github.com/google/cadvisor). Providing container metrics.

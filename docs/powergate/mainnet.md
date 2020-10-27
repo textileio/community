@@ -84,4 +84,4 @@ pow --help
 
 #### Start storing data
 
-You are now ready to start storing and retrieving data using the Powergate. Read more on [Storing Data with the FFS](ffs.md).
+You are now ready to start storing and retrieving data using the Powergate. Read more on [Storing Data](storage.md).
