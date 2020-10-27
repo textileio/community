@@ -110,7 +110,7 @@ nav:
               - Config: powergate/cli/pow_config.md
               - Data: powergate/cli/pow_data.md
               - Wallet: powergate/cli/pow_wallet.md
-              - Storage Jobs: powergate/cli/pow_storage_jobs.md
+              - Storage Jobs: powergate/cli/pow_storage-jobs.md
               - Deals: powergate/cli/pow_deals.md
           - FAQ: powergate/faq.md
           - Externals:

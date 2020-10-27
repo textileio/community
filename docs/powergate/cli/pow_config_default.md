@@ -1,19 +1,19 @@
-## pow wallet balance
+## pow config default
 
-Print the balance of the specified wallet address
+Returns the default storage config
 
 ### Synopsis
 
-Print the balance of the specified wallet address
+Returns the default storage config
 
 ```
-pow wallet balance [address] [flags]
+pow config default [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for balance
+  -h, --help   help for default
 ```
 
 ### Options inherited from parent commands
@@ -25,5 +25,5 @@ pow wallet balance [address] [flags]
 
 ### SEE ALSO
 
-* [pow wallet](pow_wallet.md)	 - Provides commands about filecoin wallets
+* [pow config](pow_config.md)	 - Provides commands to interact with cid storage configs
 

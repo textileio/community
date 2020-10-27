@@ -1,19 +1,19 @@
-## pow wallet balance
+## pow id
 
-Print the balance of the specified wallet address
+Returns the storage profile id
 
 ### Synopsis
 
-Print the balance of the specified wallet address
+Returns the storage profile id
 
 ```
-pow wallet balance [address] [flags]
+pow id [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for balance
+  -h, --help   help for id
 ```
 
 ### Options inherited from parent commands
@@ -25,5 +25,5 @@ pow wallet balance [address] [flags]
 
 ### SEE ALSO
 
-* [pow wallet](pow_wallet.md)	 - Provides commands about filecoin wallets
+* [pow](pow.md)	 - A client for storage and retreival of powergate data
 

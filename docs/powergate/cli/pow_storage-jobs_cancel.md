@@ -1,19 +1,19 @@
-## pow wallet balance
+## pow storage-jobs cancel
 
-Print the balance of the specified wallet address
+Cancel an executing storage job
 
 ### Synopsis
 
-Print the balance of the specified wallet address
+Cancel an executing storage job
 
 ```
-pow wallet balance [address] [flags]
+pow storage-jobs cancel [jobid] [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for balance
+  -h, --help   help for cancel
 ```
 
 ### Options inherited from parent commands
@@ -25,5 +25,5 @@ pow wallet balance [address] [flags]
 
 ### SEE ALSO
 
-* [pow wallet](pow_wallet.md)	 - Provides commands about filecoin wallets
+* [pow storage-jobs](pow_storage-jobs.md)	 - Provides commands to query for storage jobs in various states
 

@@ -1,19 +1,19 @@
-## pow wallet balance
+## pow storage-jobs get
 
-Print the balance of the specified wallet address
+Get a storage job's current status
 
 ### Synopsis
 
-Print the balance of the specified wallet address
+Get a storage job's current status
 
 ```
-pow wallet balance [address] [flags]
+pow storage-jobs get [jobid] [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for balance
+  -h, --help   help for get
 ```
 
 ### Options inherited from parent commands
@@ -25,5 +25,5 @@ pow wallet balance [address] [flags]
 
 ### SEE ALSO
 
-* [pow wallet](pow_wallet.md)	 - Provides commands about filecoin wallets
+* [pow storage-jobs](pow_storage-jobs.md)	 - Provides commands to query for storage jobs in various states
 
