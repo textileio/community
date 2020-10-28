@@ -1,6 +1,6 @@
 # Admin APIs
 
-Powergate includes some administrative APIs. They allow the caller to create and list Storage Profiles, view wallet addresses, send FIL, and show information about jobs and data accross all Storage Profiles managed by the Powergate node.
+Powergate includes some administrative APIs. They allow the caller to create and list Storage Profiles, view wallet addresses, send FIL, and show information about jobs and data across all Storage Profiles managed by the Powergate node.
 
 ## Admin Auth Token
 
