@@ -112,6 +112,8 @@ nav:
               - Wallet: powergate/cli/pow_wallet.md
               - Storage Jobs: powergate/cli/pow_storage-jobs.md
               - Deals: powergate/cli/pow_deals.md
+              - Admin: powergate/cli/pow_admin.md
+          - Admin APIs: powergate/admin.md
           - FAQ: powergate/faq.md
           - Externals:
               - JavaScript: https://textileio.github.io/js-powergate-client/
