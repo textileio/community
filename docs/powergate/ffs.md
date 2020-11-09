@@ -17,7 +17,7 @@ Anytime you use the FFS API (including use through the CLI), you will supply the
 
 ## Multi-tiered design
 
-The FFS provides you API access to multi-tiered storage system built on IPFS and Filecoin. In many places, we refer to these two tiers of storage as Hot (IFPS) and Cold (Filecoin). This mirrors multi-tiered storage often deployed with a hot storage layer in _memory_ and a cold storage layer on _disk_.
+The FFS provides you API access to multi-tiered storage system built on IPFS and Filecoin. In many places, we refer to these two tiers of storage as Hot (IPFS) and Cold (Filecoin). This mirrors multi-tiered storage often deployed with a hot storage layer in _memory_ and a cold storage layer on _disk_.
 
 ### Hot storage layer
 
