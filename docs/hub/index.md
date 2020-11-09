@@ -2,7 +2,7 @@
 hero_img: ../images/cloud-hero.png
 ---
 
-The Hub is the fastest way to start building and experimenting on Textile technologies. It provides hosted [Buckets](../buckets/index.md) and [Threads](../threads/index.md) with persistent IFPS endpoints. It includes developer accounts for individuals and organizations and API keys integration into apps.
+The Hub is the fastest way to start building and experimenting on Textile technologies. It provides hosted [Buckets](../buckets/index.md) and [Threads](../threads/index.md) with persistent IPFS endpoints. It includes developer accounts for individuals and organizations and API keys integration into apps.
 
 !!! Warning
     The Hub is still built on a handful of experimental protocols. You should build on the API knowing that many of them, and therefor the Hub, are still in Beta. Please [report any issues you experience](https://github.com/textileio/textile/issues).
