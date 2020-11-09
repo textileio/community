@@ -1889,7 +1889,6 @@
   <span class="k">return</span> <span class="nx">client</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p><strong>Authorize a new user to use your Hub API</strong></p>
 <p>You must generate a new API token for each user you want on your API.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">PrivateKey</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
@@ -1899,7 +1898,6 @@
   <span class="k">return</span> <span class="nx">token</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p><strong>List a user's existing Threads</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
@@ -1908,7 +1906,6 @@
   <span class="k">return</span> <span class="nx">threads</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p><strong>create a new database</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">,</span> <span class="nx">UserAuth</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
@@ -1917,7 +1914,6 @@
   <span class="k">return</span> <span class="nx">thread</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Congrats! You now have a new ThreadDB! Each ThreadDB has a unique <a href="https://textileio.github.io/js-textile/docs/hub.threadid">ThreadID</a>. You can create your own ThreadIDs, or easily generate a random ThreadID as we do in the above example.</p>
 <h3 id="invite">Invite<a class="headerlink" href="#invite" title="Permanent link">&para;</a></h3>
 <p>You can invite multiple users to the same thread. Use this to build chat apps, collaborative documents and more.</p>
@@ -1931,7 +1927,6 @@
   <span class="k">return</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">joinFromInfo</span><span class="p">(</span><span class="nx">info</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Once you get the DB info, you need to send that to the other users you want to join. To do that, we recommend the <a href="../users/">User Mailbox API</a>.</p>
 <h3 id="collections">Collections<a class="headerlink" href="#collections" title="Permanent link">&para;</a></h3>
 <p>To handle different data structures in the same Database, a Database contains Collections. Each Collection is defined by a <a href="https://json-schema.org/">json-schema.org schema</a>. These schemas define the <em>shape</em> of Collection Instances (the individual entries). Collections are similar to tables in other databases. Ultimately, a Collection is a single document store with a set of APIs to make it feel like a <em>local database table</em>.</p>
@@ -1960,7 +1955,6 @@
   <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">newCollection</span><span class="p">(</span><span class="nx">threadID</span><span class="p">,</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Astronauts&#39;</span><span class="p">,</span> <span class="nx">schema</span>: <span class="kt">schema</span><span class="p">})</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h3 id="instances">Instances<a class="headerlink" href="#instances" title="Permanent link">&para;</a></h3>
 <p>Instances are the objects you store in your Collection. Instances are JSON documents with schemas that match those defined in your Collection.</p>
 <p><strong>get all instances</strong></p>
@@ -1970,7 +1964,6 @@
   <span class="nx">console</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s1">&#39;found:&#39;</span><span class="p">,</span> <span class="nx">found</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p><strong>add an instance</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 <span class="c1">// matches YourModel and schema</span>
@@ -1981,7 +1974,6 @@
   <span class="p">}])</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h3 id="query">Query<a class="headerlink" href="#query" title="Permanent link">&para;</a></h3>
 <p>Each Threads implementation supports query and look-up capabilities such as <code>insert</code>, <code>findOne</code>, <code>has</code>, and more. ThreadDB also supports the <a href="https://github.com/kofrasa/mingo">MongoDB query language</a>. In the JavaScript library, you might write queries like the following. </p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">,</span> <span class="nx">QueryJSON</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
@@ -1993,7 +1985,6 @@
   <span class="k">return</span> <span class="nx">all</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h3 id="listen">Listen<a class="headerlink" href="#listen" title="Permanent link">&para;</a></h3>
 <p>You can also subscribe to changes in a database.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">PrivateKey</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">,</span> <span class="nx">Update</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
@@ -2016,7 +2007,6 @@
   <span class="k">return</span> <span class="nx">closer</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h3 id="access-control">Access-control<a class="headerlink" href="#access-control" title="Permanent link">&para;</a></h3>
 <p>ThreadDB uses a modular role-based access control system that will allow access control lists (ACLs) to be declared in a wide-variety of ways. ACLs are in active development and you can <a href="https://github.com/textileio/go-threads/issues/295">follow the development here</a>.</p>
 <h3 id="identity">Identity<a class="headerlink" href="#identity" title="Permanent link">&para;</a></h3>

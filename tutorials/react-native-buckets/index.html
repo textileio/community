@@ -1814,39 +1814,32 @@
 <p><strong>Textile Libraries</strong></p>
 <div class="highlight"><pre><span></span><code>npm install --save @textile/hub @textile/threads-id
 </code></pre></div>
-
 <p>We'll use the above combination of Textile libraries in our app below.</p>
 <p><strong>rn-nodify</strong></p>
 <div class="highlight"><pre><span></span><code>npm install -D rn-nodeify
 </code></pre></div>
-
 <p>We are going to use <code>rn-nodify</code> and a few other libraries it will install to manage adding <code>Buffer</code>, <code>crypto</code>, and some other tools to our JavaScript environment in React Native.</p>
 <p>Read about <a href="https://github.com/tradle/rn-nodeify">rn-nodify here</a>.</p>
 <p>Next, you need to run,</p>
 <div class="highlight"><pre><span></span><code>./node_modules/.bin/rn-nodeify --install
 </code></pre></div>
-
 <p>This will install a <code>shim.js</code> into the root of your file. You need to import <code>shim.js</code> at the top of your app's root file (typically <code>index.js</code>),</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="s1">&#39;./shim&#39;</span><span class="p">;</span>
 </code></pre></div>
-
 <p>This may need to be updated on future package changes, you can make this easier on yourself by adding a <code>postinstall</code> step to your <code>package.json</code>, as follows,</p>
 <div class="highlight"><pre><span></span><code><span class="s2">&quot;scripts&quot;</span><span class="err">:</span> <span class="p">{</span>
   <span class="err">...</span>
   <span class="nt">&quot;postinstall&quot;</span><span class="p">:</span> <span class="s2">&quot;./node_modules/.bin/rn-nodeify --install fs,path,process,buffer,crypto,stream,vm --hack&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p><strong>Dot env</strong></p>
 <p>You will need to add API keys to your app. If you plan to store your sourcecode anywhere public, you <strong>should not</strong> store those keys publicly. In our example app, we use <code>react-native-dotenv</code> to manage our key. </p>
 <div class="highlight"><pre><span></span><code>npm install --save react-native-dotenv
 </code></pre></div>
-
 <p>Next, create a <code>.env</code> file in the root of your project. You can find an example <code>.env</code> in our <a href="https://github.com/textileio/js-examples/blob/master/react-native-hub-app/example.env">example project here</a>. Be <strong>certain</strong> that the <code>.env</code> is added to your <code>.gitignore</code> and note checked in with your code. </p>
 <p>The contents of <code>.env</code> will be, </p>
 <div class="highlight"><pre><span></span><code><span class="nv">USER_API_KEY</span><span class="o">=</span>textile-hub-user-group-key
 </code></pre></div>
-
 <p>You can follow the instructions to generate a <strong>User Group Key</strong> here, <a href="http://localhost:8000/hub/apis/#api-access">API Access</a>. If you have already generated keys, you can list them by executing <code>hub keys ls</code>. You'll add the values to your <code>.env</code> file on the right side of the equality sign.</p>
 <p><strong>Typescript</strong></p>
 <p>The rest of the JavaScript portions of the tutorial will be in TypeScript. You do not need to use TypeScript, but if you don't be sure to strip the typings from any code you copy below.</p>
@@ -1859,7 +1852,6 @@
 <div class="highlight"><pre><span></span><code><span class="c1">// Buckets client and an API Context helper</span>
 <span class="kr">import</span> <span class="p">{</span><span class="nx">Buckets</span><span class="p">,</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">ThreadID</span><span class="p">,</span> <span class="nx">PrivateKey</span><span class="p">,</span> <span class="nx">Where</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span><span class="p">;</span>
 </code></pre></div>
-
 <h3 id="register-with-remote-api">Register with remote API<a class="headerlink" href="#register-with-remote-api" title="Permanent link">&para;</a></h3>
 <p>Next, we'll connect to the remote API using our Key from an insecure (non-signing) api key (read more about keys for <a href="../hub/development-mode/">development mode</a>). We do this so that the user can later push their bucket for remote persistence on IPFS and publishing on IPNS.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
@@ -1868,7 +1860,6 @@
   <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;USER_API_KEY&#39;</span><span class="p">,</span>
 <span class="p">})</span>
 </code></pre></div>
-
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Read more about the Context tool in the <a href="../../threads/">Threads Introduction</a>.</p>
@@ -1882,7 +1873,6 @@
   <span class="k">return</span> <span class="nx">id</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Here we are just using a helper to generate a private-key identity for the user.</p>
 <h3 id="generate-user-token">Generate user Token<a class="headerlink" href="#generate-user-token" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">PrivateKey</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
@@ -1891,7 +1881,6 @@
   <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">getToken</span><span class="p">(</span><span class="nx">identity</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>This will register the user with your remote Hub account, granting them the ability to push data to IPFS through Threads and Buckets.</p>
 <h3 id="connect-buckets">Connect Buckets<a class="headerlink" href="#connect-buckets" title="Permanent link">&para;</a></h3>
 <p>Now that your user is setup and connected to your API on the Hub, you can start creating Buckets. First, setup a Bucket instance. </p>
@@ -1901,7 +1890,6 @@
     <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;USER_API_KEY&#39;</span><span class="p">,</span>
   <span class="p">})</span>
 </code></pre></div>
-
 <p>In the above, we reuse the Context we already created in our ThreadDB Client because it contains the token, API keys, etc.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1916,7 +1904,6 @@
   <span class="k">return</span> <span class="nx">exists</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p><strong>Open a Bucket</strong></p>
 <p>By far the easiest way to start pushing/pulling bucket files is to use the <code>open</code> method with just the bucket name you intend to use.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
@@ -1926,7 +1913,6 @@
   <span class="k">return</span> <span class="nx">root</span> <span class="c1">// root.key is the bucket key</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h3 id="push-files-to-user-bucket">Push files to user Bucket<a class="headerlink" href="#push-files-to-user-bucket" title="Permanent link">&para;</a></h3>
 <p>Finally, let's push a simple file to the user's Bucket. In this example, we'll just create a simple <code>HTML</code> file that says, <code>Hello world</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
@@ -1937,7 +1923,6 @@
   <span class="kr">const</span> <span class="nx">raw</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">pushPath</span><span class="p">(</span><span class="nx">bucketKey</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h3 id="list-the-bucket-links">List the Bucket links<a class="headerlink" href="#list-the-bucket-links" title="Permanent link">&para;</a></h3>
 <p>Finally, you can list the links to the file on IPFS, IPNS, ThreadDB, and HTTP. Now that the Bucket is created, keep in mind, each time you update the same Bucket for a user:</p>
 <ul>
@@ -1960,7 +1945,6 @@
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">raw</span><span class="p">.</span><span class="nx">root</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p><strong>IPNS Address</strong></p>
 <p>The IPNS Address is always the same and is the Bucket key! If you want to see the Bucket over IPNS from a gateway, you can use the Textile gateway as follows:</p>
 <p><code>https://${bucket-key}.ipns.hub.textile.io/</code></p>

@@ -309,8 +309,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
+  <a href="#available-commands" title="Available commands" class="md-nav__link">
+    Available commands
   </a>
   
 </li>
@@ -319,6 +319,33 @@
   <a href="#roles" title="Roles" class="md-nav__link">
     Roles
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#developers" title="Developers" class="md-nav__link">
+    Developers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizations" title="Organizations" class="md-nav__link">
+    Organizations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#users" title="Users" class="md-nav__link">
+    Users
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -330,16 +357,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-create-account" title="Install &amp; Create Account" class="md-nav__link">
-    Install &amp; Create Account
+  <a href="#next-steps" title="Next steps" class="md-nav__link">
+    Next steps
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#next-steps" title="Next steps" class="md-nav__link">
-    Next steps
+  <a href="#install-create-account" title="Install &amp; Create Account" class="md-nav__link">
+    Install &amp; Create Account
   </a>
   
 </li>
@@ -1627,8 +1654,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
+  <a href="#available-commands" title="Available commands" class="md-nav__link">
+    Available commands
   </a>
   
 </li>
@@ -1637,6 +1664,33 @@
   <a href="#roles" title="Roles" class="md-nav__link">
     Roles
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#developers" title="Developers" class="md-nav__link">
+    Developers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizations" title="Organizations" class="md-nav__link">
+    Organizations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#users" title="Users" class="md-nav__link">
+    Users
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1648,16 +1702,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-create-account" title="Install &amp; Create Account" class="md-nav__link">
-    Install &amp; Create Account
+  <a href="#next-steps" title="Next steps" class="md-nav__link">
+    Next steps
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#next-steps" title="Next steps" class="md-nav__link">
-    Next steps
+  <a href="#install-create-account" title="Install &amp; Create Account" class="md-nav__link">
+    Install &amp; Create Account
   </a>
   
 </li>
@@ -1692,15 +1746,17 @@
                 
                   <h1>Accounts Overview</h1>
                 
-                <p>The Hub is the fastest way to start building and experimenting on Textile technologies. It provides hosted <a href="../buckets/">Buckets</a> and <a href="../threads/">Threads</a> with persistent IFPS endpoints. It includes developer accounts for individuals and organizations and API keys integration into apps.</p>
+                <p>The Hub is the fastest way to start building and experimenting with Textile technologies. </p>
+<p>It provides hosted <a href="../buckets/">Buckets</a> and <a href="../threads/">Threads</a> with persistent IFPS endpoints. It includes developer accounts for individuals and organizations and API keys integration into apps.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The Hub is still built on a handful of experimental protocols. You should build on the API knowing that many of them, and therefor the Hub, are still in Beta. Please <a href="https://github.com/textileio/textile/issues">report any issues you experience</a>.</p>
+<p>The Hub is still built on a handful of experimental protocols. You should build on the API knowing that many of them, and therefore the Hub, are still in Beta. Please <a href="https://github.com/textileio/textile/issues">report any issues you experience</a>.</p>
 </div>
 <h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
-<p>Textile is still under heavy development and no part of it should be used before a thorough review of the underlying code and an understanding APIs and protocols may change rapidly. There may be coding mistakes, and the underlying protocols may contain design flaws. Please let us know immediately if you have discovered a security vulnerability.</p>
+<p>Textile is still under heavy development and no part of it should be used before a thorough review of the underlying code and an understanding APIs and protocols may change rapidly. There may be coding mistakes, and the underlying protocols may contain design flaws. </p>
+<p><em>Please let us know immediately if you have discovered a security vulnerability.</em></p>
 <p>Please also read the <a href="https://github.com/ipfs/go-ipfs#security-issues">security note</a> for go-ipfs.</p>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<h2 id="available-commands">Available commands<a class="headerlink" href="#available-commands" title="Permanent link">&para;</a></h2>
 <p>To get started, you'll be using the Hub client. The layout of the Hub CLI mirrors the services available, for example:</p>
 <ul>
 <li><code>hub threads</code> provides limited access to ThreadDB.</li>
@@ -1708,12 +1764,29 @@
 <li><code>hub keys</code> create and expire API keys.</li>
 <li><code>hub orgs</code> lets you create multi-developer organizations for collaboration.</li>
 </ul>
-<p>Once you've setup an account on the Hub, you can start accessing those resources right away. Additionally, you can use the API keys to grant restricted access to your Hub resources to the end-users of your own apps and services.</p>
+<p>Once you've set up an account on the Hub, you can start accessing those resources right away. </p>
+<p>Additionally, you can use the API keys to grant restricted access to your Hub resources to the end-users of your own apps and services.</p>
 <h2 id="roles">Roles<a class="headerlink" href="#roles" title="Permanent link">&para;</a></h2>
+<h3 id="developers">Developers<a class="headerlink" href="#developers" title="Permanent link">&para;</a></h3>
+<p>Developers are the primary account owner. Using the CLI, developers can:</p>
 <ul>
-<li><em>Developers</em>: You. You are a primary account owner. You can create new API keys, create and join new Organizations, and access admin APIs. You can create your own Buckets and Threads. You can use the CLI with your account do all the mentioned.</li>
-<li><em>Organizations</em>: You and your collaborators. Members can share admin control of API keys. Members can share access to and synchronize Bucket state across all members. Referenced through docs as simply, <code>Org</code>.</li>
-<li><em>Users</em>: Accounts generated by your apps using a <code>User Group</code> API key. Your app can create Threads and Buckets owned by these users. These users can then add or remove content from those assets based on their identity. They cannot use the CLI and cannot create new API keys.</li>
+<li>Create new API keys.</li>
+<li>Create and join new Organizations and access admin APIs.</li>
+<li>Create your own Buckets and Threads.</li>
+</ul>
+<h3 id="organizations">Organizations<a class="headerlink" href="#organizations" title="Permanent link">&para;</a></h3>
+<p>You and your collaborators. Members can:</p>
+<ul>
+<li>Share admin control of API keys.</li>
+<li>Share access to and synchronize Bucket state across all members.</li>
+<li>Referenced through docs as simply, <code>Org</code>.</li>
+</ul>
+<h3 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h3>
+<p>Accounts generated by your apps using a <code>User Group</code> API key.</p>
+<ul>
+<li>Your app can create Threads and Buckets owned by these users.</li>
+<li>Users can then add or remove content from those assets based on their identity.</li>
+<li>Users <em>cannot</em> use the CLI and <em>cannot</em> create new API keys.</li>
 </ul>
 <h2 id="quotas">Quotas<a class="headerlink" href="#quotas" title="Permanent link">&para;</a></h2>
 <p>Each entity above has its own quota no matter which <em>role</em> it is (Developer, Org, or User). If these limits are not enough for you, or if you need to talk to us about a custom account, you can reach us at <a href="mailto:support@textile.io">support@textile.io</a>.</p>
@@ -1743,8 +1816,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="install-create-account">Install &amp; Create Account<a class="headerlink" href="#install-create-account" title="Permanent link">&para;</a></h2>
-<p>The Hub is API driven and available through the command-line tool and developer libraries. To use the Hub, first you need to download the command-line interface and create an account.</p>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h3 id="install-create-account">Install &amp; Create Account<a class="headerlink" href="#install-create-account" title="Permanent link">&para;</a></h3>
+<p>The Hub is API driven and available through the command-line tool and developer libraries. To use the Hub, you need to download the command-line interface and create an account.</p>
 <div class="txtl-options half">
   <a href="../hub/accounts" class="box">
     <h5>Textile Hub Accounts</h5>
@@ -1752,7 +1826,6 @@
   </a>
 </div>
 
-<h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h3>
 <div class="txtl-options">
   <a href="../hub/accounts" class="box">
     <h5>Create an Account</h5>
