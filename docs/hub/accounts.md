@@ -54,7 +54,7 @@ Another option is to add `hub.exe` to the PATH environment variable to access th
 
 ### Adding hub.exe to the Path Environment Variable
 
-Place the hub folder in an accessible location like the `C:\` directory.
+Rename the directory and place it in an accessible location like the `C:\` directory.
 
 ![Location of hub.exe](../images/install/windows_hub_directory.png)
 
