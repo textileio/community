@@ -318,37 +318,31 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-the-command-line-interface" title="Install the Command-line Interface" class="md-nav__link">
-    Install the Command-line Interface
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#download" title="Download" class="md-nav__link">
-    Download
+  <a href="#download-the-hub-cli-binary" title="Download the Hub CLI Binary" class="md-nav__link">
+    Download the Hub CLI Binary
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#install" title="Install" class="md-nav__link">
-    Install
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#mac-installation" title="Mac Installation" class="md-nav__link">
     Mac Installation
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-installation" title="Windows Installation" class="md-nav__link">
+    Windows Installation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#adding-hubexe-to-the-path-environment-variable" title="Adding hub.exe to the Path Environment Variable" class="md-nav__link">
+    Adding hub.exe to the Path Environment Variable
+  </a>
   
 </li>
         
@@ -1666,37 +1660,31 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-the-command-line-interface" title="Install the Command-line Interface" class="md-nav__link">
-    Install the Command-line Interface
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#download" title="Download" class="md-nav__link">
-    Download
+  <a href="#download-the-hub-cli-binary" title="Download the Hub CLI Binary" class="md-nav__link">
+    Download the Hub CLI Binary
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#install" title="Install" class="md-nav__link">
-    Install
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#mac-installation" title="Mac Installation" class="md-nav__link">
     Mac Installation
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-installation" title="Windows Installation" class="md-nav__link">
+    Windows Installation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#adding-hubexe-to-the-path-environment-variable" title="Adding hub.exe to the Path Environment Variable" class="md-nav__link">
+    Adding hub.exe to the Path Environment Variable
+  </a>
   
 </li>
         
@@ -1775,36 +1763,81 @@
                 
                 
                 <h1 id="installation-and-account-setup">Installation and Account Setup<a class="headerlink" href="#installation-and-account-setup" title="Permanent link">&para;</a></h1>
-<p>To create an account, you need first to install the Hub CLI. The CLI is where you are going to do all account management, create orgs, create API keys, etc. The first step is to download and install the application.</p>
-<h2 id="install-the-command-line-interface">Install the Command-line Interface<a class="headerlink" href="#install-the-command-line-interface" title="Permanent link">&para;</a></h2>
-<h3 id="download">Download<a class="headerlink" href="#download" title="Permanent link">&para;</a></h3>
+<p>To create an account, you first need to install the Hub CLI. The CLI is where you manage accounts, create orgs, create API keys, etc. </p>
+<p>The first step is to download and install the application.</p>
+<h2 id="download-the-hub-cli-binary">Download the Hub CLI Binary<a class="headerlink" href="#download-the-hub-cli-binary" title="Permanent link">&para;</a></h2>
 <p>Download the Hub CLI binary from the release landing page: <a href="https://github.com/textileio/textile/releases/latest">https://github.com/textileio/textile/releases/latest</a>.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>You'll see two binaries available for download on the Textile releases page, <code>hub</code>, and <code>buck</code>. Ignore the <code>buck</code> binary for now. <code>buck</code> is used to interact with buckets in a stand-alone manner, independent of Textile Hub. <code>hub</code> provides all the functionality you'll need to interact with the Textile Hub and Buckets together.</p>
-</div>
-<h3 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h3>
+<p>You'll see four different options - <code>buckd</code>, <code>buck</code>, <code>hubd</code>, and <code>hub</code>. </p>
+<p><code>hub</code> is the option you need. It provides all the functionality you'll need to interact with the Textile Hub and Buckets. </p>
+<p>You'll also see different operating systems. Select the one that matches your computer.</p>
+<p>Next, follow the installation instructions based on your operating system.</p>
+<h2 id="mac-installation">Mac Installation<a class="headerlink" href="#mac-installation" title="Permanent link">&para;</a></h2>
+<p>Open the contents of the downloaded archive and run the <code>install</code> script. This should install the <code>hub</code> tool on your computer. You can verify with `hub --help</p>
 <p>
-<figure><img src="../../images/install/install.png" /><figcaption>Open the contents of the downloaded archive and run the <code>install</code> script. This should install the <code>hub</code> tool on your computer. You can verify with <code>hub --help</code>.</figcaption>
+<figure><img src="../../images/install/install.png" /><figcaption>Run the hub install script.</figcaption>
 </figure>
 </p>
-<h4 id="mac-installation">Mac Installation<a class="headerlink" href="#mac-installation" title="Permanent link">&para;</a></h4>
 <p>On MacOS you will need to confirm that it is okay to run the <code>hub</code> binary before it runs successfully. You will see this warning:</p>
 <p>
 <figure><img src="../../images/install/install_warn.png" /><figcaption>Select 'Cancel'</figcaption>
 </figure>
 </p>
+<p>Select 'Cancel.' </p>
+<p>Go to 'System Settings' =&gt; 'General' where you will be able to click, 'Allow Anyway.'</p>
 <p>
-<figure><img src="../../images/install/install_allow.png" /><figcaption>Go to 'System Settings' =&gt; 'General' where you will be able to click, 'Allow Anyway'</figcaption>
+<figure><img src="../../images/install/install_allow.png" /><figcaption>System Settings</figcaption>
 </figure>
 </p>
+<p>Run <code>hub --help</code> again and this time select, 'Open` when prompted.</p>
 <p>
-<figure><img src="../../images/install/install_confirm.png" /><figcaption>Run <code>hub --help</code> again and this time select, 'Open` when prompted.</figcaption>
+<figure><img src="../../images/install/install_confirm.png" /><figcaption>Select 'Open` when prompted.</figcaption>
 </figure>
 </p>
 <p>You will now be able to continue using the CLI without issue. When you update the binary, you may need to repeat the above steps. We will add developer signing to our MacOS binaries soon.</p>
 <p>
 <figure><img src="../../images/hub-cli/hub_help.png" /><figcaption>Successfully running <code>hub --help</code> to print out the command docs.</figcaption>
+</figure>
+</p>
+<h2 id="windows-installation">Windows Installation<a class="headerlink" href="#windows-installation" title="Permanent link">&para;</a></h2>
+<p>The Windows Hub CLI binary comes with a <code>hub.exe</code> that runs <code>hub</code> commands. </p>
+<p>You can use <a href="https://docs.microsoft.com/en-us/powershell/">Powershell</a> to work with the hub CLI by running the executable directly in your terminal like below.</p>
+<p>
+<figure><img src="../../images/install/windows_hub_help.png" /><figcaption>Running hub --help in Powershell.</figcaption>
+</figure>
+</p>
+<p>This method requires you to work in the same directory as <code>hub.exe</code>.</p>
+<p>Another option is to add <code>hub.exe</code> to the PATH environment variable to access the <code>hub</code> command globally.</p>
+<h3 id="adding-hubexe-to-the-path-environment-variable">Adding hub.exe to the Path Environment Variable<a class="headerlink" href="#adding-hubexe-to-the-path-environment-variable" title="Permanent link">&para;</a></h3>
+<p>Rename the directory and place it in an accessible location like the <code>C:\</code> directory.</p>
+<p>
+<figure><img src="../../images/install/windows_hub_directory.png" /><figcaption>Location of hub.exe</figcaption>
+</figure>
+</p>
+<p>Open your environment variables option by typing in 'Environment variables' in the Windows start menu and select the first option.</p>
+<p>
+<figure><img src="../../images/install/windows_hub_env1.png" /><figcaption>Search for the environment variables.</figcaption>
+</figure>
+</p>
+<p>Select 'Environment Variables' at the bottom.</p>
+<p>
+<figure><img src="../../images/install/windows_hub_env2.png" /><figcaption>Click Environment Variables</figcaption>
+</figure>
+</p>
+<p>Select the 'Path' option from User variables if you want to have the hub CLI available only to the current user, or from System variables if you want the hub CLI available for the whole system.</p>
+<p>After 'Path' is selected, click 'Edit.'</p>
+<p>
+<figure><img src="../../images/install/windows_hub_variables.png" /><figcaption>Edit your Path.</figcaption>
+</figure>
+</p>
+<p>In the 'Edit environment variables' window, select 'New' and enter the location of your hub directory.</p>
+<p>
+<figure><img src="../../images/install/windows_hub_edit.png" /><figcaption>Add hub to environment variables.</figcaption>
+</figure>
+</p>
+<p>Click 'OK' to close all the windows.</p>
+<p>Open up a new terminal instance and you should be able to run the <code>hub</code> command without being in the same directory as the executable.</p>
+<p>
+<figure><img src="../../images/install/windows_hub_powershell.png" /><figcaption>Running hub on Powershell.</figcaption>
 </figure>
 </p>
 <h2 id="account-setup">Account setup<a class="headerlink" href="#account-setup" title="Permanent link">&para;</a></h2>
