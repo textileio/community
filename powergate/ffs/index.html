@@ -1866,19 +1866,24 @@
 <p>Using the Powergate CLI, you can create new FFS instances easily.</p>
 <div class="highlight"><pre><span></span><code>pow ffs create
 </code></pre></div>
+
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Instance created with id 0ac0fb4d-581c-4276-bd90-a9aa30dd4cb4 and token 883f57b1-4e66-47f8-b291-7cf8b10f6370
 </code></pre></div>
+
 </details>
 <p><strong>Add environmental variable (optional)</strong></p>
 <p>The <code>--token</code> is used to scope the requests to the FFS instance we created. You can skip setting the <code>--token</code> flag on every command by adding your new token as an environmental variable. For the rest of the examples, we'll assume you've set this environmental variable.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">POW_TOKEN</span><span class="o">=</span>883f57b1-4e66-47f8-b291-7cf8b10f6370
 </code></pre></div>
+
 <h3 id="make-data-available">Make data available<a class="headerlink" href="#make-data-available" title="Permanent link">&para;</a></h3>
 <p>The FFS requires data you aim to store to be available over IPFS. If you are using the CLI, you can ensure that it is available by staging it on IPFS using <code>stage</code>. Note that <code>stage</code> does not store your data in the Powergate FFS. It is an optional step that caches your data to ensure it is available on IPFS before being stored in the Powergate FFS. This is technically equivalent to <code>ipfs add --pin=false</code>, which is adding data without pinning it.</p>
 <div class="highlight"><pre><span></span><code>pow ffs stage &lt;path/filename&gt;
 </code></pre></div>
+
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Success! Cached file in FFS hot storage with cid: &lt;cid&gt;
 </code></pre></div>
+
 </details>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1889,16 +1894,19 @@
 <p>Every FFS instance has a default <code>StorageConfig</code> that will be used for every new deal unless overridden.</p>
 <div class="highlight"><pre><span></span><code>pow ffs config push --watch &lt;cid&gt;
 </code></pre></div>
+
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>&gt; Success! Pushed cid config <span class="k">for</span> &lt;cid&gt; to FFS with job id: 70368cda-d65a-4e11-8a9f-fbf36135f563
            JOB ID                    STATUS    
 70368cda-d65a-4e11-8a9f-fbf36135f563    Executing
 </code></pre></div>
+
 </details>
 <p>When complete, you should see,</p>
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>&gt; Success! Pushed cid config <span class="k">for</span> &lt;cid&gt; to FFS with job id: 70368cda-d65a-4e11-8a9f-fbf36135f563
            JOB ID                   STATUS
 70368cda-d65a-4e11-8a9f-fbf36135f563    Success
 </code></pre></div>
+
 </details>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1908,12 +1916,15 @@
 <p>The status will update as the deal progresses. If you push a file without the <code>--watch</code> flag, you can check the progress later using, <code>watch</code>.</p>
 <div class="highlight"><pre><span></span><code>pow ffs watch &lt;jobid&gt;
 </code></pre></div>
+
 <h3 id="retrieve-files">Retrieve files<a class="headerlink" href="#retrieve-files" title="Permanent link">&para;</a></h3>
 <p>Finally, you can verify that the file was stored on the network by making a request to get it back out. </p>
 <div class="highlight"><pre><span></span><code>❯ pow ffs get &lt;cid&gt; myfile2
 </code></pre></div>
+
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Success! Data written to myfile2
 </code></pre></div>
+
 </details>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

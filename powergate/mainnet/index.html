@@ -500,8 +500,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bootstrap-from-a-snapshot" title="Bootstrap from a snapshot" class="md-nav__link">
-    Bootstrap from a snapshot
+  <a href="#bootstrap-a-clean-lotus-node-from-a-snapshot" title="Bootstrap a clean Lotus node from a snapshot" class="md-nav__link">
+    Bootstrap a clean Lotus node from a snapshot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recover-or-prune-your-existing-lotus-node-with-a-snapshot" title="Recover or prune your existing Lotus node with a snapshot" class="md-nav__link">
+    Recover or prune your existing Lotus node with a snapshot
   </a>
   
 </li>
@@ -1677,8 +1684,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bootstrap-from-a-snapshot" title="Bootstrap from a snapshot" class="md-nav__link">
-    Bootstrap from a snapshot
+  <a href="#bootstrap-a-clean-lotus-node-from-a-snapshot" title="Bootstrap a clean Lotus node from a snapshot" class="md-nav__link">
+    Bootstrap a clean Lotus node from a snapshot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recover-or-prune-your-existing-lotus-node-with-a-snapshot" title="Recover or prune your existing Lotus node with a snapshot" class="md-nav__link">
+    Recover or prune your existing Lotus node with a snapshot
   </a>
   
 </li>
@@ -1755,6 +1769,7 @@
 <div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/powergate.git
 <span class="nb">cd</span> powergate
 </code></pre></div>
+
 <h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
 <p>A default setup is available in a <code>docker-compose</code> configuration shipped with the Powergate. With the default setup, you will run Powergate connected to live Filecoin Mainnet.</p>
 <p><strong>Run the docker-compose</strong></p>
@@ -1762,6 +1777,7 @@
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> docker
 make up
 </code></pre></div>
+
 <p>If this is your first time running the Powergate, Docker will download the required instances before any Powergate setup begins. Downloads are dependent on your bandwidth and may take <strong>a few minutes</strong>, but won't be required for subsequent runs of the Powergate.</p>
 <p>If this is the first time you are running the Powergate on the mainnet, or if you have been offline for any amount of time, you will need to wait for the chain to properly sync. This will likely take more than a day.</p>
 <p>Once running, you will begin to see log outputs.</p>
@@ -1769,27 +1785,35 @@ make up
 mined block in the past <span class="o">{</span><span class="s2">&quot;block-time&quot;</span>: <span class="s2">&quot;2009-01-01T04:44:30.000Z&quot;</span>,<span class="se">\</span>
 <span class="s2">&quot;time&quot;</span>: <span class="s2">&quot;2020-05-29T20:35:08.644Z&quot;</span>, <span class="s2">&quot;duration&quot;</span>: <span class="m">359999438</span>.64444387<span class="o">}</span>
 </code></pre></div>
+
 <p>When complete, you will have a fully functional Powergate (<code>powd</code>), a Lotus node, and an IPFS node wired correctly together to start using the Mainnet!</p>
-<h3 id="bootstrap-from-a-snapshot">Bootstrap from a snapshot<a class="headerlink" href="#bootstrap-from-a-snapshot" title="Permanent link">&para;</a></h3>
-<p>Syncing a new Lotus node from genesis can take a considerable time. The current <code>mainnet</code> network is providing snapshots of the VM state every 6hrs, which means, in the worst case, syncing 6hs of new blocks.
-Bootstraping the Lotus node from a snapshot implies complete trust in the party who generated the snapshot, so this is a pragmatic solution for getting up to speed fast. Depending on your use case you should consider the security risks of accepting snapshots from trusted parties.</p>
-<p>In order to boostrap from a snapshot in <code>mainnet</code>, download the <a href="https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car">snapshot CAR file</a>. This file is maintained up to date by Protocol Labs.
-We're going to assume this CAR file was downloaded to your local path: <code>/home/myuser/snapshots/minimal_finality_stateroots_latest.car</code>.</p>
-<p>You should edit the <code>docker/docker-compose.yaml</code> file adding two lines:
-<figure><img src="https://user-images.githubusercontent.com/6136245/97188297-1dea1700-1782-11eb-83d0-1d5063d1bebe.png" /><figcaption>image</figcaption>
+<h3 id="bootstrap-a-clean-lotus-node-from-a-snapshot">Bootstrap a clean Lotus node from a snapshot<a class="headerlink" href="#bootstrap-a-clean-lotus-node-from-a-snapshot" title="Permanent link">&para;</a></h3>
+<p>Syncing a new Lotus node from genesis can take a considerable time. The current <code>mainnet</code> network provides snapshots of the VM state every hour, which in the worst case, means having to sync less than 250 blocks from the tip of the chain.</p>
+<p>Bootstrapping the Lotus node from a snapshot implies complete trust in the party who generated it. This is a pragmatic solution for getting up to speed fast. Depending on your use case, you should consider the security risks of accepting snapshots from trusted parties. The snapshot described in this section is generated by Protocol Labs, founders of Filecoin.</p>
+<p>To boostrap a clean Lotus node from a <code>mainnet</code> snapshot, you should edit the <code>docker/docker-compose.yaml</code> in the following way:
+<figure><img src="https://user-images.githubusercontent.com/6136245/99153057-c3f3b780-2684-11eb-9f78-c74e883a74ea.png" /><figcaption>image</figcaption>
 </figure>
 </p>
-<p>Then run <code>make up</code>. If you inspect the Lotus node with <code>docker logs mainnet_lotus_1</code>, you will see a message that is importing chain information, and many Badger compaction messages. After the importing is done, the Lotus node will continue to sync as usual showing the typical logs. At this point you should <code>make down</code> (you don't need to wait to full syncing), revert <code>docker/docker-compose.yaml</code> to the original content, and <code>make up</code> again.</p>
+<p>After doing that, you should run <code>make up</code>. If you inspect the Lotus node with <code>docker logs mainnet_lotus_1</code>, you'll see messages describing that a snapshot is being imported with other Badger compaction interleaved messages. After the importing is done, the Lotus node will continue to sync as usual, showing the typical logs. At this point, you should <code>make down</code> (you don't need to wait to full syncing), revert or comment the added line in <code>docker/docker-compose.yaml</code>, and <code>make up</code> again.</p>
 <p>Congratulations! You're now syncing from a trusted checkpoint.</p>
+<h3 id="recover-or-prune-your-existing-lotus-node-with-a-snapshot">Recover or prune your existing Lotus node with a snapshot<a class="headerlink" href="#recover-or-prune-your-existing-lotus-node-with-a-snapshot" title="Permanent link">&para;</a></h3>
+<p>If you run a Lotus node for a long time, its underlying <code>chain</code> datastore will become bigger, affecting the syncing process and possibly producing other problems. Also, if for some reason your node falls behind syncing and stays far away from the tip, it's sometimes faster to re-import a snapshot again than waiting for the syncing process to catch up.</p>
+<p>In any case, you should perform the following steps:
+1. Execute <code>make down</code> to shutdown your Lotus node.
+2. Execute <code>docker run --rm -v mainnet_powergate-lotus:/data ubuntu rm -rf /data/.lotus/datastore/chain</code>
+3. Execute the steps described in <em>Boostrap a clean Lotus node from a snapshot</em>.</p>
+<p>What is done here is <strong>only</strong> deleting chain data and <em>not</em> your wallet addresses and other important metadata information.</p>
 <h3 id="create-a-deal-and-store-a-file">Create a deal and store a file<a class="headerlink" href="#create-a-deal-and-store-a-file" title="Permanent link">&para;</a></h3>
 <p>Now that your Powergate is running on mainnet, all the CLI and API commands are the same as if you had run it on localnet before.</p>
 <h4 id="install-the-cli">Install the CLI<a class="headerlink" href="#install-the-cli" title="Permanent link">&para;</a></h4>
 <p>From the root of the <code>powergate</code> repo, you can build the CLI from the latest code. This will install the Powergate CLI, <code>pow</code>, on your machine.</p>
 <div class="highlight"><pre><span></span><code>make build
 </code></pre></div>
+
 <p>Test your installation.</p>
 <div class="highlight"><pre><span></span><code>pow --help
 </code></pre></div>
+
 <h4 id="start-storing-data">Start storing data<a class="headerlink" href="#start-storing-data" title="Permanent link">&para;</a></h4>
 <p>You are now ready to start storing and retrieving data using the Powergate. Read more on <a href="../ffs/">Storing Data with the FFS</a>.</p>
                 
