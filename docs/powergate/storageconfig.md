@@ -1,24 +1,24 @@
 # Managing Storage with the StorageConfig
 
-Every [Storage Profile](storage.md#intro-to-storage-profiles) can manage how data is stored on IPFS and Filecoin using the **StorageConfig** ([details below](#storageconfig-details)). The StorageConfig is a powerful tool to customize all the details of how you store data on Filecoin, make it available over IPFS, enforce replication, manage expiring deals, and more.
+Every [user](storage.md#intro-to-users) can manage how data is stored on IPFS and Filecoin using the **StorageConfig** ([details below](#storageconfig-details)). The StorageConfig is a powerful tool to customize all the details of how you store data on Filecoin, make it available over IPFS, enforce replication, manage expiring deals, and more.
 
 ## Setting the StorageConfig
 
 In every Powergate deployment there are three ways to manage StorageConfigs throughout the system.
 
-1. The Storage Profile default StorageConfig. This is initially set by the system default StorageConfig. It can be modified by the Storage Profile owner after creation.
-2. The storage request StorageConfig. This will use the Storage Profile default, but a custom StorageConfig can also be supplied at request time.
-3. A storage update StorageConfig. Any StorageConfigs attached to existing stored data can be updated with a new StorageConfig. The Storage Profile will then work to modify the way data is stored to match the new configuration
+1. The user default StorageConfig. This is initially set by the system default StorageConfig. It can be modified by the user after creation.
+2. The storage request StorageConfig. This will use the user default, but a custom StorageConfig can also be supplied at request time.
+3. A storage update StorageConfig. Any StorageConfigs attached to existing stored data can be updated with a new StorageConfig. The user will then work to modify the way data is stored to match the new configuration
 
-### Get the default StorageConfig of a Storage Profile
+### Get the default StorageConfig of a user
 
-View the current default StorageConfig of an Storage Profile. 
+View the current default StorageConfig of a user. 
 
 ```bash
 pow config default -t <token>
 ```
 
-### Set the default StorageConfig of a Storage Profile
+### Set the default StorageConfig of a user
 
 To set the default `StorageConfig` to one stored in `new-config.json`.
 
@@ -44,7 +44,7 @@ pow data info <cid> -t <token>
 
 ### Update the StorageConfig of existing data
 
-To update the StorageConfig of data already stored and managed by the Powergate storage profile with a new config stored in `updated-config.json`. This command requires the _override_ flag (`-o`) to confirm that you understand that the command will replace an existing config.
+To update the StorageConfig of data already stored and managed by the Powergate user with a new config stored in `updated-config.json`. This command requires the _override_ flag (`-o`) to confirm that you understand that the command will replace an existing config.
 
 ```bash
 pow config apply <cid> -t <token> -o -c updated-config.json

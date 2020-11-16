@@ -1,6 +1,6 @@
 # Admin APIs
 
-Powergate includes some administrative APIs. They allow the caller to create and list Storage Profiles, view wallet addresses, send FIL, and show information about jobs and data across all Storage Profiles managed by the Powergate node.
+Powergate includes some administrative APIs. They allow the caller to create and list users, view wallet addresses, send FIL, and show information about jobs and data across all users managed by the Powergate node.
 
 ## Admin Auth Token
 
@@ -19,7 +19,7 @@ Usage:
 
 Available Commands:
   jobs        Provides admin jobs commands
-  profiles    Provides admin storage profile commands
+  users       Provides admin users commands
   wallet      Provides admin wallet commands
 
 Flags:
@@ -28,18 +28,18 @@ Flags:
 
 Global Flags:
       --serverAddress string   address of the powergate service api (default "127.0.0.1:5002")
-  -t, --token string           storage profile auth token
+  -t, --token string           user auth token
 
 Use "pow admin [command] --help" for more information about a command.
 ```
 
-As an example, you can create a new Storage Profile by running:
+As an example, you can create a new user by running:
 
 ```bash
 ➜ export POW_ADMIN_TOKEN=<admin token value>
-➜ pow admin profile create
+➜ pow admin user create
 {
-  "authEntry":  {
+  "user":  {
     "id":  "57b2f476-cc6f-4063-a8cb-d07652742722",
     "token":  "2ddab280-8ba7-4579-8026-04573fc8d0f5"
   }

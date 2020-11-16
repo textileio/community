@@ -11,7 +11,7 @@ The Powergate is an API driven solution for deploying multitiered storage across
 
 ## Overview
 
-Powergate is a collection of libraries, modules, and configurations that can used independently, and composed together to integrate Filecoin into your application or storage system. The Powergate is designed to manage one or many Filecoin wallet addresses. Each address and its associated configuration and data storage is scoped by a Storage Profile, and most Powergate APIs function within a single Storage Profile.
+Powergate is a collection of libraries, modules, and configurations that can used independently, and composed together to integrate Filecoin into your application or storage system. The Powergate is designed to manage one or many Filecoin wallet addresses. Each address and its associated configuration and data storage is scoped by user, and most Powergate APIs function within a single user.
 
 Some benefits of using the Powergate include:
 
@@ -93,7 +93,7 @@ Available Commands:
   data         Provides commands to interact with general data APIs
   deals        Provides commands to view Filecoin deal information
   help         Help about any command
-  id           Returns the storage profile id
+  id           Returns the user id
   storage-jobs Provides commands to query for storage jobs in various states
   version      Display version information for pow and the connected server
   wallet       Provides commands about filecoin wallets
@@ -101,7 +101,7 @@ Available Commands:
 Flags:
   -h, --help                   help for pow
       --serverAddress string   address of the powergate service api (default "127.0.0.1:5002")
-  -t, --token string           storage profile auth token
+  -t, --token string           user auth token
   -v, --version                display version information for pow and the connected server
 
 Use "pow [command] --help" for more information about a command.
@@ -111,7 +111,7 @@ Use "pow [command] --help" for more information about a command.
 
 Powergate provides a multi-tiered file storage API built on Filecoin and IPFS. Storing data on IPFS and Filecoin is as easy as expressing your desired configuration for storing a Cid.
 
-Powergate handles Filecoin wallet addresses, long-term deal management, and connecting Filecoin to IPFS all within the context of a Storage Profile. Use of a Storage Profile is enabled through a basic token, allowing you to create many Storage Profiles, and map Powergate API access to user(s) in your system.
+Powergate handles Filecoin wallet addresses, long-term deal management, and connecting Filecoin to IPFS on a per user basis. Use of a user is enabled through a basic token, allowing you to create many Powergate users, and map Powergate API access to users in your own system.
 
 [Read about data storage here](storage.md).
 

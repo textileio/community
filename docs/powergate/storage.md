@@ -1,19 +1,19 @@
 # Storing Data
 
-Within the Powergate API, Storage Profiles manage all the necessary state and capabilities to provide multi-tiered file storage. The primary API for storing and retrieving data, tracking long-term deals on Filecoin, and allowing data persisted on Filecoin to be available on IPFS is managed through and scoped to a Storage Profile. 
+The Powergate API leverages the concept of a "user" to manage necessary state and capabilities and to provide multi-tiered file storage. The primary API for storing and retrieving data, tracking long-term deals on Filecoin, and allowing data persisted on Filecoin to be available on IPFS is managed through and scoped to a user.
 
-## Intro to Storage Profiles
+## Intro to Users
 
-Storage profiles are scoped to one or more Filecoin wallet addresses. So to start using a Storage Profile, you must use the Powergate admin API to create a new Storage Profile, at which time the Powergate will:
+Users are associated with one or more Filecoin wallet addresses. You can use the Powergate admin API to create a new user, at which time the Powergate will:
 
-1. Create a new default wallet address for the Storage Profile. You can configure the Powergate to automatically fund new wallets from a master address.
-2. Create a new API token linked to the Storage Profile.
-3. Enable use of the Storage Profile through the use of the supplied token.
+1. Create a new default wallet address for the user. You can configure the Powergate to automatically fund new wallets from a master address.
+2. Create a new API token linked to the user.
+3. Enable use of the user through the use of the supplied token.
 
-Almost all Powergate APIs rely on the Storage Profile (including use through the CLI), so you will need to supply the _token_ to indicate which _Storage Profile_ your requests are targeting. Since each Storage Profile has its own address, it has its own balance and therefore limits on the Filecoin network.
+Almost all Powergate APIs rely on the user (including use through the CLI), so you will need to supply the _token_ to indicate which _user_ your requests are targeting. Since each user has its own address, it has its own balance and therefore limits on the Filecoin network.
 
 !!!Warning
-    If you're providing a `--lotusmasteraddr` and `--walletinitialfund`, be sure that address exists in the Lotus node and it has enough funds, since `walletinitialfund` attoFILs will be sent from there to fund from newly created Storage Profiles. Recall that both flags are optional, and if not present there won't be any auto-funding transaction, so you're responsible to fund wallet addresses of new Storage Profiles. 
+    If you're providing a `--lotusmasteraddr` and `--walletinitialfund`, be sure that address exists in the Lotus node and it has enough funds, since `walletinitialfund` attoFILs will be sent from there to fund from newly created users. Recall that both flags are optional, and if not present there won't be any auto-funding transaction, so you're responsible to fund wallet addresses of new users. 
 
 ## Multi-tiered design
 
@@ -41,21 +41,21 @@ Read more about [updating the StorageConfig here](storageconfig.md).
 
 ## Using Powergate to store data
 
-To start using the most Powergate APIs, you must first create a _Storage Profile_.
+To start using the most Powergate APIs, you must first create a _user_.
 
-### Create a Storage Profile
+### Create a user
 
-Using the Powergate CLI admin commands, you can create new Storage Profiles easily.
+Using the Powergate CLI admin commands, you can create new user easily.
 
 ```bash
-pow admin create-profile
+pow admin user create
 ```
 
 ???+ success
 
     ```Bash
     {
-        "authEntry":  {
+        "user":  {
             "id":  "0ac0fb4d-581c-4276-bd90-a9aa30dd4cb4",
             "token":  "883f57b1-4e66-47f8-b291-7cf8b10f6370"
         }
@@ -64,7 +64,7 @@ pow admin create-profile
 
 **Add environmental variable (optional)**
 
-The `--token` is used to scope the requests to the Storage Profile we created. You can skip setting the `--token` flag on every command by adding your new token as an environmental variable. For the rest of the examples, we'll assume you've set this environmental variable.
+The `--token` is used to scope the requests to the user we created. You can skip setting the `--token` flag on every command by adding your new token as an environmental variable. For the rest of the examples, we'll assume you've set this environmental variable.
 
 ```bash
 export POW_TOKEN=883f57b1-4e66-47f8-b291-7cf8b10f6370
@@ -93,7 +93,7 @@ pow data stage <path/filename>
 
 The Powergate manages stored files based on the setup defined in a _StorageConfig_. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must apply a new StorageConfig for the CID we generated above. Learn more about the [StorageConfig here](storageconfig.md).
 
-Every Storage Profile has a default `StorageConfig` that will be used for every new deal unless overridden.
+Every user has a default `StorageConfig` that will be used for every new deal unless overridden.
 
 ```bash
 pow config apply --watch <cid>

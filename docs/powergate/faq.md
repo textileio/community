@@ -73,7 +73,7 @@ Note that if you are running the Powergate stack with `make up`, [this is alread
 
 ### The `pow data log` commands mention an error `... adding markets funds failed:`, how can I fix this?
 
-You should check that your Storage Profile wallet address used for making deals has enough funds.
+You should check that your user wallet address used for making deals has enough funds.
 
 
 ### What does the following log error mean:  `rpc go-jsonrpc: xxxx`?
