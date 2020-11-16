@@ -21,11 +21,11 @@ Powergate provides you API access to multi-tiered storage system built on IPFS a
 
 ### Hot storage layer
 
-Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). The default `StorageConfig` enables both hot and cold for all new data stored. Data stored with hot enabled is pinned to the Powergate's IPFS node. 
+Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). Data stored with hot enabled is pinned to the Powergate's IPFS node. Even if Hot Storage is disabled, the IPFS node is used as transient storage for data to be stored in Filecoin. This data will still exist in the IPFS node until a garbage collection runs, so you might benefit from temporal hot storage for retrievals even if you don't have Hot Storage enabled.
 
 ### Cold storage layer
 
-Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (localnet or mainnet). You can use the [StorageConfig](storageconfig.md) to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file. The default `StorageConfig` enables both hot and cold storage layers, meaning your data will be simultaneously available on IPFS and persisted on Filecoin.
+Data stored in the Powergate Cold layer is stored by miners on the Filecoin network (localnet or mainnet). You can use the [StorageConfig](storageconfig.md) to configure many properties of the Cold storage layer per file you store, such as where, how many copies, and how long to store the file.
 
 ### Moving between tiers
 
