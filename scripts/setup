@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-pip install mkdocs mkdocs-material markdown-captions mkdocs-redirects mkdocs-monorepo-plugin mkdocs-markdownextradata-plugin
+pip install mkdocs mkdocs-material markdown-captions mkdocs-redirects mkdocs-monorepo-plugin mkdocs-markdownextradata-plugin pygithub
