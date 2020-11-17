@@ -148,12 +148,12 @@ nav:
           - Watch: hub/cli/hub_buck_watch.md
           - Root: hub/cli/hub_buck_root.md
           - Status: hub/cli/hub_buck_status.md
-  - JavaScript Reference:
+  - JavaScript Guide:
       - Introduction: tutorials/hub/web-app.md
       - User identities: tutorials/hub/pki-identities.md
       - Development mode: tutorials/hub/development-mode.md
       - Add images to Buckets: tutorials/hub/user-buckets.md
-      - Mobile ThreadDB & Buckets: tutorials/react-native-buckets.md
+      - User Buckets in React Native: tutorials/react-native-buckets.md
       - Build with NodeJS: tutorials/nodejs.md
       - Production authentication: tutorials/hub/production-auth.md
       - Externals:
