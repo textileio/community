@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#user-identity" tabindex="1" class="md-skip">
+      <a href="#user-identities" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -1080,11 +1080,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
-      JavaScript Reference
+      JavaScript Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        JavaScript Reference
+        JavaScript Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1168,13 +1168,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" title="Next steps" class="md-nav__link">
-    Next steps
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#advanced-identity-providers" title="Advanced identity providers" class="md-nav__link">
     Advanced identity providers
   </a>
@@ -1205,6 +1198,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" title="Next steps" class="md-nav__link">
+    Next steps
+  </a>
   
 </li>
       
@@ -1249,8 +1249,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../react-native-buckets/" title="Mobile ThreadDB & Buckets" target="" class="md-nav__link ">
-      Mobile ThreadDB & Buckets
+    <a href="../../react-native-buckets/" title="User Buckets in React Native" target="" class="md-nav__link ">
+      User Buckets in React Native
     </a>
   </li>
 
@@ -1687,13 +1687,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" title="Next steps" class="md-nav__link">
-    Next steps
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#advanced-identity-providers" title="Advanced identity providers" class="md-nav__link">
     Advanced identity providers
   </a>
@@ -1727,6 +1720,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#next-steps" title="Next steps" class="md-nav__link">
+    Next steps
+  </a>
+  
+</li>
+      
       
       
       
@@ -1748,23 +1748,24 @@
                   <a href="https://github.com/textileio/docs/edit/master/docs/tutorials/hub/pki-identities.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="user-identity">User identity<a class="headerlink" href="#user-identity" title="Permanent link">&para;</a></h1>
-<p>In this section, we're going to focus on identity. Specifically, we're going to create user identities using private-keys. The Textile Hub supports public-key infrastructure (PKI) allowing your app to support many user identity providers based on PKI (e.g. Metamask, 3Box, uPort, Blockstack) or derive your own. In most of our examples, we'll use a simple, platform agnostic keypair identity based on <a href="https://en.wikipedia.org/wiki/EdDSA#Ed25519">ed2559</a> and extending the <a href="https://github.com/paulmillr/noble-ed25519">Noble ed2559 library</a>.</p>
+                <h1 id="user-identities">User identities<a class="headerlink" href="#user-identities" title="Permanent link">&para;</a></h1>
+<p>This section will focus on how to create user identities with private-keys. </p>
+<p>The Textile Hub supports public-key infrastructure (PKI), which allows your app to integrate different PKI-based user identity providers (e.g. Metamask, 3Box, uPort, Blockstack) or roll your own. </p>
+<p>Most of our examples use a simple, platform-agnostic keypair identity based on <a href="https://en.wikipedia.org/wiki/EdDSA#Ed25519">ed2559</a> and by extending the <a href="https://github.com/paulmillr/noble-ed25519">Noble ed2559 library</a>.</p>
 <h2 id="key-based-identity-access">Key-based identity access<a class="headerlink" href="#key-based-identity-access" title="Permanent link">&para;</a></h2>
-<p>Your application can grant users access to your Hub APIs very easily. When doing so, the Hub can also help you verify that the users are who they claim to be using encryption. The general flow is as follows:</p>
+<p>The Hub can help verify that users are who they claim to be by using encryption. The general flow is as follows:</p>
 <ol>
-<li>A user attempts to sign-in by providing their <em>public key</em>.</li>
-<li>Your app creates a one-time challenge for the users.</li>
-<li>The user signs the challenge with their <em>private key</em> to generate <em>credentials</em>.</li>
-<li>Your app verifies the credentials.</li>
+<li>A <strong>user</strong> attempts to <em>sign-in</em> by providing their <strong>public key</strong>.</li>
+<li>Your <strong>app</strong> <em>creates</em> a one-time <strong>challenge</strong> for the users.</li>
+<li>The <strong>user</strong> <em>signs</em> the challenge with their <strong>private key</strong> to generate <strong>credentials</strong>.</li>
+<li>Your <strong>app</strong> <em>verifies</em> the <strong>credentials</strong>.</li>
 </ol>
-<p>Below, we will simplify these steps by using the Hub's helpful token generation endpoint that <em>also</em> does credential verification.</p>
+<p>Below, we'll simplify these steps by using the Hub's helpful token generation endpoint that <em>also</em> does credential verification.</p>
 <h3 id="generating-an-identity">Generating an identity<a class="headerlink" href="#generating-an-identity" title="Permanent link">&para;</a></h3>
 <p>In this example, we'll use an identity based on an ed2559 signature scheme and made available through the <code>@textile/hub</code> library.</p>
 <p><strong>Install dependency</strong></p>
 <div class="highlight"><pre><span></span><code>npm install --save @textile/hub
 </code></pre></div>
-
 <p><strong>Generating Identities</strong></p>
 <p>You can use the <code>PrivateKey</code> utility to generate random new identities (private and public keys) and later, to sign challenges to prove private key ownership.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">PrivateKey</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span><span class="p">;</span>
@@ -1780,13 +1781,13 @@
    <span class="kr">const</span> <span class="nx">restored</span> <span class="o">=</span> <span class="nx">PrivateKey</span><span class="p">.</span><span class="nx">fromString</span><span class="p">(</span><span class="nx">identityString</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-
-<p>All of the instances above are different representations of the same user generated by <code>PrivateKey.fromRandom()</code>. Each instance holds a different copy of the user's private-key and therefore should remain private between your app and your user.</p>
+<p>All of the instances above are different representations of the same user-generated by <code>PrivateKey.fromRandom()</code>. </p>
+<p>Each instance holds a different copy of the user's private key and therefore should remain private between your app and your user.</p>
 <h3 id="caching-user-identity">Caching user identity<a class="headerlink" href="#caching-user-identity" title="Permanent link">&para;</a></h3>
 <p>You can add simple client-side caching to store a user's identity in the browser and restore it when the user returns to the app.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><code>localStorage</code> isn't guaranteed and may be cleared by the browser, the system, or the users. Even more important, <code>localStorage</code> isn't a secure place to store secrets. You should provide alternative storage mechanisms if maintaining identity (and therefore data ownership and access) over time is important.</p>
+<p><code>localStorage</code> isn't a secure place to store secrets. <code>localStorage</code> access is also not guaranteed and may be cleared by the browser, the system, or the users. You should provide alternative storage mechanisms if maintaining identity (and therefore data ownership and access) over time is important.</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">PrivateKey</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span><span class="p">;</span>
 
@@ -1805,9 +1806,9 @@
   <span class="k">return</span> <span class="nx">identity</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h3 id="signing-transactions">Signing transactions<a class="headerlink" href="#signing-transactions" title="Permanent link">&para;</a></h3>
-<p>The <code>PrivateKey</code> object contains a signing method, allowing your app to now sign arbitrary bytes for your users. You can create your own identity verification endpoint or use the Hub's token endpoint to verify the credentials.</p>
+<p>The <code>PrivateKey</code> object contains a signing method that allows your app to sign arbitrary bytes for your users. </p>
+<p>You can create your own identity verification endpoint or use the Hub's token endpoint to verify the credentials.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">PrivateKey</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span><span class="p">;</span>
 
 <span class="nx">async</span> <span class="kd">function</span> <span class="nx">sign</span> <span class="p">(</span><span class="nx">identity</span>: <span class="kt">PrivateKey</span><span class="p">)</span> <span class="p">{</span>
@@ -1818,12 +1819,9 @@
    <span class="k">return</span> <span class="nx">credentials</span>
 <span class="p">}</span>
 </code></pre></div>
-
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<p>Time to setup your app in <a href="../development-mode/">development mode</a>.</p>
 <h2 id="advanced-identity-providers">Advanced identity providers<a class="headerlink" href="#advanced-identity-providers" title="Permanent link">&para;</a></h2>
 <h3 id="public-key-provider">Public key provider<a class="headerlink" href="#public-key-provider" title="Permanent link">&para;</a></h3>
-<p>The below describe two generic identity interfaces used. You can import these interfaces from <code>@textile/hub</code>.</p>
+<p>The code below shows two generic identity interfaces. You can import these interfaces from <code>@textile/hub</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Read more https://textileio.github.io/js-textile/docs/hub.public</span>
 <span class="kr">interface</span> <span class="nx">Public</span> <span class="p">{</span>
   <span class="nx">verify</span><span class="p">(</span><span class="nx">data</span>: <span class="kt">Buffer</span><span class="p">,</span> <span class="nx">sig</span>: <span class="kt">Buffer</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span>
@@ -1835,25 +1833,39 @@
   <span class="kr">public</span><span class="o">:</span> <span class="nx">Public</span>
 <span class="p">}</span>
 </code></pre></div>
-
-<p>Identity here represents any entity capable of signing a message. This is a simple <a href="https://en.wikipedia.org/wiki/Public_key_infrastructure">public key infrastructure</a> inspired interface that similarly requires the implementer to be capable of returning an associated public key for verification. In many cases, the Identity will just be a private key, but callers can use any setup that suits their needs. A default implementation based on <a href="https://github.com/paulmillr/noble-ed25519">Noble ed2559 library</a> but many developers will want to use alternative identity provides, such as <a href="https://www.ceramic.network">3box/Ceramic</a>, <a href="https://fortmatic.com">Fortmatic</a>, and existing private/public keypair, or a web3 provider such as <a href="https://metamask.io">Metamask</a>. Textile Hub also provides email-based identities.</p>
+<p><code>Identity</code> here represents any entity capable of signing a message. </p>
+<p>It requires that the implementer is capable of returning an associated public key for verification. This interface design was inspired by <a href="https://en.wikipedia.org/wiki/Public_key_infrastructure">public key infrastructure</a>.</p>
+<p>In many cases, the <code>Identity</code> will just be a private key, but callers can use any setup that suits their needs. </p>
+<p>The default implementation is based on the <a href="https://github.com/paulmillr/noble-ed25519">Noble ed2559 library</a> but many developers will want to use alternative identity provides, such as <a href="https://www.ceramic.network">3box/Ceramic</a>, <a href="https://fortmatic.com">Fortmatic</a>, and existing private/public key-pair, or a web3 provider such as <a href="https://metamask.io">Metamask</a>. </p>
+<p>Textile Hub also provides email-based identities.</p>
 <h3 id="metamask">Metamask<a class="headerlink" href="#metamask" title="Permanent link">&para;</a></h3>
-<p>One trick with the above workflow is that you need to help your users store and recover their private keys. You could do this with your user model stored over an API. Alternatively, you can use any keypair manager, such as Metamask. There are a few steps to generate a Textile compatible <code>identity</code> from the Metamask API.</p>
-<p>We've provided an <a href="https://github.com/textileio/js-examples/tree/master/metamask-identities-ed25519">example using Metamask here</a>.</p>
-<p>In the above example, we allow you to generate a new ed25519 key for your users based on their Ethereum address in Metamask. This key is deterministic, meaning that as long as your user maintains access to their address in Metamask and their account secret, they can recover the same ed25519 key. This is handy if you don't want to store your user's private keys outside the app or use unreliable storage (e.g., local storage in browsers). It does this as follows:</p>
+<p>One issue with the above workflow is that you need to help users store and recover their private keys. </p>
+<p>You could do this with your user model stored over an API. Alternatively, you can use any key-pair manager, such as <a href="https://metamask.io/">Metamask</a>. There are a few steps to generate a Textile compatible <code>identity</code> from the Metamask API.</p>
+<p>We've provided an example using Metamask <a href="https://github.com/textileio/js-examples/tree/master/metamask-identities-ed25519">here</a>.</p>
+<p>In the above example, we allow you to generate a new ed25519 key for your users based on their Ethereum address in Metamask. This key is deterministic, meaning that as long as your user maintains access to their address in Metamask and their account secret, they can recover the same ed25519 key. </p>
+<p>This is handy if you don't want to store your user's private keys outside the app or use unreliable storage (e.g. local storage in browsers). </p>
+<p>It does this as follows:</p>
 <ol>
-<li>Prompt the user for a new <code>secret</code>. The secret helps ensure that another app cannot easily trick the user into generating their ed25519 key.</li>
-<li>The app then creates a unique string that contains a hashed version of the secret, the app name, and some additional text. The app can regenerate this string at any time in the future if the user supplies their secret.</li>
-<li>The unique string is then signed with the user's Ethereum address, using the Metamask API.</li>
-<li>The resulting signature is used to generate an ed25519 key that can be used as an identity with all Textile APIs.</li>
+<li>It <em>prompts</em> the <strong>user</strong> for a new <code>secret</code>. The secret helps ensure that another app cannot easily trick the user into generating their ed25519 key.</li>
+<li>The <strong>app</strong> then <em>creates</em> a <strong>unique string</strong> that <em>contains</em> a <strong>hashed version</strong> of the <strong>secret, the app name, and some additional text</strong>. The <strong>app</strong> can <em>regenerate</em> this string at any time in the future if the user supplies their <strong>secret</strong>.</li>
+<li>The <strong>unique string</strong> is then <em>signed</em> with the <strong>user's Ethereum address</strong> by <em>using</em> the <strong>Metamask API</strong>.</li>
+<li>The <strong>resulting signature</strong> is used to <em>generate</em> an <strong>ed25519 key</strong> that can be used as an identity with all Textile APIs.</li>
 </ol>
-<p>There are some benefits to this approach over using the ethereum address directly. An obvious one is that there is no public association between an ethereum address and the ed25519 key. This approach will allow users to create many keys without needing to worry about people association all their app use with a single address.</p>
+<p>There are some benefits to this approach over using the ethereum address directly. An obvious one is that there is no public association between an ethereum address and the ed25519 key. </p>
+<!---
+This approach allows users to create many keys without needing to worry about people association all their app use with a single address.
+
+^ I don't understand what this means so it should be reworded.
+- Albert Kim
+ -->
+
 <h3 id="3box">3Box<a class="headerlink" href="#3box" title="Permanent link">&para;</a></h3>
-<p>Another good starting point is to use the <a href="https://docs.3box.io/">3Box SDK</a>. 3Box manages a cluster of nodes that web3 users where can push small bits of information. 3Box provides some helpful abstractions that integrate with Metamask and can help you create, manage, and recover keys for your users. In this approach, a user with a 3Box identity can use that identity to create and track Buckets or Threads generated on Textile.</p>
+<p>Another good starting point is with <a href="https://docs.3box.io/">3Box SDK</a>. 3Box manages a cluster of nodes where web3 users can push small bits of information. </p>
+<p>3Box provides some helpful abstractions that integrate with Metamask and can help you create, manage, and recover keys for your users. In this approach, a user with a 3Box identity can use that identity to create and track Buckets or Threads generated on Textile.</p>
 <p>We've provided an <a href="https://github.com/textileio/js-examples/tree/master/3box-identities-ed25519">example using 3Box here</a>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>As of writing this, 3Box doesn't have Typescript typings available.</p>
+<p>As of the time of writing, November 16, 2020, 3Box does not have Typescript typings available.</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">PrivateKey</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
@@ -1884,7 +1896,8 @@
  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>Time to setup your app in <a href="../development-mode/">development mode</a>.</p>
 <p><br /></p>
                 
                   
@@ -1976,7 +1989,7 @@
     
       <script src="../../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
       
         <script src="../../../js/sidebar.js"></script>
       

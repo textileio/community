@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -1208,11 +1208,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
-      JavaScript Reference
+      JavaScript Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        JavaScript Reference
+        JavaScript Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1271,8 +1271,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorials/react-native-buckets/" title="Mobile ThreadDB & Buckets" target="" class="md-nav__link ">
-      Mobile ThreadDB & Buckets
+    <a href="../../tutorials/react-native-buckets/" title="User Buckets in React Native" target="" class="md-nav__link ">
+      User Buckets in React Native
     </a>
   </li>
 
@@ -1802,10 +1802,8 @@
 Choose an Org name: nasa█
 Please confirm: y█
 </code></pre></div>
-
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>&gt; Success!
 </code></pre></div>
-
 </details>
 <p>You have now created the <code>nasa</code> Org.</p>
 <h4 id="create-a-new-bucket-shared-with-an-org">Create a new Bucket shared with an Org<a class="headerlink" href="#create-a-new-bucket-shared-with-an-org" title="Permanent link">&para;</a></h4>
@@ -1814,12 +1812,10 @@ Please confirm: y█
 <span class="nb">cd</span> launchpad
 <span class="nv">HUB_ORG</span><span class="o">=</span>nasa hub buck init
 </code></pre></div>
-
 <p>You have now created a new Bucket inside of the <code>launchpad</code> directory and owned by your <code>nasa</code> organization.</p>
 <h4 id="invite-a-new-org-member">Invite a new org member<a class="headerlink" href="#invite-a-new-org-member" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>hub org invite
 </code></pre></div>
-
 <p>The final step is to invite collaborators to your Org. Once they accept the invite, they will be able to interact with buckets associated with the Org.</p>
 <h3 id="app-user-buckets">App user Buckets<a class="headerlink" href="#app-user-buckets" title="Permanent link">&para;</a></h3>
 <p>If you are building an app using one of our <a href="../../hub/apis/#libraries">developer libraries</a> you can use buckets from inside your apps. Apps generally will create buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.</p>
@@ -1859,7 +1855,6 @@ Please confirm: y█
 <div class="highlight"><pre><span></span><code>hub buck roles grant -r writer <span class="se">\</span>
 bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose /path/to
 </code></pre></div>
-
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>  IDENTITY                                                     ROLE    
   *                                                            Reader  
   bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose  Writer  
@@ -1867,7 +1862,6 @@ bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose /path/to
 
 &gt; Success! Updated access roles <span class="k">for</span> path /path/to
 </code></pre></div>
-
 </details>
 <p>Success! You can see the new user has been added as a writer to the path <code>/path/to</code> and that the bucket creator is still listed as the admin.</p>
 <div class="txtl-options">
@@ -1976,7 +1970,7 @@ bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose /path/to
     
       <script src="../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
         <script src="../../js/sidebar.js"></script>
       

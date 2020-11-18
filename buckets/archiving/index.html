@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -1127,11 +1127,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
-      JavaScript Reference
+      JavaScript Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        JavaScript Reference
+        JavaScript Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1190,8 +1190,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorials/react-native-buckets/" title="Mobile ThreadDB & Buckets" target="" class="md-nav__link ">
-      Mobile ThreadDB & Buckets
+    <a href="../../tutorials/react-native-buckets/" title="User Buckets in React Native" target="" class="md-nav__link ">
+      User Buckets in React Native
     </a>
   </li>
 
@@ -1646,18 +1646,15 @@
 &gt; Warning! Archives are currently saved on an experimental <span class="nb">test</span> network. They may be lost at any time.
 ? Proceed? <span class="o">[</span>y/N<span class="o">]</span>
 </code></pre></div>
-
 <p>The Hub is connected to the Filecoin Mainnet, so any archiving deal you created on that network.</p>
 <p>You should see a success message if you proceed.</p>
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>&gt; Success! Archive queued successfully
 </code></pre></div>
-
 </details>
 <p>This means that archiving has been initiated. It may take some time to complete...</p>
 <div class="highlight"><pre><span></span><code>hub buck archive status
 &gt; Archive is currently executing, grab a coffee, and be patient...
 </code></pre></div>
-
 <p>Use the archive status command with -w to watch your archive's progress as it moves through the Filecoin market deal stages.</p>
 <div class="highlight"><pre><span></span><code>buck archive status -w
 &gt; Archive is currently executing, grab a coffee, and be patient...
@@ -1705,7 +1702,6 @@
 &gt;    Deal with miner t01459 changed state to StorageDealProposalAccepted
 &gt;    Deal with miner t01459 changed state to StorageDealSealing
 </code></pre></div>
-
 <p>The output will look something like the above. With a little luck, you will start seeing some successful storage deals.</p>
 <h2 id="limits">Limits<a class="headerlink" href="#limits" title="Permanent link">&para;</a></h2>
 <p>Archiving is limited by the limits of buckets, so the maximum size is 4GiB. Archives stored on Filecoin <strong>do not</strong> count toward your account storage limits only files that remain in your live bucket are counted.</p>
@@ -1799,7 +1795,7 @@
     
       <script src="../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
         <script src="../../js/sidebar.js"></script>
       

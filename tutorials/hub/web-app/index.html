@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -1080,11 +1080,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
-      JavaScript Reference
+      JavaScript Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        JavaScript Reference
+        JavaScript Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1269,8 +1269,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../react-native-buckets/" title="Mobile ThreadDB & Buckets" target="" class="md-nav__link ">
-      Mobile ThreadDB & Buckets
+    <a href="../../react-native-buckets/" title="User Buckets in React Native" target="" class="md-nav__link ">
+      User Buckets in React Native
     </a>
   </li>
 
@@ -1789,43 +1789,51 @@
                 
                 
                 <h1 id="build-a-web-app-using-the-hub">Build a Web App using the Hub<a class="headerlink" href="#build-a-web-app-using-the-hub" title="Permanent link">&para;</a></h1>
-<p>In this tutorial, you'll learn how to start building JavaScript apps that use the Hub to push Threads and Buckets to the IPFS network (and beyond). We'll walk-through a series of basic setup options and then show you how to build a couple different types of apps. Using the examples shared here, you will see how you can add interoperable, content addressed datasets to your app. We'll show you how to get started with basic cryptographic identities, or how to integrate your existing identity solution.</p>
+<p>In this section, you'll find guides on building JavaScript apps that use the Hub to push Threads and Buckets to the IPFS network (and beyond). We'll walk through basic setup options and how to build different types of apps. </p>
+<p>These tutorials will show you how to add interoperable, content addressed datasets to your app, how to get started with basic cryptographic identities, how to integrate your existing identity solution, and more.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <p>There are a few resources you'll need before you start writing code.</p>
 <ul>
 <li><a href="../../../hub/accounts/">An account</a>. This is your developer account on the Hub.</li>
 <li><a href="https://webpack.js.org/guides/typescript/">A new Typescript web app</a>. We recommend using Typescript, as Textile libraries are in a period rapid of development and type detection is valuable during upgrades.</li>
 </ul>
-<p>Once you have those two things, you can continue to read the overview or jump ahead to:</p>
-<p><a href="../pki-identities/">User identity</a> to create simple user identies for the rest of the tutorial.</p>
+<p>Once you have those two things, you can continue to read the overview or jump ahead to <a href="../pki-identities/">User identity</a> to create simple user identities for the rest of the tutorial.</p>
 <p>Or, if you plan to provide your own identity setup, you can skip to the <a href="../development-mode/">development mode</a> setup instructions.</p>
 <h3 id="typescript-setup">Typescript setup<a class="headerlink" href="#typescript-setup" title="Permanent link">&para;</a></h3>
-<p>Our examples will primarily be built using Typescript. We wont cover the details of setting up a webapp with Typescript because <a href="https://levelup.gitconnected.com/setting-up-a-full-stack-typescript-application-featuring-express-and-react-ccfe07f2ea47">it's well documented elsewhere</a>. </p>
+<p>Our examples will primarily be built using Typescript. For instructions on how to setup a Typescript app, visit <a href="https://levelup.gitconnected.com/setting-up-a-full-stack-typescript-application-featuring-express-and-react-ccfe07f2ea47">here</a>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>With your basic Typescript web app setup, you should have a primary <code>.ts</code> (or <code>.js</code> if you decided to stick with Javascript) file where your webapp exists. We'll work within this single file to start, but the instructions below should be adaptable to any application architecture.</p>
+<p>With your basic Typescript web app setup, you should have a primary <code>.ts</code> (or <code>.js</code> if you decided to stick with Javascript) file where your web app exists. We'll work within this single file to start, but the instructions below should be adaptable to any application architecture.</p>
 </div>
 <h3 id="browser-node-or-react-native">Browser, Node, or React Native?<a class="headerlink" href="#browser-node-or-react-native" title="Permanent link">&para;</a></h3>
 <p>You can use the JavaScript libraries for all three, though there are some differences to be aware of.</p>
 <h4 id="browser">Browser<a class="headerlink" href="#browser" title="Permanent link">&para;</a></h4>
 <p>Go go go! Green lights ahead. Just read the rest of the docs and get building.</p>
 <h4 id="node">Node<a class="headerlink" href="#node" title="Permanent link">&para;</a></h4>
-<p>Some of our libraries rely on WebSockets for moving data around. WebSockets is packed in every major browser out of the box, but doesn't exist in Node the same way. This can be solved by adding WebSockets to the environment. We've solved this in past examples using, <a href="https://www.npmjs.com/package/isomorphic-ws">isomorphic-ws</a>.</p>
+<p>Some of our libraries rely on WebSockets for moving data around. WebSockets is packed in every major browser out of the box but doesn't exist in Node the same way. </p>
+<p>This can be solved by adding WebSockets to the environment. We've solved this in past examples by using <a href="https://www.npmjs.com/package/isomorphic-ws">isomorphic-ws</a>.</p>
 <ol>
-<li>Install <a href="https://www.npmjs.com/package/isomorphic-ws">isomorphic-ws</a>, <code>npm install --save isomorphic-ws ws</code></li>
-<li>Add websockets to the global namespace at the start of your app: </li>
+<li>
+<p>Install <a href="https://www.npmjs.com/package/isomorphic-ws">isomorphic-ws</a>:</p>
+<div class="highlight"><pre><span></span><code>npm install --save isomorphic-ws ws
+</code></pre></div>
+</li>
+<li>
+<p>Add websockets to the global namespace at the start of your app: </p>
+<div class="highlight"><pre><span></span><code><span class="p">;(</span><span class="nx">global</span> <span class="nx">as</span> <span class="nx">any</span><span class="p">).</span><span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;isomorphic-ws&#39;</span><span class="p">)</span>
+</code></pre></div>
+</li>
 </ol>
-<p><code>;(global as any).WebSocket = require('isomorphic-ws')</code></p>
-<p>See an example of that, <a href="https://github.com/textileio/js-examples/blob/master/hub-browser-auth-app/src/server/index.ts#L2">here</a>.</p>
+<p>See an example of that <a href="https://github.com/textileio/js-examples/blob/master/hub-browser-auth-app/src/server/index.ts">here</a>.</p>
 <h4 id="react-native">React Native<a class="headerlink" href="#react-native" title="Permanent link">&para;</a></h4>
-<p>The React Native environment is missing a whole number of required packages, including <code>crypto</code>. Read the React Native tutorial's <a href="../../react-native-buckets/#install-libraries">installation steps</a> to learn how to add the necessary packages.</p>
+<p>The React Native environment is missing a whole number of required packages including <code>crypto</code>. Read the React Native tutorial's <a href="../../react-native-buckets/#install-libraries">installation steps</a> to learn how to add the necessary packages.</p>
 <h2 id="tutorial-overview">Tutorial overview<a class="headerlink" href="#tutorial-overview" title="Permanent link">&para;</a></h2>
 <h3 id="user-identities">User identities<a class="headerlink" href="#user-identities" title="Permanent link">&para;</a></h3>
-<p>Setup simple keypair based identities for your app users. <a href="../pki-identities/">View tutorial</a>.</p>
+<p>Setup simple key-pair based identities for your app users. <a href="../pki-identities/">View tutorial</a>.</p>
 <h3 id="to-secure-or-not-to-secure">To secure or not to secure<a class="headerlink" href="#to-secure-or-not-to-secure" title="Permanent link">&para;</a></h3>
 <p>Learn how to use non-signing API keys for faster app development. <a href="../development-mode/">View tutorial</a>.</p>
 <h3 id="start-building-apps">Start building apps<a class="headerlink" href="#start-building-apps" title="Permanent link">&para;</a></h3>
-<p>Build a photo gallery sharing app for users with Buckets.  <a href="../user-buckets/">Start here</a>.</p>
+<p>Build a photo gallery sharing app for users with Buckets.  <a href="../user-buckets/">View tutorial</a>.</p>
 <h3 id="add-api-authorization">Add API authorization<a class="headerlink" href="#add-api-authorization" title="Permanent link">&para;</a></h3>
 <p>Add secure API keys and a login flow to your app. <a href="../production-auth/">View tutorial</a>.</p>
 <p><br /></p>
@@ -1919,7 +1927,7 @@
     
       <script src="../../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
       
         <script src="../../../js/sidebar.js"></script>
       

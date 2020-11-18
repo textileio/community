@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -1080,11 +1080,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
-      JavaScript Reference
+      JavaScript Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        JavaScript Reference
+        JavaScript Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1236,8 +1236,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../react-native-buckets/" title="Mobile ThreadDB & Buckets" target="" class="md-nav__link ">
-      Mobile ThreadDB & Buckets
+    <a href="../../react-native-buckets/" title="User Buckets in React Native" target="" class="md-nav__link ">
+      User Buckets in React Native
     </a>
   </li>
 
@@ -1723,7 +1723,8 @@
                 
                 
                 <h1 id="user-buckets">User Buckets<a class="headerlink" href="#user-buckets" title="Permanent link">&para;</a></h1>
-<p>In this tutorial, we'll walk through the key steps to building file hosting and sharing on IPFS into your application. To do it, we'll use Buckets and we'll use an example that allows users of your app to post photo galleries to IPFS, IPNS, and HTTP using Buckets.</p>
+<p>This section will cover how to share and host files with Buckets.</p>
+<p>We'll build an example that allows users of your app to post photo galleries to IPFS, IPNS, and HTTP using Buckets.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <p>There are a few resources you'll need before you start writing code.</p>
 <ul>
@@ -1731,17 +1732,21 @@
 <li>You should already be familiar with how to create user identities and how to generate API keys.</li>
 </ul>
 <h2 id="initialize-buckets">Initialize Buckets<a class="headerlink" href="#initialize-buckets" title="Permanent link">&para;</a></h2>
-<p>In your app, there are two items you will regularly use when building on Buckets. The first is the <a href="https://textileio.github.io/js-textile/docs/hub.buckets">Buckets class</a> object where you will initialize a API client for your user and call bucket methods. The second is the <code>key</code> of any bucket you want to interact with regularly, since you will need to tell the API which Bucket you are acting on.</p>
-<p>So, to get started in our app, we are going to do three things at once.</p>
+<p>In your app, there are two items you'll regularly use when building with Buckets.</p>
+<ul>
+<li>The <a href="https://textileio.github.io/js-textile/docs/hub.buckets">Buckets class</a> object where you'll initialize an API client for your user and call bucket methods.</li>
+<li>The <code>key</code> of any bucket you want to interact with regularly since you'll need to tell the API which Bucket you're acting on.</li>
+</ul>
+<p>So, to get started in our app, we're going to do three things at once.</p>
 <ol>
-<li>Create a new Bucket object.</li>
-<li>Create or fetch the existing bucket of interest by name.</li>
-<li>Get the key of the bucket.</li>
+<li><em>Create</em> a new <strong>Bucket object</strong>.</li>
+<li><em>Create or fetch</em> the <strong>existing bucket</strong> of interest by name.</li>
+<li><em>Get</em> the <strong>key</strong> of the bucket.</li>
 </ol>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
+<p>For this tutorial, you'll be using an API key generated as part of a User Group key. It's possible to use Account Keys together with these APIs but they do not work in the same way since only Account owners (or Org members) can use them. A User Group key will allow you to create buckets for each user of your app.</p>
 </div>
-<p>For this tutorial, you will be using an API key generated as part of a User Group key. It is possible to use Account Keys together with these APIs, but they do not work in quite the same way, since only Account owners (or Org members) can use them. A User Group key will allow you to create buckets for each user of your app.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span><span class="p">,</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">KeyInfo</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
 <span class="kr">const</span> <span class="nx">setup</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">key</span>: <span class="kt">KeyInfo</span><span class="p">,</span> <span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -1760,9 +1765,10 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h2 id="create-a-photo-index">Create a photo index<a class="headerlink" href="#create-a-photo-index" title="Permanent link">&para;</a></h2>
-<p>If you are going to allow your users to upload images, or files, that may become more than a few, it can be helpful to track metadata in an index. In our final example, we resample the photos on the fly, storing multiple sizes for better display performance. We track all those files with a simple JSON index in the root of our bucket. It would be better to store that index right in the user's Thread! But we wanted to keep this tutorial basic.</p>
+<p>If you're going to allow users to upload more than a few images or files, it can be helpful to track the metadata in an index. </p>
+<p>In our final example, we resample the photos on the fly, storing multiple sizes for better display performance. We track all those files with a simple JSON index in the root of our bucket. </p>
+<p>It would be better to store that index right in the user's Thread! But we wanted to keep this tutorial simple.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span><span class="p">,</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
 <span class="kr">const</span> <span class="nx">initIndex</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">buckets</span>: <span class="kt">Buckets</span><span class="p">,</span> <span class="nx">bucketKey</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -1778,10 +1784,13 @@
   <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">pushPath</span><span class="p">(</span><span class="nx">bucketKey</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">buf</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-
-<p>Now, you can update the paths each time you add new images to the bucket. In our example, we add 4 files for every image, full res, medium res, thumbnail, and metdata. We also update the paths with a link to the file's own metadata on each update. In this way, an app can load just the single list of metadata and decide what to display.</p>
+<p>Now you can update the paths each time you add new images to the bucket. </p>
+<p>In our example, we add 4 files for every image, full-res, medium-res, thumbnail, and metadata. We also update the paths with a link to the file's metadata on each update. </p>
+<p>In this way, an app can load just the single list of metadata and decide what to display.</p>
 <h2 id="create-a-public-view">Create a public view<a class="headerlink" href="#create-a-public-view" title="Permanent link">&para;</a></h2>
-<p>Buckets are cross-protocol objects, meaning you can use them in IPFS, IPNS or HTTP. If you want to create a public view of bucket over HTTP, you should add an <code>index.html</code> to the root. In our example, we add an <code>index.html</code> that knows how to parse and display files based on the <code>./index.json</code> stored above, in the same bucket.</p>
+<p>Buckets are cross-protocol objects meaning that you can use them in IPFS, IPNS, or HTTP. </p>
+<p>If you want to create a public view of a bucket over HTTP, you should add an <code>index.html</code> to the root. </p>
+<p>In our example, we add an <code>index.html</code> that knows how to parse and display files based on the <code>./index.json</code> stored above, in the same bucket.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span><span class="p">,</span> <span class="nx">Identity</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
 <span class="kr">const</span> <span class="nx">addIndexHTML</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">buckets</span>: <span class="kt">Buckets</span><span class="p">,</span> <span class="nx">bucketKey</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">html</span>: <span class="kt">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -1791,9 +1800,8 @@
   <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">pushPath</span><span class="p">(</span><span class="nx">bucketKey</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">buf</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h2 id="push-files">Push files<a class="headerlink" href="#push-files" title="Permanent link">&para;</a></h2>
-<p>You are now ready to start pushing your files to the bucket. You can push each binary file to a specific path in the bucket using <code>pushPath</code>.</p>
+<p>You're now ready to start pushing files to the bucket. You can push each binary file to a specific path in the bucket by using <code>pushPath</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span><span class="p">,</span> <span class="nx">PushPathResult</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
 <span class="kr">const</span> <span class="nx">insertFile</span> <span class="o">=</span> <span class="p">(</span><span class="nx">buckets</span>: <span class="kt">Buckets</span><span class="p">,</span> <span class="nx">bucketKey</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">file</span>: <span class="kt">File</span><span class="p">,</span> <span class="nx">path</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">PushPathResult</span><span class="o">&gt;</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -1812,10 +1820,10 @@
   <span class="p">})</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>At this point, we also update our <code>index.json</code> with the new file.</p>
 <h2 id="push-encrypted-buckets">Push encrypted buckets<a class="headerlink" href="#push-encrypted-buckets" title="Permanent link">&para;</a></h2>
-<p>If your app is providing private spaces for your users to organize their photos or files, you can also create encrypted buckets for them. The <code>open</code> and <code>init</code> methods on the Bucket class take an <code>isPrivate</code> option. So your bucket start method may look more like,</p>
+<p>If your app is providing private spaces for your users to organize their photos or files, you can also create encrypted buckets for them. </p>
+<p>The <code>open</code> and <code>init</code> methods on the Bucket class take an <code>isPrivate</code> option. Your bucket start method may look like:</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
 <span class="kr">const</span> <span class="nx">openEncrypted</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">buckets</span>: <span class="kt">Buckets</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -1830,20 +1838,25 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<!--- 
+^ it says it takes an isPrivate option but the code uses isEncrypted?
+- Albert Kim
+-->
 
 <h3 id="sharing-encrypted-buckets">Sharing encrypted buckets<a class="headerlink" href="#sharing-encrypted-buckets" title="Permanent link">&para;</a></h3>
-<p>There is no way to convert encrypted Buckets to non-encrypted or vice-versa. However, it should be straight-forward to move files from an encrypted Bucket into a non-encrypted Bucket and back again.</p>
-<p>Adding multiple readers or writers to Buckets is only currently available through <code>orgs</code> for developers, not app users. However, we will include this ability in future release. This is dependent on our work to implement more advanced <a href="https://github.com/textileio/go-threads/issues/295">Threads ACLs</a>.</p>
+<p>There is no way to convert encrypted Buckets to non-encrypted or vice-versa.</p>
+<p>However, it should be straight-forward to move files from an encrypted Bucket into a non-encrypted Bucket and back again.</p>
+<p>Adding multiple readers or writers to Buckets is only currently available through <code>orgs</code> for developers, not app users. </p>
+<p>However, we will include this ability in future releases. This is dependent on our work to implement more advanced <a href="https://github.com/textileio/go-threads/issues/295">Threads ACLs</a>.</p>
 <p>Be aware that creating encrypted Buckets still posts files to IPFS. Meaning the encrypted contents of Buckets are still publicly available, just encrypted so not possible to view without the encryption keys.</p>
 <h2 id="example-on-github">Example on GitHub<a class="headerlink" href="#example-on-github" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/js-examples.git
 <span class="nb">cd</span> js-examples/bucket-photo-gallery
 </code></pre></div>
-
 <div class="txtl-options half">
   <a href="https://github.com/textileio/js-examples" class="box">
     <h5>Explore the repo</h5>
-    <p>Try out the gallery app built with dropzone.js and buckets</p>
+    <p>Try out the gallery app built with dropzone.js and buckets.</p>
   </a>
 </div>
 
@@ -1883,13 +1896,13 @@
           </a>
         
         
-          <a href="../../react-native-buckets/" title="Mobile ThreadDB & Buckets" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../react-native-buckets/" title="User Buckets in React Native" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Mobile ThreadDB & Buckets
+                User Buckets in React Native
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1938,7 +1951,7 @@
     
       <script src="../../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
       
         <script src="../../../js/sidebar.js"></script>
       

@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -1080,11 +1080,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
-      JavaScript Reference
+      JavaScript Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        JavaScript Reference
+        JavaScript Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1143,8 +1143,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../react-native-buckets/" title="Mobile ThreadDB & Buckets" target="" class="md-nav__link ">
-      Mobile ThreadDB & Buckets
+    <a href="../react-native-buckets/" title="User Buckets in React Native" target="" class="md-nav__link ">
+      User Buckets in React Native
     </a>
   </li>
 
@@ -1627,26 +1627,25 @@
                 
                 
                 <h1 id="building-with-nodejs">Building with NodeJS<a class="headerlink" href="#building-with-nodejs" title="Permanent link">&para;</a></h1>
-<p>There aren't many differences when using Textile's JavaScript libraries with NodeJS, except one, most of of the APIs exposed (Buckets daemon, Threads daemons, and the Hub) do so over WebSockets. WebSockets are baked into every major browser, but don't come with NodeJS by default, so we'll have to add them.</p>
+<p>The one difference between Textile's JavaScript libraries and NodeJS has to do with WebSockets.</p>
+<p>Most of the APIs exposed (Buckets daemon, Threads daemons, and the Hub) do so over WebSockets. WebSockets are baked into every major browser but don't come with NodeJS by default, so we'll have to add them.</p>
 <h2 id="adding-websockets-to-nodejs">Adding WebSockets to NodeJS<a class="headerlink" href="#adding-websockets-to-nodejs" title="Permanent link">&para;</a></h2>
 <p>The easiest solution to make all libraries compatible is to add WebSockets to the global namespace.</p>
 <p><strong>Install</strong></p>
 <p>We'll use the <a href="https://www.npmjs.com/package/isomorphic-ws"><code>isomorphic-ws</code></a> library to add WebSockets to our Node app.</p>
 <div class="highlight"><pre><span></span><code>npm install --save isomorphic-ws ws
 </code></pre></div>
-
 <p><strong>Setup</strong></p>
 <p>You can now just add WebSockets to the global namespace in your apps. Add this to the first line in your <code>js</code> or <code>ts</code> files, usually <code>index.js</code> or <code>main.js</code> or similar.</p>
 <p>In TypeScript:</p>
 <div class="highlight"><pre><span></span><code><span class="p">;(</span><span class="nx">global</span> <span class="kr">as</span> <span class="nx">any</span><span class="p">).</span><span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;isomorphic-ws&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>In JavaScript:</p>
 <div class="highlight"><pre><span></span><code><span class="p">;</span><span class="nx">global</span><span class="p">.</span><span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;isomorphic-ws&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <h2 id="start-building">Start building<a class="headerlink" href="#start-building" title="Permanent link">&para;</a></h2>
-<p>That's it, now start building the full suite of Textile tools. Check out the <a href="../hub/web-app/">app building tutorials</a> for ideas.</p>
+<p>That's it. Now start building with the full suite of Textile tools. </p>
+<p>Check out the <a href="../hub/web-app/">app-building tutorials</a> for ideas.</p>
                 
                   
                 
@@ -1667,7 +1666,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../react-native-buckets/" title="Mobile ThreadDB & Buckets" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../react-native-buckets/" title="User Buckets in React Native" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1676,7 +1675,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Mobile ThreadDB & Buckets
+                User Buckets in React Native
               </span>
             </div>
           </a>
@@ -1737,7 +1736,7 @@
     
       <script src="../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
         <script src="../../js/sidebar.js"></script>
       

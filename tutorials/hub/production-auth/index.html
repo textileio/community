@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -1080,11 +1080,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
-      JavaScript Reference
+      JavaScript Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        JavaScript Reference
+        JavaScript Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1143,8 +1143,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../react-native-buckets/" title="Mobile ThreadDB & Buckets" target="" class="md-nav__link ">
-      Mobile ThreadDB & Buckets
+    <a href="../../react-native-buckets/" title="User Buckets in React Native" target="" class="md-nav__link ">
+      User Buckets in React Native
     </a>
   </li>
 
@@ -1277,8 +1277,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#setup-buckets" title="Setup buckets" class="md-nav__link">
-    Setup buckets
+  <a href="#convert-buckets-from-insecure-api-to-secure-api" title="Convert Buckets from insecure API to secure API" class="md-nav__link">
+    Convert Buckets from insecure API to secure API
   </a>
   
 </li>
@@ -1776,8 +1776,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#setup-buckets" title="Setup buckets" class="md-nav__link">
-    Setup buckets
+  <a href="#convert-buckets-from-insecure-api-to-secure-api" title="Convert Buckets from insecure API to secure API" class="md-nav__link">
+    Convert Buckets from insecure API to secure API
   </a>
   
 </li>
@@ -1829,61 +1829,71 @@
                 
                 
                 <h1 id="production-mode">Production mode<a class="headerlink" href="#production-mode" title="Permanent link">&para;</a></h1>
-<p>You've not had time to build and test your app using the insecure keys described in the <a href="../development-mode/">development mode</a> section. Now, you want to convert your app to running in production mode. To do so, you'll need to:</p>
+<p>This section will cover how to work in a production environment with secure keys, unlike using insecure keys in <a href="../development-mode/">development mode</a>.</p>
+<p>To work with API keys in a production environment:</p>
 <ol>
-<li>Generate a new API key and secret that has mandatory signing enabled. </li>
-<li>Set up an authorization endpoint that will hold your API secret and any optional user model for your app.</li>
-<li>Add a login step to your app that will use the new endpoint to authorization users in your app.</li>
+<li><em>Generate</em> a new <strong>API key and secret</strong> that has mandatory signing enabled. </li>
+<li><em>Setup</em> an <strong>authorization endpoint</strong> that will hold your API secret and any optional user model for your app.</li>
+<li><em>Add</em> a <strong>login step</strong> to your app that will use the new endpoint to authorize users in your app.</li>
 </ol>
 <h2 id="differences-from-development-mode">Differences from development mode<a class="headerlink" href="#differences-from-development-mode" title="Permanent link">&para;</a></h2>
-<p>There are a few differences once you switch to production mode. A primary one is that your user's will need a signature to accompany their API requests. Those signatures can only be created with your API secret, and will expire. You will need to have a way to re-verify them occasionally. For this, we'll move from using the <code>withKeyInfo</code> APIs to a new one called, <code>withUserAuth</code> that can request updated signatures in your app. This new API is also designed to work without access to your <code>secret</code>, so your app can <code>authorize</code> users on your own backend and provide API key signatures on demand. Other than that, all the APIs will work in the exact same way.</p>
+<ul>
+<li>Users need a <strong>signature</strong> to <em>accompany</em> their API requests. Those signatures can only be created with your API secret and will expire. </li>
+<li>You'll need to <em>re-verify</em> the <strong>signatures</strong> occasionally. For this, we'll move from using the <code>withKeyInfo</code> APIs to a new one called <code>withUserAuth</code> that can request updated signatures in your app. </li>
+<li><code>withUserAuth</code> is also designed to work without access to your <code>secret</code>, so your app can <code>authorize</code> users on your back-end and provide API key signatures on demand. </li>
+</ul>
+<p>Other than that, all the APIs work the same way.</p>
 <h2 id="user-identity">User identity<a class="headerlink" href="#user-identity" title="Permanent link">&para;</a></h2>
-<p>If you've followed the tutorials up until now, you are already using <em>PKI</em>, so your users will only ever share their <em>public key</em> with your API (or any API). Therefore, you'll now just need a way to verify that they hold the private key linked with the public key, otherwise users could spoof your system very easily. From there, you can provide Hub API access to your users based on that verification.</p>
+<p>If you've followed the tutorials up until now, you're already using <em>PKI</em>, so your users will only ever share their <em>public key</em> with your API (or any API). </p>
+<p>Therefore, you just need to verify that they hold the private key linked with the public key. Otherwise, users could spoof your system very easily. </p>
+<p>From there, you can provide Hub API access to your users based on that verification.</p>
 <h2 id="authentication-server">Authentication server<a class="headerlink" href="#authentication-server" title="Permanent link">&para;</a></h2>
-<p>Now, we will setup a simple server that will accept a user's public key, verify that they control the private key (via a challenge), and then grant the user access to the Hub APIs. The user can pass the result (a <code>UserAuth</code> object) to the API and start creating Threads and Buckets.</p>
+<p>Now, we'll setup a simple server that accepts a user's public key, verifies that they control the private key (via a challenge), and then grant the user access to the Hub APIs. </p>
+<p>The user can pass the result (a <code>UserAuth</code> object) to the API and start creating Threads and Buckets.</p>
 <h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
 <p>There are a few resources you'll need before you start writing code.</p>
 <ul>
 <li><a href="../../../hub/accounts/">An account</a>. This is your developer account on the Hub.</li>
-<li><a href="../../../hub/apis/">A user group key</a>. This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.</li>
+<li><a href="../../../hub/apis/">A user group key</a>. This is how your users access the Hub APIs. Consider creating the key in an organization and not your personal account so you can invite collaborators later.</li>
 <li><a href="https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript">A new Typescript project</a>. We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.</li>
-<li>A server framework. The example below uses <a href="https://koajs.com/">KoaJS</a> but could just as easily be written for <a href="https://expressjs.com/">Express</a> or the basic Node server.</li>
+<li>A server framework. The example below uses <a href="https://koajs.com/">KoaJS</a> but it could just as easily be written with <a href="https://expressjs.com/">Express</a> or the basic Node server.</li>
 </ul>
 <p><strong>Install dependencies</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Textile libraries</span>
 npm install --save @textile/hub
 
-<span class="c1"># Other utilities use in example</span>
+<span class="c1"># Other utilities used in example</span>
 npm install --save dotenv emittery isomorphic-ws
 
 <span class="c1"># Libraries specific to our server framework, koajs</span>
 npm install --save koa koa-router koa-logger koa-json koa-bodyparser koa-route koa-websocket
 </code></pre></div>
-
 <p><strong>Environment variables</strong></p>
-<p>We use a <code>.env</code> file in the root of our project repo. The values in the file will be pulled into the app each time it's run. This is where you'll add your Hub API key and secret. </p>
+<p>We use a <code>.env</code> file in the root of our project repo. The values in this file will be pulled into the app each time it's run. This is where you'll add your Hub API key and secret. </p>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>The <code>.env</code> file should be added to your <code>.gitignore</code> so that your key and secret are never shared.</p>
+<p>The <code>.env</code> file should be added to your <code>.gitignore</code> so your key and secret are never shared.</p>
 </div>
 <p>Contents of <code>.env</code>.</p>
 <div class="highlight"><pre><span></span><code>USER_API_KEY=&lt;insert user group key&gt;
 USER_API_SECRET=&lt;insert user group secret&gt;
 </code></pre></div>
-
 <h3 id="create-the-server">Create the server<a class="headerlink" href="#create-the-server" title="Permanent link">&para;</a></h3>
-<p>In our project setup, our main server is defined in <code>src/index.ts</code>. Unlike the <a href="../simple-credentials-endpoint/">simple credentials example</a>, our server needs to handle two-way communication with the client during identity verification. The flow is as follows:</p>
-<ul>
-<li>First, the <strong>client</strong> will make a request login.</li>
-<li>The <strong>server</strong> will initiate the request with the Hub and get back an identity challenge.</li>
-<li>The <strong>server</strong> will pass the challenge to the <strong>client</strong>.</li>
-<li>The <strong>client</strong> will confirm they own their private key by signing the challenge and passing it back to the <strong>server</strong></li>
-<li>The <strong>server</strong> which passes it on to the Hub. </li>
-<li>If successful, a token is generated for the user.</li>
-<li>If successful, the <strong>server* generates API credentials and passes credentials, token, and API key back to the **client</strong>.</li>
-<li>Now, the <strong>client</strong> can use the Hub APIs directly!</li>
+<p>In our project setup, our main server is defined in <code>src/index.ts</code>. Unlike the <a href="../simple-credentials-endpoint/">simple credentials example</a>, our server needs to handle two-way communication with the client during identity verification. </p>
+<p>The flow is as follows:</p>
+<ol>
+<li>The <strong>client</strong> <em>makes</em> a <strong>login request</strong>.</li>
+<li>The <strong>server</strong> <em>initiates</em> the <strong>request</strong> with the <strong>Hub</strong> and <em>gets back</em> an <strong>identity challenge</strong>.</li>
+<li>The <strong>server</strong> <em>passes</em> the <strong>challenge</strong> to the <strong>client</strong>.</li>
+<li>The <strong>client</strong> <em>confirms</em> they own their <strong>private key</strong> by <em>signing</em> the <strong>challenge</strong> and passing it back to the <strong>server</strong>.</li>
+<li>The <strong>server</strong> passes it to the Hub.<ul>
+<li>If <em>successful</em>, a <strong>token</strong> is <em>generated</em> for the <strong>user</strong> and the <strong>server</strong> <em>generates</em> <strong>API credentials</strong> and <em>passes</em> the <strong>credentials, token, and API key</strong> back to the <strong>client</strong>.</li>
 </ul>
-<p>It sounds complicated, but you'll see it happens very fast with only a few lines of code. In our example, we use <code>websockets</code> to enable the multi-step communication between the server and the client.</p>
+</li>
+<li>Now, the <strong>client</strong> can use the Hub APIs directly!</li>
+</ol>
+<p>It sounds complicated, but you'll see it happens very fast with only a few lines of code. </p>
+<p>In our example, we use <code>websockets</code> to enable the multi-step communication between the server and the client.</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/** Provides nodejs access to a global Websocket value, required by Hub API */</span>
 <span class="p">;(</span><span class="nx">global</span> <span class="nx">as</span> <span class="nx">any</span><span class="p">).</span><span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;isomorphic-ws&#39;</span><span class="p">)</span>
 <span class="kr">import</span> <span class="nx">koa</span> <span class="nx">from</span> <span class="s2">&quot;koa&quot;</span>
@@ -1903,7 +1913,7 @@ USER_API_SECRET=&lt;insert user group secret&gt;
 <span class="nx">dotenv</span><span class="p">.</span><span class="nx">config</span><span class="p">();</span>
 
 <span class="cm">/** Port our server will run */</span>
-<span class="kr">const</span> <span class="nx">PORT</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">3000</span>
+<span class="kr">const</span> <span class="nx">PORT</span><span class="o">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mf">3000</span>
 
 <span class="cm">/** Init Koa with Websocket support */</span>
 <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">websockify</span><span class="p">(</span><span class="k">new</span> <span class="nx">koa</span><span class="p">())</span>
@@ -1920,9 +1930,9 @@ USER_API_SECRET=&lt;insert user group secret&gt;
 <span class="cm">/** Start the server! */</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span> <span class="nx">PORT</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">&quot;Server started.&quot;</span> <span class="p">)</span> <span class="p">)</span>
 </code></pre></div>
-
 <h3 id="add-a-websocket-login-handler">Add a websocket login handler<a class="headerlink" href="#add-a-websocket-login-handler" title="Permanent link">&para;</a></h3>
-<p>Next, we'll add a websocket endpoint to our server. Note the <code>Add websocket login endpoint</code> location in the server code above. The primary step that the server needs to do is accept a pubkey and issue a new challenge back to the client. When successful, new API credentials can be handed to the client.</p>
+<p>Next, we'll add a websocket endpoint to our server. Note the <code>Add websocket login endpoint</code> location in the server code above. </p>
+<p>The primary step the server needs to do is accept a <code>pubkey</code> and issue a new challenge back to the client. When successful, new API credentials can be handed to the client.</p>
 <p><a href="https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app/src/server">View the full code example in the repo</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
@@ -1949,16 +1959,15 @@ USER_API_SECRET=&lt;insert user group secret&gt;
   <span class="p">})</span>
 <span class="p">}</span>
 </code></pre></div>
-
-<p>Now when you refresh your locally running server you should have a websocket endpoint for client token creation.</p>
+<p>Now when you refresh your locally running server, you should have a websocket endpoint for client token creation.</p>
 <h3 id="wrap-up">Wrap-up<a class="headerlink" href="#wrap-up" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Now that the user is verified in your system, you can keep their public key without any security issues.</li>
-<li>However, you should never trust an API call only by the public key, the challenge step is critical.</li>
+<li>With the user verified in your system, you can keep their public key without any security issues.</li>
+<li>However, you should <em>never trust</em> an API call only by the public key, the <strong>challenge step</strong> is <em>critical</em>.</li>
 <li>The token provided in the response should be considered a secret that only should be shared with a single user. It does not expire.</li>
 </ul>
 <h4 id="example-on-github">Example on GitHub<a class="headerlink" href="#example-on-github" title="Permanent link">&para;</a></h4>
-<p>We've provided an abstracted view of the main parts of server-side authentication and authorization. If you'd like to learn more, we've provided a fully working example on GitHub, you can see it here.</p>
+<p>If you'd like to learn more, we've provided a fully working example on GitHub:</p>
 <div class="txtl-options half">
   <a href="https://github.com/textileio/js-examples/blob/master/hub-browser-auth-app/src/server/wss.ts" class="box">
     <h5>Login API</h5>
@@ -1967,7 +1976,15 @@ USER_API_SECRET=&lt;insert user group secret&gt;
 </div>
 
 <h2 id="client-app-authentication">Client (app) authentication<a class="headerlink" href="#client-app-authentication" title="Permanent link">&para;</a></h2>
-<p>Now that our credentials endpoint is set up, we simply need to generate new credentials for each user's identity. A basic client needs to submit a login and handle a challenge request from the server, where the challenge will be signed and returned over websocket. We'll create a <code>login</code> function that handles the back and forth of the websocket and can combine with the <code>withUserAuth</code> function.</p>
+<p>Now that our credentials endpoint is setup, we need to generate new credentials for each user's identity. </p>
+<p>A basic client needs to be able to:</p>
+<ul>
+<li><em>Submit</em> a <strong>login request</strong>.</li>
+<li><em>Handle</em> a <strong>challenge request</strong> from the server.</li>
+<li><em>Sign</em> the <strong>challenge</strong>.</li>
+<li><em>Return</em> it over <strong>websockets</strong>. </li>
+</ul>
+<p>We'll create a <code>login</code> function that handles the back and forth of the websocket and can combine with the <code>withUserAuth</code> function.</p>
 <h3 id="login-function">Login function<a class="headerlink" href="#login-function" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span><span class="p">,</span> <span class="nx">Client</span><span class="p">,</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">PrivateKey</span><span class="p">,</span> <span class="nx">UserAuth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
@@ -2047,11 +2064,10 @@ USER_API_SECRET=&lt;insert user group secret&gt;
   <span class="k">return</span> <span class="nx">client</span>
 <span class="p">}</span>
 </code></pre></div>
-
-<h3 id="setup-buckets">Setup buckets<a class="headerlink" href="#setup-buckets" title="Permanent link">&para;</a></h3>
-<p>Similarly, if you are looking for how to convert your Buckets from using the insecure API to the secure one, the conversion will look like the following.</p>
+<h3 id="convert-buckets-from-insecure-api-to-secure-api">Convert Buckets from insecure API to secure API<a class="headerlink" href="#convert-buckets-from-insecure-api-to-secure-api" title="Permanent link">&para;</a></h3>
+<p>If you're looking to convert your Buckets from using the insecure API to the secure one, see the code below:</p>
 <p><strong>Insecure keys example</strong></p>
-<p>When using your insecure API key, you typically initialized Buckets like the following.</p>
+<p>When using your insecure API key, you typically initialized Buckets like the following:</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span><span class="p">,</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">KeyInfo</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
 <span class="kr">const</span> <span class="nx">init</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">key</span>: <span class="kt">KeyInfo</span><span class="p">,</span> <span class="nx">identity</span>: <span class="kt">Identity</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -2060,25 +2076,22 @@ USER_API_SECRET=&lt;insert user group secret&gt;
     <span class="k">return</span> <span class="nx">buckets</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p><strong>Secure keys example</strong></p>
-<p>You will now replace <code>withKeyInfo</code> and <code>getToken</code> with the single, <code>withUserAuth</code> method that requires the callback method.</p>
-<div class="highlight"><pre><span></span><code>import { Buckets, UserAuth } from &#39;@textile/hub&#39;
+<p>You'll now replace <code>withKeyInfo</code> and <code>getToken</code> with the single, <code>withUserAuth</code> method that requires the callback method:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span><span class="p">,</span> <span class="nx">UserAuth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
 
-const init = (getUserAuth: (() =&gt; Promise&lt;UserAuth&gt;)) =&gt; {
-  const buckets = Buckets.withUserAuth(getUserAuth)
-  return buckets
-}
+<span class="kr">const</span> <span class="nx">init</span> <span class="o">=</span> <span class="p">(</span><span class="nx">getUserAuth</span><span class="o">:</span> <span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">UserAuth</span><span class="o">&gt;</span><span class="p">))</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">buckets</span> <span class="o">=</span> <span class="nx">Buckets</span><span class="p">.</span><span class="nx">withUserAuth</span><span class="p">(</span><span class="nx">getUserAuth</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">buckets</span>
+<span class="p">}</span>
 </code></pre></div>
-
 <h3 id="wrap-up_1">Wrap-up<a class="headerlink" href="#wrap-up_1" title="Permanent link">&para;</a></h3>
 <p>Now you've had a chance to see how identities work with API keys to provide Hub resources to your users.</p>
-<p>If you'd like to explore the examples explained above more, we've provided the fully working example on GitHub.</p>
+<p>If you'd like to explore the examples explained above more, we've provided a fully working example on GitHub.</p>
 <h4 id="example-on-github_1">Example on GitHub<a class="headerlink" href="#example-on-github_1" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/js-examples.git
 <span class="nb">cd</span> js-examples/hub-browser-auth-app
 </code></pre></div>
-
 <div class="txtl-options half">
   <a href="https://github.com/textileio/js-examples" class="box">
     <h5>Explore the repo</h5>
@@ -2177,7 +2190,7 @@ const init = (getUserAuth: (() =&gt; Promise&lt;UserAuth&gt;)) =&gt; {
     
       <script src="../../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
       
         <script src="../../../js/sidebar.js"></script>
       
