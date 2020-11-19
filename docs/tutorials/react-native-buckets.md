@@ -202,9 +202,11 @@ async function example (buckets: Buckets, bucketKey: string, content: string) {
 
 ### Updating User Bucket
 
-When you replace the **HTTP content** in a Bucket for a user, the Bucket head will get a new IPFS address.
+When you update your Bucket:
 
-When you replace the **IPNS content** in a Bucket for a user, the **IPNS content** will be appended to the ThreadDB history.
+* The **Thread** containing the **Bucket** will be *updated*.
+* The Bucket's **HTTP URL** and **IPNS address** updates to reflects those updates.
+* The **Bucket** will *get* a **new IPFS address** (CID) any time you change it.
 
 This gives you a lot of options for building apps, delivering content, and doing cool things for your users with their data.
 
