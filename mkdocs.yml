@@ -195,6 +195,14 @@ extra:
       link: https://slack.textile.io
   limits:
     max_threads_per_owner: 100
-    max_bucket_size: 4GiB
-    max_account_size: 4GiB
-    max_buckets_per_thread: 10000
+    max_bucket_size: 4 GiB
+    minimum_filecoin_deal_size: 32 MiB
+  billing:
+    free_stored_data: 5 GiB
+    free_network_egress: 10 GiB per Month
+    free_instance_reads: 50,000 per Day
+    free_instance_writes: 20,000 per Day
+    stored_data: $0.03 per GiB per Month
+    network_egress: $0.1 per GiB
+    instance_reads: $0.01 per 10,000
+    instance_writes: $0.02 per 10,000
