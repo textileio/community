@@ -1,9 +1,9 @@
 # hub pow info
 
-Display information about the Powergate associated with the current account or org to any other account.
+Get information about the current storate state of a cid
 
 ```
-hub pow info [flags]
+hub pow info [optional cid1,cid2,...] [flags]
 ```
 
 ### Options

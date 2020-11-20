@@ -1,19 +1,19 @@
-## pow version
+## pow id
 
-Display version information for pow and the connected server
+Returns the user id
 
 ### Synopsis
 
-Display version information for pow and the connected server
+Returns the user id
 
 ```
-pow version [flags]
+pow id [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for version
+  -h, --help   help for id
 ```
 
 ### Options inherited from parent commands

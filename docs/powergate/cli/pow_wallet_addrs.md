@@ -1,19 +1,19 @@
-## pow wallet balance
+## pow wallet addrs
 
-Print the balance of the specified wallet address
+Print all wallet addresses for the current user
 
 ### Synopsis
 
-Print the balance of the specified wallet address
+Print all wallet addresses for the current user
 
 ```
-pow wallet balance [address] [flags]
+pow wallet addrs [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for balance
+  -h, --help   help for addrs
 ```
 
 ### Options inherited from parent commands

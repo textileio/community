@@ -102,19 +102,18 @@ nav:
           - Introduction: powergate/index.md
           - Localnet: powergate/localnet.md
           - Mainnet: powergate/mainnet.md
+          - Admin APIs: powergate/admin.md
           - Store Data:
-              - Intro to FFS: powergate/ffs.md
+              - Storing Data: powergate/storage.md
               - Storage Configs: powergate/storageconfig.md
           - POW CLI:
               - Overview: powergate/cli/pow.md
-              - FFS: powergate/cli/pow_ffs.md
-              - Asks: powergate/cli/pow_asks.md
-              - Faults: powergate/cli/pow_faults.md
-              - Miners: powergate/cli/pow_miners.md
-              - Net: powergate/cli/pow_net.md
-              - Reputation: powergate/cli/pow_reputation.md
+              - Config: powergate/cli/pow_config.md
+              - Data: powergate/cli/pow_data.md
               - Wallet: powergate/cli/pow_wallet.md
-              - Health: powergate/cli/pow_health.md
+              - Storage Jobs: powergate/cli/pow_storage-jobs.md
+              - Deals: powergate/cli/pow_deals.md
+              - Admin: powergate/cli/pow_admin.md
           - FAQ: powergate/faq.md
           - Externals:
               - JavaScript: https://textileio.github.io/js-powergate-client/
@@ -148,6 +147,12 @@ nav:
           - Watch: hub/cli/hub_buck_watch.md
           - Root: hub/cli/hub_buck_root.md
           - Status: hub/cli/hub_buck_status.md
+      - Billing commands:
+          - Overview: hub/cli/hub_billing.md
+          - Setup: hub/cli/hub_billing_setup.md
+          - Portal: hub/cli/hub_billing_portal.md
+          - Usage: hub/cli/hub_billing_usage.md
+          - Users: hub/cli/hub_billing_users.md
   - JavaScript Guide:
       - Introduction: tutorials/hub/web-app.md
       - User identities: tutorials/hub/pki-identities.md
