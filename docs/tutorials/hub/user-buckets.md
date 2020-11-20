@@ -1,6 +1,8 @@
 # User Buckets
 
-In this tutorial, we'll walk through the key steps to building file hosting and sharing on IPFS into your application. To do it, we'll use Buckets and we'll use an example that allows users of your app to post photo galleries to IPFS, IPNS, and HTTP using Buckets.
+This section will cover how to share and host files with Buckets.
+
+We'll build an example that allows users of your app to post photo galleries to IPFS, IPNS, and HTTP using Buckets.
 
 ## Getting Started
 
@@ -11,16 +13,19 @@ There are a few resources you'll need before you start writing code.
 
 ## Initialize Buckets
 
-In your app, there are two items you will regularly use when building on Buckets. The first is the [Buckets class](https://textileio.github.io/js-textile/docs/hub.buckets) object where you will initialize a API client for your user and call bucket methods. The second is the `key` of any bucket you want to interact with regularly, since you will need to tell the API which Bucket you are acting on.
+In your app, there are two items you'll regularly use when building with Buckets.
 
-So, to get started in our app, we are going to do three things at once.
+* The [Buckets class](https://textileio.github.io/js-textile/docs/hub.buckets) object where you'll initialize an API client for your user and call bucket methods.
+* The `key` of any bucket you want to interact with regularly since you'll need to tell the API which Bucket you're acting on.
 
-1. Create a new Bucket object.
-2. Create or fetch the existing bucket of interest by name.
-3. Get the key of the bucket.
+So, to get started in our app, we're going to do three things at once.
+
+1. *Create* a new **Bucket object**.
+2. *Create or fetch* the **existing bucket** of interest by name.
+3. *Get* the **key** of the bucket.
 
 !!!info
-   For this tutorial, you will be using an API key generated as part of a User Group key. It is possible to use Account Keys together with these APIs, but they do not work in quite the same way, since only Account owners (or Org members) can use them. A User Group key will allow you to create buckets for each user of your app.
+    For this tutorial, you'll be using an API key generated as part of a User Group key. It's possible to use Account Keys together with these APIs but they do not work in the same way since only Account owners (or Org members) can use them. A User Group key will allow you to create buckets for each user of your app.
 
 ```typescript
 import { Buckets, Identity, KeyInfo } from '@textile/hub'
@@ -44,7 +49,11 @@ const setup = async (key: KeyInfo, identity: Identity) => {
 
 ## Create a photo index
 
-If you are going to allow your users to upload images, or files, that may become more than a few, it can be helpful to track metadata in an index. In our final example, we resample the photos on the fly, storing multiple sizes for better display performance. We track all those files with a simple JSON index in the root of our bucket. It would be better to store that index right in the user's Thread! But we wanted to keep this tutorial basic.
+If you're going to allow users to upload more than a few images or files, it can be helpful to track the metadata in an index. 
+
+In our final example, we resample the photos on the fly, storing multiple sizes for better display performance. We track all those files with a simple JSON index in the root of our bucket. 
+
+It would be better to store that index right in the user's Thread! But we wanted to keep this tutorial simple.
 
 ```typescript
 import { Buckets, Identity } from '@textile/hub'
@@ -63,11 +72,19 @@ const initIndex = async (buckets: Buckets, bucketKey: string, identity: Identity
 }
 ```
 
-Now, you can update the paths each time you add new images to the bucket. In our example, we add 4 files for every image, full res, medium res, thumbnail, and metdata. We also update the paths with a link to the file's own metadata on each update. In this way, an app can load just the single list of metadata and decide what to display.
+Now you can update the paths each time you add new images to the bucket. 
+
+In our example, we add 4 files for every image, full-res, medium-res, thumbnail, and metadata. We also update the paths with a link to the file's metadata on each update. 
+
+In this way, an app can load just the single list of metadata and decide what to display.
 
 ## Create a public view
 
-Buckets are cross-protocol objects, meaning you can use them in IPFS, IPNS or HTTP. If you want to create a public view of bucket over HTTP, you should add an `index.html` to the root. In our example, we add an `index.html` that knows how to parse and display files based on the `./index.json` stored above, in the same bucket.
+Buckets are cross-protocol objects meaning that you can use them in IPFS, IPNS, or HTTP. 
+
+If you want to create a public view of a bucket over HTTP, you should add an `index.html` to the root. 
+
+In our example, we add an `index.html` that knows how to parse and display files based on the `./index.json` stored above, in the same bucket.
 
 ```typescript
 import { Buckets, Identity } from '@textile/hub'
@@ -82,7 +99,7 @@ const addIndexHTML = async (buckets: Buckets, bucketKey: string, html: string) =
 
 ## Push files
 
-You are now ready to start pushing your files to the bucket. You can push each binary file to a specific path in the bucket using `pushPath`.
+You're now ready to start pushing files to the bucket. You can push each binary file to a specific path in the bucket by using `pushPath`.
 
 ```typescript
 import { Buckets, PushPathResult } from '@textile/hub'
@@ -108,7 +125,9 @@ At this point, we also update our `index.json` with the new file.
 
 ## Push encrypted buckets
 
-If your app is providing private spaces for your users to organize their photos or files, you can also create encrypted buckets for them. The `open` and `init` methods on the Bucket class take an `isPrivate` option. So your bucket start method may look more like,
+If your app is providing private spaces for your users to organize their photos or files, you can also create encrypted buckets for them. 
+
+The `open` and `init` methods on the Bucket class take an `isPrivate` option. Your bucket start method may look like:
 
 ```typescript
 import { Buckets } from '@textile/hub'
@@ -126,11 +145,20 @@ const openEncrypted = async (buckets: Buckets) => {
 }
 ```
 
+<!--- 
+^ it says it takes an isPrivate option but the code uses isEncrypted?
+- Albert Kim
+-->
+
 ### Sharing encrypted buckets
 
-There is no way to convert encrypted Buckets to non-encrypted or vice-versa. However, it should be straight-forward to move files from an encrypted Bucket into a non-encrypted Bucket and back again.
+There is no way to convert encrypted Buckets to non-encrypted or vice-versa.
 
-Adding multiple readers or writers to Buckets is only currently available through `orgs` for developers, not app users. However, we will include this ability in future release. This is dependent on our work to implement more advanced [Threads ACLs](https://github.com/textileio/go-threads/issues/295).
+However, it should be straight-forward to move files from an encrypted Bucket into a non-encrypted Bucket and back again.
+
+Adding multiple readers or writers to Buckets is only currently available through `orgs` for developers, not app users. 
+
+However, we will include this ability in future releases. This is dependent on our work to implement more advanced [Threads ACLs](https://github.com/textileio/go-threads/issues/295).
 
 Be aware that creating encrypted Buckets still posts files to IPFS. Meaning the encrypted contents of Buckets are still publicly available, just encrypted so not possible to view without the encryption keys.
 
@@ -144,7 +172,7 @@ cd js-examples/bucket-photo-gallery
 <div class="txtl-options half">
   <a href="https://github.com/textileio/js-examples" class="box">
     <h5>Explore the repo</h5>
-    <p>Try out the gallery app built with dropzone.js and buckets</p>
+    <p>Try out the gallery app built with dropzone.js and buckets.</p>
   </a>
 </div>
 

@@ -1,6 +1,8 @@
 # Building with NodeJS
 
-There aren't many differences when using Textile's JavaScript libraries with NodeJS, except one, most of of the APIs exposed (Buckets daemon, Threads daemons, and the Hub) do so over WebSockets. WebSockets are baked into every major browser, but don't come with NodeJS by default, so we'll have to add them.
+The one difference between Textile's JavaScript libraries and NodeJS has to do with WebSockets.
+
+Most of the APIs exposed (Buckets daemon, Threads daemons, and the Hub) do so over WebSockets. WebSockets are baked into every major browser but don't come with NodeJS by default, so we'll have to add them.
 
 ## Adding WebSockets to NodeJS
 
@@ -32,4 +34,6 @@ In JavaScript:
 
 ## Start building
 
-That's it, now start building the full suite of Textile tools. Check out the [app building tutorials](hub/web-app.md) for ideas.
+That's it. Now start building with the full suite of Textile tools. 
+
+Check out the [app-building tutorials](hub/web-app.md) for ideas.

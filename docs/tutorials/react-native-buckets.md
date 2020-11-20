@@ -1,8 +1,10 @@
 # User Buckets from React Native
 
-[The Hub](../hub/index.md) gets really powerful when you allow your app users to leverage IPFS, IPNS, and ThreadDB from inside your applications. In this tutorial, we'll look at how you can let users author, own, and manage buckets right from a mobile app built in React Native.
+[The Hub](../hub/index.md) gets really powerful when you allow users to leverage IPFS, IPNS, and ThreadDB from inside your applications.
 
-[Click here to see an example app built with this tutorial](https://github.com/textileio/js-examples/tree/master/react-native-hub-app).
+This tutorial will show you how you can let users create, own, and manage buckets in React Native.
+
+Click [here](https://github.com/textileio/js-examples/tree/master/react-native-hub-app) to see an example app built with this tutorial.
 
 ## Preview video
 
@@ -18,17 +20,17 @@ npm install --save @textile/hub @textile/threads-id
 
 We'll use the above combination of Textile libraries in our app below.
 
-**rn-nodify**
+**rn-nodeify**
 
 ```bash
 npm install -D rn-nodeify
 ```
 
-We are going to use `rn-nodify` and a few other libraries it will install to manage adding `Buffer`, `crypto`, and some other tools to our JavaScript environment in React Native.
+We're going to use `rn-nodeify` and a few other libraries it'll install to manage `Buffer`, `crypto`, and other tools to our JavaScript environment in React Native.
 
-Read about [rn-nodify here](https://github.com/tradle/rn-nodeify).
+Read about [rn-nodeify here](https://github.com/tradle/rn-nodeify).
 
-Next, you need to run,
+Next, you need to run:
 
 ```bash
 ./node_modules/.bin/rn-nodeify --install
@@ -40,7 +42,13 @@ This will install a `shim.js` into the root of your file. You need to import `sh
 import './shim';
 ```
 
-This may need to be updated on future package changes, you can make this easier on yourself by adding a `postinstall` step to your `package.json`, as follows,
+This may need to be updated in the future. 
+
+You can make this easier by adding a `postinstall` step to your `package.json`, as follows:
+<!--
+Maybe should state what about this postinstall script makes 'this' easier. Also could be more specific about what 'this' refers to
+- Albert Kim
+-->
 
 ```json
 "scripts": {
@@ -49,27 +57,34 @@ This may need to be updated on future package changes, you can make this easier 
 }
 ```
 
-**Dot env**
+**Environment variables**
 
-You will need to add API keys to your app. If you plan to store your sourcecode anywhere public, you **should not** store those keys publicly. In our example app, we use `react-native-dotenv` to manage our key. 
+If you plan to store your source-code anywhere public, you **should not** store those keys publicly. 
+ 
+To securely add API keys to your app, you can use `react-native-dotenv`. 
 
 ```bash
 npm install --save react-native-dotenv
 ```
 
-Next, create a `.env` file in the root of your project. You can find an example `.env` in our [example project here](https://github.com/textileio/js-examples/blob/master/react-native-hub-app/example.env). Be **certain** that the `.env` is added to your `.gitignore` and note checked in with your code. 
+Next, create a `.env` file in the root of your project. You can find an example `.env` in our example project [here](https://github.com/textileio/js-examples/blob/master/react-native-hub-app/example.env). 
 
-The contents of `.env` will be, 
+!!!warning
+    Be **certain** that the `.env` is added to your `.gitignore` and not checked in with your code. 
+
+The contents of `.env` will look like: 
 
 ```bash
 USER_API_KEY=textile-hub-user-group-key
 ```
 
-You can follow the instructions to generate a **User Group Key** here, [API Access](http://localhost:8000/hub/apis/#api-access). If you have already generated keys, you can list them by executing `hub keys ls`. You'll add the values to your `.env` file on the right side of the equality sign.
+You can follow the instructions to generate a **User Group Key** [here](../../hub/apis). 
+
+If you already generated keys, you can list them by executing `hub keys ls`. Add the values to your `.env` file on the right side of the equality sign.
 
 **Typescript**
 
-The rest of the JavaScript portions of the tutorial will be in TypeScript. You do not need to use TypeScript, but if you don't be sure to strip the typings from any code you copy below.
+The rest of the JavaScript portions in this tutorial will be in TypeScript. You don't need to use TypeScript but if you don't, be sure to strip the typings from any code you copy below.
 
 ## Build your app
 
@@ -85,7 +100,9 @@ import {Buckets, Client, ThreadID, PrivateKey, Where} from '@textile/hub';
 
 ### Register with remote API
 
-Next, we'll connect to the remote API using our Key from an insecure (non-signing) api key (read more about keys for [development mode](hub/development-mode.md)). We do this so that the user can later push their bucket for remote persistence on IPFS and publishing on IPNS.
+Next, we'll connect to the remote API using our key from an insecure (non-signing) API key. Read more about keys for [development mode](hub/development-mode.md). 
+
+We do this so the user can later push their bucket for remote persistence on IPFS and publishing on IPNS.
 
 ```typescript
 import { Client } from '@textile/hub'
@@ -100,7 +117,7 @@ const client = Client.withKeyInfo({
 
 ### Generate an Identity
 
-[Read the basic identities tutorial now](hub/pki-identities.md).
+Read the basic identities tutorial [here](hub/pki-identities.md).
 
 ```typescript
 import { PrivateKey } from '@textile/hub'
@@ -111,9 +128,9 @@ async function example () {
 }
 ```
 
-Here we are just using a helper to generate a private-key identity for the user.
+Here, we're just using a helper to generate a private-key identity for the user.
 
-### Generate user Token
+### Generate User Token
 
 ```typescript
 import { Client, PrivateKey } from '@textile/hub'
@@ -133,14 +150,14 @@ Now that your user is setup and connected to your API on the Hub, you can start 
 import { Buckets } from '@textile/hub'
 
 const buckets = Buckets.withKeyInfo({
-    key: 'USER_API_KEY',
-  })
+  key: 'USER_API_KEY',
+})
 ```
 
-In the above, we reuse the Context we already created in our ThreadDB Client because it contains the token, API keys, etc.
+In the code above, we reuse the Context we already created in our ThreadDB Client because it contains the token, API keys, etc.
 
 !!!info
-    If you have already created a connection using the Threads `client`, you directly transfer that connection to Buckets with, `Buckets.copyAuth(client)`.
+    If you already created a connection using the Threads `client`, you can directly transfer that connection to Buckets with `Buckets.copyAuth(client)`.
 
 **List all Buckets**
 
@@ -156,7 +173,7 @@ async function find (buckets: Buckets) {
 
 **Open a Bucket**
 
-By far the easiest way to start pushing/pulling bucket files is to use the `open` method with just the bucket name you intend to use.
+The easiest way to start pushing/pulling bucket files is to use the `open` method with just the bucket name you intend to use.
 
 ```typescript
 import { Buckets } from '@textile/hub'
@@ -167,9 +184,11 @@ async function find (buckets: Buckets, name: string) {
 }
 ```
 
-### Push files to user Bucket
+### Push files to User Bucket
 
-Finally, let's push a simple file to the user's Bucket. In this example, we'll just create a simple `HTML` file that says, `Hello world`.
+Finally, let's push a simple file to the user's Bucket. 
+
+In this example, we'll just create a simple `HTML` file that says, `Hello world`.
 
 ```typescript
 import { Buckets } from '@textile/hub'
@@ -181,26 +200,29 @@ async function example (buckets: Buckets, bucketKey: string, content: string) {
 }
 ```
 
+### Updating User Bucket
+
+When you replace the **HTTP content** in a Bucket for a user, the Bucket head will get a new IPFS address.
+
+When you replace the **IPNS content** in a Bucket for a user, the **IPNS content** will be appended to the ThreadDB history.
+
+This gives you a lot of options for building apps, delivering content, and doing cool things for your users with their data.
+
+To get each of the protocol addresses, read below.
+
 ### List the Bucket links
 
-Finally, you can list the links to the file on IPFS, IPNS, ThreadDB, and HTTP. Now that the Bucket is created, keep in mind, each time you update the same Bucket for a user:
+Finally, you can list the links to the file on IPFS, IPNS, ThreadDB, and HTTP. 
 
-* replace the HTTP content.
-* the Bucket head will get a new IPFS address.
-* replace the IPNS content.
-* be appended to the ThreadDB history.
+#### HTTP Address
 
-This give you a lot of options for how you build apps, deliver content, and do cool things for your users with their data.
+Textile gives you and your users a public address for each Bucket created. They are created using the Bucket key and you can generate those as follows:
 
-You can get each of the protocol addresses as follows.
+```
+https://${bucket-key}.textile.space
+```
 
-**HTTP Address**
-
-Textile give you and your users a public address for each Bucket created. They are created using the Bucket key and you can generate those as follows:
-
-`https://${bucket-key}.textile.space`
-
-**IPFS Address**
+#### IPFS Address
 
 The IPFS address is contained in the result of `pushPath`.
 
@@ -213,32 +235,34 @@ async function example (buckets: Buckets, bucketKey: string, file: Buffer) {
 }
 ```
 
-**IPNS Address**
+#### IPNS Address
 
 The IPNS Address is always the same and is the Bucket key! If you want to see the Bucket over IPNS from a gateway, you can use the Textile gateway as follows:
 
-`https://${bucket-key}.ipns.hub.textile.io/`
+```
+https://${bucket-key}.ipns.hub.textile.io/
+```
 
-**ThreadDB Address**
+#### ThreadDB Address
 
 You can generate a link to the Bucket with the user thread as follows:
 
-`https://${thread-id}.thread.hub.textile.io/buckets/${this.state.bucket-key}`
+```
+https://${thread-id}.thread.hub.textile.io/buckets/${this.state.bucket-key}
+```
 
 !!!warning
-    Remember that at this point in time, Buckets are entirely open, data is available to be viewed or downloaded by anyone your app or user share the link with.
+    Remember, at this point, Buckets are entirely open, data is available to be viewed or downloaded by anyone your app or user shares the link with.
 
 ## Code
 
-Check out a complete [React Native project on GitHub](https://github.com/textileio/js-examples/tree/master/react-native-hub-app) that generates a user identity, Thread, and Bucket.
+Check out a complete [React Native project on GitHub](https://github.com/textileio/js-examples/tree/master/react-native-hub-app) that generates a User Identity, Thread, and Bucket.
 
-### Running the example
-
-### Android
+### Android setup
 
 Simply `npm install` and then `npm run android` from the root of the `react-native-hub-app` folder.
 
-### iOS
+### iOS setup
 
 If `npm run ios` doesn't work for you immediately after `npm install`, follow these steps.
 
@@ -249,4 +273,4 @@ If `npm run ios` doesn't work for you immediately after `npm install`, follow th
 5. Open the iOS project, `./ios/threadsdb_app.xcworkspace`.
 6. Click run in Xcode.
 
-Your app should now be running. Subsequent should work with just, `npm run ios`.
+Your app should now be running. Subsequent should work with just `npm run ios`.
