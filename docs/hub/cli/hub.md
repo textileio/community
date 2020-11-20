@@ -5,14 +5,20 @@ The Hub Client.
 ### Options
 
 ```
-      --api string       API target (default "api.hub.textile.io:443")
-  -h, --help             help for hub
-  -o, --org string       Org username
-  -s, --session string   User session token
+      --api string        API target (default "api.hub.textile.io:443")
+  -h, --help              help for hub
+      --identity string   User identity
+      --key string        User API key
+      --newIdentity       Generate a new user identity
+  -o, --org string        Org username
+      --secret string     User API secret
+  -s, --session string    User session token
+      --token string      User identity token
 ```
 
 ### SEE ALSO
 
+* [hub billing](hub_billing.md)	 - Billing management
 * [hub buck](hub_buck.md)	 - Manage an object storage bucket
 * [hub destroy](hub_destroy.md)	 - Destroy your account
 * [hub init](hub_init.md)	 - Initialize account
