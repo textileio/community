@@ -147,6 +147,12 @@ nav:
           - Watch: hub/cli/hub_buck_watch.md
           - Root: hub/cli/hub_buck_root.md
           - Status: hub/cli/hub_buck_status.md
+      - Billing commands:
+          - Overview: hub/cli/hub_billing.md
+          - Setup: hub/cli/hub_billing_setup.md
+          - Portal: hub/cli/hub_billing_portal.md
+          - Usage: hub/cli/hub_billing_usage.md
+          - Users: hub/cli/hub_billing_users.md
   - JavaScript Guide:
       - Introduction: tutorials/hub/web-app.md
       - User identities: tutorials/hub/pki-identities.md
