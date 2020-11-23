@@ -1,10 +1,20 @@
 # Admin APIs
 
-Powergate includes some administrative APIs. They allow the caller to create and list users, view wallet addresses, send FIL, and show information about jobs and data across all users managed by the Powergate node.
+Powergate includes some administrative APIs. They allow the caller to:
+
+* Create and list users
+* View wallet addresses
+* Send FIL
+* Show information about jobs and data across all users managed by the Powergate node.
 
 ## Admin Auth Token
 
-Powergate's backend server may be configured with an admin auth token to restrict access to only those clients that provide the token with their requests, so be sure to set the admin token correctly in your [client of choice](/powergate/#powergate-apis). In the case of the Powergate CLI, `pow`, the admin token can be provided with the `--admin-token` flag or by setting the `POW_ADMIN_TOKEN` environment variable.
+Powergate's backend server may be configured with an admin auth token to restrict access only to clients that provide the token with their requests.
+
+!!!warning
+    Be sure to set the admin token correctly in your [client of choice](/powergate/#powergate-apis). 
+ 
+In the case of the Powergate CLI, `pow`, the admin token can be provided with the `--admin-token` flag, or by setting the `POW_ADMIN_TOKEN` environment variable.
 
 ## CLI Usage
 

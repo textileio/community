@@ -1,27 +1,44 @@
 # Storing Data
 
-The Powergate API leverages the concept of a "user" to manage necessary state and capabilities and to provide multi-tiered file storage. The primary API for storing and retrieving data, tracking long-term deals on Filecoin, and allowing data persisted on Filecoin to be available on IPFS is managed through and scoped to a user.
+The Powergate API leverages the concept of a **user**. 
+
+On IPFS, the ability to:
+
+* Store and retrieve data.
+* Track long-term deals on Filecoin.
+* Persist data on Filecoin.
+
+Is managed through and scoped to a **user**.
+
+**Users** can:
+
+* Manage the necessary state and capabilities.
+* Provide multi-tiered file storage.
 
 ## Intro to Users
 
-Users are associated with one or more Filecoin wallet addresses. You can use the Powergate admin API to create a new user, at which time the Powergate will:
+Users are associated with one or more Filecoin wallet addresses. You can use the Powergate admin API to create a new user. The Powergate will then:
 
 1. Create a new default wallet address for the user. You can configure the Powergate to automatically fund new wallets from a master address.
 2. Create a new API token linked to the user.
-3. Enable use of the user through the use of the supplied token.
+3. Enable use of the user through the supplied token.
 
-Almost all Powergate APIs rely on the user (including use through the CLI), so you will need to supply the _token_ to indicate which _user_ your requests are targeting. Since each user has its own address, it has its own balance and therefore limits on the Filecoin network.
+Almost all Powergate APIs rely on the user, including the CLI, so you'll need to supply the _token_ to indicate which _user_ your requests are targeting. Since each user has its own address, it has its own balance and therefore limits on the Filecoin network.
 
 !!!Warning
-    If you're providing a `--lotusmasteraddr` and `--walletinitialfund`, be sure that address exists in the Lotus node and it has enough funds, since `walletinitialfund` attoFILs will be sent from there to fund from newly created users. Recall that both flags are optional, and if not present there won't be any auto-funding transaction, so you're responsible to fund wallet addresses of new users. 
+    If you're providing a `--lotusmasteraddr` and `--walletinitialfund`, be sure that address exists in the Lotus node and has enough funds, since `walletinitialfund` attoFILs will be sent from there to fund from newly created users. Both flags are optional, and if not present, there won't be any auto-funding transaction, so you're responsible to fund wallet addresses of new users. 
 
 ## Multi-tiered design
 
-Powergate provides you API access to multi-tiered storage system built on IPFS and Filecoin. In many places, we refer to these two tiers of storage as Hot (IFPS) and Cold (Filecoin). This mirrors multi-tiered storage often deployed with a hot storage layer in _memory_ and a cold storage layer on _disk_.
+Powergate provides you API access to a multi-tiered storage system built on IPFS and Filecoin. 
+
+In many places, we refer to these two tiers of storage as **Hot** (IFPS) and **Cold** (Filecoin). This mirrors multi-tiered storage often deployed with a hot storage layer in _memory_ and a cold storage layer on _disk_.
 
 ### Hot storage layer
 
-Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). Data stored with hot enabled is pinned to the Powergate's IPFS node. Even if Hot Storage is disabled, the IPFS node is used as transient storage for data to be stored in Filecoin. This data will still exist in the IPFS node until a garbage collection runs, so you might benefit from temporal hot storage for retrievals even if you don't have Hot Storage enabled.
+Data stored in the Powergate hot layer is available to the IPFS network (or private network). Hot storage is designed to be fast and available on the IPFS network (private or public DHT). Data stored with hot enabled is pinned to the Powergate's IPFS node. 
+
+If Hot Storage is disabled, the IPFS node is still used as transient storage for data in Filecoin. This data will still exist in the IPFS node until a garbage collection runs, so you might benefit from temporal hot storage for retrievals even if you don't have Hot Storage enabled.
 
 ### Cold storage layer
 
@@ -31,21 +48,25 @@ Data stored in the Powergate Cold layer is stored by miners on the Filecoin netw
 
 #### Hot to Cold
 
-Data that is stored in the hot layer can be moved to cold storage in a couple different ways. The most common scenario is where data is stored initially with cold *disabled* and later a new `StorageConfig` is pushed that *enables* cold storage. In this scenario, Powergate will resolve the file from the hot layer, and create any newly required Filecoin deals to fulfill.
+The most common scenario is where data is stored initially with cold *disabled* and later a new `StorageConfig` is pushed that *enables* cold storage. In this scenario, Powergate will resolve the file from the hot layer, and create any newly required Filecoin deals to fulfill.
 
 #### Cold to Hot
 
-Data stored only in the cold layer isn't guaranteed to be available on the IPFS network. In order for it to be, you need to push a new storage config that enables hot storage. You can automate this movement using the `AllowUnfreeze` flag of [the StorageConfig](storageconfig.md). Either way, Powergate will always attempt resolve the data, first by trying to fetch it from the IPFS network. If unable to do that, Powergate will execute a retrieval deal to pull the data from Filecoin. Finally, the data will be pinned in hot layer IPFS storage and available on the IPFS network.
+Data stored only in the cold layer isn't guaranteed to be available on the IPFS network. 
+
+For it to be available, you need to push a new storage config that enables hot storage. You can automate this movement using the `AllowUnfreeze` flag of [the StorageConfig](storageconfig.md). 
+
+Either way, Powergate will always attempt to resolve the data first by trying to fetch it from the IPFS network. If unable to do that, Powergate will execute a retrieval deal to pull the data from Filecoin. Finally, the data will be pinned in hot layer IPFS storage and available on the IPFS network.
 
 Read more about [updating the StorageConfig here](storageconfig.md).
 
 ## Using Powergate to store data
 
-To start using the most Powergate APIs, you must first create a _user_.
+To start using most Powergate APIs, you must first create a _user_.
 
 ### Create a user
 
-Using the Powergate CLI admin commands, you can create new user easily.
+Using the Powergate CLI admin commands, you can create a new user easily.
 
 ```bash
 pow admin user create
@@ -72,7 +93,9 @@ export POW_TOKEN=883f57b1-4e66-47f8-b291-7cf8b10f6370
 
 ### Make data available
 
-Powergate requires data you aim to store to be available over IPFS. If you are using the CLI, you can ensure that it is available by staging it on IPFS using `stage`. Note that `stage` does not store your data in the Powergate. It is an optional step that caches your data to ensure it is available on IPFS before being stored in Powergate. This is technically equivalent to `ipfs add --pin=false`, which is adding data without pinning it.
+Powergate requires stored data to be available over IPFS. If you're using the CLI, you can ensure it's available by staging it on IPFS using `stage`.
+
+Note that `stage` does not store your data in the Powergate. It's an optional step that caches your data to ensure it's available on IPFS before being stored in Powergate. This is technically equivalent to `ipfs add --pin=false`, which is adding data without pinning it.
 
 ```bash
 pow data stage <path/filename>
@@ -91,7 +114,9 @@ pow data stage <path/filename>
 
 ### Initiate storage
 
-The Powergate manages stored files based on the setup defined in a _StorageConfig_. To tell the Powergate to start managing a new file by moving it from the cached state we created above to the Hot and/or Cold layers, we must apply a new StorageConfig for the CID we generated above. Learn more about the [StorageConfig here](storageconfig.md).
+The Powergate manages stored files based on the setup defined in a _StorageConfig_. 
+
+For Powergate to manage a new file by moving it from the cached state created above, to the Hot and/or Cold layers, we must apply a new StorageConfig for the CID we generated above.
 
 Every user has a default `StorageConfig` that will be used for every new deal unless overridden.
 
@@ -147,11 +172,15 @@ pow data get <cid> myfile2
     ```
 
 !!!warning
-    If you ever interact directly with the IPFS node, do not ever manually modify the pinset. The Powergate requires full control over the pinset, since it is required when users specify `HotStorage.Enabled=true`. Manually interacting with the IPFS node's pinset could lead to unexpected behavior in the Powergate.
+    If you interact directly with the IPFS node, do not ever manually modify the pinset. The Powergate requires full control over the pinset since it's required when users specify `HotStorage.Enabled=true`. Manually interacting with the IPFS node's pinset could lead to unexpected behavior in the Powergate.
 
 ## Miner selection
 
-Powergate has many internal components that are used to simplify the process of using Filecoin. One set of components are the Powergate's indexes, where it collects information about miners including, power, sector size, storage ask price, etc. With that information, the Powergate can create a reasonable ranking of miners. Miners that are most promising for making deals will show up at the top. When storing data in cold storage, Powergate will use this information to automate finding miners and initiating deals. You can use the `StorageConfig` to help direct the Powergate to miners that match your particular requirements.
+Powergate has many internal components that are used to simplify the process of using Filecoin. One set of components are the Powergate's indexes, where it collects information about miners including, power, sector size, storage ask price, etc. 
+
+With that information, the Powergate can create a reasonable ranking of miners. Miners that are most promising for making deals will show up at the top. 
+
+When storing data in cold storage, Powergate will use this information to automate finding miners and initiating deals. You can use the `StorageConfig` to help direct the Powergate to miners that match your particular requirements.
 
 ## Learn more
 

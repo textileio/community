@@ -1,12 +1,20 @@
 # ThreadDB & Buckets and  in Go
 
-You have access to the full suite of Textile APIs and technologies in Go. This includes access to Hub-based persistence, thread client, local thread databases, bucket client, and more. Below, we'll walk you through the basic flow for interacting with the Hub-backed [ThreadDB](https://github.com/textileio/go-threads) and [Buckets](https://github.com/textileio/textile).
+You have access to the full suite of Textile APIs and technologies in Go. This includes access to:
+
+* Hub-based persistence
+* Thread client
+* Local Thread databases
+* Bucket client
+* And more. 
+
+Below, we'll walk you through the basic flow for interacting with the Hub-backed [ThreadDB](https://github.com/textileio/go-threads) and [Buckets](https://github.com/textileio/textile).
 
 ## Hub authentication
 
-Authentication on the Hub is done using your API keys and secrets, either Account Keys or User Group Keys depending on what kind of application you are building and which APIs you plan to use.
+Authentication on the Hub is done with either your [Account Keys or User Group Keys](/hub/apis/) depending on what type of application you're building and which APIs you plan on using.
 
-Below is an example of how to use your User Group Key to generate an authenticated API `context` for use with the Hub-backed Buckets and ThreadDB APIs.
+Below is an example of how to use your User Group Key to generate an authenticated API `context` to use with Hub-backed Buckets and ThreadDB APIs.
 
 ```go
 package main
@@ -31,7 +39,7 @@ You can generate a similar context using Account Keys for accessing a developer 
 
 ## Hub user authorization
 
-In order for your users to access Hub-backed Buckets and ThreadDB APIs, they need to identify themselves with a `thread.Token` (JWT), which can be requested with the ThreadDB client as shown below.
+Users access Hub-backed Buckets and ThreadDB APIs by identifying themselves with a `thread.Token` (JWT), which can be requested with the ThreadDB client as shown below:
 
 ```go
 package main

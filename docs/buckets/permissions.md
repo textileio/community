@@ -8,7 +8,13 @@ All buckets you create are scoped to your developer account. You can always find
 
 ### Organization Buckets
 
-Any buckets you create using the `HUB_ORG` setting will also be shared with Org members. Here are the steps to create an Org, create a new Bucket in the Org, and invite a collaborator to the Org:
+Any bucket you create using the `HUB_ORG` setting will also be shared with Org members. 
+
+The following sections will cover how to:
+
+* Create a new Org.
+* Create a new Bucket shared with an Org.
+* Invite a collaborator to the Org.
 
 #### Create a new Org
 
@@ -30,7 +36,7 @@ You have now created the `nasa` Org.
 
 #### Create a new Bucket shared with an Org
 
-The default bucket command is simply `buck`, because it's two letters less to type each time. If you prefer, you can still type `bucket`
+The default bucket command is simply `buck` because it's two letters less to type each time. If you prefer, you can still type `bucket`.
 
 ```bash
 mkdir launchpad
@@ -38,7 +44,7 @@ cd launchpad
 HUB_ORG=nasa hub buck init
 ```
 
-You have now created a new Bucket inside of the `launchpad` directory and owned by your `nasa` organization.
+You've now created a new Bucket inside of the `launchpad` directory and owned by your `nasa` organization.
 
 #### Invite a new org member
 
@@ -46,19 +52,29 @@ You have now created a new Bucket inside of the `launchpad` directory and owned 
 hub org invite
 ```
 
-The final step is to invite collaborators to your Org. Once they accept the invite, they will be able to interact with buckets associated with the Org.
+The final step is to invite collaborators to your Org. Once they accept the invite, they'll be able to interact with buckets associated with the Org.
 
 ### App user Buckets
 
-If you are building an app using one of our [developer libraries](../hub/apis.md#libraries) you can use buckets from inside your apps. Apps generally will create buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
+If you're building an app using one of our [developer libraries](../hub/apis.md#libraries), you can use buckets from inside your apps. Apps generally will create buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.
 
 ## Bucket Access Roles
 
-Buckets can be shared in more ways than in organizations. Multi-writer buckets leverage the distributed nature of ThreadDB by allowing multiple identities to write to the same bucket hosted by different Libp2p hosts. Since buckets are ThreadDB collection instances, this is no different than normal ThreadDB peer collaboration.
+Buckets can be shared in more ways than organizations. 
+
+Multi-writer buckets leverage the distributed nature of ThreadDB by allowing multiple identities to write to the same buckets that are hosted by different Libp2p hosts. Since buckets are ThreadDB collection instances, this is no different than normal ThreadDB peer collaboration.
 
 #### Path access
 
-Read and write access roles are defined in a bucket at *any* path. Any subpaths automatically inheret the permissions of their parent. For example, granting read access to your bucket at `/` would include a file that exists at `/path/to/foo.jpg`. You can set different access rules within the same bucket using combination of *paths* and specified *roles* at the path. 
+Read and write access roles are defined in a bucket at *any* path. Any subpaths automatically inherit the permissions of their parent. 
+
+For example, granting read access to your bucket at `/` would also grant read access to a file that exists at `/path/to/foo.jpg`. 
+
+You can set different access rules within the same bucket by using a combination of *paths* and specified *roles* at the path. 
+<!--
+Seems like " by using combination of *paths* and specified *roles* at the path. " isn't clear or detailed enough as instructions.
+- Albert Kim
+ -->
 
 #### Role types
 
@@ -90,6 +106,8 @@ bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose /path/to
     ```
 
 Success! You can see the new user has been added as a writer to the path `/path/to` and that the bucket creator is still listed as the admin.
+
+## More resources
 
 <div class="txtl-options">
   <a href="../tutorials/hub/user-buckets/" class="box">

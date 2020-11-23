@@ -1,14 +1,22 @@
 # Managing Storage with the StorageConfig
 
-Every [user](storage.md#intro-to-users) can manage how data is stored on IPFS and Filecoin using the **StorageConfig** ([details below](#storageconfig-details)). The StorageConfig is a powerful tool to customize all the details of how you store data on Filecoin, make it available over IPFS, enforce replication, manage expiring deals, and more.
+Every [user](storage.md#intro-to-users) can manage how data is stored on IPFS and Filecoin using the **StorageConfig** ([details below](#storageconfig-details)). 
+
+The StorageConfig is a powerful tool for:
+
+* Customizing the details about storing data on Filecoin.
+* Making it available over IPFS.
+* Enforcing replication.
+* Managing expiring deals.
+* And more.
 
 ## Setting the StorageConfig
 
-In every Powergate deployment there are three ways to manage StorageConfigs throughout the system.
+In every Powergate deployment, there are three ways to manage StorageConfigs throughout the system.
 
 1. The user default StorageConfig. This is initially set by the system default StorageConfig. It can be modified by the user after creation.
-2. The storage request StorageConfig. This will use the user default, but a custom StorageConfig can also be supplied at request time.
-3. A storage update StorageConfig. Any StorageConfigs attached to existing stored data can be updated with a new StorageConfig. The user will then work to modify the way data is stored to match the new configuration
+2. The storage request StorageConfig. This will use the user default, but a custom StorageConfig can also be supplied during the request.
+3. A storage update StorageConfig. Any StorageConfigs attached to existing stored data can be updated with a new StorageConfig. The user will then work to modify the way data is stored to match the new configuration.
 
 ### Get the default StorageConfig of a user
 
@@ -44,7 +52,7 @@ pow data info <cid> -t <token>
 
 ### Update the StorageConfig of existing data
 
-To update the StorageConfig of data already stored and managed by the Powergate user with a new config stored in `updated-config.json`. This command requires the _override_ flag (`-o`) to confirm that you understand that the command will replace an existing config.
+To update the StorageConfig of data already stored and managed by the Powergate user, use a new config stored in `updated-config.json`. This command requires the _override_ flag (`-o`) to confirm that you understand that the command will replace an existing config.
 
 ```bash
 pow config apply <cid> -t <token> -o -c updated-config.json
