@@ -144,13 +144,6 @@ It does this as follows:
 
 There are some benefits to this approach over using the ethereum address directly. An obvious one is that there is no public association between an ethereum address and the ed25519 key. 
 
-<!---
-This approach allows users to create many keys without needing to worry about people association all their app use with a single address.
-
-^ I don't understand what this means so it should be reworded.
-- Albert Kim
- -->
-
 ### 3Box
 
 Another good starting point is with [3Box SDK](https://docs.3box.io/). 3Box manages a cluster of nodes where web3 users can push small bits of information. 

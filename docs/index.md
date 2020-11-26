@@ -2,15 +2,39 @@
 hero_img: ./images/hero.jpg
 ---
 
-Welcome to the Textile documentation. Whether you are an expert or an absolute beginner, you'll find your answers here. Pick a starting point below, or use the search box to find documents matching your keywords.
+# Welcome to the Textile documentation. 
 
-Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](https://ipfs.io), and [Filecoin](https://filecoin.io). Below, you'll find the technologies that makeup Textile: the Hub, ThreadDB, Buckets, and the Powergate. Together, these tools should help you build apps that are only limited by your imagination!
+Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](https://ipfs.io), and [Filecoin](https://filecoin.io).
+
+Whether you are an expert or an absolute beginner, you'll find your answers here. 
+
+
+Pick a starting point below, or use the search box to find documents matching your keywords.
+
+## Technologies
+
+Learn about the different technologies that make-up Textile:
+
+* [The Hub](#the-hub)
+* [Buckets](#buckets)
+* [ThreadDB](#threaddb)
+* [The Powergate](#filecoin-powergate)
+* [Tutorials](#tutorials)
+* [Other resources](#other-resources)
 
 ## The Hub
 
-The Hub is a portal to the IPFS network. Use Textile's managed services to persist your data on the IPFS network, enhance the speed and availability of your decentralized databases, and more. The Hub has APIs for developers and teams to push data to the network and it has developer libraries to provide remote IPFS pinning in your apps or simplify the deployment of our decentralized database, ThreadDB.
+The Hub is your portal to the IPFS network and the fastest way to start building and experimenting with Textile technologies.
 
-**Start building**
+Use the Hub to:
+
+* Persist your data on the IPFS network.
+* Enhance the speed and availability of your decentralized databases
+* And more. 
+
+The Hub provides APIs and developer libraries that enable remote IPFS pinning in your apps or simplifying the deployment of our decentralized database, ThreadDB.
+
+**Learn more about the Hub**
 
 <div class="txtl-options">
   <a href="./hub/" class="box">
@@ -31,9 +55,19 @@ The Hub is a portal to the IPFS network. Use Textile's managed services to persi
 
 ## Buckets
 
-Buckets are a new way to pin data to IPFS and archive data on Filecoin. Buckets are dynamic folders published simultaneously over IPFS, IPNS, and HTTP. Buckets are designed to make it simple for you to create folders of data and push that data to remote IPFS peers for backup, persistence, or sharing. They can be encrypted or public, they can be single or multi-user, and they can be used from the CLI or with the Go or JavaScript libraries.
+Buckets are:
 
-**Push your buckets**
+* A new way to pin data to IPFS and archive data on Filecoin. 
+* Dynamic folders published simultaneously over IPFS, IPNS, and HTTP. 
+* Designed to simplify creating folders of data and pushing that data to remote IPFS peers for backup, persistence, or sharing. 
+
+Buckets can be:
+
+* Encrypted or public.
+* Single or multi-user.
+* Used from the CLI or with the Go or JavaScript libraries.
+
+**Get started with Buckets**
 
 <div class="txtl-options">
   <a href="./buckets/" class="box">
@@ -54,9 +88,13 @@ Buckets are a new way to pin data to IPFS and archive data on Filecoin. Buckets 
 
 ## ThreadDB
 
-ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Developers use ThreadDB so they can spend less time configuring encryption or managing content addresses, instead ThreadDB allows them to start building right away. A familiar MongoDB/Mongoose API and simple data hosting services make dynamic data on the DWeb easy!
+ThreadDB makes dynamic data on the DWeb easy by providing simple data hosting services and an API familiar to anyone who used MongoDB/Mongoose.
 
-**Learn more**
+ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p.
+
+Spend less time configuring encryption or managing content addresses with ThreadDB.
+
+**Learn more about ThreadDB**
 
 <div class="txtl-options">
   <a href="./threads/" class="box">
@@ -83,10 +121,11 @@ ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Deve
     <p>Build a Todo app with Textile Thread pinning services.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://github.com/textileio/go-threads/tree/master/examples/chat" target="_blank" class="box">
+  <!-- <a href="https://github.com/textileio/go-threads/tree/master/examples/chat" target="_blank" class="box">
     <h5>Go Chat App</h5>
     <p>Build a multi-user chat app in Go.</p>
-  </a>
+  </a> -->
+  <!-- link broken -->
   <span class="box-space"> </span>
   <span class="box-fill">
   </span>
@@ -94,9 +133,13 @@ ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Deve
 
 ## Filecoin Powergate
 
-The Powergate is just warming up! The Powergate is an API driven solution to deploy hybrid Filecoin and IPFS storage into your stack. If you are eager and want to jump right in, follow one of the links below.
+!!!warning
+    The Powergate is undergoing rapid development and should not be used in production.
 
-**Dive into Filecoin**
+The Powergate is an API for deploying hybrid Filecoin and IPFS storage into your stack. If you're eager and want to jump right in, follow one of the links below.
+
+
+**Dive into Powergate**
 
 <div class="txtl-options">
   <a href="https://github.com/textileio/powergate/" class="box">
@@ -115,6 +158,26 @@ The Powergate is just warming up! The Powergate is an API driven solution to dep
   </a>
 </div>
 
+## Tutorials
+
+View our tutorials on getting started with JavaScript and Golang.
+
+**Learn more**
+
+<div class="txtl-options">
+  <a href="./tutorials/hub/web-app/" class="box">
+    <h5>JavaScript</h5>
+    <p>Learn about building JavaScript apps with Textile technologies.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="./tutorials/go/getting-started/" class="box">
+    <h5>Golang</h5>
+    <p>Learn about using Go with Textile technologies.</p>
+  </a>
+  <span class="box-space"> </span>
+  <span class="box-fill">
+  </span>
+</div>
 
 ## Other Resources
 

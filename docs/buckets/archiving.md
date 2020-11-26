@@ -1,10 +1,15 @@
 # Bucket Archiving
 
-Bucket archiving is one of the latest features to arrive at Textile. Archiving is the process of taking the existing snapshot of your bucket content and storing it on [Filecoin](https://filecoin.io/). While the Hub is ready to be tested and built on by the right app developers, use it with caution.
+Bucket archiving is the process of taking the existing snapshot of your bucket content and storing it on [Filecoin](https://filecoin.io/). This allows you to leverage the decentralized nature of Filecoin for the storage of your buckets. 
 
-So, what is bucket archiving?
+<!--
+While the Hub is ready to be tested and built on by the right app developers, use it with caution.
 
-Bucket archiving allows you to leverage the purely decentralized nature of Filecoin for the storage of your buckets. Check out this [video](https://www.youtube.com/watch?v=jiBUxIi1zko&feature=emb_title&ab_channel=IgnacioHagopian) from a [blog post](https://blog.textile.io/buckets-diffing-syncing-archiving/) demonstrating Filecoin bucket recovery using the Lotus client.
+^ - This warning is vague and unhelpful. It needs to be changed or removed.
+- Albert Kim
+-->
+
+Check out this [video](https://www.youtube.com/watch?v=jiBUxIi1zko) from a [blog post](https://blog.textile.io/buckets-diffing-syncing-archiving/) demonstrating Filecoin bucket recovery using the Lotus client.
 
 !!!Warning
 
@@ -16,9 +21,18 @@ Bucket archiving allows you to leverage the purely decentralized nature of Filec
     
     Read our full [terms](../policies/terms.md) and use these features with caution. 
 
+<!--
+"The Textile Hub is currently connected to Mainnet and account balances are in FIL."
+^ FIL should be written out and not an acryonym, people might not know what it stands for.
+
+- Albert Kim
+-->
+
 ## Create your first archive
 
-Archiving is available in all Textile client libraries and can be requested on a developer, user, or organization buckets. To start testing archiving, let's use a bucket created in the `hub` CLI. 
+Archiving is available in all Textile client libraries and can be requested on a developer, user, or organization buckets. 
+
+To start testing archiving, let's use a bucket created in the `hub` CLI. 
 
 Let's try archiving the bucket.
 
@@ -28,7 +42,7 @@ hub buck archive
 ? Proceed? [y/N]
 ```
 
-The Hub is connected to the Filecoin Mainnet, so any archiving deal you created on that network.
+Any Bucket archive you create will be stored on the Filecoin Mainnet.
 
 You should see a success message if you proceed.
 
@@ -45,7 +59,7 @@ hub buck archive status
 > Archive is currently executing, grab a coffee, and be patient...
 ```
 
-Use the archive status command with -w to watch your archive's progress as it moves through the Filecoin market deal stages.
+Use the archive status command with -w to watch your archive progress through the Filecoin market deal stages.
 
 ```sh
 buck archive status -w
@@ -95,8 +109,8 @@ buck archive status -w
 >    Deal with miner t01459 changed state to StorageDealSealing
 ```
 
-The output will look something like the above. With a little luck, you will start seeing some successful storage deals.
+The output will look something like the above. With a little luck, you'll start seeing some successful storage deals.
 
 ## Limits
 
-Archiving is limited by the limits of buckets, so the maximum size is {{limits.max_bucket_size}}. Archives stored on Filecoin **do not** count toward your account storage limits only files that remain in your live bucket are counted.
+Archiving is limited by the limits of buckets, so the maximum size is {{limits.max_bucket_size}}. Archives stored on Filecoin **do not** count toward your account storage limits. Only files that remain in your live bucket are counted.

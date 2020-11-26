@@ -127,7 +127,7 @@ At this point, we also update our `index.json` with the new file.
 
 If your app is providing private spaces for your users to organize their photos or files, you can also create encrypted buckets for them. 
 
-The `open` and `init` methods on the Bucket class take an `isPrivate` option. Your bucket start method may look like:
+The `open` and `init` methods on the Bucket class take an `isEncrypted` option. Your bucket start method may look like:
 
 ```typescript
 import { Buckets } from '@textile/hub'
@@ -144,11 +144,6 @@ const openEncrypted = async (buckets: Buckets) => {
   }
 }
 ```
-
-<!--- 
-^ it says it takes an isPrivate option but the code uses isEncrypted?
-- Albert Kim
--->
 
 ### Sharing encrypted buckets
 

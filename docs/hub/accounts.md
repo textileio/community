@@ -1,6 +1,11 @@
 # Installation and Account Setup
 
-To create an account, you first need to install the Hub CLI. The CLI is where you manage accounts, create orgs, create API keys, etc. 
+To create an account, you first need to install the Hub CLI. The CLI is where you:
+
+* Manage accounts.
+* Create orgs.
+* Create API keys
+* And more. 
 
 The first step is to download and install the application.
 
@@ -58,7 +63,7 @@ Rename the directory and place it in an accessible location like the `C:\` direc
 
 ![Location of hub.exe](../images/install/windows_hub_directory.png)
 
-Open your environment variables option by typing in 'Environment variables' in the Windows start menu and select the first option.
+Open your environment variables settings by typing in 'Environment variables' in the Windows start menu and select the first option.
 
 ![Search for the environment variables.](../images/install/windows_hub_env1.png)
 
@@ -66,7 +71,7 @@ Select 'Environment Variables' at the bottom.
 
 ![Click Environment Variables](../images/install/windows_hub_env2.png)
 
-Select the 'Path' option from User variables if you want to have the hub CLI available only to the current user, or from System variables if you want the hub CLI available for the whole system.
+Select the 'Path' option from User variables if you want to have the Hub CLI available only to the current user, or from System variables if you want the hub CLI available for the whole system.
 
 After 'Path' is selected, click 'Edit.'
 
@@ -85,7 +90,7 @@ Open up a new terminal instance and you should be able to run the `hub` command 
 
 ## Account setup
 
-The next step is to initialize an account. The Hub CLI use magic-link signin, so it only requires you to enter and verify a valid email.
+The next step is to initialize an account. The Hub CLI use magic-link sign in, so it only requires you to enter and verify a valid email.
 
 ### Initialize
 

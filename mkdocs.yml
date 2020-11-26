@@ -88,36 +88,37 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Getting Started:
-      - Accounts Overview: hub/index.md
+  - Hub:
+      - Overview: hub/index.md
       - Installation & Setup: hub/accounts.md
-      - APIs & API Keys: hub/apis.md
-      - Bucket Storage:
+      - API Usage & Keys: hub/apis.md
+      - Pricing: hub/pricing.md
+      - Buckets:
           - Overview: buckets/index.md
           - Permissions: buckets/permissions.md
-          - Filecoin Archiving: buckets/archiving.md
-      - ThreadDB Overview: threads/index.md
+          - Bucket Archiving: buckets/archiving.md
+      - ThreadDB: threads/index.md
       - User Mailboxes: users/index.md
-      - Powergate (Filecoin):
-          - Introduction: powergate/index.md
-          - Localnet: powergate/localnet.md
-          - Mainnet: powergate/mainnet.md
-          - Admin APIs: powergate/admin.md
-          - Store Data:
-              - Storing Data: powergate/storage.md
-              - Storage Configs: powergate/storageconfig.md
-          - POW CLI:
-              - Overview: powergate/cli/pow.md
-              - Config: powergate/cli/pow_config.md
-              - Data: powergate/cli/pow_data.md
-              - Wallet: powergate/cli/pow_wallet.md
-              - Storage Jobs: powergate/cli/pow_storage-jobs.md
-              - Deals: powergate/cli/pow_deals.md
-              - Admin: powergate/cli/pow_admin.md
-          - FAQ: powergate/faq.md
-          - Externals:
-              - JavaScript: https://textileio.github.io/js-powergate-client/
-              - Go: https://godoc.org/github.com/textileio/powergate/api/client
+  - Powergate (Filecoin):
+      - Introduction: powergate/index.md
+      - Localnet: powergate/localnet.md
+      - Mainnet: powergate/mainnet.md
+      - Admin APIs: powergate/admin.md
+      - Store Data:
+          - Storing Data: powergate/storage.md
+          - Storage Configs: powergate/storageconfig.md
+      - POW CLI:
+          - Overview: powergate/cli/pow.md
+          - Config: powergate/cli/pow_config.md
+          - Data: powergate/cli/pow_data.md
+          - Wallet: powergate/cli/pow_wallet.md
+          - Storage Jobs: powergate/cli/pow_storage-jobs.md
+          - Deals: powergate/cli/pow_deals.md
+          - Admin: powergate/cli/pow_admin.md
+      - FAQ: powergate/faq.md
+      - Externals:
+          - JavaScript: https://textileio.github.io/js-powergate-client/
+          - Go: https://godoc.org/github.com/textileio/powergate/api/client
   - Command-line Reference:
       - Hub admin:
           - Overview: hub/cli/hub.md
