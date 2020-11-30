@@ -13,7 +13,7 @@ Billing can be setup using the Hub CLI for your Personal account or any Organiza
 | ThreadDB Writes | {{billing.free_instance_writes}} |  {{billing.instance_writes}}
 | Network Egresss | {{billing.free_network_egress}} |  {{billing.network_egress}}
 
-_Storage includes all data pinned to IPFS. It does not include archives you submit to Filecion_
+_Storage includes all data pinned to IPFS. It does not include archives you submit to Filecion._
 
 ## Grace Period
 
