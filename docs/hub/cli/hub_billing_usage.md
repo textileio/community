@@ -1,6 +1,8 @@
 # hub billing usage
 
-Shows usage and billing information.
+Shows usage and billing information
+
+Usage is evaluated daily and invoiced monthly.
 
 Use the --user flag to get usage for a dependent user.
 
