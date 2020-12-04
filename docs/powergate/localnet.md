@@ -141,7 +141,7 @@ pow --help
 
 #### Start storing data
 
-You're now ready to start storing and retrieving data using the Powergate. Read more on [Storing Data with the FFS](ffs.md).
+You're now ready to start storing and retrieving data using the Powergate. Read more on [Storing Data](storage.md).
 
 ## Localnet with Lotus Client
 

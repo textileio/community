@@ -128,7 +128,7 @@ nav:
           - Orgs: hub/cli/hub_orgs.md
           - Buckets: hub/cli/hub_buck.md
           - ThreadDB: hub/cli/hub_threads.md
-          - Powergate: hub/cli/hub_pow.md
+          - Powergate: hub/cli/hub_fil.md
           - Version: hub/cli/hub_version.md
           - Update: hub/cli/hub_update.md
           - API Keys: hub/cli/hub_keys.md

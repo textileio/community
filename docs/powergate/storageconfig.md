@@ -16,7 +16,7 @@ In every Powergate deployment, there are three ways to manage StorageConfigs thr
 
 1. The user default StorageConfig. This is initially set by the system default StorageConfig. It can be modified by the user after creation.
 2. The storage request StorageConfig. This will use the user default, but a custom StorageConfig can also be supplied during the request.
-3. A storage update StorageConfig. Any StorageConfigs attached to existing stored data can be updated with a new StorageConfig. The user will then work to modify the way data is stored to match the new configuration.
+3. A storage update StorageConfig. Any StorageConfigs attached to existing stored data can be updated with a new StorageConfig. Powergate will then work to modify the way data is stored to match the new configuration.
 
 ### Get the default StorageConfig of a user
 
