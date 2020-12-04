@@ -1,9 +1,9 @@
-# hub pow addrs
+# hub fil addrs
 
 List Filecoin wallet addresses associated with the current account or org.
 
 ```
-hub pow addrs [flags]
+hub fil addrs [flags]
 ```
 
 ### Options
@@ -14,4 +14,4 @@ hub pow addrs [flags]
 
 ### SEE ALSO
 
-* [hub pow](hub_pow.md)	 - Interact with Powergate
+* [hub fil](hub_fil.md)	 - Interact with Filecoin related commands.

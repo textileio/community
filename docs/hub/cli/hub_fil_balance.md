@@ -1,9 +1,9 @@
-# hub pow balance
+# hub fil balance
 
 Display the FIL balance of a wallet address.
 
 ```
-hub pow balance [addr] [flags]
+hub fil balance [addr] [flags]
 ```
 
 ### Options
@@ -14,4 +14,4 @@ hub pow balance [addr] [flags]
 
 ### SEE ALSO
 
-* [hub pow](hub_pow.md)	 - Interact with Powergate
+* [hub fil](hub_fil.md)	 - Interact with Filecoin related commands.
