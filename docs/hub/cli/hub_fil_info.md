@@ -1,9 +1,9 @@
-# hub pow info
+# hub fil info
 
 Get information about the current storate state of a cid
 
 ```
-hub pow info [optional cid1,cid2,...] [flags]
+hub fil info [optional cid1,cid2,...] [flags]
 ```
 
 ### Options
@@ -14,4 +14,4 @@ hub pow info [optional cid1,cid2,...] [flags]
 
 ### SEE ALSO
 
-* [hub pow](hub_pow.md)	 - Interact with Powergate
+* [hub fil](hub_fil.md)	 - Interact with Filecoin related commands.

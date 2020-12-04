@@ -1,9 +1,9 @@
-# hub pow retrievals
+# hub fil retrievals
 
-List Powergate retrieval deal records associated with the current account or org.
+List Filecoin retrieval deal records associated with the current account or org.
 
 ```
-hub pow retrievals [flags]
+hub fil retrievals [flags]
 ```
 
 ### Options
@@ -17,4 +17,4 @@ hub pow retrievals [flags]
 
 ### SEE ALSO
 
-* [hub pow](hub_pow.md)	 - Interact with Powergate
+* [hub fil](hub_fil.md)	 - Interact with Filecoin related commands.
