@@ -949,7 +949,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../hub/cli/hub_pow/" title="Powergate" target="" class="md-nav__link ">
+    <a href="../../hub/cli/hub_fil/" title="Powergate" target="" class="md-nav__link ">
       Powergate
     </a>
   </li>
@@ -1906,8 +1906,10 @@
 Choose an Org name: nasa█
 Please confirm: y█
 </code></pre></div>
+
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>&gt; Success!
 </code></pre></div>
+
 </details>
 <p>You have now created the <code>nasa</code> Org.</p>
 <h4 id="create-a-new-bucket-shared-with-an-org">Create a new Bucket shared with an Org<a class="headerlink" href="#create-a-new-bucket-shared-with-an-org" title="Permanent link">&para;</a></h4>
@@ -1916,10 +1918,12 @@ Please confirm: y█
 <span class="nb">cd</span> launchpad
 <span class="nv">HUB_ORG</span><span class="o">=</span>nasa hub buck init
 </code></pre></div>
+
 <p>You've now created a new Bucket inside of the <code>launchpad</code> directory and owned by your <code>nasa</code> organization.</p>
 <h4 id="invite-a-new-org-member">Invite a new org member<a class="headerlink" href="#invite-a-new-org-member" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>hub org invite
 </code></pre></div>
+
 <p>The final step is to invite collaborators to your Org. Once they accept the invite, they'll be able to interact with buckets associated with the Org.</p>
 <h3 id="app-user-buckets">App user Buckets<a class="headerlink" href="#app-user-buckets" title="Permanent link">&para;</a></h3>
 <p>If you're building an app using one of our <a href="../../hub/apis/#libraries">developer libraries</a>, you can use buckets from inside your apps. Apps generally will create buckets on behalf of each user, meaning the user should retain control of the Bucket metadata and contents.</p>
@@ -1929,12 +1933,11 @@ Please confirm: y█
 <h4 id="path-access">Path access<a class="headerlink" href="#path-access" title="Permanent link">&para;</a></h4>
 <p>Read and write access roles are defined in a bucket at <em>any</em> path. Any subpaths automatically inherit the permissions of their parent. </p>
 <p>For example, granting read access to your bucket at <code>/</code> would also grant read access to a file that exists at <code>/path/to/foo.jpg</code>. </p>
-<p>You can set different access rules within the same bucket by using a combination of <em>paths</em> and specified <em>roles</em> at the path. </p>
+<p>You can set different access rules within the same bucket by using a combination of <em>paths</em> and specified <em>roles</em> at the path. 
 <!--
 Seems like " by using combination of *paths* and specified *roles* at the path. " isn't clear or detailed enough as instructions.
 - Albert Kim
- -->
-
+ --></p>
 <h4 id="role-types">Role types<a class="headerlink" href="#role-types" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
@@ -1967,6 +1970,7 @@ Seems like " by using combination of *paths* and specified *roles* at the path. 
 <div class="highlight"><pre><span></span><code>hub buck roles grant -r writer <span class="se">\</span>
 bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose /path/to
 </code></pre></div>
+
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>  IDENTITY                                                     ROLE    
   *                                                            Reader  
   bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose  Writer  
@@ -1974,6 +1978,7 @@ bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose /path/to
 
 &gt; Success! Updated access roles <span class="k">for</span> path /path/to
 </code></pre></div>
+
 </details>
 <p>Success! You can see the new user has been added as a writer to the path <code>/path/to</code> and that the bucket creator is still listed as the admin.</p>
 <h2 id="more-resources">More resources<a class="headerlink" href="#more-resources" title="Permanent link">&para;</a></h2>

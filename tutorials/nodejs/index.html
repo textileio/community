@@ -812,7 +812,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../hub/cli/hub_pow/" title="Powergate" target="" class="md-nav__link ">
+    <a href="../../hub/cli/hub_fil/" title="Powergate" target="" class="md-nav__link ">
       Powergate
     </a>
   </li>
@@ -1719,14 +1719,17 @@
 <p>We'll use the <a href="https://www.npmjs.com/package/isomorphic-ws"><code>isomorphic-ws</code></a> library to add WebSockets to our Node app.</p>
 <div class="highlight"><pre><span></span><code>npm install --save isomorphic-ws ws
 </code></pre></div>
+
 <p><strong>Setup</strong></p>
 <p>You can now just add WebSockets to the global namespace in your apps. Add this to the first line in your <code>js</code> or <code>ts</code> files, usually <code>index.js</code> or <code>main.js</code> or similar.</p>
 <p>In TypeScript:</p>
 <div class="highlight"><pre><span></span><code><span class="p">;(</span><span class="nx">global</span> <span class="kr">as</span> <span class="nx">any</span><span class="p">).</span><span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;isomorphic-ws&#39;</span><span class="p">)</span>
 </code></pre></div>
+
 <p>In JavaScript:</p>
 <div class="highlight"><pre><span></span><code><span class="p">;</span><span class="nx">global</span><span class="p">.</span><span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;isomorphic-ws&#39;</span><span class="p">)</span>
 </code></pre></div>
+
 <h2 id="start-building">Start building<a class="headerlink" href="#start-building" title="Permanent link">&para;</a></h2>
 <p>That's it. Now start building with the full suite of Textile tools. </p>
 <p>Check out the <a href="../hub/web-app/">app-building tutorials</a> for ideas.</p>

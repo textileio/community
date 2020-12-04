@@ -812,7 +812,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../hub/cli/hub_pow/" title="Powergate" target="" class="md-nav__link ">
+    <a href="../../../hub/cli/hub_fil/" title="Powergate" target="" class="md-nav__link ">
       Powergate
     </a>
   </li>
@@ -1901,11 +1901,13 @@
 <p>Install <a href="https://www.npmjs.com/package/isomorphic-ws">isomorphic-ws</a>:</p>
 <div class="highlight"><pre><span></span><code>npm install --save isomorphic-ws ws
 </code></pre></div>
+
 </li>
 <li>
 <p>Add websockets to the global namespace at the start of your app: </p>
 <div class="highlight"><pre><span></span><code><span class="p">;(</span><span class="nx">global</span> <span class="nx">as</span> <span class="nx">any</span><span class="p">).</span><span class="nx">WebSocket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;isomorphic-ws&#39;</span><span class="p">)</span>
 </code></pre></div>
+
 </li>
 </ol>
 <p>See an example of that <a href="https://github.com/textileio/js-examples/blob/master/hub-browser-auth-app/src/server/index.ts">here</a>.</p>

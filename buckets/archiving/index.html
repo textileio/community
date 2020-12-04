@@ -861,7 +861,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../hub/cli/hub_pow/" title="Powergate" target="" class="md-nav__link ">
+    <a href="../../hub/cli/hub_fil/" title="Powergate" target="" class="md-nav__link ">
       Powergate
     </a>
   </li>
@@ -1741,65 +1741,74 @@ While the Hub is ready to be tested and built on by the right app developers, us
 <p>To start testing archiving, let's use a bucket created in the <code>hub</code> CLI. </p>
 <p>Let's try archiving the bucket.</p>
 <div class="highlight"><pre><span></span><code>hub buck archive
-&gt; Warning! Archives are currently saved on an experimental <span class="nb">test</span> network. They may be lost at any time.
+&gt; Warning! Archives are Filecoin Mainnet. Use with caution.
 ? Proceed? <span class="o">[</span>y/N<span class="o">]</span>
 </code></pre></div>
+
 <p>Any Bucket archive you create will be stored on the Filecoin Mainnet.</p>
 <p>You should see a success message if you proceed.</p>
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>&gt; Success! Archive queued successfully
 </code></pre></div>
+
 </details>
 <p>This means that archiving has been initiated. It may take some time to complete...</p>
-<div class="highlight"><pre><span></span><code>hub buck archive status
-&gt; Archive is currently executing, grab a coffee, and be patient...
+<p>You can get the current status of your archive as well as any previous archives. Notice that the <code>dealInfo</code> property of the returned data includes information about the Filecoin deal(s) created for your archive:</p>
+<div class="highlight"><pre><span></span><code>hub buck archives list
+&gt; Success! 
+<span class="o">{</span>
+  <span class="s2">&quot;current&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;cid&quot;</span>: <span class="s2">&quot;bafybeiaxkbr6fudtgbayg5yndy6vpmz7c4ucjevdl5d5j2r77rkri4fftm&quot;</span>,
+    <span class="s2">&quot;jobId&quot;</span>: <span class="s2">&quot;e45bfc6d-79f1-4952-b483-7a644f20d976&quot;</span>,
+    <span class="s2">&quot;archiveStatus&quot;</span>: <span class="s2">&quot;ARCHIVE_STATUS_EXECUTING&quot;</span>,
+    <span class="s2">&quot;aborted&quot;</span>: false,
+    <span class="s2">&quot;abortedMsg&quot;</span>: <span class="s2">&quot;&quot;</span>,
+    <span class="s2">&quot;failureMsg&quot;</span>: <span class="s2">&quot;&quot;</span>,
+    <span class="s2">&quot;createdAt&quot;</span>: <span class="s2">&quot;1606772858&quot;</span>,
+    <span class="s2">&quot;dealInfo&quot;</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">&quot;proposalCid&quot;</span>: <span class="s2">&quot;bafyreie2uj42qvk7hqqhfrusj2k7ghbgqqtfydkxdabf6ucmbpzvpx2gni&quot;</span>,
+        <span class="s2">&quot;stateId&quot;</span>: <span class="s2">&quot;13&quot;</span>,
+        <span class="s2">&quot;stateName&quot;</span>: <span class="s2">&quot;StorageDealCheckForAcceptance&quot;</span>,
+        <span class="s2">&quot;miner&quot;</span>: <span class="s2">&quot;f01000&quot;</span>,
+        <span class="s2">&quot;pieceCid&quot;</span>: <span class="s2">&quot;baga6ea4seaqmd257xep2aqskphm5bew6goqiehdqypy37qicfrbnodfy6yodooi&quot;</span>,
+        <span class="s2">&quot;size&quot;</span>: <span class="s2">&quot;508&quot;</span>,
+        <span class="s2">&quot;pricePerEpoch&quot;</span>: <span class="s2">&quot;238&quot;</span>,
+        <span class="s2">&quot;startEpoch&quot;</span>: <span class="s2">&quot;508&quot;</span>,
+        <span class="s2">&quot;duration&quot;</span>: <span class="s2">&quot;521189&quot;</span>,
+        <span class="s2">&quot;dealId&quot;</span>: <span class="s2">&quot;0&quot;</span>,
+        <span class="s2">&quot;activationEpoch&quot;</span>: <span class="s2">&quot;0&quot;</span>,
+        <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;&quot;</span>
+      <span class="o">}</span>
+    <span class="o">]</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;history&quot;</span>: <span class="o">[]</span>
+<span class="o">}</span>
 </code></pre></div>
-<p>Use the archive status command with -w to watch your archive progress through the Filecoin market deal stages.</p>
-<div class="highlight"><pre><span></span><code>buck archive status -w
-&gt; Archive is currently executing, grab a coffee, and be patient...
-&gt;    Pushing new configuration...
-&gt;    Configuration saved successfully
-&gt;    Executing job 1006707f-efa8-48c2-98af-a1b320a59780...
-&gt;    Ensuring Hot-Storage satisfies the configuration...
-&gt;    No actions needed in Hot Storage.
-&gt;    Hot-Storage execution ran successfully.
-&gt;    Ensuring Cold-Storage satisfies the configuration...
-&gt;    Current replication factor is lower than desired, making <span class="m">10</span> new deals...
-&gt;    Calculating piece size...
-&gt;    Estimated piece size is <span class="m">256</span> bytes.
-&gt;    Proposing deal to miner t01459 with <span class="m">0</span> fil per epoch...
-&gt;    Proposing deal to miner t0117734 with <span class="m">500000000</span> fil per epoch...
-&gt;    Proposing deal to miner t0120993 with <span class="m">500000000</span> fil per epoch...
-&gt;    Proposing deal to miner t0120642 with <span class="m">500000000</span> fil per epoch...
-&gt;    Proposing deal to miner t0121477 with <span class="m">500000000</span> fil per epoch...
-&gt;    Proposing deal to miner t0119390 with <span class="m">500000000</span> fil per epoch...
-&gt;    Proposing deal to miner t0101180 with <span class="m">10000000</span> fil per epoch...
-&gt;    Proposing deal to miner t0117803 with <span class="m">500000000</span> fil per epoch...
-&gt;    Proposing deal to miner t0121852 with <span class="m">500000000</span> fil per epoch...
-&gt;    Proposing deal to miner t0119822 with <span class="m">500000000</span> fil per epoch...
-&gt;    Watching deals unfold...
-&gt;    Deal with miner t0117803 changed state to StorageDealClientFunding
-&gt;    Deal with miner t0121852 changed state to StorageDealClientFunding
-&gt;    Deal with miner t0121477 changed state to StorageDealClientFunding
-&gt;    Deal with miner t0101180 changed state to StorageDealClientFunding
-&gt;    Deal with miner t0119822 changed state to StorageDealClientFunding
-&gt;    Deal with miner t0119390 changed state to StorageDealClientFunding
-&gt;    Deal with miner t0120642 changed state to StorageDealClientFunding
-&gt;    Deal with miner t0117734 changed state to StorageDealClientFunding
-&gt;    Deal with miner t01459 changed state to StorageDealClientFunding
-&gt;    Deal with miner t0120993 changed state to StorageDealClientFunding
-&gt;    Deal with miner t0121477 changed state to StorageDealWaitingForDataRequest
-&gt;    Deal with miner t0119822 changed state to StorageDealWaitingForDataRequest
-&gt;    Deal with miner t0117734 changed state to StorageDealWaitingForDataRequest
-&gt;    Deal with miner t0121852 changed state to StorageDealWaitingForDataRequest
-&gt;    Deal with miner t01459 changed state to StorageDealWaitingForDataRequest
-&gt;    Deal with miner t0120642 changed state to StorageDealWaitingForDataRequest
-&gt;    Deal with miner t0120993 changed state to StorageDealWaitingForDataRequest
-&gt;    Deal with miner t0117803 changed state to StorageDealWaitingForDataRequest
-&gt;    Deal with miner t0101180 changed state to StorageDealWaitingForDataRequest
-&gt;    Deal with miner t0119390 changed state to StorageDealWaitingForDataRequest
-&gt;    Deal with miner t01459 changed state to StorageDealProposalAccepted
-&gt;    Deal with miner t01459 changed state to StorageDealSealing
+
+<p>Use the archive watch command to watch your archive progress through the Filecoin market deal stages.</p>
+<div class="highlight"><pre><span></span><code>hub buck archive watch
+&gt;        Pushing new configuration...
+&gt;        Configuration saved successfully
+&gt;        Executing job e45bfc6d-79f1-4952-b483-7a644f20d976...
+&gt;        Ensuring Hot-Storage satisfies the configuration...
+&gt;        No actions needed in Hot Storage.
+&gt;        Hot-Storage execution ran successfully.
+&gt;        Ensuring Cold-Storage satisfies the configuration...
+&gt;        Current replication factor is lower than desired, making <span class="m">1</span> new deals...
+&gt;        Entering deal preprocessing queue...
+&gt;        Calculating piece size...
+&gt;        Calculated piece size is <span class="m">0</span> MiB.
+&gt;        Proposing deal to miner f01000 with <span class="m">500000000</span> attoFIL per epoch...
+&gt;        Watching deals unfold...
+&gt;        Deal with miner f01000 changed state to StorageDealReserveClientFunds
+&gt;        Deal with miner f01000 changed state to StorageDealClientFunding
+&gt;        Deal with miner f01000 changed state to StorageDealCheckForAcceptance
+&gt;        Deal <span class="m">2</span> with miner f01000 changed state to StorageDealSealing
+&gt;        Deal <span class="m">2</span> with miner f01000 is active on-chain
+&gt;        Cold-Storage execution ran successfully.
+&gt;        Job e45bfc6d-79f1-4952-b483-7a644f20d976 execution finished with status Success.
 </code></pre></div>
+
 <p>The output will look something like the above. With a little luck, you'll start seeing some successful storage deals.</p>
 <h2 id="limits">Limits<a class="headerlink" href="#limits" title="Permanent link">&para;</a></h2>
 <p>Archiving is limited by the limits of buckets, so the maximum size is 4 GiB. Archives stored on Filecoin <strong>do not</strong> count toward your account storage limits. Only files that remain in your live bucket are counted.</p>

@@ -812,7 +812,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../hub/cli/hub_pow/" title="Powergate" target="" class="md-nav__link ">
+    <a href="../../hub/cli/hub_fil/" title="Powergate" target="" class="md-nav__link ">
       Powergate
     </a>
   </li>
@@ -1790,20 +1790,24 @@
 <div class="highlight"><pre><span></span><code>ls ./
 build        package.json        src
 </code></pre></div>
+
 <p>In this case, we are building the raw site code in <code>src</code> into the <code>build</code> folder. We should initialize the Bucket at the root of the project.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> build
 hub bucket init
 </code></pre></div>
+
 <h3 id="push-your-bucket">Push your Bucket<a class="headerlink" href="#push-your-bucket" title="Permanent link">&para;</a></h3>
 <p>Now, pushing your Bucket is simple. After you build your project so that <code>build</code> contains the latest version of your site ready to deploy you run the <code>bucket push</code> command.</p>
 <div class="highlight"><pre><span></span><code>hub bucket push
 </code></pre></div>
+
 <p>That's it! Your site is now available on the free subdomain and over IPNS. You can easily integrate it into your own DNS using DNSLink.</p>
 <h2 id="dnslink">DNSLink<a class="headerlink" href="#dnslink" title="Permanent link">&para;</a></h2>
 <p>You can use Buckets to host websites from your own domain using <a href="https://docs.ipfs.io/guides/concepts/dnslink/">DNSLink</a>. The easiest way to do this is using your Bucket's IPNS link. On <a href="https://cloudflare.com">Cloudflare</a> for example, your updated DNS records should look like the following.</p>
 <div class="highlight"><pre><span></span><code>CNAME    &lt;site&gt;    www.cloudflare-ipfs.com
 TXT    _dnslink.&lt;site&gt;    <span class="nv">dnslink</span><span class="o">=</span>/ipns/&lt;bucket ipns link&gt;
 </code></pre></div>
+
 <p><br></p>
                 
                   

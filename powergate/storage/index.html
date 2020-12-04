@@ -963,7 +963,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../hub/cli/hub_pow/" title="Powergate" target="" class="md-nav__link ">
+    <a href="../../hub/cli/hub_fil/" title="Powergate" target="" class="md-nav__link ">
       Powergate
     </a>
   </li>
@@ -1964,6 +1964,7 @@
 <p>Using the Powergate CLI admin commands, you can create a new user easily.</p>
 <div class="highlight"><pre><span></span><code>pow admin user create
 </code></pre></div>
+
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code><span class="o">{</span>
     <span class="s2">&quot;user&quot;</span>:  <span class="o">{</span>
         <span class="s2">&quot;id&quot;</span>:  <span class="s2">&quot;0ac0fb4d-581c-4276-bd90-a9aa30dd4cb4&quot;</span>,
@@ -1971,20 +1972,24 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
+
 </details>
 <p><strong>Add environmental variable (optional)</strong></p>
 <p>The <code>--token</code> is used to scope the requests to the user we created. You can skip setting the <code>--token</code> flag on every command by adding your new token as an environmental variable. For the rest of the examples, we'll assume you've set this environmental variable.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">POW_TOKEN</span><span class="o">=</span>883f57b1-4e66-47f8-b291-7cf8b10f6370
 </code></pre></div>
+
 <h3 id="make-data-available">Make data available<a class="headerlink" href="#make-data-available" title="Permanent link">&para;</a></h3>
 <p>Powergate requires stored data to be available over IPFS. If you're using the CLI, you can ensure it's available by staging it on IPFS using <code>stage</code>.</p>
 <p>Note that <code>stage</code> does not store your data in the Powergate. It's an optional step that caches your data to ensure it's available on IPFS before being stored in Powergate. This is technically equivalent to <code>ipfs add --pin=false</code>, which is adding data without pinning it.</p>
 <div class="highlight"><pre><span></span><code>pow data stage &lt;path/filename&gt;
 </code></pre></div>
+
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code><span class="o">{</span>
     <span class="s2">&quot;cid&quot;</span>:  <span class="s2">&quot;&lt;cid&gt;&quot;</span>
 <span class="o">}</span>
 </code></pre></div>
+
 </details>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1996,6 +2001,7 @@
 <p>Every user has a default <code>StorageConfig</code> that will be used for every new deal unless overridden.</p>
 <div class="highlight"><pre><span></span><code>pow config apply --watch &lt;cid&gt;
 </code></pre></div>
+
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code><span class="o">{</span>
     <span class="s2">&quot;jobId&quot;</span>:  <span class="s2">&quot;b4110048-5367-4ae5-8508-709bf7969748&quot;</span>
 <span class="o">}</span>
@@ -2003,6 +2009,7 @@
 ---------------------------------------+----------------------+--------+----------+--------------------
   70368cda-d65a-4e11-8a9f-fbf36135f563 <span class="p">|</span> JOB_STATUS_EXECUTING <span class="p">|</span>        <span class="p">|</span>          <span class="p">|</span>                    
 </code></pre></div>
+
 </details>
 <p>When complete, you should see,</p>
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>                 JOB ID                <span class="p">|</span>       STATUS       <span class="p">|</span> MINER  <span class="p">|</span>  PRICE   <span class="p">|</span>    DEAL STATUS     
@@ -2010,6 +2017,7 @@
   b4110048-5367-4ae5-8508-709bf7969748 <span class="p">|</span> JOB_STATUS_SUCCESS <span class="p">|</span>        <span class="p">|</span>          <span class="p">|</span>                    
                                        <span class="p">|</span>                    <span class="p">|</span> f01000 <span class="p">|</span> <span class="m">62500000</span> <span class="p">|</span> StorageDealActive
 </code></pre></div>
+
 </details>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -2019,12 +2027,15 @@
 <p>The status will update as the deal progresses. If you apply a storage config without the <code>--watch</code> flag, you can check the progress later using, <code>watch</code>.</p>
 <div class="highlight"><pre><span></span><code>pow storage-job watch &lt;jobid&gt;
 </code></pre></div>
+
 <h3 id="retrieve-files">Retrieve files<a class="headerlink" href="#retrieve-files" title="Permanent link">&para;</a></h3>
 <p>Finally, you can verify that the file was stored on the network by making a request to get it back out. </p>
 <div class="highlight"><pre><span></span><code>pow data get &lt;cid&gt; myfile2
 </code></pre></div>
+
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>Success! Data written to myfile2
 </code></pre></div>
+
 </details>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

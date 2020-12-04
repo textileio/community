@@ -812,7 +812,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../hub/cli/hub_pow/" title="Powergate" target="" class="md-nav__link ">
+    <a href="../../../hub/cli/hub_fil/" title="Powergate" target="" class="md-nav__link ">
       Powergate
     </a>
   </li>
@@ -1849,6 +1849,7 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <h2 id="create-a-photo-index">Create a photo index<a class="headerlink" href="#create-a-photo-index" title="Permanent link">&para;</a></h2>
 <p>If you're going to allow users to upload more than a few images or files, it can be helpful to track the metadata in an index. </p>
 <p>In our final example, we resample the photos on the fly, storing multiple sizes for better display performance. We track all those files with a simple JSON index in the root of our bucket. </p>
@@ -1868,6 +1869,7 @@
   <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">pushPath</span><span class="p">(</span><span class="nx">bucketKey</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">buf</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Now you can update the paths each time you add new images to the bucket. </p>
 <p>In our example, we add 4 files for every image, full-res, medium-res, thumbnail, and metadata. We also update the paths with a link to the file's metadata on each update. </p>
 <p>In this way, an app can load just the single list of metadata and decide what to display.</p>
@@ -1884,6 +1886,7 @@
   <span class="nx">await</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">pushPath</span><span class="p">(</span><span class="nx">bucketKey</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">buf</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <h2 id="push-files">Push files<a class="headerlink" href="#push-files" title="Permanent link">&para;</a></h2>
 <p>You're now ready to start pushing files to the bucket. You can push each binary file to a specific path in the bucket by using <code>pushPath</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Buckets</span><span class="p">,</span> <span class="nx">PushPathResult</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span>
@@ -1904,6 +1907,7 @@
   <span class="p">})</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>At this point, we also update our <code>index.json</code> with the new file.</p>
 <h2 id="push-encrypted-buckets">Push encrypted buckets<a class="headerlink" href="#push-encrypted-buckets" title="Permanent link">&para;</a></h2>
 <p>If your app is providing private spaces for your users to organize their photos or files, you can also create encrypted buckets for them. </p>
@@ -1922,6 +1926,7 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <h3 id="sharing-encrypted-buckets">Sharing encrypted buckets<a class="headerlink" href="#sharing-encrypted-buckets" title="Permanent link">&para;</a></h3>
 <p>There is no way to convert encrypted Buckets to non-encrypted or vice-versa.</p>
 <p>However, it should be straight-forward to move files from an encrypted Bucket into a non-encrypted Bucket and back again.</p>
@@ -1932,6 +1937,7 @@
 <div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/js-examples.git
 <span class="nb">cd</span> js-examples/bucket-photo-gallery
 </code></pre></div>
+
 <div class="txtl-options half">
   <a href="https://github.com/textileio/js-examples" class="box">
     <h5>Explore the repo</h5>
