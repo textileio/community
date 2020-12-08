@@ -1851,7 +1851,6 @@
 <div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/powergate.git
 <span class="nb">cd</span> powergate
 </code></pre></div>
-
 <h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
 <p>A default setup is available in the <code>docker-compose</code> configuration shipped with the Powergate. With the default setup, you'll run Powergate connected to live Filecoin Mainnet.</p>
 <p><strong>Run the docker-compose</strong></p>
@@ -1859,7 +1858,6 @@
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> docker
 make up
 </code></pre></div>
-
 <p>On initial setup,  Docker will download the required instances before any Powergate setup begins. Downloads may take a few minutes and only happen on the first run.</p>
 <p>If this is the first time you're running the Powergate on the mainnet, or if you have been offline for any amount of time, you'll need to wait for the chain to properly sync. This can take over a day.</p>
 <p>Once running, you will begin to see log outputs.</p>
@@ -1867,7 +1865,6 @@ make up
 mined block in the past <span class="o">{</span><span class="s2">&quot;block-time&quot;</span>: <span class="s2">&quot;2009-01-01T04:44:30.000Z&quot;</span>,<span class="se">\</span>
 <span class="s2">&quot;time&quot;</span>: <span class="s2">&quot;2020-05-29T20:35:08.644Z&quot;</span>, <span class="s2">&quot;duration&quot;</span>: <span class="m">359999438</span>.64444387<span class="o">}</span>
 </code></pre></div>
-
 <p>When complete, you'll have a fully functional Powergate (<code>powd</code>), a Lotus node, and an IPFS node wired together to start using on the Mainnet!</p>
 <h3 id="bootstrap-a-clean-lotus-node-from-a-snapshot">Bootstrap a clean Lotus node from a snapshot<a class="headerlink" href="#bootstrap-a-clean-lotus-node-from-a-snapshot" title="Permanent link">&para;</a></h3>
 <p>Syncing a new Lotus node from genesis can take a long time. The current <code>mainnet</code> network provides snapshots of the VM state every hour, which means having to sync less than 250 blocks from the tip of the chain in the worst case.</p>
@@ -1905,11 +1902,9 @@ mined block in the past <span class="o">{</span><span class="s2">&quot;block-tim
 <p>From the root of the <code>powergate</code> repo, you can build the CLI from the latest code. This will install the Powergate CLI, <code>pow</code>, on your machine.</p>
 <div class="highlight"><pre><span></span><code>make build
 </code></pre></div>
-
 <p>Test your installation.</p>
 <div class="highlight"><pre><span></span><code>pow --help
 </code></pre></div>
-
 <h4 id="start-storing-data">Start storing data<a class="headerlink" href="#start-storing-data" title="Permanent link">&para;</a></h4>
 <p>You're now ready to start storing and retrieving data using the Powergate. Read more on <a href="../storage/">Storing Data</a>.</p>
                 

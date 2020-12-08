@@ -1744,12 +1744,10 @@ While the Hub is ready to be tested and built on by the right app developers, us
 &gt; Warning! Archives are Filecoin Mainnet. Use with caution.
 ? Proceed? <span class="o">[</span>y/N<span class="o">]</span>
 </code></pre></div>
-
 <p>Any Bucket archive you create will be stored on the Filecoin Mainnet.</p>
 <p>You should see a success message if you proceed.</p>
 <details class="success" open="open"><summary>Success</summary><div class="highlight"><pre><span></span><code>&gt; Success! Archive queued successfully
 </code></pre></div>
-
 </details>
 <p>This means that archiving has been initiated. It may take some time to complete...</p>
 <p>You can get the current status of your archive as well as any previous archives. Notice that the <code>dealInfo</code> property of the returned data includes information about the Filecoin deal(s) created for your archive:</p>
@@ -1784,7 +1782,6 @@ While the Hub is ready to be tested and built on by the right app developers, us
   <span class="s2">&quot;history&quot;</span>: <span class="o">[]</span>
 <span class="o">}</span>
 </code></pre></div>
-
 <p>Use the archive watch command to watch your archive progress through the Filecoin market deal stages.</p>
 <div class="highlight"><pre><span></span><code>hub buck archive watch
 &gt;        Pushing new configuration...
@@ -1808,7 +1805,6 @@ While the Hub is ready to be tested and built on by the right app developers, us
 &gt;        Cold-Storage execution ran successfully.
 &gt;        Job e45bfc6d-79f1-4952-b483-7a644f20d976 execution finished with status Success.
 </code></pre></div>
-
 <p>The output will look something like the above. With a little luck, you'll start seeing some successful storage deals.</p>
 <h2 id="limits">Limits<a class="headerlink" href="#limits" title="Permanent link">&para;</a></h2>
 <p>Archiving is limited by the limits of buckets, so the maximum size is 4 GiB. Archives stored on Filecoin <strong>do not</strong> count toward your account storage limits. Only files that remain in your live bucket are counted.</p>
