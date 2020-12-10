@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
     
     
       
@@ -2056,12 +2056,11 @@
 <h2 id="initialize-a-bucket">Initialize a Bucket<a class="headerlink" href="#initialize-a-bucket" title="Permanent link">&para;</a></h2>
 <p>To start a Bucket in your current working directory, you must first initialize it. You can initialize a bucket with an existing UnixFS DAG, available in the IPFS network, or import it interactively in an existing bucket.</p>
 <p>When working on your local machine, buckets are mapped to working directories. </p>
-<p>Once you initialize a bucket in a directory, anytime you return to the directory, the <a href="../hub/cli/hub/">Textile CLI</a> will automatically detect the Bucket you're interacting with. </p>
+<p>Once you initialize a bucket in a directory, anytime you return to the directory, the <a href="../hub/cli/hub/">Textile CLI</a> will automatically detect the Bucket you're interacting with. 
 <!--
 ^ - "Anytime you return to the directory" needs more context. Who returns, returns where, detect bucket you're interacting with is vague to.
 - Albert Kim
--->
-
+--></p>
 <p>
 <figure><img src="../images/hub-cli/hub_bucket_init.png" /><figcaption><a href="../hub/cli/hub_buck/">Read CLI docs for buckets</a>.</figcaption>
 </figure>
@@ -2116,12 +2115,11 @@
 <li>Obfuscate bucket data/files (the normal goal of encryption).</li>
 <li>Obfuscate directory structure, which means encrypting IPLD nodes and their links.</li>
 </ol>
-<p>The AES and HMAC keys used for bucket encryption are stored in the ThreadDB collection instance. That means each bucket has a model entry as a key.</p>
+<p>The AES and HMAC keys used for bucket encryption are stored in the ThreadDB collection instance. That means each bucket has a model entry as a key.
 <!--
 "each bucket has a model entry as a key" probably needs to be reworded and made clearer.
 - Albert Kim
--->
-
+--></p>
 <p>This setup allows for bucket access to be inherited by thread ACL rules. This also means that if you can break into the thread, and you gain access to the thread read key, you can decrypt the bucket content.</p>
 <p>As a compromise, we've added some convenience methods to the local buck client which allows you to encrypt content locally (protected by a password) before it gets added to the bucket. This has the downside that you must remember the password.</p>
 <p>Finally, you can run the standalone buckets daemon buckd locally and use a remote peer as a thread replicator (no read key access). This means that there’s no downside to the keys being stored in the bucket collection instance.</p>
@@ -2284,7 +2282,7 @@ then open the first result 'Thread links' in your browser.</p>
     
       <script src="../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
       
         <script src="../js/sidebar.js"></script>
       

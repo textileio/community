@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
     
     
       
@@ -1936,28 +1936,34 @@
 <p><img alt="" src="../../images/hub-cli/hub_init.png" /></p>
 <div class="highlight"><pre><span></span><code>hub init
 </code></pre></div>
+
 <p>You have now created an account on the Textile Hub! You can now run all the available commands, such as <code>hub --help</code>, <code>hub whoami</code>, <code>hub buckets</code>, <code>hub keys ls</code>, <code>hub logout</code>, and <code>hub login</code>.</p>
 <h3 id="login">Login<a class="headerlink" href="#login" title="Permanent link">&para;</a></h3>
 <p>Now that your account exists, the next time you use the CLI on a new computer, or after logging out, you simply need to <code>login</code>.</p>
 <div class="highlight"><pre><span></span><code>hub login
 </code></pre></div>
+
 <h2 id="organizations">Organizations<a class="headerlink" href="#organizations" title="Permanent link">&para;</a></h2>
 <p><code>Orgs</code> allow multiple developers to work together using shared resources. Members of an organization can collaboratively manage, create, or remove <a href="../apis/#app-keys">API keys</a>, and more.</p>
 <p>You can create an <code>org</code> easily.</p>
 <p><img alt="" src="../../images/hub-cli/hub_org_create.png" /></p>
 <div class="highlight"><pre><span></span><code>hub org create
 </code></pre></div>
+
 <p>Next, you can begin inviting collaborators by email addresses.</p>
 <p><img alt="" src="../../images/hub-cli/hub_org_invite.png" /></p>
 <div class="highlight"><pre><span></span><code>hub org invite
 </code></pre></div>
+
 <p>You can now share and collaborate with all <code>org</code> members. For example, when creating new buckets, you can create them in the <code>org</code> and immediately be available to your collaborators. Additionally, you can create and share API key admin.</p>
 <p><strong>Org bucket init</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nv">HUB_ORG</span><span class="o">=</span>&lt;org name&gt; hub buck init
 </code></pre></div>
+
 <p><strong>Org keys create</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nv">HUB_ORG</span><span class="o">=</span>&lt;org name&gt; hub keys create
 </code></pre></div>
+
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>You can <a href="../cli/hub_orgs_create/">create</a>, <a href="../cli/hub_orgs_invite/">invite</a>, and <a href="../cli/hub_orgs_leave/">leave</a> organizations easily. Read more about all Org methods on the <a href="../cli/hub_orgs/">CLI docs</a>.</p>
@@ -2057,7 +2063,7 @@
     
       <script src="../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
         <script src="../../js/sidebar.js"></script>
       
