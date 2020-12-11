@@ -11,8 +11,11 @@ Powergate includes some administrative APIs. They allow the caller to:
 
 Powergate's backend server may be configured with an admin auth token to restrict access only to clients that provide the token with their requests.
 
-!!!warning
-    Be sure to set the admin token correctly in your [client of choice](/powergate/#powergate-apis). 
+!!!info
+    Be sure to set the admin token correctly in your [client of choice](/powergate/#powergate-apis).
+
+!!!info
+    Note that if you're running Powergate using a [local dev net](/powergate/localnet/#localnet-with-powergate), there is no admin auth token set by default, so you don't have to provide it.
  
 In the case of the Powergate CLI, `pow`, the admin token can be provided with the `--admin-token` flag, or by setting the `POW_ADMIN_TOKEN` environment variable.
 
