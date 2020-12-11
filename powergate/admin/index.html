@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -1720,9 +1720,13 @@
 </ul>
 <h2 id="admin-auth-token">Admin Auth Token<a class="headerlink" href="#admin-auth-token" title="Permanent link">&para;</a></h2>
 <p>Powergate's backend server may be configured with an admin auth token to restrict access only to clients that provide the token with their requests.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Be sure to set the admin token correctly in your <a href="/powergate/#powergate-apis">client of choice</a>. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Be sure to set the admin token correctly in your <a href="/powergate/#powergate-apis">client of choice</a>.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Note that if you're running Powergate using a <a href="/powergate/localnet/#localnet-with-powergate">local dev net</a>, there is no admin auth token set by default, so you don't have to provide it.</p>
 </div>
 <p>In the case of the Powergate CLI, <code>pow</code>, the admin token can be provided with the <code>--admin-token</code> flag, or by setting the <code>POW_ADMIN_TOKEN</code> environment variable.</p>
 <h2 id="cli-usage">CLI Usage<a class="headerlink" href="#cli-usage" title="Permanent link">&para;</a></h2>
@@ -1849,7 +1853,7 @@ Use <span class="s2">&quot;pow admin [command] --help&quot;</span> <span class="
     
       <script src="../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
         <script src="../../js/sidebar.js"></script>
       
