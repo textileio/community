@@ -15,12 +15,15 @@ Pick a starting point below, or use the search box to find documents matching yo
 
 Learn about the different technologies that make-up Textile:
 
-* [The Hub](#the-hub)
-* [Buckets](#buckets)
-* [ThreadDB](#threaddb)
-* [The Powergate](#filecoin-powergate)
-* [Tutorials](#tutorials)
-* [Other resources](#other-resources)
+- [Welcome to the Textile documentation.](#welcome-to-the-textile-documentation)
+  - [Technologies](#technologies)
+  - [The Hub](#the-hub)
+  - [Buckets](#buckets)
+  - [ThreadDB](#threaddb)
+  - [Filecoin Powergate](#filecoin-powergate)
+  - [Tutorials](#tutorials)
+  - [Other Resources](#other-resources)
+  - [Thanks!](#thanks)
 
 ## The Hub
 
@@ -185,7 +188,7 @@ Join our public [Slack](https://slack.textile.io), visit our [GitHub](https://gi
 
 
 <i>
-<a href="https://bafzbeidm2siabgz4imyuk5lldy4wyo7iyxblzzuwbl2ndxucp5nuhsjcly.ipns.hub.textile.io/" target="_blank" style="text-decoration:none;color:grey">This site is on /ipns/bafzbeidm2siabgz4imyuk5lldy4wyo7iyxblzzuwbl2ndxucp5nuhsjcly</a>
+<a href="https://bafzbeifwdl7utkrphlshzb76mpraiy7crpsybtpkyx637kph7jjwfaisde.textile.space/" target="_blank" style="text-decoration:none;color:grey">This site is on /ipns/bafzbeifwdl7utkrphlshzb76mpraiy7crpsybtpkyx637kph7jjwfaisde</a>
 </i>
 
 ## Thanks!

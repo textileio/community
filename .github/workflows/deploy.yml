@@ -25,10 +25,10 @@ jobs:
         id: bucket
         uses: textileio/github-action-buckets@master
         with:
-          key: ${{ secrets.TEXTILEIO_ORG_ACCOUNT_KEY }}
-          secret: ${{ secrets.TEXTILEIO_ORG_ACCOUNT_SECRET }}
+          key: ${{ secrets.TEXTILE_ORG_ACCOUNT_KEY }}
+          secret: ${{ secrets.TEXTILE_ORG_ACCOUNT_SECRET }}
           bucket: "docs"
-          thread: ${{ secrets.TEXTILEIO_ORG_BUCKET_THREAD }}
+          thread: ${{ secrets.TEXTILE_ORG_BUCKET_THREAD }}
           path: "site"
           pattern: "**/*"
       - run: echo "bucket - ${{ steps.bucket.outputs.key }}"
