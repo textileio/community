@@ -188,7 +188,7 @@ Join our public [Slack](https://slack.textile.io), visit our [GitHub](https://gi
 
 
 <i>
-<a href="https://bafzbeifwdl7utkrphlshzb76mpraiy7crpsybtpkyx637kph7jjwfaisde.textile.space/" target="_blank" style="text-decoration:none;color:grey">This site is on /ipns/bafzbeifwdl7utkrphlshzb76mpraiy7crpsybtpkyx637kph7jjwfaisde</a>
+<a href="https://bafzbeifr6cslv5f422xyfwr46ydc2u3gujgdeozynyofcxzgzue6fzcbme.ipns.dweb.link/" target="_blank" style="text-decoration:none;color:grey">This site is on /ipns/bafzbeifr6cslv5f422xyfwr46ydc2u3gujgdeozynyofcxzgzue6fzcbme</a>
 </i>
 
 ## Thanks!
