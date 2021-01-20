@@ -89,7 +89,7 @@ make install-pow
 You can view all the commands by running `pow --help`.
 
 ```bash
-pow --help 
+➜ pow --help
 A client for storage and retreival of powergate data
 
 Usage:
@@ -103,6 +103,7 @@ Available Commands:
   deals        Provides commands to view Filecoin deal information
   help         Help about any command
   id           Returns the user id
+  storage-info Provides commands to get and query cid storage info.
   storage-jobs Provides commands to query for storage jobs in various states
   version      Display version information for pow and the connected server
   wallet       Provides commands about filecoin wallets

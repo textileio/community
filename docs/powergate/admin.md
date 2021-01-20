@@ -31,9 +31,11 @@ Usage:
   pow admin [command]
 
 Available Commands:
-  jobs        Provides admin jobs commands
-  users       Provides admin users commands
-  wallet      Provides admin wallet commands
+  data         Provides admin data commands
+  storage-info Provides admin storage info commands
+  storage-jobs Provides admin jobs commands
+  users        Provides admin users commands
+  wallet       Provides admin wallet commands
 
 Flags:
       --admin-token string   admin auth token

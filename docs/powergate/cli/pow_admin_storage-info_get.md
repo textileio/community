@@ -1,19 +1,19 @@
-## pow admin data pinnedcids
+## pow admin storage-info get
 
-List pinned cids information in hot-storage.
+Returns the information about a stored cid.
 
 ### Synopsis
 
-List pinned cids information in hot-storage.
+Returns the information about a stored cid.
 
 ```
-pow admin data pinnedcids [flags]
+pow admin storage-info get [user-id] [cid] [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for pinnedcids
+  -h, --help   help for get
 ```
 
 ### Options inherited from parent commands
@@ -26,5 +26,5 @@ pow admin data pinnedcids [flags]
 
 ### SEE ALSO
 
-* [pow admin data](pow_admin_data.md)	 - Provides admin data commands
+* [pow admin storage-info](pow_admin_storage-info.md)	 - Provides admin storage info commands
 
