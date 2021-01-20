@@ -111,9 +111,10 @@ nav:
           - Overview: powergate/cli/pow.md
           - Config: powergate/cli/pow_config.md
           - Data: powergate/cli/pow_data.md
-          - Wallet: powergate/cli/pow_wallet.md
-          - Storage Jobs: powergate/cli/pow_storage-jobs.md
           - Deals: powergate/cli/pow_deals.md
+          - Storage Info: powergate/cli/pow_storage-info.md
+          - Storage Jobs: powergate/cli/pow_storage-jobs.md
+          - Wallet: powergate/cli/pow_wallet.md
           - Admin: powergate/cli/pow_admin.md
       - FAQ: powergate/faq.md
       - Externals:
