@@ -110,7 +110,7 @@ Success! You can see the new user has been added as a writer to the path `/path/
 ## More resources
 
 <div class="txtl-options">
-  <a href="../tutorials/hub/user-buckets/" class="box">
+  <a href="../../tutorials/hub/user-buckets/" class="box">
     <h5>Buckets in your app</h5>
     <p>View the tutorial on adding Buckets to your JavaScript app.</p>
   </a>
@@ -120,7 +120,7 @@ Success! You can see the new user has been added as a writer to the path `/path/
     <p>Persist user buckets on IPFS from your JS app.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="../tutorials/react-native-buckets/" class="box">
+  <a href="../../tutorials/react-native-buckets/" class="box">
     <h5>React Native tutorial</h5>
     <p>See how to create user buckets & threads in React Native.</p>
   </a>
