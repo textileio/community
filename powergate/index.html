@@ -739,8 +739,20 @@
 
 
   <li class="md-nav__item">
-    <a href="cli/pow_wallet/" title="Wallet" target="" class="md-nav__link ">
-      Wallet
+    <a href="cli/pow_deals/" title="Deals" target="" class="md-nav__link ">
+      Deals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="cli/pow_storage-info/" title="Storage Info" target="" class="md-nav__link ">
+      Storage Info
     </a>
   </li>
 
@@ -763,8 +775,8 @@
 
 
   <li class="md-nav__item">
-    <a href="cli/pow_deals/" title="Deals" target="" class="md-nav__link ">
-      Deals
+    <a href="cli/pow_wallet/" title="Wallet" target="" class="md-nav__link ">
+      Wallet
     </a>
   </li>
 
@@ -2002,7 +2014,7 @@ make install-pow
 </div>
 <p><strong>Using the CLI</strong></p>
 <p>You can view all the commands by running <code>pow --help</code>.</p>
-<div class="highlight"><pre><span></span><code>pow --help 
+<div class="highlight"><pre><span></span><code>➜ pow --help
 A client <span class="k">for</span> storage and retreival of powergate data
 
 Usage:
@@ -2016,6 +2028,7 @@ Available Commands:
   deals        Provides commands to view Filecoin deal information
   <span class="nb">help</span>         Help about any <span class="nb">command</span>
   id           Returns the user id
+  storage-info Provides commands to get and query cid storage info.
   storage-jobs Provides commands to query <span class="k">for</span> storage <span class="nb">jobs</span> in various states
   version      Display version information <span class="k">for</span> pow and the connected server
   wallet       Provides commands about filecoin wallets

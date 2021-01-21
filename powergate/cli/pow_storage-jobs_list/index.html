@@ -13,7 +13,7 @@
         <meta name="description" content="Textile makes it easy for you or your application to store and distribute data over the IPFS network.">
       
       
-        <link rel="canonical" href="https://docs.textile.io/powergate/cli/pow_admin_jobs/">
+        <link rel="canonical" href="https://docs.textile.io/powergate/cli/pow_storage-jobs_list/">
       
       
         <meta name="author" content="textile.io">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Pow admin jobs | Documentation | Textile</title>
+        <title>Pow storage jobs list | Documentation | Textile</title>
       
     
     
@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#pow-admin-jobs" tabindex="1" class="md-skip">
+      <a href="#pow-storage-jobs-list" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              Pow admin jobs
+              Pow storage jobs list
             </span>
           
         </div>
@@ -584,8 +584,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../pow_wallet/" title="Wallet" target="" class="md-nav__link ">
-      Wallet
+    <a href="../pow_deals/" title="Deals" target="" class="md-nav__link ">
+      Deals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pow_storage-info/" title="Storage Info" target="" class="md-nav__link ">
+      Storage Info
     </a>
   </li>
 
@@ -608,8 +620,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../pow_deals/" title="Deals" target="" class="md-nav__link ">
-      Deals
+    <a href="../pow_wallet/" title="Wallet" target="" class="md-nav__link ">
+      Wallet
     </a>
   </li>
 
@@ -1627,8 +1639,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pow-admin-jobs" title="pow admin jobs" class="md-nav__link">
-    pow admin jobs
+  <a href="#pow-storage-jobs-list" title="pow storage-jobs list" class="md-nav__link">
+    pow storage-jobs list
   </a>
   
     <nav class="md-nav">
@@ -1685,33 +1697,34 @@
               
                 
                 
-                  <a href="https://github.com/textileio/docs/edit/master/docs/powergate/cli/pow_admin_jobs.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/textileio/docs/edit/master/docs/powergate/cli/pow_storage-jobs_list.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Pow admin jobs</h1>
+                  <h1>Pow storage jobs list</h1>
                 
-                <h2 id="pow-admin-jobs">pow admin jobs<a class="headerlink" href="#pow-admin-jobs" title="Permanent link">&para;</a></h2>
-<p>Provides admin jobs commands</p>
+                <h2 id="pow-storage-jobs-list">pow storage-jobs list<a class="headerlink" href="#pow-storage-jobs-list" title="Permanent link">&para;</a></h2>
+<p>List storage jobs according to query flag options.</p>
 <h3 id="synopsis">Synopsis<a class="headerlink" href="#synopsis" title="Permanent link">&para;</a></h3>
-<p>Provides admin jobs commands</p>
+<p>List storage jobs according to query flag options.</p>
+<div class="highlight"><pre><span></span><code>pow storage-jobs list [flags]
+</code></pre></div>
+
 <h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>  -h, --help   help for jobs
+<div class="highlight"><pre><span></span><code>  -a, --ascending       sort results ascending by time
+  -c, --cid string      return results only for the specified cid
+  -h, --help            help for list
+  -l, --limit uint      limit the number of results returned
+  -s, --select string   return only results using the specified selector: all, queued, executing, final (default &quot;all&quot;)
 </code></pre></div>
 
 <h3 id="options-inherited-from-parent-commands">Options inherited from parent commands<a class="headerlink" href="#options-inherited-from-parent-commands" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>      --admin-token string     admin auth token
-      --serverAddress string   address of the powergate service api (default &quot;127.0.0.1:5002&quot;)
+<div class="highlight"><pre><span></span><code>      --serverAddress string   address of the powergate service api (default &quot;127.0.0.1:5002&quot;)
   -t, --token string           user auth token
 </code></pre></div>
 
 <h3 id="see-also">SEE ALSO<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../pow_admin/">pow admin</a>  - Provides admin commands</li>
-<li><a href="../pow_admin_jobs_executing/">pow admin jobs executing</a>    - List executing storage jobs</li>
-<li><a href="../pow_admin_jobs_latest-final/">pow admin jobs latest-final</a>  - List the latest final storage jobs</li>
-<li><a href="../pow_admin_jobs_latest-successful/">pow admin jobs latest-successful</a>    - List the latest successful storage jobs</li>
-<li><a href="../pow_admin_jobs_queued/">pow admin jobs queued</a>  - List queued storage jobs</li>
-<li><a href="../pow_admin_jobs_summary/">pow admin jobs summary</a>    - Give a summary of storage jobs in all states</li>
+<li><a href="../pow_storage-jobs/">pow storage-jobs</a>    - Provides commands to query for storage jobs in various states</li>
 </ul>
                 
                   

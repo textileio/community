@@ -13,7 +13,7 @@
         <meta name="description" content="Textile makes it easy for you or your application to store and distribute data over the IPFS network.">
       
       
-        <link rel="canonical" href="https://docs.textile.io/powergate/cli/pow_storage-jobs_latest-final/">
+        <link rel="canonical" href="https://docs.textile.io/powergate/cli/pow_data_summary/">
       
       
         <meta name="author" content="textile.io">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Pow storage jobs latest final | Documentation | Textile</title>
+        <title>Pow data summary | Documentation | Textile</title>
       
     
     
@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#pow-storage-jobs-latest-final" tabindex="1" class="md-skip">
+      <a href="#pow-data-summary" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              Pow storage jobs latest final
+              Pow data summary
             </span>
           
         </div>
@@ -584,8 +584,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../pow_wallet/" title="Wallet" target="" class="md-nav__link ">
-      Wallet
+    <a href="../pow_deals/" title="Deals" target="" class="md-nav__link ">
+      Deals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pow_storage-info/" title="Storage Info" target="" class="md-nav__link ">
+      Storage Info
     </a>
   </li>
 
@@ -608,8 +620,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../pow_deals/" title="Deals" target="" class="md-nav__link ">
-      Deals
+    <a href="../pow_wallet/" title="Wallet" target="" class="md-nav__link ">
+      Wallet
     </a>
   </li>
 
@@ -1627,8 +1639,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pow-storage-jobs-latest-final" title="pow storage-jobs latest-final" class="md-nav__link">
-    pow storage-jobs latest-final
+  <a href="#pow-data-summary" title="pow data summary" class="md-nav__link">
+    pow data summary
   </a>
   
     <nav class="md-nav">
@@ -1685,20 +1697,21 @@
               
                 
                 
-                  <a href="https://github.com/textileio/docs/edit/master/docs/powergate/cli/pow_storage-jobs_latest-final.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/textileio/docs/edit/master/docs/powergate/cli/pow_data_summary.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Pow storage jobs latest final</h1>
+                  <h1>Pow data summary</h1>
                 
-                <h2 id="pow-storage-jobs-latest-final">pow storage-jobs latest-final<a class="headerlink" href="#pow-storage-jobs-latest-final" title="Permanent link">&para;</a></h2>
-<p>List the latest final storage jobs</p>
+                <h2 id="pow-data-summary">pow data summary<a class="headerlink" href="#pow-data-summary" title="Permanent link">&para;</a></h2>
+<p>Get a summary about the current storage and jobs state of cids</p>
 <h3 id="synopsis">Synopsis<a class="headerlink" href="#synopsis" title="Permanent link">&para;</a></h3>
-<p>List the latest final storage jobs</p>
-<div class="highlight"><pre><span></span><code>pow storage-jobs latest-final [optional cid1,cid2,...] [flags]
+<p>Get a summary about the current storage and jobs state of cids</p>
+<div class="highlight"><pre><span></span><code>pow data summary [optional cid1,cid2,...] [flags]
 </code></pre></div>
 
 <h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>  -h, --help   help for latest-final
+<div class="highlight"><pre><span></span><code>  -h, --help   help for summary
+  -j, --json   output data in raw json instead of an interactive ui
 </code></pre></div>
 
 <h3 id="options-inherited-from-parent-commands">Options inherited from parent commands<a class="headerlink" href="#options-inherited-from-parent-commands" title="Permanent link">&para;</a></h3>
@@ -1708,7 +1721,7 @@
 
 <h3 id="see-also">SEE ALSO<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../pow_storage-jobs/">pow storage-jobs</a>    - Provides commands to query for storage jobs in various states</li>
+<li><a href="../pow_data/">pow data</a>    - Provides commands to interact with general data APIs</li>
 </ul>
                 
                   
