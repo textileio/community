@@ -5,7 +5,9 @@ Manages files and folders in an object storage bucket.
 ### Options
 
 ```
-  -h, --help   help for buck
+  -h, --help            help for buck
+      --key string      Bucket key
+      --thread string   Thread ID
 ```
 
 ### SEE ALSO
@@ -17,6 +19,8 @@ Manages files and folders in an object storage bucket.
 * [hub buck decrypt](hub_buck_decrypt.md)	 - Decrypt bucket objects at path with password
 * [hub buck destroy](hub_buck_destroy.md)	 - Destroy bucket and all objects
 * [hub buck encrypt](hub_buck_encrypt.md)	 - Encrypt file with a password
+* [hub buck existing](hub_buck_existing.md)	 - List buckets
+* [hub buck get](hub_buck_get.md)	 - Get a bucket
 * [hub buck init](hub_buck_init.md)	 - Initialize a new or existing bucket
 * [hub buck links](hub_buck_links.md)	 - Display URL links to a bucket object.
 * [hub buck ls](hub_buck_ls.md)	 - List top-level or nested bucket objects
