@@ -3,7 +3,7 @@
 Get information about the current storate state of a cid
 
 ```
-hub fil info [optional cid1,cid2,...] [flags]
+hub fil info cid [flags]
 ```
 
 ### Options
