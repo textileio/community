@@ -141,7 +141,7 @@ nav:
           - Destroy: hub/cli/hub_buck_destroy.md
           - Decrypt: hub/cli/hub_buck_decrypt.md
           - Encrypt: hub/cli/hub_buck_encrypt.md
-          - Encrypt: hub/cli/hub_buck_existing.md
+          - Existing: hub/cli/hub_buck_existing.md
           - Get: hub/cli/hub_buck_get.md
           - Init: hub/cli/hub_buck_init.md
           - Links: hub/cli/hub_buck_links.md
