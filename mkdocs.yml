@@ -142,7 +142,7 @@ nav:
           - Decrypt: hub/cli/hub_buck_decrypt.md
           - Encrypt: hub/cli/hub_buck_encrypt.md
           - Encrypt: hub/cli/hub_buck_existing.md
-          - Init: hub/cli/hub_buck_get.md
+          - Get: hub/cli/hub_buck_get.md
           - Init: hub/cli/hub_buck_init.md
           - Links: hub/cli/hub_buck_links.md
           - Ls: hub/cli/hub_buck_ls.md
