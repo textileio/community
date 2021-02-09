@@ -13,7 +13,7 @@
         <meta name="description" content="Textile makes it easy for you or your application to store and distribute data over the IPFS network.">
       
       
-        <link rel="canonical" href="https://docs.textile.io/hub/cli/hub_billing_portal/">
+        <link rel="canonical" href="https://docs.textile.io/hub/cli/hub_buck_get/">
       
       
         <meta name="author" content="textile.io">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Portal | Documentation | Textile</title>
+        <title>Get | Documentation | Textile</title>
       
     
     
@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#hub-billing-portal" tabindex="1" class="md-skip">
+      <a href="#hub-buck-get" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              Portal
+              Get
             </span>
           
         </div>
@@ -877,10 +877,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
     
     <label class="md-nav__link" for="nav-4-2">
       Buckets commands
@@ -992,11 +994,56 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../hub_buck_get/" title="Get" target="" class="md-nav__link ">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Get
+      </label>
+    
+    <a href="./" title="Get" class="md-nav__link md-nav__link--active">
       Get
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#options" title="Options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" title="SEE ALSO" class="md-nav__link">
+    SEE ALSO
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1105,12 +1152,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
     
     <label class="md-nav__link" for="nav-4-3">
       Billing commands
@@ -1150,56 +1195,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Portal
-      </label>
-    
-    <a href="./" title="Portal" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../hub_billing_portal/" title="Portal" target="" class="md-nav__link ">
       Portal
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#options" title="Options" class="md-nav__link">
-    Options
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" title="SEE ALSO" class="md-nav__link">
-    SEE ALSO
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1745,19 +1745,19 @@
               
                 
                 
-                  <a href="https://github.com/textileio/docs/edit/master/docs/hub/cli/hub_billing_portal.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/textileio/docs/edit/master/docs/hub/cli/hub_buck_get.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="hub-billing-portal">hub billing portal<a class="headerlink" href="#hub-billing-portal" title="Permanent link">&para;</a></h1>
-<p>Opens a web portal for managing billing preferences.</p>
-<div class="highlight"><pre><span></span><code>hub billing portal [flags]
+                <h1 id="hub-buck-get">hub buck get<a class="headerlink" href="#hub-buck-get" title="Permanent link">&para;</a></h1>
+<p>Gets bucket metadata.</p>
+<div class="highlight"><pre><span></span><code>hub buck get [flags]
 </code></pre></div>
 <h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>  -h, --help   help for portal
+<div class="highlight"><pre><span></span><code>  -h, --help   help for get
 </code></pre></div>
 <h3 id="see-also">SEE ALSO<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../hub_billing/">hub billing</a>  - Billing management</li>
+<li><a href="../hub_buck/">hub buck</a>    - Manage an object storage bucket</li>
 </ul>
                 
                   
@@ -1779,7 +1779,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../hub_billing_setup/" title="Setup" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../hub_buck_existing/" title="Existing" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1788,19 +1788,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Setup
+                Existing
               </span>
             </div>
           </a>
         
         
-          <a href="../hub_billing_usage/" title="Usage" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../hub_buck_init/" title="Init" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Usage
+                Init
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

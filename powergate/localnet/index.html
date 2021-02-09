@@ -1169,6 +1169,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../hub/cli/hub_buck_existing/" title="Existing" target="" class="md-nav__link ">
+      Existing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../hub/cli/hub_buck_get/" title="Get" target="" class="md-nav__link ">
+      Get
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../hub/cli/hub_buck_init/" title="Init" target="" class="md-nav__link ">
       Init
     </a>
@@ -2045,13 +2069,11 @@
 <div class="highlight"><pre><span></span><code>unzip powergate-docker-&lt;version&gt;.zip
 cd powergate-docker-&lt;version&gt;
 </code></pre></div>
-
 <h4 id="use-powergate-source-code">Use Powergate source code<a class="headerlink" href="#use-powergate-source-code" title="Permanent link">&para;</a></h4>
 <p>Clone the Powergate and <code>cd</code> into the project's <code>docker</code> directory:</p>
 <div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/powergate.git
 <span class="nb">cd</span> powergate/docker
 </code></pre></div>
-
 <h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h3>
 <p>You can now use the provided <code>docker-compose</code> configuration with whichever option you chose. </p>
 <p>The default setup runs Powergate connected to a localnet with 512Mib sectors. The gRPC API and CLI are available and don't need any extra config flags. 🎊</p>
@@ -2059,7 +2081,6 @@ cd powergate-docker-&lt;version&gt;
 <p>Docker files for the Powergate are contained in the folder, <code>/docker</code>.</p>
 <div class="highlight"><pre><span></span><code>make localnet
 </code></pre></div>
-
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>You can set <code>BIGSECTORS</code> according to your needs. See the description <a href="#filecoin-localnet">above</a> for more information. If you don't specify a <code>BIGSECTORS</code> environment variable, the default is <code>true</code>.</p>
@@ -2070,7 +2091,6 @@ cd powergate-docker-&lt;version&gt;
 mined block in the past <span class="o">{</span><span class="s2">&quot;block-time&quot;</span>: <span class="s2">&quot;2009-01-01T04:44:30.000Z&quot;</span>,<span class="se">\</span>
 <span class="s2">&quot;time&quot;</span>: <span class="s2">&quot;2020-05-29T20:35:08.644Z&quot;</span>, <span class="s2">&quot;duration&quot;</span>: <span class="m">359999438</span>.64444387<span class="o">}</span>
 </code></pre></div>
-
 <p>When complete, you'll have a fully functional Powergate (<code>powd</code>), a Lotus localnet, and an IPFS node wired together to start using.</p>
 <h3 id="create-a-deal-and-store-a-file">Create a deal and store a file<a class="headerlink" href="#create-a-deal-and-store-a-file" title="Permanent link">&para;</a></h3>
 <p>The CLI and API are the same in localnet and production except that your deals will store faster and disappear when you delete the localnet.</p>
@@ -2082,7 +2102,6 @@ mined block in the past <span class="o">{</span><span class="s2">&quot;block-tim
 ./install
 Moved ./pow to /usr/local/bin
 </code></pre></div>
-
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>If you're installing on macOS, there are some system permissions issue you'll have to deal with. Please follow the <a href="https://docs.textile.io/hub/accounts/#mac-installation"><code>hub</code> installation instructions</a> to work around the issue.</p>
@@ -2091,11 +2110,9 @@ Moved ./pow to /usr/local/bin
 <p>From the root of the <code>powergate</code> repo, you can build the CLI from the latest code. This will install the Powergate CLI, <code>pow</code>, on your machine.</p>
 <div class="highlight"><pre><span></span><code>make build-pow
 </code></pre></div>
-
 <p>Test your installation.</p>
 <div class="highlight"><pre><span></span><code>pow --help
 </code></pre></div>
-
 <h4 id="start-storing-data">Start storing data<a class="headerlink" href="#start-storing-data" title="Permanent link">&para;</a></h4>
 <p>You're now ready to start storing and retrieving data using the Powergate. Read more on <a href="../storage/">Storing Data</a>.</p>
 <h2 id="localnet-with-lotus-client">Localnet with Lotus Client<a class="headerlink" href="#localnet-with-lotus-client" title="Permanent link">&para;</a></h2>
@@ -2106,7 +2123,6 @@ Moved ./pow to /usr/local/bin
 -e <span class="nv">TEXLOTUSDEVNET_BIGSECTORS</span><span class="o">=</span><span class="nb">true</span> -p <span class="m">1234</span>:7777 <span class="se">\</span>
 -v /tmp/import:/tmp/import textile/lotus-devnet
 </code></pre></div>
-
 <p>After running the container, the Lotus API endpoint is available at the default port which lets you use the Lotus CLI without any extra configuration. </p>
 <p>Remember, <em>localnets</em> should be used as ephemeral networks, so be sure to stop and remove the <code>texlocalnet</code> container if you re-rerun the above command again.</p>
 <p>If you plan to use the <code>ClientImport</code> API or <code>lotus client import</code> command, your target file to import should be in the <code>/tmp/import</code> path on your host machine. This folder is bound to the docker image and the localnet, so the Lotus node can find it under the same path.</p>
@@ -2129,16 +2145,13 @@ Moved ./pow to /usr/local/bin
 <div class="highlight"><pre><span></span><code>git clone git@github.com:textileio/lotus-devnet.git
 <span class="nb">cd</span> lotus-devnet
 </code></pre></div>
-
 <h4 id="setup_1">Setup<a class="headerlink" href="#setup_1" title="Permanent link">&para;</a></h4>
 <p>Install the dependencies:</p>
 <div class="highlight"><pre><span></span><code>make build
 </code></pre></div>
-
 <p>Run the devnet with:</p>
 <div class="highlight"><pre><span></span><code>go run main.go
 </code></pre></div>
-
 <p>If you compiled a prior version of <code>lotus-devnet</code>, running <code>make clean</code> is recommended before building again.</p>
 <p>For full configuration options, <a href="https://github.com/textileio/lotus-devnet#run">see the project Readme</a></p>
 <p><br/></p>
