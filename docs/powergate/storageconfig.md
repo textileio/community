@@ -129,7 +129,10 @@ Here is an example of the _default StorageConfig_.
       // deadline to new deals being active on-chain. This value might influence
       // if miners accept deals, since they should seal fast enough to satisfy
       // this constraint.
-      "dealStartOffset": 8640 // Equivalent to 72 hours
+      "dealStartOffset": 8640, // Equivalent to 72 hours
+      // verifiedDeal indicates that new deals will be verified-deals, using
+      // available data-cap from the wallet address.
+      "verifiedDeal": false
     }
   },
   // If true, Powergate will detect if the data is no longer
