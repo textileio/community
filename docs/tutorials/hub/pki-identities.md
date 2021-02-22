@@ -70,7 +70,7 @@ const getIdentity = async (): Promise<PrivateKey> => {
   /** No cached identity existed, so create a new one */
   const identity = await PrivateKey.fromRandom()
   /** Add the string copy to the cache */
-  localStorage.setItem("identity", identity.toString())
+  localStorage.setItem("user-private-identity", identity.toString())
   /** Return the random identity */
   return identity
 }
