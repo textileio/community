@@ -34,5 +34,4 @@ Each entity above has its own quota no matter which *role* it is (Developer, Org
 | Limits | |
 | :------ | :------ |
 | Max Threads Per Owner | {{limits.max_threads_per_owner}} |
-| Max Single Bucket Size | {{limits.max_bucket_size}} |
 | Minimum Filecoin Deal Size | {{limits.minimum_filecoin_deal_size}} |
