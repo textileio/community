@@ -13,7 +13,7 @@
         <meta name="description" content="Textile makes it easy for you or your application to store and distribute data over the IPFS network.">
       
       
-        <link rel="canonical" href="https://docs.textile.io/hub/cli/hub_buck_archive_set-default-config/">
+        <link rel="canonical" href="https://docs.textile.io/hub/cli/hub_fil_index_query/">
       
       
         <meta name="author" content="textile.io">
@@ -42,7 +42,7 @@
     
     
       
-        <title>hub buck archive set-default-config | Documentation | Textile</title>
+        <title>hub fil index query | Documentation | Textile</title>
       
     
     
@@ -111,7 +111,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#hub-buck-archive-set-default-config" tabindex="1" class="md-skip">
+      <a href="#hub-fil-index-query" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -136,7 +136,7 @@
               Documentation
             </span>
             <span class="md-header-nav__topic">
-              hub buck archive set-default-config
+              hub fil index query
             </span>
           
         </div>
@@ -1665,13 +1665,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#examples" title="Examples" class="md-nav__link">
-    Examples
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#options" title="Options" class="md-nav__link">
     Options
   </a>
@@ -1703,35 +1696,46 @@
               
                 
                 
-                  <a href="https://github.com/textileio/docs/edit/master/docs/hub/cli/hub_buck_archive_set-default-config.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/textileio/docs/edit/master/docs/hub/cli/hub_fil_index_query.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="hub-buck-archive-set-default-config">hub buck archive set-default-config<a class="headerlink" href="#hub-buck-archive-set-default-config" title="Permanent link">&para;</a></h1>
-<p>Set the default archive storage configuration for the specified Bucket from a file, stdin, or flags.</p>
-<p>If flags are specified, this command updates the current default storage-config with the <em>explicitely set</em> flags. 
-Flags that aren't explicitely set won't set the default value, and thus keep the original value in the storage-config.</p>
-<p>If a file or stdin is used, the storage-config will be completely overriden by the provided one.</p>
-<div class="highlight"><pre><span></span><code>hub buck archive set-default-config [(optional)file] [flags]
+                <h1 id="hub-fil-index-query">hub fil index query<a class="headerlink" href="#hub-fil-index-query" title="Permanent link">&para;</a></h1>
+<p>Query miners in the index.
+    The API allows to handle paging with filters and sorting.
+    The sort-field flag can take the following values:
+    - "textile-deals-total-successful": Total successful deals in Textile.
+    - "textile-deals-last-successful": Last successful deal in Textile.
+    - "ask-price": Raw ask-price.
+    - "verified-ask-price": Verified ask-price.
+    - "active-sectors": Total active sectors in the network.</p>
+<div class="codehilite"><pre><span></span><code>The default sorting field is &quot;textile-deals-last-successful&quot;.
+The sort-textile-region allows to apply textile-deals-* flags to a specific 
+textile region. An empty value would be interpreted to the aggregate of all
+regions (default).
+
+If the flag --show-full-details is set, an extra set of columns with more details
+is printed.
+
+If the flag --json is set, the output will be printed in JSON and it always contains
+full details.
 </code></pre></div>
-<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>hub buck archive set-default-config --rep-factor=3 --fast-retrieval --verified-deal --trusted-miners=f08240,f023467,f09848
+
+<div class="highlight"><pre><span></span><code>hub fil index query [flags]
 </code></pre></div>
 <h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>  -c, --country-codes strings     Select miners with specific countries
-  -d, --deal-min-duration int     Minimum duration for the deal
-  -e, --deal-start-offset int     Epochs in the future impose a deadline for deals to be on-chain
-  -x, --excluded-miners strings   Miner addresses that should not be used
-  -f, --fast-retrieval            Created deals should enable the fast retrieval feature (default true)
-  -h, --help                      help for set-default-config
-  -p, --max-price uint            Maximum price that will be spent per RepFactor in AttoFIL/GiB per Epoch
-  -r, --rep-factor int            Target number of active deals (default 1)
-  -i, --stdin                     Set config from stdin JSON
-  -t, --trusted-miners strings    Miner addresses that must be used
-  -v, --verified-deal             Deal is originating from a verified client with DataCap
+<div class="highlight"><pre><span></span><code>      --ascending                      sort results ascending, default is sort descending
+      --filter-miner-location string   filter by miner&#39;s location
+  -h, --help                           help for query
+      --json                           indicates that the output should be printed in JSON
+      --limit int                      maximum results per page (default 10)
+      --offset int                     number of results to skip
+      --show-full-details              indicates that the results will contain extended data about miners
+      --sort-field string              sort field (default &quot;textile-deals-last-successful&quot;)
+      --sort-textile-region string     make the sorting criteria in a specified region
 </code></pre></div>
 <h3 id="see-also">SEE ALSO<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../hub_buck_archive/">hub buck archive</a>    - Create a Filecoin archive</li>
+<li><a href="../hub_fil_index/">hub fil index</a>  - Interact with the Miner Index.</li>
 </ul>
                 
                   
