@@ -5,15 +5,16 @@ The Hub Client.
 ### Options
 
 ```
-      --api string         API target (default "api.hub.textile.io:443")
-      --apiKey string      User API key
-      --apiSecret string   User API secret
-  -h, --help               help for hub
-      --identity string    User identity
-      --newIdentity        Generate a new user identity
-  -o, --org string         Org username
-  -s, --session string     User session token
-      --token string       User identity token
+      --api string             API Hub target (default "api.hub.textile.io:443")
+      --apiKey string          User API key
+      --apiMinerIndex string   API MinerIndex target (default "api.minerindex.hub.textile.io:443")
+      --apiSecret string       User API secret
+  -h, --help                   help for hub
+      --identity string        User identity
+      --newIdentity            Generate a new user identity
+  -o, --org string             Org username
+  -s, --session string         User session token
+      --token string           User identity token
 ```
 
 ### SEE ALSO

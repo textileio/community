@@ -1,6 +1,6 @@
 # hub fil info
 
-Get information about the current storate state of a cid
+Get information about the current storage state of a cid
 
 ```
 hub fil info cid [flags]
