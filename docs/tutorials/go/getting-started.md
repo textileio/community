@@ -8,7 +8,7 @@ You have access to the full suite of Textile APIs and technologies in Go. This i
 * Bucket client
 * And more. 
 
-Below, we'll walk you through the basic flow for interacting with the Hub-backed [ThreadDB](https://github.com/textileio/go-threads) and [Buckets](https://github.com/textileio/textile).
+Below, we'll walk you through the basic flow for interacting with the Hub-backed [ThreadDB](https://github.com/textileio/go-threads) and [Buckets](https://github.com/textileio/go-buckets).
 
 ## Hub authentication
 
@@ -70,4 +70,4 @@ func NewUserTokenCtx(ctx context.Context, user thread.Identity) (context.Context
 }
 ```
 
-Please refer to the [ThreadDB](https://github.com/textileio/go-threads) and [Buckets](https://github.com/textileio/textile) docs for more.
+Please refer to the [ThreadDB](https://github.com/textileio/go-threads) and [Buckets](https://github.com/textileio/go-buckets) docs for more.

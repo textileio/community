@@ -129,9 +129,9 @@ You can find all the remote Thread and Bucket APIs in the `textile` libraries be
     <p>Start threads, buckets, and user creation in any JavaScript app.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://godoc.org/github.com/textileio/textile/api/buckets" target="_blank" class="box">
-    <h5>JS Hub</h5>
-    <p>Use the Buckets client from Go</p>
+  <a href="https://godoc.org/github.com/textileio/go-buckets" target="_blank" class="box">
+    <h5>Go Buckets</h5>
+    <p>Use the Buckets daemon or client from Go</p>
   </a>
   <span class="box-space"> </span>
   <a href="../cli/hub" class="box">
