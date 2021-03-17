@@ -403,6 +403,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-8" type="checkbox" id="nav-2-8">
+    
+    <label class="md-nav__link" for="nav-2-8">
+      Filecoin
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-8">
+        Filecoin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../hub/miner-index/" title="Miner Index" target="" class="md-nav__link ">
+      Miner Index
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1921,7 +1957,7 @@
   <span class="cm">/** No cached identity existed, so create a new one */</span>
   <span class="kr">const</span> <span class="nx">identity</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">PrivateKey</span><span class="p">.</span><span class="nx">fromRandom</span><span class="p">()</span>
   <span class="cm">/** Add the string copy to the cache */</span>
-  <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&quot;identity&quot;</span><span class="p">,</span> <span class="nx">identity</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
+  <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&quot;user-private-identity&quot;</span><span class="p">,</span> <span class="nx">identity</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
   <span class="cm">/** Return the random identity */</span>
   <span class="k">return</span> <span class="nx">identity</span>
 <span class="p">}</span>
