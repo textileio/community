@@ -209,7 +209,7 @@ The following is the full JSON result returned from the API for just the first m
 
 #### Buckets
 
-If you are using [bucket archives](../buckets/archiving) to start data, you can replicate your data with two miners as follows.
+If you are using [bucket archives](../buckets/archiving) to store data, you can replicate your data with two miners as follows.
 
 ```sh
 hub buck archive set-default-config --fast-retrieval --trusted-miners {id1, id2}
@@ -415,7 +415,7 @@ hub fil index query --show-full-details --limit 1 --json | jq -r ".miners[]"
 
 ## How it works
 
-Textile's miner index is different than most others you'll find on the network. The key distinction is that this index pulls real data from many Lotus and Powergate notes connected to mainnet. The index collects both the on-chain information plus a suite of off-chain telemetry that can be very informative for advanced selection of miners. All telemetry is currently measured from clients based in North America (region `021` in the API), but will expand in the future. 
+Textile's miner index is different than most others you'll find on the network. The key distinction is that this index pulls real data from many Lotus and Powergate nodes connected to mainnet. The index collects both the on-chain information plus a suite of off-chain telemetry that can be very informative for advanced selection of miners. All telemetry is currently measured from clients based in North America (region `021` in the API), but will expand in the future. 
 
 Some interesting features of the index you may wish to leverage include the following. We've populated the below from real-time index results for the first miner listed above.
 
