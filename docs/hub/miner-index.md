@@ -305,7 +305,7 @@ The following is the complete JSON result from the calculator API request.
 
 ## Miner profiles
 
-The API also has an endpoint to retrieve the latest stats and profile information for a single user. Here is the request for the profile of the first miner in our results above.
+The API also has an endpoint to retrieve the latest stats and profile information for a single miner. Here is the request for the profile of the first miner in our results above.
 
 <a href="" id="profile-api" target="_blank"></a>
 
