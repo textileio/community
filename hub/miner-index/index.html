@@ -2232,7 +2232,7 @@
 
 <h3 id="make-a-deal-with-one-of-the-results">Make a deal with one of the results<a class="headerlink" href="#make-a-deal-with-one-of-the-results" title="Permanent link">&para;</a></h3>
 <h4 id="buckets">Buckets<a class="headerlink" href="#buckets" title="Permanent link">&para;</a></h4>
-<p>If you are using <a href="../buckets/archiving">bucket archives</a> to start data, you can replicate your data with two miners as follows.</p>
+<p>If you are using <a href="../buckets/archiving">bucket archives</a> to store data, you can replicate your data with two miners as follows.</p>
 <div class="highlight"><pre><span></span><code>hub buck archive set-default-config --fast-retrieval --trusted-miners <span class="o">{</span>id1, id2<span class="o">}</span>
 </code></pre></div>
 <p>Or, if you have your address verified on the network (<a href="https://plus.fil.org">learn more here</a>), you can make a verified deal. </p>
@@ -2407,7 +2407,7 @@
 <div class="highlight"><pre><span></span><code>hub fil index query --show-full-details --limit <span class="m">1</span> --json <span class="p">|</span> jq -r <span class="s2">&quot;.miners[]&quot;</span>
 </code></pre></div>
 <h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
-<p>Textile's miner index is different than most others you'll find on the network. The key distinction is that this index pulls real data from many Lotus and Powergate notes connected to mainnet. The index collects both the on-chain information plus a suite of off-chain telemetry that can be very informative for advanced selection of miners. All telemetry is currently measured from clients based in North America (region <code>021</code> in the API), but will expand in the future. </p>
+<p>Textile's miner index is different than most others you'll find on the network. The key distinction is that this index pulls real data from many Lotus and Powergate nodes connected to mainnet. The index collects both the on-chain information plus a suite of off-chain telemetry that can be very informative for advanced selection of miners. All telemetry is currently measured from clients based in North America (region <code>021</code> in the API), but will expand in the future. </p>
 <p>Some interesting features of the index you may wish to leverage include the following. We've populated the below from real-time index results for the first miner listed above.</p>
 <h3 id="deals-summary">Deals summary<a class="headerlink" href="#deals-summary" title="Permanent link">&para;</a></h3>
 <p>Calculated across all regions.</p>
