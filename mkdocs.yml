@@ -99,6 +99,8 @@ nav:
           - Bucket Archiving: buckets/archiving.md
       - ThreadDB: threads/index.md
       - User Mailboxes: users/index.md
+      - Filecoin:
+          - Miner Index: hub/miner-index.md
   - Powergate (Filecoin):
       - Introduction: powergate/index.md
       - Localnet: powergate/localnet.md
