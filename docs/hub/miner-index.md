@@ -35,110 +35,14 @@ Let's walk through each of the API endpoints while also reviewing some live resu
 </table>
 </div>
 
-<script>
-function updateProfile(miner) {
-  var url = "https://minerindex.hub.textile.io/v1/index/miner/" + miner
-
-  var apiurl = document.getElementById("profile-api");
-  apiurl.href = url;
-  apiurl.text = url;
-
-  var rct = 0;
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      var res = document.querySelector("#profile-result pre span")
-      res.innerHTML = JSON.stringify(data, undefined, 2);
-    })
-}
-function updateCalculator(miners) {
-  var table = document.getElementById("calculator-results");
-
-  var url = "https://minerindex.hub.textile.io/v1/calculator/calculate?dataSizeBytes=1000000&durationDays=180&"
-  for (var miner of miners) {
-    url += "&minerAddresses=" + miner
-  }
-
-  var apiurl = document.getElementById("calculator-api");
-  apiurl.href = url;
-  apiurl.text = url;
-
-  var rct = 0;
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      var res = document.querySelector("#calculator-result pre span")
-      res.innerHTML = JSON.stringify(data, undefined, 2);
-      for (var r of data.results) {
-        console.log(r)
-        var row = table.insertRow(rct);
-        rct += 1;
-        var minerAddr = row.insertCell(0);
-        minerAddr.innerHTML = r.miner;
-        var cost = row.insertCell(1);
-        cost.innerHTML = r.totalCost;
-        var verified = row.insertCell(2);
-        verified.innerHTML = r.verifiedTotalCost;
-        var duration = row.insertCell(3);
-        duration.innerHTML = data.durationEpochs;
-        var padded = row.insertCell(4);
-        padded.innerHTML = data.paddedSize;
-      }
-    })
-}
-
-var table = document.getElementById("miners-results");
-var rct = 0;
-var calc = []
-fetch('https://minerindex.hub.textile.io/v1/index/query?sort.ascending=false&sort.field=TEXTILE_DEALS_LAST_SUCCESSFUL&limit=5')
-  .then(response => response.json())
-  .then(data => {
-    for (var row of data.miners) {
-      var miner = row.miner;
-      var row = table.insertRow(rct);
-      if (rct === 0) {
-        var res = document.querySelector("#first-result pre span")
-        res.innerHTML = JSON.stringify(miner, undefined, 2);
-        updateProfile(miner.minerAddr)
-
-        res = document.querySelector("#deals-summary pre span")
-        res.innerHTML = JSON.stringify(miner.textile.dealsSummary, undefined, 2);
-
-        res = document.querySelector("#transfer-stats pre span")
-        res.innerHTML = JSON.stringify(miner.textile.regions["021"].deals.tailTransfers, undefined, 2);
-
-        res = document.querySelector("#sealing-stats pre span")
-        res.innerHTML = JSON.stringify(miner.textile.regions["021"].deals.tailSealed, undefined, 2);
-
-        res = document.querySelector("#latest-retrievals pre span")
-        res.innerHTML = JSON.stringify(miner.textile.regions["021"].retrievals, undefined, 2);
-      }
-      calc.push(miner.minerAddr);
-      rct += 1;
-      var minerAddr = row.insertCell(0);
-      minerAddr.innerHTML = miner.minerAddr;
-      var price = row.insertCell(1);
-      price.innerHTML = miner["filecoin"].askPrice;
-      var verified = row.insertCell(2);
-      verified.innerHTML = miner.filecoin.askVerifiedPrice;
-      var location = row.insertCell(3);
-      location.innerHTML = miner.metadata.location;
-      var minSize = row.insertCell(4);
-      minSize.innerHTML = miner.filecoin.minPieceSize;
-      var lastDeal = row.insertCell(5);
-      lastDeal.innerHTML = miner.textile.dealsSummary.last;
-    }
-    updateCalculator(calc)
-  });
-</script>
+_All FIL columns (e.g., askPrice) are reported as `attoFil`._
 
 ### Understanding the results
 
-That data shown here are the latest five miners to successfully store data for a request originating from Textile. This is a great list to use for a first-time storage deal maker, as these miners have shown recent storage activity on the network. 
+The data shown here are the latest five miners to successfully store data for a request originating from Textile. The table only represents a small portion of the data available from the index. The default sorting of results is simply the latest miners that have successfully stored online deal requests from one of the many nodes we monitor. The default sort ensures that even this basic view should give most clients a reliable list of storage miners to use right away. Just pick the first couple! You can use the API or CLI to change how sorting, filtering, and limits happen. 
 
-All FIL columns (e.g. askPrice) are reported as `attoFil`.
 
-The above table only represents a small portion of the data available from the index. However, the default sorting of the table ensures (by recently active and successful deals) ensures that even this basic view should give most clients a reliable list of storage miners to use right away. If you want to see the full data that comes back from the API, check out this direct query:
+If you want to see the complete data that comes back from the API, check out this direct query:
 
 https://minerindex.hub.textile.io/v1/index/query?sort.ascending=false&sort.field=TEXTILE_DEALS_LAST_SUCCESSFUL&limit=5
 
@@ -327,7 +231,7 @@ lotus client deal --fast-retrieval --verified-deal <data-cid> {id1} 663552000000
 
 ## Calculator
 
-You can use the calculator endpoint to determine the cost of storage with one or multiple miners at at a time. You can play with that below. 
+You can use the calculator endpoint to determine the cost of storage with one or multiple miners at a time. You can play with that below. 
 
 <div>
 <table id="calculator">
@@ -345,11 +249,11 @@ You can use the calculator endpoint to determine the cost of storage with one or
 </table>
 </div>
 
-The calculator results are based on storing `1,000,000` bytes for `180` days. You can use the API directly to modify those parameters or which miners you are calculating with. 
+The calculator results are based on storing `1,000,000` bytes for `180` days. You can use the API directly to modify those parameters or which miners you are calculating. 
 
 <a href="" id="calculator-api" target="_blank"></a>
 
-The following is the full JSON result from the calculator API request.
+The following is the complete JSON result from the calculator API request.
 
 <div id="calculator-result">
 
@@ -503,7 +407,7 @@ hub fil index query --show-full-details --limit 20
 
 **Scripting**
 
-Each of the index methods in the CLI supports a `--json` flag to output results to JSON. 
+Each CLI methods for the index supports a `--json` flag to output results to JSON. 
 
 ```sh
 hub fil index query --show-full-details --limit 1 --json | jq -r ".miners[]"
@@ -673,4 +577,145 @@ Latest retrievals for clients in North America.
 
 </div>
 
+
+## JavaScript Examples
+
+The tables and JSON results above are all generated in real-time by using the miner index API endpoint. Here are a few examples you can use.
+
+### Query
+
+```javascript
+var table = document.getElementById("miner-table");
+fetch('https://minerindex.hub.textile.io/v1/index/query?sort.ascending=false&sort.field=TEXTILE_DEALS_LAST_SUCCESSFUL&limit=5')
+  .then(response => response.json())
+  .then(data => {
+    var rct = 0;
+    for (var miner of data.miners) {
+      var row = table.insertRow(rct);
+      var minerAddr = row.insertCell(0);
+      minerAddr.innerHTML = miner.minerAddr;
+      rct += 1;
+    }
+  });
+```
+
+### Calculate
+
+```javascript
+var table = document.getElementById("miner-table");
+fetch('https://minerindex.hub.textile.io/v1/calculator/calculate?dataSizeBytes=1000000&durationDays=180&minerAddresses=f09848')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+  });
+```
+
+### Get Profile
+
+```javascript
+var table = document.getElementById("miner-table");
+fetch('https://minerindex.hub.textile.io/v1/index/miner/f09848')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+  });
+```
+
 Build on!
+
+<script>
+function updateProfile(miner) {
+  var url = "https://minerindex.hub.textile.io/v1/index/miner/" + miner
+
+  var apiurl = document.getElementById("profile-api");
+  apiurl.href = url;
+  apiurl.text = url;
+
+  var rct = 0;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      var res = document.querySelector("#profile-result pre span")
+      res.innerHTML = JSON.stringify(data, undefined, 2);
+    })
+}
+function updateCalculator(miners) {
+  var table = document.getElementById("calculator-results");
+
+  var url = "https://minerindex.hub.textile.io/v1/calculator/calculate?dataSizeBytes=1000000&durationDays=180&"
+  for (var miner of miners) {
+    url += "&minerAddresses=" + miner
+  }
+
+  var apiurl = document.getElementById("calculator-api");
+  apiurl.href = url;
+  apiurl.text = url;
+
+  var rct = 0;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      var res = document.querySelector("#calculator-result pre span")
+      res.innerHTML = JSON.stringify(data, undefined, 2);
+      for (var r of data.results) {
+        console.log(r)
+        var row = table.insertRow(rct);
+        rct += 1;
+        var minerAddr = row.insertCell(0);
+        minerAddr.innerHTML = r.miner;
+        var cost = row.insertCell(1);
+        cost.innerHTML = r.totalCost;
+        var verified = row.insertCell(2);
+        verified.innerHTML = r.verifiedTotalCost;
+        var duration = row.insertCell(3);
+        duration.innerHTML = data.durationEpochs;
+        var padded = row.insertCell(4);
+        padded.innerHTML = data.paddedSize;
+      }
+    })
+}
+
+var table = document.getElementById("miners-results");
+var rct = 0;
+var calc = []
+fetch('https://minerindex.hub.textile.io/v1/index/query?sort.ascending=false&sort.field=TEXTILE_DEALS_LAST_SUCCESSFUL&limit=5')
+  .then(response => response.json())
+  .then(data => {
+    for (var row of data.miners) {
+      var miner = row.miner;
+      var row = table.insertRow(rct);
+      if (rct === 0) {
+        var res = document.querySelector("#first-result pre span")
+        res.innerHTML = JSON.stringify(miner, undefined, 2);
+        updateProfile(miner.minerAddr)
+
+        res = document.querySelector("#deals-summary pre span")
+        res.innerHTML = JSON.stringify(miner.textile.dealsSummary, undefined, 2);
+
+        res = document.querySelector("#transfer-stats pre span")
+        res.innerHTML = JSON.stringify(miner.textile.regions["021"].deals.tailTransfers, undefined, 2);
+
+        res = document.querySelector("#sealing-stats pre span")
+        res.innerHTML = JSON.stringify(miner.textile.regions["021"].deals.tailSealed, undefined, 2);
+
+        res = document.querySelector("#latest-retrievals pre span")
+        res.innerHTML = JSON.stringify(miner.textile.regions["021"].retrievals, undefined, 2);
+      }
+      calc.push(miner.minerAddr);
+      rct += 1;
+      var minerAddr = row.insertCell(0);
+      minerAddr.innerHTML = miner.minerAddr;
+      var price = row.insertCell(1);
+      price.innerHTML = miner["filecoin"].askPrice;
+      var verified = row.insertCell(2);
+      verified.innerHTML = miner.filecoin.askVerifiedPrice;
+      var location = row.insertCell(3);
+      location.innerHTML = miner.metadata.location;
+      var minSize = row.insertCell(4);
+      minSize.innerHTML = miner.filecoin.minPieceSize;
+      var lastDeal = row.insertCell(5);
+      lastDeal.innerHTML = miner.textile.dealsSummary.last;
+    }
+    updateCalculator(calc)
+  });
+</script>
