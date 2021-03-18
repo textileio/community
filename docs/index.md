@@ -110,7 +110,7 @@ Spend less time configuring encryption or managing content addresses with Thread
     <p>Use the Hub to help persist and scale your user's databases.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://textileio.github.io/js-threads/" target="_blank" class="box">
+  <a href="https://textileio.github.io/js-textile/docs/hub.client" target="_blank" class="box">
     <h5>JavaScript Docs</h5>
     <p>Start using the ThreadDB in your NodeJS and browser apps.</p>
   </a>
