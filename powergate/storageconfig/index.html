@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -428,8 +428,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../hub/miner-index/" title="Miner Index" target="" class="md-nav__link ">
+    <a href="../../filecoin/balances/" title="Balances" target="" class="md-nav__link ">
+      Balances
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../filecoin/miner-index/" title="Miner Index" target="" class="md-nav__link ">
       Miner Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../filecoin/storage-deals/" title="Storage Deals" target="" class="md-nav__link ">
+      Storage Deals
     </a>
   </li>
 
@@ -1887,27 +1911,22 @@
 <p>View the current default StorageConfig of a user. </p>
 <div class="highlight"><pre><span></span><code>pow config default -t &lt;token&gt;
 </code></pre></div>
-
 <h3 id="set-the-default-storageconfig-of-a-user">Set the default StorageConfig of a user<a class="headerlink" href="#set-the-default-storageconfig-of-a-user" title="Permanent link">&para;</a></h3>
 <p>To set the default <code>StorageConfig</code> to one stored in <code>new-config.json</code>.</p>
 <div class="highlight"><pre><span></span><code>pow config set-default new-config.json -t &lt;token&gt;
 </code></pre></div>
-
 <h3 id="set-a-custom-storageconfig-at-storage-time">Set a custom StorageConfig at storage time<a class="headerlink" href="#set-a-custom-storageconfig-at-storage-time" title="Permanent link">&para;</a></h3>
 <p>You can provide a flag (<code>-c</code>) to include a custom StorageConfig for a new storage request. Storage requests without a custom StorageConfig will use the instance default storage config.</p>
 <div class="highlight"><pre><span></span><code>pow config apply &lt;cid&gt; -t &lt;token&gt; -c custom-config.json
 </code></pre></div>
-
 <h3 id="get-information-about-a-previously-stored-cid">Get information about a previously stored cid<a class="headerlink" href="#get-information-about-a-previously-stored-cid" title="Permanent link">&para;</a></h3>
 <p>To pull the StorageConfig and information about the associated storage jobs, use the <em><cid></em> of the stored data.</p>
 <div class="highlight"><pre><span></span><code>pow data info &lt;cid&gt; -t &lt;token&gt;
 </code></pre></div>
-
 <h3 id="update-the-storageconfig-of-existing-data">Update the StorageConfig of existing data<a class="headerlink" href="#update-the-storageconfig-of-existing-data" title="Permanent link">&para;</a></h3>
 <p>To update the StorageConfig of data already stored and managed by the Powergate user, use a new config stored in <code>updated-config.json</code>. This command requires the <em>override</em> flag (<code>-o</code>) to confirm that you understand that the command will replace an existing config.</p>
 <div class="highlight"><pre><span></span><code>pow config apply &lt;cid&gt; -t &lt;token&gt; -o -c updated-config.json
 </code></pre></div>
-
 <h2 id="storageconfig-details">StorageConfig Details<a class="headerlink" href="#storageconfig-details" title="Permanent link">&para;</a></h2>
 <p>Here is an example of the <em>default StorageConfig</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -1988,7 +2007,6 @@
   <span class="nt">&quot;repairable&quot;</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p><br/></p>
                 
                   
@@ -2080,7 +2098,7 @@
     
       <script src="../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
         <script src="../../js/sidebar.js"></script>
       

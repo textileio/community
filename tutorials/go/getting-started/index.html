@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
     
     
       
@@ -428,8 +428,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../hub/miner-index/" title="Miner Index" target="" class="md-nav__link ">
+    <a href="../../../filecoin/balances/" title="Balances" target="" class="md-nav__link ">
+      Balances
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../filecoin/miner-index/" title="Miner Index" target="" class="md-nav__link ">
       Miner Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../filecoin/storage-deals/" title="Storage Deals" target="" class="md-nav__link ">
+      Storage Deals
     </a>
   </li>
 
@@ -1854,15 +1878,12 @@
 <span class="nb">cd</span> hello-threads
 go mod init github.com/example/hello-threads
 </code></pre></div>
-
 <p>Go is particular about how you install libraries above v2. To ensure you are using the latest, grab v2 now. </p>
 <div class="highlight"><pre><span></span><code>go get github.com/textileio/textile/v2
 </code></pre></div>
-
 <p>Next, create a <code>main.go</code> that you'll use to build your first thread client. </p>
 <div class="highlight"><pre><span></span><code>touch main.go
 </code></pre></div>
-
 <h2 id="connect-a-new-thread-client">Connect a new thread client<a class="headerlink" href="#connect-a-new-thread-client" title="Permanent link">&para;</a></h2>
 <p>Inside <code>main.go</code> you'll create a new client connection to the Textile Hub's thread APIs.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nx">main</span>
@@ -1896,13 +1917,11 @@ go mod init github.com/example/hello-threads
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Success!&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>You can now run your example,</p>
 <div class="highlight"><pre><span></span><code>go run main.go
 
 &gt; Success!
 </code></pre></div>
-
 <h2 id="create-a-random-user">Create a random user<a class="headerlink" href="#create-a-random-user" title="Permanent link">&para;</a></h2>
 <p>This function will use the <code>crypto</code> and <code>thread</code> libraries to generate a new random private key identity.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">func</span> <span class="nx">GetRandomUser</span><span class="p">()</span> <span class="p">(</span><span class="nx">thread</span><span class="p">.</span><span class="nx">Identity</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
@@ -1914,7 +1933,6 @@ go mod init github.com/example/hello-threads
     <span class="k">return</span> <span class="nx">myIdentity</span><span class="p">,</span> <span class="kc">nil</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h2 id="hub-authentication">Hub authentication<a class="headerlink" href="#hub-authentication" title="Permanent link">&para;</a></h2>
 <p>Authentication on the Hub is done with either your <a href="/hub/apis/">Account Keys or User Group Keys</a> depending on what type of application you're building and which APIs you plan on using.</p>
 <p>Below is an example of using your user key to generate an authenticated API <code>context</code> to use with Hub-backed buckets and threadDB APIs. You can generate a similar context using account keys for accessing a developer or organization account.</p>
@@ -1926,7 +1944,6 @@ go mod init github.com/example/hello-threads
     <span class="k">return</span> <span class="nx">common</span><span class="p">.</span><span class="nx">CreateAPISigContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">().</span><span class="nx">Add</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Minute</span><span class="p">),</span> <span class="nx">userGroupSecret</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>The above function will take your API key and secret and set up a <code>context</code> ready to prove to the API that the user is who they claim to be. </p>
 <h2 id="request-and-specify-a-user-token">Request and specify a user token<a class="headerlink" href="#request-and-specify-a-user-token" title="Permanent link">&para;</a></h2>
 <p>A user token is generated per-user and can then be used with subsequent API calls to specify what user is making the request. They can only be created using valid API credentials and provable user identity. </p>
@@ -1939,7 +1956,6 @@ go mod init github.com/example/hello-threads
     <span class="k">return</span> <span class="nx">thread</span><span class="p">.</span><span class="nx">NewTokenContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">token</span><span class="p">),</span> <span class="kc">nil</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>You can also store and reuse the token, but it needs to be attached the the <code>context</code> before future API calls. </p>
 <h2 id="create-a-new-db">Create a new DB<a class="headerlink" href="#create-a-new-db" title="Permanent link">&para;</a></h2>
 <p>Let's put it all together and then create a new Thread database for our user.</p>
@@ -2026,7 +2042,6 @@ go mod init github.com/example/hello-threads
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">threadID</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Please refer to the <a href="https://github.com/textileio/go-threads">ThreadDB</a> and <a href="https://github.com/textileio/go-buckets">Buckets</a> docs for more.</p>
                 
                   
@@ -2104,7 +2119,7 @@ go mod init github.com/example/hello-threads
     
       <script src="../../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
       
         <script src="../../../js/sidebar.js"></script>
       
