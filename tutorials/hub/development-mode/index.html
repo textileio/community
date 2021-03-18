@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
     
     
       
@@ -1525,7 +1525,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/textileio/textile#running-buckets" title="Buckets" target="_blank" class="md-nav__link _blank">
+    <a href="https://github.com/textileio/go-buckets" title="Buckets" target="_blank" class="md-nav__link _blank">
       Buckets
     </a>
   </li>
@@ -1880,6 +1880,7 @@
 ✔ user group
 ? Require Signature Authentication <span class="o">(</span>recommended<span class="o">)</span>? <span class="o">[</span>y/N<span class="o">]</span> N █
 </code></pre></div>
+
 <h3 id="use-insecure-keys">Use insecure keys<a class="headerlink" href="#use-insecure-keys" title="Permanent link">&para;</a></h3>
 <p>Now you can use the insecure keys for building your app without having to first setup a user login flow. </p>
 <p>However, when you are ready to deploy your app, be sure to use a new set of keys. You can read more about production setup in the <a href="../production-auth/">next part of this tutorial</a>.</p>
@@ -1891,6 +1892,7 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># Textile libraries</span>
 npm install --save @textile/hub
 </code></pre></div>
+
 <p><strong>Connect to the API</strong></p>
 <p>Now, you just need to create a <code>KeyInfo</code> object above to connect to the API.</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">Client</span><span class="p">,</span> <span class="nx">Identity</span><span class="p">,</span> <span class="nx">KeyInfo</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span><span class="p">;</span>
@@ -1901,6 +1903,7 @@ npm install --save @textile/hub
   <span class="k">return</span> <span class="nx">client</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>The <code>KeyInfo</code> you supply to the API will look like:</p>
 <div class="highlight"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span><span class="nx">KeyInfo</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@textile/hub&#39;</span><span class="p">;</span>
 
@@ -1908,6 +1911,7 @@ npm install --save @textile/hub
   <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;INSECURE API KEY&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Your user is now setup to start creating Threads and Buckets that replicate on the Hub API! Read more tutorials or jump over to the <a href="https://textileio.github.io/js-threads">js-threads docs</a> to keep building.</p>
 <p><br /></p>
                 
@@ -2000,7 +2004,7 @@ npm install --save @textile/hub
     
       <script src="../../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
       
         <script src="../../../js/sidebar.js"></script>
       

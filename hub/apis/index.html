@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
     
     
       
@@ -1607,7 +1607,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/textileio/textile#running-buckets" title="Buckets" target="_blank" class="md-nav__link _blank">
+    <a href="https://github.com/textileio/go-buckets" title="Buckets" target="_blank" class="md-nav__link _blank">
       Buckets
     </a>
   </li>
@@ -2120,6 +2120,7 @@
 <p>If you're building an app in an organization, use:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">HUB_ORG</span><span class="o">=</span>&lt;org name&gt; hub key create
 </code></pre></div>
+
 <p>To link a new key to the organization, not your personal account. </p>
 <p>Currently, there are no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see <a href="../accounts/">Organizations</a>).</p>
 <div class="highlight"><pre><span></span><code>➜ hub key create <span class="c1"># select the &#39;user&#39; option</span>
@@ -2131,6 +2132,7 @@
 
 &gt; Success! Created new API key and secret
 </code></pre></div>
+
 <h4 id="non-signing-user-group-keys">Non-signing User Group keys<a class="headerlink" href="#non-signing-user-group-keys" title="Permanent link">&para;</a></h4>
 <p>You can use insecure keys with the API by creating non-signing keys. These keys are meant to be used during development only. Read the tutorial on <a href="../../tutorials/hub/development-mode/">development mode</a> to use these keys.</p>
 <h4 id="updating-user-group-keys">Updating User Group keys<a class="headerlink" href="#updating-user-group-keys" title="Permanent link">&para;</a></h4>
@@ -2144,9 +2146,9 @@
     <p>Start threads, buckets, and user creation in any JavaScript app.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://godoc.org/github.com/textileio/textile/api/buckets" target="_blank" class="box">
-    <h5>JS Hub</h5>
-    <p>Use the Buckets client from Go</p>
+  <a href="https://godoc.org/github.com/textileio/go-buckets" target="_blank" class="box">
+    <h5>Go Buckets</h5>
+    <p>Use the Buckets daemon or client from Go</p>
   </a>
   <span class="box-space"> </span>
   <a href="../cli/hub" class="box">
@@ -2244,7 +2246,7 @@
     
       <script src="../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
         <script src="../../js/sidebar.js"></script>
       

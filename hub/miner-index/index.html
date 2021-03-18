@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.1.0">
     
     
       
@@ -1612,7 +1612,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/textileio/textile#running-buckets" title="Buckets" target="_blank" class="md-nav__link _blank">
+    <a href="https://github.com/textileio/go-buckets" title="Buckets" target="_blank" class="md-nav__link _blank">
       Buckets
     </a>
   </li>
@@ -2235,13 +2235,16 @@
 <p>If you are using <a href="../buckets/archiving">bucket archives</a> to store data, you can replicate your data with two miners as follows.</p>
 <div class="highlight"><pre><span></span><code>hub buck archive set-default-config --fast-retrieval --trusted-miners <span class="o">{</span>id1, id2<span class="o">}</span>
 </code></pre></div>
+
 <p>Or, if you have your address verified on the network (<a href="https://plus.fil.org">learn more here</a>), you can make a verified deal. </p>
 <div class="highlight"><pre><span></span><code>hub buck archive set-default-config --fast-retrieval --verified-deal --trusted-miners <span class="o">{</span>id1, id2<span class="o">}</span>
 </code></pre></div>
+
 <h4 id="lotus">Lotus<a class="headerlink" href="#lotus" title="Permanent link">&para;</a></h4>
 <p>If you are using lotus, you can use the above miners the same way, but you'll need to specify each deal at a time.</p>
 <div class="highlight"><pre><span></span><code>lotus client deal --fast-retrieval --verified-deal &lt;data-cid&gt; {id1} 66355200000000000 518400
 </code></pre></div>
+
 <h2 id="calculator">Calculator<a class="headerlink" href="#calculator" title="Permanent link">&para;</a></h2>
 <p>You can use the calculator endpoint to determine the cost of storage with one or multiple miners at a time. You can play with that below. </p>
 <div>
@@ -2402,10 +2405,12 @@
 <p>You can access a full table of results for any query by using the <code>--show-full-details</code> flag.</p>
 <div class="highlight"><pre><span></span><code>hub fil index query --show-full-details --limit <span class="m">20</span>
 </code></pre></div>
+
 <p><strong>Scripting</strong></p>
 <p>Each CLI methods for the index supports a <code>--json</code> flag to output results to JSON. </p>
 <div class="highlight"><pre><span></span><code>hub fil index query --show-full-details --limit <span class="m">1</span> --json <span class="p">|</span> jq -r <span class="s2">&quot;.miners[]&quot;</span>
 </code></pre></div>
+
 <h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
 <p>Textile's miner index is different than most others you'll find on the network. The key distinction is that this index pulls real data from many Lotus and Powergate nodes connected to mainnet. The index collects both the on-chain information plus a suite of off-chain telemetry that can be very informative for advanced selection of miners. All telemetry is currently measured from clients based in North America (region <code>021</code> in the API), but will expand in the future. </p>
 <p>Some interesting features of the index you may wish to leverage include the following. We've populated the below from real-time index results for the first miner listed above.</p>
@@ -2561,15 +2566,16 @@
 <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://minerindex.hub.textile.io/v1/index/query?sort.ascending=false&amp;sort.field=TEXTILE_DEALS_LAST_SUCCESSFUL&amp;limit=5&#39;</span><span class="p">)</span>
   <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
   <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">rct</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">rct</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">miner</span> <span class="k">of</span> <span class="nx">data</span><span class="p">.</span><span class="nx">miners</span><span class="p">)</span> <span class="p">{</span>
       <span class="kd">var</span> <span class="nx">row</span> <span class="o">=</span> <span class="nx">table</span><span class="p">.</span><span class="nx">insertRow</span><span class="p">(</span><span class="nx">rct</span><span class="p">);</span>
-      <span class="kd">var</span> <span class="nx">minerAddr</span> <span class="o">=</span> <span class="nx">row</span><span class="p">.</span><span class="nx">insertCell</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">minerAddr</span> <span class="o">=</span> <span class="nx">row</span><span class="p">.</span><span class="nx">insertCell</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
       <span class="nx">minerAddr</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">miner</span><span class="p">.</span><span class="nx">minerAddr</span><span class="p">;</span>
-      <span class="nx">rct</span> <span class="o">+=</span> <span class="mf">1</span><span class="p">;</span>
+      <span class="nx">rct</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">});</span>
 </code></pre></div>
+
 <h3 id="calculate">Calculate<a class="headerlink" href="#calculate" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;miner-table&quot;</span><span class="p">);</span>
 <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://minerindex.hub.textile.io/v1/calculator/calculate?dataSizeBytes=1000000&amp;durationDays=180&amp;minerAddresses=f09848&#39;</span><span class="p">)</span>
@@ -2578,6 +2584,7 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
   <span class="p">});</span>
 </code></pre></div>
+
 <h3 id="get-profile">Get Profile<a class="headerlink" href="#get-profile" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;miner-table&quot;</span><span class="p">);</span>
 <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://minerindex.hub.textile.io/v1/index/miner/f09848&#39;</span><span class="p">)</span>
@@ -2586,11 +2593,11 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
   <span class="p">});</span>
 </code></pre></div>
-<p>Build on!</p>
-<p><link href="https://unpkg.com/prismjs@v1.23.0/themes/prism-solarizedlight.css" rel="stylesheet" /></p>
-<script src="https://unpkg.com/prismjs@v1.23.0/components/prism-core.min.js"></script>
-<script src="https://unpkg.com/prismjs@v1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
 
+<p>Build on!</p>
+<p><link href="https://unpkg.com/prismjs@v1.23.0/themes/prism-solarizedlight.css" rel="stylesheet" />
+<script src="https://unpkg.com/prismjs@v1.23.0/components/prism-core.min.js"></script>
+<script src="https://unpkg.com/prismjs@v1.23.0/plugins/autoloader/prism-autoloader.min.js"></script></p>
 <script>
 function updateProfile(miner) {
   var url = "https://minerindex.hub.textile.io/v1/index/miner/" + miner
@@ -2790,7 +2797,7 @@ fetch('https://minerindex.hub.textile.io/v1/index/query?sort.ascending=false&sor
     
       <script src="../../assets/javascripts/application.12aa63bf.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
       
         <script src="../../js/sidebar.js"></script>
       
