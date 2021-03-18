@@ -100,7 +100,9 @@ nav:
       - ThreadDB: threads/index.md
       - User Mailboxes: users/index.md
       - Filecoin:
-          - Miner Index: hub/miner-index.md
+          - Balances: filecoin/balances.md
+          - Miner Index: filecoin/miner-index.md
+          - Storage Deals: filecoin/storage-deals.md
   - Powergate (Filecoin):
       - Introduction: powergate/index.md
       - Localnet: powergate/localnet.md
