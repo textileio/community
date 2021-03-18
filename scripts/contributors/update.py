@@ -6,6 +6,7 @@ from github import Github
 
 repos = [
   'textileio/docs',
+  'textileio/go-buckets',
   'textileio/go-threads',
   'textileio/js-threads',
   'textileio/js-foldersync',

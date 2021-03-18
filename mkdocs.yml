@@ -175,7 +175,7 @@ nav:
       - Getting started with Go: tutorials/go/getting-started.md
       - Externals:
           - ThreadDB: https://github.com/textileio/go-threads
-          - Buckets: https://github.com/textileio/textile#running-buckets
+          - Buckets: https://github.com/textileio/go-buckets
           - User Mailboxes: https://github.com/textileio/textile#using-the-mail-library
   - More Examples:
       - Users:
