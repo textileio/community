@@ -623,6 +623,10 @@ fetch('https://minerindex.hub.textile.io/v1/index/miner/f09848')
 
 Build on!
 
+<link href="https://unpkg.com/prismjs@v1.23.0/themes/prism-solarizedlight.css" rel="stylesheet" />
+<script src="https://unpkg.com/prismjs@v1.23.0/components/prism-core.min.js"></script>
+<script src="https://unpkg.com/prismjs@v1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
 <script>
 function updateProfile(miner) {
   var url = "https://minerindex.hub.textile.io/v1/index/miner/" + miner
@@ -635,8 +639,10 @@ function updateProfile(miner) {
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      var res = document.querySelector("#profile-result pre span")
+      var res = document.querySelector("#profile-result pre code")
       res.innerHTML = JSON.stringify(data, undefined, 2);
+      res.className = "language-json";
+      Prism.highlightElement(res);
     })
 }
 function updateCalculator(miners) {
@@ -655,10 +661,11 @@ function updateCalculator(miners) {
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      var res = document.querySelector("#calculator-result pre span")
+      var res = document.querySelector("#calculator-result pre code")
       res.innerHTML = JSON.stringify(data, undefined, 2);
+      res.className = "language-json";
+        Prism.highlightElement(res);
       for (var r of data.results) {
-        console.log(r)
         var row = table.insertRow(rct);
         rct += 1;
         var minerAddr = row.insertCell(0);
@@ -685,21 +692,31 @@ fetch('https://minerindex.hub.textile.io/v1/index/query?sort.ascending=false&sor
       var miner = row.miner;
       var row = table.insertRow(rct);
       if (rct === 0) {
-        var res = document.querySelector("#first-result pre span")
+        var res = document.querySelector("#first-result pre code")
         res.innerHTML = JSON.stringify(miner, undefined, 2);
+        res.className = "language-json";
+        Prism.highlightElement(res);
         updateProfile(miner.minerAddr)
 
-        res = document.querySelector("#deals-summary pre span")
+        res = document.querySelector("#deals-summary pre code")
         res.innerHTML = JSON.stringify(miner.textile.dealsSummary, undefined, 2);
+        res.className = "language-json";
+        Prism.highlightElement(res);
 
-        res = document.querySelector("#transfer-stats pre span")
+        res = document.querySelector("#transfer-stats pre code")
         res.innerHTML = JSON.stringify(miner.textile.regions["021"].deals.tailTransfers, undefined, 2);
+        res.className = "language-json";
+        Prism.highlightElement(res);
 
-        res = document.querySelector("#sealing-stats pre span")
+        res = document.querySelector("#sealing-stats pre code")
         res.innerHTML = JSON.stringify(miner.textile.regions["021"].deals.tailSealed, undefined, 2);
+        res.className = "language-json";
+        Prism.highlightElement(res);
 
-        res = document.querySelector("#latest-retrievals pre span")
+        res = document.querySelector("#latest-retrievals pre code")
         res.innerHTML = JSON.stringify(miner.textile.regions["021"].retrievals, undefined, 2);
+        res.className = "language-json";
+        Prism.highlightElement(res);
       }
       calc.push(miner.minerAddr);
       rct += 1;
@@ -716,6 +733,6 @@ fetch('https://minerindex.hub.textile.io/v1/index/query?sort.ascending=false&sor
       var lastDeal = row.insertCell(5);
       lastDeal.innerHTML = miner.textile.dealsSummary.last;
     }
-    updateCalculator(calc)
+    updateCalculator(calc);
   });
 </script>
