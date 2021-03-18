@@ -12,7 +12,7 @@ The first is by accessing the open API endpoint over REST. You can find the docu
 
 **CLI**
 
-The index is made available over the [Hub CLI](../). We'll review some common commands below.
+The index is made available over the [Hub CLI](../../hub). We'll review some common commands below.
 
 ## Live Results
 
@@ -209,7 +209,7 @@ The following is the full JSON result returned from the API for just the first m
 
 #### Buckets
 
-If you are using [bucket archives](../buckets/archiving) to store data, you can replicate your data with two miners as follows.
+If you are using [bucket archives](../../buckets/archiving) to store data, you can replicate your data with two miners as follows.
 
 ```sh
 hub buck archive set-default-config --fast-retrieval --trusted-miners {id1, id2}
@@ -393,9 +393,9 @@ The following is the full JSON result from the profile API request.
 
 We leverage the REST API above to provide simple command-line access to the miner index. Here are some interesting places to get started.
 
-* [Query the index](../cli/hub_fil_index_query)
-* [Calculate deal costs](../cli/hub_fil_index_calculate)
-* [Get miner profiles](../cli/hub_fil_index_get)
+* [Query the index](../../hub/cli/hub_fil_index_query)
+* [Calculate deal costs](../../hub/cli/hub_fil_index_calculate)
+* [Get miner profiles](../../hub/cli/hub_fil_index_get)
 
 **Expanded results**
 
