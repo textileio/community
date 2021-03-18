@@ -282,6 +282,7 @@ To all of the great people who have contributed to the [Textile projects](https:
   <a href='https://github.com/saintmalik' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/37118134?v=4'/></a>
   <a href='https://github.com/sanderpick' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/361000?v=4'/></a>
   <a href='https://github.com/sbiaudet' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/3100668?v=4'/></a>
+  <a href='https://github.com/sebastinez' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/7912302?v=4'/></a>
   <a href='https://github.com/shoce' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/261885?v=4'/></a>
   <a href='https://github.com/tangshuya' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/17977588?v=4'/></a>
   <a href='https://github.com/tatecarson' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/12865394?v=4'/></a>

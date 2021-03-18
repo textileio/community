@@ -10,7 +10,6 @@ You have access to the full suite of Textile APIs and technologies in Go. This i
 
 Below, we'll walk you through the basic flow for interacting with the Hub-backed [ThreadDB](https://github.com/textileio/go-threads).
 
-
 ## Set up your project
 
 Create a directory for your project and initialize a new go module. 
@@ -221,4 +220,4 @@ func main() {
 
 ```
 
-Please refer to the [ThreadDB](https://github.com/textileio/go-threads) and [Buckets](https://github.com/textileio/textile) docs for more.
+Please refer to the [ThreadDB](https://github.com/textileio/go-threads) and [Buckets](https://github.com/textileio/go-buckets) docs for more.

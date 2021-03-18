@@ -99,6 +99,8 @@ nav:
           - Bucket Archiving: buckets/archiving.md
       - ThreadDB: threads/index.md
       - User Mailboxes: users/index.md
+      - Filecoin:
+          - Miner Index: hub/miner-index.md
   - Powergate (Filecoin):
       - Introduction: powergate/index.md
       - Localnet: powergate/localnet.md
@@ -173,7 +175,7 @@ nav:
       - Getting started with Go: tutorials/go/getting-started.md
       - Externals:
           - ThreadDB: https://github.com/textileio/go-threads
-          - Buckets: https://github.com/textileio/textile#running-buckets
+          - Buckets: https://github.com/textileio/go-buckets
           - User Mailboxes: https://github.com/textileio/textile#using-the-mail-library
   - More Examples:
       - Users:
