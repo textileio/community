@@ -4,7 +4,7 @@ This section will focus on how to create user identities with private-keys.
 
 The Textile Hub supports public-key infrastructure (PKI), which allows your app to integrate different PKI-based user identity providers (e.g. Metamask, 3Box, uPort, Blockstack) or roll your own. 
 
-Most of our examples use a simple, platform-agnostic keypair identity based on [ed2559](https://en.wikipedia.org/wiki/EdDSA#Ed25519) and by extending the [Noble ed2559 library](https://github.com/paulmillr/noble-ed25519).
+Most of our examples use a simple, platform-agnostic keypair identity based on [ed25519](https://en.wikipedia.org/wiki/EdDSA#Ed25519) and by extending the [Noble ed25519 library](https://github.com/paulmillr/noble-ed25519).
 
 ## Key-based identity access
 
@@ -19,7 +19,7 @@ Below, we'll simplify these steps by using the Hub's helpful token generation en
 
 ### Generating an identity
 
-In this example, we'll use an identity based on an ed2559 signature scheme and made available through the `@textile/hub` library.
+In this example, we'll use an identity based on an ed25519 signature scheme and made available through the `@textile/hub` library.
 
 **Install dependency**
 
@@ -119,7 +119,7 @@ It requires that the implementer is capable of returning an associated public ke
 
 In many cases, the `Identity` will just be a private key, but callers can use any setup that suits their needs. 
 
-The default implementation is based on the [Noble ed2559 library](https://github.com/paulmillr/noble-ed25519) but many developers will want to use alternative identity provides, such as [3box/Ceramic](https://www.ceramic.network), [Fortmatic](https://fortmatic.com), and existing private/public key-pair, or a web3 provider such as [Metamask](https://metamask.io). 
+The default implementation is based on the [Noble ed25519 library](https://github.com/paulmillr/noble-ed25519) but many developers will want to use alternative identity provides, such as [3box/Ceramic](https://www.ceramic.network), [Fortmatic](https://fortmatic.com), and existing private/public key-pair, or a web3 provider such as [Metamask](https://metamask.io). 
 
 Textile Hub also provides email-based identities.
 
