@@ -80,7 +80,7 @@ The `pow offline car` and `pow offline commp` subcommands work similarly, also h
 
 ## Filecoin batching
 
-The `pow offline prepare` CLI subcommand also support a special mode of operation in which aggregates files using a [standardized spec](https://hackmd.io/O-zleFXsTdKNIyUZ-3bDDw?view) without any extra dependencies.
+The `pow offline prepare` CLI subcommand also supports a special mode of operation that aggregates files using a [standardized spec](https://hackmd.io/O-zleFXsTdKNIyUZ-3bDDw?view) without any extra dependencies.
 
 The way to use this mode as follows:
 ```bash
@@ -170,7 +170,7 @@ The command does some magic for you:
 - It generates a CAR file of this UnixFS batch.
 - It calculates the PieceCid and PieceSize of the CAR file.
 
-Let's see some generated files in current folder:
+Let's see some generated files in the current folder:
 ```bash
 $ ls
 foo  myfoo.car  myfoo.car.manifest
@@ -178,12 +178,12 @@ foo  myfoo.car  myfoo.car.manifest
 
 The output of the command is:
 - It creates the `foo.car` file.
-- It creates the `foo.car.manifest` file which is the `@AggregateManifest.ndjson` manifest file that's also inside the UnixFS batch.
+- It creates the `foo.car.manifest` file, which is the `@AggregateManifest.ndjson` manifest file that's also inside the UnixFS batch.
 - It prints to stdout:
     - The PayloadCid of the UnixFS batch.
     - The calculated PieceCid
     - The calculated PieceSize
-    - A list of all the files in `foo` with their corresponding Cids, so you can have a map of the files inside the CAR file.
+    - The generated Cid of the processed files.
 
-The JSON output allows you to reference the corresponding entry of each file in `foo` into the manifest of batch. The manifest contains information will allow to make retrievals of individual files for deals made with the generated batch CAR file.
-We'll explain soon how to do retrievals whenever this feature is ready in the Lotus client, stay tuned!
+The JSON output allows you to reference the corresponding entry of each file in `foo` into the manifest of batch. In addition, the manifest contains information that will allow making retrievals of individual files for deals made with the generated batch CAR file.
+We'll explain soon how to do retrievals whenever this feature is ready in the Lotus client; stay tuned!
