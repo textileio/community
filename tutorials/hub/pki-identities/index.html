@@ -1931,7 +1931,7 @@
                 <h1 id="user-identities">User identities<a class="headerlink" href="#user-identities" title="Permanent link">&para;</a></h1>
 <p>This section will focus on how to create user identities with private-keys. </p>
 <p>The Textile Hub supports public-key infrastructure (PKI), which allows your app to integrate different PKI-based user identity providers (e.g. Metamask, 3Box, uPort, Blockstack) or roll your own. </p>
-<p>Most of our examples use a simple, platform-agnostic keypair identity based on <a href="https://en.wikipedia.org/wiki/EdDSA#Ed25519">ed2559</a> and by extending the <a href="https://github.com/paulmillr/noble-ed25519">Noble ed2559 library</a>.</p>
+<p>Most of our examples use a simple, platform-agnostic keypair identity based on <a href="https://en.wikipedia.org/wiki/EdDSA#Ed25519">ed25519</a> and by extending the <a href="https://github.com/paulmillr/noble-ed25519">Noble ed25519 library</a>.</p>
 <h2 id="key-based-identity-access">Key-based identity access<a class="headerlink" href="#key-based-identity-access" title="Permanent link">&para;</a></h2>
 <p>The Hub can help verify that users are who they claim to be by using encryption. The general flow is as follows:</p>
 <ol>
@@ -1942,7 +1942,7 @@
 </ol>
 <p>Below, we'll simplify these steps by using the Hub's helpful token generation endpoint that <em>also</em> does credential verification.</p>
 <h3 id="generating-an-identity">Generating an identity<a class="headerlink" href="#generating-an-identity" title="Permanent link">&para;</a></h3>
-<p>In this example, we'll use an identity based on an ed2559 signature scheme and made available through the <code>@textile/hub</code> library.</p>
+<p>In this example, we'll use an identity based on an ed25519 signature scheme and made available through the <code>@textile/hub</code> library.</p>
 <p><strong>Install dependency</strong></p>
 <div class="highlight"><pre><span></span><code>npm install --save @textile/hub
 </code></pre></div>
@@ -2016,7 +2016,7 @@
 <p><code>Identity</code> here represents any entity capable of signing a message. </p>
 <p>It requires that the implementer is capable of returning an associated public key for verification. This interface design was inspired by <a href="https://en.wikipedia.org/wiki/Public_key_infrastructure">public key infrastructure</a>.</p>
 <p>In many cases, the <code>Identity</code> will just be a private key, but callers can use any setup that suits their needs. </p>
-<p>The default implementation is based on the <a href="https://github.com/paulmillr/noble-ed25519">Noble ed2559 library</a> but many developers will want to use alternative identity provides, such as <a href="https://www.ceramic.network">3box/Ceramic</a>, <a href="https://fortmatic.com">Fortmatic</a>, and existing private/public key-pair, or a web3 provider such as <a href="https://metamask.io">Metamask</a>. </p>
+<p>The default implementation is based on the <a href="https://github.com/paulmillr/noble-ed25519">Noble ed25519 library</a> but many developers will want to use alternative identity provides, such as <a href="https://www.ceramic.network">3box/Ceramic</a>, <a href="https://fortmatic.com">Fortmatic</a>, and existing private/public key-pair, or a web3 provider such as <a href="https://metamask.io">Metamask</a>. </p>
 <p>Textile Hub also provides email-based identities.</p>
 <h3 id="metamask">Metamask<a class="headerlink" href="#metamask" title="Permanent link">&para;</a></h3>
 <p>One issue with the above workflow is that you need to help users store and recover their private keys. </p>

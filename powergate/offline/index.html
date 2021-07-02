@@ -1731,6 +1731,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#filecoin-batching" title="Filecoin batching" class="md-nav__link">
+    Filecoin batching
+  </a>
+  
+</li>
+      
       
       
       
@@ -1814,6 +1821,104 @@ $ ls -lh foo.car
 <p>Note that in the <code>pow offline prepare</code> output we already have a template for running the offline deal using a Lotus node.
 We'll soon add support for offline-deals in Powergate, and also add a command using the Powergate CLI.</p>
 <p>The <code>pow offline car</code> and <code>pow offline commp</code> subcommands work similarly, also having <code>--json</code> or <code>--quiet</code> flags, and supporting <code>go-ipfs</code> as a datasource.</p>
+<h2 id="filecoin-batching">Filecoin batching<a class="headerlink" href="#filecoin-batching" title="Permanent link">&para;</a></h2>
+<p>The <code>pow offline prepare</code> CLI subcommand also supports a special mode of operation that aggregates files using a <a href="https://hackmd.io/O-zleFXsTdKNIyUZ-3bDDw?view">standardized spec</a> without any extra dependencies.</p>
+<p>The way to use this mode as follows:
+<div class="highlight"><pre><span></span><code>$ pow offline prepare --json --aggregate <span class="o">[</span>folder-with-files<span class="o">]</span> <span class="o">[</span>car-output-path<span class="o">]</span>
+</code></pre></div></p>
+<p>For example, say you have a folder <code>foo</code> that contains a list of files that you want to aggregate in a Filecoin batch:
+<div class="highlight"><pre><span></span><code>$ ls foo
+file.01  file.02  file.03  file.04  file.05  file.06  file.07  file.08  file.09  file.10  file.11  file.12  file.13  file.14  file.15
+</code></pre></div></p>
+<p>Now we run the command:
+<div class="highlight"><pre><span></span><code>$ pow offline prepare --json --aggregate foo myfoo.car <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> jq .
+<span class="o">{</span>
+  <span class="s2">&quot;payload_cid&quot;</span>: <span class="s2">&quot;bafybeiehczj2ykdgttv4l3lvwkojxgdatvnze32sf44gg44pi4pnajlle4&quot;</span>,
+  <span class="s2">&quot;piece_size&quot;</span>: <span class="m">1048576</span>,
+  <span class="s2">&quot;piece_cid&quot;</span>: <span class="s2">&quot;baga6ea4seaqgio3tohbma6ntoczzxl2qtcicmoio3axacndqoibym4klq5q6qly&quot;</span>,
+  <span class="s2">&quot;files&quot;</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.01&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmQ9KtzTJz25YLn7sZTpAZTmbVGRnDPt2FKgT68drdPv3K&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.02&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmQGPnRANZRQXonSR4N1YtrgQFHnQ29SfSfjYANGEDetqF&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.03&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmcSJovnWD4qJFyBvJwJE9VhMn2MSf9CY2BjwqYsFgc4iM&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.04&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmVB98xQUikGF6wjzujFL9ihK7hYHUQ3Uyac36iPJxBqQk&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.05&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmR18QQizM8XXvvSVJBgjyj7WFNWkXWrsKF5mjusjmHvA8&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.06&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmYJ6pDDcwhHf2a32fQjTHuJ5TiQGMKqbZasmPsB8VeQwx&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.07&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmWBttk99EoYuQPL2GfMQ1PZXyc8eHujeggzax766mmQB3&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.08&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmVUUNqkcpxcNNyTKSu5bJ9G5FJcEWrxUk9oxHB9usc2LD&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.09&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmTcpKyPkCSn8HaLpGF4Xbf7trmRSBrNL9bBra6gx28qcc&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.10&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmXj9nsbbSuToJaYMenJrP7ZbspJufxqKWoLneW9YxrZ12&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.11&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmPDdrp8ZsiSQ4oXdVnGb1KTVK4FHsnxrHC1QYFAQrSDN7&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.12&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmQGoUbriJQkFRQmvaUQSwLSVGzYGZJXq2K4Hkk9DFoZzp&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.13&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmNuYjKiXitEVvdPG6Tfe99ZUSiSPi697cQaueGbRR7Dwy&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.14&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;QmeU2EZpBrapKYYuzdEW21JRZMB1Qk7a38RpEzj7D4qPnT&quot;</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;foo/file.15&quot;</span>,
+      <span class="s2">&quot;Cid&quot;</span>: <span class="s2">&quot;Qmbo7ysDSNonRpx1ZxU7yvEMrbS87dPo9yy3DNBeKrnW8U&quot;</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div>
+The command does some magic for you:
+- It DAGifies each file in the <code>foo</code> folder as a UnixFS file.
+- It creates a Filecoin batch as described by the spec, resulting in a single UnixFS batch.
+- It generates a CAR file of this UnixFS batch.
+- It calculates the PieceCid and PieceSize of the CAR file.</p>
+<p>Let's see some generated files in the current folder:
+<div class="highlight"><pre><span></span><code>$ ls
+foo  myfoo.car  myfoo.car.manifest
+</code></pre></div></p>
+<p>The output of the command is:
+- It creates the <code>foo.car</code> file.
+- It creates the <code>foo.car.manifest</code> file, which is the <code>@AggregateManifest.ndjson</code> manifest file that's also inside the UnixFS batch.
+- It prints to stdout:
+    - The PayloadCid of the UnixFS batch.
+    - The calculated PieceCid
+    - The calculated PieceSize
+    - The generated Cid of the processed files.</p>
+<p>The JSON output allows you to reference the corresponding entry of each file in <code>foo</code> into the manifest of batch. In addition, the manifest contains information that will allow making retrievals of individual files for deals made with the generated batch CAR file.
+We'll explain soon how to do retrievals whenever this feature is ready in the Lotus client; stay tuned!</p>
                 
                   
                 
