@@ -112,6 +112,7 @@ nav:
       - Store Data:
           - Storing Data: powergate/storage.md
           - Storage Configs: powergate/storageconfig.md
+      - Offline Deals: powergate/offline.md
       - POW CLI:
           - Overview: powergate/cli/pow.md
           - Config: powergate/cli/pow_config.md
