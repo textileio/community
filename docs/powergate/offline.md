@@ -78,3 +78,112 @@ We'll soon add support for offline-deals in Powergate, and also add a command us
 
 The `pow offline car` and `pow offline commp` subcommands work similarly, also having `--json` or `--quiet` flags, and supporting `go-ipfs` as a datasource.
 
+## Filecoin batching
+
+The `pow offline prepare` CLI subcommand also supports a special mode of operation that aggregates files using a [standardized spec](https://hackmd.io/O-zleFXsTdKNIyUZ-3bDDw?view) without any extra dependencies.
+
+The way to use this mode as follows:
+```bash
+$ pow offline prepare --json --aggregate [folder-with-files] [car-output-path]
+```
+
+For example, say you have a folder `foo` that contains a list of files that you want to aggregate in a Filecoin batch:
+```bash
+$ ls foo
+file.01  file.02  file.03  file.04  file.05  file.06  file.07  file.08  file.09  file.10  file.11  file.12  file.13  file.14  file.15
+```
+
+Now we run the command:
+```bash
+$ pow offline prepare --json --aggregate foo myfoo.car 2>&1 | jq .
+{
+  "payload_cid": "bafybeiehczj2ykdgttv4l3lvwkojxgdatvnze32sf44gg44pi4pnajlle4",
+  "piece_size": 1048576,
+  "piece_cid": "baga6ea4seaqgio3tohbma6ntoczzxl2qtcicmoio3axacndqoibym4klq5q6qly",
+  "files": [
+    {
+      "name": "foo/file.01",
+      "Cid": "QmQ9KtzTJz25YLn7sZTpAZTmbVGRnDPt2FKgT68drdPv3K"
+    },
+    {
+      "name": "foo/file.02",
+      "Cid": "QmQGPnRANZRQXonSR4N1YtrgQFHnQ29SfSfjYANGEDetqF"
+    },
+    {
+      "name": "foo/file.03",
+      "Cid": "QmcSJovnWD4qJFyBvJwJE9VhMn2MSf9CY2BjwqYsFgc4iM"
+    },
+    {
+      "name": "foo/file.04",
+      "Cid": "QmVB98xQUikGF6wjzujFL9ihK7hYHUQ3Uyac36iPJxBqQk"
+    },
+    {
+      "name": "foo/file.05",
+      "Cid": "QmR18QQizM8XXvvSVJBgjyj7WFNWkXWrsKF5mjusjmHvA8"
+    },
+    {
+      "name": "foo/file.06",
+      "Cid": "QmYJ6pDDcwhHf2a32fQjTHuJ5TiQGMKqbZasmPsB8VeQwx"
+    },
+    {
+      "name": "foo/file.07",
+      "Cid": "QmWBttk99EoYuQPL2GfMQ1PZXyc8eHujeggzax766mmQB3"
+    },
+    {
+      "name": "foo/file.08",
+      "Cid": "QmVUUNqkcpxcNNyTKSu5bJ9G5FJcEWrxUk9oxHB9usc2LD"
+    },
+    {
+      "name": "foo/file.09",
+      "Cid": "QmTcpKyPkCSn8HaLpGF4Xbf7trmRSBrNL9bBra6gx28qcc"
+    },
+    {
+      "name": "foo/file.10",
+      "Cid": "QmXj9nsbbSuToJaYMenJrP7ZbspJufxqKWoLneW9YxrZ12"
+    },
+    {
+      "name": "foo/file.11",
+      "Cid": "QmPDdrp8ZsiSQ4oXdVnGb1KTVK4FHsnxrHC1QYFAQrSDN7"
+    },
+    {
+      "name": "foo/file.12",
+      "Cid": "QmQGoUbriJQkFRQmvaUQSwLSVGzYGZJXq2K4Hkk9DFoZzp"
+    },
+    {
+      "name": "foo/file.13",
+      "Cid": "QmNuYjKiXitEVvdPG6Tfe99ZUSiSPi697cQaueGbRR7Dwy"
+    },
+    {
+      "name": "foo/file.14",
+      "Cid": "QmeU2EZpBrapKYYuzdEW21JRZMB1Qk7a38RpEzj7D4qPnT"
+    },
+    {
+      "name": "foo/file.15",
+      "Cid": "Qmbo7ysDSNonRpx1ZxU7yvEMrbS87dPo9yy3DNBeKrnW8U"
+    }
+  ]
+}
+```
+The command does some magic for you:
+- It DAGifies each file in the `foo` folder as a UnixFS file.
+- It creates a Filecoin batch as described by the spec, resulting in a single UnixFS batch.
+- It generates a CAR file of this UnixFS batch.
+- It calculates the PieceCid and PieceSize of the CAR file.
+
+Let's see some generated files in the current folder:
+```bash
+$ ls
+foo  myfoo.car  myfoo.car.manifest
+```
+
+The output of the command is:
+- It creates the `foo.car` file.
+- It creates the `foo.car.manifest` file, which is the `@AggregateManifest.ndjson` manifest file that's also inside the UnixFS batch.
+- It prints to stdout:
+    - The PayloadCid of the UnixFS batch.
+    - The calculated PieceCid
+    - The calculated PieceSize
+    - The generated Cid of the processed files.
+
+The JSON output allows you to reference the corresponding entry of each file in `foo` into the manifest of batch. In addition, the manifest contains information that will allow making retrievals of individual files for deals made with the generated batch CAR file.
+We'll explain soon how to do retrievals whenever this feature is ready in the Lotus client; stay tuned!
