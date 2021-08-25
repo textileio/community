@@ -8,22 +8,23 @@ Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](ht
 
 Whether you are an expert or an absolute beginner, you'll find your answers here. 
 
-
 Pick a starting point below, or use the search box to find documents matching your keywords.
 
-## Technologies
+## Latest announcements
 
-Learn about the different technologies that make-up Textile:
+We've been working hard to deliver you new and improved tools for permissionless storage. Recenctly we the first of those projects. 
 
-- [Welcome to the Textile documentation.](#welcome-to-the-textile-documentation)
-  - [Technologies](#technologies)
-  - [The Hub](#the-hub)
-  - [Buckets](#buckets)
-  - [ThreadDB](#threaddb)
-  - [Filecoin Powergate](#filecoin-powergate)
-  - [Tutorials](#tutorials)
-  - [Other Resources](#other-resources)
-  - [Thanks!](#thanks)
+### Filecoin bridge on Polygon
+
+Read the docs over at [https://eth.storage/](https://eth.storage/).
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">½ 📢 <a href="https://twitter.com/Filecoin?ref_src=twsrc%5Etfw">@Filecoin</a> is coming to Polygon!<br><br>📂 <a href="https://twitter.com/textileio?ref_src=twsrc%5Etfw">@textileio</a>’s Filecoin-Polygon Storage Bridge can store data from any Polygon address owner accelerating the Web3 interoperability between Polygon &amp; Filecoin ecosystems.<br><br>🌐 Learn more: <a href="https://t.co/IN7gcXH4Wo">https://t.co/IN7gcXH4Wo</a> <a href="https://t.co/C6Ux0s36aD">pic.twitter.com/C6Ux0s36aD</a></p>&mdash; Polygon (@0xPolygon) <a href="https://twitter.com/0xPolygon/status/1428769276308168704?ref_src=twsrc%5Etfw">August 20, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+### Filecoin bridge on NEAR
+
+Read the docs over at [https://near.storage/](https://near.storage/).
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">📣 <a href="https://twitter.com/hashtag/NEAR?src=hash&amp;ref_src=twsrc%5Etfw">#NEAR</a> Grant Announcement!<a href="https://twitter.com/textileio?ref_src=twsrc%5Etfw">@textileio</a> is bridging <a href="https://twitter.com/Filecoin?ref_src=twsrc%5Etfw">@Filecoin</a> to <a href="https://twitter.com/hashtag/NEAR?src=hash&amp;ref_src=twsrc%5Etfw">#NEAR</a> Protocol! The Textile bridge will allow on-chain data storage on the NEAR Protocol.<br><br>Stay tuned for more partnership news on NEAR 🤝 Textile 🤝 Filecoin 🔥<br><br>📣 Announcement 🔽 <a href="https://t.co/bmdGR4375W">https://t.co/bmdGR4375W</a></p>&mdash; NEAR Protocol (@NEARProtocol) <a href="https://twitter.com/NEARProtocol/status/1415325722718220293?ref_src=twsrc%5Etfw">July 14, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## The Hub
 
@@ -200,6 +201,7 @@ To all of the great people who have contributed to the [Textile projects](https:
   <a href='https://github.com/191644807' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/28557692?v=4'/></a>
   <a href='https://github.com/4ov' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/54923746?v=4'/></a>
   <a href='https://github.com/ArseniiPetrovich' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/23522179?v=4'/></a>
+  <a href='https://github.com/ChristianOConnor' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/47836708?v=4'/></a>
   <a href='https://github.com/Gozala' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/21236?v=4'/></a>
   <a href='https://github.com/Jewcub' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/52448067?v=4'/></a>
   <a href='https://github.com/JoeGonzalez0886' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/16129477?v=4'/></a>
@@ -239,6 +241,7 @@ To all of the great people who have contributed to the [Textile projects](https:
   <a href='https://github.com/chad' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/237?v=4'/></a>
   <a href='https://github.com/chrisbratlien' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/21352?v=4'/></a>
   <a href='https://github.com/codynhat' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/6885592?v=4'/></a>
+  <a href='https://github.com/dabit3' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1857282?v=4'/></a>
   <a href='https://github.com/deefactorial' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/4856696?v=4'/></a>
   <a href='https://github.com/dgtony' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/7447516?v=4'/></a>
   <a href='https://github.com/dholms' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/4898225?v=4'/></a>
@@ -252,6 +255,7 @@ To all of the great people who have contributed to the [Textile projects](https:
   <a href='https://github.com/felixniemeyer' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/5720176?v=4'/></a>
   <a href='https://github.com/ffteng46' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/17234469?v=4'/></a>
   <a href='https://github.com/flyskywhy' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1439846?v=4'/></a>
+  <a href='https://github.com/genderev' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/60559370?v=4'/></a>
   <a href='https://github.com/hacdias' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/5447088?v=4'/></a>
   <a href='https://github.com/haf' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/193115?v=4'/></a>
   <a href='https://github.com/hoffmabc' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/45482?v=4'/></a>
@@ -293,11 +297,13 @@ To all of the great people who have contributed to the [Textile projects](https:
   <a href='https://github.com/rajdeepbh' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/30660439?v=4'/></a>
   <a href='https://github.com/requilence' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1025231?v=4'/></a>
   <a href='https://github.com/rkalis' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/9142187?v=4'/></a>
+  <a href='https://github.com/ryardley' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1256409?v=4'/></a>
   <a href='https://github.com/saintmalik' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/37118134?v=4'/></a>
   <a href='https://github.com/sanderpick' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/361000?v=4'/></a>
   <a href='https://github.com/sbiaudet' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/3100668?v=4'/></a>
   <a href='https://github.com/sebastinez' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/7912302?v=4'/></a>
   <a href='https://github.com/shoce' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/261885?v=4'/></a>
+  <a href='https://github.com/shoyebinamdar' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/7439459?v=4'/></a>
   <a href='https://github.com/talentlessguy' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/35937217?v=4'/></a>
   <a href='https://github.com/tangshuya' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/17977588?v=4'/></a>
   <a href='https://github.com/tatecarson' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/12865394?v=4'/></a>

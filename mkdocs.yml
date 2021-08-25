@@ -89,6 +89,9 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Filecoin Bridges:
+    - NEAR: https://near.storage/
+    - Polygon: https://eth.storage/
   - Hub:
       - Overview: hub/index.md
       - Installation & Setup: hub/accounts.md
