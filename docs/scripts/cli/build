@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# adapted from @ adgitate1: https://github.com/textileio/docs/pull/137
+# adapted from @ adgitate1: https://github.com/textileio/community/pull/137
 set -Eeuo pipefail
 
 # Clone the latest CLI (use commit # if released needed)

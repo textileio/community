@@ -17,6 +17,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: test
+        working-directory: ./docs
         run: |
           ./scripts/setup
           ./scripts/build

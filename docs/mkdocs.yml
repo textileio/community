@@ -6,8 +6,8 @@ site_author: textile.io
 site_url: https://docs.textile.io/
 
 # Repository
-repo_name: textileio/docs
-repo_url: https://github.com/textileio/docs
+repo_name: textileio/community
+repo_url: https://github.com/textileio/community
 
 # Copyright
 copyright: "&copy; Textile"
