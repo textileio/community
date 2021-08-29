@@ -42,6 +42,7 @@ plugins:
   - markdownextradata
   - redirects:
       redirect_maps:
+        "hub/miner-index.md": "filecoin/miner-index.md"
         "hub/introduction.md": "hub/index.md"
         "a-tour-of-textile.md": "index.md"
         "hub/api-apis.md": "hub/apis.md"
@@ -88,37 +89,46 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Getting Started:
-      - Accounts Overview: hub/index.md
+  - Filecoin Bridges:
+    - NEAR: https://near.storage/
+    - Polygon: https://eth.storage/
+  - Hub:
+      - Overview: hub/index.md
       - Installation & Setup: hub/accounts.md
-      - APIs & API Keys: hub/apis.md
-      - Bucket Storage:
+      - API Usage & Keys: hub/apis.md
+      - Pricing: hub/pricing.md
+      - Buckets:
           - Overview: buckets/index.md
           - Permissions: buckets/permissions.md
-          - Filecoin Archiving: buckets/archiving.md
-      - ThreadDB Overview: threads/index.md
+          - Bucket Archiving: buckets/archiving.md
+      - ThreadDB: threads/index.md
       - User Mailboxes: users/index.md
-      - Powergate (Filecoin):
-          - Introduction: powergate/index.md
-          - Localnet: powergate/localnet.md
-          - Mainnet: powergate/mainnet.md
-          - Store Data:
-              - Intro to FFS: powergate/ffs.md
-              - Storage Configs: powergate/storageconfig.md
-          - POW CLI:
-              - Overview: powergate/cli/pow.md
-              - FFS: powergate/cli/pow_ffs.md
-              - Asks: powergate/cli/pow_asks.md
-              - Faults: powergate/cli/pow_faults.md
-              - Miners: powergate/cli/pow_miners.md
-              - Net: powergate/cli/pow_net.md
-              - Reputation: powergate/cli/pow_reputation.md
-              - Wallet: powergate/cli/pow_wallet.md
-              - Health: powergate/cli/pow_health.md
-          - FAQ: powergate/faq.md
-          - Externals:
-              - JavaScript: https://textileio.github.io/js-powergate-client/
-              - Go: https://godoc.org/github.com/textileio/powergate/api/client
+      - Filecoin:
+          - Balances: filecoin/balances.md
+          - Miner Index: filecoin/miner-index.md
+          - Storage Deals: filecoin/storage-deals.md
+  - Powergate (Filecoin):
+      - Introduction: powergate/index.md
+      - Localnet: powergate/localnet.md
+      - Mainnet: powergate/mainnet.md
+      - Admin APIs: powergate/admin.md
+      - Store Data:
+          - Storing Data: powergate/storage.md
+          - Storage Configs: powergate/storageconfig.md
+      - Offline Deals: powergate/offline.md
+      - POW CLI:
+          - Overview: powergate/cli/pow.md
+          - Config: powergate/cli/pow_config.md
+          - Data: powergate/cli/pow_data.md
+          - Deals: powergate/cli/pow_deals.md
+          - Storage Info: powergate/cli/pow_storage-info.md
+          - Storage Jobs: powergate/cli/pow_storage-jobs.md
+          - Wallet: powergate/cli/pow_wallet.md
+          - Admin: powergate/cli/pow_admin.md
+      - FAQ: powergate/faq.md
+      - Externals:
+          - JavaScript: https://textileio.github.io/js-powergate-client/
+          - Go: https://godoc.org/github.com/textileio/powergate/api/client
   - Command-line Reference:
       - Hub admin:
           - Overview: hub/cli/hub.md
@@ -128,7 +138,7 @@ nav:
           - Orgs: hub/cli/hub_orgs.md
           - Buckets: hub/cli/hub_buck.md
           - ThreadDB: hub/cli/hub_threads.md
-          - Powergate: hub/cli/hub_pow.md
+          - Powergate: hub/cli/hub_fil.md
           - Version: hub/cli/hub_version.md
           - Update: hub/cli/hub_update.md
           - API Keys: hub/cli/hub_keys.md
@@ -140,6 +150,8 @@ nav:
           - Destroy: hub/cli/hub_buck_destroy.md
           - Decrypt: hub/cli/hub_buck_decrypt.md
           - Encrypt: hub/cli/hub_buck_encrypt.md
+          - Existing: hub/cli/hub_buck_existing.md
+          - Get: hub/cli/hub_buck_get.md
           - Init: hub/cli/hub_buck_init.md
           - Links: hub/cli/hub_buck_links.md
           - Ls: hub/cli/hub_buck_ls.md
@@ -148,12 +160,18 @@ nav:
           - Watch: hub/cli/hub_buck_watch.md
           - Root: hub/cli/hub_buck_root.md
           - Status: hub/cli/hub_buck_status.md
-  - JavaScript Reference:
+      - Billing commands:
+          - Overview: hub/cli/hub_billing.md
+          - Setup: hub/cli/hub_billing_setup.md
+          - Portal: hub/cli/hub_billing_portal.md
+          - Usage: hub/cli/hub_billing_usage.md
+          - Users: hub/cli/hub_billing_users.md
+  - JavaScript Guide:
       - Introduction: tutorials/hub/web-app.md
       - User identities: tutorials/hub/pki-identities.md
       - Development mode: tutorials/hub/development-mode.md
       - Add images to Buckets: tutorials/hub/user-buckets.md
-      - Mobile ThreadDB & Buckets: tutorials/react-native-buckets.md
+      - User Buckets in React Native: tutorials/react-native-buckets.md
       - Build with NodeJS: tutorials/nodejs.md
       - Production authentication: tutorials/hub/production-auth.md
       - Externals:
@@ -164,7 +182,7 @@ nav:
       - Getting started with Go: tutorials/go/getting-started.md
       - Externals:
           - ThreadDB: https://github.com/textileio/go-threads
-          - Buckets: https://github.com/textileio/textile#running-buckets
+          - Buckets: https://github.com/textileio/go-buckets
           - User Mailboxes: https://github.com/textileio/textile#using-the-mail-library
   - More Examples:
       - Users:
@@ -195,6 +213,14 @@ extra:
       link: https://slack.textile.io
   limits:
     max_threads_per_owner: 100
-    max_bucket_size: 4GiB
-    max_account_size: 4GiB
-    max_buckets_per_thread: 10000
+    max_bucket_size: 4 GiB
+    minimum_filecoin_deal_size: 32 MiB
+  billing:
+    free_stored_data: 5 GiB
+    free_network_egress: 10 GiB per Month
+    free_instance_reads: 50,000 per Day
+    free_instance_writes: 20,000 per Day
+    stored_data: $0.03 per GiB per Month
+    network_egress: $0.1 per GiB
+    instance_reads: $0.01 per 10,000
+    instance_writes: $0.02 per 10,000

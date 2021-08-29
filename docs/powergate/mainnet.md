@@ -1,6 +1,9 @@
 # Filecoin Mainnet
 
-If you are ready to run on Mainnet, the Powergate should make it as easy as possible. Note that running a fully synced [Lotus](https://lotu.sh/) node can take a considerable amount of time and resources. The required effort is normal on live blockchain networks. It may take more than a day to properly sync the current chain the first time your run the Powergate.
+The Powergate makes it easy to run on Mainnet.
+
+!!!info
+    Running a fully-synced [Lotus](https://lotu.sh/) node can take a considerable amount of time and resources. It may take over a day to sync the current chain the first time you run the Powergate. This effort is normal on live blockchain networks.
 
 ## Getting Started
 
@@ -8,7 +11,7 @@ There are a few resources you'll need before you start running any nodes.
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop). In the examples below, you'll run node instances using local Docker containers. You can do the same with any Docker enabled system, but to get started we recommend Docker Desktop and the default configurations we provide.
 - [Powergate](https://github.com/textileio/powergate).
-- - [Golang](https://golang.org/). Building the Powergate CLI from code requires that you can run commands with Go. Other sections of the tutorials below don't have any Go requirement.
+- [Golang](https://golang.org/). Building the Powergate CLI from code requires Go. Other sections of the tutorials below don't need Go.
 
 ## Mainnet with Powergate
 
@@ -23,7 +26,7 @@ cd powergate
 
 ### Setup
 
-A default setup is available in a `docker-compose` configuration shipped with the Powergate. With the default setup, you will run Powergate connected to live Filecoin Mainnet.
+A default setup is available in the `docker-compose` configuration shipped with the Powergate. With the default setup, you'll run Powergate connected to live Filecoin Mainnet.
 
 **Run the docker-compose**
 
@@ -34,9 +37,9 @@ cd docker
 make up
 ```
 
-If this is your first time running the Powergate, Docker will download the required instances before any Powergate setup begins. Downloads are dependent on your bandwidth and may take **a few minutes**, but won't be required for subsequent runs of the Powergate.
+On initial setup,  Docker will download the required instances before any Powergate setup begins. Downloads may take a few minutes and only happen on the first run.
 
-If this is the first time you are running the Powergate on the mainnet, or if you have been offline for any amount of time, you will need to wait for the chain to properly sync. This will likely take more than a day.
+If this is the first time you're running the Powergate on the mainnet, or if you have been offline for any amount of time, you'll need to wait for the chain to properly sync. This can take over a day.
 
 Once running, you will begin to see log outputs.
 
@@ -46,27 +49,47 @@ mined block in the past	{"block-time": "2009-01-01T04:44:30.000Z",\
 "time": "2020-05-29T20:35:08.644Z", "duration": 359999438.64444387}
 ```
 
-When complete, you will have a fully functional Powergate (`powd`), a Lotus node, and an IPFS node wired correctly together to start using the Mainnet!
+When complete, you'll have a fully functional Powergate (`powd`), a Lotus node, and an IPFS node wired together to start using on the Mainnet!
 
-### Bootstrap from a snapshot
+### Bootstrap a clean Lotus node from a snapshot
 
-Syncing a new Lotus node from genesis can take a considerable time. The current `mainnet` network is providing snapshots of the VM state every 6hrs, which means, in the worst case, syncing 6hs of new blocks.
-Bootstraping the Lotus node from a snapshot implies complete trust in the party who generated the snapshot, so this is a pragmatic solution for getting up to speed fast. Depending on your use case you should consider the security risks of accepting snapshots from trusted parties.
+Syncing a new Lotus node from genesis can take a long time. The current `mainnet` network provides snapshots of the VM state every hour, which means having to sync less than 250 blocks from the tip of the chain in the worst case.
 
-In order to boostrap from a snapshot in `mainnet`, download the [snapshot CAR file](https://very-temporary-spacerace-chain-snapshot.s3.amazonaws.com/Spacerace_pruned_stateroots_snapshot_latest.car). This file is maintained up to date by Protocol Labs.
-We're going to assume this CAR file was downloaded to your local path: `/home/myuser/snapshots/Spacerace_pruned_stateroots_snapshot_latest.car`.
+!!!warning
+    Bootstrapping the Lotus node from a snapshot implies complete trust in the party who generated it. This is a pragmatic solution for getting up to speed fast. Depending on your use case, you should consider the security risks of accepting snapshots from trusted parties.
 
-You should edit the `docker/docker-compose.yaml` file adding two lines:
-![image](https://user-images.githubusercontent.com/6136245/93375329-6383fd80-f82e-11ea-9850-2970f30a793c.png)
+The snapshot described in this section is generated by Protocol Labs, the founders of Filecoin.
 
-Then run `make up`. If you inspect the Lotus node with `docker logs mainnet_lotus_1`, you will see a message that is importing chain information, and many Badger compaction messages. After the importing is done, the Lotus node will continue to sync as usual showing the typical logs. At this point you should `make down` (you don't need to wait to full syncing), revert `docker/docker-compose.yaml` to the original content, and `make up` again.
+To bootstrap a clean Lotus node from a `mainnet` snapshot, you should edit the `docker/docker-compose.yaml` in the following way:
+![image](https://user-images.githubusercontent.com/6136245/99153057-c3f3b780-2684-11eb-9f78-c74e883a74ea.png)
+
+After doing that you should:
+
+1. Run `make up`.
+2. If you inspect the Lotus node with `docker logs mainnet_lotus_1`, you'll see messages describing that a snapshot is being imported with other Badger compaction messages interleaved.
+3. After the importing is done, the Lotus node will continue to sync, as usual, showing the typical logs.
+4. At this point, you should `make down` (you don't need to wait to full syncing), revert or comment out the added line in `docker/docker-compose.yaml`.
+5. And `make up` again.
 
 Congratulations! You're now syncing from a trusted checkpoint.
 
+### Recover or prune your existing Lotus node with a snapshot
 
-### Create a deal and store a file
+If you run a Lotus node for a long time, its underlying `chain` datastore will become bigger, affecting the syncing process and possibly producing other problems. 
 
-Now that your Powergate is running on mainnet, all the CLI and API commands are the same as if you had run it on localnet before.
+Also, if your node falls behind syncing and stays far away from the tip, it's sometimes faster to re-import a snapshot again than waiting for the syncing process to catch up.
+
+In any case, you should perform the following steps:
+
+1. Execute `make down` to shutdown your Lotus node.
+2. Execute `docker run --rm -v mainnet_powergate-lotus:/data ubuntu rm -rf /data/.lotus/datastore/chain`
+3. Execute the steps described in _Boostrap a clean Lotus node from a snapshot_.
+
+This **only** deletes chain data and **not** your wallet address and other important metadata information.
+
+### Using the Powergate CLI and API on Mainnet
+
+All the CLI and API commands are the same as localnet.
 
 #### Install the CLI
 
@@ -84,4 +107,4 @@ pow --help
 
 #### Start storing data
 
-You are now ready to start storing and retrieving data using the Powergate. Read more on [Storing Data with the FFS](ffs.md).
+You're now ready to start storing and retrieving data using the Powergate. Read more on [Storing Data](storage.md).

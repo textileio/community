@@ -1,41 +1,60 @@
 # APIs and API Keys
 
-In this section, we'll walk through the basic concepts useful when building your app to use the Hub. We'll break the discussion into a few key parts, shown in the table of contents to the right.
+Textile has three API categories for building an application: Threads, Buckets, and Mailboxes.
+
+To use any of these APIs, you need to use API keys. Read Google's [API key best practices](https://developers.google.com/maps/api-key-best-practices) for an overview of how API keys will be used here.
+
+This section will cover the overview of the three APIs and how to work with the API keys.
 
 ## A Tour of Available APIs
 
 ### Buckets
 
-[Buckets](../buckets/index.md) provide S3-like data storage on IPFS. Just as you can create Buckets with the [Hub CLI](../hub/cli/hub.md), you can create Buckets using JavaScript with [js-textile](#libraries).
+[Buckets](../buckets/index.md) provide S3-like data storage on IPFS. Just as you can create Buckets with the [Hub CLI](../hub/cli/hub.md), you can create Buckets using JavaScript with [js-textile](#api-libraries).
 
-The [js-textile](#libraries) library allows you to create and edit Buckets owned by you or your organization using an [account key](#account-key). Alternatively, you can use Buckets to store your user's data using a [user group key](#user-group-key).
+The [js-textile](#api-libraries) library allows you to create and edit Buckets owned by you or your organization using an [account key](#account-key). Alternatively, you can use Buckets to store your user's data using a [user group key](#user-group-key).
 
 ### ThreadDB
 
-[ThreadDB](../threads/index.md) is a mongo-like database that runs on IPFS. You can use [js-textile](#libraries) to connect to the Hub's hosted thread server (`Client`) to push and persist encrypted data on an IPFS-backed database. Alternatively, you can embed local, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates (`Database`). 
+[ThreadDB](../threads/index.md) is a mongo-like database that runs on IPFS. You can use [js-textile](#api-libraries) to connect to the Hub's hosted thread server (`Client`) to push and persist encrypted data on an IPFS-backed database. 
 
-### User Inboxes
+Alternatively, you can embed local, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates (`Database`). 
 
-The Users API provides mechanisms for sending and receiving messages between Hub users. Mailboxes are built on ThreadDB. Hub mailboxes are a unique inboxing and messaging system designed for modern apps where users hold private keys linked to their identity. With just their private and public key, a user can send and receive encrypted messages to other users in your app.
+### Mailboxes
+
+The Users API provides tools for sending and receiving messages between Hub users. Mailboxes are built on ThreadDB. 
+
+Hub mailboxes are a unique inboxing and messaging system designed for modern apps where users hold private keys linked to their identity. With just their private and public key, a user can send and receive encrypted messages to other users in your app.
 
 ## API Access
 
-When building apps or services, you can access the Hub APIs to push new buckets, relay or persist threads, ensure data from your app is available on the IPFS network, and more. You can access those APIs through the use of API keys.
+You can access the Hub APIs through the use of API keys.
 
 ### API Keys
 
-The Hub has two forms of API key, an *Account Key* and a *User Group Key*.
+The Hub has two forms of an API key, an *Account Key* and a *User Group Key*.
 
-* **Account Keys** can grant access to the developers own resources (e.g. Buckets you create using the command-line interface). If Account Keys are generated with the `-o` (organization) flag, they will grant access to that organization's resources. Example uses include, integrating your Buckets into CI, dashboards, team messaging integration, etc.
-* **User Group Keys** only grant access to new resources for new identities, not those of the developer. User group keys can be used in an application to allow app users to leverage Hub APIs (e.g. create and push new buckets). User group keys do not have permission to access the developer or organization resources, but threads and buckets created using these keys _are counted against API limits_.
+#### Account Keys
+
+Account keys grant access to the developer's resources (e.g. Buckets you create using the command-line interface).
+
+If Account Keys are generated with the `-o` (organization) flag, they will grant access to that organization's resources.
+
+Example uses include, integrating your Buckets into CI, dashboards, team messaging integration, etc.
+
+#### User Group Keys
+
+User group keys only grant access to new resources for new identities, not those of the developer.
+
+User group keys can be used in an application to allow app users to leverage Hub APIs (e.g. create and push new buckets). User group keys do not have permission to access the developer or organization resources, but threads and buckets created using these keys _are counted against API limits_.
 
 ### Key Use and Security
 
-API keys are project-centric credentials that you can use to provision your Hub resources to end users (either within your organization or in a public app). We recommend reading this thorough overview of [API key design and best practices](https://developers.google.com/maps/api-key-best-practices).
+API keys are project-centric credentials that you can use to provision your Hub resources to end-users (either within your organization or in a public app). We recommend reading this thorough overview of [API key design and best practices](https://developers.google.com/maps/api-key-best-practices).
 
 ### Access Summary
 
-Below is a brief summary of the Hub resources you may create and access with each key type. 
+Below is a summary of the Hub resources you may create and access with each key type. 
 
 <center>
 
@@ -54,15 +73,30 @@ Below is a brief summary of the Hub resources you may create and access with eac
 
 #### Account Key
 
-To create a new Account Key using `hub key create` and selecting the `account` option.
+Create a new **Account Key** by using `hub key create` with the `account` option:
 
 ![](../images/hub-cli/hub_keys_create.png)
+
+<!-- 
+^ Is this image correct? I don't see an "account" option.
+- Albert Kim
+-->
 
 _[See CLI options](../hub/cli/hub_keys.md)_
 
 #### User Group Key
 
-To create a new _user group key_ using `hub key create` and selecting the `user group` option. If you are building an app in an organization, use `HUB_ORG=<org name> hub key create` to link a new key to the organization not your personal account. There are currently no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see [Organizations](../hub/accounts.md)).
+Create a new **User Group Key** by using `hub key create` with the `user group` option.
+
+If you're building an app in an organization, use:
+
+```bash
+HUB_ORG=<org name> hub key create
+```
+
+To link a new key to the organization, not your personal account. 
+
+Currently, there are no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see [Organizations](../hub/accounts.md)).
 
 ```bash
 ➜ hub key create # select the 'user' option
@@ -77,7 +111,7 @@ To create a new _user group key_ using `hub key create` and selecting the `user 
 
 #### Non-signing User Group keys
 
-You can use insecure keys with the API by creating non-signing keys. These keys are meant to use during development only. Read the tutorial on [development mode](../tutorials/hub/development-mode.md) to use these keys.
+You can use insecure keys with the API by creating non-signing keys. These keys are meant to be used during development only. Read the tutorial on [development mode](../tutorials/hub/development-mode.md) to use these keys.
 
 #### Updating User Group keys
 
@@ -87,7 +121,7 @@ _[See CLI commands](../hub/cli/hub_keys.md)_
 
 ## API Libraries
 
-You can find all remote Thread and Bucket APIs in the `textile` libraries below. These libraries are meant to work in combination with the `threads` libraries when you want to create and manage Threads database in your app. 
+You can find all the remote Thread and Bucket APIs in the `textile` libraries below. These libraries are meant to work in combination with the `threads` libraries when you want to create and manage Thread databases in your app. 
 
 <div class="txtl-options">
   <a href="https://textileio.github.io/js-textile/docs/" target="_blank" class="box">
@@ -95,9 +129,9 @@ You can find all remote Thread and Bucket APIs in the `textile` libraries below.
     <p>Start threads, buckets, and user creation in any JavaScript app.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://godoc.org/github.com/textileio/textile/api/buckets" target="_blank" class="box">
-    <h5>JS Hub</h5>
-    <p>Use the Buckets client from Go</p>
+  <a href="https://godoc.org/github.com/textileio/go-buckets" target="_blank" class="box">
+    <h5>Go Buckets</h5>
+    <p>Use the Buckets daemon or client from Go</p>
   </a>
   <span class="box-space"> </span>
   <a href="../cli/hub" class="box">

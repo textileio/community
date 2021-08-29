@@ -4,7 +4,9 @@ hero_img: ../images/threads-hero.png
 
 # Getting Started
 
-ThreadDB is a multi-party database built on [IPFS](https://ipfs.io) and [Libp2p](https://libp2p.io). Threads provide an alternative architecture for data on the web. ThreadDB aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data ([IPLD](https://ipld.io)), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.
+ThreadDB is a multi-party database built on [IPFS](https://ipfs.io) and [Libp2p](https://libp2p.io) that provides an alternative architecture for data on the web. 
+
+ThreadDB aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data ([IPLD](https://ipld.io)), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.
 
 ### Thread Implementations
 
@@ -12,13 +14,21 @@ There are two implementations of ThreadDB.
 
 #### Golang
 
-The first is written in Go and can be found at [https://github.com/textileio/go-threads/](https://github.com/textileio/go-threads/). This is the reference implementation, it contains all the latest components to use as a library, write trustless services, [build a client](https://godoc.org/github.com/textileio/go-threads/api/client) connected to a a threads daemon. More documentation for the Go implementation will be coming in the future.
+The first is written in Go and the implementation reference can be found at [https://github.com/textileio/go-threads/](https://github.com/textileio/go-threads/).
+
+In this reference, you'll find:
+
+* All the latest components to use as a library.
+* How to write trustless services.
+* How to [build a client](https://godoc.org/github.com/textileio/go-threads/api/client) connected to a threads daemon. 
+
+More documentation for the Go implementation will be coming in the future.
 
 #### JavaScript
 
 The second implementation is written in JavaScript (Typescript, really). This implementation has some optimizations to make it more ideal when writing web applications. The JavaScript implementation is currently a Client of the Go implementation. You can run it against your own go-threads instance or connect it to the Textile Hub to use one of ours. Read more about the [Client here](https://textileio.github.io/js-textile/docs/hub.client).
 
-In general, when you are building apps that use threads in remote context (e.g. the browser) it's best to push the networking later to remote services whenever possible (while using/allowing p2p when it works). You can also build your own remote relays and services using the [go-threads](https://github.com/textileio/go-threads/) library.
+In general, when building apps that use threads in a remote context, like the browser, it's best to push the networking later to remote services whenever possible (while using/allowing p2p when it works). You can also build your own remote relays and services using the [go-threads](https://github.com/textileio/go-threads/) library.
 
 For the rest of the explanation below, we'll focus on examples using the JavaScript library.
 
@@ -26,13 +36,20 @@ For the rest of the explanation below, we'll focus on examples using the JavaScr
 
 ThreadDB is designed to be simple enough for any developer to start using. The API will feel familiar to developers who have worked with technologies like MongoDB.
 
-#### Data organization
+#### Important concepts
 
-The first three concepts a developer will encounter with ThreadDB are [Threads](#threads), [Collections](#collections), and [Instances](#instances). Instances are the individual records you create, update, or delete. Instances are stored in a Collection. Collections have one or many Schemas and can only store Instances that match one of those Schemas. Databases can store many Collections. Collections are similar to Tables in other databases. A Thread-based Database is tied to a single Thread (with associated Thread ID).
+The first three concepts developers will encounter with ThreadDB are [Threads](#threads), [Collections](#collections), and [Instances](#instances). 
+
+* **Instances** are the individual records you *create*, *update*, or *delete*. 
+* **Instances** are *stored* in a **Collection**. 
+* **Collections** *have* one or many **Schemas** and can only *store* **Instances** that *match* one of those **Schemas**. 
+* **Databases** can *store* many **Collections**. 
+* **Collections** are similar to **Tables** in other databases. 
+* A **Thread**-based **Database** is *tied* to a single **Thread** (with associated **Thread** ID).
 
 #### Creating a new thread
 
-To start a new, empty Thread, with remote networking using the Hub APIs you simply initialize your Thread with the `UserAuth` object. You can read more about creating `UserAuth` objects in [the creating web apps tutorial](../tutorials/hub/web-app.md).
+To start a new, empty Thread, with remote networking using the Hub APIs, initialize your Thread with the UserAuth object. You can read more about creating `UserAuth` objects in the [creating web apps tutorial](../tutorials/hub/web-app.md).
 
 **Create a new Thread API client**
 
@@ -72,7 +89,7 @@ async function list (client: Client) {
 }
 ```
 
-**create a new database**
+**Create a new database**
 
 ```typescript
 import {Client, Identity, ThreadID, UserAuth} from '@textile/hub'
@@ -87,7 +104,7 @@ Congrats! You now have a new ThreadDB! Each ThreadDB has a unique [ThreadID](htt
 
 ### Invite
 
-You can invite multiple users to the same thread. Use this to build chat apps, collaborative documents and more.
+You can invite multiple users to the same thread. Use this to build chat apps, collaborative documents, and more.
 
 ```typescript
 import {Client, DBInfo, ThreadID} from '@textile/hub'
@@ -105,9 +122,13 @@ Once you get the DB info, you need to send that to the other users you want to j
 
 ### Collections
 
-To handle different data structures in the same Database, a Database contains Collections. Each Collection is defined by a [json-schema.org schema](https://json-schema.org/). These schemas define the *shape* of Collection Instances (the individual entries). Collections are similar to tables in other databases. Ultimately, a Collection is a single document store with a set of APIs to make it feel like a *local database table*.
+**Collections** are used to handle different data structures in the same Database.
 
-Collections can be created from an existing Schema or from an Object.
+Each **Collection** is defined by a [json-schema.org schema](https://json-schema.org/). These schemas define the *shape* of **Collection** Instances (the individual entries). 
+
+**Collections** are similar to tables in other databases. Ultimately, a **Collection** is a single document store with a set of APIs to make it feel like a *local database table*.
+
+Collections can be *created* from an existing Schema or Object.
 
 **Create from schema**
 
@@ -140,7 +161,7 @@ async function collectionFromSchema (client: Client, threadID: ThreadID) {
 
 Instances are the objects you store in your Collection. Instances are JSON documents with schemas that match those defined in your Collection.
 
-**get all instances**
+**Get all Instances**
 
 ```typescript
 import {Client, ThreadID} from '@textile/hub'
@@ -150,7 +171,7 @@ async function findEntity (client: Client, threadId: ThreadID, collection: strin
 }
 ```
 
-**add an instance**
+**Add an Instance**
 
 ```typescript
 import {Client, ThreadID} from '@textile/hub'
@@ -208,11 +229,13 @@ async function startListener(client: Client, threadID: ThreadID) {
 
 ### Access-control
 
-ThreadDB uses a modular role-based access control system that will allow access control lists (ACLs) to be declared in a wide-variety of ways. ACLs are in active development and you can [follow the development here](https://github.com/textileio/go-threads/issues/295).
+ThreadDB uses a modular role-based access control system that allows access control lists (ACLs) to be declared in a wide variety of ways. ACLs are in active development and you can [follow the development here](https://github.com/textileio/go-threads/issues/295).
 
 ### Identity
 
-ThreadDB allows you to handle user identities (for access control and security/encryption) in the best way for your app and your users. In order to handle *multiple* peers collaborating on a single database, as well as the ability to handle storage *on behalf* of a user, ThreadDB expects a simple Identity interface for singing and validating database updates. See the Hub documentation on [user identities](../hub/apis.md#user-identities) for details.
+ThreadDB allows you to handle user identities (for access control and security/encryption) in the best way for your app and users. 
+
+To handle *multiple* peers collaborating on a single database, as well as the ability to handle storage *on behalf* of a user, ThreadDB expects a simple Identity interface for signing and validating database updates. See the Hub documentation on [user identities](../hub/apis.md#user-identities) for details.
 
 ### Connect to the Hub
 
@@ -222,11 +245,11 @@ ThreadDB allows you to handle user identities (for access control and security/e
 
 ### Pinning, Relay, and Replication
 
-Thread Services (e.g. pinning encrypted data on IPFS and helping multiple peers relay updates across the network) can be built and deployed to the network using [go-threads](https://github.com/textileio/go-threads). Textile offers a number of these functions through the Hub. Attaching the Hub to your databases will allow you to deliver a high-quality user-experience.
+Thread Services (e.g. pinning encrypted data on IPFS and helping multiple peers relay updates across the network) can be built and deployed to the network using [go-threads](https://github.com/textileio/go-threads). Textile offers a number of these functions through the Hub. Attaching the Hub to your databases will allow you to deliver a high-quality user experience.
 
 ## Installation
 
-ThreadDB can be used from many languages and has libraries written in JavaScript and Go. Find documentation on each of those libraries below. 
+ThreadDB can be used with many languages and has libraries written in JavaScript and Go. Find documentation on each of those libraries below. 
 
 <div class="txtl-options">
   <a href="https://textileio.github.io/js-threads/" class="box">
@@ -245,4 +268,6 @@ ThreadDB can be used from many languages and has libraries written in JavaScript
 
 ## Advanced Details
 
-The protocols and design of ThreadDB can be explored in detail in the whitepaper: [A protocol & event-sourced database for decentralized user-siloed data](https://docsend.com/view/gu3ywqi). For further technical details. the reference implementation of Threads is written in Go and the full implementation details can be found [on godocs](https://godoc.org/github.com/textileio/go-threads) (jump to [go-threads client](https://godoc.org/github.com/textileio/go-threads/api/client)).
+The protocols and design of ThreadDB can be explored in detail in the whitepaper: [A protocol & event-sourced database for decentralized user-siloed data](https://docsend.com/view/gu3ywqi). 
+
+For further technical details, the reference implementation of Threads is written in Go and the full implementation details can be found [on godocs](https://godoc.org/github.com/textileio/go-threads) (jump to [go-threads client](https://godoc.org/github.com/textileio/go-threads/api/client)).

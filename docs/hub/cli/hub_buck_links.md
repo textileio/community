@@ -9,7 +9,8 @@ hub buck links [path] [flags]
 ### Options
 
 ```
-  -h, --help   help for links
+      --format string   Display URL links in the provided format. Options: [default,json] (default "default")
+  -h, --help            help for links
 ```
 
 ### SEE ALSO

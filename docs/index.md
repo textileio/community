@@ -2,15 +2,43 @@
 hero_img: ./images/hero.jpg
 ---
 
-Welcome to the Textile documentation. Whether you are an expert or an absolute beginner, you'll find your answers here. Pick a starting point below, or use the search box to find documents matching your keywords.
+# Welcome to the Textile documentation. 
 
-Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](https://ipfs.io), and [Filecoin](https://filecoin.io). Below, you'll find the technologies that makeup Textile: the Hub, ThreadDB, Buckets, and the Powergate. Together, these tools should help you build apps that are only limited by your imagination!
+Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](https://ipfs.io), and [Filecoin](https://filecoin.io).
+
+Whether you are an expert or an absolute beginner, you'll find your answers here. 
+
+Pick a starting point below, or use the search box to find documents matching your keywords.
+
+## Latest announcements
+
+We've been working hard to deliver you new and improved tools for permissionless storage. Recenctly we the first of those projects. 
+
+### Filecoin bridge on Polygon
+
+Read the docs over at [https://eth.storage/](https://eth.storage/).
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">½ 📢 <a href="https://twitter.com/Filecoin?ref_src=twsrc%5Etfw">@Filecoin</a> is coming to Polygon!<br><br>📂 <a href="https://twitter.com/textileio?ref_src=twsrc%5Etfw">@textileio</a>’s Filecoin-Polygon Storage Bridge can store data from any Polygon address owner accelerating the Web3 interoperability between Polygon &amp; Filecoin ecosystems.<br><br>🌐 Learn more: <a href="https://t.co/IN7gcXH4Wo">https://t.co/IN7gcXH4Wo</a> <a href="https://t.co/C6Ux0s36aD">pic.twitter.com/C6Ux0s36aD</a></p>&mdash; Polygon (@0xPolygon) <a href="https://twitter.com/0xPolygon/status/1428769276308168704?ref_src=twsrc%5Etfw">August 20, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+### Filecoin bridge on NEAR
+
+Read the docs over at [https://near.storage/](https://near.storage/).
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">📣 <a href="https://twitter.com/hashtag/NEAR?src=hash&amp;ref_src=twsrc%5Etfw">#NEAR</a> Grant Announcement!<a href="https://twitter.com/textileio?ref_src=twsrc%5Etfw">@textileio</a> is bridging <a href="https://twitter.com/Filecoin?ref_src=twsrc%5Etfw">@Filecoin</a> to <a href="https://twitter.com/hashtag/NEAR?src=hash&amp;ref_src=twsrc%5Etfw">#NEAR</a> Protocol! The Textile bridge will allow on-chain data storage on the NEAR Protocol.<br><br>Stay tuned for more partnership news on NEAR 🤝 Textile 🤝 Filecoin 🔥<br><br>📣 Announcement 🔽 <a href="https://t.co/bmdGR4375W">https://t.co/bmdGR4375W</a></p>&mdash; NEAR Protocol (@NEARProtocol) <a href="https://twitter.com/NEARProtocol/status/1415325722718220293?ref_src=twsrc%5Etfw">July 14, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## The Hub
 
-The Hub is a portal to the IPFS network. Use Textile's managed services to persist your data on the IPFS network, enhance the speed and availability of your decentralized databases, and more. The Hub has APIs for developers and teams to push data to the network and it has developer libraries to provide remote IPFS pinning in your apps or simplify the deployment of our decentralized database, ThreadDB.
+The Hub is your portal to the IPFS network and the fastest way to start building and experimenting with Textile technologies.
 
-**Start building**
+Use the Hub to:
+
+* Persist your data on the IPFS network.
+* Enhance the speed and availability of your decentralized databases
+* And more. 
+
+The Hub provides APIs and developer libraries that enable remote IPFS pinning in your apps or simplifying the deployment of our decentralized database, ThreadDB.
+
+**Learn more about the Hub**
 
 <div class="txtl-options">
   <a href="./hub/" class="box">
@@ -31,9 +59,19 @@ The Hub is a portal to the IPFS network. Use Textile's managed services to persi
 
 ## Buckets
 
-Buckets are a new way to pin data to IPFS and archive data on Filecoin. Buckets are dynamic folders published simultaneously over IPFS, IPNS, and HTTP. Buckets are designed to make it simple for you to create folders of data and push that data to remote IPFS peers for backup, persistence, or sharing. They can be encrypted or public, they can be single or multi-user, and they can be used from the CLI or with the Go or JavaScript libraries.
+Buckets are:
 
-**Push your buckets**
+* A new way to pin data to IPFS and archive data on Filecoin. 
+* Dynamic folders published simultaneously over IPFS, IPNS, and HTTP. 
+* Designed to simplify creating folders of data and pushing that data to remote IPFS peers for backup, persistence, or sharing. 
+
+Buckets can be:
+
+* Encrypted or public.
+* Single or multi-user.
+* Used from the CLI or with the Go or JavaScript libraries.
+
+**Get started with Buckets**
 
 <div class="txtl-options">
   <a href="./buckets/" class="box">
@@ -54,9 +92,13 @@ Buckets are a new way to pin data to IPFS and archive data on Filecoin. Buckets 
 
 ## ThreadDB
 
-ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Developers use ThreadDB so they can spend less time configuring encryption or managing content addresses, instead ThreadDB allows them to start building right away. A familiar MongoDB/Mongoose API and simple data hosting services make dynamic data on the DWeb easy!
+ThreadDB makes dynamic data on the DWeb easy by providing simple data hosting services and an API familiar to anyone who used MongoDB/Mongoose.
 
-**Learn more**
+ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p.
+
+Spend less time configuring encryption or managing content addresses with ThreadDB.
+
+**Learn more about ThreadDB**
 
 <div class="txtl-options">
   <a href="./threads/" class="box">
@@ -69,7 +111,7 @@ ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Deve
     <p>Use the Hub to help persist and scale your user's databases.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://textileio.github.io/js-threads/" target="_blank" class="box">
+  <a href="https://textileio.github.io/js-textile/docs/hub.client" target="_blank" class="box">
     <h5>JavaScript Docs</h5>
     <p>Start using the ThreadDB in your NodeJS and browser apps.</p>
   </a>
@@ -83,10 +125,11 @@ ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Deve
     <p>Build a Todo app with Textile Thread pinning services.</p>
   </a>
   <span class="box-space"> </span>
-  <a href="https://github.com/textileio/go-threads/tree/master/examples/chat" target="_blank" class="box">
+  <!-- <a href="https://github.com/textileio/go-threads/tree/master/examples/chat" target="_blank" class="box">
     <h5>Go Chat App</h5>
     <p>Build a multi-user chat app in Go.</p>
-  </a>
+  </a> -->
+  <!-- link broken -->
   <span class="box-space"> </span>
   <span class="box-fill">
   </span>
@@ -94,9 +137,13 @@ ThreadDB is a secure, decentralized, p2p database built on IPFS and Libp2p. Deve
 
 ## Filecoin Powergate
 
-The Powergate is just warming up! The Powergate is an API driven solution to deploy hybrid Filecoin and IPFS storage into your stack. If you are eager and want to jump right in, follow one of the links below.
+!!!warning
+    The Powergate is undergoing rapid development and should not be used in production.
 
-**Dive into Filecoin**
+The Powergate is an API for deploying hybrid Filecoin and IPFS storage into your stack. If you're eager and want to jump right in, follow one of the links below.
+
+
+**Dive into Powergate**
 
 <div class="txtl-options">
   <a href="https://github.com/textileio/powergate/" class="box">
@@ -115,6 +162,26 @@ The Powergate is just warming up! The Powergate is an API driven solution to dep
   </a>
 </div>
 
+## Tutorials
+
+View our tutorials on getting started with JavaScript and Golang.
+
+**Learn more**
+
+<div class="txtl-options">
+  <a href="./tutorials/hub/web-app/" class="box">
+    <h5>JavaScript</h5>
+    <p>Learn about building JavaScript apps with Textile technologies.</p>
+  </a>
+  <span class="box-space"> </span>
+  <a href="./tutorials/go/getting-started/" class="box">
+    <h5>Golang</h5>
+    <p>Learn about using Go with Textile technologies.</p>
+  </a>
+  <span class="box-space"> </span>
+  <span class="box-fill">
+  </span>
+</div>
 
 ## Other Resources
 
@@ -122,7 +189,7 @@ Join our public [Slack](https://slack.textile.io), visit our [GitHub](https://gi
 
 
 <i>
-<a href="https://bafzbeidm2siabgz4imyuk5lldy4wyo7iyxblzzuwbl2ndxucp5nuhsjcly.ipns.hub.textile.io/" target="_blank" style="text-decoration:none;color:grey">This site is on /ipns/bafzbeidm2siabgz4imyuk5lldy4wyo7iyxblzzuwbl2ndxucp5nuhsjcly</a>
+<a href="https://bafzbeifr6cslv5f422xyfwr46ydc2u3gujgdeozynyofcxzgzue6fzcbme.ipns.dweb.link/" target="_blank" style="text-decoration:none;color:grey">This site is on /ipns/bafzbeifr6cslv5f422xyfwr46ydc2u3gujgdeozynyofcxzgzue6fzcbme</a>
 </i>
 
 ## Thanks!
@@ -130,72 +197,129 @@ Join our public [Slack](https://slack.textile.io), visit our [GitHub](https://gi
 To all of the great people who have contributed to the [Textile projects](https://github.com/textileio) recently.
 
 <div class='txtl-community'>
-  <a href='https://github.com/10thfloor' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/901466?v=4'/></a>
-  <a href='https://github.com/ArseniiPetrovich' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/23522179?v=4'/></a>
-  <a href='https://github.com/Gozala' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/21236?v=4'/></a>
-  <a href='https://github.com/Jewcub' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/52448067?v=4'/></a>
-  <a href='https://github.com/JustMaier' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/607609?v=4'/></a>
-  <a href='https://github.com/Schwartz10' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/12353734?v=4'/></a>
-  <a href='https://github.com/Tbaut' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/33178835?v=4'/></a>
-  <a href='https://github.com/TeNNoX' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/2084639?v=4'/></a>
-  <a href='https://github.com/abour' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/1284598?v=4'/></a>
-  <a href='https://github.com/adgitate1' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/8494994?v=4'/></a>
-  <a href='https://github.com/agnelvishal' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/10105332?v=4'/></a>
-  <a href='https://github.com/alzinging' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/46663325?v=4'/></a>
-  <a href='https://github.com/andrew' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/1060?v=4'/></a>
-  <a href='https://github.com/andrewxhill' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/370259?v=4'/></a>
-  <a href='https://github.com/aphelionz' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/106148?v=4'/></a>
-  <a href='https://github.com/askender' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/1472850?v=4'/></a>
-  <a href='https://github.com/asutula' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/528969?v=4'/></a>
-  <a href='https://github.com/b5' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/1154390?v=4'/></a>
-  <a href='https://github.com/bafu' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/292790?v=4'/></a>
-  <a href='https://github.com/balupton' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/61148?v=4'/></a>
-  <a href='https://github.com/bingcongam' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/69688013?v=4'/></a>
-  <a href='https://github.com/brennanfife' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/31396350?v=4'/></a>
-  <a href='https://github.com/burdiyan' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/1793789?v=4'/></a>
-  <a href='https://github.com/carsonfarmer' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/1220613?v=4'/></a>
-  <a href='https://github.com/cchrs' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/32277322?v=4'/></a>
-  <a href='https://github.com/codynhat' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/6885592?v=4'/></a>
-  <a href='https://github.com/deefactorial' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/4856696?v=4'/></a>
-  <a href='https://github.com/dgtony' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/7447516?v=4'/></a>
-  <a href='https://github.com/dpetranek' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/2993946?v=4'/></a>
-  <a href='https://github.com/eightysteele' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/462255?v=4'/></a>
-  <a href='https://github.com/emclab' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/946013?v=4'/></a>
-  <a href='https://github.com/flyskywhy' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/1439846?v=4'/></a>
-  <a href='https://github.com/genderev' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/60559370?v=4'/></a>
-  <a href='https://github.com/hacdias' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/5447088?v=4'/></a>
-  <a href='https://github.com/hoffmabc' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/45482?v=4'/></a>
-  <a href='https://github.com/imme5150' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/149497?v=4'/></a>
-  <a href='https://github.com/jainsameeksha729' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/22028156?v=4'/></a>
-  <a href='https://github.com/jehunter5811' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/10519834?v=4'/></a>
-  <a href='https://github.com/jimmylee' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/310223?v=4'/></a>
-  <a href='https://github.com/jorishermans' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/184018?v=4'/></a>
-  <a href='https://github.com/jsign' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/6136245?v=4'/></a>
-  <a href='https://github.com/jsonsivar' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/18757934?v=4'/></a>
-  <a href='https://github.com/jtacoma' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/301423?v=4'/></a>
-  <a href='https://github.com/kanej' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/24030?v=4'/></a>
-  <a href='https://github.com/kingHawkWin' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/30660399?v=4'/></a>
-  <a href='https://github.com/oed' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/3909429?v=4'/></a>
-  <a href='https://github.com/pcowgill' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/2731712?v=4'/></a>
-  <a href='https://github.com/perfectmak' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/3120013?v=4'/></a>
-  <a href='https://github.com/peterVG' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/672121?v=4'/></a>
-  <a href='https://github.com/philcryer' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/43070?v=4'/></a>
-  <a href='https://github.com/qiluge' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/19525062?v=4'/></a>
-  <a href='https://github.com/rajdeepbharati' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/30660439?v=4'/></a>
-  <a href='https://github.com/requilence' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/1025231?v=4'/></a>
-  <a href='https://github.com/sanderpick' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/361000?v=4'/></a>
-  <a href='https://github.com/seabornlee' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/735708?v=4'/></a>
-  <a href='https://github.com/shoce' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/261885?v=4'/></a>
-  <a href='https://github.com/susmit' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/16530052?v=4'/></a>
-  <a href='https://github.com/thasmin' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/198015?v=4'/></a>
-  <a href='https://github.com/theefer' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/36964?v=4'/></a>
-  <a href='https://github.com/tjayrush' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/5417918?v=4'/></a>
-  <a href='https://github.com/trashhalo' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/177491?v=4'/></a>
-  <a href='https://github.com/ukstv' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/193527?v=4'/></a>
-  <a href='https://github.com/undercase' target='_blank' class='txtl-member'><img src='https://avatars1.githubusercontent.com/u/2547706?v=4'/></a>
-  <a href='https://github.com/viddo' target='_blank' class='txtl-member'><img src='https://avatars3.githubusercontent.com/u/978461?v=4'/></a>
-  <a href='https://github.com/vonhenry' target='_blank' class='txtl-member'><img src='https://avatars0.githubusercontent.com/u/45424763?v=4'/></a>
-  <a href='https://github.com/warren-bank' target='_blank' class='txtl-member'><img src='https://avatars2.githubusercontent.com/u/6810270?v=4'/></a>
+  <a href='https://github.com/10thfloor' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/901466?v=4'/></a>
+  <a href='https://github.com/191644807' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/28557692?v=4'/></a>
+  <a href='https://github.com/4ov' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/54923746?v=4'/></a>
+  <a href='https://github.com/ArseniiPetrovich' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/23522179?v=4'/></a>
+  <a href='https://github.com/ChristianOConnor' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/47836708?v=4'/></a>
+  <a href='https://github.com/Gozala' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/21236?v=4'/></a>
+  <a href='https://github.com/Jewcub' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/52448067?v=4'/></a>
+  <a href='https://github.com/JoeGonzalez0886' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/16129477?v=4'/></a>
+  <a href='https://github.com/JustMaier' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/607609?v=4'/></a>
+  <a href='https://github.com/ROXtiGerf' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/26535320?v=4'/></a>
+  <a href='https://github.com/RetroPronghorn' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1770198?v=4'/></a>
+  <a href='https://github.com/Schwartz10' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/12353734?v=4'/></a>
+  <a href='https://github.com/Sunfocus' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/14137288?v=4'/></a>
+  <a href='https://github.com/TroyWilson1' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/11077207?v=4'/></a>
+  <a href='https://github.com/abour' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1284598?v=4'/></a>
+  <a href='https://github.com/achingbrain' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/665810?v=4'/></a>
+  <a href='https://github.com/adgitate1' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/8494994?v=4'/></a>
+  <a href='https://github.com/agnelvishal' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/10105332?v=4'/></a>
+  <a href='https://github.com/akash-s-simformsolutions' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/76422838?v=4'/></a>
+  <a href='https://github.com/akashsenta13' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/5343653?v=4'/></a>
+  <a href='https://github.com/albertkimdev' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/7885328?v=4'/></a>
+  <a href='https://github.com/amiyatulu' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/2051004?v=4'/></a>
+  <a href='https://github.com/andrew' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1060?v=4'/></a>
+  <a href='https://github.com/andrewxhill' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/370259?v=4'/></a>
+  <a href='https://github.com/anudit' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/12015553?v=4'/></a>
+  <a href='https://github.com/aphelionz' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/106148?v=4'/></a>
+  <a href='https://github.com/askender' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1472850?v=4'/></a>
+  <a href='https://github.com/asutula' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/528969?v=4'/></a>
+  <a href='https://github.com/b5' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1154390?v=4'/></a>
+  <a href='https://github.com/bafu' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/292790?v=4'/></a>
+  <a href='https://github.com/balupton' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/61148?v=4'/></a>
+  <a href='https://github.com/bbigras' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/24027?v=4'/></a>
+  <a href='https://github.com/bingcongam' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/69688013?v=4'/></a>
+  <a href='https://github.com/bitcard' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/9978206?v=4'/></a>
+  <a href='https://github.com/brennanfife' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/31396350?v=4'/></a>
+  <a href='https://github.com/bruce1ee' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/73994934?v=4'/></a>
+  <a href='https://github.com/bufdev' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/4228796?v=4'/></a>
+  <a href='https://github.com/burdiyan' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1793789?v=4'/></a>
+  <a href='https://github.com/burk3' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/81054?v=4'/></a>
+  <a href='https://github.com/carsonfarmer' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1220613?v=4'/></a>
+  <a href='https://github.com/cchrs' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/32277322?v=4'/></a>
+  <a href='https://github.com/chad' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/237?v=4'/></a>
+  <a href='https://github.com/chrisbratlien' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/21352?v=4'/></a>
+  <a href='https://github.com/codynhat' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/6885592?v=4'/></a>
+  <a href='https://github.com/dabit3' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1857282?v=4'/></a>
+  <a href='https://github.com/deefactorial' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/4856696?v=4'/></a>
+  <a href='https://github.com/dgtony' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/7447516?v=4'/></a>
+  <a href='https://github.com/dholms' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/4898225?v=4'/></a>
+  <a href='https://github.com/didier-durand' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/2927957?v=4'/></a>
+  <a href='https://github.com/dmerrill6' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/2295137?v=4'/></a>
+  <a href='https://github.com/dominique-blockchain' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/78389726?v=4'/></a>
+  <a href='https://github.com/dpetranek' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/2993946?v=4'/></a>
+  <a href='https://github.com/eightysteele' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/462255?v=4'/></a>
+  <a href='https://github.com/elijahkim' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/8673900?v=4'/></a>
+  <a href='https://github.com/emclab' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/946013?v=4'/></a>
+  <a href='https://github.com/felixniemeyer' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/5720176?v=4'/></a>
+  <a href='https://github.com/ffteng46' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/17234469?v=4'/></a>
+  <a href='https://github.com/flyskywhy' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1439846?v=4'/></a>
+  <a href='https://github.com/genderev' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/60559370?v=4'/></a>
+  <a href='https://github.com/hacdias' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/5447088?v=4'/></a>
+  <a href='https://github.com/haf' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/193115?v=4'/></a>
+  <a href='https://github.com/hoffmabc' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/45482?v=4'/></a>
+  <a href='https://github.com/imme5150' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/149497?v=4'/></a>
+  <a href='https://github.com/ipfsauth' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/65946479?v=4'/></a>
+  <a href='https://github.com/ipfslab' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/50262848?v=4'/></a>
+  <a href='https://github.com/jainsameeksha729' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/22028156?v=4'/></a>
+  <a href='https://github.com/jbowen93' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/5825193?v=4'/></a>
+  <a href='https://github.com/jimmylee' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/310223?v=4'/></a>
+  <a href='https://github.com/jnthnvctr' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/21000523?v=4'/></a>
+  <a href='https://github.com/jorishermans' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/184018?v=4'/></a>
+  <a href='https://github.com/jsign' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/6136245?v=4'/></a>
+  <a href='https://github.com/jsonsivar' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/18757934?v=4'/></a>
+  <a href='https://github.com/jtacoma' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/301423?v=4'/></a>
+  <a href='https://github.com/jvelo' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/58958?v=4'/></a>
+  <a href='https://github.com/kalambet' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1240189?v=4'/></a>
+  <a href='https://github.com/kanej' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/24030?v=4'/></a>
+  <a href='https://github.com/kenshyx' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/3396463?v=4'/></a>
+  <a href='https://github.com/kingHawkWin' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/30660399?v=4'/></a>
+  <a href='https://github.com/madrigal1' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/30615210?v=4'/></a>
+  <a href='https://github.com/mcrakhman' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/16068868?v=4'/></a>
+  <a href='https://github.com/mehtaphysical' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1251420?v=4'/></a>
+  <a href='https://github.com/merlinran' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1369696?v=4'/></a>
+  <a href='https://github.com/mithrayls' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/46880236?v=4'/></a>
+  <a href='https://github.com/mmuenker' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/46753218?v=4'/></a>
+  <a href='https://github.com/momack2' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/618519?v=4'/></a>
+  <a href='https://github.com/morrigan' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/4976604?v=4'/></a>
+  <a href='https://github.com/n1ru4l' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/14338007?v=4'/></a>
+  <a href='https://github.com/niklabh' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/874046?v=4'/></a>
+  <a href='https://github.com/oed' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/3909429?v=4'/></a>
+  <a href='https://github.com/pcowgill' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/2731712?v=4'/></a>
+  <a href='https://github.com/perfectmak' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/3120013?v=4'/></a>
+  <a href='https://github.com/peterVG' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/672121?v=4'/></a>
+  <a href='https://github.com/philcryer' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/43070?v=4'/></a>
+  <a href='https://github.com/platocrat' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/37757724?v=4'/></a>
+  <a href='https://github.com/polluterofminds' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/10519834?v=4'/></a>
+  <a href='https://github.com/publu' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/4308462?v=4'/></a>
+  <a href='https://github.com/qiluge' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/19525062?v=4'/></a>
+  <a href='https://github.com/rajdeepbh' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/30660439?v=4'/></a>
+  <a href='https://github.com/requilence' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1025231?v=4'/></a>
+  <a href='https://github.com/rkalis' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/9142187?v=4'/></a>
+  <a href='https://github.com/ryardley' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/1256409?v=4'/></a>
+  <a href='https://github.com/saintmalik' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/37118134?v=4'/></a>
+  <a href='https://github.com/sanderpick' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/361000?v=4'/></a>
+  <a href='https://github.com/sbiaudet' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/3100668?v=4'/></a>
+  <a href='https://github.com/sebastinez' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/7912302?v=4'/></a>
+  <a href='https://github.com/shoce' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/261885?v=4'/></a>
+  <a href='https://github.com/shoyebinamdar' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/7439459?v=4'/></a>
+  <a href='https://github.com/talentlessguy' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/35937217?v=4'/></a>
+  <a href='https://github.com/tangshuya' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/17977588?v=4'/></a>
+  <a href='https://github.com/tatecarson' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/12865394?v=4'/></a>
+  <a href='https://github.com/tennox' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/2084639?v=4'/></a>
+  <a href='https://github.com/textileben' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/75027799?v=4'/></a>
+  <a href='https://github.com/thasmin' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/198015?v=4'/></a>
+  <a href='https://github.com/theefer' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/36964?v=4'/></a>
+  <a href='https://github.com/trashhalo' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/177491?v=4'/></a>
+  <a href='https://github.com/ukstv' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/193527?v=4'/></a>
+  <a href='https://github.com/undercase' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/2547706?v=4'/></a>
+  <a href='https://github.com/viddo' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/978461?v=4'/></a>
+  <a href='https://github.com/vikiival' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/22471030?v=4'/></a>
+  <a href='https://github.com/warren-bank' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/6810270?v=4'/></a>
+  <a href='https://github.com/weaming' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/10275711?v=4'/></a>
+  <a href='https://github.com/woss' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/80440?v=4'/></a>
+  <a href='https://github.com/yaoyichen2019' target='_blank' class='txtl-member'><img src='https://avatars.githubusercontent.com/u/51697043?v=4'/></a>
 </div>
 
 <br>
