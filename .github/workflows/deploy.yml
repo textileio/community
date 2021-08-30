@@ -18,11 +18,13 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: build
+        working-directory: ./docs
         run: |
           ./scripts/setup
           ./scripts/build
       - name: push # push to a known bucket
         id: bucket
+        working-directory: ./docs
         uses: textileio/github-action-buckets@master
         with:
           key: ${{ secrets.TEXTILE_ORG_ACCOUNT_KEY }}
