@@ -28,7 +28,7 @@ More documentation for the Go implementation will be coming in the future.
 
 The second implementation is written in JavaScript (Typescript, really). This implementation has some optimizations to make it more ideal when writing web applications. The JavaScript implementation is currently a Client of the Go implementation. You can run it against your own go-threads instance or connect it to the Textile Hub to use one of ours. Read more about the [Client here](https://textileio.github.io/js-textile/docs/hub.client).
 
-In general, when building apps that use threads in a remote context, like the browser, it's best to push the networking later to remote services whenever possible (while using/allowing p2p when it works). You can also build your own remote relays and services using the [go-threads](https://github.com/textileio/go-threads/) library.
+In general, when building apps that use threads in a remote context, like the browser, it's best to push the networking layer to remote services whenever possible (while using/allowing p2p when it works). You can also build your own remote relays and services using the [go-threads](https://github.com/textileio/go-threads/) library.
 
 For the rest of the explanation below, we'll focus on examples using the JavaScript library.
 
