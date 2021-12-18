@@ -12,7 +12,7 @@ Pick a starting point below, or use the search box to find documents matching yo
 
 ## Latest announcements
 
-We've been working hard to deliver you new and improved tools for permissionless storage. Recenctly we the first of those projects. 
+We've been working hard to deliver you new and improved tools for permissionless storage. Recenctly we released the first of those projects.
 
 ### Filecoin bridge on Polygon
 
