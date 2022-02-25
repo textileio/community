@@ -8,93 +8,101 @@ We'll build an example that allows users of your app to post photo galleries to 
 
 There are a few resources you'll need before you start writing code.
 
-- [A new Typescript web app](https://webpack.js.org/guides/typescript/). We recommend using Typescript, as Textile libraries are in a period rapid of development and type detection is valuable during upgrades.
-- You should already be familiar with how to create user identities and how to generate API keys.
+-   [A new Typescript web app](https://webpack.js.org/guides/typescript/). We recommend using Typescript, as Textile libraries are in a period rapid of development and type detection is valuable during upgrades.
+-   You should already be familiar with how to create user identities and how to generate API keys.
 
 ## Initialize Buckets
 
 In your app, there are two items you'll regularly use when building with Buckets.
 
-* The [Buckets class](https://textileio.github.io/js-textile/docs/hub.buckets) object where you'll initialize an API client for your user and call bucket methods.
-* The `key` of any bucket you want to interact with regularly since you'll need to tell the API which Bucket you're acting on.
+-   The [Buckets class](https://textileio.github.io/js-textile/docs/hub.buckets) object where you'll initialize an API client for your user and call bucket methods.
+-   The `key` of any bucket you want to interact with regularly since you'll need to tell the API which Bucket you're acting on.
 
 So, to get started in our app, we're going to do three things at once.
 
-1. *Create* a new **Bucket object**.
-2. *Create or fetch* the **existing bucket** of interest by name.
-3. *Get* the **key** of the bucket.
+1. _Create_ a new **Bucket object**.
+2. _Create or fetch_ the **existing bucket** of interest by name.
+3. _Get_ the **key** of the bucket.
 
 !!!info
-    For this tutorial, you'll be using an API key generated as part of a User Group key. It's possible to use Account Keys together with these APIs but they do not work in the same way since only Account owners (or Org members) can use them. A User Group key will allow you to create buckets for each user of your app.
+For this tutorial, you'll be using an API key generated as part of a User Group key. It's possible to use Account Keys together with these APIs but they do not work in the same way since only Account owners (or Org members) can use them. A User Group key will allow you to create buckets for each user of your app.
 
 ```typescript
-import { Buckets, Identity, KeyInfo } from '@textile/hub'
+import { Buckets, Identity, KeyInfo } from "@textile/hub";
 
 const setup = async (key: KeyInfo, identity: Identity) => {
-  // Use the insecure key to set up the buckets client
-  const buckets = await Buckets.withKeyInfo(key)
-  // Authorize the user and your insecure keys with getToken
-  await buckets.getToken(identity) 
+    // Use the insecure key to set up the buckets client
+    const buckets = await Buckets.withKeyInfo(key);
+    // Authorize the user and your insecure keys with getToken
+    await buckets.getToken(identity);
 
-  const result = await buckets.open('io.textile.dropzone')
-  if (!result.root) {
-    throw new Error('Failed to open bucket')
-  }
-  return {
-      buckets: buckets, 
-      bucketKey: result.root.key,
-  }
-}
+    const result = await buckets.open("io.textile.dropzone");
+    if (!result.root) {
+        throw new Error("Failed to open bucket");
+    }
+    return {
+        buckets: buckets,
+        bucketKey: result.root.key,
+    };
+};
 ```
 
 ## Create a photo index
 
-If you're going to allow users to upload more than a few images or files, it can be helpful to track the metadata in an index. 
+If you're going to allow users to upload more than a few images or files, it can be helpful to track the metadata in an index.
 
-In our final example, we resample the photos on the fly, storing multiple sizes for better display performance. We track all those files with a simple JSON index in the root of our bucket. 
+In our final example, we resample the photos on the fly, storing multiple sizes for better display performance. We track all those files with a simple JSON index in the root of our bucket.
 
 It would be better to store that index right in the user's Thread! But we wanted to keep this tutorial simple.
 
 ```typescript
-import { Buckets, Identity } from '@textile/hub'
+import { Buckets, Identity } from "@textile/hub";
 
-const initIndex = async (buckets: Buckets, bucketKey: string, identity: Identity) => {
-  // Create a json model for the index
-  const index = {
-    author: identity.public.toString(),
-    date: (new Date()).getTime(),
-    paths: [],
-  }
-  // Store the index in the Bucket (or in the Thread later)
-  const buf = Buffer.from(JSON.stringify(index, null, 2))
-  const path = `index.json`
-  await buckets.pushPath(bucketKey, path, buf)
-}
+const initIndex = async (
+    buckets: Buckets,
+    bucketKey: string,
+    identity: Identity
+) => {
+    // Create a json model for the index
+    const index = {
+        author: identity.public.toString(),
+        date: new Date().getTime(),
+        paths: [],
+    };
+    // Store the index in the Bucket (or in the Thread later)
+    const buf = Buffer.from(JSON.stringify(index, null, 2));
+    const path = `index.json`;
+    await buckets.pushPath(bucketKey, path, buf);
+};
 ```
 
-Now you can update the paths each time you add new images to the bucket. 
+Now you can update the paths each time you add new images to the bucket.
 
-In our example, we add 4 files for every image, full-res, medium-res, thumbnail, and metadata. We also update the paths with a link to the file's metadata on each update. 
+In our example, we add 4 files for every image, full-res, medium-res, thumbnail, and metadata. We also update the paths with a link to the file's metadata on each update.
 
 In this way, an app can load just the single list of metadata and decide what to display.
 
 ## Create a public view
 
-Buckets are cross-protocol objects meaning that you can use them in IPFS, IPNS, or HTTP. 
+Buckets are cross-protocol objects meaning that you can use them in IPFS, IPNS, or HTTP.
 
-If you want to create a public view of a bucket over HTTP, you should add an `index.html` to the root. 
+If you want to create a public view of a bucket over HTTP, you should add an `index.html` to the root.
 
 In our example, we add an `index.html` that knows how to parse and display files based on the `./index.json` stored above, in the same bucket.
 
 ```typescript
-import { Buckets, Identity } from '@textile/hub'
+import { Buckets, Identity } from "@textile/hub";
 
-const addIndexHTML = async (buckets: Buckets, bucketKey: string, html: string) => {
-  // Store the index.html in the root of the bucket
-  const buf = Buffer.from(html)
-  const path = `index.html`
-  await buckets.pushPath(bucketKey, path, buf)
-}
+const addIndexHTML = async (
+    buckets: Buckets,
+    bucketKey: string,
+    html: string
+) => {
+    // Store the index.html in the root of the bucket
+    const buf = Buffer.from(html);
+    const path = `index.html`;
+    await buckets.pushPath(bucketKey, path, buf);
+};
 ```
 
 ## Push files
@@ -102,47 +110,56 @@ const addIndexHTML = async (buckets: Buckets, bucketKey: string, html: string) =
 You're now ready to start pushing files to the bucket. You can push each binary file to a specific path in the bucket by using `pushPath`.
 
 ```typescript
-import { Buckets, PushPathResult } from '@textile/hub'
+import { Buckets, PushPathResult } from "@textile/hub";
 
-const insertFile = (buckets: Buckets, bucketKey: string, file: File, path: string): Promise<PushPathResult> => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.onabort = () => reject('file reading was aborted')
-    reader.onerror = () => reject('file reading has failed')
-    reader.onload = () => {
-      const binaryStr = reader.result
-      // Finally, push the full file to the bucket
-      buckets.pushPath(bucketKey, path, binaryStr).then((raw) => {
-        resolve(raw)
-      })
-    }
-    reader.readAsArrayBuffer(file)
-  })
-}
+const insertFile = (
+    buckets: Buckets,
+    bucketKey: string,
+    file: File,
+    path: string
+): Promise<PushPathResult> => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onabort = () => reject("file reading was aborted");
+        reader.onerror = () => reject("file reading has failed");
+        reader.onload = () => {
+            const binaryStr = reader.result;
+            // Finally, push the full file to the bucket
+            buckets.pushPath(bucketKey, path, binaryStr).then((raw) => {
+                resolve(raw);
+            });
+        };
+        reader.readAsArrayBuffer(file);
+    });
+};
 ```
 
 At this point, we also update our `index.json` with the new file.
 
 ## Push encrypted buckets
 
-If your app is providing private spaces for your users to organize their photos or files, you can also create encrypted buckets for them. 
+If your app is providing private spaces for your users to organize their photos or files, you can also create encrypted buckets for them.
 
 The `open` and `init` methods on the Bucket class take an `isEncrypted` option. Your bucket start method may look like:
 
 ```typescript
-import { Buckets } from '@textile/hub'
+import { Buckets } from "@textile/hub";
 
 const openEncrypted = async (buckets: Buckets) => {
-  const isEncrypted = true
-  const result = await buckets.open('io.textile.encrypted', undefined, isEncrypted)
-  if (!result.root) {
-    throw new Error('Failed to open bucket')
-  }
-  return {
-      buckets: buckets, 
-      bucketKey: result.root.key,
-  }
-}
+    const isEncrypted = true;
+    const result = await buckets.open(
+        "io.textile.encrypted",
+        undefined,
+        isEncrypted
+    );
+    if (!result.root) {
+        throw new Error("Failed to open bucket");
+    }
+    return {
+        buckets: buckets,
+        bucketKey: result.root.key,
+    };
+};
 ```
 
 ### Sharing encrypted buckets
@@ -151,7 +168,7 @@ There is no way to convert encrypted Buckets to non-encrypted or vice-versa.
 
 However, it should be straight-forward to move files from an encrypted Bucket into a non-encrypted Bucket and back again.
 
-Adding multiple readers or writers to Buckets is only currently available through `orgs` for developers, not app users. 
+Adding multiple readers or writers to Buckets is only currently available through `orgs` for developers, not app users.
 
 However, we will include this ability in future releases. This is dependent on our work to implement more advanced [Threads ACLs](https://github.com/textileio/go-threads/issues/295).
 

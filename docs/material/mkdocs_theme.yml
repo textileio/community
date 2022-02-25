@@ -27,7 +27,6 @@ direction:
 # Feature flags for functionality that alters behavior significantly, and thus
 # may be a matter of taste
 feature:
-
   # Another layer on top of the main navigation for larger screens in the form
   # of tabs, especially useful for larger documentation projects
   tabs: false
@@ -35,7 +34,6 @@ feature:
 # Sets the primary and accent color palettes as defined in the Material Design
 # documentation - possible values can be looked up in the getting started guide
 palette:
-
   # Primary color used for header, sidebar and links, default: indigo
   primary:
 
@@ -45,7 +43,6 @@ palette:
 # Fonts used by Material, automatically loaded from Google Fonts - see the site
 # for a list of available fonts
 font:
-
   # Default font for text
   text: Roboto
 

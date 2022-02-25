@@ -1,18 +1,18 @@
-# ThreadDB & Buckets and  in Go
+# ThreadDB & Buckets and in Go
 
 You have access to the full suite of Textile APIs and technologies in Go. This includes access to:
 
-* Hub-based persistence
-* Thread client
-* Local Thread databases
-* Bucket client
-* And more. 
+-   Hub-based persistence
+-   Thread client
+-   Local Thread databases
+-   Bucket client
+-   And more.
 
 Below, we'll walk you through the basic flow for interacting with the Hub-backed [ThreadDB](https://github.com/textileio/go-threads).
 
 ## Set up your project
 
-Create a directory for your project and initialize a new go module. 
+Create a directory for your project and initialize a new go module.
 
 ```sh
 mkdir hello-threads
@@ -20,13 +20,13 @@ cd hello-threads
 go mod init github.com/example/hello-threads
 ```
 
-Go is particular about how you install libraries above v2. To ensure you are using the latest, grab v2 now. 
+Go is particular about how you install libraries above v2. To ensure you are using the latest, grab v2 now.
 
 ```sh
 go get github.com/textileio/textile/v2
 ```
 
-Next, create a `main.go` that you'll use to build your first thread client. 
+Next, create a `main.go` that you'll use to build your first thread client.
 
 ```sh
 touch main.go
@@ -108,12 +108,11 @@ func NewUserAuthCtx(ctx context.Context, userGroupKey string, userGroupSecret st
 }
 ```
 
-The above function will take your API key and secret and set up a `context` ready to prove to the API that the user is who they claim to be. 
-
+The above function will take your API key and secret and set up a `context` ready to prove to the API that the user is who they claim to be.
 
 ## Request and specify a user token
 
-A user token is generated per-user and can then be used with subsequent API calls to specify what user is making the request. They can only be created using valid API credentials and provable user identity. 
+A user token is generated per-user and can then be used with subsequent API calls to specify what user is making the request. They can only be created using valid API credentials and provable user identity.
 
 ```go
 func NewTokenCtx(ctx context.Context, user thread.Identity) (context.Context, error){
@@ -126,12 +125,11 @@ func NewTokenCtx(ctx context.Context, user thread.Identity) (context.Context, er
 }
 ```
 
-You can also store and reuse the token, but it needs to be attached the the `context` before future API calls. 
+You can also store and reuse the token, but it needs to be attached the the `context` before future API calls.
 
 ## Create a new DB
 
 Let's put it all together and then create a new Thread database for our user.
-
 
 ```go
 package main
@@ -212,7 +210,7 @@ func main() {
     if err != nil {
         panic(err)
     }
-    
+
     fmt.Println("> Success!")
     fmt.Println(threadID)
 }

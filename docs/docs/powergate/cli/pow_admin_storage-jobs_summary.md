@@ -28,5 +28,4 @@ pow admin storage-jobs summary [flags]
 
 ### SEE ALSO
 
-* [pow admin storage-jobs](pow_admin_storage-jobs.md)	 - Provides admin jobs commands
-
+-   [pow admin storage-jobs](pow_admin_storage-jobs.md) - Provides admin jobs commands

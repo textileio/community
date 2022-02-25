@@ -58,17 +58,17 @@ In addition, you represent to us that you and your financial institutions, or an
 
 6.1 Generally. We may suspend your or any End User's right to access or use any portion or all of the Service Offerings immediately upon notice to you if we determine:
 
-* You or an End User's use of the Service Offerings (i) poses a security risk to the Service Offerings or any third party, (ii) could adversely impact our systems, the Service Offerings or the systems or Content of any other Textile user, (iii) could subject us, our affiliates, or any third party to liability, or (iv) could be fraudulent;
-* You are, or any End User is, in breach of this Agreement;
-* You are in breach of your payment obligations under Section 5, and such breach continues for 30 days or longer; or
-* You have ceased to operate in the ordinary course, made an assignment for the benefit of creditors or similar disposition of your assets, or become the subject of any bankruptcy, reorganization, liquidation, dissolution or similar proceeding.
+-   You or an End User's use of the Service Offerings (i) poses a security risk to the Service Offerings or any third party, (ii) could adversely impact our systems, the Service Offerings or the systems or Content of any other Textile user, (iii) could subject us, our affiliates, or any third party to liability, or (iv) could be fraudulent;
+-   You are, or any End User is, in breach of this Agreement;
+-   You are in breach of your payment obligations under Section 5, and such breach continues for 30 days or longer; or
+-   You have ceased to operate in the ordinary course, made an assignment for the benefit of creditors or similar disposition of your assets, or become the subject of any bankruptcy, reorganization, liquidation, dissolution or similar proceeding.
 
-6.2 Effect of Suspension. If we suspend your right to access or use any portion or all of the Service Offerings:
+    6.2 Effect of Suspension. If we suspend your right to access or use any portion or all of the Service Offerings:
 
-* You remain responsible for all fees and charges you incur during the period of suspension; and
-* You will not be entitled to any service credits for any period of suspension.
+-   You remain responsible for all fees and charges you incur during the period of suspension; and
+-   You will not be entitled to any service credits for any period of suspension.
 
-6.3 Limiting API Requests. We retain sole discretion to limit your usage of the Services (including without limitation by limiting the number of API requests you may submit to our gateways or nodes ("API Requests")) at any time if your usage of the Services exceeds the applicable Threshold for your Selected Plan of Service.
+    6.3 Limiting API Requests. We retain sole discretion to limit your usage of the Services (including without limitation by limiting the number of API requests you may submit to our gateways or nodes ("API Requests")) at any time if your usage of the Services exceeds the applicable Threshold for your Selected Plan of Service.
 
 ## 7. Term; Termination.
 
@@ -76,18 +76,18 @@ In addition, you represent to us that you and your financial institutions, or an
 
 7.2 Termination.
 
-* Termination for Convenience. You may terminate this Agreement for any reason by providing us at least 30 days' written notice, after which you will close your account for all Services. We may terminate this Agreement for any reason by providing you at least 30 days' written notice.
-* Termination for Cause.
-    * By Either Party. Either party may terminate this Agreement for cause if the other party is in material breach of this Agreement and the material breach remains uncured for a period of 30 days from receipt of notice by the other party. No later than the Termination Date, you will close your account.
-    * By Us. We may also terminate this Agreement immediately upon notice to you (A) for cause if we have the right to suspend under Section 6, (B) if our relationship with a third-party partner who provides software or other technology we use to provide the Service Offerings expires, terminates or requires us to change the way we provide the software or other technology as part of the Services, or (C) in order to comply with the law or requests of governmental entities.
+-   Termination for Convenience. You may terminate this Agreement for any reason by providing us at least 30 days' written notice, after which you will close your account for all Services. We may terminate this Agreement for any reason by providing you at least 30 days' written notice.
+-   Termination for Cause.
+    _ By Either Party. Either party may terminate this Agreement for cause if the other party is in material breach of this Agreement and the material breach remains uncured for a period of 30 days from receipt of notice by the other party. No later than the Termination Date, you will close your account.
+    _ By Us. We may also terminate this Agreement immediately upon notice to you (A) for cause if we have the right to suspend under Section 6, (B) if our relationship with a third-party partner who provides software or other technology we use to provide the Service Offerings expires, terminates or requires us to change the way we provide the software or other technology as part of the Services, or (C) in order to comply with the law or requests of governmental entities.
 
-7.3 Effect of Termination. Upon the Termination Date:
+    7.3 Effect of Termination. Upon the Termination Date:
 
-* All your rights under this Agreement immediately terminate;
-* Each party remains responsible for all fees and charges it has incurred through the Termination Date and is responsible for any fees and charges it incurs during the post-termination period;
-* You will immediately return or, if instructed by us, destroy all Textile Content in your possession;
-* Sections 4.1, 5, 7.3, 8 (except the license granted to you in Section 8.3), 9, 10, 11, 13, and 15 will continue to apply in accordance with their terms.
-  
+-   All your rights under this Agreement immediately terminate;
+-   Each party remains responsible for all fees and charges it has incurred through the Termination Date and is responsible for any fees and charges it incurs during the post-termination period;
+-   You will immediately return or, if instructed by us, destroy all Textile Content in your possession;
+-   Sections 4.1, 5, 7.3, 8 (except the license granted to you in Section 8.3), 9, 10, 11, 13, and 15 will continue to apply in accordance with their terms.
+
 For any use of the Services after the Termination Date, the terms of this Agreement will apply and you will pay the applicable fees at the rates under Section 5.
 Proprietary Rights.
 
@@ -106,11 +106,11 @@ We will defend, indemnify, and hold harmless you and your employees, officers, d
 
 9.2 Intellectual Property.
 
-* Subject to the limitations in this Section 9, you will defend Textile, its affiliates, and their respective employees, officers, and directors against any third-party claim alleging that any of Your Content infringes or misappropriates that third party's intellectual property rights, and will pay the amount of any adverse final judgment or settlement.
-* Subject to the limitations in this Section 9, we will defend you and your employees, officers, and directors against any third-party claim alleging that the Services infringe or misappropriate that third party's intellectual property rights, and will pay the amount of any adverse final judgment or settlement.
-* Neither party will have obligations or liability under this Section 9.2 arising from infringement by combinations of the Services or Your Content, as applicable, with any other product, service, software, data, content or method. In addition, Textile will have no obligations or liability arising from your or any End User's use of the Services after Textile has notified you to discontinue such use. The remedies provided in this Section 9.2 are the sole and exclusive remedies for any third-party claims of infringement or misappropriation of intellectual property rights by the Services or by Your Content.
+-   Subject to the limitations in this Section 9, you will defend Textile, its affiliates, and their respective employees, officers, and directors against any third-party claim alleging that any of Your Content infringes or misappropriates that third party's intellectual property rights, and will pay the amount of any adverse final judgment or settlement.
+-   Subject to the limitations in this Section 9, we will defend you and your employees, officers, and directors against any third-party claim alleging that the Services infringe or misappropriate that third party's intellectual property rights, and will pay the amount of any adverse final judgment or settlement.
+-   Neither party will have obligations or liability under this Section 9.2 arising from infringement by combinations of the Services or Your Content, as applicable, with any other product, service, software, data, content or method. In addition, Textile will have no obligations or liability arising from your or any End User's use of the Services after Textile has notified you to discontinue such use. The remedies provided in this Section 9.2 are the sole and exclusive remedies for any third-party claims of infringement or misappropriation of intellectual property rights by the Services or by Your Content.
 
-9.3 Process. In no event will a party agree to any settlement of any claim that involves any commitment, other than the payment of money, without the written consent of the other party.
+    9.3 Process. In no event will a party agree to any settlement of any claim that involves any commitment, other than the payment of money, without the written consent of the other party.
 
 ## 10. Disclaimers; Risk.
 
@@ -121,12 +121,15 @@ We will defend, indemnify, and hold harmless you and your employees, officers, d
 10.3 Platform Security. Textile is an early-stage platform. You acknowledge that IPFS and Filecoin applications are software subject to flaws and acknowledge that you are solely responsible for evaluating any available code provided by the Services. You further expressly acknowledge and represent that IPFS and Filecoin applications can be written maliciously or negligently, that Textile cannot be held liable for your interaction with such applications and that such applications may cause loss of property or identity. These warnings and others later provided by Textile in no way evidence or represent an on-going duty to alert you to all of the potential risks of utilizing the Services.
 
 ## 11. Limitations of Liability.
+
 YOU ACKNOWLEDGE AND AGREE THAT YOU ASSUME FULL RESPONSIBILITY FOR YOUR USE OF THE TEXTILE SITE AND THE SERVICES. YOU ACKNOWLEDGE AND AGREE THAT ANY INFORMATION YOU SEND OR RECEIVE DURING YOUR USE OF THE TEXTILE SITE AND THE SERVICES MAY NOT BE SECURE AND MAY BE INTERCEPTED OR LATER ACQUIRED BY UNAUTHORIZED PARTIES. YOU ACKNOWLEDGE AND AGREE THAT YOUR USE OF THE TEXTILE SITE AND THE SERVICES IS AT YOUR OWN RISK. RECOGNIZING SUCH, YOU UNDERSTAND AND AGREE THAT, TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW AND NOTWITHSTANDING ANYTHING HEREIN TO THE CONTRARY, WE AND OUR AFFILIATES AND LICENSORS WILL NOT BE LIABLE TO YOU FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES (INCLUDING DAMAGES FOR LOSS OF PROFITS, REVENUES, CUSTOMERS, OPPORTUNITIES, GOODWILL, USE, OR DATA), EVEN IF A PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. FURTHER, NEITHER WE NOR ANY OF OUR AFFILIATES OR LICENSORS WILL BE RESPONSIBLE FOR ANY COMPENSATION, REIMBURSEMENT, OR DAMAGES ARISING IN CONNECTION WITH: (A) YOUR INABILITY TO USE THE SERVICES, INCLUDING AS A RESULT OF ANY (I) TERMINATION OR SUSPENSION OF THIS AGREEMENT OR YOUR USE OF OR ACCESS TO THE SERVICE OFFERINGS, (II) OUR DISCONTINUATION OF ANY OR ALL OF THE SERVICE OFFERINGS, OR (III) ANY UNANTICIPATED OR UNSCHEDULED DOWNTIME OF ALL OR A PORTION OF THE SERVICES FOR ANY REASON; (B) THE COST OF PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; (C) ANY INVESTMENTS, EXPENDITURES, OR COMMITMENTS BY YOU IN CONNECTION WITH THIS AGREEMENT OR YOUR USE OF OR ACCESS TO THE SERVICE OFFERINGS; (D) ANY UNAUTHORIZED ACCESS TO, ALTERATION OF, FAILURE TO ACCESS, RETRIEVE, MANAGE OR DELETE, OR THE DELETION, DESTRUCTION, DAMAGE, LOSS OR FAILURE TO STORE ANY OF YOUR CONTENT OR OTHER DATA; (E) ANY ACTIONS WE TAKE OR FAIL TO TAKE AS A RESULT OF COMMUNICATIONS YOU SEND TO US; (F) HUMAN ERRORS; (G) TECHNICAL MALFUNCTIONS; (H) FAILURES, INCLUDING PUBLIC UTILITY OR TELEPHONE OUTAGES; (I) OMISSIONS, INTERRUPTIONS, LATENCY, DELETIONS OR DEFECTS OF ANY DEVICE OR NETWORK, PROVIDERS, OR SOFTWARE (INCLUDING, BUT NOT LIMITED TO, THOSE THAT DO NOT PERMIT PARTICIPATION IN THE SERVICES); (J) ANY INJURY OR DAMAGE TO COMPUTER EQUIPMENT; (K) INABILITY TO FULLY ACCESS THE TEXTILE SITE OR THE SERVICES OR ANY OTHER WEBSITE; (L) THEFT, TAMPERING, DESTRUCTION, OR UNAUTHORIZED ACCESS TO, IMAGES OR OTHER CONTENT OF ANY KIND; (M) DATA THAT IS PROCESSED LATE OR INCORRECTLY OR IS INCOMPLETE OR LOST; (N) TYPOGRAPHICAL, PRINTING OR OTHER ERRORS, OR ANY COMBINATION THEREOF; OR (O) ANY OTHER MATTER RELATING TO THE TEXTILE SITE OR THE SERVICES. IN ADDITION, NOTWITHSTANDING ANYTHING HEREIN TO THE CONTRARY, OUR AND OUR AFFILIATES' AND LICENSORS' AGGREGATE LIABILITY UNDER THIS AGREEMENT WILL NOT EXCEED THE AMOUNT YOU ACTUALLY PAY US UNDER THIS AGREEMENT FOR THE SERVICE THAT GAVE RISE TO THE CLAIM DURING THE 12 MONTHS BEFORE THE LIABILITY AROSE. THE LIMITATIONS IN THIS SECTION 11 APPLY ONLY TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW.
 
 ## 12. Modifications to the Agreement.
+
 We reserve the right, at our sole discretion, to modify or replace any part of this Agreement (including any Policies) at any time. It is your responsibility to check this Agreement periodically for changes. Your continued use of or access to the Textile Site or the Services following the posting of any changes to this Agreement constitutes acceptance of those changes. We may also, in the future, offer new services and/or features through the Textile Site (including, the release of new tools and resources). Such new features and/or services shall be subject to the terms and conditions of this Agreement.
 
 ## 13. Binding Arbitration and Class Action Waiver
+
 PLEASE READ THIS SECTION CAREFULLY – IT MAY SIGNIFICANTLY AFFECT YOUR LEGAL RIGHTS, INCLUDING YOUR RIGHT TO FILE A LAWSUIT IN COURT.
 
 13.1 Binding Arbitration. Any dispute, claim, or controversy ("Claim") relating in any way to this Agreement, the Textile Site, your use of the Service Offerings, or to any products or services sold or distributed by Textile will be resolved by binding arbitration as provided in this Section 13, rather than in court, except that you may assert claims in small claims court if your claims qualify. The Federal Arbitration Act and federal arbitration law apply to this Agreement. There is no judge or jury in arbitration, and court review of an arbitration award is limited. However, an arbitrator can award on an individual basis the same damages and relief as a court (including injunctive and declaratory relief or statutory damages) and must follow the terms of this Agreement as a court would. The arbitration will be conducted in accordance with the expedited procedures set forth in the JAMS Comprehensive Arbitration Rules and Procedures (the "Rules") as those Rules exist on the effective date of this Agreement, including Rules 16.1 and 16.2 of those Rules. The arbitrator's decision shall be final, binding, and non-appealable. Judgment upon the award may be entered and enforced in any court having jurisdiction. Neither party shall sue the other party other than as provided herein or for enforcement of this clause or of the arbitrator's award; any such suit may be brought only in a Federal District Court or a California state court located in San Francisco County, California. The arbitrator, and not any federal, state, or local court, shall have exclusive authority to resolve any dispute relating to the interpretation, applicability, unconscionability, arbitrability, enforceability, or formation of this Agreement including any claim that all or any part of the Agreement is void or voidable. If a claim proceeds in court for any reason rather than in arbitration, we and you waive any right to a jury trial. Notwithstanding the foregoing, we and you both agree that you or we may bring suit in court to enjoin infringement or other misuse of intellectual property rights.
@@ -159,65 +162,66 @@ We're proud to have you as a customer. During the term of this agreement, you he
 
 15.9 Notice.
 
-- To You. We may provide any notice to you under this Agreement by: (i) posting a notice on the Textile Site; or (ii) sending a message to the email address then associated with your account. Notices we provide by posting on the Textile Site will be effective upon posting and notices we provide by email will be effective when we send the email. It is your responsibility to keep your email address current. You will be deemed to have received any email sent to the email address then associated with your account when we send the email, whether or not you actually receive the email.
-- To Us. To give us notice under this Agreement, you must contact Textile by email at contact@textile.io or personal delivery, overnight courier or registered or certified mail to the following mailing address: Suite 100, 100 Shoreline Hwy, Bldg B, Mill Valley, CA 94941, United States. We may update the email or address for notices to us by posting a notice on the textile Site. Notices provided by personal delivery will be effective immediately. Notices provided by overnight courier will be effective one business day after they are sent. Notices provided by registered or certified mail will be effective three business days after they are sent.
+-   To You. We may provide any notice to you under this Agreement by: (i) posting a notice on the Textile Site; or (ii) sending a message to the email address then associated with your account. Notices we provide by posting on the Textile Site will be effective upon posting and notices we provide by email will be effective when we send the email. It is your responsibility to keep your email address current. You will be deemed to have received any email sent to the email address then associated with your account when we send the email, whether or not you actually receive the email.
+-   To Us. To give us notice under this Agreement, you must contact Textile by email at contact@textile.io or personal delivery, overnight courier or registered or certified mail to the following mailing address: Suite 100, 100 Shoreline Hwy, Bldg B, Mill Valley, CA 94941, United States. We may update the email or address for notices to us by posting a notice on the textile Site. Notices provided by personal delivery will be effective immediately. Notices provided by overnight courier will be effective one business day after they are sent. Notices provided by registered or certified mail will be effective three business days after they are sent.
 
-14.10 No Third-Party Beneficiaries. Except as set forth in Section 9, this Agreement does not create any third-party beneficiary rights in any individual or entity that is not a party to this Agreement.
+    14.10 No Third-Party Beneficiaries. Except as set forth in Section 9, this Agreement does not create any third-party beneficiary rights in any individual or entity that is not a party to this Agreement.
 
-14.11 U.S. Government Rights. The Service Offerings are provided to the U.S. Government as "commercial items," "commercial computer software," "commercial computer software documentation," and "technical data" with the same rights and restrictions generally applicable to the Service Offerings. If you are using the Service Offerings on behalf of the U.S. Government and these terms fail to meet the U.S. Government's needs or are inconsistent in any respect with federal law, you will immediately discontinue your use of the Service Offerings. The terms "commercial item" "commercial computer software," "commercial computer software documentation," and "technical data" are defined in the Federal Acquisition Regulation and the Defense Federal Acquisition Regulation Supplement.
+    14.11 U.S. Government Rights. The Service Offerings are provided to the U.S. Government as "commercial items," "commercial computer software," "commercial computer software documentation," and "technical data" with the same rights and restrictions generally applicable to the Service Offerings. If you are using the Service Offerings on behalf of the U.S. Government and these terms fail to meet the U.S. Government's needs or are inconsistent in any respect with federal law, you will immediately discontinue your use of the Service Offerings. The terms "commercial item" "commercial computer software," "commercial computer software documentation," and "technical data" are defined in the Federal Acquisition Regulation and the Defense Federal Acquisition Regulation Supplement.
 
-14.12 No Waivers. The failure by us to enforce any provision of this Agreement will not constitute a present or future waiver of such provision nor limit our right to enforce such provision at a later time. All waivers by us must be in writing to be effective.
+    14.12 No Waivers. The failure by us to enforce any provision of this Agreement will not constitute a present or future waiver of such provision nor limit our right to enforce such provision at a later time. All waivers by us must be in writing to be effective.
 
-14.13 Severability. If any portion of this Agreement is held to be invalid or unenforceable, the remaining portions of this Agreement will remain in full force and effect. Any invalid or unenforceable portions will be interpreted to the effect and intent of the original portion. If such construction is not possible, the invalid or unenforceable portion will be severed from this Agreement but the rest of the Agreement will remain in full force and effect.
+    14.13 Severability. If any portion of this Agreement is held to be invalid or unenforceable, the remaining portions of this Agreement will remain in full force and effect. Any invalid or unenforceable portions will be interpreted to the effect and intent of the original portion. If such construction is not possible, the invalid or unenforceable portion will be severed from this Agreement but the rest of the Agreement will remain in full force and effect.
 
-14.14 Notice and Procedure for Making Claims of Copyright Infringement. If you are a copyright owner or agent of the owner, and you believe that your copyright or the copyright of a person on whose behalf you are authorized to act has been infringed, please provide us a written notice at the address below with the following information:
+    14.14 Notice and Procedure for Making Claims of Copyright Infringement. If you are a copyright owner or agent of the owner, and you believe that your copyright or the copyright of a person on whose behalf you are authorized to act has been infringed, please provide us a written notice at the address below with the following information:
 
-* an electronic or physical signature of the person authorized to act on behalf of the owner of the copyright or other intellectual property interest;
-* a description of the copyrighted work or other intellectual property that you claim has been infringed;
-* a description of where the material that you claim is infringing is located on the Services;
-your address, telephone number, and email address;
-* a statement by you that you have a good faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law;
-* a statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright or intellectual property owner or authorized to act on the copyright or intellectual property owner's behalf.
+*   an electronic or physical signature of the person authorized to act on behalf of the owner of the copyright or other intellectual property interest;
+*   a description of the copyrighted work or other intellectual property that you claim has been infringed;
+*   a description of where the material that you claim is infringing is located on the Services;
+    your address, telephone number, and email address;
+*   a statement by you that you have a good faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law;
+*   a statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright or intellectual property owner or authorized to act on the copyright or intellectual property owner's behalf.
 
 You can reach us at email: contact@textile.io Subject Line: Copyright Notification. Mail Attention: Textile Copyright ℅ Suite 100, 100 Shoreline Hwy, Bldg B, Mill Valley, CA 94941, United States
 
 ## 16. Definitions.
 
-* "Acceptable Use Policy" means the policy set forth below, as it may be updated by us from time to time. You agree not to, and not to allow third parties to, use the Services:
-    * To violate, or encourage the violation of, the legal rights of others (for example, this may include allowing End Users to infringe or misappropriate the intellectual property rights of others in violation of the Digital Millennium Copyright Act);
-    * To engage in, promote or encourage any illegal or harmful activity or infringing, offensive or harmful content;
-    * For any unlawful, invasive, infringing, defamatory or fraudulent purpose (for example, this may include phishing, creating a pyramid scheme or mirroring a website);
-    * To intentionally distribute viruses, worms, Trojan horses, corrupted files, hoaxes, or other items of a destructive or deceptive nature;
-    * To interfere with the use of the Services, or the equipment used to provide the Services, by customers, authorized resellers, or other authorized users;
-    * To disable, interfere with or circumvent any aspect of the Services;
-    * To generate, distribute, publish or facilitate unsolicited mass email, promotions, advertising or other solicitations ("spam"); or
-    * To use the Services, or any interfaces provided with the Services, to access any other Textile product or service in a manner that violates the terms of service of such other Textile product or service.
+-   "Acceptable Use Policy" means the policy set forth below, as it may be updated by us from time to time. You agree not to, and not to allow third parties to, use the Services:
 
-* "Account Information" means information about you that you provide to us in connection with the creation or administration of your Textile account. For example, Account Information includes names, usernames, phone numbers, email addresses, and billing information associated with your Textile account.
-* "API" means an application program interface.
-* "API Request" has the meaning set forth in Section 6.3.
-* "Client" has the meaning set forth in Section 1.2.
-* "Confidential Information" means all nonpublic information disclosed by one party its affiliates, business partners or its or their respective employees, contractors or agents (collectively, the "Disclosing Party") to the other party (the * "Receiving Party") that is designated as confidential or that, given the nature of the information or circumstances surrounding its disclosure, reasonably should be understood to be confidential. Confidential Information includes: (a) nonpublic information relating to the Disclosing Party's or its affiliates or business partners' technology, customers, business plans, promotional and marketing activities, finances and other business affairs; (b) third-party information that the Disclosing Party is obligated to keep confidential; and (c) the nature, content and existence of any discussions or negotiations between you and us or our affiliates. Confidential Information does not include any information that: (i) is or becomes publicly available without breach of this Agreement; (ii) can be shown by documentation to have been known to the Receiving Party at the time of its receipt from the Disclosing Party; (iii) is received from a third party who did not acquire or disclose the same by a wrongful or tortious act; or (iv) can be shown by documentation to have been independently developed by the Receiving Party without reference to the Confidential Information.
-* "Content" means software (including machine images), data, text, audio, video, or images.
-* "Dashboard" has the meaning set forth in Section 1.2.
-* "Decentralized Storage Services" means any distributed or decentralized file storage service, including without limitation IPFS and Filecoin.
-* "Documentation" means the user guides and admin guides (in each case exclusive of content referenced via hyperlink) for the Services located at https://docs.textile.io/ (and any successor or related locations designated by us), as such user guides and admin guides may be updated by us from time to time.
-* "End User" means any individual or entity that directly or indirectly through another user: (a) accesses or uses Your Content; or (b) otherwise accesses or uses the Service Offerings under your account.
-* "Governing Laws" mean the laws of the State of California, without giving effect to any conflict of law rules.
-* "Indirect Taxes" means applicable taxes and duties, including, without limitation, VAT, Service Tax, GST, excise taxes, sales and transactions taxes, and gross receipts tax.
-* "Textile Content" means Content we or any of our affiliates make available in connection with the Services or on the Textile Site to allow access to and use of the Services, including APIs; WSDLs; Documentation; sample code; software libraries; command line tools; proofs of concept; templates; and other related technology (including any of the foregoing that are provided by our personnel). Textile Content does not include the Services or Third-Party Content.
-* "Textile Marks" means any trademarks, service marks, service or trade names, logos, and other designations of Textile and their affiliates that we may make available to you in connection with this Agreement.
-* "Textile Site" means https://textile.io/ (and any successor or related site designated by us), as may be updated by us from time to time.
-* "Losses" means any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees).'
-* "Node" means an IPFS or Filecoin node run or hosted by Textile.
-* "Policies" means this Agreement, the Acceptable Use Policy, Privacy Policy, all restrictions described in the Textile Content and on the Textile Site, and any other policy or terms referenced in or incorporated into this Agreement, each as may be updated by us from time to time, but does not include whitepapers or other marketing materials referenced on the Textile Site.
-* "Privacy Policy" means the privacy policy located at https://docs.textile.io/policies/privacy (and any successor or related locations designated by us), as it may be updated by us from time to time.
-* "Service" means each of the services, including the Textile Site and any other features, tools, materials, or services offered from time to time, including our network infrastructure, by us or our affiliates. Services do not include Third-Party Content.
-* "Service Attributes" means Service usage data related to your account, such as resource identifiers, metadata tags, security and access roles, rules, usage policies, permissions, usage statistics, and analytics.
-* "Service Offerings" means the Services (including associated APIs), the Textile Content, the Textile Marks, and any other product or service provided by us under this Agreement. Service Offerings do not include Third-Party Content.
-* "Suggestions" means all suggested improvements to the Service Offerings that you provide to us.
-* "Technical Support Services" means the technical support services relating to the Services provided by us to you in accordance with the terms of your Selected Plan.
-* "Term" means the term of this Agreement described in Section 7.1.
-* "Termination Date" means the effective date of termination provided in accordance with Section 7, in a notice from one party to the other.
-* "Third-Party Content" means Content made available to you by any third party on the Textile Site or in conjunction with the Services.
-* "Your Content" means Content that you or any End User transfers to us for processing, storage, or hosting by the Services in connection with your Textile account and any computational results that you or any End User derive from the foregoing through their use of the Services. Your Content does not include Account Information.
+    -   To violate, or encourage the violation of, the legal rights of others (for example, this may include allowing End Users to infringe or misappropriate the intellectual property rights of others in violation of the Digital Millennium Copyright Act);
+    -   To engage in, promote or encourage any illegal or harmful activity or infringing, offensive or harmful content;
+    -   For any unlawful, invasive, infringing, defamatory or fraudulent purpose (for example, this may include phishing, creating a pyramid scheme or mirroring a website);
+    -   To intentionally distribute viruses, worms, Trojan horses, corrupted files, hoaxes, or other items of a destructive or deceptive nature;
+    -   To interfere with the use of the Services, or the equipment used to provide the Services, by customers, authorized resellers, or other authorized users;
+    -   To disable, interfere with or circumvent any aspect of the Services;
+    -   To generate, distribute, publish or facilitate unsolicited mass email, promotions, advertising or other solicitations ("spam"); or
+    -   To use the Services, or any interfaces provided with the Services, to access any other Textile product or service in a manner that violates the terms of service of such other Textile product or service.
+
+-   "Account Information" means information about you that you provide to us in connection with the creation or administration of your Textile account. For example, Account Information includes names, usernames, phone numbers, email addresses, and billing information associated with your Textile account.
+-   "API" means an application program interface.
+-   "API Request" has the meaning set forth in Section 6.3.
+-   "Client" has the meaning set forth in Section 1.2.
+-   "Confidential Information" means all nonpublic information disclosed by one party its affiliates, business partners or its or their respective employees, contractors or agents (collectively, the "Disclosing Party") to the other party (the \* "Receiving Party") that is designated as confidential or that, given the nature of the information or circumstances surrounding its disclosure, reasonably should be understood to be confidential. Confidential Information includes: (a) nonpublic information relating to the Disclosing Party's or its affiliates or business partners' technology, customers, business plans, promotional and marketing activities, finances and other business affairs; (b) third-party information that the Disclosing Party is obligated to keep confidential; and (c) the nature, content and existence of any discussions or negotiations between you and us or our affiliates. Confidential Information does not include any information that: (i) is or becomes publicly available without breach of this Agreement; (ii) can be shown by documentation to have been known to the Receiving Party at the time of its receipt from the Disclosing Party; (iii) is received from a third party who did not acquire or disclose the same by a wrongful or tortious act; or (iv) can be shown by documentation to have been independently developed by the Receiving Party without reference to the Confidential Information.
+-   "Content" means software (including machine images), data, text, audio, video, or images.
+-   "Dashboard" has the meaning set forth in Section 1.2.
+-   "Decentralized Storage Services" means any distributed or decentralized file storage service, including without limitation IPFS and Filecoin.
+-   "Documentation" means the user guides and admin guides (in each case exclusive of content referenced via hyperlink) for the Services located at https://docs.textile.io/ (and any successor or related locations designated by us), as such user guides and admin guides may be updated by us from time to time.
+-   "End User" means any individual or entity that directly or indirectly through another user: (a) accesses or uses Your Content; or (b) otherwise accesses or uses the Service Offerings under your account.
+-   "Governing Laws" mean the laws of the State of California, without giving effect to any conflict of law rules.
+-   "Indirect Taxes" means applicable taxes and duties, including, without limitation, VAT, Service Tax, GST, excise taxes, sales and transactions taxes, and gross receipts tax.
+-   "Textile Content" means Content we or any of our affiliates make available in connection with the Services or on the Textile Site to allow access to and use of the Services, including APIs; WSDLs; Documentation; sample code; software libraries; command line tools; proofs of concept; templates; and other related technology (including any of the foregoing that are provided by our personnel). Textile Content does not include the Services or Third-Party Content.
+-   "Textile Marks" means any trademarks, service marks, service or trade names, logos, and other designations of Textile and their affiliates that we may make available to you in connection with this Agreement.
+-   "Textile Site" means https://textile.io/ (and any successor or related site designated by us), as may be updated by us from time to time.
+-   "Losses" means any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees).'
+-   "Node" means an IPFS or Filecoin node run or hosted by Textile.
+-   "Policies" means this Agreement, the Acceptable Use Policy, Privacy Policy, all restrictions described in the Textile Content and on the Textile Site, and any other policy or terms referenced in or incorporated into this Agreement, each as may be updated by us from time to time, but does not include whitepapers or other marketing materials referenced on the Textile Site.
+-   "Privacy Policy" means the privacy policy located at https://docs.textile.io/policies/privacy (and any successor or related locations designated by us), as it may be updated by us from time to time.
+-   "Service" means each of the services, including the Textile Site and any other features, tools, materials, or services offered from time to time, including our network infrastructure, by us or our affiliates. Services do not include Third-Party Content.
+-   "Service Attributes" means Service usage data related to your account, such as resource identifiers, metadata tags, security and access roles, rules, usage policies, permissions, usage statistics, and analytics.
+-   "Service Offerings" means the Services (including associated APIs), the Textile Content, the Textile Marks, and any other product or service provided by us under this Agreement. Service Offerings do not include Third-Party Content.
+-   "Suggestions" means all suggested improvements to the Service Offerings that you provide to us.
+-   "Technical Support Services" means the technical support services relating to the Services provided by us to you in accordance with the terms of your Selected Plan.
+-   "Term" means the term of this Agreement described in Section 7.1.
+-   "Termination Date" means the effective date of termination provided in accordance with Section 7, in a notice from one party to the other.
+-   "Third-Party Content" means Content made available to you by any third party on the Textile Site or in conjunction with the Services.
+-   "Your Content" means Content that you or any End User transfers to us for processing, storage, or hosting by the Services in connection with your Textile account and any computational results that you or any End User derive from the foregoing through their use of the Services. Your Content does not include Account Information.

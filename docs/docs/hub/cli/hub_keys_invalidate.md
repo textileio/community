@@ -14,4 +14,4 @@ hub keys invalidate [flags]
 
 ### SEE ALSO
 
-* [hub keys](hub_keys.md)	 - API key management
+-   [hub keys](hub_keys.md) - API key management

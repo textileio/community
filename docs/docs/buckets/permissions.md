@@ -8,13 +8,13 @@ All buckets you create are scoped to your developer account. You can always find
 
 ### Organization Buckets
 
-Any bucket you create using the `HUB_ORG` setting will also be shared with Org members. 
+Any bucket you create using the `HUB_ORG` setting will also be shared with Org members.
 
 The following sections will cover how to:
 
-* Create a new Org.
-* Create a new Bucket shared with an Org.
-* Invite a collaborator to the Org.
+-   Create a new Org.
+-   Create a new Bucket shared with an Org.
+-   Invite a collaborator to the Org.
 
 #### Create a new Org
 
@@ -60,17 +60,18 @@ If you're building an app using one of our [developer libraries](../hub/apis.md#
 
 ## Bucket Access Roles
 
-Buckets can be shared in more ways than organizations. 
+Buckets can be shared in more ways than organizations.
 
 Multi-writer buckets leverage the distributed nature of ThreadDB by allowing multiple identities to write to the same buckets that are hosted by different Libp2p hosts. Since buckets are ThreadDB collection instances, this is no different than normal ThreadDB peer collaboration.
 
 #### Path access
 
-Read and write access roles are defined in a bucket at *any* path. Any subpaths automatically inherit the permissions of their parent. 
+Read and write access roles are defined in a bucket at _any_ path. Any subpaths automatically inherit the permissions of their parent.
 
-For example, granting read access to your bucket at `/` would also grant read access to a file that exists at `/path/to/foo.jpg`. 
+For example, granting read access to your bucket at `/` would also grant read access to a file that exists at `/path/to/foo.jpg`.
 
-You can set different access rules within the same bucket by using a combination of *paths* and specified *roles* at the path. 
+You can set different access rules within the same bucket by using a combination of _paths_ and specified _roles_ at the path.
+
 <!--
 Seems like " by using combination of *paths* and specified *roles* at the path. " isn't clear or detailed enough as instructions.
 - Albert Kim
@@ -78,16 +79,16 @@ Seems like " by using combination of *paths* and specified *roles* at the path. 
 
 #### Role types
 
-| | |
-| :------ | :------ |
-| Admin | Users with the ability to modify permissions. |
-| Writer | Users allowed update data at the specified path. |
-| Reader | Users allowed read data at the specified path. |
-| Unspecified | Users with any permissions specified path. |
+|             |                                                  |
+| :---------- | :----------------------------------------------- |
+| Admin       | Users with the ability to modify permissions.    |
+| Writer      | Users allowed update data at the specified path. |
+| Reader      | Users allowed read data at the specified path.   |
+| Unspecified | Users with any permissions specified path.       |
 
 #### Authorizing users
 
-You can specify new users and their roles by inserting their public key into the bucket access rules. Let's take a look at how we update roles using the CLI. 
+You can specify new users and their roles by inserting their public key into the bucket access rules. Let's take a look at how we update roles using the CLI.
 
 ```bash
 hub buck roles grant -r writer \
@@ -97,10 +98,10 @@ bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose /path/to
 ???+ success
 
     ```Bash
-      IDENTITY                                                     ROLE    
-      *                                                            Reader  
-      bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose  Writer  
-      bbaareieyrq92sbfcx2bhbmsfxzj25pi7ldx2vkrtcn6hu3xzi4mpzwqvcy  Admin   
+      IDENTITY                                                     ROLE
+      *                                                            Reader
+      bbaareicookqfgeosr225wwdknmpmvgemydxolzxesu6woxghpulxvizose  Writer
+      bbaareieyrq92sbfcx2bhbmsfxzj25pi7ldx2vkrtcn6hu3xzi4mpzwqvcy  Admin
 
     > Success! Updated access roles for path /path/to
     ```
@@ -125,4 +126,3 @@ Success! You can see the new user has been added as a writer to the path `/path/
     <p>See how to create user buckets & threads in React Native.</p>
   </a>
 </div>
-

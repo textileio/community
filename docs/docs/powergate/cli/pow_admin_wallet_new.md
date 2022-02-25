@@ -27,5 +27,4 @@ pow admin wallet new [flags]
 
 ### SEE ALSO
 
-* [pow admin wallet](pow_admin_wallet.md)	 - Provides admin wallet commands
-
+-   [pow admin wallet](pow_admin_wallet.md) - Provides admin wallet commands

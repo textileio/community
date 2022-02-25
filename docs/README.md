@@ -5,7 +5,7 @@
 
 > Documentation repository for all Textile projects 📚
 
-Join us on our [public Slack channel](https://slack.textile.io/) for news, discussions, and status updates. View the docs live at [https://docs.textile.io](https://docs.textile.io/).
+Join us on our [public Discord channel](https://discord.gg/hpd5WWn4Ys) for news, discussions, and status updates. View the docs live at [https://docs.textile.io](https://docs.textile.io/).
 
 [Check out our blog](https://blog.textile.io/) for the latest posts and announcements.
 

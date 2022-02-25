@@ -1,10 +1,10 @@
 The miner index is an open API meant to help Filecoin clients store their data efficiently and cheaply on the network. It has three primary endpoints.
 
-* Index: list and query miners based on their recent storage history.
-* Calculate: calculate actual costs for verified and standard deal storage with specified miners.
-* Profiles: review the complete set of data and recent history for a specific miner.
+-   Index: list and query miners based on their recent storage history.
+-   Calculate: calculate actual costs for verified and standard deal storage with specified miners.
+-   Profiles: review the complete set of data and recent history for a specific miner.
 
-There are two primary ways you can use the API. 
+There are two primary ways you can use the API.
 
 **Rest API**
 
@@ -39,8 +39,7 @@ _All FIL columns (e.g., askPrice) are reported as `attoFil`._
 
 ### Understanding the results
 
-The data shown here are the latest five miners to successfully store data for a request originating from Textile. The table only represents a small portion of the data available from the index. The default sorting of results is simply the latest miners that have successfully stored online deal requests from one of the many nodes we monitor. The default sort ensures that even this basic view should give most clients a reliable list of storage miners to use right away. Just pick the first couple! You can use the API or CLI to change how sorting, filtering, and limits happen. 
-
+The data shown here are the latest five miners to successfully store data for a request originating from Textile. The table only represents a small portion of the data available from the index. The default sorting of results is simply the latest miners that have successfully stored online deal requests from one of the many nodes we monitor. The default sort ensures that even this basic view should give most clients a reliable list of storage miners to use right away. Just pick the first couple! You can use the API or CLI to change how sorting, filtering, and limits happen.
 
 If you want to see the complete data that comes back from the API, check out this direct query:
 
@@ -52,154 +51,154 @@ The following is the full JSON result returned from the API for just the first m
 
 ```json
 {
-  "minerAddr": "f09848",
-  "metadata": {
-    "location": "US"
-  },
-  "filecoin": {
-    "relativePower": 0.000020719814040295776,
-    "askPrice": "10000000000",
-    "askVerifiedPrice": "0",
-    "minPieceSize": "536870912",
-    "maxPieceSize": "34359738368",
-    "sectorSize": "34359738368",
-    "activeSectors": "2314",
-    "faultySectors": "0",
-    "updatedAt": "2021-03-17T20:03:22.059Z"
-  },
-  "textile": {
-    "regions": {
-      "021": {
-        "deals": {
-          "total": "120",
-          "last": "2021-03-17T14:56:51.360Z",
-          "failures": "57",
-          "lastFailure": "2021-03-17T19:41:28.922Z",
-          "tailTransfers": [
-            {
-              "transferedAt": "2021-03-16T16:02:57Z",
-              "mibPerSec": 13.257300327974415
-            },
-            {
-              "transferedAt": "2021-03-15T19:43:35Z",
-              "mibPerSec": 20.399272781121926
-            },
-            {
-              "transferedAt": "2021-03-15T20:19:30Z",
-              "mibPerSec": 20.739260660807293
-            },
-            {
-              "transferedAt": "2021-03-05T17:23:59Z",
-              "mibPerSec": 13.070962601349134
-            },
-            {
-              "transferedAt": "2021-03-05T17:00:31Z",
-              "mibPerSec": 14.778570542142964
-            },
-            {
-              "transferedAt": "2021-03-05T16:56:07Z",
-              "mibPerSec": 16.953074109651737
-            },
-            {
-              "transferedAt": "2021-03-05T17:32:04Z",
-              "mibPerSec": 15.791315223964943
-            },
-            {
-              "transferedAt": "2021-03-03T18:16:38Z",
-              "mibPerSec": 9.75200344552067
-            },
-            {
-              "transferedAt": "2021-02-27T02:47:50Z",
-              "mibPerSec": 7.480152248979115
-            },
-            {
-              "transferedAt": "2021-02-24T20:46:23Z",
-              "mibPerSec": 20.966012990699625
-            },
-            {
-              "transferedAt": "2021-02-23T02:00:08Z",
-              "mibPerSec": 12.749545486246953
+    "minerAddr": "f09848",
+    "metadata": {
+        "location": "US"
+    },
+    "filecoin": {
+        "relativePower": 0.000020719814040295776,
+        "askPrice": "10000000000",
+        "askVerifiedPrice": "0",
+        "minPieceSize": "536870912",
+        "maxPieceSize": "34359738368",
+        "sectorSize": "34359738368",
+        "activeSectors": "2314",
+        "faultySectors": "0",
+        "updatedAt": "2021-03-17T20:03:22.059Z"
+    },
+    "textile": {
+        "regions": {
+            "021": {
+                "deals": {
+                    "total": "120",
+                    "last": "2021-03-17T14:56:51.360Z",
+                    "failures": "57",
+                    "lastFailure": "2021-03-17T19:41:28.922Z",
+                    "tailTransfers": [
+                        {
+                            "transferedAt": "2021-03-16T16:02:57Z",
+                            "mibPerSec": 13.257300327974415
+                        },
+                        {
+                            "transferedAt": "2021-03-15T19:43:35Z",
+                            "mibPerSec": 20.399272781121926
+                        },
+                        {
+                            "transferedAt": "2021-03-15T20:19:30Z",
+                            "mibPerSec": 20.739260660807293
+                        },
+                        {
+                            "transferedAt": "2021-03-05T17:23:59Z",
+                            "mibPerSec": 13.070962601349134
+                        },
+                        {
+                            "transferedAt": "2021-03-05T17:00:31Z",
+                            "mibPerSec": 14.778570542142964
+                        },
+                        {
+                            "transferedAt": "2021-03-05T16:56:07Z",
+                            "mibPerSec": 16.953074109651737
+                        },
+                        {
+                            "transferedAt": "2021-03-05T17:32:04Z",
+                            "mibPerSec": 15.791315223964943
+                        },
+                        {
+                            "transferedAt": "2021-03-03T18:16:38Z",
+                            "mibPerSec": 9.75200344552067
+                        },
+                        {
+                            "transferedAt": "2021-02-27T02:47:50Z",
+                            "mibPerSec": 7.480152248979115
+                        },
+                        {
+                            "transferedAt": "2021-02-24T20:46:23Z",
+                            "mibPerSec": 20.966012990699625
+                        },
+                        {
+                            "transferedAt": "2021-02-23T02:00:08Z",
+                            "mibPerSec": 12.749545486246953
+                        }
+                    ],
+                    "tailSealed": [
+                        {
+                            "sealedAt": "2021-03-17T14:56:51Z",
+                            "durationSeconds": "9440"
+                        },
+                        {
+                            "sealedAt": "2021-03-16T14:02:38Z",
+                            "durationSeconds": "7200"
+                        },
+                        {
+                            "sealedAt": "2021-03-16T13:56:09Z",
+                            "durationSeconds": "7200"
+                        },
+                        {
+                            "sealedAt": "2021-03-06T05:49:39Z",
+                            "durationSeconds": "9000"
+                        },
+                        {
+                            "sealedAt": "2021-03-06T05:49:37Z",
+                            "durationSeconds": "9000"
+                        },
+                        {
+                            "sealedAt": "2021-03-06T05:46:35Z",
+                            "durationSeconds": "9000"
+                        },
+                        {
+                            "sealedAt": "2021-03-06T05:45:37Z",
+                            "durationSeconds": "9000"
+                        },
+                        {
+                            "sealedAt": "2021-03-04T07:00:50Z",
+                            "durationSeconds": "9000"
+                        },
+                        {
+                            "sealedAt": "2021-03-03T22:40:39Z",
+                            "durationSeconds": "9000"
+                        },
+                        {
+                            "sealedAt": "2021-03-03T22:40:39Z",
+                            "durationSeconds": "9000"
+                        },
+                        {
+                            "sealedAt": "2021-02-27T15:57:58Z",
+                            "durationSeconds": "9000"
+                        },
+                        {
+                            "sealedAt": "2021-02-25T08:57:14Z",
+                            "durationSeconds": "7200"
+                        },
+                        {
+                            "sealedAt": "2021-02-23T14:44:18Z",
+                            "durationSeconds": "9000"
+                        }
+                    ]
+                },
+                "retrievals": {
+                    "total": "0",
+                    "last": null,
+                    "failures": "0",
+                    "lastFailure": null,
+                    "tailTransfers": []
+                }
             }
-          ],
-          "tailSealed": [
-            {
-              "sealedAt": "2021-03-17T14:56:51Z",
-              "durationSeconds": "9440"
-            },
-            {
-              "sealedAt": "2021-03-16T14:02:38Z",
-              "durationSeconds": "7200"
-            },
-            {
-              "sealedAt": "2021-03-16T13:56:09Z",
-              "durationSeconds": "7200"
-            },
-            {
-              "sealedAt": "2021-03-06T05:49:39Z",
-              "durationSeconds": "9000"
-            },
-            {
-              "sealedAt": "2021-03-06T05:49:37Z",
-              "durationSeconds": "9000"
-            },
-            {
-              "sealedAt": "2021-03-06T05:46:35Z",
-              "durationSeconds": "9000"
-            },
-            {
-              "sealedAt": "2021-03-06T05:45:37Z",
-              "durationSeconds": "9000"
-            },
-            {
-              "sealedAt": "2021-03-04T07:00:50Z",
-              "durationSeconds": "9000"
-            },
-            {
-              "sealedAt": "2021-03-03T22:40:39Z",
-              "durationSeconds": "9000"
-            },
-            {
-              "sealedAt": "2021-03-03T22:40:39Z",
-              "durationSeconds": "9000"
-            },
-            {
-              "sealedAt": "2021-02-27T15:57:58Z",
-              "durationSeconds": "9000"
-            },
-            {
-              "sealedAt": "2021-02-25T08:57:14Z",
-              "durationSeconds": "7200"
-            },
-            {
-              "sealedAt": "2021-02-23T14:44:18Z",
-              "durationSeconds": "9000"
-            }
-          ]
         },
-        "retrievals": {
-          "total": "0",
-          "last": null,
-          "failures": "0",
-          "lastFailure": null,
-          "tailTransfers": []
-        }
-      }
-    },
-    "dealsSummary": {
-      "total": "120",
-      "last": "2021-03-17T14:56:51.360Z",
-      "failures": "57",
-      "lastFailure": "2021-03-17T19:41:28.922Z"
-    },
-    "retrievalsSummary": {
-      "total": "0",
-      "last": null,
-      "failures": "0",
-      "lastFailure": null
+        "dealsSummary": {
+            "total": "120",
+            "last": "2021-03-17T14:56:51.360Z",
+            "failures": "57",
+            "lastFailure": "2021-03-17T19:41:28.922Z"
+        },
+        "retrievalsSummary": {
+            "total": "0",
+            "last": null,
+            "failures": "0",
+            "lastFailure": null
+        },
+        "updatedAt": "2021-03-17T20:03:02.813Z"
     },
     "updatedAt": "2021-03-17T20:03:02.813Z"
-  },
-  "updatedAt": "2021-03-17T20:03:02.813Z"
 }
 ```
 
@@ -215,7 +214,7 @@ If you are using [bucket archives](../../buckets/archiving) to store data, you c
 hub buck archive set-default-config --fast-retrieval --trusted-miners {id1, id2}
 ```
 
-Or, if you have your address verified on the network ([learn more here](https://plus.fil.org)), you can make a verified deal. 
+Or, if you have your address verified on the network ([learn more here](https://plus.fil.org)), you can make a verified deal.
 
 ```sh
 hub buck archive set-default-config --fast-retrieval --verified-deal --trusted-miners {id1, id2}
@@ -231,7 +230,7 @@ lotus client deal --fast-retrieval --verified-deal <data-cid> {id1} 663552000000
 
 ## Calculator
 
-You can use the calculator endpoint to determine the cost of storage with one or multiple miners at a time. You can play with that below. 
+You can use the calculator endpoint to determine the cost of storage with one or multiple miners at a time. You can play with that below.
 
 <div>
 <table id="calculator">
@@ -249,7 +248,7 @@ You can use the calculator endpoint to determine the cost of storage with one or
 </table>
 </div>
 
-The calculator results are based on storing `1,000,000` bytes for `180` days. You can use the API directly to modify those parameters or which miners you are calculating. 
+The calculator results are based on storing `1,000,000` bytes for `180` days. You can use the API directly to modify those parameters or which miners you are calculating.
 
 <a href="" id="calculator-api" target="_blank"></a>
 
@@ -259,45 +258,45 @@ The following is the complete JSON result from the calculator API request.
 
 ```json
 {
-  "results": [
-    {
-      "miner": "f09848",
-      "totalCost": "5060000000000",
-      "verifiedTotalCost": "0",
-      "price": "10000000000",
-      "verifiedPrice": "0"
-    },
-    {
-      "miner": "f066596",
-      "totalCost": "10120000000000",
-      "verifiedTotalCost": "0",
-      "price": "20000000000",
-      "verifiedPrice": "0"
-    },
-    {
-      "miner": "f0156452",
-      "totalCost": "253000000000",
-      "verifiedTotalCost": "25300000000",
-      "price": "500000000",
-      "verifiedPrice": "50000000"
-    },
-    {
-      "miner": "f0165539",
-      "totalCost": "25300000000",
-      "verifiedTotalCost": "2530000000",
-      "price": "50000000",
-      "verifiedPrice": "5000000"
-    },
-    {
-      "miner": "f0230200",
-      "totalCost": "253000000000",
-      "verifiedTotalCost": "25300000000",
-      "price": "500000000",
-      "verifiedPrice": "50000000"
-    }
-  ],
-  "paddedSize": "1048576",
-  "durationEpochs": "518400"
+    "results": [
+        {
+            "miner": "f09848",
+            "totalCost": "5060000000000",
+            "verifiedTotalCost": "0",
+            "price": "10000000000",
+            "verifiedPrice": "0"
+        },
+        {
+            "miner": "f066596",
+            "totalCost": "10120000000000",
+            "verifiedTotalCost": "0",
+            "price": "20000000000",
+            "verifiedPrice": "0"
+        },
+        {
+            "miner": "f0156452",
+            "totalCost": "253000000000",
+            "verifiedTotalCost": "25300000000",
+            "price": "500000000",
+            "verifiedPrice": "50000000"
+        },
+        {
+            "miner": "f0165539",
+            "totalCost": "25300000000",
+            "verifiedTotalCost": "2530000000",
+            "price": "50000000",
+            "verifiedPrice": "5000000"
+        },
+        {
+            "miner": "f0230200",
+            "totalCost": "253000000000",
+            "verifiedTotalCost": "25300000000",
+            "price": "500000000",
+            "verifiedPrice": "50000000"
+        }
+    ],
+    "paddedSize": "1048576",
+    "durationEpochs": "518400"
 }
 ```
 
@@ -315,87 +314,88 @@ The following is the full JSON result from the profile API request.
 
 ```json
 {
-  "info": {
-    "minerAddr": "f0221135",
-    "metadata": {
-      "location": "US"
-    },
-    "filecoin": {
-      "relativePower": 1.7012885147319677e-7,
-      "askPrice": "1000000000",
-      "askVerifiedPrice": "500000000",
-      "minPieceSize": "10485760",
-      "maxPieceSize": "34359738368",
-      "sectorSize": "34359738368",
-      "activeSectors": "19",
-      "faultySectors": "0",
-      "updatedAt": "2021-03-17T20:03:17.390Z"
-    },
-    "textile": {
-      "regions": {
-        "021": {
-          "deals": {
-            "total": "2",
-            "last": "2021-03-06T14:30:38.165Z",
-            "failures": "0",
-            "lastFailure": null,
-            "tailTransfers": [
-              {
-                "transferedAt": "2021-03-05T17:25:41Z",
-                "mibPerSec": 12.671646024933173
-              },
-              {
-                "transferedAt": "2021-03-03T18:16:38Z",
-                "mibPerSec": 9.75200344552067
-              }
-            ],
-            "tailSealed": [
-              {
-                "sealedAt": "2021-03-06T14:30:38Z",
-                "durationSeconds": "9900"
-              },
-              {
-                "sealedAt": "2021-03-04T13:59:13Z",
-                "durationSeconds": "9900"
-              }
-            ]
-          },
-          "retrievals": {
-            "total": "0",
-            "last": null,
-            "failures": "0",
-            "lastFailure": null,
-            "tailTransfers": []
-          }
-        }
-      },
-      "dealsSummary": {
-        "total": "2",
-        "last": "2021-03-06T14:30:38.165Z",
-        "failures": "0",
-        "lastFailure": null
-      },
-      "retrievalsSummary": {
-        "total": "0",
-        "last": null,
-        "failures": "0",
-        "lastFailure": null
-      },
-      "updatedAt": "2021-03-17T20:03:01.056Z"
-    },
-    "updatedAt": "2021-03-17T20:03:01.056Z"
-  }
+    "info": {
+        "minerAddr": "f0221135",
+        "metadata": {
+            "location": "US"
+        },
+        "filecoin": {
+            "relativePower": 1.7012885147319677e-7,
+            "askPrice": "1000000000",
+            "askVerifiedPrice": "500000000",
+            "minPieceSize": "10485760",
+            "maxPieceSize": "34359738368",
+            "sectorSize": "34359738368",
+            "activeSectors": "19",
+            "faultySectors": "0",
+            "updatedAt": "2021-03-17T20:03:17.390Z"
+        },
+        "textile": {
+            "regions": {
+                "021": {
+                    "deals": {
+                        "total": "2",
+                        "last": "2021-03-06T14:30:38.165Z",
+                        "failures": "0",
+                        "lastFailure": null,
+                        "tailTransfers": [
+                            {
+                                "transferedAt": "2021-03-05T17:25:41Z",
+                                "mibPerSec": 12.671646024933173
+                            },
+                            {
+                                "transferedAt": "2021-03-03T18:16:38Z",
+                                "mibPerSec": 9.75200344552067
+                            }
+                        ],
+                        "tailSealed": [
+                            {
+                                "sealedAt": "2021-03-06T14:30:38Z",
+                                "durationSeconds": "9900"
+                            },
+                            {
+                                "sealedAt": "2021-03-04T13:59:13Z",
+                                "durationSeconds": "9900"
+                            }
+                        ]
+                    },
+                    "retrievals": {
+                        "total": "0",
+                        "last": null,
+                        "failures": "0",
+                        "lastFailure": null,
+                        "tailTransfers": []
+                    }
+                }
+            },
+            "dealsSummary": {
+                "total": "2",
+                "last": "2021-03-06T14:30:38.165Z",
+                "failures": "0",
+                "lastFailure": null
+            },
+            "retrievalsSummary": {
+                "total": "0",
+                "last": null,
+                "failures": "0",
+                "lastFailure": null
+            },
+            "updatedAt": "2021-03-17T20:03:01.056Z"
+        },
+        "updatedAt": "2021-03-17T20:03:01.056Z"
+    }
 }
 ```
+
 </div>
 
 ## Hub CLI
 
 We leverage the REST API above to provide simple command-line access to the miner index. Here are some interesting places to get started.
 
-* [Query the index](../../hub/cli/hub_fil_index_query)
-* [Calculate deal costs](../../hub/cli/hub_fil_index_calculate)
-* [Get miner profiles](../../hub/cli/hub_fil_index_get)
+-   [Query the index](../../hub/cli/hub_fil_index_query)
+-   [Calculate deal costs](../../hub/cli/hub_fil_index_calculate)
+-   [Get miner profiles](../../hub/cli/hub_fil_index_get)
 
 **Expanded results**
 
@@ -407,7 +407,7 @@ hub fil index query --show-full-details --limit 20
 
 **Scripting**
 
-Each CLI methods for the index supports a `--json` flag to output results to JSON. 
+Each CLI methods for the index supports a `--json` flag to output results to JSON.
 
 ```sh
 hub fil index query --show-full-details --limit 1 --json | jq -r ".miners[]"
@@ -415,7 +415,7 @@ hub fil index query --show-full-details --limit 1 --json | jq -r ".miners[]"
 
 ## How it works
 
-Textile's miner index is different than most others you'll find on the network. The key distinction is that this index pulls real data from many Lotus and Powergate nodes connected to mainnet. The index collects both the on-chain information plus a suite of off-chain telemetry that can be very informative for advanced selection of miners. All telemetry is currently measured from clients based in North America (region `021` in the API), but will expand in the future. 
+Textile's miner index is different than most others you'll find on the network. The key distinction is that this index pulls real data from many Lotus and Powergate nodes connected to mainnet. The index collects both the on-chain information plus a suite of off-chain telemetry that can be very informative for advanced selection of miners. All telemetry is currently measured from clients based in North America (region `021` in the API), but will expand in the future.
 
 Some interesting features of the index you may wish to leverage include the following. We've populated the below from real-time index results for the first miner listed above.
 
@@ -427,10 +427,10 @@ Calculated across all regions.
 
 ```json
 {
-  "total": "120",
-  "last": "2021-03-17T14:56:51.360Z",
-  "failures": "57",
-  "lastFailure": "2021-03-17T19:41:28.922Z"
+    "total": "120",
+    "last": "2021-03-17T14:56:51.360Z",
+    "failures": "57",
+    "lastFailure": "2021-03-17T19:41:28.922Z"
 }
 ```
 
@@ -444,52 +444,51 @@ Tail of latest transfer stats from clients in North America.
 
 ```json
 [
-  {
-    "transferedAt": "2021-03-16T16:02:57Z",
-    "mibPerSec": 13.257300327974415
-  },
-  {
-    "transferedAt": "2021-03-15T19:43:35Z",
-    "mibPerSec": 20.399272781121926
-  },
-  {
-    "transferedAt": "2021-03-15T20:19:30Z",
-    "mibPerSec": 20.739260660807293
-  },
-  {
-    "transferedAt": "2021-03-05T17:23:59Z",
-    "mibPerSec": 13.070962601349134
-  },
-  {
-    "transferedAt": "2021-03-05T17:00:31Z",
-    "mibPerSec": 14.778570542142964
-  },
-  {
-    "transferedAt": "2021-03-05T16:56:07Z",
-    "mibPerSec": 16.953074109651737
-  },
-  {
-    "transferedAt": "2021-03-05T17:32:04Z",
-    "mibPerSec": 15.791315223964943
-  },
-  {
-    "transferedAt": "2021-03-03T18:16:38Z",
-    "mibPerSec": 9.75200344552067
-  },
-  {
-    "transferedAt": "2021-02-27T02:47:50Z",
-    "mibPerSec": 7.480152248979115
-  },
-  {
-    "transferedAt": "2021-02-24T20:46:23Z",
-    "mibPerSec": 20.966012990699625
-  },
-  {
-    "transferedAt": "2021-02-23T02:00:08Z",
-    "mibPerSec": 12.749545486246953
-  }
+    {
+        "transferedAt": "2021-03-16T16:02:57Z",
+        "mibPerSec": 13.257300327974415
+    },
+    {
+        "transferedAt": "2021-03-15T19:43:35Z",
+        "mibPerSec": 20.399272781121926
+    },
+    {
+        "transferedAt": "2021-03-15T20:19:30Z",
+        "mibPerSec": 20.739260660807293
+    },
+    {
+        "transferedAt": "2021-03-05T17:23:59Z",
+        "mibPerSec": 13.070962601349134
+    },
+    {
+        "transferedAt": "2021-03-05T17:00:31Z",
+        "mibPerSec": 14.778570542142964
+    },
+    {
+        "transferedAt": "2021-03-05T16:56:07Z",
+        "mibPerSec": 16.953074109651737
+    },
+    {
+        "transferedAt": "2021-03-05T17:32:04Z",
+        "mibPerSec": 15.791315223964943
+    },
+    {
+        "transferedAt": "2021-03-03T18:16:38Z",
+        "mibPerSec": 9.75200344552067
+    },
+    {
+        "transferedAt": "2021-02-27T02:47:50Z",
+        "mibPerSec": 7.480152248979115
+    },
+    {
+        "transferedAt": "2021-02-24T20:46:23Z",
+        "mibPerSec": 20.966012990699625
+    },
+    {
+        "transferedAt": "2021-02-23T02:00:08Z",
+        "mibPerSec": 12.749545486246953
+    }
 ]
-
 ```
 
 </div>
@@ -502,58 +501,58 @@ Tail of latest sealing stats from clients in North America.
 
 ```json
 [
-  {
-    "sealedAt": "2021-03-17T14:56:51Z",
-    "durationSeconds": "9440"
-  },
-  {
-    "sealedAt": "2021-03-16T14:02:38Z",
-    "durationSeconds": "7200"
-  },
-  {
-    "sealedAt": "2021-03-16T13:56:09Z",
-    "durationSeconds": "7200"
-  },
-  {
-    "sealedAt": "2021-03-06T05:49:39Z",
-    "durationSeconds": "9000"
-  },
-  {
-    "sealedAt": "2021-03-06T05:49:37Z",
-    "durationSeconds": "9000"
-  },
-  {
-    "sealedAt": "2021-03-06T05:46:35Z",
-    "durationSeconds": "9000"
-  },
-  {
-    "sealedAt": "2021-03-06T05:45:37Z",
-    "durationSeconds": "9000"
-  },
-  {
-    "sealedAt": "2021-03-04T07:00:50Z",
-    "durationSeconds": "9000"
-  },
-  {
-    "sealedAt": "2021-03-03T22:40:39Z",
-    "durationSeconds": "9000"
-  },
-  {
-    "sealedAt": "2021-03-03T22:40:39Z",
-    "durationSeconds": "9000"
-  },
-  {
-    "sealedAt": "2021-02-27T15:57:58Z",
-    "durationSeconds": "9000"
-  },
-  {
-    "sealedAt": "2021-02-25T08:57:14Z",
-    "durationSeconds": "7200"
-  },
-  {
-    "sealedAt": "2021-02-23T14:44:18Z",
-    "durationSeconds": "9000"
-  }
+    {
+        "sealedAt": "2021-03-17T14:56:51Z",
+        "durationSeconds": "9440"
+    },
+    {
+        "sealedAt": "2021-03-16T14:02:38Z",
+        "durationSeconds": "7200"
+    },
+    {
+        "sealedAt": "2021-03-16T13:56:09Z",
+        "durationSeconds": "7200"
+    },
+    {
+        "sealedAt": "2021-03-06T05:49:39Z",
+        "durationSeconds": "9000"
+    },
+    {
+        "sealedAt": "2021-03-06T05:49:37Z",
+        "durationSeconds": "9000"
+    },
+    {
+        "sealedAt": "2021-03-06T05:46:35Z",
+        "durationSeconds": "9000"
+    },
+    {
+        "sealedAt": "2021-03-06T05:45:37Z",
+        "durationSeconds": "9000"
+    },
+    {
+        "sealedAt": "2021-03-04T07:00:50Z",
+        "durationSeconds": "9000"
+    },
+    {
+        "sealedAt": "2021-03-03T22:40:39Z",
+        "durationSeconds": "9000"
+    },
+    {
+        "sealedAt": "2021-03-03T22:40:39Z",
+        "durationSeconds": "9000"
+    },
+    {
+        "sealedAt": "2021-02-27T15:57:58Z",
+        "durationSeconds": "9000"
+    },
+    {
+        "sealedAt": "2021-02-25T08:57:14Z",
+        "durationSeconds": "7200"
+    },
+    {
+        "sealedAt": "2021-02-23T14:44:18Z",
+        "durationSeconds": "9000"
+    }
 ]
 ```
 
@@ -567,16 +566,15 @@ Latest retrievals for clients in North America.
 
 ```json
 {
-  "total": "0",
-  "last": null,
-  "failures": "0",
-  "lastFailure": null,
-  "tailTransfers": []
+    "total": "0",
+    "last": null,
+    "failures": "0",
+    "lastFailure": null,
+    "tailTransfers": []
 }
 ```
 
 </div>
-
 
 ## JavaScript Examples
 
@@ -586,39 +584,43 @@ The tables and JSON results above are all generated in real-time by using the mi
 
 ```javascript
 var table = document.getElementById("miner-table");
-fetch('https://minerindex.hub.textile.io/v1/index/query?sort.ascending=false&sort.field=TEXTILE_DEALS_LAST_SUCCESSFUL&limit=5')
-  .then(response => response.json())
-  .then(data => {
-    var rct = 0;
-    for (var miner of data.miners) {
-      var row = table.insertRow(rct);
-      var minerAddr = row.insertCell(0);
-      minerAddr.innerHTML = miner.minerAddr;
-      rct += 1;
-    }
-  });
+fetch(
+    "https://minerindex.hub.textile.io/v1/index/query?sort.ascending=false&sort.field=TEXTILE_DEALS_LAST_SUCCESSFUL&limit=5"
+)
+    .then((response) => response.json())
+    .then((data) => {
+        var rct = 0;
+        for (var miner of data.miners) {
+            var row = table.insertRow(rct);
+            var minerAddr = row.insertCell(0);
+            minerAddr.innerHTML = miner.minerAddr;
+            rct += 1;
+        }
+    });
 ```
 
 ### Calculate
 
 ```javascript
 var table = document.getElementById("miner-table");
-fetch('https://minerindex.hub.textile.io/v1/calculator/calculate?dataSizeBytes=1000000&durationDays=180&minerAddresses=f09848')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data)
-  });
+fetch(
+    "https://minerindex.hub.textile.io/v1/calculator/calculate?dataSizeBytes=1000000&durationDays=180&minerAddresses=f09848"
+)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+    });
 ```
 
 ### Get Profile
 
 ```javascript
 var table = document.getElementById("miner-table");
-fetch('https://minerindex.hub.textile.io/v1/index/miner/f09848')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data)
-  });
+fetch("https://minerindex.hub.textile.io/v1/index/miner/f09848")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+    });
 ```
 
 Build on!

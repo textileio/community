@@ -25,5 +25,4 @@ pow id [flags]
 
 ### SEE ALSO
 
-* [pow](pow.md)	 - A client for storage and retreival of powergate data
-
+-   [pow](pow.md) - A client for storage and retreival of powergate data

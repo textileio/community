@@ -10,5 +10,5 @@ Manages your threads.
 
 ### SEE ALSO
 
-* [hub](hub.md)	 - Hub Client
-* [hub threads ls](hub_threads_ls.md)	 - List your threads
+-   [hub](hub.md) - Hub Client
+-   [hub threads ls](hub_threads_ls.md) - List your threads

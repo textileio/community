@@ -13,7 +13,6 @@ By default, if the remote bucket exists, remote objects are pulled and merged wi
 Use the '--soft' flag to accept all local changes, including deletions.
 Use the '--hard' flag to discard all local changes.
 
-
 ```
 hub buck init [flags]
 ```
@@ -34,4 +33,4 @@ hub buck init [flags]
 
 ### SEE ALSO
 
-* [hub buck](hub_buck.md)	 - Manage an object storage bucket
+-   [hub buck](hub_buck.md) - Manage an object storage bucket

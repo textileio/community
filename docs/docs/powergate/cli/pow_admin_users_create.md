@@ -26,5 +26,4 @@ pow admin users create [flags]
 
 ### SEE ALSO
 
-* [pow admin users](pow_admin_users.md)	 - Provides admin users commands
-
+-   [pow admin users](pow_admin_users.md) - Provides admin users commands

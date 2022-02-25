@@ -22,7 +22,6 @@ Provides admin users commands
 
 ### SEE ALSO
 
-* [pow admin](pow_admin.md)	 - Provides admin commands
-* [pow admin users create](pow_admin_users_create.md)	 - Create a Powergate user.
-* [pow admin users list](pow_admin_users_list.md)	 - List all Powergate users.
-
+-   [pow admin](pow_admin.md) - Provides admin commands
+-   [pow admin users create](pow_admin_users_create.md) - Create a Powergate user.
+-   [pow admin users list](pow_admin_users_list.md) - List all Powergate users.

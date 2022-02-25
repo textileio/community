@@ -21,7 +21,6 @@ Provides commands to view Filecoin deal information
 
 ### SEE ALSO
 
-* [pow](pow.md)	 - A client for storage and retreival of powergate data
-* [pow deals retrievals](pow_deals_retrievals.md)	 - List retrieval deal records for the user
-* [pow deals storage](pow_deals_storage.md)	 - List storage deal records for the user
-
+-   [pow](pow.md) - A client for storage and retreival of powergate data
+-   [pow deals retrievals](pow_deals_retrievals.md) - List retrieval deal records for the user
+-   [pow deals storage](pow_deals_storage.md) - List storage deal records for the user

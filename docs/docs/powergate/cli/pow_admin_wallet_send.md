@@ -26,5 +26,4 @@ pow admin wallet send [from] [to] [amount] [flags]
 
 ### SEE ALSO
 
-* [pow admin wallet](pow_admin_wallet.md)	 - Provides admin wallet commands
-
+-   [pow admin wallet](pow_admin_wallet.md) - Provides admin wallet commands

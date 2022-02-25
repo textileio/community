@@ -19,4 +19,4 @@ hub billing usage [flags]
 
 ### SEE ALSO
 
-* [hub billing](hub_billing.md)	 - Billing management
+-   [hub billing](hub_billing.md) - Billing management

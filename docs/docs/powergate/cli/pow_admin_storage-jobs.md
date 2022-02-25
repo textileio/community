@@ -22,7 +22,6 @@ Provides admin jobs commands
 
 ### SEE ALSO
 
-* [pow admin](pow_admin.md)	 - Provides admin commands
-* [pow admin storage-jobs list](pow_admin_storage-jobs_list.md)	 - List storage jobs according to query flag options.
-* [pow admin storage-jobs summary](pow_admin_storage-jobs_summary.md)	 - Give a summary of storage jobs in all states
-
+-   [pow admin](pow_admin.md) - Provides admin commands
+-   [pow admin storage-jobs list](pow_admin_storage-jobs_list.md) - List storage jobs according to query flag options.
+-   [pow admin storage-jobs summary](pow_admin_storage-jobs_summary.md) - Give a summary of storage jobs in all states

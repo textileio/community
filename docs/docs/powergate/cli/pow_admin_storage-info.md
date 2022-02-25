@@ -22,7 +22,6 @@ Provides admin storage info commands
 
 ### SEE ALSO
 
-* [pow admin](pow_admin.md)	 - Provides admin commands
-* [pow admin storage-info get](pow_admin_storage-info_get.md)	 - Returns the information about a stored cid.
-* [pow admin storage-info list](pow_admin_storage-info_list.md)	 - Returns a list of information about all stored cids, filtered by user ids and cids if provided.
-
+-   [pow admin](pow_admin.md) - Provides admin commands
+-   [pow admin storage-info get](pow_admin_storage-info_get.md) - Returns the information about a stored cid.
+-   [pow admin storage-info list](pow_admin_storage-info_list.md) - Returns a list of information about all stored cids, filtered by user ids and cids if provided.

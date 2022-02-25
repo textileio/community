@@ -4,29 +4,29 @@ This section will cover how to work in a production environment with secure keys
 
 To work with API keys in a production environment:
 
-1. *Generate* a new **API key and secret** that has mandatory signing enabled. 
-2. *Setup* an **authorization endpoint** that will hold your API secret and any optional user model for your app.
-3. *Add* a **login step** to your app that will use the new endpoint to authorize users in your app.
+1. _Generate_ a new **API key and secret** that has mandatory signing enabled.
+2. _Setup_ an **authorization endpoint** that will hold your API secret and any optional user model for your app.
+3. _Add_ a **login step** to your app that will use the new endpoint to authorize users in your app.
 
 ## Differences from development mode
 
-* Users need a **signature** to *accompany* their API requests. Those signatures can only be created with your API secret and will expire. 
-* You'll need to *re-verify* the **signatures** occasionally. For this, we'll move from using the `withKeyInfo` APIs to a new one called `withUserAuth` that can request updated signatures in your app. 
-* `withUserAuth` is also designed to work without access to your `secret`, so your app can `authorize` users on your back-end and provide API key signatures on demand. 
+-   Users need a **signature** to _accompany_ their API requests. Those signatures can only be created with your API secret and will expire.
+-   You'll need to _re-verify_ the **signatures** occasionally. For this, we'll move from using the `withKeyInfo` APIs to a new one called `withUserAuth` that can request updated signatures in your app.
+-   `withUserAuth` is also designed to work without access to your `secret`, so your app can `authorize` users on your back-end and provide API key signatures on demand.
 
 Other than that, all the APIs work the same way.
 
 ## User identity
 
-If you've followed the tutorials up until now, you're already using _PKI_, so your users will only ever share their _public key_ with your API (or any API). 
+If you've followed the tutorials up until now, you're already using _PKI_, so your users will only ever share their _public key_ with your API (or any API).
 
-Therefore, you just need to verify that they hold the private key linked with the public key. Otherwise, users could spoof your system very easily. 
+Therefore, you just need to verify that they hold the private key linked with the public key. Otherwise, users could spoof your system very easily.
 
 From there, you can provide Hub API access to your users based on that verification.
 
 ## Authentication server
 
-Now, we'll setup a simple server that accepts a user's public key, verifies that they control the private key (via a challenge), and then grant the user access to the Hub APIs. 
+Now, we'll setup a simple server that accepts a user's public key, verifies that they control the private key (via a challenge), and then grant the user access to the Hub APIs.
 
 The user can pass the result (a `UserAuth` object) to the API and start creating Threads and Buckets.
 
@@ -34,10 +34,10 @@ The user can pass the result (a `UserAuth` object) to the API and start creating
 
 There are a few resources you'll need before you start writing code.
 
-- [An account](../../hub/accounts.md). This is your developer account on the Hub.
-- [A user group key](../../hub/apis.md). This is how your users access the Hub APIs. Consider creating the key in an organization and not your personal account so you can invite collaborators later.
-- [A new Typescript project](https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript). We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.
-- A server framework. The example below uses [KoaJS](https://koajs.com/) but it could just as easily be written with [Express](https://expressjs.com/) or the basic Node server.
+-   [An account](../../hub/accounts.md). This is your developer account on the Hub.
+-   [A user group key](../../hub/apis.md). This is how your users access the Hub APIs. Consider creating the key in an organization and not your personal account so you can invite collaborators later.
+-   [A new Typescript project](https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript). We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.
+-   A server framework. The example below uses [KoaJS](https://koajs.com/) but it could just as easily be written with [Express](https://expressjs.com/) or the basic Node server.
 
 **Install dependencies**
 
@@ -54,10 +54,10 @@ npm install --save koa koa-router koa-logger koa-json koa-bodyparser koa-route k
 
 **Environment variables**
 
-We use a `.env` file in the root of our project repo. The values in this file will be pulled into the app each time it's run. This is where you'll add your Hub API key and secret. 
+We use a `.env` file in the root of our project repo. The values in this file will be pulled into the app each time it's run. This is where you'll add your Hub API key and secret.
 
 !!!danger
-    The `.env` file should be added to your `.gitignore` so your key and secret are never shared.
+The `.env` file should be added to your `.gitignore` so your key and secret are never shared.
 
 Contents of `.env`.
 
@@ -68,19 +68,20 @@ USER_API_SECRET=<insert user group secret>
 
 ### Create the server
 
-In our project setup, our main server is defined in `src/index.ts`. Unlike the [simple credentials example](simple-credentials-endpoint.md), our server needs to handle two-way communication with the client during identity verification. 
+In our project setup, our main server is defined in `src/index.ts`. Unlike the [simple credentials example](simple-credentials-endpoint.md), our server needs to handle two-way communication with the client during identity verification.
 
 The flow is as follows:
 
-1. The **client** *makes* a **login request**.
-2. The **server** *initiates* the **request** with the **Hub** and *gets back* an **identity challenge**.
-3. The **server** *passes* the **challenge** to the **client**.
-4. The **client** *confirms* they own their **private key** by *signing* the **challenge** and passing it back to the **server**.
+1. The **client** _makes_ a **login request**.
+2. The **server** _initiates_ the **request** with the **Hub** and _gets back_ an **identity challenge**.
+3. The **server** _passes_ the **challenge** to the **client**.
+4. The **client** _confirms_ they own their **private key** by _signing_ the **challenge** and passing it back to the **server**.
 5. The **server** passes it to the Hub.
-    - If *successful*, a **token** is *generated* for the **user** and the **server** *generates* **API credentials** and *passes* the **credentials, token, and API key** back to the **client**.
-* Now, the **client** can use the Hub APIs directly!
+    - If _successful_, a **token** is _generated_ for the **user** and the **server** _generates_ **API credentials** and _passes_ the **credentials, token, and API key** back to the **client**.
 
-It sounds complicated, but you'll see it happens very fast with only a few lines of code. 
+-   Now, the **client** can use the Hub APIs directly!
+
+It sounds complicated, but you'll see it happens very fast with only a few lines of code.
 
 In our example, we use `websockets` to enable the multi-step communication between the server and the client.
 
@@ -124,36 +125,37 @@ app.listen( PORT, () => console.log( "Server started." ) )
 
 ### Add a websocket login handler
 
-Next, we'll add a websocket endpoint to our server. Note the `Add websocket login endpoint` location in the server code above. 
+Next, we'll add a websocket endpoint to our server. Note the `Add websocket login endpoint` location in the server code above.
 
 The primary step the server needs to do is accept a `pubkey` and issue a new challenge back to the client. When successful, new API credentials can be handed to the client.
 
 [View the full code example in the repo](https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app/src/server).
 
 ```typescript
-import {Client} from '@textile/hub'
+import { Client } from "@textile/hub";
 
-async function example (pubkey: string) {
-  /**
-   * Init new Hub API Client with the user group API keys
-   */
-  const client = await Client.withKeyInfo({
-    key: 'USER_API_KEY',
-    secret: 'USER_API_SECRET',
-  })
+async function example(pubkey: string) {
+    /**
+     * Init new Hub API Client with the user group API keys
+     */
+    const client = await Client.withKeyInfo({
+        key: "USER_API_KEY",
+        secret: "USER_API_SECRET",
+    });
 
-  /** 
-   * Request a token from the Hub based on the user public key */
-  const token = await client.getTokenChallenge(
-    pubkey,
-    /** The callback passes the challenge back to the client */
-    (challenge: Buffer) => {
-    return new Promise((resolve, reject) => {
-      // Send the challenge back to the client and 
-      // resolve(Buffer.from(sig))
-      resolve()
-    })
-  })
+    /**
+     * Request a token from the Hub based on the user public key */
+    const token = await client.getTokenChallenge(
+        pubkey,
+        /** The callback passes the challenge back to the client */
+        (challenge: Buffer) => {
+            return new Promise((resolve, reject) => {
+                // Send the challenge back to the client and
+                // resolve(Buffer.from(sig))
+                resolve();
+            });
+        }
+    );
 }
 ```
 
@@ -161,9 +163,9 @@ Now when you refresh your locally running server, you should have a websocket en
 
 ### Wrap-up
 
-- With the user verified in your system, you can keep their public key without any security issues.
-- However, you should *never trust* an API call only by the public key, the **challenge step** is *critical*.
-- The token provided in the response should be considered a secret that only should be shared with a single user. It does not expire.
+-   With the user verified in your system, you can keep their public key without any security issues.
+-   However, you should _never trust_ an API call only by the public key, the **challenge step** is _critical_.
+-   The token provided in the response should be considered a secret that only should be shared with a single user. It does not expire.
 
 #### Example on GitHub
 
@@ -178,98 +180,101 @@ If you'd like to learn more, we've provided a fully working example on GitHub:
 
 ## Client (app) authentication
 
-Now that our credentials endpoint is setup, we need to generate new credentials for each user's identity. 
+Now that our credentials endpoint is setup, we need to generate new credentials for each user's identity.
 
 A basic client needs to be able to:
 
-* *Submit* a **login request**.
-* *Handle* a **challenge request** from the server.
-* *Sign* the **challenge**.
-* *Return* it over **websockets**. 
+-   _Submit_ a **login request**.
+-   _Handle_ a **challenge request** from the server.
+-   _Sign_ the **challenge**.
+-   _Return_ it over **websockets**.
 
 We'll create a `login` function that handles the back and forth of the websocket and can combine with the `withUserAuth` function.
 
 ### Login function
 
 ```typescript
-import { Buckets, Client, Identity, PrivateKey, UserAuth } from '@textile/hub'
+import { Buckets, Client, Identity, PrivateKey, UserAuth } from "@textile/hub";
 
 /**
  * loginWithChallenge uses websocket to initiate and respond to
  * a challenge for the user based on their keypair.
- * 
+ *
  * Read more about setting up user verification here:
  * https://docs.textile.io/tutorials/hub/web-app/
  */
 const loginWithChallenge = (id: Identity) => {
-  return (): Promise<UserAuth> => {
-    return new Promise((resolve, reject) => {
-      /** 
-       * Configured for our development server
-       * 
-       * Note: this should be upgraded to wss for production environments.
-       */
-      const socketUrl = `ws://localhost:3001/ws/userauth`
-      
-      /** Initialize our websocket connection */
-      const socket = new WebSocket(socketUrl)
-  
-      /** Wait for our socket to open successfully */
-      socket.onopen = () => {
-        /** Get public key string */
-        const publicKey = id.public.toString();
-  
-        /** Send a new token request */
-        socket.send(JSON.stringify({
-          pubkey: publicKey,
-          type: 'token',
-        }))
-  
-        /** Listen for messages from the server */
-        socket.onmessage = async (event) => {
-          const data = JSON.parse(event.data)
-          switch (data.type) {
-            /** Error never happen :) */
-            case 'error': {
-              reject(data.value)
-              break
-            }
-            /** The server issued a new challenge */
-            case 'challenge': {
-              /** Convert the challenge json to a Buffer */
-              const buf = Buffer.from(data.value)
-              /** User our identity to sign the challenge */
-              const signed = await id.sign(buf)
-              /** Send the signed challenge back to the server */
-              socket.send(JSON.stringify({
-                type: 'challenge',
-                sig: Buffer.from(signed).toJSON(),
-              }))
-              break
-            }
-            /** New token generated */
-            case 'token': {
-              resolve(data.value)
-              break
-            }
-          }
-        }
-      }
-    })
-  }
-}
+    return (): Promise<UserAuth> => {
+        return new Promise((resolve, reject) => {
+            /**
+             * Configured for our development server
+             *
+             * Note: this should be upgraded to wss for production environments.
+             */
+            const socketUrl = `ws://localhost:3001/ws/userauth`;
+
+            /** Initialize our websocket connection */
+            const socket = new WebSocket(socketUrl);
+
+            /** Wait for our socket to open successfully */
+            socket.onopen = () => {
+                /** Get public key string */
+                const publicKey = id.public.toString();
+
+                /** Send a new token request */
+                socket.send(
+                    JSON.stringify({
+                        pubkey: publicKey,
+                        type: "token",
+                    })
+                );
+
+                /** Listen for messages from the server */
+                socket.onmessage = async (event) => {
+                    const data = JSON.parse(event.data);
+                    switch (data.type) {
+                        /** Error never happen :) */
+                        case "error": {
+                            reject(data.value);
+                            break;
+                        }
+                        /** The server issued a new challenge */
+                        case "challenge": {
+                            /** Convert the challenge json to a Buffer */
+                            const buf = Buffer.from(data.value);
+                            /** User our identity to sign the challenge */
+                            const signed = await id.sign(buf);
+                            /** Send the signed challenge back to the server */
+                            socket.send(
+                                JSON.stringify({
+                                    type: "challenge",
+                                    sig: Buffer.from(signed).toJSON(),
+                                })
+                            );
+                            break;
+                        }
+                        /** New token generated */
+                        case "token": {
+                            resolve(data.value);
+                            break;
+                        }
+                    }
+                };
+            };
+        });
+    };
+};
 
 const setupThreads = async (identity: Identity) => {
-  /**
-   * By passing a callback, the Threads library can refresh 
-   * the api signature whenever expiring.
-   */
-  const callback = loginWithChallenge(identity)
-  const client = Client.withUserAuth(callback)
-  client.getToken(identity)
-  return client
-}
-
+    /**
+     * By passing a callback, the Threads library can refresh
+     * the api signature whenever expiring.
+     */
+    const callback = loginWithChallenge(identity);
+    const client = Client.withUserAuth(callback);
+    client.getToken(identity);
+    return client;
+};
 ```
 
 ### Convert Buckets from insecure API to secure API
@@ -281,13 +286,13 @@ If you're looking to convert your Buckets from using the insecure API to the sec
 When using your insecure API key, you typically initialized Buckets like the following:
 
 ```typescript
-import { Buckets, Identity, KeyInfo } from '@textile/hub'
+import { Buckets, Identity, KeyInfo } from "@textile/hub";
 
 const init = async (key: KeyInfo, identity: Identity) => {
-    const buckets = await Buckets.withKeyInfo(key)
-    await buckets.getToken(identity)
-    return buckets
-}
+    const buckets = await Buckets.withKeyInfo(key);
+    await buckets.getToken(identity);
+    return buckets;
+};
 ```
 
 **Secure keys example**
@@ -295,12 +300,12 @@ const init = async (key: KeyInfo, identity: Identity) => {
 You'll now replace `withKeyInfo` and `getToken` with the single, `withUserAuth` method that requires the callback method:
 
 ```typescript
-import { Buckets, UserAuth } from '@textile/hub'
+import { Buckets, UserAuth } from "@textile/hub";
 
-const init = (getUserAuth: (() => Promise<UserAuth>)) => {
-  const buckets = Buckets.withUserAuth(getUserAuth)
-  return buckets
-}
+const init = (getUserAuth: () => Promise<UserAuth>) => {
+    const buckets = Buckets.withUserAuth(getUserAuth);
+    return buckets;
+};
 ```
 
 ### Wrap-up

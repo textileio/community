@@ -25,5 +25,4 @@ pow storage-info get [cid] [flags]
 
 ### SEE ALSO
 
-* [pow storage-info](pow_storage-info.md)	 - Provides commands to get and query cid storage info.
-
+-   [pow storage-info](pow_storage-info.md) - Provides commands to get and query cid storage info.

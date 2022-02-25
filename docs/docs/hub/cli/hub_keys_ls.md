@@ -14,4 +14,4 @@ hub keys ls [flags]
 
 ### SEE ALSO
 
-* [hub keys](hub_keys.md)	 - API key management
+-   [hub keys](hub_keys.md) - API key management
