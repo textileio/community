@@ -26,5 +26,4 @@ pow admin data gcstaged [flags]
 
 ### SEE ALSO
 
-* [pow admin data](pow_admin_data.md)	 - Provides admin data commands
-
+-   [pow admin data](pow_admin_data.md) - Provides admin data commands

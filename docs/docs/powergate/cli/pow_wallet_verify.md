@@ -25,5 +25,4 @@ pow wallet verify [addr] [hex-encoded-message] [hex-encoded-signature] [flags]
 
 ### SEE ALSO
 
-* [pow wallet](pow_wallet.md)	 - Provides commands about filecoin wallets
-
+-   [pow wallet](pow_wallet.md) - Provides commands about filecoin wallets

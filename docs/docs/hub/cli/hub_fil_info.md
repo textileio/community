@@ -14,4 +14,4 @@ hub fil info cid [flags]
 
 ### SEE ALSO
 
-* [hub fil](hub_fil.md)	 - Interact with Filecoin related commands.
+-   [hub fil](hub_fil.md) - Interact with Filecoin related commands.

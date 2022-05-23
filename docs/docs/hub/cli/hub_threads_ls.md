@@ -14,4 +14,4 @@ hub threads ls [flags]
 
 ### SEE ALSO
 
-* [hub threads](hub_threads.md)	 - Thread management
+-   [hub threads](hub_threads.md) - Thread management

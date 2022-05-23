@@ -25,5 +25,4 @@ pow wallet sign [hex-encoded-message] [flags]
 
 ### SEE ALSO
 
-* [pow wallet](pow_wallet.md)	 - Provides commands about filecoin wallets
-
+-   [pow wallet](pow_wallet.md) - Provides commands about filecoin wallets

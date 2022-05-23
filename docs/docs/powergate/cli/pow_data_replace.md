@@ -26,5 +26,4 @@ pow data replace [cid1] [cid2] [flags]
 
 ### SEE ALSO
 
-* [pow data](pow_data.md)	 - Provides commands to interact with general data APIs
-
+-   [pow data](pow_data.md) - Provides commands to interact with general data APIs

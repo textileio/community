@@ -14,4 +14,4 @@ hub buck roles ls [path] [flags]
 
 ### SEE ALSO
 
-* [hub buck roles](hub_buck_roles.md)	 - Object access role management
+-   [hub buck roles](hub_buck_roles.md) - Object access role management

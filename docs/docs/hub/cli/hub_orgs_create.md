@@ -14,4 +14,4 @@ hub orgs create [flags]
 
 ### SEE ALSO
 
-* [hub orgs](hub_orgs.md)	 - Org management
+-   [hub orgs](hub_orgs.md) - Org management

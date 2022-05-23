@@ -26,5 +26,4 @@ pow admin storage-info get [user-id] [cid] [flags]
 
 ### SEE ALSO
 
-* [pow admin storage-info](pow_admin_storage-info.md)	 - Provides admin storage info commands
-
+-   [pow admin storage-info](pow_admin_storage-info.md) - Provides admin storage info commands

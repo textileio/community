@@ -2,7 +2,7 @@
 
 Set the default archive storage configuration for the specified Bucket from a file, stdin, or flags.
 
-If flags are specified, this command updates the current default storage-config with the *explicitely set* flags. 
+If flags are specified, this command updates the current default storage-config with the _explicitely set_ flags.
 Flags that aren't explicitely set won't set the default value, and thus keep the original value in the storage-config.
 
 If a file or stdin is used, the storage-config will be completely overriden by the provided one.
@@ -35,4 +35,4 @@ hub buck archive set-default-config --rep-factor=3 --fast-retrieval --verified-d
 
 ### SEE ALSO
 
-* [hub buck archive](hub_buck_archive.md)	 - Create a Filecoin archive
+-   [hub buck archive](hub_buck_archive.md) - Create a Filecoin archive

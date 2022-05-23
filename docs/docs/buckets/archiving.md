@@ -1,6 +1,6 @@
 # Bucket Archiving
 
-Bucket archiving is the process of taking the existing snapshot of your bucket content and storing it on [Filecoin](https://filecoin.io/). This allows you to leverage the decentralized nature of Filecoin for the storage of your buckets. 
+Bucket archiving is the process of taking the existing snapshot of your bucket content and storing it on [Filecoin](https://filecoin.io/). This allows you to leverage the decentralized nature of Filecoin for the storage of your buckets.
 
 <!--
 While the Hub is ready to be tested and built on by the right app developers, use it with caution.
@@ -18,8 +18,8 @@ Check out this [video](https://www.youtube.com/watch?v=jiBUxIi1zko) from a [blog
     The Textile Hub is currently connected to Mainnet and account balances are in FIL.
 
     When you create a new archive, you store your data on the decentralized Filecoin network and _outside_ of the Textile platform. We provide this connection for users but do not offer any guarantees about the Filecoin network, data privacy or security, or access and availability once you create deals on that network.
-    
-    Read our full [terms](../policies/terms.md) and use these features with caution. 
+
+    Read our full [terms](../policies/terms.md) and use these features with caution.
 
 <!--
 "The Textile Hub is currently connected to Mainnet and account balances are in FIL."
@@ -30,9 +30,9 @@ Check out this [video](https://www.youtube.com/watch?v=jiBUxIi1zko) from a [blog
 
 ## Create your first archive
 
-Archiving is available in all Textile client libraries and can be requested on a developer, user, or organization buckets. 
+Archiving is available in all Textile client libraries and can be requested on a developer, user, or organization buckets.
 
-To start testing archiving, let's use a bucket created in the `hub` CLI. 
+To start testing archiving, let's use a bucket created in the `hub` CLI.
 
 Let's try archiving the bucket.
 
@@ -58,7 +58,7 @@ You can get the current status of your archive as well as any previous archives.
 
 ```sh
 hub buck archives list
-> Success! 
+> Success!
 {
   "current": {
     "cid": "bafybeiaxkbr6fudtgbayg5yndy6vpmz7c4ucjevdl5d5j2r77rkri4fftm",

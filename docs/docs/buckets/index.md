@@ -2,26 +2,27 @@
 
 ## Getting Started
 
-If you're familiar with cloud storage, you'll find buckets easy to understand. 
+If you're familiar with cloud storage, you'll find buckets easy to understand.
 
 However, unlike traditional cloud services, buckets are built on open, decentralized protocols including the IPFS and Libp2p. You can serve websites, data, and apps from buckets.
 
 Buckets are packed with useful features:
 
-- Explore your Buckets on the [Hub gateway](#explore-on-the-gateway).
-- Render web content in your Bucket on a persistent [website](#render-on-a-website).
-- Automatically distribute your updates [on IPFS using IPNS](#render-on-ipfs-gateways).
-- Collaboratively manage Buckets as an [organization](#organization-buckets).
-- Create private Buckets where your [app users can store data](#app-user-buckets).
-- (Soon) Archive Bucket data on Filecoin to ensure long-term security and access to your files.
+-   Explore your Buckets on the [Hub gateway](#explore-on-the-gateway).
+-   Render web content in your Bucket on a persistent [website](#render-on-a-website).
+-   Automatically distribute your updates [on IPFS using IPNS](#render-on-ipfs-gateways).
+-   Collaboratively manage Buckets as an [organization](#organization-buckets).
+-   Create private Buckets where your [app users can store data](#app-user-buckets).
+-   (Soon) Archive Bucket data on Filecoin to ensure long-term security and access to your files.
 
 ## Initialize a Bucket
 
 To start a Bucket in your current working directory, you must first initialize it. You can initialize a bucket with an existing UnixFS DAG, available in the IPFS network, or import it interactively in an existing bucket.
 
-When working on your local machine, buckets are mapped to working directories. 
+When working on your local machine, buckets are mapped to working directories.
 
-Once you initialize a bucket in a directory, anytime you return to the directory, the [Textile CLI](../hub/cli/hub.md) will automatically detect the Bucket you're interacting with. 
+Once you initialize a bucket in a directory, anytime you return to the directory, the [Textile CLI](../hub/cli/hub.md) will automatically detect the Bucket you're interacting with.
+
 <!--
 ^ - "Anytime you return to the directory" needs more context. Who returns, returns where, detect bucket you're interacting with is vague to.
 - Albert Kim
@@ -30,29 +31,29 @@ Once you initialize a bucket in a directory, anytime you return to the directory
 ![[Read CLI docs for buckets](../hub/cli/hub_buck.md).](../images/hub-cli/hub_bucket_init.png)
 
 !!! info
-    Bucket names are unique to a developer and within an Org. They're not globally unique.
+Bucket names are unique to a developer and within an Org. They're not globally unique.
 
 !!! warning
-    Be careful about creating a bucket in a root directory because all children directories become linked to that bucket. To move or remove a bucket's link to a directory, edit, move or delete the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory)
+Be careful about creating a bucket in a root directory because all children directories become linked to that bucket. To move or remove a bucket's link to a directory, edit, move or delete the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory)
 
 ### Shared buckets
 
-You can create buckets to share with all members of an organization. 
+You can create buckets to share with all members of an organization.
 
-To do so, simply initialize an Org first and then initialize a Bucket using the `HUB_ORG` environmental flag, by specifying the name of the Org you want to share the bucket with. 
+To do so, simply initialize an Org first and then initialize a Bucket using the `HUB_ORG` environmental flag, by specifying the name of the Org you want to share the bucket with.
 
-For example, `HUB_ORG=astronauts hub bucket init`. 
+For example, `HUB_ORG=astronauts hub bucket init`.
 
 All members of the Org will be able to push and pull files to and from the shared Bucket. [Read more about creating Orgs](../hub/accounts.md#organizations).
 
 !!! info
-    To check which org a bucket is registered with, examine the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory).
+To check which org a bucket is registered with, examine the `.textile/config.yml` file (it will be a hidden folder in the bucket's directory).
 
 ## Encrypted buckets
 
-It's possible to create encrypted buckets. 
+It's possible to create encrypted buckets.
 
-The contents of encrypted buckets _will_ still exist on IPFS but the contents will be obfuscated to any viewer that doesn't have access to the encryption keys. 
+The contents of encrypted buckets _will_ still exist on IPFS but the contents will be obfuscated to any viewer that doesn't have access to the encryption keys.
 
 You can choose to create encrypted buckets when creating them in the CLI or when initializing them [in the JavaScript library](../tutorials/hub/user-buckets.md#push-encrypted-buckets).
 
@@ -68,11 +69,11 @@ You can choose to create encrypted buckets when creating them in the CLI or when
 
 When a bucket is pushed to the remote API (the Hub):
 
-* Its [Merkle DAG](https://en.wikipedia.org/wiki/Merkle_tree) representation is saved locally as a reference of the latest pushed version.
-* When you execute `hub buck status`, it compares the persisted Merkle DAG with a generated Merkle DAG of the Bucket local state. 
-* Walking both DAGs and comparing [CIDs](https://github.com/multiformats/cid) can quickly provide paths that changed to the last known version. 
+-   Its [Merkle DAG](https://en.wikipedia.org/wiki/Merkle_tree) representation is saved locally as a reference of the latest pushed version.
+-   When you execute `hub buck status`, it compares the persisted Merkle DAG with a generated Merkle DAG of the Bucket local state.
+-   Walking both DAGs and comparing [CIDs](https://github.com/multiformats/cid) can quickly provide paths that changed to the last known version.
 
-<!-- 
+<!--
 ^ - The last point should be reworded but I don't know how because I don't understand the message.
 - Albert Kim
 -->
@@ -93,6 +94,7 @@ Encrypted buckets have a couple of goals:
 2. Obfuscate directory structure, which means encrypting IPLD nodes and their links.
 
 The AES and HMAC keys used for bucket encryption are stored in the ThreadDB collection instance. That means each bucket has a model entry as a key.
+
 <!--
 "each bucket has a model entry as a key" probably needs to be reworded and made clearer.
 - Albert Kim
@@ -104,7 +106,7 @@ As a compromise, we've added some convenience methods to the local buck client w
 
 Finally, you can run the standalone buckets daemon buckd locally and use a remote peer as a thread replicator (no read key access). This means that there’s no downside to the keys being stored in the bucket collection instance.
 
-Password-based encryption uses the same approach but also leverages [scrypt](https://godoc.org/golang.org/x/crypto/scrypt) to derive the keys from the password. 
+Password-based encryption uses the same approach but also leverages [scrypt](https://godoc.org/golang.org/x/crypto/scrypt) to derive the keys from the password.
 
 This carries the normal tradeoff: The encryption is only as good as the password.
 
@@ -115,7 +117,7 @@ This carries the normal tradeoff: The encryption is only as good as the password
 `hub bucket init --existing`
 
 !!!info
-    Use the `--existing` flag to list buckets already pushed by you. Use `HUB_ORG` to list buckets already pushed by your collaborators.
+Use the `--existing` flag to list buckets already pushed by you. Use `HUB_ORG` to list buckets already pushed by your collaborators.
 
 ### Explore on the gateway
 
@@ -135,19 +137,19 @@ If your Bucket contains web content, the Bucket website endpoint will provide yo
 
 ### Render on IPFS gateways
 
-Buckets are dynamic folders distributed over IPFS using ThreadDB. 
+Buckets are dynamic folders distributed over IPFS using ThreadDB.
 
-Each time you **create** a new Bucket, you'll receive a new [IPNS Address](#ipns-address) that you can use on the IPFS address to fetch the latest Bucket content. 
+Each time you **create** a new Bucket, you'll receive a new [IPNS Address](#ipns-address) that you can use on the IPFS address to fetch the latest Bucket content.
 
-The IPNS address will not change but the content will update each time you push changes to your Bucket. 
+The IPNS address will not change but the content will update each time you push changes to your Bucket.
 
 Each time you **update** your Bucket, you'll receive a new IPFS address to fetch that version of your Bucket content.
 
 ### HTTP Domain
 
-All public Buckets are automatically provided a subdomain on `textile.space` that reflects the latest changes in your Bucket. 
+All public Buckets are automatically provided a subdomain on `textile.space` that reflects the latest changes in your Bucket.
 
-Your Bucket's IPNS address is used as the subdomain, such that your Bucket URL will always be: `<ipns-address>.textile.space`. 
+Your Bucket's IPNS address is used as the subdomain, such that your Bucket URL will always be: `<ipns-address>.textile.space`.
 
 This is designed to enhance the interoperability of protocols using Textile Buckets.
 
@@ -163,9 +165,9 @@ Buckets are an ideal tool for persisting your website, source code, or documenta
 
 We've provided a configurable [GitHub Action](https://github.com/marketplace/actions/textile-buckets) that allows you to:
 
-* Push or update your Bucket based on pull requests, commits, and merges.
-* Generate IPNS, IPFS, and HTTP addresses for every Bucket creation or update.
-* Create temporary Buckets for staging or review that can be removed automatically when content is merged or pull requests are closed.
+-   Push or update your Bucket based on pull requests, commits, and merges.
+-   Generate IPNS, IPFS, and HTTP addresses for every Bucket creation or update.
+-   Create temporary Buckets for staging or review that can be removed automatically when content is merged or pull requests are closed.
 
 ![Example output from [Textile Bucket GitHub Action](https://github.com/marketplace/actions/textile-buckets)](../images/buckets/github-action.png)
 

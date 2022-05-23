@@ -10,20 +10,20 @@ If you're interested in some more in-depth explanation of offline-deals, you can
 
 If you want to make a deal with a miner, it's necessary to prepare your data. The source of data can be:
 
-- A file path to a file.
-- A file path to a folder.
-- A Cid which data is stored in a `go-ipfs` node (use `--ipfs-api` flag).
+-   A file path to a file.
+-   A file path to a folder.
+-   A Cid which data is stored in a `go-ipfs` node (use `--ipfs-api` flag).
 
 Despite your data source, the data preparation result consist of:
 
-- A CAR file: This file is the one that should be sent to miners.
-- Piece-Size and PieceCID: these two fields are needed to propose the deal to the miner.
+-   A CAR file: This file is the one that should be sent to miners.
+-   Piece-Size and PieceCID: these two fields are needed to propose the deal to the miner.
 
 You can use `pow` to do the data preparation. The relevant commands are sub-commands under `pow offline`:
 
-- `pow offline prepare`
-- `pow offline car`
-- `pow offline commp`
+-   `pow offline prepare`
+-   `pow offline car`
+-   `pow offline commp`
 
 In most cases, only `pow offline prepare` will be relevant for preparing data since it does all that's needed to prepare a file/folder/Cid. The `pow offline car` and `pow offline commp` might help power-users that might want to produce only the CAR file, or calculate piece-size and piece-cid from an existing CAR file. Using `pow offline prepare` does the job more efficiently than `pow offline car + pow offline commp`. It already starts calculating piece-size and piece-cid concurrently with the CAR file generation.
 
@@ -43,15 +43,15 @@ $ pow offline prepare foo.bin foo.car
 
 > Lotus offline-deal command:
 > lotus client deal --manual-piece-cid=baga6ea4seaqgfjuol7jhui7q6onijcese57vk4slqbgqck7vleifoxdoyqrl4fy --manual-piece-size=2147483648 QmTEsmWrxvzEhhPoiMkU2tMAfhwAsVpKQ8otCuHsFtTpmM <miner> <price> <duration>
-$ ls -lh foo.car 
+$ ls -lh foo.car
 -rwxr-xr-x 1 ignacio ignacio 1,1G abr  7 10:41 foo.car
 ```
 
 In this single command run the following happened:
 
-- The file was transformed to a UnixFS DAG.
-- This DAG gets serialized to a CAR format, and saved in `out.car`.
-- We calculate the final piece-size and piece-cid for this CAR file, which is data that's needed to make the offline deal.
+-   The file was transformed to a UnixFS DAG.
+-   This DAG gets serialized to a CAR format, and saved in `out.car`.
+-   We calculate the final piece-size and piece-cid for this CAR file, which is data that's needed to make the offline deal.
 
 If you would like to use this tool for scripting, the `--json` flag is very convenient:
 
@@ -83,17 +83,20 @@ The `pow offline car` and `pow offline commp` subcommands work similarly, also h
 The `pow offline prepare` CLI subcommand also supports a special mode of operation that aggregates files using a [standardized spec](https://hackmd.io/O-zleFXsTdKNIyUZ-3bDDw?view) without any extra dependencies.
 
 The way to use this mode as follows:
+
 ```bash
 $ pow offline prepare --json --aggregate [folder-with-files] [car-output-path]
 ```
 
 For example, say you have a folder `foo` that contains a list of files that you want to aggregate in a Filecoin batch:
+
 ```bash
 $ ls foo
 file.01  file.02  file.03  file.04  file.05  file.06  file.07  file.08  file.09  file.10  file.11  file.12  file.13  file.14  file.15
 ```
 
 Now we run the command:
+
 ```bash
 $ pow offline prepare --json --aggregate foo myfoo.car 2>&1 | jq .
 {
@@ -164,26 +167,30 @@ $ pow offline prepare --json --aggregate foo myfoo.car 2>&1 | jq .
   ]
 }
 ```
+
 The command does some magic for you:
-- It DAGifies each file in the `foo` folder as a UnixFS file.
-- It creates a Filecoin batch as described by the spec, resulting in a single UnixFS batch.
-- It generates a CAR file of this UnixFS batch.
-- It calculates the PieceCid and PieceSize of the CAR file.
+
+-   It DAGifies each file in the `foo` folder as a UnixFS file.
+-   It creates a Filecoin batch as described by the spec, resulting in a single UnixFS batch.
+-   It generates a CAR file of this UnixFS batch.
+-   It calculates the PieceCid and PieceSize of the CAR file.
 
 Let's see some generated files in the current folder:
+
 ```bash
 $ ls
 foo  myfoo.car  myfoo.car.manifest
 ```
 
 The output of the command is:
-- It creates the `foo.car` file.
-- It creates the `foo.car.manifest` file, which is the `@AggregateManifest.ndjson` manifest file that's also inside the UnixFS batch.
-- It prints to stdout:
-    - The PayloadCid of the UnixFS batch.
-    - The calculated PieceCid
-    - The calculated PieceSize
-    - The generated Cid of the processed files.
+
+-   It creates the `foo.car` file.
+-   It creates the `foo.car.manifest` file, which is the `@AggregateManifest.ndjson` manifest file that's also inside the UnixFS batch.
+-   It prints to stdout:
+    -   The PayloadCid of the UnixFS batch.
+    -   The calculated PieceCid
+    -   The calculated PieceSize
+    -   The generated Cid of the processed files.
 
 The JSON output allows you to reference the corresponding entry of each file in `foo` into the manifest of batch. In addition, the manifest contains information that will allow making retrievals of individual files for deals made with the generated batch CAR file.
 We'll explain soon how to do retrievals whenever this feature is ready in the Lotus client; stay tuned!

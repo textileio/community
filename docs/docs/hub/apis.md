@@ -16,13 +16,13 @@ The [js-textile](#api-libraries) library allows you to create and edit Buckets o
 
 ### ThreadDB
 
-[ThreadDB](../threads/index.md) is a mongo-like database that runs on IPFS. You can use [js-textile](#api-libraries) to connect to the Hub's hosted thread server (`Client`) to push and persist encrypted data on an IPFS-backed database. 
+[ThreadDB](../threads/index.md) is a mongo-like database that runs on IPFS. You can use [js-textile](#api-libraries) to connect to the Hub's hosted thread server (`Client`) to push and persist encrypted data on an IPFS-backed database.
 
-Alternatively, you can embed local, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates (`Database`). 
+Alternatively, you can embed local, p2p databases in your app that use remote IPFS peers for pinning and remote ThreadDB peers to relay updates (`Database`).
 
 ### Mailboxes
 
-The Users API provides tools for sending and receiving messages between Hub users. Mailboxes are built on ThreadDB. 
+The Users API provides tools for sending and receiving messages between Hub users. Mailboxes are built on ThreadDB.
 
 Hub mailboxes are a unique inboxing and messaging system designed for modern apps where users hold private keys linked to their identity. With just their private and public key, a user can send and receive encrypted messages to other users in your app.
 
@@ -32,7 +32,7 @@ You can access the Hub APIs through the use of API keys.
 
 ### API Keys
 
-The Hub has two forms of an API key, an *Account Key* and a *User Group Key*.
+The Hub has two forms of an API key, an _Account Key_ and a _User Group Key_.
 
 #### Account Keys
 
@@ -54,18 +54,18 @@ API keys are project-centric credentials that you can use to provision your Hub 
 
 ### Access Summary
 
-Below is a summary of the Hub resources you may create and access with each key type. 
+Below is a summary of the Hub resources you may create and access with each key type.
 
 <center>
 
-| Resource example    |     Owner    |       CLI      |   Required Key  |
-|----------------------|:------------:|:--------------:|:--------------:|
-| Developer Threads    |   Hub Developer  | create, access | Account Key |
-| Developer Buckets    |   Hub Developer  | create, access | Account Key |
-| Organization Threads |   Hub Developer(s)  | create, access | Account Key |
-| Organization Buckets |   Hub Developer(s)  | create, access | Account Key |
-| User Threads     | App User |                |   User Group Key  |
-| User Buckets     | App User |                |   User Group Key  |
+| Resource example     |      Owner       |      CLI       |  Required Key  |
+| -------------------- | :--------------: | :------------: | :------------: |
+| Developer Threads    |  Hub Developer   | create, access |  Account Key   |
+| Developer Buckets    |  Hub Developer   | create, access |  Account Key   |
+| Organization Threads | Hub Developer(s) | create, access |  Account Key   |
+| Organization Buckets | Hub Developer(s) | create, access |  Account Key   |
+| User Threads         |     App User     |                | User Group Key |
+| User Buckets         |     App User     |                | User Group Key |
 
 </center>
 
@@ -77,7 +77,7 @@ Create a new **Account Key** by using `hub key create` with the `account` option
 
 ![](../images/hub-cli/hub_keys_create.png)
 
-<!-- 
+<!--
 ^ Is this image correct? I don't see an "account" option.
 - Albert Kim
 -->
@@ -94,7 +94,7 @@ If you're building an app in an organization, use:
 HUB_ORG=<org name> hub key create
 ```
 
-To link a new key to the organization, not your personal account. 
+To link a new key to the organization, not your personal account.
 
 Currently, there are no migration tools, so we recommend creating a new organization or using an existing organization when starting a new app (see [Organizations](../hub/accounts.md)).
 
@@ -103,8 +103,8 @@ Currently, there are no migration tools, so we recommend creating a new organiza
 
 ✔ user
 
-  KEY                          SECRET                          TYPE  
-  bqab5csdh...no6jjezox4       bm2tk476yivwlw...3a4cayll7ztha  user  
+  KEY                          SECRET                          TYPE
+  bqab5csdh...no6jjezox4       bm2tk476yivwlw...3a4cayll7ztha  user
 
 > Success! Created new API key and secret
 ```
@@ -121,7 +121,7 @@ _[See CLI commands](../hub/cli/hub_keys.md)_
 
 ## API Libraries
 
-You can find all the remote Thread and Bucket APIs in the `textile` libraries below. These libraries are meant to work in combination with the `threads` libraries when you want to create and manage Thread databases in your app. 
+You can find all the remote Thread and Bucket APIs in the `textile` libraries below. These libraries are meant to work in combination with the `threads` libraries when you want to create and manage Thread databases in your app.
 
 <div class="txtl-options">
   <a href="https://textileio.github.io/js-textile/docs/" target="_blank" class="box">

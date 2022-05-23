@@ -1,14 +1,14 @@
 # Managing Storage with the StorageConfig
 
-Every [user](storage.md#intro-to-users) can manage how data is stored on IPFS and Filecoin using the **StorageConfig** ([details below](#storageconfig-details)). 
+Every [user](storage.md#intro-to-users) can manage how data is stored on IPFS and Filecoin using the **StorageConfig** ([details below](#storageconfig-details)).
 
 The StorageConfig is a powerful tool for:
 
-* Customizing the details about storing data on Filecoin.
-* Making it available over IPFS.
-* Enforcing replication.
-* Managing expiring deals.
-* And more.
+-   Customizing the details about storing data on Filecoin.
+-   Making it available over IPFS.
+-   Enforcing replication.
+-   Managing expiring deals.
+-   And more.
 
 ## Setting the StorageConfig
 
@@ -20,7 +20,7 @@ In every Powergate deployment, there are three ways to manage StorageConfigs thr
 
 ### Get the default StorageConfig of a user
 
-View the current default StorageConfig of a user. 
+View the current default StorageConfig of a user.
 
 ```bash
 pow config default -t <token>
@@ -119,7 +119,7 @@ Here is an example of the _default StorageConfig_.
       },
       // addr is the wallet address used to store the data in filecoin
       "addr": "<unique>",
-      // maxPrice is the maximum price that will be spent per RepFactor 
+      // maxPrice is the maximum price that will be spent per RepFactor
       // to store the data in units of attoFIL per GiB per epoch
       "maxPrice": 0,
       // fastRetrieval indicates that created deals should enable the

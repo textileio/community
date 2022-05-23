@@ -27,5 +27,4 @@ pow wallet new-addr [name] [flags]
 
 ### SEE ALSO
 
-* [pow wallet](pow_wallet.md)	 - Provides commands about filecoin wallets
-
+-   [pow wallet](pow_wallet.md) - Provides commands about filecoin wallets

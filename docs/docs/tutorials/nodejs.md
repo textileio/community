@@ -23,17 +23,17 @@ You can now just add WebSockets to the global namespace in your apps. Add this t
 In TypeScript:
 
 ```typescript
-;(global as any).WebSocket = require('isomorphic-ws')
+(global as any).WebSocket = require("isomorphic-ws");
 ```
 
 In JavaScript:
 
 ```javascript
-;global.WebSocket = require('isomorphic-ws')
+global.WebSocket = require("isomorphic-ws");
 ```
 
 ## Start building
 
-That's it. Now start building with the full suite of Textile tools. 
+That's it. Now start building with the full suite of Textile tools.
 
 Check out the [app-building tutorials](hub/web-app.md) for ideas.

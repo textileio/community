@@ -39,12 +39,13 @@ Next, you need to run:
 This will install a `shim.js` into the root of your file. You need to import `shim.js` at the top of your app's root file (typically `index.js`),
 
 ```js
-import './shim';
+import "./shim";
 ```
 
-This may need to be updated in the future. 
+This may need to be updated in the future.
 
 You can make this easier by adding a `postinstall` step to your `package.json`, as follows:
+
 <!--
 Maybe should state what about this postinstall script makes 'this' easier. Also could be more specific about what 'this' refers to
 - Albert Kim
@@ -59,26 +60,26 @@ Maybe should state what about this postinstall script makes 'this' easier. Also 
 
 **Environment variables**
 
-If you plan to store your source-code anywhere public, you **should not** store those keys publicly. 
- 
-To securely add API keys to your app, you can use `react-native-dotenv`. 
+If you plan to store your source-code anywhere public, you **should not** store those keys publicly.
+
+To securely add API keys to your app, you can use `react-native-dotenv`.
 
 ```bash
 npm install --save react-native-dotenv
 ```
 
-Next, create a `.env` file in the root of your project. You can find an example `.env` in our example project [here](https://github.com/textileio/js-examples/blob/master/react-native-hub-app/example.env). 
+Next, create a `.env` file in the root of your project. You can find an example `.env` in our example project [here](https://github.com/textileio/js-examples/blob/master/react-native-hub-app/example.env).
 
 !!!warning
-    Be **certain** that the `.env` is added to your `.gitignore` and not checked in with your code. 
+Be **certain** that the `.env` is added to your `.gitignore` and not checked in with your code.
 
-The contents of `.env` will look like: 
+The contents of `.env` will look like:
 
 ```bash
 USER_API_KEY=textile-hub-user-group-key
 ```
 
-You can follow the instructions to generate a **User Group Key** [here](../../hub/apis). 
+You can follow the instructions to generate a **User Group Key** [here](../../hub/apis).
 
 If you already generated keys, you can list them by executing `hub keys ls`. Add the values to your `.env` file on the right side of the equality sign.
 
@@ -89,42 +90,42 @@ The rest of the JavaScript portions in this tutorial will be in TypeScript. You 
 ## Build your app
 
 !!!hint
-    In the example app, we put all the ThreadDB and Bucket logic into a single component called [checklist.ts](https://github.com/textileio/js-examples/blob/master/react-native-hub-app/src/checklist.tsx). You can view that file for reference. 
+In the example app, we put all the ThreadDB and Bucket logic into a single component called [checklist.ts](https://github.com/textileio/js-examples/blob/master/react-native-hub-app/src/checklist.tsx). You can view that file for reference.
 
 **Import Textile**
 
 ```typescript
 // Buckets client and an API Context helper
-import {Buckets, Client, ThreadID, PrivateKey, Where} from '@textile/hub';
+import { Buckets, Client, ThreadID, PrivateKey, Where } from "@textile/hub";
 ```
 
 ### Register with remote API
 
-Next, we'll connect to the remote API using our key from an insecure (non-signing) API key. Read more about keys for [development mode](hub/development-mode.md). 
+Next, we'll connect to the remote API using our key from an insecure (non-signing) API key. Read more about keys for [development mode](hub/development-mode.md).
 
 We do this so the user can later push their bucket for remote persistence on IPFS and publishing on IPNS.
 
 ```typescript
-import { Client } from '@textile/hub'
+import { Client } from "@textile/hub";
 
 const client = Client.withKeyInfo({
-  key: 'USER_API_KEY',
-})
+    key: "USER_API_KEY",
+});
 ```
 
 !!!Hint
-    Read more about the Context tool in the [Threads Introduction](../threads/index.md).
+Read more about the Context tool in the [Threads Introduction](../threads/index.md).
 
 ### Generate an Identity
 
 Read the basic identities tutorial [here](hub/pki-identities.md).
 
 ```typescript
-import { PrivateKey } from '@textile/hub'
+import { PrivateKey } from "@textile/hub";
 
-async function example () {
-  const id = await PrivateKey.fromRandom();
-  return id
+async function example() {
+    const id = await PrivateKey.fromRandom();
+    return id;
 }
 ```
 
@@ -133,10 +134,10 @@ Here, we're just using a helper to generate a private-key identity for the user.
 ### Generate User Token
 
 ```typescript
-import { Client, PrivateKey } from '@textile/hub'
+import { Client, PrivateKey } from "@textile/hub";
 
-async function example (client: Client, identity: PrivateKey) {
-  await client.getToken(identity);
+async function example(client: Client, identity: PrivateKey) {
+    await client.getToken(identity);
 }
 ```
 
@@ -144,30 +145,30 @@ This will register the user with your remote Hub account, granting them the abil
 
 ### Connect Buckets
 
-Now that your user is setup and connected to your API on the Hub, you can start creating Buckets. First, setup a Bucket instance. 
+Now that your user is setup and connected to your API on the Hub, you can start creating Buckets. First, setup a Bucket instance.
 
 ```typescript
-import { Buckets } from '@textile/hub'
+import { Buckets } from "@textile/hub";
 
 const buckets = Buckets.withKeyInfo({
-  key: 'USER_API_KEY',
-})
+    key: "USER_API_KEY",
+});
 ```
 
 In the code above, we reuse the Context we already created in our ThreadDB Client because it contains the token, API keys, etc.
 
 !!!info
-    If you already created a connection using the Threads `client`, you can directly transfer that connection to Buckets with `Buckets.copyAuth(client)`.
+If you already created a connection using the Threads `client`, you can directly transfer that connection to Buckets with `Buckets.copyAuth(client)`.
 
 **List all Buckets**
 
 ```typescript
-import { Buckets } from '@textile/hub'
+import { Buckets } from "@textile/hub";
 
-async function find (buckets: Buckets) {
-  const roots = await buckets.list();
-  const exists = roots.find((bucket) => bucket.name === 'buckets')
-  return exists
+async function find(buckets: Buckets) {
+    const roots = await buckets.list();
+    const exists = roots.find((bucket) => bucket.name === "buckets");
+    return exists;
 }
 ```
 
@@ -176,27 +177,27 @@ async function find (buckets: Buckets) {
 The easiest way to start pushing/pulling bucket files is to use the `open` method with just the bucket name you intend to use.
 
 ```typescript
-import { Buckets } from '@textile/hub'
+import { Buckets } from "@textile/hub";
 
-async function find (buckets: Buckets, name: string) {
-  const root = await buckets.open(name)
-  return root // root.key is the bucket key
+async function find(buckets: Buckets, name: string) {
+    const root = await buckets.open(name);
+    return root; // root.key is the bucket key
 }
 ```
 
 ### Push files to User Bucket
 
-Finally, let's push a simple file to the user's Bucket. 
+Finally, let's push a simple file to the user's Bucket.
 
 In this example, we'll just create a simple `HTML` file that says, `Hello world`.
 
 ```typescript
-import { Buckets } from '@textile/hub'
+import { Buckets } from "@textile/hub";
 
-async function example (buckets: Buckets, bucketKey: string, content: string) {
-  const file = { path: '/index.html', content: Buffer.from(content) }
+async function example(buckets: Buckets, bucketKey: string, content: string) {
+    const file = { path: "/index.html", content: Buffer.from(content) };
 
-  const raw = await buckets.pushPath(bucketKey, 'index.html', file)
+    const raw = await buckets.pushPath(bucketKey, "index.html", file);
 }
 ```
 
@@ -204,9 +205,9 @@ async function example (buckets: Buckets, bucketKey: string, content: string) {
 
 When you update your Bucket:
 
-* The **Thread** containing the **Bucket** will be *updated*.
-* The Bucket's **HTTP URL** and **IPNS address** updates to reflects those updates.
-* The **Bucket** will *get* a **new IPFS address** (CID) any time you change it.
+-   The **Thread** containing the **Bucket** will be _updated_.
+-   The Bucket's **HTTP URL** and **IPNS address** updates to reflects those updates.
+-   The **Bucket** will _get_ a **new IPFS address** (CID) any time you change it.
 
 This gives you a lot of options for building apps, delivering content, and doing cool things for your users with their data.
 
@@ -214,7 +215,7 @@ To get each of the protocol addresses, read below.
 
 ### List the Bucket links
 
-Finally, you can list the links to the file on IPFS, IPNS, ThreadDB, and HTTP. 
+Finally, you can list the links to the file on IPFS, IPNS, ThreadDB, and HTTP.
 
 #### HTTP Address
 
@@ -229,11 +230,11 @@ https://${bucket-key}.textile.space
 The IPFS address is contained in the result of `pushPath`.
 
 ```typescript
-import { Buckets } from '@textile/hub'
+import { Buckets } from "@textile/hub";
 
-async function example (buckets: Buckets, bucketKey: string, file: Buffer) {
-  const raw = await buckets.pushPath(bucketKey!, 'index.html', file)
-  console.log(raw.root)
+async function example(buckets: Buckets, bucketKey: string, file: Buffer) {
+    const raw = await buckets.pushPath(bucketKey!, "index.html", file);
+    console.log(raw.root);
 }
 ```
 
@@ -254,7 +255,7 @@ https://${thread-id}.thread.hub.textile.io/buckets/${this.state.bucket-key}
 ```
 
 !!!warning
-    Remember, at this point, Buckets are entirely open, data is available to be viewed or downloaded by anyone your app or user shares the link with.
+Remember, at this point, Buckets are entirely open, data is available to be viewed or downloaded by anyone your app or user shares the link with.
 
 ## Code
 

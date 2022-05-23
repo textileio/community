@@ -27,5 +27,4 @@ pow data get [cid] [output file path] [flags]
 
 ### SEE ALSO
 
-* [pow data](pow_data.md)	 - Provides commands to interact with general data APIs
-
+-   [pow data](pow_data.md) - Provides commands to interact with general data APIs

@@ -29,5 +29,4 @@ pow storage-jobs list [flags]
 
 ### SEE ALSO
 
-* [pow storage-jobs](pow_storage-jobs.md)	 - Provides commands to query for storage jobs in various states
-
+-   [pow storage-jobs](pow_storage-jobs.md) - Provides commands to query for storage jobs in various states
