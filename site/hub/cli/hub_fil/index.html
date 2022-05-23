@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+		<meta
+			name="description"
+			content="Textile makes it easy for you or your application to store and distribute data over the IPFS network."
+		/>
+
+		<link rel="canonical" href="https://docs.textile.io/hub/cli/hub_fil/" />
+
+		<meta name="author" content="textile.io" />
+
+		<meta name="lang:clipboard.copy" content="Copy to clipboard" />
+
+		<meta name="lang:clipboard.copied" content="Copied to clipboard" />
+
+		<meta name="lang:search.language" content="en" />
+
+		<meta name="lang:search.pipeline.stopwords" content="True" />
+
+		<meta name="lang:search.pipeline.trimmer" content="True" />
+
+		<meta name="lang:search.result.none" content="No matching documents" />
+
+		<meta name="lang:search.result.one" content="1 matching document" />
+
+		<meta name="lang:search.result.other" content="# matching documents" />
+
+		<meta name="lang:search.tokenizer" content="[\s\-]+" />
+
+		<link rel="shortcut icon" href="../../../images/favicon.ico" />
+		<meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.1.0" />
+
+		<title>Powergate | Documentation | Textile</title>
+
+		<link
+			rel="stylesheet"
+			href="../../../assets/stylesheets/application.86c34351.css"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="../../../assets/stylesheets/application-palette.224b79ff.css"
+		/>
+
+		<meta name="theme-color" content="" />
+
+		<script src="../../../assets/javascripts/modernizr.01ccdecf.js"></script>
+
+		<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono"
+		/>
+		<style>
+			body,
+			input {
+				font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			}
+			code,
+			kbd,
+			pre {
+				font-family: "Roboto Mono", "Courier New", Courier, monospace;
+			}
+		</style>
+
+		<link rel="stylesheet" href="../../../assets/fonts/material-icons.css" />
+
+		<link rel="stylesheet" href="../../../css/textile.css" />
+
+		<script src="https://cdn.usefathom.com/3.js" site="TEBMKXIY"></script>
+		<script>
+			window.fathom ||
+				document.write(
+					'<script src="https://grouse.textile.io/core.js"><\/script>'
+				);
+		</script>
+	</head>
+
+	<body
+		dir="ltr"
+		data-md-color-primary="default"
+		data-md-color-accent="default"
+	>
+		<svg class="md-svg">
+			<defs>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="416"
+					height="448"
+					viewBox="0 0 416 448"
+					id="__github"
+				>
+					<path
+						fill="currentColor"
+						d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z"
+					/>
+				</svg>
+			</defs>
+		</svg>
+		<input
+			class="md-toggle"
+			data-md-toggle="drawer"
+			type="checkbox"
+			id="__drawer"
+			autocomplete="off"
+		/>
+		<input
+			class="md-toggle"
+			data-md-toggle="search"
+			type="checkbox"
+			id="__search"
+			autocomplete="off"
+		/>
+		<label
+			class="md-overlay"
+			data-md-component="overlay"
+			for="__drawer"
+		></label>
+
+		<a href="#hub-fil" tabindex="1" class="md-skip"> Skip to content </a>
+
+		<header class="md-header" data-md-component="header">
+			<nav class="md-header-nav md-grid">
+				<div class="md-flex">
+					<div class="md-flex__cell md-flex__cell--shrink">
+						<a
+							href="https://docs.textile.io/"
+							title="Documentation"
+							class="md-header-nav__button md-logo"
+						>
+							<img src="../../../images/hex.svg" width="24" height="24" />
+						</a>
+					</div>
+					<div class="md-flex__cell md-flex__cell--shrink">
+						<label
+							class="md-icon md-icon--menu md-header-nav__button"
+							for="__drawer"
+						></label>
+					</div>
+					<div class="md-flex__cell md-flex__cell--stretch">
+						<div
+							class="md-flex__ellipsis md-header-nav__title"
+							data-md-component="title"
+						>
+							<span class="md-header-nav__topic"> Documentation </span>
+							<span class="md-header-nav__topic"> Powergate </span>
+						</div>
+					</div>
+					<div class="md-flex__cell md-flex__cell--shrink">
+						<label
+							class="md-icon md-icon--search md-header-nav__button"
+							for="__search"
+						></label>
+
+						<div class="md-search" data-md-component="search" role="dialog">
+							<label class="md-search__overlay" for="__search"></label>
+							<div class="md-search__inner" role="search">
+								<form class="md-search__form" name="search">
+									<input
+										type="text"
+										class="md-search__input"
+										name="query"
+										placeholder="Search"
+										autocapitalize="off"
+										autocorrect="off"
+										autocomplete="off"
+										spellcheck="false"
+										data-md-component="query"
+										data-md-state="active"
+									/>
+									<label class="md-icon md-search__icon" for="__search"></label>
+									<button
+										type="reset"
+										class="md-icon md-search__icon"
+										data-md-component="reset"
+										tabindex="-1"
+									>
+										&#xE5CD;
+									</button>
+								</form>
+								<div class="md-search__output">
+									<div class="md-search__scrollwrap" data-md-scrollfix>
+										<div class="md-search-result" data-md-component="result">
+											<div class="md-search-result__meta">
+												Type to start searching
+											</div>
+											<ol class="md-search-result__list"></ol>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="md-flex__cell md-flex__cell--shrink">
+						<div class="md-header-nav__source">
+							<a
+								href="https://github.com/textileio/docs/"
+								title="Go to repository"
+								class="md-source"
+								data-md-source="github"
+							>
+								<div class="md-source__icon">
+									<svg viewBox="0 0 24 24" width="24" height="24">
+										<use xlink:href="#__github" width="24" height="24"></use>
+									</svg>
+								</div>
+
+								<div class="md-source__repository">textileio/docs</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<div class="md-container">
+			<main class="md-main">
+				<div class="md-main__inner md-grid" data-md-component="container">
+					<div
+						class="md-sidebar md-sidebar--primary"
+						data-md-component="navigation"
+					>
+						<div class="md-sidebar__scrollwrap">
+							<div class="md-sidebar__inner">
+								<nav class="md-nav md-nav--primary" data-md-level="0">
+									<label
+										class="md-nav__title md-nav__title--site"
+										for="__drawer"
+									>
+										<a
+											href="https://docs.textile.io/"
+											title="Documentation"
+											class="md-nav__button md-logo"
+										>
+											<img
+												src="../../../images/hex.svg"
+												width="48"
+												height="48"
+											/>
+										</a>
+										Documentation
+									</label>
+
+									<div class="md-nav__source">
+										<a
+											href="https://github.com/textileio/docs/"
+											title="Go to repository"
+											class="md-source"
+											data-md-source="github"
+										>
+											<div class="md-source__icon">
+												<svg viewBox="0 0 24 24" width="24" height="24">
+													<use
+														xlink:href="#__github"
+														width="24"
+														height="24"
+													></use>
+												</svg>
+											</div>
+
+											<div class="md-source__repository">textileio/docs</div>
+										</a>
+									</div>
+
+									<ul class="md-nav__list" data-md-scrollfix>
+										<li class="md-nav__item">
+											<a
+												href="../../.."
+												title="Home"
+												target=""
+												class="md-nav__link"
+											>
+												Home
+											</a>
+										</li>
+
+										<li class="md-nav__item md-nav__item--nested">
+											<input
+												class="md-toggle md-nav__toggle"
+												data-md-toggle="nav-2"
+												type="checkbox"
+												id="nav-2"
+											/>
+
+											<label class="md-nav__link" for="nav-2">
+												Filecoin Bridges
+											</label>
+											<nav
+												class="md-nav"
+												data-md-component="collapsible"
+												data-md-level="1"
+											>
+												<label class="md-nav__title" for="nav-2">
+													Filecoin Bridges
+												</label>
+												<ul class="md-nav__list" data-md-scrollfix>
+													<li class="md-nav__item">
+														<a
+															href="https://near.storage/"
+															title="NEAR"
+															target=""
+															class="md-nav__link"
+														>
+															NEAR
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="https://eth.storage/"
+															title="Polygon"
+															target=""
+															class="md-nav__link"
+														>
+															Polygon
+														</a>
+													</li>
+												</ul>
+											</nav>
+										</li>
+
+										<li class="md-nav__item md-nav__item--nested">
+											<input
+												class="md-toggle md-nav__toggle"
+												data-md-toggle="nav-3"
+												type="checkbox"
+												id="nav-3"
+											/>
+
+											<label class="md-nav__link" for="nav-3"> Hub </label>
+											<nav
+												class="md-nav"
+												data-md-component="collapsible"
+												data-md-level="1"
+											>
+												<label class="md-nav__title" for="nav-3"> Hub </label>
+												<ul class="md-nav__list" data-md-scrollfix>
+													<li class="md-nav__item">
+														<a
+															href="../../"
+															title="Overview"
+															target=""
+															class="md-nav__link"
+														>
+															Overview
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../accounts/"
+															title="Installation & Setup"
+															target=""
+															class="md-nav__link"
+														>
+															Installation & Setup
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../apis/"
+															title="API Usage & Keys"
+															target=""
+															class="md-nav__link"
+														>
+															API Usage & Keys
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../pricing/"
+															title="Pricing"
+															target=""
+															class="md-nav__link"
+														>
+															Pricing
+														</a>
+													</li>
+
+													<li class="md-nav__item md-nav__item--nested">
+														<input
+															class="md-toggle md-nav__toggle"
+															data-md-toggle="nav-3-5"
+															type="checkbox"
+															id="nav-3-5"
+														/>
+
+														<label class="md-nav__link" for="nav-3-5">
+															Buckets
+														</label>
+														<nav
+															class="md-nav"
+															data-md-component="collapsible"
+															data-md-level="2"
+														>
+															<label class="md-nav__title" for="nav-3-5">
+																Buckets
+															</label>
+															<ul class="md-nav__list" data-md-scrollfix>
+																<li class="md-nav__item">
+																	<a
+																		href="../../../buckets/"
+																		title="Overview"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Overview
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../../../buckets/permissions/"
+																		title="Permissions"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Permissions
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../../../buckets/archiving/"
+																		title="Bucket Archiving"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Bucket Archiving
+																	</a>
+																</li>
+															</ul>
+														</nav>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../../threads/"
+															title="ThreadDB"
+															target=""
+															class="md-nav__link"
+														>
+															ThreadDB
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../../users/"
+															title="User Mailboxes"
+															target=""
+															class="md-nav__link"
+														>
+															User Mailboxes
+														</a>
+													</li>
+
+													<li class="md-nav__item md-nav__item--nested">
+														<input
+															class="md-toggle md-nav__toggle"
+															data-md-toggle="nav-3-8"
+															type="checkbox"
+															id="nav-3-8"
+														/>
+
+														<label class="md-nav__link" for="nav-3-8">
+															Filecoin
+														</label>
+														<nav
+															class="md-nav"
+															data-md-component="collapsible"
+															data-md-level="2"
+														>
+															<label class="md-nav__title" for="nav-3-8">
+																Filecoin
+															</label>
+															<ul class="md-nav__list" data-md-scrollfix>
+																<li class="md-nav__item">
+																	<a
+																		href="../../../filecoin/balances/"
+																		title="Balances"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Balances
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../../../filecoin/miner-index/"
+																		title="Miner Index"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Miner Index
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../../../filecoin/storage-deals/"
+																		title="Storage Deals"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Storage Deals
+																	</a>
+																</li>
+															</ul>
+														</nav>
+													</li>
+												</ul>
+											</nav>
+										</li>
+
+										<li class="md-nav__item md-nav__item--nested">
+											<input
+												class="md-toggle md-nav__toggle"
+												data-md-toggle="nav-4"
+												type="checkbox"
+												id="nav-4"
+											/>
+
+											<label class="md-nav__link" for="nav-4">
+												Powergate (Filecoin)
+											</label>
+											<nav
+												class="md-nav"
+												data-md-component="collapsible"
+												data-md-level="1"
+											>
+												<label class="md-nav__title" for="nav-4">
+													Powergate (Filecoin)
+												</label>
+												<ul class="md-nav__list" data-md-scrollfix>
+													<li class="md-nav__item">
+														<a
+															href="../../../powergate/"
+															title="Introduction"
+															target=""
+															class="md-nav__link"
+														>
+															Introduction
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../../powergate/localnet/"
+															title="Localnet"
+															target=""
+															class="md-nav__link"
+														>
+															Localnet
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../../powergate/mainnet/"
+															title="Mainnet"
+															target=""
+															class="md-nav__link"
+														>
+															Mainnet
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../../powergate/admin/"
+															title="Admin APIs"
+															target=""
+															class="md-nav__link"
+														>
+															Admin APIs
+														</a>
+													</li>
+
+													<li class="md-nav__item md-nav__item--nested">
+														<input
+															class="md-toggle md-nav__toggle"
+															data-md-toggle="nav-4-5"
+															type="checkbox"
+															id="nav-4-5"
+														/>
+
+														<label class="md-nav__link" for="nav-4-5">
+															Store Data
+														</label>
+														<nav
+															class="md-nav"
+															data-md-component="collapsible"
+															data-md-level="2"
+														>
+															<label class="md-nav__title" for="nav-4-5">
+																Store Data
+															</label>
+															<ul class="md-nav__list" data-md-scrollfix>
+																<li class="md-nav__item">
+																	<a
+																		href="../../../powergate/storage/"
+																		title="Storing Data"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Storing Data
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../../../powergate/storageconfig/"
+																		title="Storage Configs"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Storage Configs
+																	</a>
+																</li>
+															</ul>
+														</nav>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../../powergate/offline/"
+															title="Offline Deals"
+															target=""
+															class="md-nav__link"
+														>
+															Offline Deals
+														</a>
+													</li>
+
+													<li class="md-nav__item md-nav__item--nested">
+														<input
+															class="md-toggle md-nav__toggle"
+															data-md-toggle="nav-4-7"
+															type="checkbox"
+															id="nav-4-7"
+														/>
+
+														<label class="md-nav__link" for="nav-4-7">
+															POW CLI
+														</label>
+														<nav
+															class="md-nav"
+															data-md-component="collapsible"
+															data-md-level="2"
+														>
+															<label class="md-nav__title" for="nav-4-7">
+																POW CLI
+															</label>
+															<ul class="md-nav__list" data-md-scrollfix>
+																<li class="md-nav__item">
+																	<a
+																		href="../../../powergate/cli/pow/"
+																		title="Overview"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Overview
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../../../powergate/cli/pow_config/"
+																		title="Config"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Config
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../../../powergate/cli/pow_data/"
+																		title="Data"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Data
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../../../powergate/cli/pow_deals/"
+																		title="Deals"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Deals
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../../../powergate/cli/pow_storage-info/"
+																		title="Storage Info"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Storage Info
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../../../powergate/cli/pow_storage-jobs/"
+																		title="Storage Jobs"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Storage Jobs
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../../../powergate/cli/pow_wallet/"
+																		title="Wallet"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Wallet
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../../../powergate/cli/pow_admin/"
+																		title="Admin"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Admin
+																	</a>
+																</li>
+															</ul>
+														</nav>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../../powergate/faq/"
+															title="FAQ"
+															target=""
+															class="md-nav__link"
+														>
+															FAQ
+														</a>
+													</li>
+
+													<!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+
+													<li class="md-nav__item">
+														<a
+															href="https://textileio.github.io/js-powergate-client/"
+															title="JavaScript"
+															target="_blank"
+															class="md-nav__link _blank"
+														>
+															JavaScript
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="https://godoc.org/github.com/textileio/powergate/api/client"
+															title="Go"
+															target="_blank"
+															class="md-nav__link _blank"
+														>
+															Go
+														</a>
+													</li>
+												</ul>
+											</nav>
+										</li>
+
+										<li
+											class="md-nav__item md-nav__item--active md-nav__item--nested"
+										>
+											<input
+												class="md-toggle md-nav__toggle"
+												data-md-toggle="nav-5"
+												type="checkbox"
+												id="nav-5"
+												checked
+											/>
+
+											<label class="md-nav__link" for="nav-5">
+												Command-line Reference
+											</label>
+											<nav
+												class="md-nav"
+												data-md-component="collapsible"
+												data-md-level="1"
+											>
+												<label class="md-nav__title" for="nav-5">
+													Command-line Reference
+												</label>
+												<ul class="md-nav__list" data-md-scrollfix>
+													<li
+														class="md-nav__item md-nav__item--active md-nav__item--nested"
+													>
+														<input
+															class="md-toggle md-nav__toggle"
+															data-md-toggle="nav-5-1"
+															type="checkbox"
+															id="nav-5-1"
+															checked
+														/>
+
+														<label class="md-nav__link" for="nav-5-1">
+															Hub admin
+														</label>
+														<nav
+															class="md-nav"
+															data-md-component="collapsible"
+															data-md-level="2"
+														>
+															<label class="md-nav__title" for="nav-5-1">
+																Hub admin
+															</label>
+															<ul class="md-nav__list" data-md-scrollfix>
+																<li class="md-nav__item">
+																	<a
+																		href="../hub/"
+																		title="Overview"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Overview
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_login/"
+																		title="Login"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Login
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_logout/"
+																		title="Logout"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Logout
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_whoami/"
+																		title="Whoami"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Whoami
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_orgs/"
+																		title="Orgs"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Orgs
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck/"
+																		title="Buckets"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Buckets
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_threads/"
+																		title="ThreadDB"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		ThreadDB
+																	</a>
+																</li>
+
+																<li class="md-nav__item md-nav__item--active">
+																	<input
+																		class="md-toggle md-nav__toggle"
+																		data-md-toggle="toc"
+																		type="checkbox"
+																		id="__toc"
+																	/>
+
+																	<label
+																		class="md-nav__link md-nav__link--active"
+																		for="__toc"
+																	>
+																		Powergate
+																	</label>
+
+																	<a
+																		href="./"
+																		title="Powergate"
+																		class="md-nav__link md-nav__link--active"
+																	>
+																		Powergate
+																	</a>
+
+																	<nav class="md-nav md-nav--secondary">
+																		<label class="md-nav__title" for="__toc"
+																			>Table of contents</label
+																		>
+																		<ul class="md-nav__list" data-md-scrollfix>
+																			<li class="md-nav__item">
+																				<a
+																					href="#options"
+																					title="Options"
+																					class="md-nav__link"
+																				>
+																					Options
+																				</a>
+																			</li>
+
+																			<li class="md-nav__item">
+																				<a
+																					href="#see-also"
+																					title="SEE ALSO"
+																					class="md-nav__link"
+																				>
+																					SEE ALSO
+																				</a>
+																			</li>
+																		</ul>
+																	</nav>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_version/"
+																		title="Version"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Version
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_update/"
+																		title="Update"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Update
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_keys/"
+																		title="API Keys"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		API Keys
+																	</a>
+																</li>
+															</ul>
+														</nav>
+													</li>
+
+													<li class="md-nav__item md-nav__item--nested">
+														<input
+															class="md-toggle md-nav__toggle"
+															data-md-toggle="nav-5-2"
+															type="checkbox"
+															id="nav-5-2"
+														/>
+
+														<label class="md-nav__link" for="nav-5-2">
+															Buckets commands
+														</label>
+														<nav
+															class="md-nav"
+															data-md-component="collapsible"
+															data-md-level="2"
+														>
+															<label class="md-nav__title" for="nav-5-2">
+																Buckets commands
+															</label>
+															<ul class="md-nav__list" data-md-scrollfix>
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck/"
+																		title="Overview"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Overview
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_add/"
+																		title="Add"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Add
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_archive/"
+																		title="Archive"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Archive
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_cat/"
+																		title="Cat"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Cat
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_destroy/"
+																		title="Destroy"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Destroy
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_decrypt/"
+																		title="Decrypt"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Decrypt
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_encrypt/"
+																		title="Encrypt"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Encrypt
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_existing/"
+																		title="Existing"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Existing
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_get/"
+																		title="Get"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Get
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_init/"
+																		title="Init"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Init
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_links/"
+																		title="Links"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Links
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_ls/"
+																		title="Ls"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Ls
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_pull/"
+																		title="Pull"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Pull
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_push/"
+																		title="Push"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Push
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_watch/"
+																		title="Watch"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Watch
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_root/"
+																		title="Root"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Root
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_buck_status/"
+																		title="Status"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Status
+																	</a>
+																</li>
+															</ul>
+														</nav>
+													</li>
+
+													<li class="md-nav__item md-nav__item--nested">
+														<input
+															class="md-toggle md-nav__toggle"
+															data-md-toggle="nav-5-3"
+															type="checkbox"
+															id="nav-5-3"
+														/>
+
+														<label class="md-nav__link" for="nav-5-3">
+															Billing commands
+														</label>
+														<nav
+															class="md-nav"
+															data-md-component="collapsible"
+															data-md-level="2"
+														>
+															<label class="md-nav__title" for="nav-5-3">
+																Billing commands
+															</label>
+															<ul class="md-nav__list" data-md-scrollfix>
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_billing/"
+																		title="Overview"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Overview
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_billing_setup/"
+																		title="Setup"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Setup
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_billing_portal/"
+																		title="Portal"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Portal
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_billing_usage/"
+																		title="Usage"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Usage
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="../hub_billing_users/"
+																		title="Users"
+																		target=""
+																		class="md-nav__link"
+																	>
+																		Users
+																	</a>
+																</li>
+															</ul>
+														</nav>
+													</li>
+												</ul>
+											</nav>
+										</li>
+
+										<li class="md-nav__item md-nav__item--nested">
+											<input
+												class="md-toggle md-nav__toggle"
+												data-md-toggle="nav-6"
+												type="checkbox"
+												id="nav-6"
+											/>
+
+											<label class="md-nav__link" for="nav-6">
+												JavaScript Guide
+											</label>
+											<nav
+												class="md-nav"
+												data-md-component="collapsible"
+												data-md-level="1"
+											>
+												<label class="md-nav__title" for="nav-6">
+													JavaScript Guide
+												</label>
+												<ul class="md-nav__list" data-md-scrollfix>
+													<li class="md-nav__item">
+														<a
+															href="../../../tutorials/hub/web-app/"
+															title="Introduction"
+															target=""
+															class="md-nav__link"
+														>
+															Introduction
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../../tutorials/hub/pki-identities/"
+															title="User identities"
+															target=""
+															class="md-nav__link"
+														>
+															User identities
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../../tutorials/hub/development-mode/"
+															title="Development mode"
+															target=""
+															class="md-nav__link"
+														>
+															Development mode
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../../tutorials/hub/user-buckets/"
+															title="Add images to Buckets"
+															target=""
+															class="md-nav__link"
+														>
+															Add images to Buckets
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../../tutorials/react-native-buckets/"
+															title="User Buckets in React Native"
+															target=""
+															class="md-nav__link"
+														>
+															User Buckets in React Native
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../../tutorials/nodejs/"
+															title="Build with NodeJS"
+															target=""
+															class="md-nav__link"
+														>
+															Build with NodeJS
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="../../../tutorials/hub/production-auth/"
+															title="Production authentication"
+															target=""
+															class="md-nav__link"
+														>
+															Production authentication
+														</a>
+													</li>
+
+													<!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+
+													<li class="md-nav__item">
+														<a
+															href="https://textileio.github.io/js-textile/docs/hub.users"
+															title="Users API Class"
+															target="_blank"
+															class="md-nav__link _blank"
+														>
+															Users API Class
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="https://textileio.github.io/js-textile/docs/hub.buckets"
+															title="Buckets API Class"
+															target="_blank"
+															class="md-nav__link _blank"
+														>
+															Buckets API Class
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="https://textileio.github.io/js-textile/docs/hub.client"
+															title="ThreadDB API Class"
+															target="_blank"
+															class="md-nav__link _blank"
+														>
+															ThreadDB API Class
+														</a>
+													</li>
+												</ul>
+											</nav>
+										</li>
+
+										<li class="md-nav__item md-nav__item--nested">
+											<input
+												class="md-toggle md-nav__toggle"
+												data-md-toggle="nav-7"
+												type="checkbox"
+												id="nav-7"
+											/>
+
+											<label class="md-nav__link" for="nav-7">
+												Go Reference
+											</label>
+											<nav
+												class="md-nav"
+												data-md-component="collapsible"
+												data-md-level="1"
+											>
+												<label class="md-nav__title" for="nav-7">
+													Go Reference
+												</label>
+												<ul class="md-nav__list" data-md-scrollfix>
+													<li class="md-nav__item">
+														<a
+															href="../../../tutorials/go/getting-started/"
+															title="Getting started with Go"
+															target=""
+															class="md-nav__link"
+														>
+															Getting started with Go
+														</a>
+													</li>
+
+													<!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+
+													<li class="md-nav__item">
+														<a
+															href="https://github.com/textileio/go-threads"
+															title="ThreadDB"
+															target="_blank"
+															class="md-nav__link _blank"
+														>
+															ThreadDB
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="https://github.com/textileio/go-buckets"
+															title="Buckets"
+															target="_blank"
+															class="md-nav__link _blank"
+														>
+															Buckets
+														</a>
+													</li>
+
+													<li class="md-nav__item">
+														<a
+															href="https://github.com/textileio/textile#using-the-mail-library"
+															title="User Mailboxes"
+															target="_blank"
+															class="md-nav__link _blank"
+														>
+															User Mailboxes
+														</a>
+													</li>
+												</ul>
+											</nav>
+										</li>
+
+										<li class="md-nav__item md-nav__item--nested">
+											<input
+												class="md-toggle md-nav__toggle"
+												data-md-toggle="nav-8"
+												type="checkbox"
+												id="nav-8"
+											/>
+
+											<label class="md-nav__link" for="nav-8">
+												More Examples
+											</label>
+											<nav
+												class="md-nav"
+												data-md-component="collapsible"
+												data-md-level="1"
+											>
+												<label class="md-nav__title" for="nav-8">
+													More Examples
+												</label>
+												<ul class="md-nav__list" data-md-scrollfix>
+													<li class="md-nav__item md-nav__item--nested">
+														<input
+															class="md-toggle md-nav__toggle"
+															data-md-toggle="nav-8-1"
+															type="checkbox"
+															id="nav-8-1"
+														/>
+
+														<label class="md-nav__link" for="nav-8-1">
+															Users
+														</label>
+														<nav
+															class="md-nav"
+															data-md-component="collapsible"
+															data-md-level="2"
+														>
+															<label class="md-nav__title" for="nav-8-1">
+																Users
+															</label>
+															<ul class="md-nav__list" data-md-scrollfix>
+																<!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+
+																<li class="md-nav__item">
+																	<a
+																		href="https://github.com/textileio/js-examples/tree/master/user-mailbox-setup"
+																		title="User Mailboxes"
+																		target="_blank"
+																		class="md-nav__link _blank"
+																	>
+																		User Mailboxes
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="https://github.com/textileio/js-examples/tree/master/metamask-identities-ed25519"
+																		title="Metamask Identity"
+																		target="_blank"
+																		class="md-nav__link _blank"
+																	>
+																		Metamask Identity
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="https://github.com/textileio/js-examples/tree/master/3box-identities-ed25519"
+																		title="3Box Identity"
+																		target="_blank"
+																		class="md-nav__link _blank"
+																	>
+																		3Box Identity
+																	</a>
+																</li>
+															</ul>
+														</nav>
+													</li>
+
+													<li class="md-nav__item md-nav__item--nested">
+														<input
+															class="md-toggle md-nav__toggle"
+															data-md-toggle="nav-8-2"
+															type="checkbox"
+															id="nav-8-2"
+														/>
+
+														<label class="md-nav__link" for="nav-8-2">
+															ThreadDB
+														</label>
+														<nav
+															class="md-nav"
+															data-md-component="collapsible"
+															data-md-level="2"
+														>
+															<label class="md-nav__title" for="nav-8-2">
+																ThreadDB
+															</label>
+															<ul class="md-nav__list" data-md-scrollfix>
+																<!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+
+																<li class="md-nav__item">
+																	<a
+																		href="https://github.com/textileio/js-examples/tree/master/hub-browser-auth-app"
+																		title="Server-side Authentication"
+																		target="_blank"
+																		class="md-nav__link _blank"
+																	>
+																		Server-side Authentication
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app"
+																		title="Threads from React Native (JavaScript)"
+																		target="_blank"
+																		class="md-nav__link _blank"
+																	>
+																		Threads from React Native (JavaScript)
+																	</a>
+																</li>
+															</ul>
+														</nav>
+													</li>
+
+													<li class="md-nav__item md-nav__item--nested">
+														<input
+															class="md-toggle md-nav__toggle"
+															data-md-toggle="nav-8-3"
+															type="checkbox"
+															id="nav-8-3"
+														/>
+
+														<label class="md-nav__link" for="nav-8-3">
+															Buckets
+														</label>
+														<nav
+															class="md-nav"
+															data-md-component="collapsible"
+															data-md-level="2"
+														>
+															<label class="md-nav__title" for="nav-8-3">
+																Buckets
+															</label>
+															<ul class="md-nav__list" data-md-scrollfix>
+																<!-- Added the Externals filter so we could do target=_blank for a bit better ux -->
+
+																<li class="md-nav__item">
+																	<a
+																		href="https://github.com/textileio/js-examples/tree/master/bucket-photo-gallery"
+																		title="User Galleries in Buckets"
+																		target="_blank"
+																		class="md-nav__link _blank"
+																	>
+																		User Galleries in Buckets
+																	</a>
+																</li>
+
+																<li class="md-nav__item">
+																	<a
+																		href="https://github.com/textileio/js-examples/tree/master/react-native-hub-app"
+																		title="Buckets from React Native (JavaScript)"
+																		target="_blank"
+																		class="md-nav__link _blank"
+																	>
+																		Buckets from React Native (JavaScript)
+																	</a>
+																</li>
+															</ul>
+														</nav>
+													</li>
+												</ul>
+											</nav>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+
+					<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+						<div class="md-sidebar__scrollwrap">
+							<div class="md-sidebar__inner">
+								<nav class="md-nav md-nav--secondary">
+									<label class="md-nav__title" for="__toc"
+										>Table of contents</label
+									>
+									<ul class="md-nav__list" data-md-scrollfix>
+										<li class="md-nav__item">
+											<a href="#options" title="Options" class="md-nav__link">
+												Options
+											</a>
+										</li>
+
+										<li class="md-nav__item">
+											<a href="#see-also" title="SEE ALSO" class="md-nav__link">
+												SEE ALSO
+											</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+
+					<div class="md-content">
+						<article class="md-content__inner md-typeset">
+							<a
+								href="https://github.com/textileio/docs/edit/master/docs/hub/cli/hub_fil.md"
+								title="Edit this page"
+								class="md-icon md-content__icon"
+								>&#xE3C9;</a
+							>
+
+							<h1 id="hub-fil">
+								hub fil<a
+									class="headerlink"
+									href="#hub-fil"
+									title="Permanent link"
+									>&para;</a
+								>
+							</h1>
+							<p>Interact with Filecoin related commands.</p>
+							<h3 id="options">
+								Options<a
+									class="headerlink"
+									href="#options"
+									title="Permanent link"
+									>&para;</a
+								>
+							</h3>
+							<div class="highlight">
+								<pre><span></span><code>  -h, --help   help for fil
+</code></pre>
+							</div>
+							<h3 id="see-also">
+								SEE ALSO<a
+									class="headerlink"
+									href="#see-also"
+									title="Permanent link"
+									>&para;</a
+								>
+							</h3>
+							<ul>
+								<li><a href="../hub/">hub</a> - Hub Client</li>
+								<li>
+									<a href="../hub_fil_addrs/">hub fil addrs</a> - List Filecoin
+									wallet addresses associated with the current account or org
+								</li>
+								<li>
+									<a href="../hub_fil_balance/">hub fil balance</a> - Display
+									the FIL balance of a wallet address
+								</li>
+								<li>
+									<a href="../hub_fil_index/">hub fil index</a> - Interact with
+									the Miner Index.
+								</li>
+								<li>
+									<a href="../hub_fil_info/">hub fil info</a> - Get information
+									about the current storage state of a cid
+								</li>
+								<li>
+									<a href="../hub_fil_retrievals/">hub fil retrievals</a> - List
+									Filecoin retrieval deal records associated with the current
+									account or org
+								</li>
+								<li>
+									<a href="../hub_fil_sign/">hub fil sign</a> - Signs a message
+									with user wallet addresses.
+								</li>
+								<li>
+									<a href="../hub_fil_storage/">hub fil storage</a> - List
+									Filecoin storage deal records associated with the current
+									account or org
+								</li>
+								<li>
+									<a href="../hub_fil_verify/">hub fil verify</a> - Verifies the
+									signature of a message signed with a user wallet address.
+								</li>
+							</ul>
+						</article>
+					</div>
+				</div>
+			</main>
+
+			<footer class="md-footer">
+				<div class="md-footer-nav">
+					<nav class="md-footer-nav__inner md-grid">
+						<a
+							href="../hub_threads/"
+							title="ThreadDB"
+							class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+							rel="prev"
+						>
+							<div class="md-flex__cell md-flex__cell--shrink">
+								<i
+									class="md-icon md-icon--arrow-back md-footer-nav__button"
+								></i>
+							</div>
+							<div
+								class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"
+							>
+								<span class="md-flex__ellipsis">
+									<span class="md-footer-nav__direction"> Previous </span>
+									ThreadDB
+								</span>
+							</div>
+						</a>
+
+						<a
+							href="../hub_version/"
+							title="Version"
+							class="md-flex md-footer-nav__link md-footer-nav__link--next"
+							rel="next"
+						>
+							<div
+								class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"
+							>
+								<span class="md-flex__ellipsis">
+									<span class="md-footer-nav__direction"> Next </span>
+									Version
+								</span>
+							</div>
+							<div class="md-flex__cell md-flex__cell--shrink">
+								<i
+									class="md-icon md-icon--arrow-forward md-footer-nav__button"
+								></i>
+							</div>
+						</a>
+					</nav>
+				</div>
+
+				<div class="md-footer-meta md-typeset">
+					<div class="md-footer-meta__inner md-grid">
+						<div class="md-footer-copyright">
+							<div class="md-footer-copyright__highlight">&copy; Textile</div>
+
+							powered by
+							<a href="https://www.mkdocs.org">MkDocs</a>
+							and
+							<a href="https://squidfunk.github.io/mkdocs-material/">
+								Material for MkDocs</a
+							>
+						</div>
+
+						<div class="md-footer-social">
+							<link
+								rel="stylesheet"
+								href="../../../assets/fonts/font-awesome.css"
+							/>
+
+							<a
+								href="https://textile.io"
+								class="md-footer-social__link fa fa-globe"
+							></a>
+
+							<a
+								href="https://github.com/textileio"
+								class="md-footer-social__link fa fa-github-alt"
+							></a>
+
+							<a
+								href="https://twitter.com/textileio"
+								class="md-footer-social__link fa fa-twitter"
+							></a>
+
+							<a
+								href="https://blog.textile.io/"
+								class="md-footer-social__link fa fa-medium"
+							></a>
+
+							<a
+								href="https://slack.textile.io"
+								class="md-footer-social__link fa fa-slack"
+							></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<script src="../../../assets/javascripts/application.12aa63bf.js"></script>
+
+		<script>
+			app.initialize({ version: "1.1.2", url: { base: "../../.." } });
+		</script>
+
+		<script src="../../../js/sidebar.js"></script>
+
+		<script src="../../../search/main.js"></script>
+	</body>
+</html>
