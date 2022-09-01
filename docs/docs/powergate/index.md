@@ -4,7 +4,7 @@ hero_img: ../images/powergate-hero.png
 
 # UPDATE
 
-Since the release of Powervate v2 many of the features and benefits of Powergate have been improved upon by three other technologies.
+Since the release of Powergate v2 many of the features and benefits of Powergate have been improved upon by three other technologies.
 
 * [Estuary](https://docs.filecoin.io/store/estuary/) - seamlessly bridge data between IPFS and Filecoin.
 * [Glif](https://lotus.filecoin.io/docs/developers/hosted-lotus/) - easily host and manage Filecoin nodes.
