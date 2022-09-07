@@ -21,6 +21,28 @@ You'll also see different operating systems. Select the one that matches your co
 
 Next, follow the installation instructions based on your operating system.
 
+## Linux Installation
+
+Extrect the content of the downloaded archive and run the `install` script. This should install the `hub` tool on your computer. You can verify with `hub --help
+
+### Extract the content
+
+```bash
+tar -xf hub_*_linux-amd64.tar.gz
+```
+
+### Run the install script
+
+```bash
+sudo ./hub_*_linux-amd64/install
+```
+
+### Verify the installation
+
+```bash
+hub --help
+```
+
 ## Mac Installation
 
 Open the contents of the downloaded archive and run the `install` script. This should install the `hub` tool on your computer. You can verify with `hub --help
