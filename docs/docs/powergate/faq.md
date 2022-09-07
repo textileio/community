@@ -42,7 +42,7 @@ Powergate fetches this file every time it needs to do a deal so it will always s
 
 If you set `TrustedMiners` or `RepFactor` in your storage config, those will be ignored by Powergate. If you want full control using your _StorageConfig_, you can run `powd` with `--ffsminerselector="reputation"` (or env `POWD_FFSMINERSELECTOR)` which switches to the previous unopinionated miner selector strategy used before SR2.
 
-### I see a log error `miner XXX not in ask-cache and query-ask errored:`,  what does this mean?
+### I see a log error `miner XXX not in ask-cache and query-ask errored:`, what does this mean?
 
 This usually means two possible problems:
 
@@ -52,7 +52,6 @@ This usually means two possible problems:
 In most cases, if the miner or your Lotus node are in China, there might be reachability challenges related to the second bullet point.
 
 If you're not using any custom config and just the SR2 miner selector using the remote JSON file, and experiencing problems reaching some of those miners, please report this in a support channel since we should understand why that particular miner might have problems for your Lotus node.
-
 
 ### When I start Powergate, I see a fatal error: `verifying sr2 url content: getting miners list from url: Get https://xxxxx`, what does this mean?
 
@@ -68,6 +67,7 @@ You can override this URL by specifying the flag/env `--ffsminerselectorparams`/
 
 This is a sign that your Lotus node is not properly configured to use `go-ipfs` from Powergate as the underlying blockstore to find and store data.
 You should configure the following in your Lotus `config.toml` file:
+
 ```
 [Client]
 UseIpfs = true
@@ -81,12 +81,11 @@ Note that if you are running the Powergate stack with `make up`, [this is alread
 
 You should check that your user wallet address used for making deals has enough funds.
 
+### What does the following log error mean: `rpc go-jsonrpc: xxxx`?
 
-### What does the following log error mean:  `rpc go-jsonrpc: xxxx`?
+Usually, this is related to a [reported](https://github.com/filecoin-project/lotus/issues/3581) issue.
 
-Usually, this is related to a [reported](https://github.com/filecoin-project/lotus/issues/3581) issue. 
-
-As a solution, Powergate switched to another style of connecting to Lotus which is more reliable and avoids that problem. 
+As a solution, Powergate switched to another style of connecting to Lotus which is more reliable and avoids that problem.
 
 You could ignore those errors since Powergate is not relying on the Lotus client to have stable connections. If the errors don't impact other logs related to Powergate, you should be fine. If that isn't the case please report the issue in a support channel.
 
@@ -101,4 +100,3 @@ Creating deals on any Filecoin network can take over 10hrs and many things can g
 ### I see a log error `already tracking identifier: <cid>`, what should I do?
 
 Please refer to [this](https://filecoinproject.slack.com/archives/C01ARR6BD2M/p1601297368175000) Slack thread.
-

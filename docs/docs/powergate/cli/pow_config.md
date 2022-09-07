@@ -21,9 +21,8 @@ Provides commands to interact with cid storage configs
 
 ### SEE ALSO
 
-* [pow](pow.md)	 - A client for storage and retreival of powergate data
-* [pow config apply](pow_config_apply.md)	 - Apply the default or provided storage config to the specified cid
-* [pow config default](pow_config_default.md)	 - Returns the default storage config
-* [pow config remove](pow_config_remove.md)	 - Removes a Cid from being tracked as an active storage
-* [pow config set-default](pow_config_set-default.md)	 - Sets the default storage config from stdin or a file
-
+-   [pow](pow.md) - A client for storage and retreival of powergate data
+-   [pow config apply](pow_config_apply.md) - Apply the default or provided storage config to the specified cid
+-   [pow config default](pow_config_default.md) - Returns the default storage config
+-   [pow config remove](pow_config_remove.md) - Removes a Cid from being tracked as an active storage
+-   [pow config set-default](pow_config_set-default.md) - Sets the default storage config from stdin or a file

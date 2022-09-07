@@ -14,4 +14,4 @@ hub buck archive watch [flags]
 
 ### SEE ALSO
 
-* [hub buck archive](hub_buck_archive.md)	 - Create a Filecoin archive
+-   [hub buck archive](hub_buck_archive.md) - Create a Filecoin archive

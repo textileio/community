@@ -4,7 +4,7 @@ hero_img: ../images/threads-hero.png
 
 # Getting Started
 
-ThreadDB is a multi-party database built on [IPFS](https://ipfs.io) and [Libp2p](https://libp2p.io) that provides an alternative architecture for data on the web. 
+ThreadDB is a multi-party database built on [IPFS](https://ipfs.io) and [Libp2p](https://libp2p.io) that provides an alternative architecture for data on the web.
 
 ThreadDB aims to help power a new generation of web technologies by combining a novel use of event sourcing, Interplanetary Linked Data ([IPLD](https://ipld.io)), and access control to provide a distributed, scalable, and flexible database solution for decentralized applications.
 
@@ -18,9 +18,9 @@ The first is written in Go and the implementation reference can be found at [htt
 
 In this reference, you'll find:
 
-* All the latest components to use as a library.
-* How to write trustless services.
-* How to [build a client](https://godoc.org/github.com/textileio/go-threads/api/client) connected to a threads daemon. 
+-   All the latest components to use as a library.
+-   How to write trustless services.
+-   How to [build a client](https://godoc.org/github.com/textileio/go-threads/api/client) connected to a threads daemon.
 
 More documentation for the Go implementation will be coming in the future.
 
@@ -38,14 +38,14 @@ ThreadDB is designed to be simple enough for any developer to start using. The A
 
 #### Important concepts
 
-The first three concepts developers will encounter with ThreadDB are [Threads](#threads), [Collections](#collections), and [Instances](#instances). 
+The first three concepts developers will encounter with ThreadDB are [Threads](#threads), [Collections](#collections), and [Instances](#instances).
 
-* **Instances** are the individual records you *create*, *update*, or *delete*. 
-* **Instances** are *stored* in a **Collection**. 
-* **Collections** *have* one or many **Schemas** and can only *store* **Instances** that *match* one of those **Schemas**. 
-* **Databases** can *store* many **Collections**. 
-* **Collections** are similar to **Tables** in other databases. 
-* A **Thread**-based **Database** is *tied* to a single **Thread** (with associated **Thread** ID).
+-   **Instances** are the individual records you _create_, _update_, or _delete_.
+-   **Instances** are _stored_ in a **Collection**.
+-   **Collections** _have_ one or many **Schemas** and can only _store_ **Instances** that _match_ one of those **Schemas**.
+-   **Databases** can _store_ many **Collections**.
+-   **Collections** are similar to **Tables** in other databases.
+-   A **Thread**-based **Database** is _tied_ to a single **Thread** (with associated **Thread** ID).
 
 #### Creating a new thread
 
@@ -54,14 +54,14 @@ To start a new, empty Thread, with remote networking using the Hub APIs, initial
 **Create a new Thread API client**
 
 ```typescript
-import {Client, PrivateKey, UserAuth} from '@textile/hub'
+import { Client, PrivateKey, UserAuth } from "@textile/hub";
 
-async function setup (auth: UserAuth) {
-  const user = await PrivateKey.fromRandom()
+async function setup(auth: UserAuth) {
+    const user = await PrivateKey.fromRandom();
 
-  const client = await Client.withUserAuth(auth)
+    const client = await Client.withUserAuth(auth);
 
-  return client
+    return client;
 }
 ```
 
@@ -70,33 +70,33 @@ async function setup (auth: UserAuth) {
 You must generate a new API token for each user you want on your API.
 
 ```typescript
-import {Client, PrivateKey} from '@textile/hub'
+import { Client, PrivateKey } from "@textile/hub";
 
-async function newToken (client: Client, user: PrivateKey) {
-  const token = await client.getToken(user)
-  return token
+async function newToken(client: Client, user: PrivateKey) {
+    const token = await client.getToken(user);
+    return token;
 }
 ```
 
 **List a user's existing Threads**
 
 ```typescript
-import { Client } from '@textile/hub'
+import { Client } from "@textile/hub";
 
-async function list (client: Client) {
-  const threads = await client.listThreads()
-  return threads
+async function list(client: Client) {
+    const threads = await client.listThreads();
+    return threads;
 }
 ```
 
 **Create a new database**
 
 ```typescript
-import {Client, Identity, ThreadID, UserAuth} from '@textile/hub'
+import { Client, Identity, ThreadID, UserAuth } from "@textile/hub";
 
-async function createDB (client: Client) {
-  const thread: ThreadID = await client.newDB()
-  return thread
+async function createDB(client: Client) {
+    const thread: ThreadID = await client.newDB();
+    return thread;
 }
 ```
 
@@ -107,14 +107,14 @@ Congrats! You now have a new ThreadDB! Each ThreadDB has a unique [ThreadID](htt
 You can invite multiple users to the same thread. Use this to build chat apps, collaborative documents, and more.
 
 ```typescript
-import {Client, DBInfo, ThreadID} from '@textile/hub'
+import { Client, DBInfo, ThreadID } from "@textile/hub";
 
-async function getInfo (client: Client, threadID: ThreadID): Promise<DBInfo> {
-  return await client.getDBInfo(threadID)
+async function getInfo(client: Client, threadID: ThreadID): Promise<DBInfo> {
+    return await client.getDBInfo(threadID);
 }
 
-async function joinFromInfo (client: Client, info: DBInfo) {
-  return await client.joinFromInfo(info)
+async function joinFromInfo(client: Client, info: DBInfo) {
+    return await client.joinFromInfo(info);
 }
 ```
 
@@ -124,36 +124,39 @@ Once you get the DB info, you need to send that to the other users you want to j
 
 **Collections** are used to handle different data structures in the same Database.
 
-Each **Collection** is defined by a [json-schema.org schema](https://json-schema.org/). These schemas define the *shape* of **Collection** Instances (the individual entries). 
+Each **Collection** is defined by a [json-schema.org schema](https://json-schema.org/). These schemas define the _shape_ of **Collection** Instances (the individual entries).
 
-**Collections** are similar to tables in other databases. Ultimately, a **Collection** is a single document store with a set of APIs to make it feel like a *local database table*.
+**Collections** are similar to tables in other databases. Ultimately, a **Collection** is a single document store with a set of APIs to make it feel like a _local database table_.
 
-Collections can be *created* from an existing Schema or Object.
+Collections can be _created_ from an existing Schema or Object.
 
 **Create from schema**
 
 ```typescript
-import { Client, ThreadID } from '@textile/hub'
+import { Client, ThreadID } from "@textile/hub";
 
 // Define a simple person schema
 const schema = {
-  $schema: 'http://json-schema.org/draft-07/schema#',
-  title: 'Person',
-  type: 'object',
-  properties: {
-    _id: { type: 'string' },
-    name: { type: 'string' },
-    missions: {
-      type: 'number',
-      minimum: 0,
-      exclusiveMaximum: 100,
+    $schema: "http://json-schema.org/draft-07/schema#",
+    title: "Person",
+    type: "object",
+    properties: {
+        _id: { type: "string" },
+        name: { type: "string" },
+        missions: {
+            type: "number",
+            minimum: 0,
+            exclusiveMaximum: 100,
+        },
     },
-  },
-}
+};
 
 // Requires the started database we created above
-async function collectionFromSchema (client: Client, threadID: ThreadID) {
-  await client.newCollection(threadID, {name: 'Astronauts', schema: schema})
+async function collectionFromSchema(client: Client, threadID: ThreadID) {
+    await client.newCollection(threadID, {
+        name: "Astronauts",
+        schema: schema,
+    });
 }
 ```
 
@@ -164,39 +167,48 @@ Instances are the objects you store in your Collection. Instances are JSON docum
 **Get all Instances**
 
 ```typescript
-import {Client, ThreadID} from '@textile/hub'
-async function findEntity (client: Client, threadId: ThreadID, collection: string) {
-  const found = await client.find(threadId, collection, {})
-  console.debug('found:', found.length)
+import { Client, ThreadID } from "@textile/hub";
+async function findEntity(
+    client: Client,
+    threadId: ThreadID,
+    collection: string
+) {
+    const found = await client.find(threadId, collection, {});
+    console.debug("found:", found.length);
 }
 ```
 
 **Add an Instance**
 
 ```typescript
-import {Client, ThreadID} from '@textile/hub'
+import { Client, ThreadID } from "@textile/hub";
 // matches YourModel and schema
-async function create (client: Client, threadId: ThreadID, collection: string) {
-  const created = await client.create(threadId, collection, [{
-    some: 'data',
-    numbers: [1, 2, 3]
-  }])
+async function create(client: Client, threadId: ThreadID, collection: string) {
+    const created = await client.create(threadId, collection, [
+        {
+            some: "data",
+            numbers: [1, 2, 3],
+        },
+    ]);
 }
 ```
 
 ### Query
 
-Each Threads implementation supports query and look-up capabilities such as `insert`, `findOne`, `has`, and more. ThreadDB also supports the [MongoDB query language](https://github.com/kofrasa/mingo). In the JavaScript library, you might write queries like the following. 
-
+Each Threads implementation supports query and look-up capabilities such as `insert`, `findOne`, `has`, and more. ThreadDB also supports the [MongoDB query language](https://github.com/kofrasa/mingo). In the JavaScript library, you might write queries like the following.
 
 ```typescript
-import { Client, ThreadID, QueryJSON } from '@textile/hub'
+import { Client, ThreadID, QueryJSON } from "@textile/hub";
 
 // Requires the started database we generated above containing the Player collection
-async function createQuery (client: Client, threadID: ThreadID, query: QueryJSON) {
-  // Get results
-  const all = await client.find(threadID, 'astronauts', query)
-  return all
+async function createQuery(
+    client: Client,
+    threadID: ThreadID,
+    query: QueryJSON
+) {
+    // Get results
+    const all = await client.find(threadID, "astronauts", query);
+    return all;
 }
 ```
 
@@ -204,26 +216,25 @@ async function createQuery (client: Client, threadID: ThreadID, query: QueryJSON
 
 You can also subscribe to changes in a database.
 
-
 ```typescript
-import { Client, PrivateKey, ThreadID, Update } from '@textile/hub'
+import { Client, PrivateKey, ThreadID, Update } from "@textile/hub";
 
-const userID = PrivateKey.fromRandom()
+const userID = PrivateKey.fromRandom();
 
 interface Astronaut {
-  _id: string
-  name: string
-  missions: number
+    _id: string;
+    name: string;
+    missions: number;
 }
 const callback = async (reply?: Update<Astronaut>, err?: Error) => {
-  console.log(reply.instance)
-}
+    console.log(reply.instance);
+};
 
 // Requires userID already be authenticated to the Users API
 async function startListener(client: Client, threadID: ThreadID) {
-  const filters = [{actionTypes: ['CREATE']}]
-  const closer = client.listen<Astronaut>(threadID, filters, callback)
-  return closer
+    const filters = [{ actionTypes: ["CREATE"] }];
+    const closer = client.listen<Astronaut>(threadID, filters, callback);
+    return closer;
 }
 ```
 
@@ -233,9 +244,9 @@ ThreadDB uses a modular role-based access control system that allows access cont
 
 ### Identity
 
-ThreadDB allows you to handle user identities (for access control and security/encryption) in the best way for your app and users. 
+ThreadDB allows you to handle user identities (for access control and security/encryption) in the best way for your app and users.
 
-To handle *multiple* peers collaborating on a single database, as well as the ability to handle storage *on behalf* of a user, ThreadDB expects a simple Identity interface for signing and validating database updates. See the Hub documentation on [user identities](../hub/apis.md#user-identities) for details.
+To handle _multiple_ peers collaborating on a single database, as well as the ability to handle storage _on behalf_ of a user, ThreadDB expects a simple Identity interface for signing and validating database updates. See the Hub documentation on [user identities](../hub/apis.md#user-identities) for details.
 
 ### Connect to the Hub
 
@@ -249,7 +260,7 @@ Thread Services (e.g. pinning encrypted data on IPFS and helping multiple peers 
 
 ## Installation
 
-ThreadDB can be used with many languages and has libraries written in JavaScript and Go. Find documentation on each of those libraries below. 
+ThreadDB can be used with many languages and has libraries written in JavaScript and Go. Find documentation on each of those libraries below.
 
 <div class="txtl-options">
   <a href="https://textileio.github.io/js-threads/" class="box">
@@ -268,6 +279,6 @@ ThreadDB can be used with many languages and has libraries written in JavaScript
 
 ## Advanced Details
 
-The protocols and design of ThreadDB can be explored in detail in the whitepaper: [A protocol & event-sourced database for decentralized user-siloed data](https://docsend.com/view/gu3ywqi). 
+The protocols and design of ThreadDB can be explored in detail in the whitepaper: [A protocol & event-sourced database for decentralized user-siloed data](https://docsend.com/view/gu3ywqi).
 
 For further technical details, the reference implementation of Threads is written in Go and the full implementation details can be found [on godocs](https://godoc.org/github.com/textileio/go-threads) (jump to [go-threads client](https://godoc.org/github.com/textileio/go-threads/api/client)).

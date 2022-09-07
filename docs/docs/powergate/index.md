@@ -2,21 +2,31 @@
 hero_img: ../images/powergate-hero.png
 ---
 
-# Introduction to the Powergate
+# UPDATE
 
-The Powergate is an API-driven solution for deploying multi-tiered storage across [Filecoin](https://filecoin.io/) and [IPFS](https://ipfs.io/). 
+Since the release of Powergate v2 many of the features and benefits of Powergate have been improved upon by three other technologies.
+
+* [Estuary](https://docs.filecoin.io/store/estuary/) - seamlessly bridge data between IPFS and Filecoin.
+* [Glif](https://lotus.filecoin.io/docs/developers/hosted-lotus/) - easily host and manage Filecoin nodes.
+* [Deal Auctions](https://blog.textile.io/introducing-storage-auctions-filecoin/) - migrate large datasets to Filecoin. 
+
+We are working now on an updated roadmap for Powergate v3 that will change the project significantly in order to supplement those three projects above. [Follow us on Twitter](https://twitter.com/textileio) for updates.
+
+# Legacy Powergate Info
+
+The Powergate is an API-driven solution for deploying multi-tiered storage across [Filecoin](https://filecoin.io/) and [IPFS](https://ipfs.io/).
 
 By using the Powergate to persist your data on Filecoin, you gain access to rich storage configuration options such as:
 
-* Replication factor
-* Miner selection
-* Deal renewal
-* Repair
+-   Replication factor
+-   Miner selection
+-   Deal renewal
+-   Repair
 
 Configurable storage is provided through a connected IPFS peer or pinning network.
 
 !!!Warning
-    Do not run the Powergate in production systems and please join the powergate-users channel in the [Filecoin community Slack](https://filecoin.io/slack) for announcements and support. The Powergate will remain in rapid development until a formal release. During this time, you're likely to encounter bugs and unannounced API changes.
+Do not run the Powergate in production systems and please join the powergate-users channel in the [Filecoin community Slack](https://filecoin.io/slack) for announcements and support. The Powergate will remain in rapid development until a formal release. During this time, you're likely to encounter bugs and unannounced API changes.
 
 ## Overview
 
@@ -24,12 +34,12 @@ Powergate is a collection of libraries, modules, and configuration options, that
 
 Some benefits of using the Powergate include:
 
-- Ensure storing data on Filecoin is easily available on the IPFS network.
-- Handle long-term storage deal management, including automated renewal and repair.
-- Make use of network indices to improve miner selection and deal creation.
-- Manage Filecoin wallet addresses for one or many users.
-- Easily configure, connect, and deploy Powergate, [Lotus](https://lotu.sh), and [IPFS](https://ipfs.io/) together.
-- Much more!
+-   Ensure storing data on Filecoin is easily available on the IPFS network.
+-   Handle long-term storage deal management, including automated renewal and repair.
+-   Make use of network indices to improve miner selection and deal creation.
+-   Manage Filecoin wallet addresses for one or many users.
+-   Easily configure, connect, and deploy Powergate, [Lotus](https://lotu.sh), and [IPFS](https://ipfs.io/) together.
+-   Much more!
 
 ### Libraries
 
@@ -82,7 +92,7 @@ make install-pow
 ```
 
 !!!info
-    Go 1.14 or newer is required to compile from source. All `make` commands install binaries in `$GOPATH/bin`, which usually is in `$PATH`, so you can run them right away from any folder in your terminal.
+Go 1.14 or newer is required to compile from source. All `make` commands install binaries in `$GOPATH/bin`, which usually is in `$PATH`, so you can run them right away from any folder in your terminal.
 
 **Using the CLI**
 
@@ -127,28 +137,28 @@ Powergate handles Filecoin wallet addresses, long-term deal management, and conn
 
 ### Powergate APIs
 
-The Powergate APIs are available as gRPC endpoints. 
+The Powergate APIs are available as gRPC endpoints.
 
 There are four ways to familiarize yourself with the APIs:
 
-* **Explore the CLI**. The CLI runs on the Powergate API so, in general, anything you can do in the CLI you can also do over the API.
-* **Use the JS Client**. We have provided an easy-to-use [JavaScript client](https://textileio.github.io/js-powergate-client/) for the Powergate APIs.
-* **Use the Go Client**. You can use the Powergate APIs from your Go app by building on the Powergate [Go Client](https://godoc.org/github.com/textileio/powergate/api/client).
-* **Browse the Proto Files**. The API is typed with Protocol Buffers and you can quickly view all capabilities by looking at the `.proto` files in the [Powergate repo](https://github.com/textileio/powergate). The best place to start is the [Powergate user API](https://github.com/textileio/powergate/blob/master/proto/powergate/user/v1/user.proto).
+-   **Explore the CLI**. The CLI runs on the Powergate API so, in general, anything you can do in the CLI you can also do over the API.
+-   **Use the JS Client**. We have provided an easy-to-use [JavaScript client](https://textileio.github.io/js-powergate-client/) for the Powergate APIs.
+-   **Use the Go Client**. You can use the Powergate APIs from your Go app by building on the Powergate [Go Client](https://godoc.org/github.com/textileio/powergate/api/client).
+-   **Browse the Proto Files**. The API is typed with Protocol Buffers and you can quickly view all capabilities by looking at the `.proto` files in the [Powergate repo](https://github.com/textileio/powergate). The best place to start is the [Powergate user API](https://github.com/textileio/powergate/blob/master/proto/powergate/user/v1/user.proto).
 
 ### Additional Tools
 
 The Powergate comes packed with several additional tools:
 
-- [Lotus](https://lotu.sh/). A Lotus node running on the Filecoin network.
-- [IPFS](https://ipfs.io/). A full IPFS node running to back Powergate.
-- [Prometheus](https://prometheus.io/). The backend for metrics processing.
-- [Grafana](https://grafana.com/). Provides metrics dashboard.
-- [cAdvisor](https://github.com/google/cadvisor). Provides container metrics.
+-   [Lotus](https://lotu.sh/). A Lotus node running on the Filecoin network.
+-   [IPFS](https://ipfs.io/). A full IPFS node running to back Powergate.
+-   [Prometheus](https://prometheus.io/). The backend for metrics processing.
+-   [Grafana](https://grafana.com/). Provides metrics dashboard.
+-   [cAdvisor](https://github.com/google/cadvisor). Provides container metrics.
 
 ### Running the Powergate
 
-You can run the Powergate on the Filecoin mainnet or by using an embedded localnet we make available as part of the Powergate stack. 
+You can run the Powergate on the Filecoin mainnet or by using an embedded localnet we make available as part of the Powergate stack.
 
 We recommend starting with the localnet as you'll have access to the full set of APIs and capabilities without having to sync to the network right away. When you're ready, you can update your Powergate to connect to the live _mainnet_.
 
@@ -158,7 +168,7 @@ The localnet provides a fast, fully-functional, embedded Filecoin network that c
 
 #### Mainnet
 
-Once you're ready to start using the Powergate with the Filecoin Mainnet, it's just a single line.  
+Once you're ready to start using the Powergate with the Filecoin Mainnet, it's just a single line.
 
 ```bash
 git clone git@github.com:textileio/powergate.git

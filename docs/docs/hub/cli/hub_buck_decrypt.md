@@ -15,4 +15,4 @@ hub buck decrypt [path] [password] [flags]
 
 ### SEE ALSO
 
-* [hub buck](hub_buck.md)	 - Manage an object storage bucket
+-   [hub buck](hub_buck.md) - Manage an object storage bucket

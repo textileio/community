@@ -14,4 +14,4 @@ hub orgs invite [flags]
 
 ### SEE ALSO
 
-* [hub orgs](hub_orgs.md)	 - Org management
+-   [hub orgs](hub_orgs.md) - Org management

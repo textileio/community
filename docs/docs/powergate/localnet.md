@@ -14,14 +14,14 @@ The localnet runs a local localnet with a _mock_ sector-builder. This enables fa
 
 **Configurable**
 
-You can change settings such as block generation speed and sector sizes. 
+You can change settings such as block generation speed and sector sizes.
 
 For CI environments, you may set block production speeds to the order of _~100ms_ and disable `--bigsectors`. This localnet setup would be optimized for minimum CPU usage and very fast chain progress, which can confirm deals in seconds.
 
 If you require more realistic scenarios (e.g. during product demos), you can change to block production speed to _~1s_ and enable `--bigsectors`. This would progress deals slow enough that you can observe updates in the status of confirmed deals at the rate of _~1 minute_ and also store larger files if required.
 
 !!!Warning
-    Not using `--bigsectors` will limit you to storing files of around 700 bytes and deals will complete in 30-60 seconds. Using `--bigsectors` will allow you to store files anywhere from 1Mb to 400Mb, but deals will complete in 3-4 minutes. Be sure to choose the value that makes sense for your development scenario.
+Not using `--bigsectors` will limit you to storing files of around 700 bytes and deals will complete in 30-60 seconds. Using `--bigsectors` will allow you to store files anywhere from 1Mb to 400Mb, but deals will complete in 3-4 minutes. Be sure to choose the value that makes sense for your development scenario.
 
 **Production compatible storage**
 
@@ -41,9 +41,9 @@ When running the localnet in Powergate, you can also fetch miner details from th
 
 There are a few resources you'll need before you start running any nodes:
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop). In the examples below, you'll run node instances using local Docker containers. You can do the same with any Docker-enabled system but to get started, we recommend Docker Desktop and the default configurations provided.
-- [Powergate](https://github.com/textileio/powergate). If you run the localnet as part of the Powergate, you should get the latest version of the Powergate source code. 
-- [Golang](https://golang.org/). Building the Powergate CLI from code requires that you can run commands with Go. Other sections of the tutorials below don't require Go.
+-   [Docker Desktop](https://www.docker.com/products/docker-desktop). In the examples below, you'll run node instances using local Docker containers. You can do the same with any Docker-enabled system but to get started, we recommend Docker Desktop and the default configurations provided.
+-   [Powergate](https://github.com/textileio/powergate). If you run the localnet as part of the Powergate, you should get the latest version of the Powergate source code.
+-   [Golang](https://golang.org/). Building the Powergate CLI from code requires that you can run commands with Go. Other sections of the tutorials below don't require Go.
 
 ## Localnet with Powergate
 
@@ -57,8 +57,7 @@ You can run localnet with a Powergate release or Powergate source code.
 
 #### Download a release
 
-Visit the [latest Powergate release page](https://github.com/textileio/powergate/releases/latest) and download the `powergate-docker-<version>.zip
-` release artifact. Unzip it and `cd` into the resulting directory:
+Visit the [latest Powergate release page](https://github.com/textileio/powergate/releases/latest) and download the `powergate-docker-<version>.zip ` release artifact. Unzip it and `cd` into the resulting directory:
 
 ```
 unzip powergate-docker-<version>.zip
@@ -76,7 +75,7 @@ cd powergate/docker
 
 ### Setup
 
-You can now use the provided `docker-compose` configuration with whichever option you chose. 
+You can now use the provided `docker-compose` configuration with whichever option you chose.
 
 The default setup runs Powergate connected to a localnet with 512Mib sectors. The gRPC API and CLI are available and don't need any extra config flags. 🎊
 
@@ -89,10 +88,9 @@ make localnet
 ```
 
 !!!info
-    You can set `BIGSECTORS` according to your needs. See the description [above](#filecoin-localnet) for more information. If you don't specify a `BIGSECTORS` environment variable, the default is `true`.
+You can set `BIGSECTORS` according to your needs. See the description [above](#filecoin-localnet) for more information. If you don't specify a `BIGSECTORS` environment variable, the default is `true`.
 
-
-On initial setup,  Docker will download the required instances before any Powergate setup begins. Downloads may take a few minutes and only happen on the first run.
+On initial setup, Docker will download the required instances before any Powergate setup begins. Downloads may take a few minutes and only happen on the first run.
 
 Once running, you'll begin to see log outputs, including those of the embedded miner.
 
@@ -123,7 +121,7 @@ Moved ./pow to /usr/local/bin
 ```
 
 !!!info
-    If you're installing on macOS, there are some system permissions issue you'll have to deal with. Please follow the [`hub` installation instructions](https://docs.textile.io/hub/accounts/#mac-installation) to work around the issue.
+If you're installing on macOS, there are some system permissions issue you'll have to deal with. Please follow the [`hub` installation instructions](https://docs.textile.io/hub/accounts/#mac-installation) to work around the issue.
 
 #### Build from source code
 
@@ -157,28 +155,28 @@ docker run --name texlocalnet -e TEXLOTUSDEVNET_SPEED=1500 \
 -v /tmp/import:/tmp/import textile/lotus-devnet
 ```
 
-After running the container, the Lotus API endpoint is available at the default port which lets you use the Lotus CLI without any extra configuration. 
+After running the container, the Lotus API endpoint is available at the default port which lets you use the Lotus CLI without any extra configuration.
 
-Remember, *localnets* should be used as ephemeral networks, so be sure to stop and remove the `texlocalnet` container if you re-rerun the above command again.
+Remember, _localnets_ should be used as ephemeral networks, so be sure to stop and remove the `texlocalnet` container if you re-rerun the above command again.
 
 If you plan to use the `ClientImport` API or `lotus client import` command, your target file to import should be in the `/tmp/import` path on your host machine. This folder is bound to the docker image and the localnet, so the Lotus node can find it under the same path.
 
 Finally, notice that the above command doesn't specify the `textile/lotus-devnet` tag, so it's recommended that you consider updating your cached `latest` tag.
 
-**Configuration parameters** 
+**Configuration parameters**
 
 Above, we used the environmental variables to set the `speed` and `bigsectors` flags. The complete mapping of options are:
 
-* **TEXLOTUSDEVNET_SPEED**: Time in milliseconds of blocks/tipset generation.
-* **TEXLOTUSDEVNET_BIGSECTORS**: If true, the localnet will run on 512Mib sectors, but 2Kib otherwise.
-* **TEXLOTUSDEVNET_NUMMINERS**: The number of miners in the localnet. This is an experimental feature, stable for <=3 miners.
-* **TEXLOTUSDEVNET_IPFSADDR**: Optional multiaddr of an IPFS node to enable the Lotus node to be connected to an IPFS node to avoid importing deals data, and storing retrievals.
+-   **TEXLOTUSDEVNET_SPEED**: Time in milliseconds of blocks/tipset generation.
+-   **TEXLOTUSDEVNET_BIGSECTORS**: If true, the localnet will run on 512Mib sectors, but 2Kib otherwise.
+-   **TEXLOTUSDEVNET_NUMMINERS**: The number of miners in the localnet. This is an experimental feature, stable for <=3 miners.
+-   **TEXLOTUSDEVNET_IPFSADDR**: Optional multiaddr of an IPFS node to enable the Lotus node to be connected to an IPFS node to avoid importing deals data, and storing retrievals.
 
 ### Run from source code
 
 **Requirements**
 
-- [Devnet](https://github.com/textileio/lotus-devnet). If you run the localnet with a stand-alone Lotus node, you should get the latest version of the localnet source code.
+-   [Devnet](https://github.com/textileio/lotus-devnet). If you run the localnet with a stand-alone Lotus node, you should get the latest version of the localnet source code.
 
 #### Installation
 

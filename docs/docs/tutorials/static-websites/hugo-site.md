@@ -10,7 +10,7 @@ When you run your site on your computer, Hugo will dynamically render HTML from 
 
 ## Publish your Bucket
 
-First, you'll need to login to Textile and initialize a Project in the root of your Hugo folder. 
+First, you'll need to login to Textile and initialize a Project in the root of your Hugo folder.
 
 1. Download and install Textile CLI (see [installation](../../hub/accounts.md)).
 2. Init and login to Textile (see [account intro](../../hub/accounts.md)).

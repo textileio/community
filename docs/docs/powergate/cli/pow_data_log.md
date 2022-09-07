@@ -26,5 +26,4 @@ pow data log [cid] [flags]
 
 ### SEE ALSO
 
-* [pow data](pow_data.md)	 - Provides commands to interact with general data APIs
-
+-   [pow data](pow_data.md) - Provides commands to interact with general data APIs

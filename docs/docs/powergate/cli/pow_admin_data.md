@@ -22,7 +22,6 @@ Provides admin data commands
 
 ### SEE ALSO
 
-* [pow admin](pow_admin.md)	 - Provides admin commands
-* [pow admin data gcstaged](pow_admin_data_gcstaged.md)	 - Unpins unused staged data.
-* [pow admin data pinnedcids](pow_admin_data_pinnedcids.md)	 - List pinned cids information in hot-storage.
-
+-   [pow admin](pow_admin.md) - Provides admin commands
+-   [pow admin data gcstaged](pow_admin_data_gcstaged.md) - Unpins unused staged data.
+-   [pow admin data pinnedcids](pow_admin_data_pinnedcids.md) - List pinned cids information in hot-storage.

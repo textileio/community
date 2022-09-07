@@ -2,10 +2,10 @@
 
 To create an account, you first need to install the Hub CLI. The CLI is where you:
 
-* Manage accounts.
-* Create orgs.
-* Create API keys
-* And more. 
+-   Manage accounts.
+-   Create orgs.
+-   Create API keys
+-   And more.
 
 The first step is to download and install the application.
 
@@ -13,13 +13,35 @@ The first step is to download and install the application.
 
 Download the Hub CLI binary from the release landing page: [https://github.com/textileio/textile/releases/latest](https://github.com/textileio/textile/releases/latest).
 
-You'll see four different options - `buckd`, `buck`, `hubd`, and `hub`. 
+You'll see four different options - `buckd`, `buck`, `hubd`, and `hub`.
 
-`hub` is the option you need. It provides all the functionality you'll need to interact with the Textile Hub and Buckets. 
+`hub` is the option you need. It provides all the functionality you'll need to interact with the Textile Hub and Buckets.
 
 You'll also see different operating systems. Select the one that matches your computer.
 
 Next, follow the installation instructions based on your operating system.
+
+## Linux Installation
+
+Extrect the content of the downloaded archive and run the `install` script. This should install the `hub` tool on your computer. You can verify with `hub --help
+
+### Extract the content
+
+```bash
+tar -xf hub_*_linux-amd64.tar.gz
+```
+
+### Run the install script
+
+```bash
+sudo ./hub_*_linux-amd64/install
+```
+
+### Verify the installation
+
+```bash
+hub --help
+```
 
 ## Mac Installation
 
@@ -31,7 +53,7 @@ On MacOS you will need to confirm that it is okay to run the `hub` binary before
 
 ![Select 'Cancel'](../images/install/install_warn.png)
 
-Select 'Cancel.' 
+Select 'Cancel.'
 
 Go to 'System Settings' => 'General' where you will be able to click, 'Allow Anyway.'
 
@@ -47,7 +69,7 @@ You will now be able to continue using the CLI without issue. When you update th
 
 ## Windows Installation
 
-The Windows Hub CLI binary comes with a `hub.exe` that runs `hub` commands. 
+The Windows Hub CLI binary comes with a `hub.exe` that runs `hub` commands.
 
 You can use [Powershell](https://docs.microsoft.com/en-us/powershell/) to work with the hub CLI by running the executable directly in your terminal like below.
 
@@ -86,7 +108,6 @@ Click 'OK' to close all the windows.
 Open up a new terminal instance and you should be able to run the `hub` command without being in the same directory as the executable.
 
 ![Running hub on Powershell.](../images/install/windows_hub_powershell.png)
-
 
 ## Account setup
 
@@ -145,7 +166,7 @@ HUB_ORG=<org name> hub keys create
 ```
 
 !!!info
-    You can [create](../hub/cli/hub_orgs_create.md), [invite](../hub/cli/hub_orgs_invite.md), and [leave](../hub/cli/hub_orgs_leave.md) organizations easily. Read more about all Org methods on the [CLI docs](../hub/cli/hub_orgs.md).
+You can [create](../hub/cli/hub_orgs_create.md), [invite](../hub/cli/hub_orgs_invite.md), and [leave](../hub/cli/hub_orgs_leave.md) organizations easily. Read more about all Org methods on the [CLI docs](../hub/cli/hub_orgs.md).
 
 To learn more about sharing Buckets with an organization, read the intro on [Organization Buckets](../buckets/index.md#organization-buckets).
 

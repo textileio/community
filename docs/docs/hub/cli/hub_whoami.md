@@ -14,4 +14,4 @@ hub whoami [flags]
 
 ### SEE ALSO
 
-* [hub](hub.md)	 - Hub Client
+-   [hub](hub.md) - Hub Client

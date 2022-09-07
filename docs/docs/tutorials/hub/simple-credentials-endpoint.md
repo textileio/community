@@ -6,10 +6,10 @@ The simple credentials endpoint requires no user-identity to be sent to the serv
 
 There are a few resources you'll need before you start writing code.
 
-- [An account](../../hub/accounts.md). This is your developer account on the Hub.
-- [A user group key](../../hub/apis.md). This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.
-- [A new Typescript project](https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript). We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.
-- A server framework. The example below uses [KoaJS](https://koajs.com/) but could just as easily be written for [Express](https://expressjs.com/) or the basic Node server.
+-   [An account](../../hub/accounts.md). This is your developer account on the Hub.
+-   [A user group key](../../hub/apis.md). This is how your users will be able to access your Hub APIs. Consider creating the key in an organization not your personal account so that you can invite collaborators later.
+-   [A new Typescript project](https://www.digitalocean.com/community/tutorials/setting-up-a-node-project-with-typescript). We recommend using Typescript, as Textile libraries are in a stage rapid of development and type detection is valuable during upgrades.
+-   A server framework. The example below uses [KoaJS](https://koajs.com/) but could just as easily be written for [Express](https://expressjs.com/) or the basic Node server.
 
 **Install dependencies**
 
@@ -53,7 +53,7 @@ import bodyParser from "koa-bodyparser";
 import dotenv from "dotenv";
 
 /** Textile libraries */
-import {Client, createAPISig, PrivateKey} from '@textile/hub';
+import { Client, createAPISig, PrivateKey } from "@textile/hub";
 
 /** Read the values of .env into the environment */
 dotenv.config();
@@ -62,41 +62,41 @@ dotenv.config();
 const PORT: number = 3000;
 
 /** Init Koa */
-const app = new koa()
+const app = new koa();
 
 /** Middlewares */
-app.use( json() );
-app.use( logger() );
-app.use( bodyParser() );
+app.use(json());
+app.use(logger());
+app.use(bodyParser());
 
 /**
  * Start API Routes
- * 
+ *
  * All prefixed with `/api/`
  */
- const api = new Router({
-    prefix: '/api'
+const api = new Router({
+    prefix: "/api",
 });
 
 /**
  * Basic foo-bar endpoint
- * 
+ *
  * https://localhost:3000/api/foo
  */
-api.get( '/foo', async (ctx: koa.Context, next: () => Promise<any>) => {
-  ctx.body = { foo: 'bar' }
-  await next();
-})
+api.get("/foo", async (ctx: koa.Context, next: () => Promise<any>) => {
+    ctx.body = { foo: "bar" };
+    await next();
+});
 
 /**
  * Add credentials API here
  */
 
 /** Tell Koa to use the API routes we generate */
-app.use( api.routes() ).use( api.allowedMethods() );
+app.use(api.routes()).use(api.allowedMethods());
 
 /** Start the server! */
-app.listen( PORT, () => console.log( "Server started." ) );
+app.listen(PORT, () => console.log("Server started."));
 ```
 
 We now have our basic server setup, we can run it and visit [`http://localhost/api/foo`](http://localhost:3000/api/foo).
@@ -106,7 +106,7 @@ ts-node src/index.ts
 ```
 
 !!!info
-    Follow your Typescript setup guide for specific ways of launching the server.
+Follow your Typescript setup guide for specific ways of launching the server.
 
 ## Add the credentials endpoint
 
@@ -116,23 +116,23 @@ Next, we'll add an endpoint so the client can get new or refreshed credentials. 
 /**
  * Add credentials API here
  */
-api.get( '/credentials', async (ctx: koa.Context, next: () => Promise<any>) => {
-  // Custom validation could be done here...
-  
-  /** Get API authorization for the user */
-  const expiration = new Date(Date.now() + 60 * seconds)
-  const auth = await createAPISig(process.env.USER_API_SECRET, expiration)
+api.get("/credentials", async (ctx: koa.Context, next: () => Promise<any>) => {
+    // Custom validation could be done here...
 
-  /** Include the API KEY in the auth payload */
-  const credentials = {
-    ...auth,
-    key: process.env.USER_API_KEY,
-  };
-  
-  /** Return the credentials in a JSON object */
-  ctx.body = credentials
-  
-  await next();
+    /** Get API authorization for the user */
+    const expiration = new Date(Date.now() + 60 * seconds);
+    const auth = await createAPISig(process.env.USER_API_SECRET, expiration);
+
+    /** Include the API KEY in the auth payload */
+    const credentials = {
+        ...auth,
+        key: process.env.USER_API_KEY,
+    };
+
+    /** Return the credentials in a JSON object */
+    ctx.body = credentials;
+
+    await next();
 });
 ```
 
@@ -140,14 +140,13 @@ Now when you refresh your locally running server you should be able to visit the
 
 `http://localhost:3000/api/credentials`
 
-
 Response:
 
 ```json
 {
-  key: "<your user group api key>",
-  msg: "<your credentials expiration>",
-  sig: "<the api signature>"
+    "key": "<your user group api key>",
+    "msg": "<your credentials expiration>",
+    "sig": "<the api signature>"
 }
 ```
 
@@ -156,32 +155,32 @@ Response:
 Back in the browser, you can now make requests to your credentials endpoint. From their, each user can use the Hub token endpoint directly and begin making calls to the Hub APIs.
 
 ```ts
-import { Client, UserAuth } from '@textile/hub'
+import { Client, UserAuth } from "@textile/hub";
 
 const createCredentials = async (): Promise<UserAuth> => {
-  const response = await fetch(`/api/credentials`, {
-    method: 'GET',
-  })
-  const userAuth = await response.json()
-  return userAuth;
-}
+    const response = await fetch(`/api/credentials`, {
+        method: "GET",
+    });
+    const userAuth = await response.json();
+    return userAuth;
+};
 
 /** Use the simple auth REST endpoint to get API access */
 
-console.log('Verified on Textile API')
+console.log("Verified on Textile API");
 displayStatus();
 
 /** The simple auth endpoint generates a user's Hub API Token */
-const client = Client.withUserAuth(createCredentials)
+const client = Client.withUserAuth(createCredentials);
 
 /** See identity tutorial */
-const token = await client.getToken(identity)
+const token = await client.getToken(identity);
 
 /** Now, full auth object includes the token */
 auth = {
-  ...this.auth,
-  token: token,
-}
+    ...this.auth,
+    token: token,
+};
 ```
 
 ## GitHub Example

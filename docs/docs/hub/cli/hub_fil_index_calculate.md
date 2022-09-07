@@ -14,4 +14,4 @@ hub fil index calculate [dataSizeBytes] [durationDays] [minerAddr...] [flags]
 
 ### SEE ALSO
 
-* [hub fil index](hub_fil_index.md)	 - Interact with the Miner Index.
+-   [hub fil index](hub_fil_index.md) - Interact with the Miner Index.

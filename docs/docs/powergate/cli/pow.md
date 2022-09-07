@@ -21,13 +21,12 @@ pow [flags]
 
 ### SEE ALSO
 
-* [pow admin](pow_admin.md)	 - Provides admin commands
-* [pow config](pow_config.md)	 - Provides commands to interact with cid storage configs
-* [pow data](pow_data.md)	 - Provides commands to interact with general data APIs
-* [pow deals](pow_deals.md)	 - Provides commands to view Filecoin deal information
-* [pow id](pow_id.md)	 - Returns the user id
-* [pow storage-info](pow_storage-info.md)	 - Provides commands to get and query cid storage info.
-* [pow storage-jobs](pow_storage-jobs.md)	 - Provides commands to query for storage jobs in various states
-* [pow version](pow_version.md)	 - Display version information for pow and the connected server
-* [pow wallet](pow_wallet.md)	 - Provides commands about filecoin wallets
-
+-   [pow admin](pow_admin.md) - Provides admin commands
+-   [pow config](pow_config.md) - Provides commands to interact with cid storage configs
+-   [pow data](pow_data.md) - Provides commands to interact with general data APIs
+-   [pow deals](pow_deals.md) - Provides commands to view Filecoin deal information
+-   [pow id](pow_id.md) - Returns the user id
+-   [pow storage-info](pow_storage-info.md) - Provides commands to get and query cid storage info.
+-   [pow storage-jobs](pow_storage-jobs.md) - Provides commands to query for storage jobs in various states
+-   [pow version](pow_version.md) - Display version information for pow and the connected server
+-   [pow wallet](pow_wallet.md) - Provides commands about filecoin wallets

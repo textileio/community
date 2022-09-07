@@ -29,5 +29,4 @@ pow deals retrievals [flags]
 
 ### SEE ALSO
 
-* [pow deals](pow_deals.md)	 - Provides commands to view Filecoin deal information
-
+-   [pow deals](pow_deals.md) - Provides commands to view Filecoin deal information

@@ -25,5 +25,4 @@ pow config remove [cid] [flags]
 
 ### SEE ALSO
 
-* [pow config](pow_config.md)	 - Provides commands to interact with cid storage configs
-
+-   [pow config](pow_config.md) - Provides commands to interact with cid storage configs
