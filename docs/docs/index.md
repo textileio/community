@@ -11,6 +11,8 @@ Textile is designed to connect and extend [Libp2p](https://libp2p.io), [IPFS](ht
 !!! Warning
 We are shutting down our hosted Hub infrastructure. Please see this [deprecation notice](https://github.com/textileio/textile/issues/578) for details.
 
+For those folks ready to migrate from the hosted Textile Hub infrastructure, [we have a guide](https://textile.notion.site/Migrating-from-the-Textile-Hub-849b1bfe6dbf46d9a7295ac6afe92e1b) to help you make the right move for your team or organization.
+
 We've been working hard to deliver you new and improved tools building on Web3.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Today, we are excited to announce Tableland, where we are building a novel protocol to enable relational tables and SQL in Web3.<br><br>Come learn more about our plans, join our community, or get started as a developer. <a href="https://t.co/DY9ouVxT0f">https://t.co/DY9ouVxT0f</a></p>&mdash; Tableland (@tableland__) <a href="https://twitter.com/tableland__/status/1494352051991564288?ref_src=twsrc%5Etfw">February 17, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
