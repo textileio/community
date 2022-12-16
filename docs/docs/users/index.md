@@ -1,5 +1,8 @@
 # User Mailboxes
 
+!!! Warning
+We are shutting down our hosted Hub infrastructure. Please see this [deprecation notice](https://github.com/textileio/textile/issues/578) for details.
+
 The Hub user APIs provide tools for sending and receiving messages between Hub users. Mailboxes are built on ThreadDB.
 
 Visit the [GoDoc](https://pkg.go.dev/github.com/textileio/textile/mail/local?tab=doc) or [JavaScript Users doc](https://textileio.github.io/js-textile/docs/hub.users) for a complete list of methods and more usage descriptions.

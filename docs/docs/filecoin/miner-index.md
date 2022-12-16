@@ -1,3 +1,6 @@
+!!! Warning
+We are shutting down our hosted Hub infrastructure. Please see this [deprecation notice](https://github.com/textileio/textile/issues/578) for details.
+
 The miner index is an open API meant to help Filecoin clients store their data efficiently and cheaply on the network. It has three primary endpoints.
 
 -   Index: list and query miners based on their recent storage history.

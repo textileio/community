@@ -1,3 +1,8 @@
+!!! Warning
+We are shutting down our hosted Hub infrastructure. Please see this [deprecation notice](https://github.com/textileio/textile/issues/578) for details.
+
+Also note that archiving will be disabled and will no longer be possible via the hosted Hub infrastructure.
+
 You will be adding data to the Filecoin through your use of the [buckets](../../buckets/) and [bucket archives](../../buckets/archiving). However, it can also be helpful to monitor all deals you have created with your Hub wallet. For that, we have the following tools.
 
 ## Get all storage records
