@@ -1,5 +1,8 @@
 # ThreadDB & Buckets and in Go
 
+!!! Warning
+We are shutting down our hosted Hub infrastructure. Please see this [deprecation notice](https://github.com/textileio/textile/issues/578) for details.
+
 You have access to the full suite of Textile APIs and technologies in Go. This includes access to:
 
 -   Hub-based persistence

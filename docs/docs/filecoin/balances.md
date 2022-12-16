@@ -1,3 +1,6 @@
+!!! Warning
+We are shutting down our hosted Hub infrastructure. Please see this [deprecation notice](https://github.com/textileio/textile/issues/578) for details, including details about FIL balances.
+
 Every developer, organization, and API user on the Hub has its own Filecoin address. Below, we'll focus on exploring the Filecoin wallet and tools through the [Hub CLI](../hub), as this is where you'll be able to start using Filecoin the fastest. Just know, you can build all of this into your app for your users too using our API and client libraries.
 
 ## Check your address and balances
@@ -37,11 +40,10 @@ Remember, all members of an organization have access to this shared address. Eac
 
 ## Funding your address
 
-Textile is not able to provide any financial services. Due to that restriction, Filecoin you deposit in any address on the Hub can only be used to pay network fees for gas, storage, and retreival. Keep that in mind whenever you send FIL to one of your addresses.
+!!! Warning
+We are shutting down our hosted Hub infrastructure. Do not send any funds to any Hub-based Filecoin addresses.
 
-### Depositing FIL
-
-You can grab your address with the `hub fil addrs` command and use it to send Filecoin from any other node on the network or any other wallet where sending is enabled (e.g. Coinbase). If you are looking for a small amount of Filecoin to use, spend a few minutes on [Coinbase Earn](https://www.coinbase.com/earn/filecoin) where you can get your first Filecoin for free.
+Textile is not able to provide any financial services. Due to that restriction, Filecoin you deposit in any address on the Hub can only be used to pay network fees for gas, storage, and retreival.
 
 ## Fil+ verification
 

@@ -1,6 +1,5 @@
-We offer a generous free tier so you can signup and start building right away.
-
-Billing can be setup using the Hub CLI for your Personal account or any Organization you create. If you need volume discounts or dedicated support, please contact us at [support@textile.io](mailto:support@textile.io).
+!!! Warning
+The Hub is no longer accepting new accounts. For those that already have an account setup, please contact us at [support@textile.io](mailto:support@textile.io), or check your email for deprecation details and account information.
 
 ## Prices
 

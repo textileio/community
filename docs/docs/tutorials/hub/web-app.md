@@ -1,6 +1,9 @@
 # Build a Web App using the Hub
 
-In this section, you'll find guides on building JavaScript apps that use the Hub to push Threads and Buckets to the IPFS network (and beyond). We'll walk through basic setup options and how to build different types of apps.
+!!! Warning
+We are shutting down our hosted Hub infrastructure. Please see this [deprecation notice](https://github.com/textileio/textile/issues/578) for details.
+
+In this section, you'll find guides on building JavaScript apps that push Threads and Buckets to the IPFS network (and beyond). We'll walk through basic setup options and how to build different types of apps.
 
 These tutorials will show you how to add interoperable, content addressed datasets to your app, how to get started with basic cryptographic identities, how to integrate your existing identity solution, and more.
 

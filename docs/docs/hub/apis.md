@@ -1,5 +1,8 @@
 # APIs and API Keys
 
+!!! Warning
+We are shutting down our hosted Hub infrastructure. Please see this [deprecation notice](https://github.com/textileio/textile/issues/578) for details.
+
 Textile has three API categories for building an application: Threads, Buckets, and Mailboxes.
 
 To use any of these APIs, you need to use API keys. Read Google's [API key best practices](https://developers.google.com/maps/api-key-best-practices) for an overview of how API keys will be used here.
@@ -10,7 +13,7 @@ This section will cover the overview of the three APIs and how to work with the 
 
 ### Buckets
 
-[Buckets](../buckets/index.md) provide S3-like data storage on IPFS. Just as you can create Buckets with the [Hub CLI](../hub/cli/hub.md), you can create Buckets using JavaScript with [js-textile](#api-libraries).
+[Buckets](../buckets/index.md) provide S3-like data storage on IPFS. Just as you can create Buckets with the [CLI](../hub/cli/hub.md), you can create Buckets using JavaScript with [js-textile](#api-libraries).
 
 The [js-textile](#api-libraries) library allows you to create and edit Buckets owned by you or your organization using an [account key](#account-key). Alternatively, you can use Buckets to store your user's data using a [user group key](#user-group-key).
 

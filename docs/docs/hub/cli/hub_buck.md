@@ -2,6 +2,9 @@
 
 Manages files and folders in an object storage bucket.
 
+!!! Warning
+We are shutting down our hosted Hub infrastructure. Please see this [deprecation notice](https://github.com/textileio/textile/issues/578) for details.
+
 ### Options
 
 ```
