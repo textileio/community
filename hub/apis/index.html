@@ -2021,12 +2021,16 @@
                 
                 
                 <h1 id="apis-and-api-keys">APIs and API Keys<a class="headerlink" href="#apis-and-api-keys" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p>We are shutting down our hosted Hub infrastructure. Please see this <a href="https://github.com/textileio/textile/issues/578">deprecation notice</a> for details.</p>
 <p>Textile has three API categories for building an application: Threads, Buckets, and Mailboxes.</p>
 <p>To use any of these APIs, you need to use API keys. Read Google's <a href="https://developers.google.com/maps/api-key-best-practices">API key best practices</a> for an overview of how API keys will be used here.</p>
 <p>This section will cover the overview of the three APIs and how to work with the API keys.</p>
 <h2 id="a-tour-of-available-apis">A Tour of Available APIs<a class="headerlink" href="#a-tour-of-available-apis" title="Permanent link">&para;</a></h2>
 <h3 id="buckets">Buckets<a class="headerlink" href="#buckets" title="Permanent link">&para;</a></h3>
-<p><a href="../../buckets/">Buckets</a> provide S3-like data storage on IPFS. Just as you can create Buckets with the <a href="../cli/hub/">Hub CLI</a>, you can create Buckets using JavaScript with <a href="#api-libraries">js-textile</a>.</p>
+<p><a href="../../buckets/">Buckets</a> provide S3-like data storage on IPFS. Just as you can create Buckets with the <a href="../cli/hub/">CLI</a>, you can create Buckets using JavaScript with <a href="#api-libraries">js-textile</a>.</p>
 <p>The <a href="#api-libraries">js-textile</a> library allows you to create and edit Buckets owned by you or your organization using an <a href="#account-key">account key</a>. Alternatively, you can use Buckets to store your user's data using a <a href="#user-group-key">user group key</a>.</p>
 <h3 id="threaddb">ThreadDB<a class="headerlink" href="#threaddb" title="Permanent link">&para;</a></h3>
 <p><a href="../../threads/">ThreadDB</a> is a mongo-like database that runs on IPFS. You can use <a href="#api-libraries">js-textile</a> to connect to the Hub's hosted thread server (<code>Client</code>) to push and persist encrypted data on an IPFS-backed database.</p>

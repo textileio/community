@@ -540,21 +540,6 @@
 		Funding your address
 	</a>
 	
-	<nav class="md-nav">
-		<ul class="md-nav__list">
-			 <li class="md-nav__item">
-	<a
-		href="#depositing-fil"
-		title="Depositing FIL"
-		class="md-nav__link"
-	>
-		Depositing FIL
-	</a>
-	
-</li> 
-		</ul>
-	</nav>
-	
 </li>  <li class="md-nav__item">
 	<a
 		href="#fil-verification"
@@ -1751,21 +1736,6 @@
 		Funding your address
 	</a>
 	
-	<nav class="md-nav">
-		<ul class="md-nav__list">
-			 <li class="md-nav__item">
-	<a
-		href="#depositing-fil"
-		title="Depositing FIL"
-		class="md-nav__link"
-	>
-		Depositing FIL
-	</a>
-	
-</li> 
-		</ul>
-	</nav>
-	
 </li>  <li class="md-nav__item">
 	<a
 		href="#fil-verification"
@@ -1819,7 +1789,11 @@
                 
                   <h1>Balances</h1>
                 
-                <p>Every developer, organization, and API user on the Hub has its own Filecoin address. Below, we'll focus on exploring the Filecoin wallet and tools through the <a href="../hub">Hub CLI</a>, as this is where you'll be able to start using Filecoin the fastest. Just know, you can build all of this into your app for your users too using our API and client libraries.</p>
+                <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p>We are shutting down our hosted Hub infrastructure. Please see this <a href="https://github.com/textileio/textile/issues/578">deprecation notice</a> for details, including details about FIL balances.</p>
+<p>Every developer, organization, and API user on the Hub has its own Filecoin address. Below, we'll focus on exploring the Filecoin wallet and tools through the <a href="../hub">Hub CLI</a>, as this is where you'll be able to start using Filecoin the fastest. Just know, you can build all of this into your app for your users too using our API and client libraries.</p>
 <h2 id="check-your-address-and-balances">Check your address and balances<a class="headerlink" href="#check-your-address-and-balances" title="Permanent link">&para;</a></h2>
 <p><strong>Personal account</strong></p>
 <div class="highlight"><pre><span></span><code>hub buck addrs
@@ -1845,9 +1819,11 @@
 </code></pre></div>
 <p>Remember, all members of an organization have access to this shared address. Each with the ability to store data using any Filecoin it holds.</p>
 <h2 id="funding-your-address">Funding your address<a class="headerlink" href="#funding-your-address" title="Permanent link">&para;</a></h2>
-<p>Textile is not able to provide any financial services. Due to that restriction, Filecoin you deposit in any address on the Hub can only be used to pay network fees for gas, storage, and retreival. Keep that in mind whenever you send FIL to one of your addresses.</p>
-<h3 id="depositing-fil">Depositing FIL<a class="headerlink" href="#depositing-fil" title="Permanent link">&para;</a></h3>
-<p>You can grab your address with the <code>hub fil addrs</code> command and use it to send Filecoin from any other node on the network or any other wallet where sending is enabled (e.g. Coinbase). If you are looking for a small amount of Filecoin to use, spend a few minutes on <a href="https://www.coinbase.com/earn/filecoin">Coinbase Earn</a> where you can get your first Filecoin for free.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p>We are shutting down our hosted Hub infrastructure. Do not send any funds to any Hub-based Filecoin addresses.</p>
+<p>Textile is not able to provide any financial services. Due to that restriction, Filecoin you deposit in any address on the Hub can only be used to pay network fees for gas, storage, and retreival.</p>
 <h2 id="fil-verification">Fil+ verification<a class="headerlink" href="#fil-verification" title="Permanent link">&para;</a></h2>
 <p>The Filecoin network has a concept of verified clients. These are addresses on the network that have demonstrated to some extent that they are real projects making storage requests with important data. You can get a great overview of the progam on the helpful notes at <a href="https://verify.glif.io/">verify.glif.io/</a> or you can read the more <a href="https://github.com/filecoin-project/filecoin-plus-client-onboarding#introduction">technical overview on GitHub</a>.</p>
 <p>The primary benefit to getting verified is that your storage costs are dramatically reduced. Sometimes to nearly nothing. You can check out the <a href="../miner-index">miner index</a> to see some of the latest prices quoted by miners on the network for verified clients. We strongly recommend that every user get verified as soon as they are capable.</p>
