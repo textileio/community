@@ -6,11 +6,9 @@ hero_img: ../images/powergate-hero.png
 
 Since the release of Powergate v2 many of the features and benefits of Powergate have been improved upon by three other technologies.
 
-* [Estuary](https://docs.filecoin.io/store/estuary/) - seamlessly bridge data between IPFS and Filecoin.
-* [Glif](https://lotus.filecoin.io/docs/developers/hosted-lotus/) - easily host and manage Filecoin nodes.
-* [Deal Auctions](https://blog.textile.io/introducing-storage-auctions-filecoin/) - migrate large datasets to Filecoin. 
-
-We are working now on an updated roadmap for Powergate v3 that will change the project significantly in order to supplement those three projects above. [Follow us on Twitter](https://twitter.com/textileio) for updates.
+-   [Estuary](https://docs.filecoin.io/store/estuary/) - seamlessly bridge data between IPFS and Filecoin.
+-   [Glif](https://lotus.filecoin.io/docs/developers/hosted-lotus/) - easily host and manage Filecoin nodes.
+-   [Deal Auctions](https://blog.textile.io/introducing-storage-auctions-filecoin/) - migrate large datasets to Filecoin.
 
 # Legacy Powergate Info
 

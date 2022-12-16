@@ -89,7 +89,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Tableland: 
+  - Tableland:
       - Docs: https://docs.tableland.xyz/
       - Blog: https://mirror.xyz/tableland.eth
   - Textile:
